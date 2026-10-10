@@ -396,3 +396,4 @@ Also run an automated accessibility check on the pages you changed. The project 
 | `tests/Feature/DesignSystemTest.php` | Design rule checks |
 | `tests/Feature/StyleguideTest.php` | Checks that `/styleguide` and its token and Markdown exports match the sources |
 | `public/v1` | Frozen archive of the previous design. Out of scope for these rules; never restyle it (`tests/Feature/SiteArchiveTest.php` guards it) |
+| `public/v2` | Frozen archive of the 5.0 site. Out of scope for these rules; never restyle it (`tests/Feature/SiteArchiveV2Test.php` guards it) |
