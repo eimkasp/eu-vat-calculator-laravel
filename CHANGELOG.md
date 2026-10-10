@@ -4,6 +4,13 @@ All notable changes to EU VAT Info are documented here.
 
 ---
 
+## [5.0.3] — 2026-10-10 — The 5.0 site, preserved
+
+### Added
+- **A second archive** — EU VAT Info 5.0 as it looked on 10 October 2026 stays online as a read-only archive at [/v2](/v2/), next to the [/v1](/v1/) archive of the site before the redesign. Calculations, the country picker and search still work there; VAT number checks, filters and sign-ups point you to the current site.
+
+---
+
 ## [5.0.2] — 2026-10-01 — Every language and popular calculations in search
 
 ### Added

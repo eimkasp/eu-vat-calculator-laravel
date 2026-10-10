@@ -67,6 +67,7 @@ return array (
     'donate' => 'Prispieť',
     'privacy' => 'Zásady ochrany osobných údajov',
     'previous_version' => 'Predchádzajúca verzia',
+    'older_version' => 'Staršia verzia',
     'developers' => 'Pre vývojárov',
     'mcp_server' => 'MCP server',
     'data_source_note' => 'Sadzby pochádzajú od Európskej komisie a denne sa overujú',

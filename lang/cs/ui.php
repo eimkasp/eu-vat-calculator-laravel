@@ -67,6 +67,7 @@ return array (
     'donate' => 'Přispět',
     'privacy' => 'Zásady ochrany osobních údajů',
     'previous_version' => 'Předchozí verze',
+    'older_version' => 'Starší verze',
     'developers' => 'Pro vývojáře',
     'mcp_server' => 'MCP server',
     'data_source_note' => 'Sazby pocházejí od Evropské komise a jsou denně ověřovány',

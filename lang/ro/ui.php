@@ -67,6 +67,7 @@ return array (
     'donate' => 'Donați',
     'privacy' => 'Politica de confidențialitate',
     'previous_version' => 'Versiunea anterioară',
+    'older_version' => 'Versiune mai veche',
     'developers' => 'Dezvoltatori',
     'mcp_server' => 'Server MCP',
     'data_source_note' => 'Cote preluate de la Comisia Europeană și verificate zilnic',

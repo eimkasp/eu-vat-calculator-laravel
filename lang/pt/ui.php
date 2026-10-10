@@ -67,6 +67,7 @@ return array (
     'donate' => 'Fazer um donativo',
     'privacy' => 'Política de privacidade',
     'previous_version' => 'Versão anterior',
+    'older_version' => 'Versão mais antiga',
     'developers' => 'Programadores',
     'mcp_server' => 'Servidor MCP',
     'data_source_note' => 'Taxas provenientes da Comissão Europeia e verificadas diariamente',

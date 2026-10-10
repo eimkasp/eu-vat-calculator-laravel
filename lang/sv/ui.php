@@ -67,6 +67,7 @@ return array (
     'donate' => 'Donera',
     'privacy' => 'Integritetspolicy',
     'previous_version' => 'Tidigare version',
+    'older_version' => 'Äldre version',
     'developers' => 'Utvecklare',
     'mcp_server' => 'MCP-server',
     'data_source_note' => 'Satserna kommer från Europeiska kommissionen och kontrolleras dagligen',

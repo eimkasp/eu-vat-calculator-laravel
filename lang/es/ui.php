@@ -67,6 +67,7 @@ return array (
     'donate' => 'Donar',
     'privacy' => 'Política de privacidad',
     'previous_version' => 'Versión anterior',
+    'older_version' => 'Versión más antigua',
     'developers' => 'Desarrolladores',
     'mcp_server' => 'Servidor MCP',
     'data_source_note' => 'Tipos procedentes de la Comisión Europea y verificados a diario',

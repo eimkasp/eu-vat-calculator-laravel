@@ -67,6 +67,7 @@ return array (
     'donate' => 'Doniraj',
     'privacy' => 'Pravilnik o zasebnosti',
     'previous_version' => 'Prejšnja različica',
+    'older_version' => 'Starejša različica',
     'developers' => 'Za razvijalce',
     'mcp_server' => 'Strežnik MCP',
     'data_source_note' => 'Stopnje so pridobljene od Evropske komisije in se dnevno preverjajo',

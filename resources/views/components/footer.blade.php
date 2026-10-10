@@ -11,7 +11,8 @@
         __('ui.footer.resources') => [
             [__('ui.nav.updates'), locale_path('/blog')],
             [__('ui.changelog.nav_label'), locale_path('/changelog')],
-            [__('ui.footer.previous_version'), '/v1/'],
+            [__('ui.footer.previous_version'), '/v2/'],
+            [__('ui.footer.older_version'), '/v1/'],
             [__('ui.footer.sitemap'), locale_path('/sitemap')],
             [__('ui.footer.donate'), locale_path('/donate')],
             [__('ui.footer.privacy'), locale_path('/privacy')],

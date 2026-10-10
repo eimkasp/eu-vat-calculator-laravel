@@ -67,6 +67,7 @@ return array (
     'donate' => 'Támogatás',
     'privacy' => 'Adatvédelmi szabályzat',
     'previous_version' => 'Korábbi verzió',
+    'older_version' => 'Régebbi verzió',
     'developers' => 'Fejlesztőknek',
     'mcp_server' => 'MCP szerver',
     'data_source_note' => 'A kulcsok az Európai Bizottságtól származnak, és naponta ellenőrizzük őket',

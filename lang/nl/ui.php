@@ -67,6 +67,7 @@ return array (
     'donate' => 'Doneren',
     'privacy' => 'Privacybeleid',
     'previous_version' => 'Vorige versie',
+    'older_version' => 'Oudere versie',
     'developers' => 'Ontwikkelaars',
     'mcp_server' => 'MCP-server',
     'data_source_note' => 'Tarieven afkomstig van de Europese Commissie en dagelijks gecontroleerd',

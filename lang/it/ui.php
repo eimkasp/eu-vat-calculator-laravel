@@ -67,6 +67,7 @@ return array (
     'donate' => 'Donazioni',
     'privacy' => 'Informativa sulla privacy',
     'previous_version' => 'Versione precedente',
+    'older_version' => 'Versione più vecchia',
     'developers' => 'Sviluppatori',
     'mcp_server' => 'Server MCP',
     'data_source_note' => 'Aliquote provenienti dalla Commissione Europea e verificate ogni giorno',

@@ -67,6 +67,7 @@ return array (
     'donate' => 'Ziedot',
     'privacy' => 'Privātuma politika',
     'previous_version' => 'Iepriekšējā versija',
+    'older_version' => 'Vecāka versija',
     'developers' => 'Izstrādātājiem',
     'mcp_server' => 'MCP serveris',
     'data_source_note' => 'Likmes iegūtas no Eiropas Komisijas un tiek pārbaudītas katru dienu',

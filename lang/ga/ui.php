@@ -67,6 +67,7 @@ return array (
     'donate' => 'Deonaigh',
     'privacy' => 'Beartas príobháideachais',
     'previous_version' => 'Leagan roimhe seo',
+    'older_version' => 'Leagan níos sine',
     'developers' => 'Forbróirí',
     'mcp_server' => 'Freastalaí MCP',
     'data_source_note' => 'Rátaí ón gCoimisiún Eorpach, fíoraithe go laethúil',

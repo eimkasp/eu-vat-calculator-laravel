@@ -67,6 +67,7 @@ return array (
     'donate' => 'Spenden',
     'privacy' => 'Datenschutzerklärung',
     'previous_version' => 'Frühere Version',
+    'older_version' => 'Ältere Version',
     'developers' => 'Entwickler',
     'mcp_server' => 'MCP-Server',
     'data_source_note' => 'Sätze stammen von der Europäischen Kommission und werden täglich überprüft',

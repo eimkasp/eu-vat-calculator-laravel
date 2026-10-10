@@ -67,6 +67,7 @@ return array (
     'donate' => 'Agħti donazzjoni',
     'privacy' => 'Politika tal-privatezza',
     'previous_version' => 'Verżjoni preċedenti',
+    'older_version' => 'Verżjoni eqdem',
     'developers' => 'Żviluppaturi',
     'mcp_server' => 'Server MCP',
     'data_source_note' => 'Rati mill-Kummissjoni Ewropea, ivverifikati kuljum',

@@ -67,6 +67,7 @@ return array (
     'donate' => 'Lahjoita',
     'privacy' => 'Tietosuojaseloste',
     'previous_version' => 'Aiempi versio',
+    'older_version' => 'Vanhempi versio',
     'developers' => 'Kehittäjille',
     'mcp_server' => 'MCP-palvelin',
     'data_source_note' => 'Verokannat perustuvat Euroopan komission tietoihin, ja ne tarkistetaan päivittäin',

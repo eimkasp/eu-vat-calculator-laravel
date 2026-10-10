@@ -67,6 +67,7 @@ return array (
     'donate' => 'Дарете',
     'privacy' => 'Политика за поверителност',
     'previous_version' => 'Предишна версия',
+    'older_version' => 'По-стара версия',
     'developers' => 'За разработчици',
     'mcp_server' => 'MCP сървър',
     'data_source_note' => 'Ставките са от Европейската комисия и се проверяват ежедневно',

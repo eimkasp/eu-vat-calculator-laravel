@@ -80,6 +80,7 @@ return [
         'donate' => 'Donate',
         'privacy' => 'Privacy policy',
         'previous_version' => 'Previous version',
+        'older_version' => 'Older version',
         'developers' => 'Developers',
         'mcp_server' => 'MCP server',
         'data_source_note' => 'Rates sourced from the European Commission and verified daily',

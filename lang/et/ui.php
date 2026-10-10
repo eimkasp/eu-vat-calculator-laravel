@@ -67,6 +67,7 @@ return array (
     'donate' => 'Anneta',
     'privacy' => 'Privaatsuspoliitika',
     'previous_version' => 'Eelmine versioon',
+    'older_version' => 'Vanem versioon',
     'developers' => 'Arendajatele',
     'mcp_server' => 'MCP server',
     'data_source_note' => 'Määrad pärinevad Euroopa Komisjonilt ja neid kontrollitakse iga päev',
