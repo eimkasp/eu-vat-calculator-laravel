@@ -42,3 +42,8 @@ Mobile emulation, 4× CPU slowdown, Slow 4G, median of 3 runs.
 | Not in the sitemap | the indexable top calculation `/vat-calculation/germany/1000/19/exclude` |
 | Warm DB queries | median 3, max 9 (country calculators) |
 | Tests | 359 passed, 2,808 assertions, 29.0 s; Pint passes |
+
+## Found while freezing v2
+
+- `/sitemaps/changes.xml` lists 26 year pages from `/vat-changes/year/1968` to `/vat-changes/year/1999` that return 404, because `VatChangesArchive` only accepts years from 2000 to 2100. Each URL is listed with all its language alternates. The archive leaves them out (290 pages archived, 26 not found).
+- The archive bar of `public/v1` links to the archived page itself instead of the live page; `public/v1` is frozen, so `public/v2` does it right instead of changing it.
