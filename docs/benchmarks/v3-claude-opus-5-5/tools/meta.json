@@ -1,0 +1,43 @@
+{
+    "model": "Opus 5.5",
+    "modelSlug": "claude-opus-5-5",
+    "rerun": "docs/benchmarks/v3-claude-opus-5-5/tools/run.sh <label>",
+    "commands": [
+        "composer install --no-interaction --prefer-dist && yarn install --frozen-lockfile",
+        "cp .env.example .env && php artisan key:generate, then set APP_ENV=staging APP_DEBUG=false APP_URL=http://127.0.0.1:8123 CACHE_STORE=file SESSION_DRIVER=file QUEUE_CONNECTION=sync",
+        "touch database/database.sqlite && php artisan migrate --force && php artisan db:seed --force",
+        "php artisan tinker --execute 'dispatch_sync(new App\\Jobs\\GenerateVatRateChanges);'",
+        "yarn build && php artisan optimize",
+        "php artisan optimize:clear && php artisan test && ./vendor/bin/pint --test && php artisan optimize",
+        "PHP_CLI_SERVER_WORKERS=6 php artisan serve --host=127.0.0.1 --port=8123",
+        "cd docs/benchmarks/v3-claude-opus-5-5/tools && npm install && node measure.mjs --base=http://127.0.0.1:8123 --runs=3 --out=<raw>/front-end.json",
+        "node site.mjs --base=http://127.0.0.1:8123 --out=<raw>/site.json",
+        "php docs/benchmarks/v3-claude-opus-5-5/tools/backend.php <the 36 page paths> > <raw>/backend.json",
+        "node compile.mjs --raw=<raw> --label=<label> --out=docs/benchmarks/v3-claude-opus-5-5/<label>.json"
+    ],
+    "environment": {
+        "host": "Claude Code cloud container, 4 vCPU, Linux 6.18",
+        "php": "8.3.6",
+        "node": "22.22.0",
+        "browser": "Chromium 141 (Playwright 1.56.1, /opt/pw-browsers), headless",
+        "axe": "axe-core 4.13.0 from npm",
+        "server": "php artisan serve with 6 workers, APP_ENV=staging, APP_DEBUG=false, config/route/view caches on, SQLite, file cache",
+        "data": "Seeded from the repository: CountriesTableSeeder, VatRateSeeder (data/vat_rates.csv) and the GenerateVatRateChanges job. No network refresh, so every run starts from the same data."
+    },
+    "method": {
+        "performance": "Mobile emulation (412x823, DPR 1.75, touch), 4x CPU slowdown and Slow 4G (562.5 ms RTT, 1.47 Mbps down, 675 kbps up) through the Chrome DevTools Protocol, cache disabled, a fresh browser context per run, 3 runs per URL, median reported. LCP and CLS come from PerformanceObserver (CLS as the largest session window). TBT is the INP proxy: the sum of (long task - 50 ms) for long tasks ending after first contentful paint, observed until network idle plus 3 s.",
+        "bytes": "The local PHP server does not compress, so compressed sizes are computed from each response body: gzip level 6 and Brotli quality 5. Raw sizes are reported next to them. Request counts exclude data: URLs.",
+        "accessibility": "axe-core with the wcag2a, wcag2aa, wcag21a, wcag21aa, wcag22aa and best-practice tags on the loaded page in the light theme. The keyboard check presses Tab from the top of the page until the main task's control has focus (recording every focused element without a visible outline or ring), then completes the task with keys only.",
+        "seo": "Title and description lengths in characters, canonical, robots, hreflang count and JSON-LD parsed and checked for the required properties of each type (Google's structured data documentation where it exists). Word counts are visible words of the whole page and of <main>. Internal links out are unique same-site paths linked from the page; internal links in are unique source pages linking to it among the sitemap URLs in en, de and mt. Sitemap membership compares the canonical URL with every <loc> in /sitemap.xml and its sections.",
+        "ai": "The main answer is a per-page pattern (for example 19% on the Germany calculator) searched in the first 600 characters of visible text, of the whole page and of <main>. Machine-readable alternates are <link rel=alternate type=...> tags or a text/markdown response to Accept: text/markdown. Source and as-of date are searched in the visible text of the page and of <main>. Facts are checked in llms.txt, llms-full.txt, /api/v1 and the MCP server (initialize, tools/list, tools/call).",
+        "backend": "Each request runs in a fresh application instance through the HTTP kernel with the query log on: once after Cache::flush() (cold) and once more with the cache it filled (warm, the state production serves from). Livewire snapshot sizes are the decoded wire:snapshot JSON of every component in the response."
+    },
+    "caveats": [
+        "INP needs real user input, so it is not measured; TBT is the proxy, as the prompt allows.",
+        "TTFB is the loopback server's response time and is not comparable with field TTFB.",
+        "Plausible analytics only loads in production, so its script is not part of these numbers. The service worker is: it registers on the first visit and its precache requests count when they finish inside the observation window.",
+        "/vat-rates/categories returns 404 here and on the live site (checked on 10 October 2026): the page needs verified category rules, and the repository has none. It is measured as served.",
+        "The validator's keyboard check submits a real VAT number, so the server calls VIES; the check passes when a result or a designed error state appears.",
+        "Lighthouse is not installed in the environment; the same throttling profile is applied directly through Playwright and the DevTools Protocol instead."
+    ]
+}
