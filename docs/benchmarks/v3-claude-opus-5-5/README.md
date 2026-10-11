@@ -7,6 +7,7 @@ Measurements for the Opus 5.5 run of the v3 build prompt, starting from `cf5c6f7
 | `baseline.json` | The site at `cf5c6f7`, before any v3 change: 12 pages in English, German and Maltese |
 | `after-v2-freeze.json` | The same measurement after the v2 archive and its footer link. Every count is unchanged; timings ran faster in a fresh container (LCP −176 to +4 ms, TBT −210 to +5 ms per page), which is machine variance, not an effect of the change |
 | `after-v3.json` | The same 12 pages after the 5.1.0 calculator and validator work (`91c8374`) |
+| `after-v3-1.json` | The same 12 pages after deferring below-the-fold rendering and collapsing HTML indentation (`971e872`) |
 | `tools/run.sh` | Rebuilds the site from the checked-out commit and writes `<label>.json` again |
 | `tools/measure.mjs` | Performance, accessibility, SEO and AI readiness per page (Playwright and axe-core) |
 | `tools/site.mjs` | Sitemap membership, internal links in, and the facts in llms.txt, the API and the MCP server |
@@ -79,6 +80,21 @@ Still open:
 - `/vat-rates/categories` returns 404 by design until verified category rules exist; nothing links to it, and the sitemap and `llms.txt` leave it out.
 - TEDB files a few rates differently from the Commission's summary table: it lists no parking rate for Austria or Ireland and no super-reduced rate for Ireland, files Luxembourg's 14% under both reduced and parking, and adds a 4% super-reduced and a 13% parking rate for Greece. These were left as they are.
 - The `public/v1` archive bar links to itself; `public/v1` is frozen.
+
+## After the render optimisation (`after-v3-1.json`)
+
+The extra LCP in `after-v3.json` came from markup: the local PHP server sends HTML uncompressed, so 24–36 KB more raw HTML took 100–190 ms more to arrive on Slow 4G. Production (Cloudflare, Brotli) sends about 2.5 KB more for the same sections. Two changes followed: `app-deferred` (`content-visibility: auto`) on the common amounts, questions, VAT number formats, the API tester and the footer, and `CollapseHtmlWhitespace`, which removes Blade's indentation (raw HTML −18 to −24%, Brotli −7 to −10%).
+
+| Measure | Baseline | After 5.1.0 | After optimisation |
+|---|---|---|---|
+| Median LCP | 2,356 ms | 2,464 ms | 2,280 ms |
+| Country calculators, LCP | 2,300–2,356 ms | 2,460–2,492 ms | 2,256–2,328 ms |
+| Validator, LCP | 2,344–2,376 ms | 2,500–2,540 ms | 2,272–2,284 ms |
+| Median TBT | 262 ms | 153 ms | 173 ms |
+| Median HTML, gzip | 21.2 KB | 23.9 KB | 22.0 KB |
+| axe violations, SEO and AI counts | as above | as above | unchanged from after 5.1.0 |
+
+Two short pages got slower: the comparison (+112 to +132 ms against the baseline) and the shared calculation (+76 to +108 ms). An A/B run with only the whitespace middleware toggled reproduces it: the HTML arrives 100–170 ms sooner, so the browser finds `livewire.min.js` sooner, and under the emulation's equal bandwidth split that script slows the stylesheet, which the first paint waits for. Production sends both compressed over HTTP/2, which serves the stylesheet first.
 
 ## Found while freezing v2
 
