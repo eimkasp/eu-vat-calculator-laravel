@@ -75,8 +75,8 @@ return array (
   ),
   'home_page' => 
   array (
-    'title' => 'Informazzjoni dwar il-VAT fl-UE - Kalkulatur u Informazzjoni dwar ir-Rati tal-VAT għall-Pajjiżi Kollha tal-UE',
-    'meta_desc' => 'Rati attwali tal-VAT għas-27 pajjiż kollha tal-UE. Kalkulatur b\'xejn online, dejta storika mill-2000, avviżi dwar bidliet fir-rati, u gwidi tal-konformità. Aġġornat kuljum.',
+    'title' => 'Kalkulatur tal-VAT u rati tal-VAT għas-27 pajjiż tal-UE',
+    'meta_desc' => 'Żid jew neħħi l-VAT fis-27 pajjiż tal-UE bir-rati standard u mnaqqsa attwali. Iċċekkja n-numri tal-VAT fil-VIES u segwi kull bidla fir-rati.',
     'heading' => 'Rati tal-VAT fl-',
     'heading_accent' => 'Unjoni Ewropea',
     'subtitle' => 'Rati standard attwali tal-VAT, rati mnaqqsa u kalkulatur għas-27 stat membru kollha tal-UE. Aġġornat kuljum.',
@@ -235,12 +235,13 @@ return array (
     'interaction_hint' => 'Għaddi l-maws fuq il-pajjiżi, agħfas fuqhom jew mexxi bejniethom bit-Tab biex tara r-rati tagħhom. Agħfas Enter biex tiftaħ id-dettalji.',
     'clear_selection' => 'Neħħi l-għażla',
     'table_intro' => 'L-istess data tal-mappa, bl-ogħla rata standard l-ewwel.',
+    'meta_desc' => 'Ir-rati standard tal-VAT tal-pajjiżi kollha tal-UE fuq mappa waħda, b\'klassifika tar-rati standard, imnaqqsa u super imnaqqsa u kalkulatur għal kull pajjiż.',
   ),
   'history' => 
   array (
     'title' => 'Storja tal-Bidliet fir-Rati tal-VAT',
     'meta_title' => 'Storja tal-Bidliet fir-Rati tal-VAT - Pajjiżi tal-UE | Informazzjoni dwar il-VAT fl-UE',
-    'meta_desc' => 'Storja kompluta tal-bidliet fir-rati tal-VAT fl-pajjiżi kollha tal-UE mill-2000 \'l quddiem. Segwi l-modifiki fir-rati standard u mnaqqsa b\'indikaturi ta\' stabilità.',
+    'meta_desc' => 'Kull bidla rreġistrata fir-rati tal-VAT fl-UE: rati standard, imnaqqsa u ta\' parkeġġ, bid-dati, ir-rata l-qadima u l-ġdida, bidliet ġejjin u sorsi.',
     'subtitle' => 'Segwi l-bidliet kollha fir-rati tal-VAT fil-pajjiżi tal-UE matul-aħħar għaxar snin',
     'stability_title' => 'Indikaturi ta\' Stabilità tal-Pajjiżi',
     'stability_desc' => 'Pajjiżi b\'inqas bidliet fir-rati tal-VAT jindikaw ambjent fiskali aktar stabbli',
@@ -459,10 +460,10 @@ return array (
   ),
   'vies_page' => 
   array (
-    'title' => 'VIES Validator tan-Numru tal-VAT — Ivverifika In-Numri tal-VAT tal-UE Online',
-    'description' => 'Issalvataġġ VIES validator tan-numru tal-VAT. Ivverifika kwalunkwe numru VAT tal-UE fuq il-ħasil billi tuża d-database uffiċjali tal-VIES tal-Kummissjoni Ewropea.',
-    'country_title' => 'VIES Validator tan-Numru tal-VAT għal :country — Ivverifika Numri tal-VAT ta\' :country permezz ta\' VIES',
-    'country_description' => 'Ivvalida numri tal-VAT ta\' :country (:code) fuq il-ħasil billi tuża d-database uffiċjali tal-VIES tal-UE.',
+    'title' => 'Iċċekkja numru tal-VAT tal-UE: verifika VIES b\'xejn',
+    'description' => 'Iċċekkja kwalunkwe numru tal-VAT tal-UE fir-reġistru VIES tal-Kummissjoni Ewropea. Ara jekk huwiex validu u ta\' min hu. B\'xejn, mingħajr reġistrazzjoni.',
+    'country_title' => 'Iċċekkja numru tal-VAT, :country: VIES b\'xejn',
+    'country_description' => 'Iċċekkja n-numri tal-VAT ta\' :country (:code) fir-reġistru uffiċjali VIES tal-UE. Ara jekk in-numru huwiex validu u ta\' min hu. B\'xejn u mingħajr kont.',
     'h1' => 'VIES Validator tan-Numru tal-VAT',
     'country_h1' => 'Validator tan-Numru tal-VAT għal :country',
     'subtitle' => 'Ivverifika kwalunkwe numru VAT tal-UE billi tuża d-database uffiċjali tal-VIES tal-Kummissjoni Ewropea. Ir-riżultati jiġu kkachati għal tfittxija aktar mabda.',
@@ -629,7 +630,7 @@ return array (
   'top_calc' => 
   array (
     'page_title' => 'Kalkoli VAT popolari — Kalkulatur VAT UE',
-    'page_description' => 'L-aktar kalkoli VAT komuni fis-27 stat membru tal-UE.',
+    'page_description' => 'Il-VAT fuq ammonti komuni minn €100 sa €10,000 f\'kull pajjiż tal-UE, bir-rata standard tal-pajjiż. Żid jew neħħi l-VAT bi klikk waħda.',
     'heading' => 'Kalkoli VAT popolari',
     'subheading' => 'Aċċess mgħaġġel għall-kalkoli VAT l-aktar komuni.',
     'vat_on_amount' => 'VAT fuq €:amount',
@@ -650,7 +651,7 @@ return array (
     'disclaimer' => 'Il-kalkoli huma għal skopijiet ta\' informazzjoni biss.',
     'breadcrumb' => 'Kalkoli popolari',
     'amount_page_heading' => 'VAT fuq €:amount — Il-pajjiżi kollha tal-UE',
-    'amount_page_desc' => 'Ikkalkula VAT fuq €:amount għas-27 stat membru tal-UE.',
+    'amount_page_desc' => 'VAT fuq €:amount fil-:count :member_label tal-UE b\'rati standard minn :min% sa :max%: il-VAT u t-total għal kull pajjiż, miżjuda jew imneħħija.',
     'back_to_all' => '← Il-kalkoli popolari kollha',
     'matrix_caption' => 'Total inkluż il-VAT bir-rata standard ta\' kull pajjiż. Agħżel ċifra għat-tqassim sħiħ.',
     'amounts_label' => 'Agħżel ammont',
@@ -658,6 +659,7 @@ return array (
     'removing' => 'VAT inkluż fi €:amount',
     'net' => 'Nett',
     'member_states' => 'stati membri',
+    'amount_meta_title' => 'VAT fuq €:amount f\'kull pajjiż tal-UE',
   ),
   'changelog' => 
   array (
@@ -683,8 +685,8 @@ return array (
   'skip_to_content' => 'Aqbeż għall-kontenut ewlieni',
   'tools' => 
   array (
-    'seo_title' => 'Għodod u riżorsi tal-VAT tal-UE - Kalkulaturi, validaturi u gwidi',
-    'seo_description' => 'Għodod b\'xejn għall-VAT tal-UE: kalkulatur, validatur, mapep għat-tqabbil tar-rati u gwidi dwar il-konformità għas-27 stat membru kollha tal-UE.',
+    'seo_title' => 'Għodod tal-VAT tal-UE: kalkulatur, verifika u mappa',
+    'seo_description' => 'Għodod b\'xejn għall-VAT tal-UE: kalkulatur għal kull pajjiż, verifika tan-numri tal-VAT fil-VIES, mappa tar-rati, l-istorja tar-rati u gwidi għas-27 stat.',
     'heading' => 'Għodod u riżorsi ta\' Informazzjoni dwar il-VAT fl-UE',
     'intro_text' => 'Hawn issib xi għodod u riżorsi mit-tim ta\' EU-vat.info biex jgħinuk issib triqtek fid-dinja kumplessa tal-VAT fl-Unjoni Ewropea.',
     'calculator_heading' => 'Kalkulatur tal-VAT',
@@ -783,7 +785,7 @@ return array (
   array (
     'eyebrow' => 'Tqabbil bejn pajjiżi',
     'title' => 'Rati tal-VAT ta\' :left kontra :right',
-    'meta_title' => 'Rati tal-VAT ta\' :left kontra :right: rati, kalkulaturi u storja',
+    'meta_title' => 'VAT ta\' :left u :right: rati mqabbla',
     'meta_description' => 'Qabbel ir-rati tal-VAT ta\' :left u :right, ir-rati mnaqqsa, il-muniti, id-disponibbiltà tal-VIES u l-bidliet storiċi.',
     'intro' => 'Qabbel l-istrutturi attwali tal-VAT u kompli lejn il-kalkulatur, il-gwida tal-validazzjoni u l-istorja rreġistrata ta\' kull pajjiż.',
     'measure' => 'Kriterju',
@@ -836,8 +838,8 @@ return array (
   ),
   'mcp_page' =>
   array (
-    'meta_title' => 'Server MCP tal-VAT tal-UE: data tal-VAT diretta għall-assistenti tal-IA | EU VAT Info',
-    'meta_desc' => 'Server MCP remot b’xejn b’rati tal-VAT tal-UE, kalkoli, bidliet fir-rati u verifiki VIES tan-numri tal-VAT. Qabbad Claude, ChatGPT, VS Code jew Cursor f’minuta.',
+    'meta_title' => 'Server MCP tal-VAT tal-UE: data għall-assistenti tal-IA',
+    'meta_desc' => 'Server MCP b\'xejn bir-rati tal-VAT tal-UE, kalkoli, bidliet fir-rati u verifiki VIES. Qabbad Claude, ChatGPT, VS Code jew Cursor f\'minuta.',
     'kicker' => 'Model Context Protocol',
     'title' => 'Server MCP tal-VAT tal-UE',
     'lede' => 'Agħti lill-assistent tal-IA tiegħek ir-rati tal-VAT tal-UE aġġornati, kalkoli tal-VAT, il-bidliet li ġejjin fir-rati u verifiki VIES tan-numri tal-VAT. B’xejn, għall-qari biss u mingħajr reġistrazzjoni.',

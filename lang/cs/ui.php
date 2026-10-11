@@ -75,8 +75,8 @@ return array (
   ),
   'home_page' => 
   array (
-    'title' => 'DPH v EU - Kalkulačka a informace o sazbách DPH pro všechny země EU',
-    'meta_desc' => 'Aktuální sazby DPH pro všech 27 zemí EU. Bezplatná online kalkulačka, historická data od roku 2000, upozornění na změny sazeb a průvodci shodou. Aktualizováno denně.',
+    'title' => 'Kalkulačka DPH a sazby DPH pro všech 27 zemí EU',
+    'meta_desc' => 'Přičtěte nebo odečtěte DPH pro všech 27 zemí EU podle aktuálních základních a snížených sazeb. Ověřte DIČ ve VIES a sledujte každou změnu sazeb.',
     'heading' => 'Sazby DPH v',
     'heading_accent' => 'Evropské unii',
     'subtitle' => 'Aktuální standardní sazby DPH, snížené sazby a kalkulačka pro všech 27 členských států EU. Aktualizováno denně.',
@@ -235,12 +235,13 @@ return array (
     'interaction_hint' => 'Najeďte myší na zemi, klepněte na ni nebo mezi zeměmi přecházejte klávesou Tab a zobrazí se jejich sazby. Klávesou Enter otevřete podrobnosti.',
     'clear_selection' => 'Zrušit výběr',
     'table_intro' => 'Stejná data jako na mapě, seřazená od nejvyšší standardní sazby.',
+    'meta_desc' => 'Základní sazby DPH všech zemí EU na jedné mapě, s pořadím základních, snížených a supersnížených sazeb a kalkulačkou pro každou zemi.',
   ),
   'history' => 
   array (
     'title' => 'Historie změn sazeb DPH',
     'meta_title' => 'Historie změn sazeb DPH - Země EU | DPH v EU',
-    'meta_desc' => 'Kompletní historie změn sazeb DPH ve všech zemích EU od roku 2000. Sledujte změny standardních a snížených sazeb s ukazateli stability.',
+    'meta_desc' => 'Všechny zaznamenané změny sazeb DPH v EU: základní, snížené a parkovací sazby s daty, původní a novou sazbou, plánovanými změnami a zdroji.',
     'subtitle' => 'Sledujte všechny změny sazeb DPH v zemích EU za poslední desetiletí',
     'stability_title' => 'Ukazatele stability zemí',
     'stability_desc' => 'Země s méně změnami sazeb DPH naznačují stabilnější daňové prostředí',
@@ -459,10 +460,10 @@ return array (
   ),
   'vies_page' => 
   array (
-    'title' => 'VIES validátor DIČ — Ověřte DIČ EU online',
-    'description' => 'Bezplatný nástroj pro ověření DIČ VIES. Ověřte jakékoli DIČ EU okamžitě pomocí oficiální databáze VIES Evropské komise.',
-    'country_title' => 'Validátor DIČ :country — Ověřte DIČ :country přes VIES',
-    'country_description' => 'Ověřte DIČ :country (:code) okamžitě pomocí oficiální databáze VIES EU.',
+    'title' => 'Ověření DIČ v EU: bezplatná kontrola ve VIES',
+    'description' => 'Ověřte jakékoli DIČ z EU v registru VIES Evropské komise. Uvidíte, zda je platné a komu patří. Zdarma a bez registrace.',
+    'country_title' => 'Ověření DIČ, :country: bezplatná kontrola ve VIES',
+    'country_description' => 'Ověřte DIČ z :country (:code) v oficiálním registru VIES Evropské unie. Uvidíte, zda je číslo platné a komu patří. Zdarma a bez registrace.',
     'h1' => 'VIES validátor DIČ',
     'country_h1' => 'Validátor DIČ :country',
     'subtitle' => 'Ověřte jakékoli DIČ EU pomocí oficiální databáze VIES Evropské komise. Výsledky jsou uloženy v mezipaměti pro rychlejší vyhledávání.',
@@ -629,7 +630,7 @@ return array (
   'top_calc' => 
   array (
     'page_title' => 'Populární výpočty DPH — Kalkulačka DPH EU',
-    'page_description' => 'Nejběžnější výpočty DPH ve 27 členských státech EU.',
+    'page_description' => 'DPH z běžných částek od 100 € do 10 000 € v každé zemi EU podle její základní sazby. Přičtěte nebo odečtěte DPH jedním kliknutím.',
     'heading' => 'Populární výpočty DPH',
     'subheading' => 'Rychlý přístup k nejběžnějším výpočtům DPH ve 27 zemích EU.',
     'vat_on_amount' => 'DPH z €:amount',
@@ -650,14 +651,15 @@ return array (
     'disclaimer' => 'Výpočty jsou pouze pro informační účely.',
     'breadcrumb' => 'Populární výpočty',
     'amount_page_heading' => 'DPH z €:amount — Všechny země EU',
-    'amount_page_desc' => 'Výpočet DPH z €:amount pro všech 27 členských států EU.',
+    'amount_page_desc' => 'DPH z €:amount pro všech :count :member_label EU při základních sazbách od :min % do :max %: DPH a celková částka pro každou zemi, přičtená i odečtená.',
     'back_to_all' => '← Všechny populární výpočty',
     'matrix_caption' => 'Celkem s DPH při standardní sazbě jednotlivých zemí. Vyberte hodnotu a zobrazte si úplný rozklad výpočtu.',
     'amounts_label' => 'Vyberte částku',
     'adding' => 'Přičtení DPH k €:amount',
     'removing' => 'DPH obsažená v €:amount',
     'net' => 'Bez DPH',
-    'member_states' => 'členské státy',
+    'member_states' => 'členských států',
+    'amount_meta_title' => 'DPH z €:amount ve všech 27 zemích EU',
   ),
   'changelog' => 
   array (
@@ -683,8 +685,8 @@ return array (
   'skip_to_content' => 'Přejít na hlavní obsah',
   'tools' => 
   array (
-    'seo_title' => 'Nástroje a zdroje k DPH v EU – kalkulačky, validátory a průvodci',
-    'seo_description' => 'Bezplatné nástroje k DPH v EU: kalkulačka, validátor DIČ, mapy pro srovnání sazeb a průvodci dodržováním předpisů pro všech 27 členských států EU.',
+    'seo_title' => 'Nástroje pro DPH v EU: kalkulačka, ověření, mapa, průvodci',
+    'seo_description' => 'Bezplatné nástroje pro DPH v EU: kalkulačka pro každou zemi, ověření DIČ ve VIES, mapa a historie sazeb a průvodci pro všech 27 členských států.',
     'heading' => 'DPH v EU: nástroje a zdroje',
     'intro_text' => 'Zde najdete nástroje a zdroje od týmu EU-vat.info, které vám pomohou zorientovat se ve složitém světě DPH v Evropské unii.',
     'calculator_heading' => 'Kalkulačka DPH',
@@ -783,7 +785,7 @@ return array (
   array (
     'eyebrow' => 'Srovnání zemí',
     'title' => 'Sazby DPH: :left vs. :right',
-    'meta_title' => 'Srovnání DPH :left vs. :right: sazby, kalkulačky a historie',
+    'meta_title' => 'DPH :left a :right: srovnání sazeb',
     'meta_description' => 'Porovnejte sazby DPH zemí :left a :right, snížené sazby, měny, dostupnost VIES a historické změny.',
     'intro' => 'Porovnejte aktuální struktury DPH a pokračujte na kalkulačku, průvodce ověřováním a zaznamenanou historii jednotlivých zemí.',
     'measure' => 'Ukazatel',
@@ -836,8 +838,8 @@ return array (
   ),
   'mcp_page' =>
   array (
-    'meta_title' => 'MCP server DPH EU: aktuální data o DPH pro asistenty AI | EU VAT Info',
-    'meta_desc' => 'Bezplatný vzdálený MCP server se sazbami DPH v EU, výpočty, změnami sazeb a ověřováním DIČ ve VIES. Připojte Claude, ChatGPT, VS Code nebo Cursor za minutu.',
+    'meta_title' => 'MCP server pro DPH v EU: data pro asistenty AI',
+    'meta_desc' => 'Bezplatný MCP server se sazbami DPH v EU, výpočty, změnami sazeb a kontrolou ve VIES. Připojte Claude, ChatGPT, VS Code nebo Cursor za minutu.',
     'kicker' => 'Model Context Protocol',
     'title' => 'MCP server DPH EU',
     'lede' => 'Dejte svému asistentovi AI aktuální sazby DPH v EU, výpočty DPH, nadcházející změny sazeb a ověřování DIČ ve VIES. Zdarma, jen pro čtení a bez registrace.',

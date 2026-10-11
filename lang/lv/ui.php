@@ -75,8 +75,8 @@ return array (
   ),
   'home_page' => 
   array (
-    'title' => 'ES PVN informācija - PVN likmju kalkulators un informācija visām ES valstīm',
-    'meta_desc' => 'Aktuālās PVN likmes visām 27 ES valstīm. Bezmaksas tiešsaistes kalkulators, vēsturiskie dati no 2000. gada, likmju izmaiņu paziņojumi un atbilstības ceļveži. Atjaunināts katru dienu.',
+    'title' => 'PVN kalkulators un PVN likmes visām 27 ES valstīm',
+    'meta_desc' => 'Pieskaitiet vai atskaitiet PVN visās 27 ES valstīs pēc spēkā esošajām standarta un samazinātajām likmēm. Pārbaudiet PVN numurus VIES un sekojiet izmaiņām.',
     'heading' => 'PVN likmes',
     'heading_accent' => 'Eiropas Savienībā',
     'subtitle' => 'Aktuālās standarta PVN likmes, samazinātās likmes un kalkulators visām 27 ES dalībvalstīm. Atjaunināts katru dienu.',
@@ -235,12 +235,13 @@ return array (
     'interaction_hint' => 'Lai redzētu likmes, novietojiet kursoru virs valsts, pieskarieties tai vai pārvietojieties starp valstīm ar tabulēšanas taustiņu. Lai atvērtu informāciju, nospiediet Enter.',
     'clear_selection' => 'Notīrīt atlasi',
     'table_intro' => 'Tie paši dati, kas kartē, sākot ar augstāko standarta likmi.',
+    'meta_desc' => 'Visu ES valstu PVN standarta likmes vienā kartē ar standarta, samazināto un īpaši samazināto likmju reitingu un kalkulatoru katrai valstij.',
   ),
   'history' => 
   array (
     'title' => 'PVN likmju izmaiņu vēsture',
     'meta_title' => 'PVN likmju izmaiņu vēsture - ES valstis | ES PVN informācija',
-    'meta_desc' => 'Pilna PVN likmju izmaiņu vēsture visās ES valstīs no 2000. gada. Sekojiet standarta un samazināto likmju izmaiņām ar stabilitātes rādītājiem.',
+    'meta_desc' => 'Visas reģistrētās PVN likmju izmaiņas ES: standarta, samazinātās un pārejas likmes ar datumiem, veco un jauno likmi, gaidāmajām izmaiņām un avotiem.',
     'subtitle' => 'Sekojiet visām PVN likmju izmaiņām ES valstīs pēdējā desmitgadē',
     'stability_title' => 'Valstu stabilitātes rādītāji',
     'stability_desc' => 'Valstis ar mazāk PVN likmju izmaiņām norāda uz stabilāku nodokļu vidi',
@@ -459,10 +460,10 @@ return array (
   ),
   'vies_page' => 
   array (
-    'title' => 'VIES PVN numura apstiprināšanas rīks — Pārbaudiet ES PVN numurus tiešsaistē',
-    'description' => 'Bezmaksas VIES PVN numura apstiprināšanas rīks. Turiene jebkuru ES PVN numuru uzreiz, izmantojot Eiropas Komisijas oficiālo VIES datu bāzi.',
-    'country_title' => 'VIES PVN numura apstiprināšanas rīks :country — Pārbaudiet :country PVN numurus caur VIES',
-    'country_description' => 'Apstipriniet :country (:code) PVN numerus uzreiz, izmantojot ES oficiālo VIES datu bāzi.',
+    'title' => 'ES PVN numura pārbaude: bezmaksas VIES vaicājums',
+    'description' => 'Pārbaudiet jebkuru ES PVN numuru Eiropas Komisijas VIES reģistrā. Uzziniet, vai tas ir derīgs un kam tas pieder. Bez maksas un bez reģistrācijas.',
+    'country_title' => 'PVN numura pārbaude, :country: bezmaksas VIES',
+    'country_description' => 'Pārbaudiet valsts :country (:code) PVN numurus ES oficiālajā VIES reģistrā. Uzziniet, vai numurs ir derīgs un kam tas pieder. Bez maksas.',
     'h1' => 'VIES PVN numura apstiprināšanas rīks',
     'country_h1' => 'PVN numura apstiprināšanas rīks :country',
     'subtitle' => 'Pārbaudiet jebkuru ES PVN numuru, izmantojot Eiropas Komisijas oficiālo VIES datu bāzi. Rezultāti tiek kešoti ātrākai meklēšanai.',
@@ -629,7 +630,7 @@ return array (
   'top_calc' => 
   array (
     'page_title' => 'Populāri PVN aprēķini — ES PVN kalkulators',
-    'page_description' => 'Biežākie PVN aprēķini visās 27 ES dalībvalstīs.',
+    'page_description' => 'PVN no bieži lietotām summām no 100 € līdz 10 000 € katrā ES valstī pēc tās standarta likmes. Pieskaitiet vai atskaitiet PVN ar vienu klikšķi.',
     'heading' => 'Populāri PVN aprēķini',
     'subheading' => 'Ātra piekļuve biežākajiem PVN aprēķiniem.',
     'vat_on_amount' => 'PVN no €:amount',
@@ -650,14 +651,15 @@ return array (
     'disclaimer' => 'Aprēķini ir tikai informatīvi.',
     'breadcrumb' => 'Populāri aprēķini',
     'amount_page_heading' => 'PVN no €:amount — Visas ES valstis',
-    'amount_page_desc' => 'Aprēķiniet PVN no €:amount visām 27 ES dalībvalstīm.',
+    'amount_page_desc' => 'PVN no €:amount visās :count ES :member_label pēc standarta likmēm no :min% līdz :max%: PVN un kopsumma katrai valstij, pieskaitīts vai atskaitīts.',
     'back_to_all' => '← Visi populārie aprēķini',
     'matrix_caption' => 'Kopsumma ar PVN pēc katras valsts standarta likmes. Izvēlieties skaitli, lai redzētu pilnu sadalījumu.',
     'amounts_label' => 'Izvēlieties summu',
     'adding' => 'PVN pievienošana summai €:amount',
     'removing' => 'Summā €:amount iekļautais PVN',
     'net' => 'Neto',
-    'member_states' => 'dalībvalstis',
+    'member_states' => 'dalībvalstīs',
+    'amount_meta_title' => 'PVN no €:amount visās 27 ES valstīs',
   ),
   'changelog' => 
   array (
@@ -683,8 +685,8 @@ return array (
   'skip_to_content' => 'Pāriet uz galveno saturu',
   'tools' => 
   array (
-    'seo_title' => 'ES PVN rīki un resursi – kalkulatori, validātori un ceļveži',
-    'seo_description' => 'Bezmaksas ES PVN rīki: kalkulators, validātors, likmju salīdzināšanas kartes un atbilstības ceļveži visām 27 ES dalībvalstīm.',
+    'seo_title' => 'ES PVN rīki: kalkulators, pārbaude, karte un ceļveži',
+    'seo_description' => 'Bezmaksas ES PVN rīki: kalkulators katrai valstij, PVN numuru pārbaude VIES, likmju karte, likmju vēsture un ceļveži visām 27 dalībvalstīm.',
     'heading' => 'ES PVN informācijas rīki un resursi',
     'intro_text' => 'Šeit ir daži EU-vat.info komandas rīki un resursi, kas palīdzēs jums orientēties sarežģītajā Eiropas Savienības PVN pasaulē.',
     'calculator_heading' => 'PVN kalkulators',
@@ -783,7 +785,7 @@ return array (
   array (
     'eyebrow' => 'Valstu salīdzinājums',
     'title' => ':left pret :right – PVN likmes',
-    'meta_title' => ':left pret :right – PVN likmes, kalkulatori un vēsture',
+    'meta_title' => 'PVN :left un :right: likmju salīdzinājums',
     'meta_description' => 'Salīdziniet :left un :right PVN likmes, samazinātās likmes, valūtas, VIES pieejamību un vēsturiskās izmaiņas.',
     'intro' => 'Salīdziniet pašreizējās PVN struktūras un turpiniet uz katras valsts kalkulatoru, pārbaudes ceļvedi un reģistrēto vēsturi.',
     'measure' => 'Rādītājs',
@@ -836,8 +838,8 @@ return array (
   ),
   'mcp_page' =>
   array (
-    'meta_title' => 'ES PVN MCP serveris: aktuāli PVN dati MI asistentiem | EU VAT Info',
-    'meta_desc' => 'Bezmaksas attālais MCP serveris ar ES PVN likmēm, aprēķiniem, likmju izmaiņām un PVN numuru pārbaudi VIES. Pievienojiet Claude, ChatGPT, VS Code vai Cursor minūtes laikā.',
+    'meta_title' => 'ES PVN MCP serveris: dati MI asistentiem',
+    'meta_desc' => 'Bezmaksas MCP serveris ar ES PVN likmēm, aprēķiniem, likmju izmaiņām un VIES pārbaudēm. Pievienojiet Claude, ChatGPT, VS Code vai Cursor minūtes laikā.',
     'kicker' => 'Model Context Protocol',
     'title' => 'ES PVN MCP serveris',
     'lede' => 'Dodiet savam MI asistentam aktuālās ES PVN likmes, PVN aprēķinus, gaidāmās likmju izmaiņas un PVN numuru pārbaudi VIES. Bez maksas, tikai lasīšanai un bez reģistrācijas.',

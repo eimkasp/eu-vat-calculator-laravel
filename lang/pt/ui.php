@@ -75,8 +75,8 @@ return array (
   ),
   'home_page' => 
   array (
-    'title' => 'IVA na UE - Calculadora e Informações sobre Taxas de IVA para Todos os Países da UE',
-    'meta_desc' => 'Taxas de IVA atuais para todos os 27 países da UE. Calculadora online gratuita, dados históricos desde 2000, alertas de alterações de taxas e guias de conformidade. Atualizado diariamente.',
+    'title' => 'Calculadora de IVA e taxas de IVA dos 27 países da UE',
+    'meta_desc' => 'Adicione ou retire o IVA nos 27 países da UE com as taxas normais e reduzidas em vigor. Verifique números de IVA no VIES e acompanhe cada alteração de taxa.',
     'heading' => 'Taxas de IVA na',
     'heading_accent' => 'União Europeia',
     'subtitle' => 'Taxas normais de IVA atuais, taxas reduzidas e calculadora para todos os 27 estados-membros da UE. Atualizado diariamente.',
@@ -235,12 +235,13 @@ return array (
     'interaction_hint' => 'Passe o rato por cima, toque ou percorra os países com a tecla Tab para ver as respetivas taxas. Prima Enter para abrir os detalhes.',
     'clear_selection' => 'Limpar seleção',
     'table_intro' => 'Os mesmos dados do mapa, ordenados da taxa normal mais alta para a mais baixa.',
+    'meta_desc' => 'As taxas normais de IVA de todos os países da UE num mapa, com uma classificação das taxas normais, reduzidas e super-reduzidas e uma calculadora por país.',
   ),
   'history' => 
   array (
     'title' => 'Histórico de Alterações de Taxas de IVA',
     'meta_title' => 'Histórico de Alterações de Taxas de IVA - Países da UE | IVA na UE',
-    'meta_desc' => 'Histórico completo de alterações das taxas de IVA em todos os países da UE desde 2000. Acompanhe modificações das taxas normais e reduzidas com indicadores de estabilidade.',
+    'meta_desc' => 'Todas as alterações de taxas de IVA registadas na UE: taxas normais, reduzidas e intermédias, com datas, taxa antiga e nova, alterações previstas e fontes.',
     'subtitle' => 'Acompanhe todas as alterações das taxas de IVA nos países da UE na última década',
     'stability_title' => 'Indicadores de Estabilidade dos Países',
     'stability_desc' => 'Países com menos alterações nas taxas de IVA indicam um ambiente fiscal mais estável',
@@ -459,10 +460,10 @@ return array (
   ),
   'vies_page' => 
   array (
-    'title' => 'Validador de Número de IVA VIES — Verifique Números de IVA da UE Online',
-    'description' => 'Ferramenta gratuita de validação de número de IVA VIES. Verifique qualquer número de IVA da UE instantaneamente usando o banco de dados oficial VIES da Comissão Europeia.',
-    'country_title' => 'Validador de Número de IVA VIES :country — Verifique Números de IVA da :country através de VIES',
-    'country_description' => 'Valide números de IVA :country (:code) instantaneamente usando o banco de dados oficial VIES da UE.',
+    'title' => 'Validar número de IVA da UE: verificação VIES grátis',
+    'description' => 'Verifique qualquer número de IVA da UE no registo VIES da Comissão Europeia. Veja se é válido e a quem pertence. Grátis e sem registo.',
+    'country_title' => 'Validar número de IVA, :country: VIES grátis',
+    'country_description' => 'Verifique números de IVA de :country (:code) no registo oficial VIES da UE. Veja se o número é válido e a quem pertence. Grátis e sem registo.',
     'h1' => 'Validador de Número de IVA VIES',
     'country_h1' => 'Validador de Número de IVA :country',
     'subtitle' => 'Verifique qualquer número de IVA da UE usando o banco de dados oficial VIES da Comissão Europeia. Os resultados são armazenados em cache para buscas mais rápidas.',
@@ -629,7 +630,7 @@ return array (
   'top_calc' => 
   array (
     'page_title' => 'Cálculos de IVA populares — Calculadora IVA UE',
-    'page_description' => 'Os cálculos de IVA mais comuns nos 27 estados-membros da UE.',
+    'page_description' => 'IVA sobre valores comuns de 100 € a 10 000 € em cada país da UE, à taxa normal do país. Adicione ou retire o IVA com um clique.',
     'heading' => 'Cálculos de IVA populares',
     'subheading' => 'Acesso rápido aos cálculos de IVA mais comuns.',
     'vat_on_amount' => 'IVA sobre €:amount',
@@ -650,7 +651,7 @@ return array (
     'disclaimer' => 'Os cálculos são apenas informativos.',
     'breadcrumb' => 'Cálculos populares',
     'amount_page_heading' => 'IVA sobre €:amount — Todos os países UE',
-    'amount_page_desc' => 'Calcule o IVA sobre €:amount para os 27 estados-membros.',
+    'amount_page_desc' => 'IVA sobre €:amount nos :count :member_label da UE com taxas normais de :min% a :max%: o IVA e o total de cada país, adicionado ou retirado.',
     'back_to_all' => '← Todos os cálculos populares',
     'matrix_caption' => 'Total com IVA à taxa normal de cada país. Selecione um valor para ver o cálculo detalhado.',
     'amounts_label' => 'Escolha um montante',
@@ -658,6 +659,7 @@ return array (
     'removing' => 'IVA incluído em €:amount',
     'net' => 'Líquido',
     'member_states' => 'Estados-Membros',
+    'amount_meta_title' => 'IVA sobre €:amount em cada país da UE',
   ),
   'changelog' => 
   array (
@@ -683,8 +685,8 @@ return array (
   'skip_to_content' => 'Saltar para o conteúdo principal',
   'tools' => 
   array (
-    'seo_title' => 'Ferramentas e recursos de IVA da UE - calculadoras, validadores e guias',
-    'seo_description' => 'Ferramentas gratuitas de IVA da UE: calculadora, validador, mapas de comparação de taxas e guias de conformidade para os 27 Estados-Membros da UE.',
+    'seo_title' => 'Ferramentas de IVA da UE: calculadora, validador e mapa',
+    'seo_description' => 'Ferramentas de IVA da UE grátis: uma calculadora para cada país, validação VIES de números de IVA, mapa e histórico de taxas e guias para os 27 Estados.',
     'heading' => 'Ferramentas e recursos do IVA na UE',
     'intro_text' => 'Aqui encontra ferramentas e recursos da equipa do EU-vat.info para o ajudar a orientar-se no complexo mundo do IVA na União Europeia.',
     'calculator_heading' => 'Calculadora de IVA',
@@ -783,7 +785,7 @@ return array (
   array (
     'eyebrow' => 'Comparação de países',
     'title' => 'Taxas de IVA: :left vs :right',
-    'meta_title' => 'Taxas de IVA :left vs :right: taxas, calculadoras e histórico',
+    'meta_title' => 'IVA de :left e :right: taxas comparadas',
     'meta_description' => 'Compare as taxas de IVA, as taxas reduzidas, as moedas, a disponibilidade do VIES e as alterações históricas de :left e :right.',
     'intro' => 'Compare as estruturas de IVA atuais e aceda à calculadora, ao guia de validação e ao histórico registado de cada país.',
     'measure' => 'Critério',
@@ -836,8 +838,8 @@ return array (
   ),
   'mcp_page' =>
   array (
-    'meta_title' => 'Servidor MCP de IVA da UE: dados de IVA em tempo real para assistentes de IA | EU VAT Info',
-    'meta_desc' => 'Servidor MCP remoto e gratuito com taxas de IVA da UE, cálculos, alterações de taxas e verificação VIES de números de IVA. Ligue o Claude, ChatGPT, VS Code ou Cursor num minuto.',
+    'meta_title' => 'Servidor MCP de IVA da UE: dados para assistentes de IA',
+    'meta_desc' => 'Servidor MCP gratuito com taxas de IVA da UE, cálculos, alterações de taxas e verificações VIES. Ligue o Claude, ChatGPT, VS Code ou Cursor num minuto.',
     'kicker' => 'Model Context Protocol',
     'title' => 'Servidor MCP de IVA da UE',
     'lede' => 'Dê ao seu assistente de IA as taxas de IVA da UE em tempo real, cálculos de IVA, as próximas alterações de taxas e a verificação VIES de números de IVA. Gratuito, só de leitura e sem registo.',

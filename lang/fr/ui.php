@@ -75,8 +75,8 @@ return array (
   ),
   'home_page' => 
   array (
-    'title' => 'EU VAT Info - Calculateur de taux de TVA et informations pour tous les pays de l\'UE',
-    'meta_desc' => 'Taux de TVA actuels pour les 27 pays de l\'UE. Calculateur en ligne gratuit, données historiques depuis 2000, alertes de changement de taux et guides de conformité. Mis à jour quotidiennement.',
+    'title' => 'Calculateur de TVA et taux de TVA des 27 pays de l\'UE',
+    'meta_desc' => 'Ajoutez ou retirez la TVA dans les 27 pays de l\'UE aux taux normaux et réduits en vigueur. Vérifiez un numéro de TVA dans VIES et suivez chaque changement.',
     'heading' => 'Taux de TVA dans l\'',
     'heading_accent' => 'Union européenne',
     'subtitle' => 'Taux de TVA standard, taux réduits et calculateur pour les 27 États membres de l\'UE. Mis à jour quotidiennement.',
@@ -235,12 +235,13 @@ return array (
     'interaction_hint' => 'Survolez ou touchez les pays, ou parcourez-les avec la touche Tab, pour afficher leurs taux. Appuyez sur Entrée pour ouvrir le détail.',
     'clear_selection' => 'Effacer la sélection',
     'table_intro' => 'Les mêmes données que sur la carte, du taux standard le plus élevé au plus bas.',
+    'meta_desc' => 'Les taux de TVA normaux de tous les pays de l\'UE sur une carte, avec un classement des taux normaux, réduits et super réduits et un calculateur par pays.',
   ),
   'history' => 
   array (
     'title' => 'Historique des changements de taux de TVA',
     'meta_title' => 'Historique des changements de taux de TVA - Pays de l\'UE | EU VAT Info',
-    'meta_desc' => 'Historique complet des changements de taux de TVA dans tous les pays de l\'UE depuis 2000. Suivez les modifications des taux standard et réduits avec les indicateurs de stabilité par pays.',
+    'meta_desc' => 'Tous les changements de taux de TVA enregistrés dans l\'UE : taux normaux, réduits et parking, avec dates, ancien et nouveau taux, changements prévus et sources.',
     'subtitle' => 'Suivez toutes les modifications de taux de TVA dans les pays de l\'UE au cours de la dernière décennie',
     'stability_title' => 'Indicateurs de stabilité par pays',
     'stability_desc' => 'Les pays avec moins de changements de taux de TVA indiquent des environnements fiscaux plus stables',
@@ -459,10 +460,10 @@ return array (
   ),
   'vies_page' => 
   array (
-    'title' => 'Vérification de numéro de TVA VIES — Vérifiez les numéros de TVA UE en ligne',
-    'description' => 'Outil gratuit de vérification de numéro de TVA VIES. Vérifiez tout numéro de TVA UE via la base de données officielle de la Commission européenne.',
-    'country_title' => 'Vérification de numéro de TVA :country — Vérifier les numéros de TVA :country via VIES',
-    'country_description' => 'Validez les numéros de TVA :country (:code) via la base de données officielle VIES de l\'UE.',
+    'title' => 'Vérifier un numéro de TVA UE : contrôle VIES gratuit',
+    'description' => 'Vérifiez tout numéro de TVA de l\'UE dans le registre VIES de la Commission européenne : validité et titulaire du numéro. Gratuit, sans inscription.',
+    'country_title' => 'Numéro de TVA :country : vérification VIES gratuite',
+    'country_description' => 'Vérifiez les numéros de TVA de :country (:code) dans le registre officiel VIES de l\'UE : validité et titulaire du numéro. Gratuit, sans inscription.',
     'h1' => 'Vérification de numéro de TVA VIES',
     'country_h1' => 'Vérification de numéro de TVA :country',
     'subtitle' => 'Vérifiez tout numéro de TVA UE via la base de données officielle VIES de la Commission européenne.',
@@ -629,7 +630,7 @@ return array (
   'top_calc' => 
   array (
     'page_title' => 'Calculs TVA populaires — Calculateur TVA UE',
-    'page_description' => 'Les calculs TVA les plus courants dans les 27 États membres de l\'UE.',
+    'page_description' => 'La TVA sur des montants courants de 100 € à 10 000 € dans chaque pays de l\'UE, au taux normal du pays. Ajoutez ou retirez la TVA en un clic.',
     'heading' => 'Calculs de TVA populaires',
     'subheading' => 'Accès rapide aux calculs de TVA les plus courants.',
     'vat_on_amount' => 'TVA sur €:amount',
@@ -650,7 +651,7 @@ return array (
     'disclaimer' => 'Les calculs sont fournis à titre informatif.',
     'breadcrumb' => 'Calculs populaires',
     'amount_page_heading' => 'TVA sur €:amount — Tous les pays UE',
-    'amount_page_desc' => 'Calculez la TVA sur €:amount pour les 27 États membres.',
+    'amount_page_desc' => 'TVA sur €:amount dans les :count :member_label de l\'UE, aux taux normaux de :min % à :max % : la TVA et le total pour chaque pays, ajoutée ou retirée.',
     'back_to_all' => '← Tous les calculs populaires',
     'matrix_caption' => 'Total TTC au taux standard de chaque pays. Sélectionnez un montant pour en afficher le détail complet.',
     'amounts_label' => 'Choisir un montant',
@@ -658,6 +659,7 @@ return array (
     'removing' => 'TVA incluse dans €:amount',
     'net' => 'Net',
     'member_states' => 'États membres',
+    'amount_meta_title' => 'TVA sur €:amount dans chaque pays de l\'UE',
   ),
   'changelog' => 
   array (
@@ -683,8 +685,8 @@ return array (
   'skip_to_content' => 'Aller au contenu principal',
   'tools' => 
   array (
-    'seo_title' => 'Outils et ressources TVA de l\'UE – Calculateurs, validateurs et guides',
-    'seo_description' => 'Outils TVA de l\'UE gratuits : calculateur, validateur, cartes comparatives des taux et guides de conformité pour les 27 États membres de l\'UE.',
+    'seo_title' => 'Outils TVA UE : calculateur, vérification, carte, guides',
+    'seo_description' => 'Outils TVA UE gratuits : un calculateur pour chaque pays, la vérification VIES, une carte des taux, l\'historique des taux et des guides pour les 27 États.',
     'heading' => 'Outils et ressources d\'EU VAT Info',
     'intro_text' => 'Voici quelques outils et ressources proposés par l\'équipe EU-vat.info pour vous aider à vous repérer dans l\'univers complexe de la TVA dans l\'Union européenne.',
     'calculator_heading' => 'Calculateur de TVA',
@@ -783,7 +785,7 @@ return array (
   array (
     'eyebrow' => 'Comparaison de pays',
     'title' => 'Taux de TVA : :left vs :right',
-    'meta_title' => 'Taux de TVA :left vs :right : taux, calculateurs et historique',
+    'meta_title' => 'TVA :left et :right : les taux comparés',
     'meta_description' => 'Comparez les taux de TVA, les taux réduits, les devises, la disponibilité de VIES et l\'historique des changements pour :left et :right.',
     'intro' => 'Comparez les structures de TVA actuelles, puis accédez au calculateur, au guide de validation et à l\'historique de chaque pays.',
     'measure' => 'Critère',
@@ -836,8 +838,8 @@ return array (
   ),
   'mcp_page' =>
   array (
-    'meta_title' => 'Serveur MCP TVA UE : données de TVA en direct pour les assistants IA | EU VAT Info',
-    'meta_desc' => 'Serveur MCP distant et gratuit : taux de TVA de l\'UE, calculs, changements de taux et vérification VIES des numéros de TVA. Connectez Claude, ChatGPT, VS Code ou Cursor en une minute.',
+    'meta_title' => 'Serveur MCP TVA UE : données pour assistants IA',
+    'meta_desc' => 'Serveur MCP gratuit avec les taux de TVA de l\'UE, les calculs, les changements de taux et les contrôles VIES. Connectez Claude, ChatGPT, VS Code ou Cursor.',
     'kicker' => 'Model Context Protocol',
     'title' => 'Serveur MCP TVA UE',
     'lede' => 'Donnez à votre assistant IA les taux de TVA de l\'UE en direct, des calculs de TVA, les changements de taux à venir et la vérification VIES des numéros de TVA. Gratuit, en lecture seule et sans inscription.',

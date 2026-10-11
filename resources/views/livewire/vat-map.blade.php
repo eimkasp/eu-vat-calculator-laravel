@@ -2,7 +2,7 @@
 @use('App\Support\EuropeMapSvg')
 
 @section('seo')
-    <x-seo-meta :title="__('ui.map.title').' - EU VAT Info'" :description="__('ui.map.subtitle')" :url="url()->current()">
+    <x-seo-meta :title="__('ui.map.title').' - EU VAT Info'" :description="__('ui.map.meta_desc')" :url="url()->current()">
         @if($ranked->isNotEmpty())
             <x-json-ld :data="[
                 '@type' => 'WebPage',

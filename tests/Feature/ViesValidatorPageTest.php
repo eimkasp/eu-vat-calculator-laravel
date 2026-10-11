@@ -23,7 +23,7 @@ function fakeVies(array $body, int $status = 200): void
 }
 
 it('renders the validator with FAQ structured data', function () {
-    $response = $this->get('/vat-number-validator')->assertOk()->assertSee('VIES VAT Number Validator');
+    $response = $this->get('/vat-number-validator')->assertOk()->assertSee('EU VAT Number Validator: Free VIES Check');
 
     preg_match_all('#<script type="application/ld\+json">(.*?)</script>#s', $response->getContent(), $matches);
     $types = collect($matches[1])->map(fn (string $json) => json_decode($json, true, flags: JSON_THROW_ON_ERROR))->pluck('@type');

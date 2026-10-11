@@ -75,8 +75,8 @@ return array (
   ),
   'home_page' => 
   array (
-    'title' => 'PDV u EU - Kalkulator i informacije o stopama PDV-a za sve države EU',
-    'meta_desc' => 'Aktualne stope PDV-a za svih 27 država EU. Besplatan online kalkulator, povijesni podaci od 2000., upozorenja o promjenama stopa i vodiči za usklađenost. Ažurirano svakodnevno.',
+    'title' => 'Kalkulator PDV-a i stope PDV-a za svih 27 zemalja EU-a',
+    'meta_desc' => 'Dodajte ili oduzmite PDV za svih 27 zemalja EU-a uz važeće opće i snižene stope. Provjerite PDV brojeve u sustavu VIES i pratite svaku promjenu stopa.',
     'heading' => 'Stope PDV-a u',
     'heading_accent' => 'Europskoj uniji',
     'subtitle' => 'Aktualne standardne stope PDV-a, snižene stope i kalkulator za svih 27 država članica EU. Ažurirano svakodnevno.',
@@ -235,12 +235,13 @@ return array (
     'interaction_hint' => 'Zadržite pokazivač iznad države, dodirnite je ili se tipkom Tab krećite po državama kako biste vidjeli njihove stope. Pritisnite Enter za otvaranje pojedinosti.',
     'clear_selection' => 'Poništi odabir',
     'table_intro' => 'Isti podaci kao na karti, poredani od najviše standardne stope.',
+    'meta_desc' => 'Opće stope PDV-a svih zemalja EU-a na jednoj karti, s poretkom općih, sniženih i super sniženih stopa te kalkulatorom za svaku zemlju.',
   ),
   'history' => 
   array (
     'title' => 'Povijest promjena stopa PDV-a',
     'meta_title' => 'Povijest promjena stopa PDV-a - Države EU | PDV u EU',
-    'meta_desc' => 'Potpuna povijest promjena stopa PDV-a u svim državama EU od 2000. godine. Pratite izmjene standardnih i sniženih stopa s pokazateljima stabilnosti.',
+    'meta_desc' => 'Sve zabilježene promjene stopa PDV-a u EU-u: opće, snižene i privremene stope s datumima, starom i novom stopom, najavljenim promjenama i izvorima.',
     'subtitle' => 'Pratite sve promjene stopa PDV-a u državama EU tijekom posljednjeg desetljeća',
     'stability_title' => 'Pokazatelji stabilnosti država',
     'stability_desc' => 'Države s manje promjena stopa PDV-a ukazuju na stabilnije porezno okruženje',
@@ -459,10 +460,10 @@ return array (
   ),
   'vies_page' => 
   array (
-    'title' => 'VIES validator PDV broja — Provjera broja PDV EU-a na mreži',
-    'description' => 'Besplatni alat za provjeru PDV broja VIES. Provjerite bilo koji PDV broj EU-a odmah koristeći službenu bazu podataka VIES Evropske komisije.',
-    'country_title' => 'VIES validator PDV broja za :country — Provjera PDV brojeva :country kroz VIES',
-    'country_description' => 'Validirajte PDV brojeve :country (:code) odmah koristeći službenu VIES bazu podataka EU-a.',
+    'title' => 'Provjera PDV broja u EU-u: besplatna VIES provjera',
+    'description' => 'Provjerite bilo koji PDV broj iz EU-a u registru VIES Europske komisije. Vidite je li valjan i kome pripada. Besplatno i bez registracije.',
+    'country_title' => 'Provjera PDV broja, :country: besplatno u VIES-u',
+    'country_description' => 'Provjerite PDV brojeve iz zemlje :country (:code) u službenom registru VIES EU-a. Vidite je li broj valjan i kome pripada. Besplatno i bez registracije.',
     'h1' => 'VIES validator PDV broja',
     'country_h1' => 'Validator PDV broja za :country',
     'subtitle' => 'Provjerite bilo koji PDV broj EU-a koristeći službenu VIES bazu podataka Evropske komisije. Rezultati se keširaju za brže traženje.',
@@ -629,7 +630,7 @@ return array (
   'top_calc' => 
   array (
     'page_title' => 'Popularni PDV izračuni — EU PDV kalkulator',
-    'page_description' => 'Najčešći PDV izračuni u svih 27 članica EU.',
+    'page_description' => 'PDV na uobičajene iznose od 100 € do 10.000 € u svakoj zemlji EU-a po njezinoj općoj stopi. Dodajte ili oduzmite PDV jednim klikom.',
     'heading' => 'Popularni PDV izračuni',
     'subheading' => 'Brzi pristup najčešćim PDV izračunima.',
     'vat_on_amount' => 'PDV na €:amount',
@@ -650,7 +651,7 @@ return array (
     'disclaimer' => 'Izračuni su samo informativni.',
     'breadcrumb' => 'Popularni izračuni',
     'amount_page_heading' => 'PDV na €:amount — Sve EU zemlje',
-    'amount_page_desc' => 'Izračunajte PDV na €:amount za svih 27 članica EU.',
+    'amount_page_desc' => 'PDV na €:amount u svih :count :member_label EU-a uz opće stope od :min % do :max %: PDV i ukupni iznos za svaku zemlju, dodan ili oduzet.',
     'back_to_all' => '← Svi popularni izračuni',
     'matrix_caption' => 'Ukupan iznos s PDV-om po standardnoj stopi svake države. Odaberite iznos za potpunu raščlambu.',
     'amounts_label' => 'Odaberite iznos',
@@ -658,6 +659,7 @@ return array (
     'removing' => 'PDV sadržan u iznosu €:amount',
     'net' => 'Neto',
     'member_states' => 'država članica',
+    'amount_meta_title' => 'PDV na €:amount u svakoj zemlji EU-a',
   ),
   'changelog' => 
   array (
@@ -683,8 +685,8 @@ return array (
   'skip_to_content' => 'Preskoči na glavni sadržaj',
   'tools' => 
   array (
-    'seo_title' => 'Alati i resursi za PDV u EU – kalkulatori, validatori i vodiči',
-    'seo_description' => 'Besplatni alati za PDV u EU: kalkulator, validator, karte za usporedbu stopa i vodiči za usklađenost za svih 27 država članica EU-a.',
+    'seo_title' => 'Alati za PDV u EU-u: kalkulator, provjera, karta, vodiči',
+    'seo_description' => 'Besplatni alati za PDV u EU-u: kalkulator za svaku zemlju, VIES provjera PDV brojeva, karta i povijest stopa te vodiči za svih 27 država članica.',
     'heading' => 'PDV u EU: alati i resursi',
     'intro_text' => 'Evo nekoliko alata i resursa tima EU-vat.info koji će vam pomoći da se snađete u složenom svijetu PDV-a u Europskoj uniji.',
     'calculator_heading' => 'Kalkulator PDV-a',
@@ -783,7 +785,7 @@ return array (
   array (
     'eyebrow' => 'Usporedba država',
     'title' => 'Stope PDV-a: :left naspram :right',
-    'meta_title' => ':left naspram :right: stope PDV-a, kalkulatori i povijest',
+    'meta_title' => 'PDV :left i :right: usporedba stopa',
     'meta_description' => 'Usporedite stope PDV-a za :left i :right: snižene stope, valute, dostupnost provjere putem VIES-a i povijesne promjene.',
     'intro' => 'Usporedite trenutačne sustave PDV-a i nastavite na kalkulator, vodič za provjeru i zabilježenu povijest svake države.',
     'measure' => 'Pokazatelj',
@@ -836,8 +838,8 @@ return array (
   ),
   'mcp_page' =>
   array (
-    'meta_title' => 'MCP poslužitelj za PDV u EU-u: aktualni podaci o PDV-u za AI asistente | EU VAT Info',
-    'meta_desc' => 'Besplatan udaljeni MCP poslužitelj sa stopama PDV-a u EU-u, izračunima, promjenama stopa i provjerom PDV identifikacijskih brojeva u VIES-u. Povežite Claude, ChatGPT, VS Code ili Cursor za minutu.',
+    'meta_title' => 'MCP poslužitelj za PDV u EU-u: podaci za AI asistente',
+    'meta_desc' => 'Besplatni MCP poslužitelj sa stopama PDV-a u EU-u, izračunima, promjenama stopa i VIES provjerama. Povežite Claude, ChatGPT, VS Code ili Cursor za minutu.',
     'kicker' => 'Model Context Protocol',
     'title' => 'MCP poslužitelj za PDV u EU-u',
     'lede' => 'Dajte svojem AI asistentu aktualne stope PDV-a u EU-u, izračune PDV-a, nadolazeće promjene stopa i provjeru PDV identifikacijskih brojeva u VIES-u. Besplatno, samo za čitanje i bez registracije.',

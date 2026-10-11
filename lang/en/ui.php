@@ -89,8 +89,8 @@ return [
 
     // ── Home Page ───────────────────────────────────────────────────────
     'home_page' => [
-        'title' => 'EU VAT Calculator — All 27 Countries | Free & Real-Time | EU VAT Info',
-        'meta_desc' => 'Free VAT calculator for all 27 EU countries. Add or remove VAT instantly with official 2026 rates. Validate EU VAT numbers, track rate changes & access compliance guides.',
+        'title' => 'EU VAT Calculator and VAT Rates for All 27 Countries',
+        'meta_desc' => 'Add or remove VAT for all 27 EU countries with current standard and reduced rates. Check EU VAT numbers in VIES and follow every VAT rate change.',
         'heading' => 'VAT rates in the',
         'heading_accent' => 'European Union',
         'subtitle' => 'Compare standard and reduced VAT rates, calculate taxes, and stay compliant across all 27 EU member states.',
@@ -251,13 +251,14 @@ return [
         'interaction_hint' => 'Hover, tap or tab through the countries to see their rates. Press Enter to open the details.',
         'clear_selection' => 'Clear selection',
         'table_intro' => 'The same data as the map, highest standard rate first.',
+        'meta_desc' => 'Standard VAT rates of every EU country on one map, with a ranked table of standard, reduced and super-reduced rates and a calculator for each country.',
     ],
 
     // ── VAT History / Changes ───────────────────────────────────────────
     'history' => [
         'title' => 'VAT rate change history',
         'meta_title' => 'EU VAT Rate Changes History 2026 — All 27 Countries | EU VAT Info',
-        'meta_desc' => 'Track every EU VAT rate change from 2000 to 2026. Standard, reduced & parking rate increases and decreases across all 27 countries with stability rankings. Updated weekly.',
+        'meta_desc' => 'Every recorded EU VAT rate change: standard, reduced and parking rates, with dates, old and new rates, upcoming changes and official sources.',
         'subtitle' => 'Track every recorded VAT rate change across EU countries, with filters by country, rate type and direction.',
         'stability_title' => 'Country stability',
         'stability_desc' => 'Fewer recorded rate changes point to a more stable tax environment.',
@@ -483,10 +484,10 @@ return [
 
     // ── VIES Validator Page ─────────────────────────────────────────────
     'vies_page' => [
-        'title' => 'VIES VAT Number Validator — Verify EU VAT Numbers Free | EU VAT Info',
-        'description' => 'Free EU VAT number validator. Verify any EU VAT number instantly via the official European Commission VIES database. Get company name, address & validity. No sign-up.',
-        'country_title' => ':country VAT Number Validator — Free VIES Lookup | EU VAT Info',
-        'country_description' => 'Free :country (:code) VAT number validator. Instantly check company registration via the official EU VIES database — get name & address. No sign-up needed.',
+        'title' => 'EU VAT Number Validator: Free VIES Check',
+        'description' => 'Check any EU VAT number in the European Commission\'s VIES register. See whether it is valid and who it belongs to. Free, with no sign-up.',
+        'country_title' => ':country VAT Number Validator: Free VIES Check',
+        'country_description' => 'Check :country (:code) VAT numbers in the official EU VIES register. See whether a number is valid and who it belongs to. Free, with no sign-up.',
         'h1' => 'VIES VAT number validator',
         'country_h1' => ':country VAT number validator',
         'subtitle' => 'Verify any EU VAT number using the official European Commission VIES database. Results are cached for faster lookups.',
@@ -595,8 +596,8 @@ return [
 
     // ── Tools Page ──────────────────────────────────────────────────────
     'tools' => [
-        'seo_title' => 'EU VAT Tools & Resources - Calculators, Validators & Guides',
-        'seo_description' => 'Free EU VAT tools: calculator, validator, rate comparison maps, and compliance guides for all 27 EU member states.',
+        'seo_title' => 'EU VAT Tools: Calculator, Validator, Map and Guides',
+        'seo_description' => 'Free EU VAT tools: a VAT calculator for every country, VIES number checks, a rate map, the rate history and compliance guides for all 27 states.',
         'heading' => 'EU VAT tools and resources',
         'intro_text' => 'Free calculators, validators, data and guides from EU VAT Info to help you work with VAT across the European Union.',
         'calculator_heading' => 'VAT calculator',
@@ -693,7 +694,7 @@ return [
     // ── Top Calculations Page ───────────────────────────────────────────
     'top_calc' => [
         'page_title' => 'Popular VAT Calculations — EU VAT Calculator',
-        'page_description' => 'Browse the most common VAT calculations across all 27 EU member states. Quick links to add or remove VAT for popular amounts like €100, €500, €1,000 and more.',
+        'page_description' => 'VAT on common amounts from €100 to €10,000 in every EU country, at each country\'s standard rate. Add or remove VAT with one click.',
         'heading' => 'Popular VAT calculations',
         'subheading' => 'Quick access to the most common VAT calculations across all 27 EU member states. Click any link to see the full calculation breakdown.',
         'vat_on_amount' => 'VAT on €:amount',
@@ -714,7 +715,7 @@ return [
         'disclaimer' => 'Calculations are for informational purposes only. VAT rates are sourced from the European Commission and may change. Always verify with your local tax authority for official compliance.',
         'breadcrumb' => 'Popular calculations',
         'amount_page_heading' => 'VAT on €:amount in every EU country',
-        'amount_page_desc' => 'VAT on €:amount across :count EU :member_label, using current standard rates from :min% to :max%. Compare VAT amounts and totals.',
+        'amount_page_desc' => 'VAT on €:amount in all :count EU :member_label at standard rates from :min% to :max%: the VAT and the total for each country, added or removed.',
         'back_to_all' => '← All popular calculations',
         'matrix_caption' => 'Total including VAT at each country\'s standard rate. Select a figure for the full breakdown.',
         'amounts_label' => 'Choose an amount',
@@ -722,6 +723,7 @@ return [
         'removing' => 'VAT included in €:amount',
         'net' => 'Net',
         'member_states' => 'member states',
+        'amount_meta_title' => 'VAT on €:amount in Every EU Country',
     ],
 
     // ── Error Messages ──────────────────────────────────────────────────
@@ -817,7 +819,7 @@ return [
     'compare' => [
         'eyebrow' => 'Country comparison',
         'title' => ':left vs :right VAT rates',
-        'meta_title' => ':left vs :right VAT rates: rates, calculators and history',
+        'meta_title' => ':left vs :right VAT Rates Compared',
         'meta_description' => 'Compare :left and :right VAT rates, reduced rates, currencies, VIES availability and historical changes.',
         'intro' => 'Compare current VAT structures and continue into each country\'s calculator, validation guide and recorded history.',
         'measure' => 'Measure',
@@ -871,8 +873,8 @@ return [
 
     // ── MCP server page ─────────────────────────────────────────────────
     'mcp_page' => [
-        'meta_title' => 'EU VAT MCP Server: Live VAT Data for AI Assistants | EU VAT Info',
-        'meta_desc' => 'Free remote MCP server with EU VAT rates, calculations, rate changes and VIES VAT number checks. Connect Claude, ChatGPT, VS Code or Cursor in a minute.',
+        'meta_title' => 'EU VAT MCP Server: Live VAT Data for AI Assistants',
+        'meta_desc' => 'Free remote MCP server with EU VAT rates, calculations, rate changes and VIES checks. Connect Claude, ChatGPT, VS Code or Cursor in a minute.',
         'kicker' => 'Model Context Protocol',
         'title' => 'EU VAT MCP server',
         'lede' => 'Give your AI assistant live EU VAT rates, VAT calculations, upcoming rate changes and VIES VAT number checks. Free, read-only and no sign-up.',

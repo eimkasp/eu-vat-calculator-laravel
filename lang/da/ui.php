@@ -75,8 +75,8 @@ return array (
   ),
   'home_page' => 
   array (
-    'title' => 'EU Moms Info - Momsberegner og information for alle EU-lande',
-    'meta_desc' => 'Aktuelle momssatser for alle 27 EU-lande. Gratis online beregner, historiske data fra 2000, advarsler om satsændringer og guides til overholdelse. Opdateres dagligt.',
+    'title' => 'Momsberegner og momssatser for alle 27 EU-lande',
+    'meta_desc' => 'Læg moms til eller træk moms fra i alle 27 EU-lande med de aktuelle standardsatser og nedsatte satser. Tjek momsnumre i VIES, og følg alle satsændringer.',
     'heading' => 'Momssatser i',
     'heading_accent' => 'Den Europæiske Union',
     'subtitle' => 'Aktuelle standardmomssatser, reducerede satser og beregner for alle 27 EU-medlemsstater. Opdateres dagligt.',
@@ -235,12 +235,13 @@ return array (
     'interaction_hint' => 'Hold markøren over et land, tryk på det, eller gå gennem landene med Tab-tasten for at se satserne. Tryk på Enter for at åbne detaljerne.',
     'clear_selection' => 'Ryd valg',
     'table_intro' => 'De samme data som på kortet, med den højeste standardsats først.',
+    'meta_desc' => 'Standardmomssatserne i alle EU-lande på ét kort med en rangliste over standardsatser, nedsatte og superreducerede satser og en momsberegner for hvert land.',
   ),
   'history' => 
   array (
     'title' => 'Historik over momssatsændringer',
     'meta_title' => 'Historik over momssatsændringer - EU-lande | EU Moms Info',
-    'meta_desc' => 'Komplet historik over momssatsændringer i alle EU-lande fra 2000 og frem. Spor ændringer i standard- og reducerede satser med stabilitetsindikatorer.',
+    'meta_desc' => 'Alle registrerede ændringer af momssatser i EU: standardsatser, nedsatte satser og parkeringssatser med datoer, gamle og nye satser, kommende ændringer.',
     'subtitle' => 'Spor alle momssatsændringer i EU-lande over det seneste årti',
     'stability_title' => 'Stabilitetsindikatorer for lande',
     'stability_desc' => 'Lande med færre momssatsændringer indikerer et mere stabilt skattemiljø',
@@ -459,10 +460,10 @@ return array (
   ),
   'vies_page' => 
   array (
-    'title' => 'VIES moms-nummervvalideringsprogram — Verificer EU moms-numre online',
-    'description' => 'Gratis VIES moms-nummervalidering. Verificer ethvert EU moms-nummer øjeblikkeligt ved brug af den officielle VIES-database fra Europa-Kommissionen.',
-    'country_title' => 'Moms-nummervalideringsprogram for :country — Verificer moms-numre for :country via VIES',
-    'country_description' => 'Valider moms-numre for :country (:code) øjeblikkeligt ved brug af den officielle VIES-database for EU.',
+    'title' => 'Tjek EU-momsnummer: gratis opslag i VIES',
+    'description' => 'Tjek ethvert EU-momsnummer i Europa-Kommissionens VIES-register. Se, om det er gyldigt, og hvem det tilhører. Gratis og uden tilmelding.',
+    'country_title' => 'Tjek momsnummer fra :country: gratis VIES-opslag',
+    'country_description' => 'Tjek momsnumre fra :country (:code) i EU\'s officielle VIES-register. Se, om nummeret er gyldigt, og hvem det tilhører. Gratis og uden tilmelding.',
     'h1' => 'VIES moms-nummervalideringsprogram',
     'country_h1' => 'Moms-nummervalideringsprogram for :country',
     'subtitle' => 'Verificer ethvert EU moms-nummer ved brug af den officielle VIES-database fra Europa-Kommissionen. Resultater cachet for hurtigere opslag.',
@@ -629,7 +630,7 @@ return array (
   'top_calc' => 
   array (
     'page_title' => 'Populære momsberegninger — EU Momsberegner',
-    'page_description' => 'Gennemse de mest almindelige momsberegninger i alle 27 EU-medlemsstater.',
+    'page_description' => 'Moms af almindelige beløb fra 100 € til 10.000 € i alle EU-lande med hvert lands standardsats. Læg moms til eller træk den fra med ét klik.',
     'heading' => 'Populære momsberegninger',
     'subheading' => 'Hurtig adgang til de mest almindelige momsberegninger i alle 27 EU-medlemsstater.',
     'vat_on_amount' => 'Moms på €:amount',
@@ -650,7 +651,7 @@ return array (
     'disclaimer' => 'Beregninger er kun til informationsformål.',
     'breadcrumb' => 'Populære beregninger',
     'amount_page_heading' => 'Moms på €:amount — Alle EU-lande',
-    'amount_page_desc' => 'Beregn moms på €:amount for alle 27 EU-medlemsstater.',
+    'amount_page_desc' => 'Moms på €:amount i alle :count EU-:member_label med standardsatser fra :min % til :max %: momsen og totalen for hvert land, lagt til eller trukket fra.',
     'back_to_all' => '← Alle populære beregninger',
     'matrix_caption' => 'Total inklusive moms ved hvert lands standardsats. Vælg et beløb for at se hele specifikationen.',
     'amounts_label' => 'Vælg et beløb',
@@ -658,6 +659,7 @@ return array (
     'removing' => 'Moms indeholdt i €:amount',
     'net' => 'Netto',
     'member_states' => 'medlemsstater',
+    'amount_meta_title' => 'Moms på €:amount i alle 27 EU-lande',
   ),
   'changelog' => 
   array (
@@ -683,8 +685,8 @@ return array (
   'skip_to_content' => 'Spring til hovedindholdet',
   'tools' => 
   array (
-    'seo_title' => 'EU-momsværktøjer og ressourcer – beregnere, validatorer og guider',
-    'seo_description' => 'Gratis EU-momsværktøjer: beregner, validator, kort til sammenligning af satser og guider til overholdelse af reglerne for alle 27 EU-medlemsstater.',
+    'seo_title' => 'EU-momsværktøjer: beregner, momsnummertjek, kort og guides',
+    'seo_description' => 'Gratis EU-momsværktøjer: en momsberegner for hvert land, tjek af momsnumre i VIES, et kort over satser, satshistorikken og guides til alle 27 lande.',
     'heading' => 'EU Moms Info – værktøjer og ressourcer',
     'intro_text' => 'Her er nogle værktøjer og ressourcer fra EU-vat.info-teamet, der hjælper dig med at navigere i den komplekse verden af moms i Den Europæiske Union.',
     'calculator_heading' => 'Momsberegner',
@@ -783,7 +785,7 @@ return array (
   array (
     'eyebrow' => 'Landesammenligning',
     'title' => ':left vs. :right – momssatser',
-    'meta_title' => ':left vs. :right – momssatser, beregnere og historik',
+    'meta_title' => 'Moms i :left og :right: satserne sammenlignet',
     'meta_description' => 'Sammenlign momssatserne i :left og :right, reducerede satser, valutaer, VIES-tilgængelighed og historiske ændringer.',
     'intro' => 'Sammenlign de nuværende momsstrukturer, og fortsæt til hvert lands beregner, valideringsguide og registrerede historik.',
     'measure' => 'Parameter',
@@ -836,8 +838,8 @@ return array (
   ),
   'mcp_page' =>
   array (
-    'meta_title' => 'EU-moms-MCP-server: aktuelle momsdata til AI-assistenter | EU VAT Info',
-    'meta_desc' => 'Gratis fjern-MCP-server med EU-momssatser, beregninger, satsændringer og VIES-tjek af momsnumre. Forbind Claude, ChatGPT, VS Code eller Cursor på et minut.',
+    'meta_title' => 'EU-moms MCP-server: momsdata til AI-assistenter',
+    'meta_desc' => 'Gratis MCP-server med EU-momssatser, beregninger, satsændringer og VIES-opslag. Forbind Claude, ChatGPT, VS Code eller Cursor på et minut.',
     'kicker' => 'Model Context Protocol',
     'title' => 'EU-moms-MCP-server',
     'lede' => 'Giv din AI-assistent aktuelle EU-momssatser, momsberegninger, kommende satsændringer og VIES-tjek af momsnumre. Gratis, skrivebeskyttet og uden tilmelding.',

@@ -18,7 +18,7 @@
 @endphp
 
 @section('seo')
-    <x-seo-meta :title="$heading.' — '.__('ui.top_calc.page_title')" :description="$description" type="website">
+    <x-seo-meta :title="__('ui.top_calc.amount_meta_title', ['amount' => number_format($amount)])" :description="$description" type="website">
         <x-json-ld :data="[
             '@type' => 'ItemList',
             'name' => $heading,

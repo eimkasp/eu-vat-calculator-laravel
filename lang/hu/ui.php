@@ -75,8 +75,8 @@ return array (
   ),
   'home_page' => 
   array (
-    'title' => 'EU ÁFA Infó - ÁFA-kalkulátor és információk minden EU-országra',
-    'meta_desc' => 'Aktuális áfakulcsok mind a 27 EU-ország számára. Ingyenes online kalkulátor, történelmi adatok 2000-tól, kulcsváltozási értesítések és megfelelőségi útmutatók. Naponta frissítve.',
+    'title' => 'ÁFA-kalkulátor és áfakulcsok mind a 27 uniós országra',
+    'meta_desc' => 'Adja hozzá vagy vonja le az áfát mind a 27 uniós országban az érvényes általános és kedvezményes kulcsokkal. Ellenőrizzen adószámot a VIES-ben.',
     'heading' => 'ÁFA-kulcsok az',
     'heading_accent' => 'Európai Unióban',
     'subtitle' => 'Aktuális általános áfakulcsok, kedvezményes kulcsok és kalkulátor mind a 27 EU-tagállam számára. Naponta frissítve.',
@@ -235,12 +235,13 @@ return array (
     'interaction_hint' => 'A kulcsok megtekintéséhez vigye az egeret az országok fölé, koppintson rájuk, vagy lépkedjen köztük a Tab billentyűvel. A részletek megnyitásához nyomja meg az Enter billentyűt.',
     'clear_selection' => 'Kijelölés törlése',
     'table_intro' => 'Ugyanazok az adatok, mint a térképen, a legmagasabb általános kulccsal kezdve.',
+    'meta_desc' => 'Az összes uniós ország általános áfakulcsa egy térképen, az általános, kedvezményes és szuperkedvezményes kulcsok rangsorával és országonkénti kalkulátorral.',
   ),
   'history' => 
   array (
     'title' => 'ÁFA-kulcsok változásainak története',
     'meta_title' => 'ÁFA-kulcsok változásainak története - EU-országok | EU ÁFA Infó',
-    'meta_desc' => 'Az áfakulcsok változásainak teljes története az összes EU-országban 2000-től. Kövesse az általános és kedvezményes kulcsok módosításait stabilitási mutatókkal.',
+    'meta_desc' => 'Az összes rögzített uniós áfakulcs-változás: általános, kedvezményes és átmeneti kulcsok dátummal, régi és új kulccsal, várható változásokkal és forrásokkal.',
     'subtitle' => 'Kövesse az összes áfakulcs-változást az EU-országokban az elmúlt évtizedben',
     'stability_title' => 'Országok stabilitási mutatói',
     'stability_desc' => 'A kevesebb áfakulcs-változással rendelkező országok stabilabb adókörnyezetet jeleznek',
@@ -459,10 +460,10 @@ return array (
   ),
   'vies_page' => 
   array (
-    'title' => 'VIES ÁFA szám érvényesítő — EU ÁFA számok online ellenőrzése',
-    'description' => 'Ingyenes VIES ÁFA szám ellenőrző eszköz. Ellenőrizze bármely EU ÁFA számot azonnal az Európai Bizottság hivatalos VIES adatbázisával.',
-    'country_title' => 'VIES ÁFA szám érvényesítő :country számára — :country ÁFA számok ellenőrzése VIES-en keresztül',
-    'country_description' => 'Érvényesítse :country (:code) ÁFA számait azonnal az EU hivatalos VIES adatbázisával.',
+    'title' => 'Uniós közösségi adószám ellenőrzése: ingyenes VIES',
+    'description' => 'Ellenőrizzen bármilyen uniós közösségi adószámot az Európai Bizottság VIES-nyilvántartásában. Lássa, érvényes-e és kié. Ingyenes, regisztráció nélkül.',
+    'country_title' => 'Adószám-ellenőrzés, :country: ingyenes VIES',
+    'country_description' => 'Ellenőrizze a(z) :country (:code) közösségi adószámait az EU hivatalos VIES-nyilvántartásában. Lássa, érvényes-e a szám és kié. Ingyenes.',
     'h1' => 'VIES ÁFA szám érvényesítő',
     'country_h1' => 'ÁFA szám érvényesítő :country számára',
     'subtitle' => 'Ellenőrizze bármely EU ÁFA számot az Európai Bizottság hivatalos VIES adatbázisával. Az eredmények gyorsítótárazottak a gyorsabb kereséshez.',
@@ -629,7 +630,7 @@ return array (
   'top_calc' => 
   array (
     'page_title' => 'Népszerű ÁFA számítások — EU ÁFA kalkulátor',
-    'page_description' => 'A leggyakoribb ÁFA számítások mind a 27 EU tagállamban.',
+    'page_description' => 'Áfa a gyakori összegekre 100 €-tól 10 000 €-ig minden uniós országban, az adott ország általános kulcsával. Adja hozzá vagy vonja le egy kattintással.',
     'heading' => 'Népszerű ÁFA számítások',
     'subheading' => 'Gyors hozzáférés a leggyakoribb ÁFA számításokhoz.',
     'vat_on_amount' => 'ÁFA €:amount összegre',
@@ -650,7 +651,7 @@ return array (
     'disclaimer' => 'Számítások csak tájékoztató jellegűek.',
     'breadcrumb' => 'Népszerű számítások',
     'amount_page_heading' => 'ÁFA €:amount összegre — Minden EU ország',
-    'amount_page_desc' => 'Számítsa ki az ÁFÁ-t €:amount összegre mind a 27 EU tagállamban.',
+    'amount_page_desc' => 'ÁFA €:amount összegre mind a :count uniós :member_label esetében, :min% és :max% közötti általános kulccsal: az áfa és a végösszeg országonként, hozzáadva vagy levonva.',
     'back_to_all' => '← Minden népszerű számítás',
     'matrix_caption' => 'ÁFA-val növelt végösszeg az egyes országok általános kulcsával. A teljes részletezéshez válasszon egy értéket.',
     'amounts_label' => 'Válasszon összeget',
@@ -658,6 +659,7 @@ return array (
     'removing' => '€:amount összegben foglalt ÁFA',
     'net' => 'Nettó',
     'member_states' => 'tagállam',
+    'amount_meta_title' => 'ÁFA €:amount összegre minden uniós országban',
   ),
   'changelog' => 
   array (
@@ -683,8 +685,8 @@ return array (
   'skip_to_content' => 'Ugrás a fő tartalomra',
   'tools' => 
   array (
-    'seo_title' => 'Uniós ÁFA-eszközök és források – kalkulátorok, ellenőrzők és útmutatók',
-    'seo_description' => 'Ingyenes uniós ÁFA-eszközök: kalkulátor, ÁFA-szám-ellenőrző, kulcsösszehasonlító térképek és megfelelési útmutatók mind a 27 EU-tagállamhoz.',
+    'seo_title' => 'Uniós áfaeszközök: kalkulátor, ellenőrzés, térkép',
+    'seo_description' => 'Ingyenes uniós áfaeszközök: kalkulátor minden országra, adószám-ellenőrzés a VIES-ben, áfatérkép, kulcstörténet és útmutatók mind a 27 tagállamhoz.',
     'heading' => 'Az EU ÁFA Infó eszközei és forrásai',
     'intro_text' => 'Íme néhány eszköz és forrás az EU-vat.info csapatától, amelyek segítenek eligazodni az Európai Unió összetett ÁFA-világában.',
     'calculator_heading' => 'ÁFA-kalkulátor',
@@ -783,7 +785,7 @@ return array (
   array (
     'eyebrow' => 'Országok összehasonlítása',
     'title' => ':left vs. :right – ÁFA-kulcsok',
-    'meta_title' => ':left vs. :right – ÁFA-kulcsok, kalkulátorok és történet',
+    'meta_title' => 'ÁFA: :left és :right összehasonlítva',
     'meta_description' => 'Hasonlítsa össze :left és :right ÁFA-kulcsait, kedvezményes kulcsait, pénznemeit, VIES-elérhetőségét és korábbi változásait.',
     'intro' => 'Hasonlítsa össze a jelenlegi ÁFA-rendszereket, majd folytassa az egyes országok kalkulátorával, ellenőrzési útmutatójával és rögzített változástörténetével.',
     'measure' => 'Mutató',
@@ -836,8 +838,8 @@ return array (
   ),
   'mcp_page' =>
   array (
-    'meta_title' => 'Uniós ÁFA MCP-szerver: friss ÁFA-adatok MI-asszisztenseknek | EU VAT Info',
-    'meta_desc' => 'Ingyenes távoli MCP-szerver uniós ÁFA-kulcsokkal, számításokkal, kulcsváltozásokkal és közösségi adószámok VIES-ellenőrzésével. Csatlakoztassa a Claude-ot, a ChatGPT-t, a VS Code-ot vagy a Cursort egy perc alatt.',
+    'meta_title' => 'Uniós áfa MCP-szerver: adatok MI-asszisztenseknek',
+    'meta_desc' => 'Ingyenes MCP-szerver uniós áfakulcsokkal, számításokkal, kulcsváltozásokkal és VIES-ellenőrzéssel. Csatlakoztassa a Claude, ChatGPT, VS Code vagy Cursor appot.',
     'kicker' => 'Model Context Protocol',
     'title' => 'Uniós ÁFA MCP-szerver',
     'lede' => 'Adja meg MI-asszisztensének a friss uniós ÁFA-kulcsokat, az ÁFA-számításokat, a közelgő kulcsváltozásokat és a közösségi adószámok VIES-ellenőrzését. Ingyenes, csak olvasható, regisztráció nélkül.',

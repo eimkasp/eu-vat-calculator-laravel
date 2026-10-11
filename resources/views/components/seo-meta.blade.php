@@ -9,7 +9,7 @@
 
 @php
     $seoPolicy = app(\App\Support\Seo\SeoPolicy::class);
-    $title = $title ?: __('ui.seo.default_title');
+    $title = \App\Support\Seo\MetaTitle::fit($title ?: __('ui.seo.default_title'), [__('ui.site_name')]);
     $description = $description ?: __('ui.seo.default_description');
     $resolvedRobots = $robots ?? $seoPolicy->robotsForCurrentLocale();
     $resolvedUrl = $seoPolicy->canonicalPageUrl($url ?: url()->current());

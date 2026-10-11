@@ -75,8 +75,8 @@ return array (
   ),
   'home_page' => 
   array (
-    'title' => 'EU Moms Info – Momsräknare och information för alla EU-länder',
-    'meta_desc' => 'Aktuella momssatser för alla 27 EU-länder. Gratis onlineräknare, historisk data från 2000, ändringsaviseringar och efterlevnadsguider. Uppdateras dagligen.',
+    'title' => 'Momsräknare och momssatser för alla 27 EU-länder',
+    'meta_desc' => 'Lägg till eller räkna bort moms i alla 27 EU-länder med aktuella normalsatser och reducerade satser. Kontrollera momsnummer i VIES och följ varje ändring.',
     'heading' => 'Momssatser i',
     'heading_accent' => 'Europeiska unionen',
     'subtitle' => 'Aktuella normala momssatser, reducerade satser och räknare för alla 27 EU-medlemsstater. Uppdateras dagligen.',
@@ -235,12 +235,13 @@ return array (
     'interaction_hint' => 'Håll pekaren över ett land, tryck på det eller tabba mellan länderna för att se satserna. Tryck på Enter för att öppna detaljerna.',
     'clear_selection' => 'Rensa val',
     'table_intro' => 'Samma data som på kartan, med högsta normalsats först.',
+    'meta_desc' => 'Normalsatserna för moms i alla EU-länder på en karta, med en rangordning av normalsatser, reducerade och superreducerade satser och en momsräknare per land.',
   ),
   'history' => 
   array (
     'title' => 'Historik över momssatsändringar',
     'meta_title' => 'Historik över momssatsändringar – EU-länder | EU Moms Info',
-    'meta_desc' => 'Komplett historik över momssatsändringar i alla EU-länder från 2000. Följ ändringar av normala och reducerade satser med stabilitetsindikatorer.',
+    'meta_desc' => 'Alla registrerade ändringar av momssatser i EU: normalsatser, reducerade satser och parkeringssatser med datum, gammal och ny sats, kommande ändringar.',
     'subtitle' => 'Följ alla momssatsändringar i EU-länder under det senaste decenniet',
     'stability_title' => 'Stabilitetsindikatorer för länder',
     'stability_desc' => 'Länder med färre momssatsändringar indikerar en stabilare skattemiljö',
@@ -459,10 +460,10 @@ return array (
   ),
   'vies_page' => 
   array (
-    'title' => 'VIES momsregistreringsnummervalideringsprogram — Verifiera EU momsregistreringsnummer online',
-    'description' => 'Gratis VIES momsregistreringsnummer valideringverktyg. Verifiera något EU momsregistreringsnummer omedelbarf med den officiella VIES databasen från Europakommissionen.',
-    'country_title' => 'VIES momsregistreringsnummervalideringsprogram :country — Verifiera momsregistreringsnummer för :country via VIES',
-    'country_description' => 'Validera momsregistreringsnummer för :country (:code) omedelbar med den officiella VIES-databasen från EU.',
+    'title' => 'Kontrollera EU-momsnummer: gratis sökning i VIES',
+    'description' => 'Kontrollera alla EU-momsnummer i Europeiska kommissionens VIES-register. Se om numret är giltigt och vem det tillhör. Gratis, utan registrering.',
+    'country_title' => 'Kontrollera momsnummer från :country i VIES',
+    'country_description' => 'Kontrollera momsnummer från :country (:code) i EU:s officiella VIES-register. Se om numret är giltigt och vem det tillhör. Gratis och utan registrering.',
     'h1' => 'VIES momsregistreringsnummervalideringsprogram',
     'country_h1' => 'Momsregistreringsnummervalideringsprogram för :country',
     'subtitle' => 'Verifiera något EU momsregistreringsnummer med den officiella VIES-databasen från Europakommissionen. Resultaten är cachelagda för snabbare sökningar.',
@@ -629,7 +630,7 @@ return array (
   'top_calc' => 
   array (
     'page_title' => 'Populära momsberäkningar — EU Momskalkylator',
-    'page_description' => 'De vanligaste momsberäkningarna i alla 27 EU-medlemsstater.',
+    'page_description' => 'Moms på vanliga belopp från 100 € till 10 000 € i varje EU-land med landets normalsats. Lägg till eller räkna bort moms med ett klick.',
     'heading' => 'Populära momsberäkningar',
     'subheading' => 'Snabb åtkomst till de vanligaste momsberäkningarna.',
     'vat_on_amount' => 'Moms på €:amount',
@@ -650,7 +651,7 @@ return array (
     'disclaimer' => 'Beräkningar är enbart informativa.',
     'breadcrumb' => 'Populära beräkningar',
     'amount_page_heading' => 'Moms på €:amount — Alla EU-länder',
-    'amount_page_desc' => 'Beräkna moms på €:amount för alla 27 EU-medlemsstater.',
+    'amount_page_desc' => 'Moms på €:amount i alla :count EU-:member_label med normalsatser från :min % till :max %: momsen och totalen för varje land, tillagd eller bortdragen.',
     'back_to_all' => '← Alla populära beräkningar',
     'matrix_caption' => 'Totalt inklusive moms enligt varje lands normalsats. Välj ett belopp för att se hela beräkningen.',
     'amounts_label' => 'Välj ett belopp',
@@ -658,6 +659,7 @@ return array (
     'removing' => 'Moms som ingår i €:amount',
     'net' => 'Netto',
     'member_states' => 'medlemsstater',
+    'amount_meta_title' => 'Moms på €:amount i alla 27 EU-länder',
   ),
   'changelog' => 
   array (
@@ -683,8 +685,8 @@ return array (
   'skip_to_content' => 'Hoppa till huvudinnehållet',
   'tools' => 
   array (
-    'seo_title' => 'EU-momsverktyg och resurser - räknare, validerare och guider',
-    'seo_description' => 'Kostnadsfria EU-momsverktyg: räknare, validerare, kartor för att jämföra satser och guider för regelefterlevnad för alla 27 EU-medlemsstater.',
+    'seo_title' => 'EU-momsverktyg: räknare, nummerkontroll, karta och guider',
+    'seo_description' => 'Gratis EU-momsverktyg: en momsräknare för varje land, kontroll av momsnummer i VIES, en karta och historik över satser och guider för alla 27 länder.',
     'heading' => 'Verktyg och resurser från EU Moms Info',
     'intro_text' => 'Här är verktyg och resurser från teamet bakom EU-vat.info som hjälper dig att hitta rätt i den komplexa momsvärlden i Europeiska unionen.',
     'calculator_heading' => 'Momsräknare',
@@ -783,7 +785,7 @@ return array (
   array (
     'eyebrow' => 'Jämförelse av länder',
     'title' => 'Momssatser: :left vs :right',
-    'meta_title' => 'Momssatser :left vs :right: satser, räknare och historik',
+    'meta_title' => 'Moms i :left och :right: satserna jämförda',
     'meta_description' => 'Jämför momssatser, reducerade satser, valutor, tillgänglighet i VIES och historiska ändringar för :left och :right.',
     'intro' => 'Jämför nuvarande momsstrukturer och gå vidare till varje lands räknare, valideringsguide och registrerade historik.',
     'measure' => 'Uppgift',
@@ -836,8 +838,8 @@ return array (
   ),
   'mcp_page' =>
   array (
-    'meta_title' => 'MCP-server för EU-moms: aktuella momsdata för AI-assistenter | EU VAT Info',
-    'meta_desc' => 'Kostnadsfri fjärr-MCP-server med EU:s momssatser, beräkningar, satsändringar och VIES-kontroll av momsnummer. Anslut Claude, ChatGPT, VS Code eller Cursor på en minut.',
+    'meta_title' => 'MCP-server för EU-moms: momsdata för AI-assistenter',
+    'meta_desc' => 'Gratis MCP-server med EU:s momssatser, beräkningar, satsändringar och VIES-kontroller. Anslut Claude, ChatGPT, VS Code eller Cursor på en minut.',
     'kicker' => 'Model Context Protocol',
     'title' => 'MCP-server för EU-moms',
     'lede' => 'Ge din AI-assistent aktuella momssatser i EU, momsberäkningar, kommande satsändringar och VIES-kontroll av momsnummer. Kostnadsfritt, skrivskyddat och utan registrering.',
