@@ -20,7 +20,7 @@ All notable changes to EU VAT Info are documented here.
 - **Easier on phones and keyboards** — the comparison table can be scrolled with the keyboard, page regions have unique names for screen readers, and long translated site names no longer push the header off the screen.
 
 ### Fixed
-- Reduced rates now match the European Commission's tax database: Estonia 9% and 13%, Finland 10% and 13.5%, Lithuania 5% and 12%, Romania 11% and Slovakia 5% and 19%. Austria's 4.9% rate on basic foods from 1 July 2026, Cyprus's 3% rate and Malta's 12% rate are listed too.
+- Reduced rates now match the European Commission's tax database: Estonia 9% and 13%, Finland 10% and 13.5%, Lithuania 5% and 12%, Romania 11% and Slovakia 5% and 19%. Austria's 4.9% rate on basic foods from 1 July 2026, Cyprus's 3% rate, Greece's 4% rate and Malta's 12% rate are listed too.
 - A fresh installation showed outdated standard rates for Estonia, Finland, Romania and Slovakia until the rates were refreshed.
 
 ---

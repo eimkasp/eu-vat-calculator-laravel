@@ -4,8 +4,8 @@ use App\Support\Vat\RateCorrections;
 use Illuminate\Database\Migrations\Migration;
 
 /**
- * Brings the reduced, super-reduced and parking rates that changed in 2025 and 2026 up to date, from the European
- * Commission's TEDB. See RateCorrections for the list and its safeguards.
+ * Brings the reduced, super-reduced and parking rates of the January 2024 snapshot up to date with the European
+ * Commission's figures. See RateCorrections for the list, its sources and its safeguards.
  */
 return new class extends Migration
 {
