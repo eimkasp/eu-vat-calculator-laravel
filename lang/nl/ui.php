@@ -914,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Tarieven van één land',
-        'desc' => 'Actuele tarieven, valuta en laatste update voor één land.',
+        'desc' => 'Actuele tarieven, valuta, notatie van het btw-nummer en laatste update voor één land.',
         'prompt' => 'Wat zijn de btw-tarieven in Oostenrijk?',
       ),
       'calculate_vat' =>
@@ -962,7 +962,7 @@ return array (
     'detail_limits' => 'Redelijk gebruik',
     'limits_value' => ':requests verzoeken per minuut per IP-adres, waarvan maximaal :checks btw-nummercontroles',
     'detail_data' => 'Gegevens',
-    'data_value' => 'Btw-tarieven van de Europese Commissie, dagelijks bijgewerkt',
+    'data_value' => 'Btw-tarieven van de Europese Commissie, wekelijks bijgewerkt',
     'detail_discovery' => 'Vindbaarheid',
     'server_card' => 'Serverkaart',
     'faq_heading' => 'Vragen',
@@ -973,7 +973,7 @@ return array (
     'faq_3_q' => 'Is verbinden veilig?',
     'faq_3_a' => 'Ja. Alle tools zijn alleen-lezen: de server geeft alleen btw-gegevens en berekeningen terug. Hij kan uw bestanden niet zien en niet namens u handelen.',
     'faq_4_q' => 'Hoe actueel zijn de tarieven?',
-    'faq_4_a' => 'De tarieven komen uit gegevens van de Europese Commissie en worden dagelijks bijgewerkt. Elk resultaat vermeldt wanneer het land voor het laatst is bijgewerkt.',
+    'faq_4_a' => 'De tarieven komen uit gegevens van de Europese Commissie en worden wekelijks bijgewerkt. Elk resultaat vermeldt wanneer het land voor het laatst is bijgewerkt.',
     'faq_5_q' => 'Zijn de antwoorden belastingadvies?',
     'faq_5_a' => 'Nee. De server geeft referentietarieven. De juiste btw-behandeling hangt af van de goederen of diensten en van de klant, dus controleer belangrijke gevallen bij een belastingadviseur of de nationale belastingdienst.',
   ),

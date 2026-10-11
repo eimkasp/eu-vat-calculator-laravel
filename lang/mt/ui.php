@@ -914,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Ir-rati ta’ pajjiż wieħed',
-        'desc' => 'Ir-rati attwali, il-munita u l-aħħar aġġornament għal pajjiż wieħed.',
+        'desc' => 'Ir-rati attwali, il-munita, il-format tan-numru tal-VAT u l-aħħar aġġornament għal pajjiż wieħed.',
         'prompt' => 'X’inhuma r-rati tal-VAT fl-Awstrija?',
       ),
       'calculate_vat' =>
@@ -962,7 +962,7 @@ return array (
     'detail_limits' => 'Użu ġust',
     'limits_value' => ':requests talba kull minuta għal kull indirizz IP, inklużi sa :checks verifika tan-numri tal-VAT',
     'detail_data' => 'Data',
-    'data_value' => 'Rati tal-VAT tal-Kummissjoni Ewropea, aġġornati kuljum',
+    'data_value' => 'Rati tal-VAT tal-Kummissjoni Ewropea, aġġornati kull ġimgħa',
     'detail_discovery' => 'Skoperta',
     'server_card' => 'Karta tas-server',
     'faq_heading' => 'Mistoqsijiet',
@@ -973,7 +973,7 @@ return array (
     'faq_3_q' => 'Huwa sigur li nqabbdu?',
     'faq_3_a' => 'Iva. L-għodod kollha huma għall-qari biss: is-server jagħti biss data u kalkoli tal-VAT. Ma jistax jara l-fajls tiegħek jew jaġixxi f’ismek.',
     'faq_4_q' => 'Kemm huma aġġornati r-rati?',
-    'faq_4_a' => 'Ir-rati ġejjin mid-data tal-Kummissjoni Ewropea u jiġu aġġornati kuljum. Kull riżultat juri meta l-pajjiż ġie aġġornat l-aħħar.',
+    'faq_4_a' => 'Ir-rati ġejjin mid-data tal-Kummissjoni Ewropea u jiġu aġġornati kull ġimgħa. Kull riżultat juri meta l-pajjiż ġie aġġornat l-aħħar.',
     'faq_5_q' => 'It-tweġibiet huma parir dwar it-taxxa?',
     'faq_5_a' => 'Le. Is-server jagħti rati ta’ referenza. It-trattament korrett tal-VAT jiddependi fuq l-oġġetti jew is-servizzi u fuq il-klijent, għalhekk ivverifika każijiet importanti ma’ konsulent tat-taxxa jew mal-awtorità nazzjonali tat-taxxa.',
   ),

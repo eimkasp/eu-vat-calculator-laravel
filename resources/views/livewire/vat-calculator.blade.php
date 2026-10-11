@@ -27,6 +27,7 @@
                 'description' => __('ui.calculator.schema_page_desc', ['country' => $country->name, 'rate' => $rateLabel]),
                 'url' => $calcCanonical,
                 'inLanguage' => app()->getLocale(),
+                'dateModified' => $country->updated_at?->toIso8601String(),
                 'isPartOf' => ['@type' => 'WebSite', '@id' => url(locale_path('/')).'#website', 'name' => __('ui.site_name'), 'url' => url(locale_path('/'))],
                 'mainEntity' => [
                     '@type' => 'WebApplication',

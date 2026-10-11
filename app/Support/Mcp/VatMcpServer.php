@@ -48,7 +48,7 @@ final class VatMcpServer
     public static function instructions(): string
     {
         return 'Use these tools for current EU VAT rates, VAT calculations, recorded and upcoming rate changes, and VIES VAT number checks. '
-            .'Rates come from European Commission data and are refreshed daily; each result carries its last update time. '
+            .'Rates come from European Commission data and are updated every week; each result carries its last update time. '
             .'Countries can be given as an English name, an ISO code (Greece accepts EL, the United Kingdom UK) or a slug such as czech-republic. '
             .'Amounts are in the country\'s own currency. VAT treatment depends on the goods or services and the customer, so present results as reference data rather than tax advice.';
     }
@@ -73,7 +73,7 @@ final class VatMcpServer
             self::tool(
                 'get_country_vat_rate',
                 'Get a country\'s VAT rates',
-                'Current VAT rates, currency and last update time for one country.',
+                'Current VAT rates, currency, VAT number format and last update time for one country.',
                 ['country' => $country],
                 ['country'],
             ),

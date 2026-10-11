@@ -914,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Sazby jedné země',
-        'desc' => 'Aktuální sazby, měna a poslední aktualizace pro jednu zemi.',
+        'desc' => 'Aktuální sazby, měna, formát DIČ a poslední aktualizace pro jednu zemi.',
         'prompt' => 'Jaké jsou sazby DPH v Rakousku?',
       ),
       'calculate_vat' =>
@@ -962,7 +962,7 @@ return array (
     'detail_limits' => 'Férové užívání',
     'limits_value' => ':requests požadavků za minutu z jedné IP adresy, z toho až :checks ověření DIČ',
     'detail_data' => 'Data',
-    'data_value' => 'Sazby DPH Evropské komise, aktualizované denně',
+    'data_value' => 'Sazby DPH Evropské komise, aktualizované každý týden',
     'detail_discovery' => 'Vyhledatelnost',
     'server_card' => 'Karta serveru',
     'faq_heading' => 'Otázky',
@@ -973,7 +973,7 @@ return array (
     'faq_3_q' => 'Je připojení bezpečné?',
     'faq_3_a' => 'Ano. Všechny nástroje jsou jen pro čtení: server vrací pouze údaje a výpočty DPH. Nevidí vaše soubory a nejedná vaším jménem.',
     'faq_4_q' => 'Jak aktuální jsou sazby?',
-    'faq_4_a' => 'Sazby pocházejí z údajů Evropské komise a aktualizují se denně. Každý výsledek uvádí čas poslední aktualizace dané země.',
+    'faq_4_a' => 'Sazby pocházejí z údajů Evropské komise a aktualizují se každý týden. Každý výsledek uvádí čas poslední aktualizace dané země.',
     'faq_5_q' => 'Jsou odpovědi daňovým poradenstvím?',
     'faq_5_a' => 'Ne. Server poskytuje referenční sazby. Správné uplatnění DPH závisí na zboží nebo službách a na zákazníkovi, proto důležité případy ověřte u daňového poradce nebo národní daňové správy.',
   ),

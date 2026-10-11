@@ -914,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Cotele unei țări',
-        'desc' => 'Cotele în vigoare, moneda și ultima actualizare pentru o țară.',
+        'desc' => 'Cotele în vigoare, moneda, formatul codului de TVA și ultima actualizare pentru o țară.',
         'prompt' => 'Care sunt cotele de TVA în Austria?',
       ),
       'calculate_vat' =>
@@ -962,7 +962,7 @@ return array (
     'detail_limits' => 'Utilizare corectă',
     'limits_value' => ':requests cereri pe minut per adresă IP, dintre care până la :checks verificări de coduri de TVA',
     'detail_data' => 'Date',
-    'data_value' => 'Cotele de TVA ale Comisiei Europene, actualizate zilnic',
+    'data_value' => 'Cotele de TVA ale Comisiei Europene, actualizate săptămânal',
     'detail_discovery' => 'Descoperire',
     'server_card' => 'Fișa serverului',
     'faq_heading' => 'Întrebări',
@@ -973,7 +973,7 @@ return array (
     'faq_3_q' => 'Este sigură conectarea?',
     'faq_3_a' => 'Da. Toate instrumentele sunt doar pentru citire: serverul returnează numai date și calcule de TVA. Nu vă poate vedea fișierele și nu acționează în numele dumneavoastră.',
     'faq_4_q' => 'Cât de actuale sunt cotele?',
-    'faq_4_a' => 'Cotele provin din date ale Comisiei Europene și sunt actualizate zilnic. Fiecare rezultat indică momentul ultimei actualizări a țării.',
+    'faq_4_a' => 'Cotele provin din date ale Comisiei Europene și sunt actualizate săptămânal. Fiecare rezultat indică momentul ultimei actualizări a țării.',
     'faq_5_q' => 'Răspunsurile reprezintă consultanță fiscală?',
     'faq_5_a' => 'Nu. Serverul returnează cote de referință. Tratamentul corect al TVA depinde de bunuri sau servicii și de client, așa că verificați cazurile importante cu un consultant fiscal sau cu administrația fiscală națională.',
   ),

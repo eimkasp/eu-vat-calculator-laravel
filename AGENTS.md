@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-EU VAT Info (`eu-vat.info`) is a Laravel 13 web application providing comprehensive EU VAT rate information, calculators, validators, and country-specific guides. It serves developers, businesses, and tax professionals with real-time data sourced from the European Commission.
+EU VAT Info (`vat.businesspress.io`, set by `SEO_CANONICAL_URL`; the old `eu-vat.info` host redirects to it) is a Laravel 13 web application providing comprehensive EU VAT rate information, calculators, validators, and country-specific guides. It serves developers, businesses, and tax professionals with real-time data sourced from the European Commission.
 
 ## Tech Stack
 
@@ -178,6 +178,11 @@ GET  /up                              # Application health check
 - Each page is `noindex, nofollow`, carries the archive bar (`public/v2/archive.css`), links the bar to the same page on the live site and loads `public/v2/archive.js`, which answers the Livewire 4 runtime in the browser: calculations work, picking a calculator country opens that country's archived page, search reads `public/v2/search-index.json`, and every other request (VIES checks, filters, sign-ups, the API and MCP testers) shows a read-only notice instead of reaching a server.
 - Assets (the build, fonts, images, flags and `livewire.min.js`) are copies inside `public/v2/`. Links to pages that were not archived (other languages, shared calculations, the API, downloads) point to the live site. The footer ("Previous version" for `/v2/`, "Older version" for `/v1/`) and the changelog link to both archives; `robots.txt` keeps AI crawlers out of both.
 - It sits outside the design system: do not edit, restyle or reformat it. `tests/Feature/SiteArchiveV2Test.php` guards that it stays complete, unindexed, self-contained and free of server calls.
+
+### AI discoverability
+- `llms.txt` and `llms-full.txt` (`LlmsController`) list every rate type, each member state's VAT number format and the primary sources, built from the database; describe the update schedule as it is (the rate dataset is synced every week).
+- Any HTML page answers `Accept: text/markdown` (`MarkdownNegotiation`): the `<main>` content without hidden UI (`x-cloak`, `hidden`, `aria-hidden`) or buttons, with tables, questions as headings and absolute links.
+- `/api/v1/countries` and the MCP country tools return `vat_number` (`VatNumberFormat::forCountry`) next to the rates.
 
 ### MCP server
 - `App\Support\Mcp\VatMcpServer` defines the public MCP server once: name, protocol versions, instructions, rate limits and every tool with its schema and annotations. `Api\McpController` serves it at `POST /api/mcp` (Streamable HTTP, stateless JSON, `throttle:mcp`).

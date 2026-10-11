@@ -914,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Les taux d\'un pays',
-        'desc' => 'Taux actuels, devise et dernière mise à jour pour un pays.',
+        'desc' => 'Taux actuels, devise, format du numéro de TVA et dernière mise à jour pour un pays.',
         'prompt' => 'Quels sont les taux de TVA en Autriche ?',
       ),
       'calculate_vat' =>
@@ -962,7 +962,7 @@ return array (
     'detail_limits' => 'Usage raisonnable',
     'limits_value' => ':requests requêtes par minute et par adresse IP, dont jusqu’à :checks vérifications de numéros de TVA',
     'detail_data' => 'Données',
-    'data_value' => 'Taux de TVA de la Commission européenne, mis à jour chaque jour',
+    'data_value' => 'Taux de TVA de la Commission européenne, mis à jour chaque semaine',
     'detail_discovery' => 'Découverte',
     'server_card' => 'Fiche du serveur',
     'faq_heading' => 'Questions',
@@ -973,7 +973,7 @@ return array (
     'faq_3_q' => 'La connexion est-elle sûre ?',
     'faq_3_a' => 'Oui. Tous les outils sont en lecture seule : le serveur ne renvoie que des données et des calculs de TVA. Il ne peut ni voir vos fichiers ni agir à votre place.',
     'faq_4_q' => 'Les taux sont-ils à jour ?',
-    'faq_4_a' => 'Les taux proviennent de données de la Commission européenne et sont mis à jour chaque jour. Chaque résultat indique la date de dernière mise à jour du pays.',
+    'faq_4_a' => 'Les taux proviennent de données de la Commission européenne et sont mis à jour chaque semaine. Chaque résultat indique la date de dernière mise à jour du pays.',
     'faq_5_q' => 'Les réponses sont-elles un conseil fiscal ?',
     'faq_5_a' => 'Non. Le serveur fournit des taux de référence. Le bon traitement de TVA dépend des biens ou services et du client : vérifiez les cas importants avec un conseiller fiscal ou l\'administration fiscale nationale.',
   ),

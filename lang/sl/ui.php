@@ -914,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Stopnje ene države',
-        'desc' => 'Veljavne stopnje, valuta in zadnja posodobitev za eno državo.',
+        'desc' => 'Veljavne stopnje, valuta, oblika identifikacijske številke za DDV in zadnja posodobitev za eno državo.',
         'prompt' => 'Kakšne so stopnje DDV v Avstriji?',
       ),
       'calculate_vat' =>
@@ -962,7 +962,7 @@ return array (
     'detail_limits' => 'Poštena raba',
     'limits_value' => ':requests zahtev na minuto z enega naslova IP, od tega do :checks preverjanj številk za DDV',
     'detail_data' => 'Podatki',
-    'data_value' => 'Stopnje DDV Evropske komisije, posodobljene vsak dan',
+    'data_value' => 'Stopnje DDV Evropske komisije, posodobljene vsak teden',
     'detail_discovery' => 'Odkrivanje',
     'server_card' => 'Kartica strežnika',
     'faq_heading' => 'Vprašanja',
@@ -973,7 +973,7 @@ return array (
     'faq_3_q' => 'Ali je povezava varna?',
     'faq_3_a' => 'Da. Vsa orodja so samo za branje: strežnik vrača le podatke in izračune DDV. Ne vidi vaših datotek in ne ukrepa v vašem imenu.',
     'faq_4_q' => 'Kako sveže so stopnje?',
-    'faq_4_a' => 'Stopnje izhajajo iz podatkov Evropske komisije in se posodabljajo vsak dan. Vsak rezultat navaja čas zadnje posodobitve države.',
+    'faq_4_a' => 'Stopnje izhajajo iz podatkov Evropske komisije in se posodabljajo vsak teden. Vsak rezultat navaja čas zadnje posodobitve države.',
     'faq_5_q' => 'Ali so odgovori davčni nasvet?',
     'faq_5_a' => 'Ne. Strežnik vrača referenčne stopnje. Pravilna obravnava DDV je odvisna od blaga ali storitev in od kupca, zato pomembne primere preverite pri davčnem svetovalcu ali nacionalni davčni upravi.',
   ),

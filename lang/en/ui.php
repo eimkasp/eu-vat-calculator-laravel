@@ -946,7 +946,7 @@ return [
             ],
             'get_country_vat_rate' => [
                 'title' => 'One country\'s rates',
-                'desc' => 'Current rates, currency and last update for a single country.',
+                'desc' => 'Current rates, currency, VAT number format and last update for a single country.',
                 'prompt' => 'What are the VAT rates in Austria?',
             ],
             'calculate_vat' => [
@@ -990,7 +990,7 @@ return [
         'detail_limits' => 'Fair use',
         'limits_value' => ':requests requests a minute per IP address, including up to :checks VAT number checks',
         'detail_data' => 'Data',
-        'data_value' => 'European Commission VAT rates, refreshed daily',
+        'data_value' => 'European Commission VAT rates, updated every week',
         'detail_discovery' => 'Discovery',
         'server_card' => 'Server card',
         'faq_heading' => 'Questions',
@@ -1001,7 +1001,7 @@ return [
         'faq_3_q' => 'Is it safe to connect?',
         'faq_3_a' => 'Yes. Every tool is read-only: the server only returns VAT data and calculations. It cannot see your files or act on your behalf.',
         'faq_4_q' => 'How current are the rates?',
-        'faq_4_a' => 'Rates come from European Commission data and are refreshed daily. Every result includes the time the country was last updated.',
+        'faq_4_a' => 'Rates come from European Commission data and are updated every week. Every result includes the time the country was last updated.',
         'faq_5_q' => 'Are the answers tax advice?',
         'faq_5_a' => 'No. The server returns reference rates. The right VAT treatment depends on the goods or services and the customer, so check important cases with a tax adviser or the national tax authority.',
     ],

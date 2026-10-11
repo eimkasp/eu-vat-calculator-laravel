@@ -914,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Rátaí tíre amháin',
-        'desc' => 'Rátaí reatha, airgeadra agus an nuashonrú is déanaí do thír amháin.',
+        'desc' => 'Rátaí reatha, airgeadra, formáid na huimhreach CBL agus an nuashonrú is déanaí do thír amháin.',
         'prompt' => 'Cad iad na rátaí CBL san Ostair?',
       ),
       'calculate_vat' =>
@@ -962,7 +962,7 @@ return array (
     'detail_limits' => 'Úsáid chóir',
     'limits_value' => ':requests iarratas sa nóiméad in aghaidh an tseolta IP, lena n-áirítear suas le :checks seiceáil ar uimhreacha CBL',
     'detail_data' => 'Sonraí',
-    'data_value' => 'Rátaí CBL an Choimisiúin Eorpaigh, nuashonraithe gach lá',
+    'data_value' => 'Rátaí CBL an Choimisiúin Eorpaigh, nuashonraithe gach seachtain',
     'detail_discovery' => 'Aimsiú',
     'server_card' => 'Cárta an fhreastalaí',
     'faq_heading' => 'Ceisteanna',
@@ -973,7 +973,7 @@ return array (
     'faq_3_q' => 'An bhfuil sé sábháilte ceangal?',
     'faq_3_a' => 'Tá. Tá gach uirlis inléite amháin: ní thugann an freastalaí ar ais ach sonraí agus ríomhanna CBL. Ní féidir leis do chomhaid a fheiceáil ná gníomhú thar do cheann.',
     'faq_4_q' => 'Cé chomh cothrom le dáta is atá na rátaí?',
-    'faq_4_a' => 'Tagann na rátaí ó shonraí an Choimisiúin Eorpaigh agus nuashonraítear iad gach lá. Léiríonn gach toradh cathain a nuashonraíodh an tír go deireanach.',
+    'faq_4_a' => 'Tagann na rátaí ó shonraí an Choimisiúin Eorpaigh agus nuashonraítear iad gach seachtain. Léiríonn gach toradh cathain a nuashonraíodh an tír go deireanach.',
     'faq_5_q' => 'An comhairle chánach iad na freagraí?',
     'faq_5_a' => 'Ní hea. Tugann an freastalaí rátaí tagartha ar ais. Braitheann an chóireáil cheart CBL ar na hearraí nó na seirbhísí agus ar an gcustaiméir, mar sin seiceáil cásanna tábhachtacha le comhairleoir cánach nó leis an údarás cánach náisiúnta.',
   ),

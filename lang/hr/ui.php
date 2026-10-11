@@ -914,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Stope jedne zemlje',
-        'desc' => 'Važeće stope, valuta i zadnje ažuriranje za jednu zemlju.',
+        'desc' => 'Važeće stope, valuta, oblik PDV broja i zadnje ažuriranje za jednu zemlju.',
         'prompt' => 'Koje su stope PDV-a u Austriji?',
       ),
       'calculate_vat' =>
@@ -962,7 +962,7 @@ return array (
     'detail_limits' => 'Poštena upotreba',
     'limits_value' => ':requests zahtjeva u minuti po IP adresi, od toga do :checks provjera PDV brojeva',
     'detail_data' => 'Podaci',
-    'data_value' => 'Stope PDV-a Europske komisije, ažurirane svaki dan',
+    'data_value' => 'Stope PDV-a Europske komisije, ažurirane svaki tjedan',
     'detail_discovery' => 'Otkrivanje',
     'server_card' => 'Kartica poslužitelja',
     'faq_heading' => 'Pitanja',
@@ -973,7 +973,7 @@ return array (
     'faq_3_q' => 'Je li povezivanje sigurno?',
     'faq_3_a' => 'Da. Svi alati služe samo za čitanje: poslužitelj vraća samo podatke i izračune PDV-a. Ne vidi vaše datoteke i ne djeluje u vaše ime.',
     'faq_4_q' => 'Koliko su stope ažurne?',
-    'faq_4_a' => 'Stope potječu iz podataka Europske komisije i ažuriraju se svaki dan. Svaki rezultat navodi vrijeme zadnjeg ažuriranja zemlje.',
+    'faq_4_a' => 'Stope potječu iz podataka Europske komisije i ažuriraju se svaki tjedan. Svaki rezultat navodi vrijeme zadnjeg ažuriranja zemlje.',
     'faq_5_q' => 'Jesu li odgovori porezni savjet?',
     'faq_5_a' => 'Ne. Poslužitelj vraća referentne stope. Pravilan tretman PDV-a ovisi o robi ili uslugama i o kupcu, pa važne slučajeve provjerite s poreznim savjetnikom ili nacionalnom poreznom upravom.',
   ),

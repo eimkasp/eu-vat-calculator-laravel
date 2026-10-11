@@ -914,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Le aliquote di un paese',
-        'desc' => 'Aliquote attuali, valuta e ultimo aggiornamento di un singolo paese.',
+        'desc' => 'Aliquote attuali, valuta, formato della partita IVA e ultimo aggiornamento di un singolo paese.',
         'prompt' => 'Quali sono le aliquote IVA in Austria?',
       ),
       'calculate_vat' =>
@@ -962,7 +962,7 @@ return array (
     'detail_limits' => 'Uso corretto',
     'limits_value' => ':requests richieste al minuto per indirizzo IP, di cui fino a :checks verifiche di partite IVA',
     'detail_data' => 'Dati',
-    'data_value' => 'Aliquote IVA della Commissione europea, aggiornate ogni giorno',
+    'data_value' => 'Aliquote IVA della Commissione europea, aggiornate ogni settimana',
     'detail_discovery' => 'Individuazione',
     'server_card' => 'Scheda del server',
     'faq_heading' => 'Domande',
@@ -973,7 +973,7 @@ return array (
     'faq_3_q' => 'È sicuro collegarlo?',
     'faq_3_a' => 'Sì. Tutti gli strumenti sono in sola lettura: il server restituisce solo dati e calcoli IVA. Non può vedere i tuoi file né agire per tuo conto.',
     'faq_4_q' => 'Quanto sono aggiornate le aliquote?',
-    'faq_4_a' => 'Le aliquote provengono da dati della Commissione europea e sono aggiornate ogni giorno. Ogni risultato indica quando il paese è stato aggiornato l\'ultima volta.',
+    'faq_4_a' => 'Le aliquote provengono da dati della Commissione europea e sono aggiornate ogni settimana. Ogni risultato indica quando il paese è stato aggiornato l\'ultima volta.',
     'faq_5_q' => 'Le risposte sono consulenza fiscale?',
     'faq_5_a' => 'No. Il server fornisce aliquote di riferimento. Il corretto trattamento IVA dipende dai beni o servizi e dal cliente, quindi verifica i casi importanti con un consulente fiscale o con l\'amministrazione finanziaria nazionale.',
   ),

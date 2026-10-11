@@ -914,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Egy ország kulcsai',
-        'desc' => 'Egy ország hatályos kulcsai, pénzneme és utolsó frissítése.',
+        'desc' => 'Egy ország hatályos kulcsai, pénzneme, közösségi adószámának formátuma és utolsó frissítése.',
         'prompt' => 'Mik az ÁFA-kulcsok Ausztriában?',
       ),
       'calculate_vat' =>
@@ -962,7 +962,7 @@ return array (
     'detail_limits' => 'Méltányos használat',
     'limits_value' => 'IP-címenként percenként :requests kérés, ebből legfeljebb :checks adószám-ellenőrzés',
     'detail_data' => 'Adatok',
-    'data_value' => 'Az Európai Bizottság ÁFA-kulcsai, naponta frissítve',
+    'data_value' => 'Az Európai Bizottság ÁFA-kulcsai, hetente frissítve',
     'detail_discovery' => 'Felderíthetőség',
     'server_card' => 'Szerverkártya',
     'faq_heading' => 'Kérdések',
@@ -973,7 +973,7 @@ return array (
     'faq_3_q' => 'Biztonságos a csatlakozás?',
     'faq_3_a' => 'Igen. Minden eszköz csak olvasható: a szerver kizárólag ÁFA-adatokat és számításokat ad vissza. Nem látja a fájljait, és nem jár el az Ön nevében.',
     'faq_4_q' => 'Mennyire frissek a kulcsok?',
-    'faq_4_a' => 'A kulcsok az Európai Bizottság adataiból származnak, és naponta frissülnek. Minden eredmény tartalmazza az ország utolsó frissítésének idejét.',
+    'faq_4_a' => 'A kulcsok az Európai Bizottság adataiból származnak, és hetente frissülnek. Minden eredmény tartalmazza az ország utolsó frissítésének idejét.',
     'faq_5_q' => 'Adótanácsadásnak számítanak a válaszok?',
     'faq_5_a' => 'Nem. A szerver referenciakulcsokat ad vissza. A helyes ÁFA-kezelés a termékektől vagy szolgáltatásoktól és a vevőtől függ, ezért a fontos eseteket egyeztesse adótanácsadóval vagy a nemzeti adóhatósággal.',
   ),

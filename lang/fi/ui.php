@@ -914,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Yhden maan kannat',
-        'desc' => 'Voimassa olevat kannat, valuutta ja viimeisin päivitys yhdelle maalle.',
+        'desc' => 'Voimassa olevat kannat, valuutta, ALV-numeron muoto ja viimeisin päivitys yhdelle maalle.',
         'prompt' => 'Mitkä ovat Itävallan ALV-kannat?',
       ),
       'calculate_vat' =>
@@ -962,7 +962,7 @@ return array (
     'detail_limits' => 'Kohtuullinen käyttö',
     'limits_value' => ':requests pyyntöä minuutissa IP-osoitetta kohden, joista enintään :checks ALV-numeron tarkistusta',
     'detail_data' => 'Tiedot',
-    'data_value' => 'Euroopan komission ALV-kannat, päivitetään päivittäin',
+    'data_value' => 'Euroopan komission ALV-kannat, päivitetään viikoittain',
     'detail_discovery' => 'Löydettävyys',
     'server_card' => 'Palvelinkortti',
     'faq_heading' => 'Kysymyksiä',
@@ -973,7 +973,7 @@ return array (
     'faq_3_q' => 'Onko yhdistäminen turvallista?',
     'faq_3_a' => 'Kyllä. Kaikki työkalut ovat vain luku -työkaluja: palvelin palauttaa ainoastaan ALV-tietoja ja laskelmia. Se ei näe tiedostojasi eikä toimi puolestasi.',
     'faq_4_q' => 'Kuinka ajantasaisia kannat ovat?',
-    'faq_4_a' => 'Kannat perustuvat Euroopan komission tietoihin, ja ne päivitetään päivittäin. Jokainen tulos kertoo, milloin maan tiedot päivitettiin viimeksi.',
+    'faq_4_a' => 'Kannat perustuvat Euroopan komission tietoihin, ja ne päivitetään viikoittain. Jokainen tulos kertoo, milloin maan tiedot päivitettiin viimeksi.',
     'faq_5_q' => 'Ovatko vastaukset veroneuvontaa?',
     'faq_5_a' => 'Eivät. Palvelin palauttaa viitekantoja. Oikea ALV-käsittely riippuu tavaroista tai palveluista ja asiakkaasta, joten tarkista tärkeät tapaukset veroneuvojalta tai kansalliselta veroviranomaiselta.',
   ),

@@ -2,6 +2,8 @@
 
 namespace App\Support\Vat;
 
+use App\Models\Country;
+
 /**
  * Reads the member state VAT number formats in config/vat-number-formats.php.
  */
@@ -25,6 +27,23 @@ final class VatNumberFormat
     public static function matches(array $format, string $number): bool
     {
         return preg_match('/'.$format['pattern'].'/', strtoupper((string) preg_replace('/[\s.\-\/]+/', '', $number))) === 1;
+    }
+
+    /**
+     * The format of a member state's VAT numbers for APIs and AI tools, or null outside the EU VAT system.
+     *
+     * @return array{prefix: string, format: string, masks: list<string>, pattern: string}|null
+     */
+    public static function forCountry(Country $country): ?array
+    {
+        $format = $country->is_eu_member ? config('vat-number-formats.'.strtoupper((string) $country->iso_code)) : null;
+
+        return $format ? [
+            'prefix' => $format['prefix'],
+            'format' => self::describe($format),
+            'masks' => $format['masks'],
+            'pattern' => $format['pattern'],
+        ] : null;
     }
 
     /**

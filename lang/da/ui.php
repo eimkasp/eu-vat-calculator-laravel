@@ -914,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Ét lands satser',
-        'desc' => 'Gældende satser, valuta og seneste opdatering for ét land.',
+        'desc' => 'Gældende satser, valuta, momsnummerets format og seneste opdatering for ét land.',
         'prompt' => 'Hvad er momssatserne i Østrig?',
       ),
       'calculate_vat' =>
@@ -962,7 +962,7 @@ return array (
     'detail_limits' => 'Rimelig brug',
     'limits_value' => ':requests forespørgsler i minuttet pr. IP-adresse, heraf op til :checks tjek af momsnumre',
     'detail_data' => 'Data',
-    'data_value' => 'Europa-Kommissionens momssatser, opdateret dagligt',
+    'data_value' => 'Europa-Kommissionens momssatser, opdateret hver uge',
     'detail_discovery' => 'Opdagelse',
     'server_card' => 'Serverkort',
     'faq_heading' => 'Spørgsmål',
@@ -973,7 +973,7 @@ return array (
     'faq_3_q' => 'Er det sikkert at forbinde?',
     'faq_3_a' => 'Ja. Alle værktøjer er skrivebeskyttede: Serveren returnerer kun momsdata og beregninger. Den kan ikke se dine filer eller handle på dine vegne.',
     'faq_4_q' => 'Hvor aktuelle er satserne?',
-    'faq_4_a' => 'Satserne stammer fra Europa-Kommissionens data og opdateres dagligt. Hvert resultat viser, hvornår landet sidst blev opdateret.',
+    'faq_4_a' => 'Satserne stammer fra Europa-Kommissionens data og opdateres hver uge. Hvert resultat viser, hvornår landet sidst blev opdateret.',
     'faq_5_q' => 'Er svarene skatterådgivning?',
     'faq_5_a' => 'Nej. Serveren returnerer referencesatser. Den rigtige momsbehandling afhænger af varerne eller ydelserne og af kunden, så tjek vigtige sager med en skatterådgiver eller den nationale skattemyndighed.',
   ),

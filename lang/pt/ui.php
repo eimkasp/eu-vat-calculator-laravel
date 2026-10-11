@@ -914,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Taxas de um país',
-        'desc' => 'Taxas atuais, moeda e última atualização de um país.',
+        'desc' => 'Taxas atuais, moeda, formato do número de IVA e última atualização de um país.',
         'prompt' => 'Quais são as taxas de IVA na Áustria?',
       ),
       'calculate_vat' =>
@@ -962,7 +962,7 @@ return array (
     'detail_limits' => 'Utilização justa',
     'limits_value' => ':requests pedidos por minuto e por endereço IP, incluindo até :checks verificações de números de IVA',
     'detail_data' => 'Dados',
-    'data_value' => 'Taxas de IVA da Comissão Europeia, atualizadas diariamente',
+    'data_value' => 'Taxas de IVA da Comissão Europeia, atualizadas todas as semanas',
     'detail_discovery' => 'Descoberta',
     'server_card' => 'Ficha do servidor',
     'faq_heading' => 'Perguntas',
@@ -973,7 +973,7 @@ return array (
     'faq_3_q' => 'É seguro ligá-lo?',
     'faq_3_a' => 'Sim. Todas as ferramentas são só de leitura: o servidor devolve apenas dados e cálculos de IVA. Não consegue ver os seus ficheiros nem agir em seu nome.',
     'faq_4_q' => 'As taxas estão atualizadas?',
-    'faq_4_a' => 'As taxas provêm de dados da Comissão Europeia e são atualizadas diariamente. Cada resultado indica quando o país foi atualizado pela última vez.',
+    'faq_4_a' => 'As taxas provêm de dados da Comissão Europeia e são atualizadas todas as semanas. Cada resultado indica quando o país foi atualizado pela última vez.',
     'faq_5_q' => 'As respostas são aconselhamento fiscal?',
     'faq_5_a' => 'Não. O servidor devolve taxas de referência. O tratamento correto do IVA depende dos bens ou serviços e do cliente, por isso confirme os casos importantes com um consultor fiscal ou com a autoridade tributária nacional.',
   ),

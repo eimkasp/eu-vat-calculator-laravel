@@ -914,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Stawki jednego kraju',
-        'desc' => 'Aktualne stawki, waluta i data ostatniej aktualizacji dla jednego kraju.',
+        'desc' => 'Aktualne stawki, waluta, format numeru VAT i data ostatniej aktualizacji dla jednego kraju.',
         'prompt' => 'Jakie są stawki VAT w Austrii?',
       ),
       'calculate_vat' =>
@@ -962,7 +962,7 @@ return array (
     'detail_limits' => 'Uczciwe korzystanie',
     'limits_value' => ':requests żądań na minutę z jednego adresu IP, w tym do :checks weryfikacji numerów VAT',
     'detail_data' => 'Dane',
-    'data_value' => 'Stawki VAT Komisji Europejskiej, aktualizowane codziennie',
+    'data_value' => 'Stawki VAT Komisji Europejskiej, aktualizowane co tydzień',
     'detail_discovery' => 'Wykrywanie',
     'server_card' => 'Karta serwera',
     'faq_heading' => 'Pytania',
@@ -973,7 +973,7 @@ return array (
     'faq_3_q' => 'Czy połączenie jest bezpieczne?',
     'faq_3_a' => 'Tak. Wszystkie narzędzia działają tylko do odczytu: serwer zwraca wyłącznie dane i obliczenia VAT. Nie widzi Twoich plików i nie działa w Twoim imieniu.',
     'faq_4_q' => 'Jak aktualne są stawki?',
-    'faq_4_a' => 'Stawki pochodzą z danych Komisji Europejskiej i są aktualizowane codziennie. Każdy wynik zawiera czas ostatniej aktualizacji danych kraju.',
+    'faq_4_a' => 'Stawki pochodzą z danych Komisji Europejskiej i są aktualizowane co tydzień. Każdy wynik zawiera czas ostatniej aktualizacji danych kraju.',
     'faq_5_q' => 'Czy odpowiedzi są poradą podatkową?',
     'faq_5_a' => 'Nie. Serwer podaje stawki referencyjne. Właściwe traktowanie VAT zależy od towarów lub usług i od klienta, dlatego ważne przypadki sprawdź z doradcą podatkowym lub krajową administracją skarbową.',
   ),

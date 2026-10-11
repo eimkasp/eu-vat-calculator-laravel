@@ -914,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Vienos šalies tarifai',
-        'desc' => 'Galiojantys tarifai, valiuta ir paskutinis atnaujinimas vienai šaliai.',
+        'desc' => 'Galiojantys tarifai, valiuta, PVM mokėtojo kodo formatas ir paskutinis atnaujinimas vienai šaliai.',
         'prompt' => 'Kokie PVM tarifai taikomi Austrijoje?',
       ),
       'calculate_vat' =>
@@ -962,7 +962,7 @@ return array (
     'detail_limits' => 'Sąžiningas naudojimas',
     'limits_value' => ':requests užklausų per minutę iš vieno IP adreso, iš jų iki :checks PVM mokėtojų kodų patikrinimų',
     'detail_data' => 'Duomenys',
-    'data_value' => 'Europos Komisijos PVM tarifai, atnaujinami kasdien',
+    'data_value' => 'Europos Komisijos PVM tarifai, atnaujinami kas savaitę',
     'detail_discovery' => 'Aptinkamumas',
     'server_card' => 'Serverio kortelė',
     'faq_heading' => 'Klausimai',
@@ -973,7 +973,7 @@ return array (
     'faq_3_q' => 'Ar saugu prisijungti?',
     'faq_3_a' => 'Taip. Visi įrankiai skirti tik skaitymui: serveris grąžina tik PVM duomenis ir skaičiavimus. Jis nemato jūsų failų ir neveikia jūsų vardu.',
     'faq_4_q' => 'Kiek aktualūs tarifai?',
-    'faq_4_a' => 'Tarifai gaunami iš Europos Komisijos duomenų ir atnaujinami kasdien. Kiekviename rezultate nurodoma, kada šalies duomenys atnaujinti paskutinį kartą.',
+    'faq_4_a' => 'Tarifai gaunami iš Europos Komisijos duomenų ir atnaujinami kas savaitę. Kiekviename rezultate nurodoma, kada šalies duomenys atnaujinti paskutinį kartą.',
     'faq_5_q' => 'Ar atsakymai yra mokesčių konsultacija?',
     'faq_5_a' => 'Ne. Serveris grąžina orientacinius tarifus. Tinkamas PVM taikymas priklauso nuo prekių ar paslaugų ir kliento, todėl svarbius atvejus pasitikrinkite su mokesčių konsultantu arba nacionaline mokesčių administracija.',
   ),

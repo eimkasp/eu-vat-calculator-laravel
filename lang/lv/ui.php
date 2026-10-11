@@ -914,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Vienas valsts likmes',
-        'desc' => 'Spēkā esošās likmes, valūta un pēdējā atjaunināšana vienai valstij.',
+        'desc' => 'Spēkā esošās likmes, valūta, PVN numura formāts un pēdējā atjaunināšana vienai valstij.',
         'prompt' => 'Kādas ir PVN likmes Austrijā?',
       ),
       'calculate_vat' =>
@@ -962,7 +962,7 @@ return array (
     'detail_limits' => 'Godīga izmantošana',
     'limits_value' => ':requests pieprasījumi minūtē no vienas IP adreses, tostarp līdz :checks PVN numuru pārbaudēm',
     'detail_data' => 'Dati',
-    'data_value' => 'Eiropas Komisijas PVN likmes, atjauninātas katru dienu',
+    'data_value' => 'Eiropas Komisijas PVN likmes, atjauninātas katru nedēļu',
     'detail_discovery' => 'Atrodamība',
     'server_card' => 'Servera karte',
     'faq_heading' => 'Jautājumi',
@@ -973,7 +973,7 @@ return array (
     'faq_3_q' => 'Vai pievienošana ir droša?',
     'faq_3_a' => 'Jā. Visi rīki ir tikai lasīšanai: serveris atgriež tikai PVN datus un aprēķinus. Tas neredz jūsu failus un nerīkojas jūsu vārdā.',
     'faq_4_q' => 'Cik aktuālas ir likmes?',
-    'faq_4_a' => 'Likmes nāk no Eiropas Komisijas datiem un tiek atjauninātas katru dienu. Katrs rezultāts norāda, kad valsts dati pēdējoreiz atjaunināti.',
+    'faq_4_a' => 'Likmes nāk no Eiropas Komisijas datiem un tiek atjauninātas katru nedēļu. Katrs rezultāts norāda, kad valsts dati pēdējoreiz atjaunināti.',
     'faq_5_q' => 'Vai atbildes ir nodokļu konsultācija?',
     'faq_5_a' => 'Nē. Serveris atgriež atsauces likmes. Pareizais PVN režīms ir atkarīgs no precēm vai pakalpojumiem un klienta, tāpēc svarīgus gadījumus pārbaudiet pie nodokļu konsultanta vai valsts nodokļu administrācijā.',
   ),

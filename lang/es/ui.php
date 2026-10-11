@@ -914,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Tipos de un país',
-        'desc' => 'Tipos actuales, moneda y última actualización de un país.',
+        'desc' => 'Tipos actuales, moneda, formato del número de IVA y última actualización de un país.',
         'prompt' => '¿Cuáles son los tipos de IVA en Austria?',
       ),
       'calculate_vat' =>
@@ -962,7 +962,7 @@ return array (
     'detail_limits' => 'Uso razonable',
     'limits_value' => ':requests solicitudes por minuto y dirección IP, de las cuales hasta :checks pueden ser comprobaciones de números de IVA',
     'detail_data' => 'Datos',
-    'data_value' => 'Tipos de IVA de la Comisión Europea, actualizados a diario',
+    'data_value' => 'Tipos de IVA de la Comisión Europea, actualizados cada semana',
     'detail_discovery' => 'Descubrimiento',
     'server_card' => 'Ficha del servidor',
     'faq_heading' => 'Preguntas',
@@ -973,7 +973,7 @@ return array (
     'faq_3_q' => '¿Es seguro conectarlo?',
     'faq_3_a' => 'Sí. Todas las herramientas son de solo lectura: el servidor solo devuelve datos y cálculos de IVA. No puede ver sus archivos ni actuar en su nombre.',
     'faq_4_q' => '¿Están actualizados los tipos?',
-    'faq_4_a' => 'Los tipos proceden de datos de la Comisión Europea y se actualizan a diario. Cada resultado incluye la fecha de la última actualización del país.',
+    'faq_4_a' => 'Los tipos proceden de datos de la Comisión Europea y se actualizan cada semana. Cada resultado incluye la fecha de la última actualización del país.',
     'faq_5_q' => '¿Las respuestas son asesoramiento fiscal?',
     'faq_5_a' => 'No. El servidor ofrece tipos de referencia. El tratamiento correcto del IVA depende de los bienes o servicios y del cliente, así que compruebe los casos importantes con un asesor fiscal o la administración tributaria nacional.',
   ),

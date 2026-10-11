@@ -914,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Sätze eines Landes',
-        'desc' => 'Aktuelle Sätze, Währung und letzte Aktualisierung für ein Land.',
+        'desc' => 'Aktuelle Sätze, Währung, Format der USt-IdNr. und letzte Aktualisierung für ein Land.',
         'prompt' => 'Welche MwSt.-Sätze gelten in Österreich?',
       ),
       'calculate_vat' =>
@@ -962,7 +962,7 @@ return array (
     'detail_limits' => 'Faire Nutzung',
     'limits_value' => ':requests Anfragen pro Minute und IP-Adresse, davon bis zu :checks USt-IdNr.-Prüfungen',
     'detail_data' => 'Daten',
-    'data_value' => 'MwSt.-Sätze der Europäischen Kommission, täglich aktualisiert',
+    'data_value' => 'MwSt.-Sätze der Europäischen Kommission, wöchentlich aktualisiert',
     'detail_discovery' => 'Erkennung',
     'server_card' => 'Server-Karte',
     'faq_heading' => 'Fragen',
@@ -973,7 +973,7 @@ return array (
     'faq_3_q' => 'Ist die Verbindung sicher?',
     'faq_3_a' => 'Ja. Alle Tools lesen nur: Der Server liefert ausschließlich MwSt.-Daten und Berechnungen. Er sieht weder Ihre Dateien noch handelt er in Ihrem Namen.',
     'faq_4_q' => 'Wie aktuell sind die Sätze?',
-    'faq_4_a' => 'Die Sätze stammen aus Daten der Europäischen Kommission und werden täglich aktualisiert. Jedes Ergebnis nennt den Zeitpunkt der letzten Aktualisierung des Landes.',
+    'faq_4_a' => 'Die Sätze stammen aus Daten der Europäischen Kommission und werden jede Woche aktualisiert. Jedes Ergebnis nennt den Zeitpunkt der letzten Aktualisierung des Landes.',
     'faq_5_q' => 'Sind die Antworten Steuerberatung?',
     'faq_5_a' => 'Nein. Der Server liefert Referenzsätze. Die richtige umsatzsteuerliche Behandlung hängt von Waren oder Dienstleistungen und vom Kunden ab. Klären Sie wichtige Fälle mit Ihrer Steuerberatung oder der zuständigen Steuerbehörde.',
   ),

@@ -914,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Ühe riigi määrad',
-        'desc' => 'Kehtivad määrad, valuuta ja viimane uuendus ühe riigi kohta.',
+        'desc' => 'Kehtivad määrad, valuuta, KMKR numbri vorming ja viimane uuendus ühe riigi kohta.',
         'prompt' => 'Millised on käibemaksumäärad Austrias?',
       ),
       'calculate_vat' =>
@@ -962,7 +962,7 @@ return array (
     'detail_limits' => 'Õiglane kasutus',
     'limits_value' => ':requests päringut minutis IP-aadressi kohta, sealhulgas kuni :checks käibemaksukohustuslase numbri kontrolli',
     'detail_data' => 'Andmed',
-    'data_value' => 'Euroopa Komisjoni käibemaksumäärad, uuendatakse iga päev',
+    'data_value' => 'Euroopa Komisjoni käibemaksumäärad, uuendatakse iga nädal',
     'detail_discovery' => 'Leitavus',
     'server_card' => 'Serveri kaart',
     'faq_heading' => 'Küsimused',
@@ -973,7 +973,7 @@ return array (
     'faq_3_q' => 'Kas ühendamine on turvaline?',
     'faq_3_a' => 'Jah. Kõik tööriistad on ainult lugemiseks: server tagastab vaid käibemaksuandmeid ja arvutusi. See ei näe teie faile ega tegutse teie nimel.',
     'faq_4_q' => 'Kui värsked on määrad?',
-    'faq_4_a' => 'Määrad pärinevad Euroopa Komisjoni andmetest ja neid uuendatakse iga päev. Iga tulemus näitab, millal riigi andmeid viimati uuendati.',
+    'faq_4_a' => 'Määrad pärinevad Euroopa Komisjoni andmetest ja neid uuendatakse iga nädal. Iga tulemus näitab, millal riigi andmeid viimati uuendati.',
     'faq_5_q' => 'Kas vastused on maksunõustamine?',
     'faq_5_a' => 'Ei. Server tagastab viitemäärad. Õige käibemaksukäsitlus sõltub kaupadest või teenustest ja kliendist, seega kontrollige olulisi juhtumeid maksunõustaja või riikliku maksuhalduriga.',
   ),

@@ -6,6 +6,7 @@ use App\Models\Country;
 use App\Models\VatRateChange;
 use App\Services\Seo\VatCategorySeoService;
 use App\Support\Mcp\VatMcpServer;
+use App\Support\Vat\VatNumberFormat;
 use Carbon\CarbonImmutable;
 use Illuminate\Http\Response;
 use Illuminate\Support\Collection;
@@ -21,7 +22,7 @@ class LlmsController extends Controller
     {
         [$countries, $updatedAt] = $this->countries();
 
-        $text = Cache::remember('llms_txt:v2:'.$updatedAt->timestamp, 3600, function () use ($countries, $updatedAt, $vatCategories) {
+        $text = Cache::remember('llms_txt:v3:'.$updatedAt->timestamp, 3600, function () use ($countries, $updatedAt, $vatCategories) {
             $base = $this->baseUrl();
             $mcp = VatMcpServer::endpoint();
 
@@ -39,7 +40,7 @@ class LlmsController extends Controller
             $text .= "- [Popular VAT calculations]({$base}/top-vat-calculations): VAT on common amounts in every EU country.\n\n";
 
             $text .= "## Data and APIs\n\n";
-            $text .= "- [Full VAT rates in Markdown]({$base}/llms-full.txt): Every rate, currency and VAT number prefix in one table, plus upcoming changes.\n";
+            $text .= "- [Full VAT rates in Markdown]({$base}/llms-full.txt): Every rate, currency and VAT number format in one table, plus upcoming changes and sources.\n";
             $text .= "- [MCP server]({$base}/mcp-server): Connect Claude, ChatGPT, VS Code, Cursor or any MCP client to live VAT data at {$mcp} (Streamable HTTP, no sign-up).\n";
             $text .= "- [REST API v1]({$base}/api/v1): Countries, rates and VAT calculations as JSON. No API key needed.\n";
             $text .= "- [OpenAPI description]({$base}/api/v1/openapi.json): OpenAPI 3.1 document for the v1 API.\n";
@@ -67,7 +68,9 @@ class LlmsController extends Controller
                 }
             }
 
-            $text .= "\n## Optional\n\n";
+            $text .= "\n".$this->sources();
+
+            $text .= "## Optional\n\n";
             $text .= "- [VAT updates and guides]({$base}/blog): Explainers on confirmed EU VAT changes.\n";
             $text .= "- [What's new]({$base}/changelog): Release notes for this site.\n";
             $text .= "- [API catalog]({$base}/.well-known/api-catalog): RFC 9727 list of the public APIs.\n";
@@ -85,7 +88,7 @@ class LlmsController extends Controller
     {
         [$countries, $updatedAt] = $this->countries();
 
-        $text = Cache::remember('llms_full_txt:'.$updatedAt->timestamp, 3600, function () use ($countries, $updatedAt) {
+        $text = Cache::remember('llms_full_txt:v2:'.$updatedAt->timestamp, 3600, function () use ($countries, $updatedAt) {
             $base = $this->baseUrl();
 
             $text = "# EU VAT Info: EU VAT rates reference\n\n";
@@ -100,17 +103,21 @@ class LlmsController extends Controller
             $text .= "- Super-reduced: a rate below 5% that some member states keep for specific items.\n";
             $text .= "- Parking: a transitional rate of at least 12% that a few member states still apply to certain items.\n";
             $text .= "- VAT prefix: the two letters that start a VAT number in VIES. Greece uses EL.\n";
+            $text .= "- VAT number format: the Commission's notation, where 9 is a digit, L a letter and X a letter or a digit. A number that fits can still be unregistered, so check it in VIES.\n";
             $text .= "- VAT treatment depends on the goods or services and the customer, so treat these rates as reference data rather than tax advice.\n\n";
 
             $text .= "## EU member states\n\n";
-            $text .= "| Country | ISO | VAT prefix | Currency | Standard | Reduced | Super-reduced | Parking |\n";
-            $text .= "|---|---|---|---|---|---|---|---|\n";
+            $text .= "| Country | ISO | VAT prefix | VAT number format | Currency | Standard | Reduced | Super-reduced | Parking |\n";
+            $text .= "|---|---|---|---|---|---|---|---|---|\n";
 
             foreach ($countries->where('is_eu_member', true) as $country) {
+                $format = VatNumberFormat::forCountry($country);
+
                 $text .= '| '.implode(' | ', [
                     $country->name,
                     $country->iso_code,
-                    $country->iso_code === 'GR' ? 'EL' : $country->iso_code,
+                    $format['prefix'] ?? ($country->iso_code === 'GR' ? 'EL' : $country->iso_code),
+                    $format['format'] ?? '-',
                     $country->currencyCode(),
                     ...$this->rateCells($country),
                 ])." |\n";
@@ -163,6 +170,8 @@ class LlmsController extends Controller
             $text .= "- MCP server: {$mcp} over Streamable HTTP, no sign-up. Tools: ".implode(', ', VatMcpServer::toolNames())."\n";
             $text .= "- Downloads: {$base}/datasets/eu-vat-rates.csv and {$base}/datasets/eu-vat-rates.json\n\n";
 
+            $text .= $this->sources();
+
             $text .= "## Country pages\n\n";
 
             foreach ($countries as $country) {
@@ -211,7 +220,17 @@ class LlmsController extends Controller
                 $line .= '; reduced '.implode(', ', array_map(fn (float $rate) => Country::formatRate($rate).'%', $reduced));
             }
 
+            foreach (['super_reduced' => 'super-reduced', 'parking' => 'parking'] as $type => $label) {
+                if ($rate = $country->rateForType($type)) {
+                    $line .= "; {$label} ".Country::formatRate($rate).'%';
+                }
+            }
+
             $line .= '; '.$country->currencyCode();
+
+            if ($format = VatNumberFormat::forCountry($country)) {
+                $line .= "; VAT numbers {$format['format']}";
+            }
 
             if ($country->is_eu_member && $country->vies_available) {
                 $line .= " · [VAT number validator]({$base}/vat-number-validator/{$country->slug})";
@@ -243,7 +262,18 @@ class LlmsController extends Controller
     private function summary(): string
     {
         return 'Current and historical VAT rates, a VAT calculator, VIES VAT number validation and machine-readable VAT data for the 27 EU member states and five other European countries. '
-            .'Free to use without sign-up. Rates come from European Commission data and are refreshed daily.';
+            .'Free to use without sign-up. Rates come from European Commission data and are updated every week.';
+    }
+
+    private function sources(): string
+    {
+        $text = "## Sources\n\n";
+        $text .= '- [European Commission: VAT rates]('.config('calculator.rates_source_url')."): The framework for EU VAT rates and the Taxes in Europe Database the member states report to.\n";
+        $text .= "- [Your Europe: VAT rules and rates](https://europa.eu/youreurope/business/finance-and-tax/vat/vat-rules-rates/index_en.htm): The Commission's table of standard, reduced, super-reduced and parking rates, which decides where sources disagree.\n";
+        $text .= '- [Open vat-rates dataset]('.config('calculator.dataset_source_url')."): The standard rate history, synced every week, and the rates of the countries outside the EU.\n";
+        $text .= "- [VIES](https://ec.europa.eu/taxation_customs/vies/): The Commission's register behind every VAT number check.\n\n";
+
+        return $text;
     }
 
     private function baseUrl(): string
