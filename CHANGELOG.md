@@ -4,6 +4,15 @@ All notable changes to EU VAT Info are documented here.
 
 ---
 
+## [5.1.1] — 2026-10-11 — A calmer calculator heading
+
+### Improved
+- **Everything on one line** — on each country calculator, the heading, the rates, the calculator and the sections below now start and end on the same edges, and the country's flag sits beside "EU member" instead of pushing the heading in.
+- **Common amounts in an even row** — the five amounts fill one row under the amount field at every screen size.
+- **Reduced rates read clearly on phones** — two reduced rates stack one above the other instead of breaking across lines.
+
+---
+
 ## [5.1.0] — 2026-10-11 — A calculator and validator you can check
 
 ### Added

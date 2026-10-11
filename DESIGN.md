@@ -139,7 +139,7 @@ Inter Variable is self-hosted with the optical-size axis, so large text automati
 | Small | `text-sm text-ink-muted` | Helper text, table cells |
 | Label | `text-[0.8125rem] font-semibold text-ink-muted` | Field labels, data labels (sentence case) |
 | Eyebrow | `app-eyebrow` | One short uppercase label above a heading on a light surface |
-| Kicker | `app-kicker` | One short uppercase label with the gold square, on navy |
+| Kicker | `app-kicker` | One short uppercase label with the gold square, on navy. In a country heading the country's flag takes the square's place from `sm` up (`sm:before:hidden`) |
 | Column head | `app-table` `thead` (uppercase, 0.06em tracking) | Table headers |
 
 Headings are always one solid colour: never highlight words in a headline. Use `tabular` for every figure that can change or be compared: rates, money, counts, dates in tables.
