@@ -94,7 +94,7 @@ The extra LCP in `after-v3.json` came from markup: the local PHP server sends HT
 | Median HTML, gzip | 21.2 KB | 23.9 KB | 22.0 KB |
 | axe violations, SEO and AI counts | as above | as above | unchanged from after 5.1.0 |
 
-Two short pages got slower: the comparison (+112 to +132 ms against the baseline) and the shared calculation (+76 to +108 ms). An A/B run with only the whitespace middleware toggled reproduces it: the HTML arrives 100–170 ms sooner, so the browser finds `livewire.min.js` sooner, and under the emulation's equal bandwidth split that script slows the stylesheet, which the first paint waits for. Production sends both compressed over HTTP/2, which serves the stylesheet first.
+Two short pages got slower: the comparison (+28 to +116 ms against the baseline) and the shared calculation (+76 to +108 ms). An A/B run with only the whitespace middleware toggled reproduces it: the HTML arrives 100–170 ms sooner, so the browser finds `livewire.min.js` sooner, and under the emulation's equal bandwidth split that script slows the stylesheet, which the first paint waits for. Production sends both compressed over HTTP/2, which serves the stylesheet first.
 
 ## Found while freezing v2
 
