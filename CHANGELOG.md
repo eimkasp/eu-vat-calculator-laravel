@@ -17,6 +17,7 @@ All notable changes to EU VAT Info are documented here.
 ### Improved
 - **Clearer search results in every language** — page titles and descriptions now fit what search engines show, in all 24 languages.
 - **The rate history in the site map** — the year pages before 2000 open again, and the popular calculations are listed for search engines.
+- **Faster first view** — pages send less markup, and the sections further down, such as the questions, the format table and the footer, are laid out only as you scroll to them, while staying fully readable for search engines and screen readers.
 - **Easier on phones and keyboards** — the comparison table can be scrolled with the keyboard, page regions have unique names for screen readers, and long translated site names no longer push the header off the screen.
 
 ### Fixed
