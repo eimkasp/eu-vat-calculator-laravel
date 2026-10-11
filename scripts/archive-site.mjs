@@ -4,6 +4,7 @@
 //
 // Usage (against a local server of the release being archived, with seeded data and a production build):
 //   node scripts/archive-site.mjs --base=http://127.0.0.1:8123 --version=v2 --captured="10 October 2026" --release=5.0
+//   (add --public=<checkout>/public when the server runs from another checkout of the release)
 import { createHash } from 'node:crypto';
 import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
@@ -23,8 +24,9 @@ const CAPTURED = args.captured ?? new Date().toLocaleDateString('en-GB', { day: 
 const RELEASE = args.release ?? '5.0';
 const PREFIX = `/${VERSION}`;
 const OUT = join(ROOT, 'public', VERSION);
-const PUBLIC = join(ROOT, 'public');
-const LIVEWIRE = join(ROOT, 'vendor/livewire/livewire/dist/livewire.min.js');
+// --public points at the public/ directory of the checkout being served when it is not this one.
+const PUBLIC = resolve(args.public ?? join(ROOT, 'public'));
+const LIVEWIRE = join(PUBLIC, '..', 'vendor/livewire/livewire/dist/livewire.min.js');
 const CONCURRENCY = Number(args.concurrency ?? 6);
 
 const LOCALES = ['bg', 'cs', 'da', 'de', 'el', 'es', 'et', 'fi', 'fr', 'ga', 'hr', 'hu', 'it', 'lt', 'lv', 'mt', 'nl', 'pl', 'pt', 'ro', 'sk', 'sl', 'sv'];
