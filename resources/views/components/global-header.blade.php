@@ -14,9 +14,9 @@
 
 <header x-data="{ menu: false }" @keydown.escape.window="menu = false" class="on-brand sticky top-0 z-40 border-b border-white/10 bg-brand-deep text-white">
     <div class="app-container flex h-16 items-center gap-2">
-        <a href="{{ locale_path('/') }}" class="-ml-1 flex shrink-0 items-center gap-2.5 whitespace-nowrap rounded-control px-1 py-1 text-[1.0625rem] font-bold tracking-[-0.02em] text-white">
+        <a href="{{ locale_path('/') }}" class="-ml-1 flex min-w-0 items-center gap-2.5 whitespace-nowrap rounded-control px-1 py-1 text-[1.0625rem] font-bold tracking-[-0.02em] text-white lg:shrink-0">
             <x-ui.logo />
-            <span>{{ __('ui.site_name') }}</span>
+            <span class="truncate">{{ __('ui.site_name') }}</span>
         </a>
 
         <nav class="ml-4 hidden items-center self-stretch lg:flex xl:ml-6" aria-label="{{ __('ui.nav.primary') }}">
