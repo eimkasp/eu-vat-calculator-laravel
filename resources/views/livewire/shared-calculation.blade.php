@@ -138,6 +138,7 @@
                     </div>
                 </div>
             </div>
+            <x-rate-freshness :updated="$countryModel->updated_at" :eu="$countryModel->is_eu_member" on-dark class="mx-auto mt-4 max-w-4xl justify-center" />
         </div>
     </section>
 

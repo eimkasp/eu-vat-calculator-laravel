@@ -43,6 +43,7 @@
     <x-page-header :title="$title" :description="__('ui.compare.intro')" :eyebrow="__('ui.compare.eyebrow')" :breadcrumbs="[__('ui.nav.all_countries') => locale_path('/'), $title => '']" />
 
     <div class="app-container space-y-8 py-8 sm:py-10">
+        <x-rate-freshness :updated="collect([$leftCountry->updated_at, $rightCountry->updated_at])->filter()->max()" class="-mb-4" />
         <section class="grid gap-4 md:grid-cols-2" aria-label="{{ __('ui.compare.standard_rate') }}">
             @foreach($pair as ['country' => $country])
                 @php($isHigher = $higher?->is($country))

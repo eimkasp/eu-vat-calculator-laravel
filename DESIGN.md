@@ -305,11 +305,15 @@ Two equal segments on a bordered `surface-muted` track; the white thumb slides i
 | `<x-ui.icon name="…" class="size-4" />` | Lucide icons at 1.75 stroke; add missing paths to `components/ui/icon.blade.php` in alphabetical order |
 | `<x-ui.logo />` | The EU VAT Info mark: white tile, navy slash and dot, gold dot |
 | `<x-json-ld :data="[…]" />` | Structured data; it adds `@context` for you |
+| `<x-rate-freshness :updated="…" :eu="…" />` | The date rates were updated and their source (the European Commission, or the open vat-rates dataset outside the EU); `on-dark` on navy, extra items in the slot |
+| `<x-faq-list :faqs="…" :title="…" id="…" />` | Questions as native disclosures, the first one open; build the FAQPage JSON-LD from the same list |
 | `tabular`, `pressable`, `on-brand`, `scrim`, `app-container` | Utilities described above |
 
 ## Patterns
 
 **Results.** Lead with the answer in display type, then one sentence that restates it in words, then a breakdown `dl`, then actions (share, copy, open). Announce changes through an `aria-live="polite"` region.
+
+**Freshness.** Every rate shows when it was last updated and where it comes from, close to the figure it qualifies: put `<x-rate-freshness>` under the calculator, in the header of a rate table and under a result. Say "Rates updated 1 Oct 2026", never "always up to date".
 
 **Forms.** Validate on the client for instant feedback and again on the server. Never auto-submit input that came from a URL unless it passed the strict pattern.
 

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\HasAnalytics;
+use Carbon\CarbonInterface;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -133,6 +134,32 @@ class Country extends Model implements Auditable, Sitemapable
     public function vatRateChanges()
     {
         return $this->hasMany(VatRateChange::class);
+    }
+
+    /**
+     * When the current standard rate took effect and the rate it replaced, from the stored rate history.
+     * Null when the history does not record the current rate.
+     *
+     * @return array{since: CarbonInterface, previous: ?float}|null
+     */
+    public function standardRateSince(): ?array
+    {
+        $periods = $this->vatRates()
+            ->where('type', 'standard')
+            ->whereDate('effective_from', '<=', today())
+            ->orderByDesc('effective_from')
+            ->limit(2)
+            ->get(['rate', 'effective_from', 'effective_to']);
+
+        $current = $periods->first();
+
+        if (! $current || ($current->effective_to && $current->effective_to->isPast()) || abs((float) $current->rate - (float) $this->standard_rate) > 0.001) {
+            return null;
+        }
+
+        $previous = $periods->get(1);
+
+        return ['since' => $current->effective_from, 'previous' => $previous ? (float) $previous->rate : null];
     }
 
     public function hasVatHistory(): bool

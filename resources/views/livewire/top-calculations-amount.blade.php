@@ -37,6 +37,7 @@
     <x-page-header :title="$heading" :description="$description" :eyebrow="__('ui.top_calc.heading')" :breadcrumbs="[__('ui.top_calc.breadcrumb') => locale_path('/top-vat-calculations'), $heading => '']" />
 
     <div class="app-container space-y-8 py-8 sm:py-10">
+        <x-rate-freshness :updated="Country::query()->where('is_eu_member', true)->max('updated_at')" class="-mb-4" />
         <nav aria-label="{{ __('ui.top_calc.amounts_label') }}" class="flex flex-wrap gap-2">
             @foreach($amounts as $option)
                 <a href="{{ locale_path('/top-vat-calculations/'.$option) }}" @if($option === $amount) aria-current="page" @endif @class(['app-chip tabular', 'app-chip-active' => $option === $amount])>{{ Money::format($option, 'EUR', decimals: 0) }}</a>

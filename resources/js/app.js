@@ -333,6 +333,10 @@ document.addEventListener('alpine:init', () => {
             this.mode = mode;
             this.persist();
         },
+        setAmount(value) {
+            this.amount = String(value);
+            this.persist();
+        },
         pickRate(rate) {
             this.useCustomRate = false;
             this.rate = Number(rate);
@@ -414,8 +418,9 @@ document.addEventListener('alpine:init', () => {
             this.persistTimer = setTimeout(() => this.$wire.calculate(this.mode, this.effectiveRate, this.parsedAmount), immediately ? 0 : 1500);
         },
     }));
-    Alpine.data('viesValidator', ({ prefixes = {}, flagBase = '/images/flags' } = {}) => ({
+    Alpine.data('viesValidator', ({ prefixes = {}, flagBase = '/images/flags', formats = {}, names = {}, mismatchTemplate = '' } = {}) => ({
         detected: false,
+        mismatch: '',
         get flag() {
             const iso = String(this.$wire.country_code ?? '').toLowerCase();
 
@@ -428,6 +433,29 @@ document.addEventListener('alpine:init', () => {
 
             if (iso && iso !== this.$wire.country_code) {
                 this.$wire.country_code = iso;
+            }
+
+            this.checkFormat(value, false);
+        },
+        // Hints at a typing mistake once the field is left; VIES stays the authority, so nothing is blocked.
+        checkFormat(value, settled = true) {
+            const cleaned = String(value ?? '').toUpperCase().replace(/[\s./-]+/g, '');
+            const selected = String(this.$wire.country_code ?? '').toUpperCase();
+            const prefix = formats[cleaned.slice(0, 2)] ? cleaned.slice(0, 2) : (selected === 'GR' ? 'EL' : selected);
+            const format = formats[prefix];
+
+            if (!format || cleaned.length < 4) {
+                this.mismatch = '';
+
+                return;
+            }
+
+            const number = cleaned.startsWith(prefix) ? cleaned : prefix + cleaned;
+
+            if (new RegExp(format.pattern).test(number)) {
+                this.mismatch = '';
+            } else if (settled) {
+                this.mismatch = mismatchTemplate.replace(':country', names[prefix] ?? prefix).replace(':format', format.format);
             }
         },
     }));

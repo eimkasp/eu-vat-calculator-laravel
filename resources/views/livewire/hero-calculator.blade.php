@@ -153,6 +153,25 @@
                     </div>
                 </div>
 
+                @unless($compact)
+                    @php($numbers = new \NumberFormatter($locale, \NumberFormatter::DECIMAL))
+                    <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3" role="group" aria-labelledby="quick-amounts-{{ $id }}">
+                        <span id="quick-amounts-{{ $id }}" class="text-[0.8125rem] font-semibold text-ink-muted">{{ __('ui.calculator.quick_amounts') }}</span>
+                        <div class="grid grid-cols-5 gap-1.5 sm:flex sm:flex-wrap sm:gap-2">
+                        @foreach(\App\Livewire\HeroCalculator::QUICK_AMOUNTS as $quick)
+                            <button
+                                type="button"
+                                @click="setAmount({{ $quick }})"
+                                :aria-pressed="(parsedAmount === {{ $quick }}).toString()"
+                                aria-pressed="{{ (float) $amount === (float) $quick ? 'true' : 'false' }}"
+                                class="app-chip tabular min-h-10 justify-center px-1 sm:px-3"
+                                :class="parsedAmount === {{ $quick }} && 'app-chip-active'"
+                            >{{ $numbers->format($quick) }}</button>
+                        @endforeach
+                        </div>
+                    </div>
+                @endunless
+
                 {{-- Rates --}}
                 <fieldset>
                     <legend class="mb-2 text-[0.8125rem] font-semibold text-ink-muted">{{ __('ui.calculator.rate_label') }}</legend>
@@ -250,20 +269,12 @@
         </div>
 
         @unless($compact || $embedded)
-            <div @class(['mx-auto mt-4 flex max-w-5xl flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium', 'text-white/75' => $onDark, 'text-ink-muted' => ! $onDark])>
+            <x-rate-freshness :updated="$country->updated_at" :eu="$country->is_eu_member" :on-dark="$onDark" class="mx-auto mt-4 max-w-5xl justify-center">
                 <span class="inline-flex items-center gap-1.5">
-                    <x-ui.icon name="shield-check" class="size-4" />
-                    {{ $country->is_eu_member ? __('ui.trust.official_ec_data') : __('ui.calculator.maintained_rate_data') }}
-                </span>
-                <span class="inline-flex items-center gap-1.5">
-                    <x-ui.icon name="clock" class="size-4" />
-                    {{ __('ui.data_updated_daily') }}
-                </span>
-                <span class="inline-flex items-center gap-1.5">
-                    <x-ui.icon name="zap" class="size-4" />
+                    <x-ui.icon name="zap" class="size-3.5 shrink-0" />
                     {{ __('ui.calculator.instant_results') }}
                 </span>
-            </div>
+            </x-rate-freshness>
 
             <section x-cloak x-show="$wire.history.length > 0" class="mx-auto mt-8 max-w-5xl" aria-labelledby="history-heading-{{ $id }}">
                 <div class="mb-3 flex items-center justify-between gap-3">

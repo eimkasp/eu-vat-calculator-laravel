@@ -1,5 +1,6 @@
 @use('App\Models\Country')
 @use('App\Support\SiteNavigation')
+@use('App\Support\Vat\VatNumberFormat')
 
 @php
     $title = $pageCountry
@@ -67,7 +68,13 @@
                 <p class="mx-auto mt-4 max-w-2xl text-base leading-7 text-white/80 sm:text-lg">{{ $subtitle }}</p>
             </div>
 
-            <div id="validator" class="app-surface-raised mx-auto max-w-4xl scroll-mt-24 overflow-hidden text-ink" x-data="viesValidator(@js(['prefixes' => $prefixes, 'flagBase' => asset('images/flags')]))">
+            <div id="validator" class="app-surface-raised mx-auto max-w-4xl scroll-mt-24 overflow-hidden text-ink" x-data="viesValidator(@js([
+                'prefixes' => $prefixes,
+                'flagBase' => asset('images/flags'),
+                'formats' => VatNumberFormat::forBrowser(),
+                'names' => collect($this->countries)->pluck('name', 'prefix')->all(),
+                'mismatchTemplate' => __('ui.vies_page.format_mismatch'),
+            ]))">
                 @if($pageCountry && ! $inVies)
                     <div class="flex items-start gap-3 border-b border-line bg-warning-soft px-5 py-4 text-sm sm:px-7" role="note">
                         <x-ui.icon name="info" class="mt-0.5 size-5 text-warning" />
@@ -90,6 +97,7 @@
                                 id="vat-number"
                                 wire:model="vat_number"
                                 x-on:input="detect($event.target.value)"
+                                x-on:blur="checkFormat($event.target.value)"
                                 type="text"
                                 autocomplete="off"
                                 autocapitalize="characters"
@@ -98,7 +106,7 @@
                                 enterkeyhint="search"
                                 placeholder="{{ __('ui.vies_page.vat_placeholder') }}"
                                 class="app-field h-12 font-mono text-base tracking-wide uppercase placeholder:font-sans placeholder:normal-case placeholder:tracking-normal"
-                                aria-describedby="vat-number-hint"
+                                aria-describedby="vat-number-hint vat-number-format-hint"
                                 @error('vat_number') aria-invalid="true" @enderror
                             >
                         </div>
@@ -145,6 +153,10 @@
                         <p class="mt-3 flex items-center gap-2 text-sm font-medium text-danger" role="alert"><x-ui.icon name="alert-triangle" class="size-4" />{{ $message }}</p>
                     @enderror
 
+                    <p id="vat-number-format-hint" class="mt-3 flex items-start gap-2 text-sm font-medium text-warning" x-cloak x-show="mismatch" role="status">
+                        <x-ui.icon name="alert-triangle" class="mt-0.5 size-4 shrink-0" />
+                        <span x-text="mismatch"></span>
+                    </p>
                     <p id="vat-number-hint" class="mt-3 text-sm text-ink-muted">
                         {{ __('ui.vies_page.auto_detect_hint') }}
                         <button type="button" wire:click="prefillExample" class="app-link font-semibold">{{ __('ui.vies_page.try_example') }}</button>
@@ -264,9 +276,10 @@
                             </div>
                             <div class="rounded-card bg-surface-subtle p-4">
                                 <dt class="text-xs font-semibold text-ink-muted">{{ __('ui.vies_page.format_structure') }}</dt>
-                                <dd class="mt-1 font-semibold text-ink">{{ __('ui.vies_page.format_structure_value', ['prefix' => $format['prefix']]) }}</dd>
+                                <dd class="mt-1 font-mono text-lg font-bold break-all text-ink">{{ VatNumberFormat::describe($format) }}</dd>
                             </div>
                         </dl>
+                        <p class="mt-3 text-xs leading-5 text-ink-muted">{{ __('ui.vies_page.format_legend') }}</p>
                         <p class="mt-4 text-sm leading-6 text-ink-muted">{{ $format['prefix'] === 'EL' ? __('ui.vies_page.format_note_gr') : __('ui.vies_page.format_note_default') }}</p>
                         <p class="mt-2 text-sm leading-6 text-ink-muted">{{ __('ui.vies_page.format_disclaimer') }}</p>
                         <a class="app-link mt-4 inline-flex items-center gap-1 text-sm font-semibold" href="{{ $format['source_url'] }}" target="_blank" rel="noopener noreferrer">
@@ -295,6 +308,43 @@
                         @endif
                     </div>
                 </section>
+
+                @unless($pageCountry)
+                    <section class="app-surface overflow-hidden" aria-labelledby="vat-number-formats">
+                        <div class="border-b border-line px-5 py-4 sm:px-6">
+                            <h2 id="vat-number-formats" class="text-xl font-bold text-ink">{{ __('ui.vies_page.formats_heading') }}</h2>
+                            <p class="mt-1 max-w-[72ch] text-sm text-ink-muted">{{ __('ui.vies_page.formats_intro') }}</p>
+                        </div>
+                        <div class="relative overflow-x-auto">
+                            <table class="app-table min-w-[30rem]">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="pl-5 sm:pl-6">{{ __('ui.vies_page.formats_th_country') }}</th>
+                                        <th scope="col" class="pr-5 sm:pr-6">{{ __('ui.vies_page.format_structure') }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($this->countries as $option)
+                                        @php($countryFormat = config('vat-number-formats.'.$option['iso']))
+                                        @continue(! $countryFormat)
+                                        <tr>
+                                            <th scope="row" class="pl-5 font-normal sm:pl-6">
+                                                <a href="{{ locale_path('/vat-number-validator/'.$option['slug']) }}" class="flex min-h-10 items-center gap-3 font-semibold text-ink hover:text-action">
+                                                    <x-ui.flag :iso="$option['iso']" />
+                                                    {{ $option['name'] }}
+                                                </a>
+                                            </th>
+                                            <td class="pr-5 font-mono text-sm font-semibold break-all text-ink sm:pr-6">{{ VatNumberFormat::describe($countryFormat) }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="border-t border-line px-5 py-3 text-xs leading-5 text-ink-muted sm:px-6">{{ __('ui.vies_page.format_legend') }}</p>
+                    </section>
+                @endunless
+
+                <x-faq-list :faqs="$faqs" :title="__('ui.vies_page.faq_heading')" id="vies-faq" />
 
                 <section class="app-surface overflow-hidden" aria-labelledby="vies-api" x-data="apiPlayground(@js(['endpoint' => $endpoint]))">
                     <div class="flex flex-wrap items-start justify-between gap-3 border-b border-line px-5 py-4 sm:px-6">
@@ -365,21 +415,6 @@
                             </span>
                             <x-ui.icon name="arrow-right" class="size-4 text-action transition-transform group-hover:translate-x-0.5" />
                         </a>
-                    </div>
-                </section>
-
-                <section class="app-surface overflow-hidden" aria-labelledby="vies-faq">
-                    <h2 id="vies-faq" class="border-b border-line px-5 py-4 text-lg font-bold text-ink sm:px-6">{{ __('ui.vies_page.faq_heading') }}</h2>
-                    <div class="divide-y divide-line">
-                        @foreach($faqs as $faq)
-                            <details class="group px-5 sm:px-6" @if($loop->first) open @endif>
-                                <summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-4 font-semibold text-ink [&::-webkit-details-marker]:hidden">
-                                    {{ $faq['q'] }}
-                                    <x-ui.icon name="chevron-down" class="size-4 text-ink-quiet transition-transform group-open:rotate-180" />
-                                </summary>
-                                <p class="-mt-1 max-w-[72ch] pb-5 text-sm leading-6 text-ink-muted">{{ $faq['a'] }}</p>
-                            </details>
-                        @endforeach
                     </div>
                 </section>
 

@@ -16,7 +16,7 @@ it('shows maintained country-specific VAT number guidance with an official sourc
 
     $this->get('/vat-number-validator/germany')
         ->assertOk()
-        ->assertSee('DE followed by the national identifier')
+        ->assertSee('DE999999999')
         ->assertSee('Only national tax administrations issue VAT identification numbers')
         ->assertSee('taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-identification-numbers_en');
 });
@@ -31,7 +31,7 @@ it('uses the EL VAT prefix guidance for Greece', function () {
 
     $this->get('/vat-number-validator/greece')
         ->assertOk()
-        ->assertSee('EL followed by the national identifier')
+        ->assertSee('EL999999999')
         ->assertSee('Greece uses EL for VAT identification numbers');
 });
 
