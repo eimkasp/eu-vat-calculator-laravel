@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Alla registrerade momssatsändringar',
     'widget_desc' => 'Bädda in en räknare på din webbplats',
     'validator_short' => 'Momsvalidering',
+    'shortcuts' => 'Genvägar till verktyg',
   ),
   'footer' => 
   array (

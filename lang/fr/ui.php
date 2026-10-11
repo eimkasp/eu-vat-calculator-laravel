@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Tous les changements de taux enregistrés',
     'widget_desc' => 'Intégrez un calculateur à votre site',
     'validator_short' => 'Validateur de TVA',
+    'shortcuts' => 'Raccourcis vers les outils',
   ),
   'footer' => 
   array (

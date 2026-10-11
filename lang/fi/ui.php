@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Kaikki kirjatut verokantamuutokset',
     'widget_desc' => 'Upota laskuri omalle sivustollesi',
     'validator_short' => 'ALV-tarkistin',
+    'shortcuts' => 'Työkalujen pikalinkit',
   ),
   'footer' => 
   array (

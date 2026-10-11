@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Alle registrerede satsændringer',
     'widget_desc' => 'Integrer en beregner på dit website',
     'validator_short' => 'Momsvalidering',
+    'shortcuts' => 'Genveje til værktøjer',
   ),
   'footer' => 
   array (

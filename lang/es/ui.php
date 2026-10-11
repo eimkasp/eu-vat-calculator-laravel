@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Todos los cambios de tipos registrados',
     'widget_desc' => 'Integre una calculadora en su sitio web',
     'validator_short' => 'Validador de IVA',
+    'shortcuts' => 'Accesos directos a herramientas',
   ),
   'footer' => 
   array (

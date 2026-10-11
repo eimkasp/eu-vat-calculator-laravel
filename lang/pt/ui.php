@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Todas as alterações de taxas registadas',
     'widget_desc' => 'Incorpore uma calculadora no seu site',
     'validator_short' => 'Validador de IVA',
+    'shortcuts' => 'Atalhos para ferramentas',
   ),
   'footer' => 
   array (

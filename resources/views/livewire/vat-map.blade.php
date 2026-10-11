@@ -2,7 +2,31 @@
 @use('App\Support\EuropeMapSvg')
 
 @section('seo')
-    <x-seo-meta :title="__('ui.map.title').' - EU VAT Info'" :description="__('ui.map.subtitle')" :url="url()->current()" />
+    <x-seo-meta :title="__('ui.map.title').' - EU VAT Info'" :description="__('ui.map.subtitle')" :url="url()->current()">
+        @if($ranked->isNotEmpty())
+            <x-json-ld :data="[
+                '@type' => 'WebPage',
+                'name' => __('ui.map.title'),
+                'description' => __('ui.map.subtitle'),
+                'url' => url(locale_path('/vat-map')),
+                'inLanguage' => app()->getLocale(),
+                'dateModified' => $ranked->max('updated_at')?->toIso8601String(),
+                'isPartOf' => ['@type' => 'WebSite', 'name' => __('ui.site_name'), 'url' => url(locale_path('/'))],
+                'mainEntity' => [
+                    '@type' => 'ItemList',
+                    'name' => __('ui.map.all_rates'),
+                    'itemListOrder' => 'https://schema.org/ItemListOrderDescending',
+                    'numberOfItems' => $ranked->count(),
+                    'itemListElement' => $ranked->values()->map(fn (Country $country, int $index) => [
+                        '@type' => 'ListItem',
+                        'position' => $index + 1,
+                        'name' => $country->name.': '.Country::formatRate($country->standard_rate).'%',
+                        'url' => url(locale_path('/vat-calculator/'.$country->slug)),
+                    ])->all(),
+                ],
+            ]" />
+        @endif
+    </x-seo-meta>
 @endsection
 
 <div>

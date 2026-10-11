@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Všechny zaznamenané změny sazeb',
     'widget_desc' => 'Vložte si kalkulačku na svůj web',
     'validator_short' => 'Validátor DIČ',
+    'shortcuts' => 'Rychlý přístup k nástrojům',
   ),
   'footer' => 
   array (

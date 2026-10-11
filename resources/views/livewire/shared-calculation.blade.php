@@ -24,7 +24,23 @@
         :url="$this->indexable ? $shareUrl : app(SeoPolicy::class)->localizedUrl('/vat-calculator/'.$countryModel->slug, config('translation.default_language', 'en'))"
         :robots="$this->indexable ? null : 'noindex, follow'"
         type="website"
-    />
+    >
+        <x-json-ld :data="[
+            '@type' => 'WebPage',
+            'name' => $headline,
+            'url' => $shareUrl,
+            'inLanguage' => app()->getLocale(),
+            'dateModified' => $countryModel->updated_at?->toIso8601String(),
+            'isPartOf' => ['@type' => 'WebSite', 'name' => __('ui.site_name'), 'url' => url(locale_path('/'))],
+            'about' => ['@type' => 'Country', 'name' => $countryModel->name],
+            'mainEntity' => [
+                '@type' => 'MonetaryAmount',
+                'name' => __('ui.calculator.total_incl_vat'),
+                'currency' => $currency,
+                'value' => round($calculation->gross, 2),
+            ],
+        ]" />
+    </x-seo-meta>
 @endsection
 
 <div>

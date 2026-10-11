@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Kõik registreeritud määramuudatused',
     'widget_desc' => 'Manustage kalkulaator oma veebisaidile',
     'validator_short' => 'Käibemaksunumbri kontroll',
+    'shortcuts' => 'Tööriistade otseteed',
   ),
   'footer' => 
   array (

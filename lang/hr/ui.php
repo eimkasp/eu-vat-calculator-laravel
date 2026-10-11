@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Sve zabilježene promjene stopa',
     'widget_desc' => 'Ugradite kalkulator na svoju stranicu',
     'validator_short' => 'Validator PDV-a',
+    'shortcuts' => 'Prečaci do alata',
   ),
   'footer' => 
   array (

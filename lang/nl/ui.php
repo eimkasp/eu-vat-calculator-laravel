@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Elke geregistreerde tariefwijziging',
     'widget_desc' => 'Sluit een calculator in op uw website',
     'validator_short' => 'BTW-validator',
+    'shortcuts' => 'Snelkoppelingen naar tools',
   ),
   'footer' => 
   array (

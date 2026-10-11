@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Toate modificările de cote înregistrate',
     'widget_desc' => 'Încorporați un calculator pe site-ul dumneavoastră',
     'validator_short' => 'Validator TVA',
+    'shortcuts' => 'Scurtături către instrumente',
   ),
   'footer' => 
   array (

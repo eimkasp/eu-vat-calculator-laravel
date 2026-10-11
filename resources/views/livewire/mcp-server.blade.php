@@ -72,9 +72,9 @@
                 },
             }">
                 <div class="border-b border-line p-5 sm:p-7">
-                    <label for="mcp-endpoint" class="mb-1.5 block text-[0.8125rem] font-semibold text-ink-muted">{{ __('ui.mcp_page.endpoint_label') }}</label>
+                    <p id="mcp-endpoint-label" class="mb-1.5 block text-[0.8125rem] font-semibold text-ink-muted">{{ __('ui.mcp_page.endpoint_label') }}</p>
                     <div class="flex flex-col gap-2 sm:flex-row">
-                        <input id="mcp-endpoint" type="text" readonly value="{{ $endpoint }}" spellcheck="false" class="app-field min-w-0 flex-1 font-mono text-[0.8125rem] sm:text-sm" x-on:focus="$el.select()">
+                        <code id="mcp-endpoint" class="app-field flex min-w-0 flex-1 select-all items-center font-mono text-[0.8125rem] break-all sm:text-sm">{{ $endpoint }}</code>
                         <button type="button" class="app-button-primary shrink-0" x-on:click="$copy(@js($endpoint), @js(__('ui.mcp_page.copied')))">
                             <x-ui.icon name="copy" class="size-4" />
                             {{ __('ui.mcp_page.copy_url') }}

@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Gach athrú ráta a taifeadadh',
     'widget_desc' => 'Leabaigh áireamhán ar do shuíomh',
     'validator_short' => 'Bailíochtóir CBL',
+    'shortcuts' => 'Aicearraí chuig uirlisí',
   ),
   'footer' => 
   array (

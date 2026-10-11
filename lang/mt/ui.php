@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Kull bidla rreġistrata fir-rati',
     'widget_desc' => 'Inkorpora kalkulatur fis-sit tiegħek',
     'validator_short' => 'Validatur tal-VAT',
+    'shortcuts' => 'Skorċjatojiet għall-għodod',
   ),
   'footer' => 
   array (

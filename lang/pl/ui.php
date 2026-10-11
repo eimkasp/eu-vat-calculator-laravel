@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Wszystkie zarejestrowane zmiany stawek',
     'widget_desc' => 'Osadź kalkulator na swojej stronie',
     'validator_short' => 'Walidator VAT',
+    'shortcuts' => 'Skróty do narzędzi',
   ),
   'footer' => 
   array (

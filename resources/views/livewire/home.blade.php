@@ -69,7 +69,7 @@
         </div>
     </section>
 
-    <section class="app-container py-12 sm:py-16" aria-labelledby="rates-heading">
+    <section class="app-container py-12 sm:py-16">
         <div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-[minmax(0,1fr)_22rem]">
             <x-country-rates-table :countries="$countries" :search="$search" :stats="$stats" />
             <x-home-sidebar />

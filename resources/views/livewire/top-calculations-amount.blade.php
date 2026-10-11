@@ -18,7 +18,19 @@
 @endphp
 
 @section('seo')
-    <x-seo-meta :title="$heading.' — '.__('ui.top_calc.page_title')" :description="$description" type="website" />
+    <x-seo-meta :title="$heading.' — '.__('ui.top_calc.page_title')" :description="$description" type="website">
+        <x-json-ld :data="[
+            '@type' => 'ItemList',
+            'name' => $heading,
+            'numberOfItems' => count($countries),
+            'itemListElement' => collect($countries)->values()->map(fn (array $country, int $index) => [
+                '@type' => 'ListItem',
+                'position' => $index + 1,
+                'name' => $country['name'].': '.Country::formatRate($country['standard_rate']).'%',
+                'url' => url(SharedCalculation::calculationUrl($country['slug'], $amount, $country['standard_rate'], 'exclude')),
+            ])->all(),
+        ]" />
+    </x-seo-meta>
 @endsection
 
 <div>

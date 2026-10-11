@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Visi užregistruoti tarifų pokyčiai',
     'widget_desc' => 'Įterpkite skaičiuoklę į savo svetainę',
     'validator_short' => 'PVM numerio tikrinimas',
+    'shortcuts' => 'Greitosios nuorodos į įrankius',
   ),
   'footer' => 
   array (

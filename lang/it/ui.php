@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Tutte le variazioni di aliquota registrate',
     'widget_desc' => 'Un calcolatore da incorporare nel proprio sito',
     'validator_short' => 'Validatore IVA',
+    'shortcuts' => 'Scorciatoie agli strumenti',
   ),
   'footer' => 
   array (

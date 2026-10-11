@@ -67,9 +67,9 @@
             @endforeach
         </section>
 
-        <section class="app-surface overflow-hidden" aria-labelledby="comparison-table">
+        <section class="app-surface overflow-hidden">
             <h2 id="comparison-table" class="sr-only">{{ $title }}</h2>
-            <div class="relative overflow-x-auto">
+            <div class="relative overflow-x-auto" tabindex="0" role="region" aria-labelledby="comparison-table">
                 <table class="app-table min-w-[36rem]">
                     <thead>
                         <tr>

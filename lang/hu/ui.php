@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Minden rögzített kulcsváltozás',
     'widget_desc' => 'Ágyazzon be kalkulátort a webhelyére',
     'validator_short' => 'ÁFA-szám-ellenőrző',
+    'shortcuts' => 'Gyorselérés az eszközökhöz',
   ),
   'footer' => 
   array (

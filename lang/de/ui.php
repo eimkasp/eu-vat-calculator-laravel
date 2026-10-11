@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Alle erfassten Satzänderungen',
     'widget_desc' => 'Rechner in Ihre Website einbetten',
     'validator_short' => 'USt-IdNr.-Prüfung',
+    'shortcuts' => 'Schnellzugriff auf Tools',
   ),
   'footer' => 
   array (

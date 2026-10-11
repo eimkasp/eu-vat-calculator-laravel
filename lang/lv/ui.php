@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Visas reģistrētās likmju izmaiņas',
     'widget_desc' => 'Ieguliet kalkulatoru savā vietnē',
     'validator_short' => 'PVN pārbaude',
+    'shortcuts' => 'Ātrās saites uz rīkiem',
   ),
   'footer' => 
   array (

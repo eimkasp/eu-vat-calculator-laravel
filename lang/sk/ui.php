@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Všetky zaznamenané zmeny sadzieb',
     'widget_desc' => 'Vložte si kalkulačku na svoj web',
     'validator_short' => 'Validátor IČ DPH',
+    'shortcuts' => 'Skratky k nástrojom',
   ),
   'footer' => 
   array (

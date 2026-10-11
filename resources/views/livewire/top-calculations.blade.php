@@ -9,7 +9,19 @@
 @endphp
 
 @section('seo')
-    <x-seo-meta :title="__('ui.top_calc.page_title')" :description="__('ui.top_calc.page_description')" type="website" />
+    <x-seo-meta :title="__('ui.top_calc.page_title')" :description="__('ui.top_calc.page_description')" type="website">
+        <x-json-ld :data="[
+            '@type' => 'ItemList',
+            'name' => __('ui.top_calc.page_title'),
+            'numberOfItems' => count($amounts),
+            'itemListElement' => collect($amounts)->values()->map(fn (int $amount, int $index) => [
+                '@type' => 'ListItem',
+                'position' => $index + 1,
+                'name' => __('ui.top_calc.vat_on_amount', ['amount' => number_format($amount)]),
+                'url' => url(locale_path('/top-vat-calculations/'.$amount)),
+            ])->all(),
+        ]" />
+    </x-seo-meta>
 @endsection
 
 <div>

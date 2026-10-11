@@ -57,6 +57,7 @@ return [
         'history_desc' => 'Every recorded rate change',
         'widget_desc' => 'Embed a calculator on your site',
         'validator_short' => 'VAT validator',
+        'shortcuts' => 'Tool shortcuts',
     ],
 
     // ── Footer ──────────────────────────────────────────────────────────

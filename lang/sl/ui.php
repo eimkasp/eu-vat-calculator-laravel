@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Vse zabeležene spremembe stopenj',
     'widget_desc' => 'Vdelajte kalkulator v svojo spletno stran',
     'validator_short' => 'Preverjanje številke DDV',
+    'shortcuts' => 'Bližnjice do orodij',
   ),
   'footer' => 
   array (
