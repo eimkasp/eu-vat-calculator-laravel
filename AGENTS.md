@@ -164,6 +164,7 @@ GET  /up                              # Application health check
 - VAT maths: `App\Support\Vat` (PHP) mirrored by `resources/js/vat.js`; keep both in sync
 - Structured data: `<x-json-ld :data="[…]">` (never write `@context` in Blade)
 - Freshness: every rate shows its update date and source with `<x-rate-freshness :updated="…" :eu="…">` (European Commission for members, the open vat-rates dataset otherwise). Questions use `<x-faq-list>` with FAQPage JSON-LD built from the same list; country calculator questions come from `App\Support\Vat\CountryFaq`, worked out from the country's data.
+- Reduced, super-reduced and parking rates are not in the synced rate history (it has standard rates only). `App\Support\Vat\RateCorrections` lists the ones that changed after the January 2024 snapshot, checked against the Commission's TEDB (`https://ec.europa.eu/taxation_customs/tedb/ws/`, SOAP `retrieveVatRates`; skip `REGION` and `TEMPORARY_EXEMPTION_RATE` entries). A data migration applies it, guarded so hand-corrected values stay.
 - VAT number formats: `config/vat-number-formats.php` holds each member state's masks in the Commission's notation (9 digit, L letter, X letter or digit) and a pattern; `App\Support\Vat\VatNumberFormat` describes them and feeds the validator's non-blocking format hint. VIES stays the authority.
 
 ### Site archive (`/v1`)
@@ -213,7 +214,7 @@ php artisan test                     # Run all tests
 
 # Database
 php artisan migrate                  # Run migrations
-php artisan db:seed                  # Seed data (then applies vat:verify --fix: the rate history sets the standard rates)
+php artisan db:seed                  # Seed data (then applies vat:verify --fix and RateCorrections: current standard, reduced, super-reduced and parking rates)
 
 # Sitemap
 php artisan sitemap:generate         # Or visit /sitemap/generate
