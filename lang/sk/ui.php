@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Všetky zaznamenané zmeny sadzieb',
     'widget_desc' => 'Vložte si kalkulačku na svoj web',
     'validator_short' => 'Validátor IČ DPH',
+    'shortcuts' => 'Skratky k nástrojom',
   ),
   'footer' => 
   array (
@@ -67,14 +68,15 @@ return array (
     'donate' => 'Prispieť',
     'privacy' => 'Zásady ochrany osobných údajov',
     'previous_version' => 'Predchádzajúca verzia',
+    'older_version' => 'Staršia verzia',
     'developers' => 'Pre vývojárov',
     'mcp_server' => 'MCP server',
     'data_source_note' => 'Sadzby pochádzajú od Európskej komisie a denne sa overujú',
   ),
   'home_page' => 
   array (
-    'title' => 'DPH v EÚ - Kalkulačka a informácie o sadzbách DPH pre všetky krajiny EÚ',
-    'meta_desc' => 'Aktuálne sadzby DPH pre všetkých 27 krajín EÚ. Bezplatná online kalkulačka, historické údaje od roku 2000, upozornenia na zmeny sadzieb a sprievodcovia súladom. Aktualizované denne.',
+    'title' => 'Kalkulačka DPH a sadzby DPH pre všetkých 27 krajín EÚ',
+    'meta_desc' => 'Pripočítajte alebo odpočítajte DPH vo všetkých 27 krajinách EÚ podľa platných základných a znížených sadzieb. Overte IČ DPH vo VIES a sledujte každú zmenu.',
     'heading' => 'Sadzby DPH v',
     'heading_accent' => 'Európskej únii',
     'subtitle' => 'Aktuálne štandardné sadzby DPH, znížené sadzby a kalkulačka pre všetkých 27 členských štátov EÚ. Aktualizované denne.',
@@ -198,6 +200,29 @@ return array (
     'calculation_reference' => 'Prehľad výpočtov',
     'formula_add' => 'Čistá suma × :multiplier = hrubá suma',
     'formula_remove' => 'Hrubá suma ÷ :multiplier = čistá suma',
+    'quick_amounts' => 'Bežné sumy',
+    'rate_since' => 'Platí od :date',
+    'rate_since_previous' => 'Platí od :date, predtým :rate %',
+    'vat_number_format' => 'Formát IČ DPH',
+    'full_rate_history' => 'História sadzieb DPH: :country',
+    'formula_vat_part' => 'DPH obsiahnutú v cene s :rate % DPH zistíte tak, že cenu vynásobíte :rate a vydelíte :divisor.',
+    'common_amounts_heading' => 'DPH z bežných súm: :country',
+    'common_amounts_intro' => 'Pri základnej sadzbe :rate %. Otvorte sumu a uvidíte celý rozpis pripravený na zdieľanie.',
+    'th_amount' => 'Suma',
+    'th_add_vat' => 'Po pripočítaní :rate % DPH',
+    'th_remove_vat' => 'Po odpočítaní :rate % DPH',
+    'faq_heading' => 'Otázky o DPH: :country',
+    'faq_rate_q' => 'Aká je sadzba DPH v krajine :country?',
+    'faq_rate_a' => 'Základná sadzba DPH v krajine :country je :rate %. Znížené sadzby :reduced sa uplatňujú na vybraný tovar a služby.',
+    'faq_rate_a_standard_only' => 'Základná sadzba DPH v krajine :country je :rate % a :country zníženú sadzbu nemá.',
+    'faq_add_q' => 'Ako pripočítať DPH k cene v krajine :country?',
+    'faq_add_a' => 'Vynásobte cenu bez DPH číslom :multiplier. Napríklad :net plus :rate % DPH je :gross.',
+    'faq_remove_q' => 'Ako odpočítať DPH z ceny v krajine :country?',
+    'faq_remove_a' => 'Vydeľte cenu s DPH číslom :multiplier. Napríklad :gross vrátane :rate % DPH je :net bez DPH.',
+    'faq_changed_q' => 'Kedy sa naposledy zmenila sadzba DPH v krajine :country?',
+    'faq_changed_a' => 'Základná sadzba sa zmenila z :old % na :new % dňa :date.',
+    'faq_number_q' => 'Ako vyzerá IČ DPH z krajiny :country?',
+    'faq_number_a' => 'IČ DPH z krajiny :country sa začína predponou :prefix a má formát :format, kde 9 je číslica, L písmeno a X písmeno alebo číslica. Overiť ho môžete v registri VIES Európskej únie pomocou nášho nástroja na overenie IČ DPH.',
   ),
   'trust' => 
   array (
@@ -205,6 +230,9 @@ return array (
     'always_free' => 'Vždy zadarmo',
     'all_27_countries' => 'Všetkých 27 krajín EÚ',
     'no_signup_required' => 'Bez registrácie',
+    'updated' => 'Sadzby aktualizované :date',
+    'source_ec' => 'Zdroj: Európska komisia',
+    'source_dataset' => 'Zdroj: otvorený súbor údajov vat-rates',
   ),
   'map' => 
   array (
@@ -233,12 +261,13 @@ return array (
     'interaction_hint' => 'Prejdite myšou nad krajinu, ťuknite na ňu alebo medzi krajinami prechádzajte klávesom Tab a zobrazia sa ich sadzby. Klávesom Enter otvoríte podrobnosti.',
     'clear_selection' => 'Zrušiť výber',
     'table_intro' => 'Rovnaké údaje ako na mape, zoradené od najvyššej štandardnej sadzby.',
+    'meta_desc' => 'Základné sadzby DPH všetkých krajín EÚ na jednej mape s poradím základných, znížených a super znížených sadzieb a kalkulačkou pre každú krajinu.',
   ),
   'history' => 
   array (
     'title' => 'História zmien sadzieb DPH',
     'meta_title' => 'História zmien sadzieb DPH - Krajiny EÚ | DPH v EÚ',
-    'meta_desc' => 'Kompletná história zmien sadzieb DPH vo všetkých krajinách EÚ od roku 2000. Sledujte zmeny štandardných a znížených sadzieb s ukazovateľmi stability.',
+    'meta_desc' => 'Všetky zaznamenané zmeny sadzieb DPH v EÚ: základné, znížené a parkovacie sadzby s dátumami, starou a novou sadzbou, plánovanými zmenami a zdrojmi.',
     'subtitle' => 'Sledujte všetky zmeny sadzieb DPH v krajinách EÚ za posledné desaťročie',
     'stability_title' => 'Ukazovatele stability krajín',
     'stability_desc' => 'Krajiny s menším počtom zmien sadzieb DPH naznačujú stabilnejšie daňové prostredie',
@@ -457,10 +486,10 @@ return array (
   ),
   'vies_page' => 
   array (
-    'title' => 'VIES validátor IČ DPH — overte IČ DPH v EÚ online',
-    'description' => 'Bezplatný validátor IČ DPH v EÚ. Overte akékoľvek IČ DPH v EÚ okamžite v oficiálnej databáze VIES Európskej komisie. Názov firmy, adresa a platnosť bez registrácie.',
-    'country_title' => 'Validátor IČ DPH pre :country — bezplatné overenie cez VIES',
-    'country_description' => 'Bezplatný validátor IČ DPH pre :country (:code). Okamžite overte registráciu firmy v oficiálnej databáze VIES EÚ vrátane názvu a adresy. Bez registrácie.',
+    'title' => 'Overenie IČ DPH v EÚ: bezplatná kontrola vo VIES',
+    'description' => 'Overte akékoľvek IČ DPH z EÚ v registri VIES Európskej komisie. Uvidíte, či je platné a komu patrí. Zadarmo a bez registrácie.',
+    'country_title' => 'Overenie IČ DPH, :country: bezplatne vo VIES',
+    'country_description' => 'Overte IČ DPH z krajiny :country (:code) v oficiálnom registri VIES EÚ. Uvidíte, či je číslo platné a komu patrí. Zadarmo a bez registrácie.',
     'h1' => 'VIES validátor IČ DPH',
     'country_h1' => 'Validátor IČ DPH pre :country',
     'subtitle' => 'Overte akékoľvek IČ DPH v EÚ v oficiálnej databáze VIES Európskej komisie. Výsledky ukladáme do vyrovnávacej pamäte, aby bolo overenie rýchlejšie.',
@@ -523,7 +552,6 @@ return array (
     'format_heading' => 'Formát IČ DPH pre :country',
     'format_prefix' => 'Predpona',
     'format_structure' => 'Štruktúra',
-    'format_structure_value' => ':prefix, za ktorým nasleduje národný identifikátor',
     'format_note_gr' => 'Grécko používa pre IČ DPH predponu EL, pričom GR zostáva jeho kódom krajiny podľa ISO.',
     'format_note_default' => 'Národnú časť tvorí postupnosť číslic, v niektorých krajinách aj písmen, ktorá je špecifická pre danú krajinu.',
     'format_disclaimer' => 'IČ DPH prideľujú iba národné daňové správy. VIES potvrdzuje stav registrácie, nejde však o daňové ani právne poradenstvo.',
@@ -546,6 +574,11 @@ return array (
     'copied' => 'IČ DPH skopírované',
     'not_in_vies_title' => 'Krajina :country nie je zahrnutá do systému VIES',
     'not_in_vies_desc' => 'VIES overuje iba IČ DPH vydané členskými štátmi EÚ. IČ DPH krajiny :country si overte na tamojšej daňovej správe. Nižšie môžete naďalej overiť akékoľvek IČ DPH z EÚ.',
+    'format_legend' => '9 je číslica, L písmeno a X písmeno alebo číslica. Ostatné znaky sa píšu tak, ako sú uvedené.',
+    'formats_heading' => 'Formáty IČ DPH v EÚ',
+    'formats_intro' => 'Každé IČ DPH v EÚ sa začína dvojpísmennou predponou (EL pre Grécko), za ktorou nasleduje národné číslo. Otvorte krajinu a overte jej čísla.',
+    'formats_th_country' => 'Krajina',
+    'format_mismatch' => 'Toto nevyzerá ako IČ DPH z krajiny :country (:format). Skontrolujte preklep, alebo číslo aj tak overte.',
   ),
   'validator' => 
   array (
@@ -627,7 +660,7 @@ return array (
   'top_calc' => 
   array (
     'page_title' => 'Populárne výpočty DPH — Kalkulačka DPH EÚ',
-    'page_description' => 'Najčastejšie výpočty DPH vo všetkých 27 členských štátoch EÚ.',
+    'page_description' => 'DPH z bežných súm od 100 € do 10 000 € v každej krajine EÚ podľa jej základnej sadzby. Pripočítajte alebo odpočítajte DPH jedným kliknutím.',
     'heading' => 'Populárne výpočty DPH',
     'subheading' => 'Rýchly prístup k najčastejším výpočtom DPH.',
     'vat_on_amount' => 'DPH z €:amount',
@@ -648,14 +681,15 @@ return array (
     'disclaimer' => 'Výpočty sú len informačné.',
     'breadcrumb' => 'Populárne výpočty',
     'amount_page_heading' => 'DPH z €:amount — Všetky krajiny EÚ',
-    'amount_page_desc' => 'Vypočítajte DPH z €:amount pre všetkých 27 členských štátov.',
+    'amount_page_desc' => 'DPH z €:amount pre všetkých :count :member_label EÚ pri základných sadzbách od :min % do :max %: DPH a celková suma pre každú krajinu, pripočítaná aj odpočítaná.',
     'back_to_all' => '← Všetky populárne výpočty',
     'matrix_caption' => 'Celkom s DPH pri štandardnej sadzbe jednotlivých krajín. Vyberte hodnotu a zobrazte si úplný rozpis výpočtu.',
     'amounts_label' => 'Vyberte sumu',
     'adding' => 'Pripočítanie DPH k €:amount',
     'removing' => 'DPH obsiahnutá v €:amount',
     'net' => 'Bez DPH',
-    'member_states' => 'členské štáty',
+    'member_states' => 'členských štátov',
+    'amount_meta_title' => 'DPH z €:amount v každej krajine EÚ',
   ),
   'changelog' => 
   array (
@@ -681,8 +715,8 @@ return array (
   'skip_to_content' => 'Prejsť na hlavný obsah',
   'tools' => 
   array (
-    'seo_title' => 'Nástroje a zdroje k DPH v EÚ – kalkulačky, validátory a sprievodcovia',
-    'seo_description' => 'Bezplatné nástroje k DPH v EÚ: kalkulačka, validátor IČ DPH, mapy na porovnanie sadzieb a sprievodcovia dodržiavaním predpisov pre všetkých 27 členských štátov EÚ.',
+    'seo_title' => 'Nástroje pre DPH v EÚ: kalkulačka, overenie a mapa',
+    'seo_description' => 'Bezplatné nástroje pre DPH v EÚ: kalkulačka pre každú krajinu, overenie IČ DPH vo VIES, mapa a história sadzieb a sprievodcovia pre všetkých 27 štátov.',
     'heading' => 'DPH v EÚ: nástroje a zdroje',
     'intro_text' => 'Tu nájdete nástroje a zdroje od tímu EU-vat.info, ktoré vám pomôžu zorientovať sa v zložitom svete DPH v Európskej únii.',
     'calculator_heading' => 'Kalkulačka DPH',
@@ -781,7 +815,7 @@ return array (
   array (
     'eyebrow' => 'Porovnanie krajín',
     'title' => 'Sadzby DPH: :left vs. :right',
-    'meta_title' => 'Porovnanie DPH :left vs. :right: sadzby, kalkulačky a história',
+    'meta_title' => 'DPH :left a :right: porovnanie sadzieb',
     'meta_description' => 'Porovnajte sadzby DPH krajín :left a :right, znížené sadzby, meny, dostupnosť VIES a historické zmeny.',
     'intro' => 'Porovnajte aktuálne štruktúry DPH a pokračujte na kalkulačku, sprievodcu overovaním a zaznamenanú históriu jednotlivých krajín.',
     'measure' => 'Ukazovateľ',
@@ -834,8 +868,8 @@ return array (
   ),
   'mcp_page' =>
   array (
-    'meta_title' => 'MCP server DPH EÚ: aktuálne údaje o DPH pre asistentov AI | EU VAT Info',
-    'meta_desc' => 'Bezplatný vzdialený MCP server so sadzbami DPH v EÚ, výpočtami, zmenami sadzieb a overovaním IČ DPH vo VIES. Pripojte Claude, ChatGPT, VS Code alebo Cursor za minútu.',
+    'meta_title' => 'MCP server pre DPH v EÚ: údaje pre asistentov AI',
+    'meta_desc' => 'Bezplatný MCP server so sadzbami DPH v EÚ, výpočtami, zmenami sadzieb a kontrolou vo VIES. Pripojte Claude, ChatGPT, VS Code alebo Cursor za minútu.',
     'kicker' => 'Model Context Protocol',
     'title' => 'MCP server DPH EÚ',
     'lede' => 'Dajte svojmu asistentovi AI aktuálne sadzby DPH v EÚ, výpočty DPH, nadchádzajúce zmeny sadzieb a overovanie IČ DPH vo VIES. Zadarmo, len na čítanie a bez registrácie.',
@@ -880,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Sadzby jednej krajiny',
-        'desc' => 'Aktuálne sadzby, mena a posledná aktualizácia pre jednu krajinu.',
+        'desc' => 'Aktuálne sadzby, mena, formát IČ DPH a posledná aktualizácia pre jednu krajinu.',
         'prompt' => 'Aké sú sadzby DPH v Rakúsku?',
       ),
       'calculate_vat' =>
@@ -928,7 +962,7 @@ return array (
     'detail_limits' => 'Férové používanie',
     'limits_value' => ':requests požiadaviek za minútu z jednej IP adresy, z toho najviac :checks overení IČ DPH',
     'detail_data' => 'Údaje',
-    'data_value' => 'Sadzby DPH Európskej komisie, aktualizované denne',
+    'data_value' => 'Sadzby DPH Európskej komisie, aktualizované každý týždeň',
     'detail_discovery' => 'Vyhľadateľnosť',
     'server_card' => 'Karta servera',
     'faq_heading' => 'Otázky',
@@ -939,7 +973,7 @@ return array (
     'faq_3_q' => 'Je pripojenie bezpečné?',
     'faq_3_a' => 'Áno. Všetky nástroje sú len na čítanie: server vracia iba údaje a výpočty DPH. Nevidí vaše súbory a nekoná vo vašom mene.',
     'faq_4_q' => 'Aké aktuálne sú sadzby?',
-    'faq_4_a' => 'Sadzby pochádzajú z údajov Európskej komisie a aktualizujú sa denne. Každý výsledok uvádza čas poslednej aktualizácie danej krajiny.',
+    'faq_4_a' => 'Sadzby pochádzajú z údajov Európskej komisie a aktualizujú sa každý týždeň. Každý výsledok uvádza čas poslednej aktualizácie danej krajiny.',
     'faq_5_q' => 'Sú odpovede daňovým poradenstvom?',
     'faq_5_a' => 'Nie. Server poskytuje referenčné sadzby. Správne uplatnenie DPH závisí od tovaru alebo služieb a od zákazníka, preto dôležité prípady overte u daňového poradcu alebo národnej finančnej správy.',
   ),

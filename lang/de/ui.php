@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Alle erfassten Satzänderungen',
     'widget_desc' => 'Rechner in Ihre Website einbetten',
     'validator_short' => 'USt-IdNr.-Prüfung',
+    'shortcuts' => 'Schnellzugriff auf Tools',
   ),
   'footer' => 
   array (
@@ -67,14 +68,15 @@ return array (
     'donate' => 'Spenden',
     'privacy' => 'Datenschutzerklärung',
     'previous_version' => 'Frühere Version',
+    'older_version' => 'Ältere Version',
     'developers' => 'Entwickler',
     'mcp_server' => 'MCP-Server',
     'data_source_note' => 'Sätze stammen von der Europäischen Kommission und werden täglich überprüft',
   ),
   'home_page' => 
   array (
-    'title' => 'EU MwSt. Info – MwSt.-Rechner & Informationen für alle EU-Länder',
-    'meta_desc' => 'Aktuelle Mehrwertsteuersätze für alle 27 EU-Länder. Kostenloser Online-Rechner, historische Daten ab 2000, Änderungsbenachrichtigungen und Compliance-Leitfäden. Täglich aktualisiert.',
+    'title' => 'EU-MwSt.-Rechner und MwSt.-Sätze für alle 27 Länder',
+    'meta_desc' => 'MwSt. für alle 27 EU-Länder hinzurechnen oder herausrechnen, mit aktuellen Regel- und ermäßigten Sätzen. USt-IdNr. per VIES prüfen und Satzänderungen verfolgen.',
     'heading' => 'Mehrwertsteuersätze in der',
     'heading_accent' => 'Europäischen Union',
     'subtitle' => 'Aktuelle Regelsätze, ermäßigte Sätze und Rechner für alle 27 EU-Mitgliedstaaten. Täglich aktualisiert.',
@@ -198,6 +200,29 @@ return array (
     'calculation_reference' => 'Rechenformeln',
     'formula_add' => 'Netto × :multiplier = Brutto',
     'formula_remove' => 'Brutto ÷ :multiplier = Netto',
+    'quick_amounts' => 'Gängige Beträge',
+    'rate_since' => 'Gültig seit :date',
+    'rate_since_previous' => 'Gültig seit :date, zuvor :rate %',
+    'vat_number_format' => 'Format der USt-IdNr.',
+    'full_rate_history' => 'MwSt.-Satzverlauf für :country',
+    'formula_vat_part' => 'Die MwSt. in einem Preis mit :rate % MwSt. erhalten Sie, indem Sie den Preis mit :rate multiplizieren und durch :divisor teilen.',
+    'common_amounts_heading' => 'MwSt. auf gängige Beträge in :country',
+    'common_amounts_intro' => 'Zum Regelsatz von :rate %. Öffnen Sie einen Betrag für die vollständige Aufschlüsselung zum Teilen.',
+    'th_amount' => 'Betrag',
+    'th_add_vat' => ':rate % MwSt. hinzugerechnet',
+    'th_remove_vat' => ':rate % MwSt. herausgerechnet',
+    'faq_heading' => 'Fragen zur MwSt. in :country',
+    'faq_rate_q' => 'Wie hoch ist die MwSt. in :country?',
+    'faq_rate_a' => 'Der MwSt.-Regelsatz in :country beträgt :rate %. Ermäßigte Sätze von :reduced gelten für ausgewählte Waren und Dienstleistungen.',
+    'faq_rate_a_standard_only' => 'Der MwSt.-Regelsatz in :country beträgt :rate %, und :country hat keinen ermäßigten Satz.',
+    'faq_add_q' => 'Wie rechne ich in :country die MwSt. auf einen Preis?',
+    'faq_add_a' => 'Multiplizieren Sie den Nettopreis mit :multiplier. Beispiel: :net plus :rate % MwSt. ergibt :gross.',
+    'faq_remove_q' => 'Wie rechne ich in :country die MwSt. aus einem Preis heraus?',
+    'faq_remove_a' => 'Teilen Sie den Bruttopreis durch :multiplier. Beispiel: :gross inklusive :rate % MwSt. sind :net netto.',
+    'faq_changed_q' => 'Wann hat sich der MwSt.-Satz in :country zuletzt geändert?',
+    'faq_changed_a' => 'Der Regelsatz änderte sich am :date von :old % auf :new %.',
+    'faq_number_q' => 'Wie sieht eine USt-IdNr. aus :country aus?',
+    'faq_number_a' => 'USt-IdNr. aus :country beginnen mit :prefix und haben das Format :format, wobei 9 für eine Ziffer, L für einen Buchstaben und X für einen Buchstaben oder eine Ziffer steht. Mit unserer USt-IdNr.-Prüfung können Sie eine Nummer im VIES-Register der EU prüfen.',
   ),
   'trust' => 
   array (
@@ -205,6 +230,9 @@ return array (
     'always_free' => 'Immer kostenlos',
     'all_27_countries' => 'Alle 27 EU-Länder',
     'no_signup_required' => 'Keine Anmeldung erforderlich',
+    'updated' => 'Sätze aktualisiert am :date',
+    'source_ec' => 'Quelle: Europäische Kommission',
+    'source_dataset' => 'Quelle: offener Datensatz vat-rates',
   ),
   'map' => 
   array (
@@ -233,12 +261,13 @@ return array (
     'interaction_hint' => 'Bewegen Sie den Mauszeiger über ein Land, tippen Sie darauf oder wechseln Sie mit der Tabulatortaste zwischen den Ländern, um die Sätze anzuzeigen. Drücken Sie die Eingabetaste, um die Details zu öffnen.',
     'clear_selection' => 'Auswahl aufheben',
     'table_intro' => 'Dieselben Daten wie auf der Karte, beginnend mit dem höchsten Regelsatz.',
+    'meta_desc' => 'Die MwSt.-Regelsätze aller EU-Länder auf einer Karte, mit einer Rangliste der Regel-, ermäßigten und stark ermäßigten Sätze und einem Rechner je Land.',
   ),
   'history' => 
   array (
     'title' => 'Verlauf der MwSt.-Satzänderungen',
     'meta_title' => 'Verlauf der MwSt.-Satzänderungen – EU-Länder | EU MwSt. Info',
-    'meta_desc' => 'Vollständiger Verlauf der Mehrwertsteueränderungen in allen EU-Ländern ab 2000. Verfolgen Sie Änderungen der Regel- und ermäßigten Sätze mit Stabilitätsindikatoren.',
+    'meta_desc' => 'Alle erfassten MwSt.-Satzänderungen in der EU: Regel-, ermäßigte und Zwischensätze mit Datum, altem und neuem Satz, geplanten Änderungen und Quellen.',
     'subtitle' => 'Verfolgen Sie alle MwSt.-Satzänderungen in den EU-Ländern der letzten zehn Jahre',
     'stability_title' => 'Stabilitätsindikatoren der Länder',
     'stability_desc' => 'Länder mit weniger MwSt.-Satzänderungen weisen ein stabileres Steuerumfeld auf',
@@ -457,10 +486,10 @@ return array (
   ),
   'vies_page' => 
   array (
-    'title' => 'VIES USt-IdNr.-Prüfung — EU USt-Nummern online überprüfen',
-    'description' => 'Kostenloses VIES-Prüftool für USt-IdNr. Überprüfen Sie jede EU-USt-Nummer über die offizielle Datenbank der Europäischen Kommission.',
-    'country_title' => ':country USt-IdNr.-Prüfung — :country USt-Nummern über VIES verifizieren',
-    'country_description' => ':country (:code) USt-Nummern über die offizielle EU VIES-Datenbank validieren.',
+    'title' => 'USt-IdNr. prüfen: kostenlose VIES-Abfrage für die EU',
+    'description' => 'Prüfen Sie jede EU-USt-IdNr. im VIES-Register der Europäischen Kommission. Sie sehen, ob sie gültig ist und wem sie gehört. Kostenlos, ohne Anmeldung.',
+    'country_title' => 'USt-IdNr. aus :country prüfen: kostenlose VIES-Abfrage',
+    'country_description' => 'Prüfen Sie USt-IdNr. aus :country (:code) im offiziellen VIES-Register der EU. Sie sehen, ob die Nummer gültig ist und wem sie gehört. Kostenlos.',
     'h1' => 'VIES USt-IdNr.-Prüfung',
     'country_h1' => ':country USt-IdNr.-Prüfung',
     'subtitle' => 'Überprüfen Sie jede EU-USt-Nummer über die offizielle VIES-Datenbank der Europäischen Kommission.',
@@ -523,7 +552,6 @@ return array (
     'format_heading' => 'Format der USt-IdNr. in :country',
     'format_prefix' => 'Präfix',
     'format_structure' => 'Aufbau',
-    'format_structure_value' => ':prefix, gefolgt von der nationalen Kennung',
     'format_note_gr' => 'Griechenland verwendet für USt-IdNr. das Präfix EL, während GR der ISO-Ländercode bleibt.',
     'format_note_default' => 'Der nationale Teil ist eine länderspezifische Folge von Ziffern und in einigen Ländern auch Buchstaben.',
     'format_disclaimer' => 'USt-IdNr. werden ausschließlich von den nationalen Steuerverwaltungen vergeben. VIES bestätigt den Registrierungsstatus, stellt aber keine Steuer- oder Rechtsberatung dar.',
@@ -546,6 +574,11 @@ return array (
     'copied' => 'USt-IdNr. kopiert',
     'not_in_vies_title' => ':country ist nicht in VIES erfasst',
     'not_in_vies_desc' => 'VIES prüft nur USt-IdNr., die von EU-Mitgliedstaaten vergeben wurden. Prüfen Sie MwSt.-Nummern aus :country bei der nationalen Steuerverwaltung. Unten können Sie weiterhin jede EU-USt-IdNr. prüfen.',
+    'format_legend' => '9 steht für eine Ziffer, L für einen Buchstaben und X für einen Buchstaben oder eine Ziffer. Andere Zeichen stehen wie geschrieben.',
+    'formats_heading' => 'Formate der USt-IdNr. in der EU',
+    'formats_intro' => 'Jede USt-IdNr. in der EU beginnt mit einem zweistelligen Länderpräfix (EL für Griechenland), gefolgt von der nationalen Nummer. Öffnen Sie ein Land, um seine Nummern zu prüfen.',
+    'formats_th_country' => 'Land',
+    'format_mismatch' => 'Das sieht nicht nach einer USt-IdNr. aus :country aus (:format). Prüfen Sie auf Tippfehler, oder lassen Sie die Nummer trotzdem prüfen.',
   ),
   'validator' => 
   array (
@@ -627,7 +660,7 @@ return array (
   'top_calc' => 
   array (
     'page_title' => 'Beliebte MwSt.-Berechnungen — EU MwSt.-Rechner',
-    'page_description' => 'Die häufigsten MwSt.-Berechnungen in allen 27 EU-Mitgliedstaaten.',
+    'page_description' => 'MwSt. auf gängige Beträge von 100 € bis 10.000 € in jedem EU-Land zum jeweiligen Regelsatz. MwSt. mit einem Klick hinzurechnen oder herausrechnen.',
     'heading' => 'Beliebte MwSt.-Berechnungen',
     'subheading' => 'Schneller Zugriff auf die häufigsten MwSt.-Berechnungen in allen 27 EU-Mitgliedstaaten.',
     'vat_on_amount' => 'MwSt. auf €:amount',
@@ -648,7 +681,7 @@ return array (
     'disclaimer' => 'Berechnungen dienen nur zu Informationszwecken.',
     'breadcrumb' => 'Beliebte Berechnungen',
     'amount_page_heading' => 'MwSt. auf €:amount — Alle EU-Länder',
-    'amount_page_desc' => 'MwSt. auf €:amount für alle 27 EU-Mitgliedstaaten berechnen.',
+    'amount_page_desc' => 'MwSt. auf €:amount in allen :count EU-:member_label zu Regelsätzen von :min % bis :max %: MwSt. und Gesamtbetrag je Land, hinzu- oder herausgerechnet.',
     'back_to_all' => '← Alle beliebten Berechnungen',
     'matrix_caption' => 'Gesamtbetrag inkl. MwSt. zum jeweiligen Regelsatz des Landes. Wählen Sie einen Wert aus, um die vollständige Aufschlüsselung zu sehen.',
     'amounts_label' => 'Betrag auswählen',
@@ -656,6 +689,7 @@ return array (
     'removing' => '€:amount inkl. MwSt.',
     'net' => 'Netto',
     'member_states' => 'Mitgliedstaaten',
+    'amount_meta_title' => 'MwSt. auf €:amount in jedem EU-Land',
   ),
   'changelog' => 
   array (
@@ -681,8 +715,8 @@ return array (
   'skip_to_content' => 'Zum Hauptinhalt springen',
   'tools' => 
   array (
-    'seo_title' => 'EU-MwSt.-Tools & Ressourcen – Rechner, Prüftools & Leitfäden',
-    'seo_description' => 'Kostenlose EU-MwSt.-Tools: Rechner, USt-IdNr.-Prüfung, Karten zum Vergleich der Sätze und Compliance-Leitfäden für alle 27 EU-Mitgliedstaaten.',
+    'seo_title' => 'EU-MwSt.-Tools: Rechner, USt-IdNr.-Prüfung, Karte',
+    'seo_description' => 'Kostenlose EU-MwSt.-Tools: ein Rechner für jedes Land, USt-IdNr.-Prüfung per VIES, eine Satzkarte, der Satzverlauf und Leitfäden für alle 27 Staaten.',
     'heading' => 'Tools und Ressourcen von EU MwSt. Info',
     'intro_text' => 'Hier finden Sie Tools und Ressourcen des EU-vat.info-Teams, die Ihnen helfen, sich in der komplexen Welt der Mehrwertsteuer in der Europäischen Union zurechtzufinden.',
     'calculator_heading' => 'MwSt.-Rechner',
@@ -781,7 +815,7 @@ return array (
   array (
     'eyebrow' => 'Ländervergleich',
     'title' => 'MwSt.-Sätze: :left vs. :right',
-    'meta_title' => 'MwSt.-Sätze :left vs. :right: Sätze, Rechner und Verlauf',
+    'meta_title' => 'MwSt.-Sätze :left und :right im Vergleich',
     'meta_description' => 'Vergleichen Sie MwSt.-Sätze, ermäßigte Sätze, Währungen, VIES-Verfügbarkeit und historische Änderungen von :left und :right.',
     'intro' => 'Vergleichen Sie die aktuellen MwSt.-Strukturen und wechseln Sie direkt zum Rechner, zum Prüfleitfaden und zum erfassten Verlauf des jeweiligen Landes.',
     'measure' => 'Merkmal',
@@ -834,8 +868,8 @@ return array (
   ),
   'mcp_page' =>
   array (
-    'meta_title' => 'EU-MwSt.-MCP-Server: Live-MwSt.-Daten für KI-Assistenten | EU VAT Info',
-    'meta_desc' => 'Kostenloser Remote-MCP-Server mit EU-MwSt.-Sätzen, Berechnungen, Satzänderungen und VIES-Prüfung von USt-IdNr. Verbinden Sie Claude, ChatGPT, VS Code oder Cursor in einer Minute.',
+    'meta_title' => 'EU-MwSt.-MCP-Server: Live-Daten für KI-Assistenten',
+    'meta_desc' => 'Kostenloser MCP-Server mit EU-MwSt.-Sätzen, Berechnungen, Satzänderungen und VIES-Prüfungen. Verbinden Sie Claude, ChatGPT, VS Code oder Cursor in einer Minute.',
     'kicker' => 'Model Context Protocol',
     'title' => 'EU-MwSt.-MCP-Server',
     'lede' => 'Geben Sie Ihrem KI-Assistenten aktuelle EU-MwSt.-Sätze, MwSt.-Berechnungen, anstehende Satzänderungen und VIES-Prüfungen von USt-IdNr. Kostenlos, nur lesend und ohne Registrierung.',
@@ -880,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Sätze eines Landes',
-        'desc' => 'Aktuelle Sätze, Währung und letzte Aktualisierung für ein Land.',
+        'desc' => 'Aktuelle Sätze, Währung, Format der USt-IdNr. und letzte Aktualisierung für ein Land.',
         'prompt' => 'Welche MwSt.-Sätze gelten in Österreich?',
       ),
       'calculate_vat' =>
@@ -928,7 +962,7 @@ return array (
     'detail_limits' => 'Faire Nutzung',
     'limits_value' => ':requests Anfragen pro Minute und IP-Adresse, davon bis zu :checks USt-IdNr.-Prüfungen',
     'detail_data' => 'Daten',
-    'data_value' => 'MwSt.-Sätze der Europäischen Kommission, täglich aktualisiert',
+    'data_value' => 'MwSt.-Sätze der Europäischen Kommission, wöchentlich aktualisiert',
     'detail_discovery' => 'Erkennung',
     'server_card' => 'Server-Karte',
     'faq_heading' => 'Fragen',
@@ -939,7 +973,7 @@ return array (
     'faq_3_q' => 'Ist die Verbindung sicher?',
     'faq_3_a' => 'Ja. Alle Tools lesen nur: Der Server liefert ausschließlich MwSt.-Daten und Berechnungen. Er sieht weder Ihre Dateien noch handelt er in Ihrem Namen.',
     'faq_4_q' => 'Wie aktuell sind die Sätze?',
-    'faq_4_a' => 'Die Sätze stammen aus Daten der Europäischen Kommission und werden täglich aktualisiert. Jedes Ergebnis nennt den Zeitpunkt der letzten Aktualisierung des Landes.',
+    'faq_4_a' => 'Die Sätze stammen aus Daten der Europäischen Kommission und werden jede Woche aktualisiert. Jedes Ergebnis nennt den Zeitpunkt der letzten Aktualisierung des Landes.',
     'faq_5_q' => 'Sind die Antworten Steuerberatung?',
     'faq_5_a' => 'Nein. Der Server liefert Referenzsätze. Die richtige umsatzsteuerliche Behandlung hängt von Waren oder Dienstleistungen und vom Kunden ab. Klären Sie wichtige Fälle mit Ihrer Steuerberatung oder der zuständigen Steuerbehörde.',
   ),

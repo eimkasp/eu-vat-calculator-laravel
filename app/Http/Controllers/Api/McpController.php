@@ -9,6 +9,7 @@ use App\Services\ViesValidationService;
 use App\Support\Mcp\VatMcpServer;
 use App\Support\Vat\VatCalculation;
 use App\Support\Vat\VatMode;
+use App\Support\Vat\VatNumberFormat;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -280,6 +281,7 @@ class McpController extends Controller
             'eu_member' => (bool) $country->is_eu_member,
             'currency' => $country->currencyCode(),
             'rates' => $country->apiRates(),
+            'vat_number' => VatNumberFormat::forCountry($country),
             'last_updated' => $country->updated_at?->toIso8601String(),
         ];
     }

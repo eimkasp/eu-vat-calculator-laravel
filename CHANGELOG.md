@@ -4,6 +4,36 @@ All notable changes to EU VAT Info are documented here.
 
 ---
 
+## [5.1.0] — 2026-10-11 — A calculator and validator you can check
+
+### Added
+- **The date and the source next to every rate** — the calculator, each country's rate table, shared calculations, comparisons, the VAT map and the popular calculations now say when the rates were last updated and link to where they come from: the European Commission for EU countries.
+- **Common amounts in one tap** — choose 100, 500, 1,000, 5,000 or 10,000 under the amount field instead of typing it.
+- **Since when a rate applies** — each country's standard rate shows the date it took effect and the rate it replaced, with a link to the full rate history.
+- **VAT on common amounts for every country** — a table of €100 to €10,000 with VAT added and removed, each figure opening its full calculation.
+- **Answers to the common questions** — every country calculator answers what the rate is, how to add and remove VAT, when the rate last changed and what a VAT number looks like, worked out from that country's own figures.
+- **Real VAT number formats** — the validator shows each country's exact format, such as DE999999999 or NL999999999B99, with a table of all 27 member states, and points out a number that does not fit its country's format before you check it.
+
+### Improved
+- **Clearer search results in every language** — page titles and descriptions now fit what search engines show, in all 24 languages.
+- **The rate history in the site map** — the year pages before 2000 open again, and the popular calculations are listed for search engines.
+- **Better answers in AI assistants** — the AI guide (llms.txt), the API and the MCP server now give every rate type, each country's VAT number format and the sources behind them, and any page can be read as clean Markdown with its tables and questions intact.
+- **Faster first view** — pages send less markup, and the sections further down, such as the questions, the format table and the footer, are laid out only as you scroll to them, while staying fully readable for search engines and screen readers.
+- **Easier on phones and keyboards** — the comparison table can be scrolled with the keyboard, page regions have unique names for screen readers, long translated site names no longer push the header off the screen, and on phones the country flag sits beside the calculator heading so the text lines up with the rest of the page.
+
+### Fixed
+- Reduced rates now match the European Commission's tax database: Estonia 9% and 13%, Finland 10% and 13.5%, Lithuania 5% and 12%, Romania 11% and Slovakia 5% and 19%. Austria's 4.9% rate on basic foods from 1 July 2026, Cyprus's 3% rate, Greece's 4% rate and Malta's 12% rate are listed too.
+- A fresh installation showed outdated standard rates for Estonia, Finland, Romania and Slovakia until the rates were refreshed.
+
+---
+
+## [5.0.3] — 2026-10-10 — The 5.0 site, preserved
+
+### Added
+- **A second archive** — EU VAT Info 5.0 as it looked on 10 October 2026 stays online as a read-only archive at [/v2](/v2/), next to the [/v1](/v1/) archive of the site before the redesign. Calculations, the country picker and search still work there; VAT number checks, filters and sign-ups point you to the current site.
+
+---
+
 ## [5.0.2] — 2026-10-01 — Every language and popular calculations in search
 
 ### Added

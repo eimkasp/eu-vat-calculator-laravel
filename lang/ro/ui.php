@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Toate modificările de cote înregistrate',
     'widget_desc' => 'Încorporați un calculator pe site-ul dumneavoastră',
     'validator_short' => 'Validator TVA',
+    'shortcuts' => 'Scurtături către instrumente',
   ),
   'footer' => 
   array (
@@ -67,14 +68,15 @@ return array (
     'donate' => 'Donați',
     'privacy' => 'Politica de confidențialitate',
     'previous_version' => 'Versiunea anterioară',
+    'older_version' => 'Versiune mai veche',
     'developers' => 'Dezvoltatori',
     'mcp_server' => 'Server MCP',
     'data_source_note' => 'Cote preluate de la Comisia Europeană și verificate zilnic',
   ),
   'home_page' => 
   array (
-    'title' => 'TVA în UE - Calculator și informații privind cotele de TVA pentru toate țările UE',
-    'meta_desc' => 'Cote actuale de TVA pentru toate cele 27 de țări ale UE. Calculator online gratuit, date istorice din 2000, alerte privind modificările cotelor și ghiduri de conformitate. Actualizat zilnic.',
+    'title' => 'Calculator TVA și cotele de TVA din cele 27 de țări UE',
+    'meta_desc' => 'Adăugați sau scădeți TVA în toate cele 27 de țări UE cu cotele standard și reduse în vigoare. Verificați coduri de TVA în VIES și urmăriți fiecare schimbare.',
     'heading' => 'Cotele de TVA în',
     'heading_accent' => 'Uniunea Europeană',
     'subtitle' => 'Cote standard actuale de TVA, cote reduse și calculator pentru toate cele 27 de state membre ale UE. Actualizat zilnic.',
@@ -198,6 +200,29 @@ return array (
     'calculation_reference' => 'Formule de calcul',
     'formula_add' => 'Net × :multiplier = brut',
     'formula_remove' => 'Brut ÷ :multiplier = net',
+    'quick_amounts' => 'Sume uzuale',
+    'rate_since' => 'În vigoare din :date',
+    'rate_since_previous' => 'În vigoare din :date, anterior :rate%',
+    'vat_number_format' => 'Formatul codului de TVA',
+    'full_rate_history' => 'Istoricul cotelor de TVA: :country',
+    'formula_vat_part' => 'Pentru TVA inclusă într-un preț cu :rate% TVA, înmulțiți prețul cu :rate și împărțiți la :divisor.',
+    'common_amounts_heading' => 'TVA pentru sume uzuale: :country',
+    'common_amounts_intro' => 'La cota standard de :rate%. Deschideți o sumă pentru calculul complet, gata de partajat.',
+    'th_amount' => 'Sumă',
+    'th_add_vat' => 'Cu TVA de :rate% adăugată',
+    'th_remove_vat' => 'Cu TVA de :rate% scăzută',
+    'faq_heading' => 'Întrebări despre TVA: :country',
+    'faq_rate_q' => 'Care este cota de TVA în :country?',
+    'faq_rate_a' => 'Cota standard de TVA în :country este de :rate%. Cotele reduse de :reduced se aplică anumitor bunuri și servicii.',
+    'faq_rate_a_standard_only' => 'Cota standard de TVA în :country este de :rate%, iar :country nu are cotă redusă.',
+    'faq_add_q' => 'Cum adaug TVA la un preț în :country?',
+    'faq_add_a' => 'Înmulțiți prețul fără TVA cu :multiplier. De exemplu, :net plus TVA de :rate% înseamnă :gross.',
+    'faq_remove_q' => 'Cum scad TVA dintr-un preț în :country?',
+    'faq_remove_a' => 'Împărțiți prețul cu TVA la :multiplier. De exemplu, :gross cu TVA de :rate% inclusă înseamnă :net fără TVA.',
+    'faq_changed_q' => 'Când s-a schimbat ultima dată cota de TVA în :country?',
+    'faq_changed_a' => 'Cota standard s-a schimbat de la :old% la :new% pe :date.',
+    'faq_number_q' => 'Cum arată un cod de TVA din :country?',
+    'faq_number_a' => 'Codurile de TVA din :country încep cu :prefix și au formatul :format, unde 9 este o cifră, L o literă, iar X o literă sau o cifră. Puteți verifica un cod în registrul VIES al UE cu instrumentul nostru de verificare.',
   ),
   'trust' => 
   array (
@@ -205,6 +230,9 @@ return array (
     'always_free' => 'Întotdeauna gratuit',
     'all_27_countries' => 'Toate cele 27 de țări UE',
     'no_signup_required' => 'Fără înregistrare',
+    'updated' => 'Cote actualizate la :date',
+    'source_ec' => 'Sursa: Comisia Europeană',
+    'source_dataset' => 'Sursa: setul de date deschis vat-rates',
   ),
   'map' => 
   array (
@@ -233,12 +261,13 @@ return array (
     'interaction_hint' => 'Treceți cursorul, atingeți sau navigați cu tasta Tab printre țări pentru a vedea cotele acestora. Apăsați Enter pentru a deschide detaliile.',
     'clear_selection' => 'Anulează selecția',
     'table_intro' => 'Aceleași date ca pe hartă, începând cu cea mai mare cotă standard.',
+    'meta_desc' => 'Cotele standard de TVA ale tuturor țărilor UE pe o hartă, cu un clasament al cotelor standard, reduse și super reduse și un calculator pentru fiecare țară.',
   ),
   'history' => 
   array (
     'title' => 'Istoricul modificărilor cotelor de TVA',
     'meta_title' => 'Istoricul modificărilor cotelor de TVA - Țări UE | TVA în UE',
-    'meta_desc' => 'Istoric complet al modificărilor cotelor de TVA în toate țările UE din 2000. Urmăriți modificările cotelor standard și reduse cu indicatori de stabilitate.',
+    'meta_desc' => 'Toate modificările înregistrate ale cotelor de TVA din UE: cote standard, reduse și intermediare, cu date, cota veche și cea nouă, schimbări viitoare și surse.',
     'subtitle' => 'Urmăriți toate modificările cotelor de TVA în țările UE în ultimul deceniu',
     'stability_title' => 'Indicatori de stabilitate a țărilor',
     'stability_desc' => 'Țările cu mai puține modificări ale cotelor de TVA indică un mediu fiscal mai stabil',
@@ -457,10 +486,10 @@ return array (
   ),
   'vies_page' => 
   array (
-    'title' => 'Validator Număr TVA VIES — Verificați Numere TVA UE Online',
-    'description' => 'Instrument gratuit de validare a numărului TVA VIES. Verificați orice număr TVA din UE instantaneu folosind baza de date oficială VIES a Comisiei Europene.',
-    'country_title' => 'Validator Număr TVA VIES :country — Verificați Numere TVA :country prin VIES',
-    'country_description' => 'Validați numere TVA :country (:code) instantaneu folosind baza de date oficială VIES a UE.',
+    'title' => 'Verificare cod de TVA UE: interogare VIES gratuită',
+    'description' => 'Verificați orice cod de TVA din UE în registrul VIES al Comisiei Europene. Vedeți dacă este valabil și cui aparține. Gratuit, fără înregistrare.',
+    'country_title' => 'Verificare cod de TVA, :country: VIES gratuit',
+    'country_description' => 'Verificați codurile de TVA din :country (:code) în registrul oficial VIES al UE. Vedeți dacă codul este valabil și cui aparține. Gratuit, fără înregistrare.',
     'h1' => 'Validator Număr TVA VIES',
     'country_h1' => 'Validator Număr TVA :country',
     'subtitle' => 'Verificați orice număr TVA din UE folosind baza de date oficială VIES a Comisiei Europene. Rezultatele sunt memorate în cache pentru căutări mai rapide.',
@@ -523,7 +552,6 @@ return array (
     'format_heading' => 'Formatul numărului de TVA din :country',
     'format_prefix' => 'Prefix',
     'format_structure' => 'Structură',
-    'format_structure_value' => ':prefix urmat de identificatorul național',
     'format_note_gr' => 'Grecia folosește EL pentru codurile de identificare în scopuri de TVA, în timp ce GR rămâne codul său ISO de țară.',
     'format_note_default' => 'Partea națională este o secvență de cifre specifică fiecărei țări și, în unele țări, conține și litere.',
     'format_disclaimer' => 'Doar administrațiile fiscale naționale emit coduri de identificare în scopuri de TVA. VIES confirmă starea înregistrării, dar nu constituie consultanță fiscală sau juridică.',
@@ -546,6 +574,11 @@ return array (
     'copied' => 'Număr de TVA copiat',
     'not_in_vies_title' => 'VIES nu acoperă :country',
     'not_in_vies_desc' => 'VIES validează doar numerele de TVA emise de statele membre ale UE. Verificați numerele de TVA din :country la administrația fiscală națională. Mai jos puteți valida în continuare orice număr de TVA din UE.',
+    'format_legend' => '9 este o cifră, L o literă, iar X o literă sau o cifră. Celelalte caractere se scriu așa cum apar.',
+    'formats_heading' => 'Formatele codurilor de TVA din UE',
+    'formats_intro' => 'Orice cod de TVA din UE începe cu un prefix de două litere (EL pentru Grecia), urmat de numărul național. Deschideți o țară pentru a-i verifica codurile.',
+    'formats_th_country' => 'Țară',
+    'format_mismatch' => 'Acesta nu pare un cod de TVA din :country (:format). Verificați dacă există o greșeală de tastare sau verificați-l oricum.',
   ),
   'validator' => 
   array (
@@ -627,7 +660,7 @@ return array (
   'top_calc' => 
   array (
     'page_title' => 'Calcule TVA populare — Calculator TVA UE',
-    'page_description' => 'Cele mai frecvente calcule TVA din toate cele 27 state membre UE.',
+    'page_description' => 'TVA pentru sume uzuale de la 100 € la 10.000 € în fiecare țară UE, la cota standard a țării. Adăugați sau scădeți TVA cu un singur clic.',
     'heading' => 'Calcule TVA populare',
     'subheading' => 'Acces rapid la cele mai frecvente calcule TVA.',
     'vat_on_amount' => 'TVA pe €:amount',
@@ -648,7 +681,7 @@ return array (
     'disclaimer' => 'Calculele sunt doar informative.',
     'breadcrumb' => 'Calcule populare',
     'amount_page_heading' => 'TVA pe €:amount — Toate țările UE',
-    'amount_page_desc' => 'Calculați TVA pe €:amount pentru toate cele 27 state membre.',
+    'amount_page_desc' => 'TVA pe €:amount în toate cele :count de :member_label ale UE, la cote standard de la :min% la :max%: TVA și totalul pentru fiecare țară, adăugată sau scăzută.',
     'back_to_all' => '← Toate calculele populare',
     'matrix_caption' => 'Totalul cu TVA la cota standard a fiecărei țări. Selectați o valoare pentru detalierea completă.',
     'amounts_label' => 'Alegeți o sumă',
@@ -656,6 +689,7 @@ return array (
     'removing' => 'TVA inclus în €:amount',
     'net' => 'Net',
     'member_states' => 'state membre',
+    'amount_meta_title' => 'TVA pe €:amount în fiecare țară UE',
   ),
   'changelog' => 
   array (
@@ -681,8 +715,8 @@ return array (
   'skip_to_content' => 'Salt la conținutul principal',
   'tools' => 
   array (
-    'seo_title' => 'Instrumente și resurse TVA UE – calculatoare, validatoare și ghiduri',
-    'seo_description' => 'Instrumente TVA UE gratuite: calculator, validator, hărți de comparare a cotelor și ghiduri de conformitate pentru toate cele 27 de state membre ale UE.',
+    'seo_title' => 'Instrumente TVA UE: calculator, verificare, hartă, ghiduri',
+    'seo_description' => 'Instrumente TVA UE gratuite: un calculator pentru fiecare țară, verificarea codurilor de TVA în VIES, harta și istoricul cotelor și ghiduri pentru 27 de state.',
     'heading' => 'Instrumente și resurse TVA în UE',
     'intro_text' => 'Iată câteva instrumente și resurse de la echipa EU-vat.info care vă ajută să vă orientați în lumea complexă a TVA-ului din Uniunea Europeană.',
     'calculator_heading' => 'Calculator TVA',
@@ -781,7 +815,7 @@ return array (
   array (
     'eyebrow' => 'Comparație între țări',
     'title' => 'Cotele de TVA: :left vs. :right',
-    'meta_title' => ':left vs. :right: cote de TVA, calculatoare și istoric',
+    'meta_title' => 'TVA :left și :right: cotele comparate',
     'meta_description' => 'Comparați cotele de TVA din :left și :right, cotele reduse, monedele, disponibilitatea VIES și modificările istorice.',
     'intro' => 'Comparați structurile actuale de TVA și continuați cu calculatorul, ghidul de validare și istoricul înregistrat al fiecărei țări.',
     'measure' => 'Indicator',
@@ -834,8 +868,8 @@ return array (
   ),
   'mcp_page' =>
   array (
-    'meta_title' => 'Server MCP pentru TVA în UE: date TVA actuale pentru asistenții AI | EU VAT Info',
-    'meta_desc' => 'Server MCP la distanță, gratuit, cu cote de TVA din UE, calcule, modificări de cote și verificarea codurilor de TVA în VIES. Conectați Claude, ChatGPT, VS Code sau Cursor într-un minut.',
+    'meta_title' => 'Server MCP pentru TVA UE: date pentru asistenții AI',
+    'meta_desc' => 'Server MCP gratuit cu cote de TVA din UE, calcule, modificări ale cotelor și verificări VIES. Conectați Claude, ChatGPT, VS Code sau Cursor într-un minut.',
     'kicker' => 'Model Context Protocol',
     'title' => 'Server MCP pentru TVA în UE',
     'lede' => 'Oferiți asistentului AI cotele de TVA actuale din UE, calcule de TVA, modificările de cote care urmează și verificarea codurilor de TVA în VIES. Gratuit, doar citire și fără înregistrare.',
@@ -880,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Cotele unei țări',
-        'desc' => 'Cotele în vigoare, moneda și ultima actualizare pentru o țară.',
+        'desc' => 'Cotele în vigoare, moneda, formatul codului de TVA și ultima actualizare pentru o țară.',
         'prompt' => 'Care sunt cotele de TVA în Austria?',
       ),
       'calculate_vat' =>
@@ -928,7 +962,7 @@ return array (
     'detail_limits' => 'Utilizare corectă',
     'limits_value' => ':requests cereri pe minut per adresă IP, dintre care până la :checks verificări de coduri de TVA',
     'detail_data' => 'Date',
-    'data_value' => 'Cotele de TVA ale Comisiei Europene, actualizate zilnic',
+    'data_value' => 'Cotele de TVA ale Comisiei Europene, actualizate săptămânal',
     'detail_discovery' => 'Descoperire',
     'server_card' => 'Fișa serverului',
     'faq_heading' => 'Întrebări',
@@ -939,7 +973,7 @@ return array (
     'faq_3_q' => 'Este sigură conectarea?',
     'faq_3_a' => 'Da. Toate instrumentele sunt doar pentru citire: serverul returnează numai date și calcule de TVA. Nu vă poate vedea fișierele și nu acționează în numele dumneavoastră.',
     'faq_4_q' => 'Cât de actuale sunt cotele?',
-    'faq_4_a' => 'Cotele provin din date ale Comisiei Europene și sunt actualizate zilnic. Fiecare rezultat indică momentul ultimei actualizări a țării.',
+    'faq_4_a' => 'Cotele provin din date ale Comisiei Europene și sunt actualizate săptămânal. Fiecare rezultat indică momentul ultimei actualizări a țării.',
     'faq_5_q' => 'Răspunsurile reprezintă consultanță fiscală?',
     'faq_5_a' => 'Nu. Serverul returnează cote de referință. Tratamentul corect al TVA depinde de bunuri sau servicii și de client, așa că verificați cazurile importante cu un consultant fiscal sau cu administrația fiscală națională.',
   ),

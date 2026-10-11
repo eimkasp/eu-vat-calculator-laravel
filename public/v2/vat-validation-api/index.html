@@ -1,0 +1,1975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="robots" content="noindex, nofollow">
+    <script src="/v2/archive.js"></script>
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#0a2a7a">
+    <script>
+        (() => {
+            let mode = 'system';
+            try { mode = localStorage.getItem('theme') || 'system'; } catch (error) {}
+            const dark = mode === 'dark' || (mode !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            document.documentElement.classList.toggle('dark', dark);
+            if (dark) document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0b1220');
+        })();
+    </script>
+    <link rel="icon" href="/v2/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/v2/icon-192x192.png">
+    <link rel="preload" as="style" href="/v2/build/assets/app-C5YE2uPL.css" /><link rel="modulepreload" as="script" href="/v2/build/assets/app-BrISEe9J.js" /><link rel="stylesheet" href="/v2/build/assets/app-C5YE2uPL.css" data-navigate-track="reload" /><script type="module" src="/v2/build/assets/app-BrISEe9J.js" data-navigate-track="reload"></script>    <!-- Livewire Styles --><style >[wire\:loading][wire\:loading], [wire\:loading\.delay][wire\:loading\.delay], [wire\:loading\.list-item][wire\:loading\.list-item], [wire\:loading\.inline-block][wire\:loading\.inline-block], [wire\:loading\.inline][wire\:loading\.inline], [wire\:loading\.block][wire\:loading\.block], [wire\:loading\.flex][wire\:loading\.flex], [wire\:loading\.table][wire\:loading\.table], [wire\:loading\.grid][wire\:loading\.grid], [wire\:loading\.inline-flex][wire\:loading\.inline-flex] {display: none;}[wire\:loading\.delay\.none][wire\:loading\.delay\.none], [wire\:loading\.delay\.shortest][wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter][wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short][wire\:loading\.delay\.short], [wire\:loading\.delay\.default][wire\:loading\.delay\.default], [wire\:loading\.delay\.long][wire\:loading\.delay\.long], [wire\:loading\.delay\.longer][wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest][wire\:loading\.delay\.longest] {display: none;}[wire\:offline][wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}:root {--livewire-progress-bar-color: #2299dd;}[x-cloak="x-cloak"],[x-cloak=""] {display: none !important;}[wire\:cloak="wire:cloak"],[wire\:cloak=""] {display: none !important;}dialog#livewire-error::backdrop {background-color: rgba(0, 0, 0, .6);}</style>
+
+                <title>EU VAT Number Validation API — Free REST API Documentation · Archive v2</title>
+<meta name="description" content="Free REST API to validate EU VAT numbers in real-time via the official VIES database. Single and batch validation, CORS headers, no API key required.">
+
+<link rel="preload" as="image" type="image/webp" href="/v2/images/hero-texture-sm.webp" media="(max-width: 639px)" fetchpriority="high">
+        <link rel="preload" as="image" type="image/webp" href="/v2/images/hero-texture-md.webp" media="(min-width: 640px) and (max-width: 1023px)" fetchpriority="high">
+        <link rel="preload" as="image" type="image/webp" href="/v2/images/hero-texture-lg.webp" media="(min-width: 1024px)" fetchpriority="high">
+    
+        <link rel="stylesheet" href="/v2/archive.css">
+</head>
+
+<body class="app-workspace min-h-dvh font-sans antialiased">
+        <a href="#main-content" class="sr-only z-[60] rounded-br-card bg-button px-4 py-3 text-sm font-semibold text-white focus:not-sr-only focus:fixed focus:left-0 focus:top-0">Skip to main content</a>
+    <aside class="v2-archive-bar" aria-label="Archived version"><div class="v2-archive-bar__inner"><p class="v2-archive-bar__text"><strong class="v2-archive-bar__label">Archive v2</strong> <span>EU VAT Info 5.0 as it looked on 10 October 2026. Rates here are frozen and may be out of date.</span></p><a class="v2-archive-bar__link" href="https://vat.businesspress.io/vat-validation-api">View the current site<span aria-hidden="true">&rarr;</span></a></div></aside>
+
+    <header x-data="{ menu: false }" @keydown.escape.window="menu = false" class="on-brand sticky top-0 z-40 border-b border-white/10 bg-brand-deep text-white">
+    <div class="app-container flex h-16 items-center gap-2">
+        <a href="/v2/" class="-ml-1 flex shrink-0 items-center gap-2.5 whitespace-nowrap rounded-control px-1 py-1 text-[1.0625rem] font-bold tracking-[-0.02em] text-white">
+            <svg class="size-8 shrink-0" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <rect width="32" height="32" rx="6" fill="#fff"/>
+    <path d="M10.5 21.5 21.5 10.5" stroke="#0a2a7a" stroke-width="2.75" stroke-linecap="round"/>
+    <circle cx="11.25" cy="11.25" r="3.25" fill="#0a2a7a"/>
+    <circle cx="20.75" cy="20.75" r="3.25" fill="#ffcc00"/>
+</svg>
+            <span>EU VAT Info</span>
+        </a>
+
+        <nav class="ml-4 hidden items-center self-stretch lg:flex xl:ml-6" aria-label="Primary navigation">
+                            <a href="/v2/" class="app-nav-link" >All countries</a>
+                            <a href="/v2/vat-calculator/" class="app-nav-link" >VAT calculator</a>
+                            <a href="/v2/vat-number-validator/" class="app-nav-link" >VAT validator</a>
+            
+            <div class="relative flex" x-data="{ open: false }" @click.outside="open = false" @keydown.escape="open = false">
+                <button type="button" @click="open = !open" :aria-expanded="open.toString()" aria-haspopup="true" aria-controls="tools-menu" class="app-nav-link app-nav-link-active">
+                    VAT tools
+                    <svg
+    class="size-4 shrink-0 size-3.5 transition-transform duration-150" x-bind:class="open && 'rotate-180'"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+
+                <div id="tools-menu" x-cloak x-show="open" x-transition:enter="transition duration-150 ease-out-quint" x-transition:enter-start="-translate-y-1 opacity-0" x-transition:leave="transition duration-100 ease-out" x-transition:leave-end="opacity-0" class="app-popover absolute left-1/2 top-full z-50 mt-px w-[26rem] -translate-x-1/2 p-2">
+                    <div class="grid grid-cols-2 gap-1">
+                                                    <a href="/v2/vat-number-validator/" class="group flex gap-3 rounded-control p-3 transition-colors hover:bg-surface-muted" >
+                                <span class="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-control border border-line bg-surface-subtle text-action">
+                                    <svg
+    class="size-4 shrink-0 size-4"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+                                </span>
+                                <span class="min-w-0">
+                                    <span class="block text-sm font-semibold text-ink">VAT number validator</span>
+                                    <span class="mt-0.5 block text-xs leading-5 text-ink-muted">Check EU VAT numbers with VIES</span>
+                                </span>
+                            </a>
+                                                    <a href="/v2/vat-map/" class="group flex gap-3 rounded-control p-3 transition-colors hover:bg-surface-muted" >
+                                <span class="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-control border border-line bg-surface-subtle text-action">
+                                    <svg
+    class="size-4 shrink-0 size-4"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg>
+                                </span>
+                                <span class="min-w-0">
+                                    <span class="block text-sm font-semibold text-ink">VAT map</span>
+                                    <span class="mt-0.5 block text-xs leading-5 text-ink-muted">Compare standard rates visually</span>
+                                </span>
+                            </a>
+                                                    <a href="/v2/vat-changes/" class="group flex gap-3 rounded-control p-3 transition-colors hover:bg-surface-muted" >
+                                <span class="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-control border border-line bg-surface-subtle text-action">
+                                    <svg
+    class="size-4 shrink-0 size-4"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
+                                </span>
+                                <span class="min-w-0">
+                                    <span class="block text-sm font-semibold text-ink">VAT history</span>
+                                    <span class="mt-0.5 block text-xs leading-5 text-ink-muted">Every recorded rate change</span>
+                                </span>
+                            </a>
+                                                    <a href="https://vat.businesspress.io/embed" class="group flex gap-3 rounded-control p-3 transition-colors hover:bg-surface-muted" >
+                                <span class="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-control border border-line bg-surface-subtle text-action">
+                                    <svg
+    class="size-4 shrink-0 size-4"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>
+                                </span>
+                                <span class="min-w-0">
+                                    <span class="block text-sm font-semibold text-ink">VAT widget</span>
+                                    <span class="mt-0.5 block text-xs leading-5 text-ink-muted">Embed a calculator on your site</span>
+                                </span>
+                            </a>
+                                                    <a href="/v2/vat-validation-api/" class="group flex gap-3 rounded-control p-3 transition-colors bg-action-soft"  aria-current="page" >
+                                <span class="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-control border border-line bg-surface-subtle text-action">
+                                    <svg
+    class="size-4 shrink-0 size-4"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+                                </span>
+                                <span class="min-w-0">
+                                    <span class="block text-sm font-semibold text-ink">VAT validation API</span>
+                                    <span class="mt-0.5 block text-xs leading-5 text-ink-muted">Free REST API with batch checks</span>
+                                </span>
+                            </a>
+                                                    <a href="/v2/datasets/eu-vat-rates/" class="group flex gap-3 rounded-control p-3 transition-colors hover:bg-surface-muted" >
+                                <span class="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-control border border-line bg-surface-subtle text-action">
+                                    <svg
+    class="size-4 shrink-0 size-4"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
+                                </span>
+                                <span class="min-w-0">
+                                    <span class="block text-sm font-semibold text-ink">EU VAT dataset</span>
+                                    <span class="mt-0.5 block text-xs leading-5 text-ink-muted">Download rates as CSV or JSON</span>
+                                </span>
+                            </a>
+                                            </div>
+                    <a href="/v2/tools/" class="mt-1 flex items-center justify-between border-t border-line px-3 pb-1.5 pt-3 text-sm font-semibold text-action transition-colors hover:text-action-deep">
+                        All VAT tools
+                        <svg
+    class="size-4 shrink-0 size-4"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <a href="/v2/blog/" class="app-nav-link" >VAT updates</a>
+        </nav>
+
+        <div class="ml-auto flex items-center gap-1">
+            <button type="button" @click="$store.palette.show()" class="app-brand-panel pressable hidden h-10 w-72 items-center gap-2.5 rounded-control px-3 text-left text-sm text-white/80 hover:border-white/30 hover:bg-white/10 hover:text-white xl:flex" aria-label="Search">
+                <svg
+    class="size-4 shrink-0 size-4"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+                <span class="flex-1 truncate">Search countries and tools…</span>
+                <kbd class="rounded-xs border border-white/25 px-1.5 py-0.5 font-sans text-[0.6875rem] font-semibold text-white/80">⌘K</kbd>
+            </button>
+            <button type="button" @click="$store.palette.show()" class="inline-flex size-10 items-center justify-center rounded-control text-white/85 transition-colors hover:bg-white/10 hover:text-white xl:hidden" aria-label="Search">
+                <svg
+    class="size-4 shrink-0 size-5"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+            </button>
+
+            <button
+    type="button"
+    x-data="{ labels: JSON.parse('{\u0022system\u0022:\u0022System\u0022,\u0022light\u0022:\u0022Light\u0022,\u0022dark\u0022:\u0022Dark\u0022}') }"
+    @click="$store.theme.cycle()"
+    :title="'Theme' + ': ' + labels[$store.theme.mode]"
+    :aria-label="'Change colour theme' + ' (' + labels[$store.theme.mode] + ')'"
+    class="h-10 items-center justify-center gap-2 rounded-control px-2.5 text-sm font-medium text-white/85 transition-colors hover:bg-white/10 hover:text-white min-w-10 hidden sm:inline-flex"
+>
+    <svg
+    class="size-4 shrink-0 size-[1.125rem]" x-show="$store.theme.mode === 'system'"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+    <svg
+    class="size-4 shrink-0 size-[1.125rem]" x-show="$store.theme.mode === 'light'" x-cloak="x-cloak"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+    <svg
+    class="size-4 shrink-0 size-[1.125rem]" x-show="$store.theme.mode === 'dark'" x-cloak="x-cloak"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+    </button>
+            <div x-data="{ open: false }" @click.outside="open = false" @keydown.escape="open = false" class="relative hidden lg:block">
+        <button
+            type="button"
+            @click="open = !open"
+            :aria-expanded="open.toString()"
+            aria-haspopup="true"
+            aria-controls="language-menu"
+            aria-label="Current language: English"
+            class="inline-flex h-10 items-center gap-1.5 rounded-control px-3 text-sm font-semibold uppercase text-white/85 transition-colors hover:bg-white/10 hover:text-white"
+        >
+            <img
+        src="/v2/images/flags/gb.svg"
+        alt=""
+        width="18"
+        height="14"
+                decoding="async"
+        class="app-flag h-3.5 w-[1.125rem] shadow-none ring-1 ring-white/25"
+    >
+            en
+            <svg
+    class="size-4 shrink-0 size-3.5 transition-transform duration-150" x-bind:class="open && 'rotate-180'"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+
+        <div id="language-menu" x-cloak x-show="open" x-transition:enter="transition duration-150 ease-out-quint" x-transition:enter-start="-translate-y-1 opacity-0" x-transition:leave="transition duration-100 ease-out" x-transition:leave-end="opacity-0" class="app-popover absolute right-0 top-full z-50 mt-3 grid max-h-[70vh] w-72 grid-cols-2 gap-0.5 overflow-y-auto p-1.5">
+                            <a href="https://vat.businesspress.io/lang/en" lang="en" class="flex items-center gap-2 rounded-control px-2.5 py-2 text-sm transition-colors bg-action-soft font-semibold text-action-deep"  aria-current="true" >
+                    <img
+        src="/v2/images/flags/gb.svg"
+        alt=""
+        width="18"
+        height="14"
+         loading="lazy"         decoding="async"
+        class="app-flag h-3.5 w-[1.125rem]"
+    >
+                    <span class="truncate">English</span>
+                </a>
+                            <a href="https://vat.businesspress.io/lang/bg" lang="bg" class="flex items-center gap-2 rounded-control px-2.5 py-2 text-sm transition-colors text-ink-muted hover:bg-surface-muted hover:text-ink" >
+                    <img
+        src="/v2/images/flags/bg.svg"
+        alt=""
+        width="18"
+        height="14"
+         loading="lazy"         decoding="async"
+        class="app-flag h-3.5 w-[1.125rem]"
+    >
+                    <span class="truncate">Български</span>
+                </a>
+                            <a href="https://vat.businesspress.io/lang/cs" lang="cs" class="flex items-center gap-2 rounded-control px-2.5 py-2 text-sm transition-colors text-ink-muted hover:bg-surface-muted hover:text-ink" >
+                    <img
+        src="/v2/images/flags/cz.svg"
+        alt=""
+        width="18"
+        height="14"
+         loading="lazy"         decoding="async"
+        class="app-flag h-3.5 w-[1.125rem]"
+    >
+                    <span class="truncate">Čeština</span>
+                </a>
+                            <a href="https://vat.businesspress.io/lang/da" lang="da" class="flex items-center gap-2 rounded-control px-2.5 py-2 text-sm transition-colors text-ink-muted hover:bg-surface-muted hover:text-ink" >
+                    <img
+        src="/v2/images/flags/dk.svg"
+        alt=""
+        width="18"
+        height="14"
+         loading="lazy"         decoding="async"
+        class="app-flag h-3.5 w-[1.125rem]"
+    >
+                    <span class="truncate">Dansk</span>
+                </a>
+                            <a href="https://vat.businesspress.io/lang/de" lang="de" class="flex items-center gap-2 rounded-control px-2.5 py-2 text-sm transition-colors text-ink-muted hover:bg-surface-muted hover:text-ink" >
+                    <img
+        src="/v2/images/flags/de.svg"
+        alt=""
+        width="18"
+        height="14"
+         loading="lazy"         decoding="async"
+        class="app-flag h-3.5 w-[1.125rem]"
+    >
+                    <span class="truncate">Deutsch</span>
+                </a>
+                            <a href="https://vat.businesspress.io/lang/el" lang="el" class="flex items-center gap-2 rounded-control px-2.5 py-2 text-sm transition-colors text-ink-muted hover:bg-surface-muted hover:text-ink" >
+                    <img
+        src="/v2/images/flags/gr.svg"
+        alt=""
+        width="18"
+        height="14"
+         loading="lazy"         decoding="async"
+        class="app-flag h-3.5 w-[1.125rem]"
+    >
+                    <span class="truncate">Ελληνικά</span>
+                </a>
+                            <a href="https://vat.businesspress.io/lang/es" lang="es" class="flex items-center gap-2 rounded-control px-2.5 py-2 text-sm transition-colors text-ink-muted hover:bg-surface-muted hover:text-ink" >
+                    <img
+        src="/v2/images/flags/es.svg"
+        alt=""
+        width="18"
+        height="14"
+         loading="lazy"         decoding="async"
+        class="app-flag h-3.5 w-[1.125rem]"
+    >
+                    <span class="truncate">Español</span>
+                </a>
+                            <a href="https://vat.businesspress.io/lang/et" lang="et" class="flex items-center gap-2 rounded-control px-2.5 py-2 text-sm transition-colors text-ink-muted hover:bg-surface-muted hover:text-ink" >
+                    <img
+        src="/v2/images/flags/ee.svg"
+        alt=""
+        width="18"
+        height="14"
+         loading="lazy"         decoding="async"
+        class="app-flag h-3.5 w-[1.125rem]"
+    >
+                    <span class="truncate">Eesti</span>
+                </a>
+                            <a href="https://vat.businesspress.io/lang/fi" lang="fi" class="flex items-center gap-2 rounded-control px-2.5 py-2 text-sm transition-colors text-ink-muted hover:bg-surface-muted hover:text-ink" >
+                    <img
+        src="/v2/images/flags/fi.svg"
+        alt=""
+        width="18"
+        height="14"
+         loading="lazy"         decoding="async"
+        class="app-flag h-3.5 w-[1.125rem]"
+    >
+                    <span class="truncate">Suomi</span>
+                </a>
+                            <a href="https://vat.businesspress.io/lang/fr" lang="fr" class="flex items-center gap-2 rounded-control px-2.5 py-2 text-sm transition-colors text-ink-muted hover:bg-surface-muted hover:text-ink" >
+                    <img
+        src="/v2/images/flags/fr.svg"
+        alt=""
+        width="18"
+        height="14"
+         loading="lazy"         decoding="async"
+        class="app-flag h-3.5 w-[1.125rem]"
+    >
+                    <span class="truncate">Français</span>
+                </a>
+                            <a href="https://vat.businesspress.io/lang/ga" lang="ga" class="flex items-center gap-2 rounded-control px-2.5 py-2 text-sm transition-colors text-ink-muted hover:bg-surface-muted hover:text-ink" >
+                    <img
+        src="/v2/images/flags/ie.svg"
+        alt=""
+        width="18"
+        height="14"
+         loading="lazy"         decoding="async"
+        class="app-flag h-3.5 w-[1.125rem]"
+    >
+                    <span class="truncate">Gaeilge</span>
+                </a>
+                            <a href="https://vat.businesspress.io/lang/hr" lang="hr" class="flex items-center gap-2 rounded-control px-2.5 py-2 text-sm transition-colors text-ink-muted hover:bg-surface-muted hover:text-ink" >
+                    <img
+        src="/v2/images/flags/hr.svg"
+        alt=""
+        width="18"
+        height="14"
+         loading="lazy"         decoding="async"
+        class="app-flag h-3.5 w-[1.125rem]"
+    >
+                    <span class="truncate">Hrvatski</span>
+                </a>
+                            <a href="https://vat.businesspress.io/lang/hu" lang="hu" class="flex items-center gap-2 rounded-control px-2.5 py-2 text-sm transition-colors text-ink-muted hover:bg-surface-muted hover:text-ink" >
+                    <img
+        src="/v2/images/flags/hu.svg"
+        alt=""
+        width="18"
+        height="14"
+         loading="lazy"         decoding="async"
+        class="app-flag h-3.5 w-[1.125rem]"
+    >
+                    <span class="truncate">Magyar</span>
+                </a>
+                            <a href="https://vat.businesspress.io/lang/it" lang="it" class="flex items-center gap-2 rounded-control px-2.5 py-2 text-sm transition-colors text-ink-muted hover:bg-surface-muted hover:text-ink" >
+                    <img
+        src="/v2/images/flags/it.svg"
+        alt=""
+        width="18"
+        height="14"
+         loading="lazy"         decoding="async"
+        class="app-flag h-3.5 w-[1.125rem]"
+    >
+                    <span class="truncate">Italiano</span>
+                </a>
+                            <a href="https://vat.businesspress.io/lang/lt" lang="lt" class="flex items-center gap-2 rounded-control px-2.5 py-2 text-sm transition-colors text-ink-muted hover:bg-surface-muted hover:text-ink" >
+                    <img
+        src="/v2/images/flags/lt.svg"
+        alt=""
+        width="18"
+        height="14"
+         loading="lazy"         decoding="async"
+        class="app-flag h-3.5 w-[1.125rem]"
+    >
+                    <span class="truncate">Lietuvių</span>
+                </a>
+                            <a href="https://vat.businesspress.io/lang/lv" lang="lv" class="flex items-center gap-2 rounded-control px-2.5 py-2 text-sm transition-colors text-ink-muted hover:bg-surface-muted hover:text-ink" >
+                    <img
+        src="/v2/images/flags/lv.svg"
+        alt=""
+        width="18"
+        height="14"
+         loading="lazy"         decoding="async"
+        class="app-flag h-3.5 w-[1.125rem]"
+    >
+                    <span class="truncate">Latviešu</span>
+                </a>
+                            <a href="https://vat.businesspress.io/lang/mt" lang="mt" class="flex items-center gap-2 rounded-control px-2.5 py-2 text-sm transition-colors text-ink-muted hover:bg-surface-muted hover:text-ink" >
+                    <img
+        src="/v2/images/flags/mt.svg"
+        alt=""
+        width="18"
+        height="14"
+         loading="lazy"         decoding="async"
+        class="app-flag h-3.5 w-[1.125rem]"
+    >
+                    <span class="truncate">Malti</span>
+                </a>
+                            <a href="https://vat.businesspress.io/lang/nl" lang="nl" class="flex items-center gap-2 rounded-control px-2.5 py-2 text-sm transition-colors text-ink-muted hover:bg-surface-muted hover:text-ink" >
+                    <img
+        src="/v2/images/flags/nl.svg"
+        alt=""
+        width="18"
+        height="14"
+         loading="lazy"         decoding="async"
+        class="app-flag h-3.5 w-[1.125rem]"
+    >
+                    <span class="truncate">Nederlands</span>
+                </a>
+                            <a href="https://vat.businesspress.io/lang/pl" lang="pl" class="flex items-center gap-2 rounded-control px-2.5 py-2 text-sm transition-colors text-ink-muted hover:bg-surface-muted hover:text-ink" >
+                    <img
+        src="/v2/images/flags/pl.svg"
+        alt=""
+        width="18"
+        height="14"
+         loading="lazy"         decoding="async"
+        class="app-flag h-3.5 w-[1.125rem]"
+    >
+                    <span class="truncate">Polski</span>
+                </a>
+                            <a href="https://vat.businesspress.io/lang/pt" lang="pt" class="flex items-center gap-2 rounded-control px-2.5 py-2 text-sm transition-colors text-ink-muted hover:bg-surface-muted hover:text-ink" >
+                    <img
+        src="/v2/images/flags/pt.svg"
+        alt=""
+        width="18"
+        height="14"
+         loading="lazy"         decoding="async"
+        class="app-flag h-3.5 w-[1.125rem]"
+    >
+                    <span class="truncate">Português</span>
+                </a>
+                            <a href="https://vat.businesspress.io/lang/ro" lang="ro" class="flex items-center gap-2 rounded-control px-2.5 py-2 text-sm transition-colors text-ink-muted hover:bg-surface-muted hover:text-ink" >
+                    <img
+        src="/v2/images/flags/ro.svg"
+        alt=""
+        width="18"
+        height="14"
+         loading="lazy"         decoding="async"
+        class="app-flag h-3.5 w-[1.125rem]"
+    >
+                    <span class="truncate">Română</span>
+                </a>
+                            <a href="https://vat.businesspress.io/lang/sk" lang="sk" class="flex items-center gap-2 rounded-control px-2.5 py-2 text-sm transition-colors text-ink-muted hover:bg-surface-muted hover:text-ink" >
+                    <img
+        src="/v2/images/flags/sk.svg"
+        alt=""
+        width="18"
+        height="14"
+         loading="lazy"         decoding="async"
+        class="app-flag h-3.5 w-[1.125rem]"
+    >
+                    <span class="truncate">Slovenčina</span>
+                </a>
+                            <a href="https://vat.businesspress.io/lang/sl" lang="sl" class="flex items-center gap-2 rounded-control px-2.5 py-2 text-sm transition-colors text-ink-muted hover:bg-surface-muted hover:text-ink" >
+                    <img
+        src="/v2/images/flags/si.svg"
+        alt=""
+        width="18"
+        height="14"
+         loading="lazy"         decoding="async"
+        class="app-flag h-3.5 w-[1.125rem]"
+    >
+                    <span class="truncate">Slovenščina</span>
+                </a>
+                            <a href="https://vat.businesspress.io/lang/sv" lang="sv" class="flex items-center gap-2 rounded-control px-2.5 py-2 text-sm transition-colors text-ink-muted hover:bg-surface-muted hover:text-ink" >
+                    <img
+        src="/v2/images/flags/se.svg"
+        alt=""
+        width="18"
+        height="14"
+         loading="lazy"         decoding="async"
+        class="app-flag h-3.5 w-[1.125rem]"
+    >
+                    <span class="truncate">Svenska</span>
+                </a>
+                    </div>
+    </div>
+
+            <a href="https://github.com/eimkasp/eu-vat.info" target="_blank" rel="noopener noreferrer" class="hidden size-10 items-center justify-center rounded-control text-white/80 transition-colors hover:bg-white/10 hover:text-white 2xl:inline-flex" aria-label="EU VAT Info on GitHub">
+                <svg
+    class="size-4 shrink-0 size-5"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            </a>
+
+            <button type="button" @click="menu = !menu" class="inline-flex size-10 items-center justify-center rounded-control text-white transition-colors hover:bg-white/10 lg:hidden" aria-controls="mobile-navigation" :aria-expanded="menu.toString()" aria-label="Toggle navigation menu">
+                <svg
+    class="size-4 shrink-0 size-6" x-show="!menu"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+                <svg
+    class="size-4 shrink-0 size-6" x-show="menu" x-cloak="x-cloak"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <nav id="mobile-navigation" x-cloak x-show="menu" x-transition.opacity.duration.150ms class="max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-white/10 pb-4 lg:hidden" aria-label="Mobile navigation">
+        <div class="app-container grid gap-1 pt-3">
+                            <a href="/v2/" class="flex min-h-11 items-center border-l-2 px-3 text-[0.9375rem] font-medium border-transparent text-white/85 hover:bg-white/10 hover:text-white" >All countries</a>
+                            <a href="/v2/vat-calculator/" class="flex min-h-11 items-center border-l-2 px-3 text-[0.9375rem] font-medium border-transparent text-white/85 hover:bg-white/10 hover:text-white" >VAT calculator</a>
+                            <a href="/v2/vat-number-validator/" class="flex min-h-11 items-center border-l-2 px-3 text-[0.9375rem] font-medium border-transparent text-white/85 hover:bg-white/10 hover:text-white" >VAT validator</a>
+                        <a href="/v2/blog/" class="flex min-h-11 items-center border-l-2 px-3 text-[0.9375rem] font-medium border-transparent text-white/85 hover:bg-white/10 hover:text-white" >VAT updates</a>
+
+            <p class="mt-4 px-3 text-xs font-semibold tracking-[0.08em] text-white/60 uppercase">VAT tools</p>
+            <div class="grid grid-cols-2 gap-1">
+                                    <a href="/v2/vat-number-validator/" class="flex min-h-11 items-center gap-2.5 border-l-2 px-3 text-sm font-medium border-transparent text-white/85 hover:bg-white/10 hover:text-white" >
+                        <svg
+    class="size-4 shrink-0 size-4 text-white/70"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+                        <span class="truncate">VAT number validator</span>
+                    </a>
+                                    <a href="/v2/vat-map/" class="flex min-h-11 items-center gap-2.5 border-l-2 px-3 text-sm font-medium border-transparent text-white/85 hover:bg-white/10 hover:text-white" >
+                        <svg
+    class="size-4 shrink-0 size-4 text-white/70"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg>
+                        <span class="truncate">VAT map</span>
+                    </a>
+                                    <a href="/v2/vat-changes/" class="flex min-h-11 items-center gap-2.5 border-l-2 px-3 text-sm font-medium border-transparent text-white/85 hover:bg-white/10 hover:text-white" >
+                        <svg
+    class="size-4 shrink-0 size-4 text-white/70"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
+                        <span class="truncate">VAT history</span>
+                    </a>
+                                    <a href="https://vat.businesspress.io/embed" class="flex min-h-11 items-center gap-2.5 border-l-2 px-3 text-sm font-medium border-transparent text-white/85 hover:bg-white/10 hover:text-white" >
+                        <svg
+    class="size-4 shrink-0 size-4 text-white/70"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>
+                        <span class="truncate">VAT widget</span>
+                    </a>
+                                    <a href="/v2/vat-validation-api/" class="flex min-h-11 items-center gap-2.5 border-l-2 px-3 text-sm font-medium border-gold bg-white/10 text-white"  aria-current="page" >
+                        <svg
+    class="size-4 shrink-0 size-4 text-white/70"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+                        <span class="truncate">VAT validation API</span>
+                    </a>
+                                    <a href="/v2/datasets/eu-vat-rates/" class="flex min-h-11 items-center gap-2.5 border-l-2 px-3 text-sm font-medium border-transparent text-white/85 hover:bg-white/10 hover:text-white" >
+                        <svg
+    class="size-4 shrink-0 size-4 text-white/70"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
+                        <span class="truncate">EU VAT dataset</span>
+                    </a>
+                            </div>
+
+            <div class="mt-3 flex items-center justify-between gap-3 border-t border-white/10 px-1 pt-4">
+                <div class="flex items-center gap-2">
+        <label for="mobile-language" class="sr-only">Language</label>
+        <svg
+    class="size-4 shrink-0 size-4 text-white/70"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
+        <select id="mobile-language" onchange="window.location.href = '/lang/' + this.value" class="app-brand-panel h-10 rounded-control px-3 text-sm font-medium [&>option]:text-ink">
+                            <option value="en" selected>English</option>
+                            <option value="bg" >Български</option>
+                            <option value="cs" >Čeština</option>
+                            <option value="da" >Dansk</option>
+                            <option value="de" >Deutsch</option>
+                            <option value="el" >Ελληνικά</option>
+                            <option value="es" >Español</option>
+                            <option value="et" >Eesti</option>
+                            <option value="fi" >Suomi</option>
+                            <option value="fr" >Français</option>
+                            <option value="ga" >Gaeilge</option>
+                            <option value="hr" >Hrvatski</option>
+                            <option value="hu" >Magyar</option>
+                            <option value="it" >Italiano</option>
+                            <option value="lt" >Lietuvių</option>
+                            <option value="lv" >Latviešu</option>
+                            <option value="mt" >Malti</option>
+                            <option value="nl" >Nederlands</option>
+                            <option value="pl" >Polski</option>
+                            <option value="pt" >Português</option>
+                            <option value="ro" >Română</option>
+                            <option value="sk" >Slovenčina</option>
+                            <option value="sl" >Slovenščina</option>
+                            <option value="sv" >Svenska</option>
+                    </select>
+    </div>
+                <button
+    type="button"
+    x-data="{ labels: JSON.parse('{\u0022system\u0022:\u0022System\u0022,\u0022light\u0022:\u0022Light\u0022,\u0022dark\u0022:\u0022Dark\u0022}') }"
+    @click="$store.theme.cycle()"
+    :title="'Theme' + ': ' + labels[$store.theme.mode]"
+    :aria-label="'Change colour theme' + ' (' + labels[$store.theme.mode] + ')'"
+    class="h-10 items-center justify-center gap-2 rounded-control px-2.5 text-sm font-medium text-white/85 transition-colors hover:bg-white/10 hover:text-white inline-flex"
+>
+    <svg
+    class="size-4 shrink-0 size-[1.125rem]" x-show="$store.theme.mode === 'system'"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+    <svg
+    class="size-4 shrink-0 size-[1.125rem]" x-show="$store.theme.mode === 'light'" x-cloak="x-cloak"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+    <svg
+    class="size-4 shrink-0 size-[1.125rem]" x-show="$store.theme.mode === 'dark'" x-cloak="x-cloak"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            <span x-text="labels[$store.theme.mode]">System</span>
+    </button>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+    <main id="main-content" tabindex="-1" class="outline-none">
+                    <div wire:snapshot="{&quot;data&quot;:{&quot;baseUrl&quot;:&quot;https:\/\/vat.businesspress.io&quot;},&quot;memo&quot;:{&quot;id&quot;:&quot;wvfhWHAhlZTt0sAugOTE&quot;,&quot;name&quot;:&quot;vat-validation-api-docs&quot;,&quot;path&quot;:&quot;vat-validation-api&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;release&quot;:&quot;a-a-a&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;en&quot;,&quot;islands&quot;:[]},&quot;checksum&quot;:&quot;9db277326f454d698959c9fe334e78398808c6dc370f49301ad2607dd6f2c08d&quot;}" wire:effects="{&quot;partials&quot;:[]}" wire:id="wvfhWHAhlZTt0sAugOTE" wire:name="vat-validation-api-docs" x-data="{
+    tab: 'single',
+    simCountry: 'LT',
+    simVat: '100019070512',
+    loading: false,
+    response: null,
+    error: null,
+    elapsed: null,
+    async runRequest() {
+        this.loading = true;
+        this.response = null;
+        this.error = null;
+        this.elapsed = null;
+        const t0 = performance.now();
+        const body = this.tab === 'single'
+            ? { country_code: this.simCountry, vat_number: this.simVat }
+            : {
+                validations: [
+                    { country_code: this.simCountry, vat_number: this.simVat },
+                    { country_code: 'DE', vat_number: '123456789' }
+                ]
+              };
+        const endpoint = this.tab === 'single'
+            ? '/api/vat/validation/validate'
+            : '/api/vat/validation/batch';
+        try {
+            const res = await fetch(endpoint, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
+                body: JSON.stringify(body)
+            });
+            const json = await res.json();
+            this.elapsed = Math.round(performance.now() - t0);
+            this.response = JSON.stringify(json, null, 2);
+            if (!res.ok) this.error = this.response, this.response = null;
+        } catch(e) {
+            this.error = e.message;
+        }
+        this.loading = false;
+    },
+    get requestBody() {
+        if (this.tab === 'single') {
+            return JSON.stringify({ country_code: this.simCountry, vat_number: this.simVat }, null, 2);
+        }
+        return JSON.stringify({
+            validations: [
+                { country_code: this.simCountry, vat_number: this.simVat },
+                { country_code: 'DE', vat_number: '123456789' }
+            ]
+        }, null, 2);
+    },
+    get currentEndpoint() {
+        return this.tab === 'single' ? '/api/vat/validation/validate' : '/api/vat/validation/batch';
+    }
+}">
+    <section class="hero-canvas">
+        <div data-atmosphere-media class="pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
+    <picture>
+        <source media="(min-width: 1024px)" type="image/webp" srcset="/v2/images/hero-texture-lg.webp">
+        <source media="(min-width: 640px)" type="image/webp" srcset="/v2/images/hero-texture-md.webp">
+        <source type="image/webp" srcset="/v2/images/hero-texture-sm.webp">
+        <img src="/v2/images/eu-vat-calculator-background-sm.jpg" alt="" width="1600" height="893" fetchpriority="high" decoding="async" class="hero-photo opacity-20">
+    </picture>
+    <div class="hero-scrim"></div>
+</div>
+        <div class="app-container relative pb-12 pt-6 sm:pb-16 sm:pt-8">
+            <nav class="text-sm" aria-label="Breadcrumb">
+    <ol class="flex flex-wrap items-center gap-x-1.5 gap-y-1" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li class="inline-flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="/v2/" itemprop="item" class="inline-flex items-center gap-1.5 rounded-control transition-colors text-white/70 hover:text-white">
+                <svg
+    class="size-4 shrink-0 size-3.5"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                <span itemprop="name">Home</span>
+            </a>
+            <meta itemprop="position" content="1">
+        </li>
+        <!--[if BLOCK]><![endif]-->            <li class="inline-flex items-center gap-1.5" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <svg
+    class="size-4 shrink-0 size-3.5 text-white/40"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="m9 18 6-6-6-6"/></svg>
+                <!--[if BLOCK]><![endif]-->                    <a href="/v2/vat-number-validator/" itemprop="item" class="rounded-control font-medium transition-colors text-white/70 hover:text-white">
+                        <span itemprop="name">VAT number validator</span>
+                    </a>
+                <!--[if ENDBLOCK]><![endif]-->                <meta itemprop="position" content="2">
+            </li>
+                    <li class="inline-flex items-center gap-1.5" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <svg
+    class="size-4 shrink-0 size-3.5 text-white/40"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="m9 18 6-6-6-6"/></svg>
+                <!--[if BLOCK]><![endif]-->                    <span aria-current="page" itemprop="item" itemid="https://vat.businesspress.io/vat-validation-api" class="font-medium text-white">
+                        <span itemprop="name">API documentation</span>
+                    </span>
+                <!--[if ENDBLOCK]><![endif]-->                <meta itemprop="position" content="3">
+            </li>
+        <!--[if ENDBLOCK]><![endif]-->    </ol>
+</nav>
+            <div class="mt-6 max-w-3xl">
+                <p class="app-kicker">REST API · No auth required · Free</p>
+                <h1 class="mt-3 text-4xl font-bold tracking-[-0.03em] text-white sm:text-5xl sm:leading-[1.08]">EU VAT validation API</h1>
+                <p class="mt-4 max-w-2xl text-base leading-7 text-white/85 sm:text-lg">Validate EU VAT numbers programmatically against the official VIES database. Free to use, no API key and CORS enabled.</p>
+            </div>
+            <dl class="mt-8 grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3">
+                <!--[if BLOCK]><![endif]-->                    <div class="app-brand-panel flex flex-col-reverse p-4">
+                        <dt class="mt-1 text-sm text-white/70">No API key or account needed</dt>
+                        <dd class="tabular text-2xl font-bold text-white">Free</dd>
+                    </div>
+                                    <div class="app-brand-panel flex flex-col-reverse p-4">
+                        <dt class="mt-1 text-sm text-white/70">Validate up to 10 numbers at once</dt>
+                        <dd class="tabular text-2xl font-bold text-white">10 per batch</dd>
+                    </div>
+                                    <div class="app-brand-panel flex flex-col-reverse p-4">
+                        <dt class="mt-1 text-sm text-white/70">Every EU member state</dt>
+                        <dd class="tabular text-2xl font-bold text-white">27 countries</dd>
+                    </div>
+                <!--[if ENDBLOCK]><![endif]-->            </dl>
+        </div>
+    </section>
+
+    <div class="app-container py-8 sm:py-10">
+        <div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-[minmax(0,1fr)_20rem]">
+            <div class="min-w-0 space-y-10">
+                <section id="base-url" class="scroll-mt-24" aria-labelledby="base-url-heading">
+                    <h2 id="base-url-heading" class="text-xl font-bold text-ink">Base URL</h2>
+                    <div class="app-code mt-4 flex items-center gap-3 py-1.5 pl-4 pr-1.5">
+                        <code class="min-w-0 flex-1 truncate font-mono text-sm text-syntax-ok">https://vat.businesspress.io</code>
+                        <button type="button" class="pressable inline-flex h-8 shrink-0 items-center gap-1.5 rounded-control px-2.5 text-xs font-semibold text-white/80 hover:bg-white/10 hover:text-white" x-on:click="$copy('https:\/\/vat.businesspress.io', 'Base URL copied')">
+                            <svg
+    class="size-4 shrink-0 size-3.5"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                            Copy
+                        </button>
+                    </div>
+                    <p class="mt-2 text-xs text-ink-muted">Every endpoint is relative to this base URL. Use HTTPS in production.</p>
+                </section>
+
+                <section id="endpoints" class="scroll-mt-24 space-y-4" aria-labelledby="endpoints-heading">
+                    <h2 id="endpoints-heading" class="text-xl font-bold text-ink">Endpoints</h2>
+
+                    <article class="app-surface overflow-hidden" aria-labelledby="endpoint-validate">
+                        <header class="flex flex-wrap items-center gap-3 border-b border-line bg-surface-subtle px-5 py-3.5">
+                            <span class="app-badge bg-action-soft font-mono text-action-deep">POST</span>
+                            <h3 id="endpoint-validate" class="font-mono text-sm font-semibold text-ink">/api/vat/validation/validate</h3>
+                        </header>
+                        <div class="space-y-5 p-5">
+                            <p class="text-sm leading-6 text-ink-muted">Validate a single EU VAT number in real time against the VIES database. Results are cached for 7 days.</p>
+
+                            <div>
+                                <h4 class="app-eyebrow">Request body</h4>
+                                <div class="relative mt-2 overflow-x-auto rounded-card border border-line">
+                                    <table class="app-table min-w-[34rem]">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Parameter</th>
+                                                <th scope="col">Type</th>
+                                                <th scope="col">Required</th>
+                                                <th scope="col">Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-xs">
+                                            <!--[if BLOCK]><![endif]-->                                                <tr>
+                                                    <td><code class="rounded-xs bg-action-soft px-1.5 py-0.5 font-mono text-action-deep">country_code</code></td>
+                                                    <td class="font-mono text-ink-muted">string</td>
+                                                    <td>
+                                                        <!--[if BLOCK]><![endif]-->                                                            <span class="font-semibold text-ink">Required</span>
+                                                        <!--[if ENDBLOCK]><![endif]-->                                                    </td>
+                                                    <td class="leading-5 text-ink-muted">2-letter ISO code, for example <code class="rounded-xs bg-surface-muted px-1 font-mono">LT</code> or <code class="rounded-xs bg-surface-muted px-1 font-mono">DE</code>. Greece uses <code class="rounded-xs bg-surface-muted px-1 font-mono">EL</code>.</td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <td><code class="rounded-xs bg-action-soft px-1.5 py-0.5 font-mono text-action-deep">vat_number</code></td>
+                                                    <td class="font-mono text-ink-muted">string</td>
+                                                    <td>
+                                                        <!--[if BLOCK]><![endif]-->                                                            <span class="font-semibold text-ink">Required</span>
+                                                        <!--[if ENDBLOCK]><![endif]-->                                                    </td>
+                                                    <td class="leading-5 text-ink-muted">The VAT number without the country prefix: <code class="rounded-xs bg-surface-muted px-1 font-mono">100019070512</code>, not <code class="rounded-xs bg-surface-muted px-1 font-mono">LT100019070512</code>.</td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <td><code class="rounded-xs bg-action-soft px-1.5 py-0.5 font-mono text-action-deep">company_name</code></td>
+                                                    <td class="font-mono text-ink-muted">string</td>
+                                                    <td>
+                                                        <!--[if BLOCK]><![endif]-->                                                            <span class="text-ink-quiet">Optional</span>
+                                                        <!--[if ENDBLOCK]><![endif]-->                                                    </td>
+                                                    <td class="leading-5 text-ink-muted">Expected company name for fuzzy-match verification.</td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <td><code class="rounded-xs bg-action-soft px-1.5 py-0.5 font-mono text-action-deep">address</code></td>
+                                                    <td class="font-mono text-ink-muted">string</td>
+                                                    <td>
+                                                        <!--[if BLOCK]><![endif]-->                                                            <span class="text-ink-quiet">Optional</span>
+                                                        <!--[if ENDBLOCK]><![endif]-->                                                    </td>
+                                                    <td class="leading-5 text-ink-muted">Expected address for additional verification.</td>
+                                                </tr>
+                                            <!--[if ENDBLOCK]><![endif]-->                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="min-w-0">
+                                    <h4 class="app-eyebrow">Example request</h4>
+                                    <pre tabindex="0" class="app-code mt-2 overflow-x-auto p-4 font-mono text-xs leading-5 text-white/75">curl -X POST https://vat.businesspress.io/api/vat/validation/validate \
+  -H "Content-Type: application/json" \
+  -d '<span class="text-syntax-literal">{"country_code": "LT", "vat_number": "100019070512"}</span>'</pre>
+                                </div>
+                                <div class="min-w-0">
+                                    <h4 class="app-eyebrow">Example response</h4>
+                                    <pre tabindex="0" class="app-code mt-2 overflow-x-auto p-4 font-mono text-xs leading-5 text-syntax-string">{
+  "success": true,
+  "data": {
+    "valid": true,
+    "country_code": "LT",
+    "vat_number": "100019070512",
+    "name": "UAB Company Name",
+    "address": "Vilnius, Lithuania",
+    "source": "vies",
+    "request_identifier": "..."
+  }
+}</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="app-surface overflow-hidden" aria-labelledby="endpoint-batch">
+                        <header class="flex flex-wrap items-center gap-3 border-b border-line bg-surface-subtle px-5 py-3.5">
+                            <span class="app-badge bg-action-soft font-mono text-action-deep">POST</span>
+                            <h3 id="endpoint-batch" class="font-mono text-sm font-semibold text-ink">/api/vat/validation/batch</h3>
+                            <span class="app-badge ml-auto bg-surface-muted text-ink-muted">Up to 10 numbers</span>
+                        </header>
+                        <div class="space-y-5 p-5">
+                            <p class="text-sm leading-6 text-ink-muted">Validate up to 10 VAT numbers in one request. Each number is checked against VIES independently.</p>
+                            <div class="space-y-4">
+                                <div class="min-w-0">
+                                    <h4 class="app-eyebrow">Example request</h4>
+                                    <pre tabindex="0" class="app-code mt-2 overflow-x-auto p-4 font-mono text-xs leading-5 text-syntax-literal">{
+  "validations": [
+    {
+      "country_code": "LT",
+      "vat_number": "100019070512"
+    },
+    {
+      "country_code": "DE",
+      "vat_number": "129274202"
+    }
+  ]
+}</pre>
+                                </div>
+                                <div class="min-w-0">
+                                    <h4 class="app-eyebrow">Example response</h4>
+                                    <pre tabindex="0" class="app-code mt-2 overflow-x-auto p-4 font-mono text-xs leading-5 text-syntax-string">{
+  "success": true,
+  "total": 2,
+  "data": [
+    {
+      "valid": true,
+      "country_code": "LT",
+      "vat_number": "100019070512",
+      "name": "UAB ...",
+      ...
+    },
+    { ... }
+  ]
+}</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="app-surface overflow-hidden" aria-labelledby="endpoint-health">
+                        <header class="flex flex-wrap items-center gap-3 border-b border-line bg-surface-subtle px-5 py-3.5">
+                            <span class="app-badge bg-success-soft font-mono text-success">GET</span>
+                            <h3 id="endpoint-health" class="font-mono text-sm font-semibold text-ink">/api/vat/validation/health</h3>
+                        </header>
+                        <div class="space-y-4 p-5">
+                            <p class="text-sm leading-6 text-ink-muted">Check the operational status of the VAT validation service.</p>
+                            <pre tabindex="0" class="app-code overflow-x-auto p-4 font-mono text-xs leading-5 text-syntax-string">{
+  "status": "operational",
+  "service": "VAT VIES Validation API",
+  "timestamp": "2026-04-07T10:00:00+00:00"
+}</pre>
+                        </div>
+                    </article>
+                </section>
+
+                <section id="playground" class="scroll-mt-24" aria-labelledby="playground-heading">
+                    <h2 id="playground-heading" class="text-xl font-bold text-ink">Interactive playground</h2>
+                    <div class="app-surface mt-4 space-y-4 p-5">
+                        <div class="flex flex-wrap gap-2" role="group" aria-label="Request type">
+                            <button type="button" class="app-chip" :class="tab === 'single' && 'app-chip-active'" :aria-pressed="(tab === 'single').toString()" aria-pressed="true" x-on:click="tab = 'single'; response = null; error = null">Single validation</button>
+                            <button type="button" class="app-chip" :class="tab === 'batch' && 'app-chip-active'" :aria-pressed="(tab === 'batch').toString()" aria-pressed="false" x-on:click="tab = 'batch'; response = null; error = null">Batch demo</button>
+                        </div>
+
+                        <div class="grid grid-cols-1 gap-3 sm:grid-cols-[8rem_minmax(0,1fr)]">
+                            <div>
+                                <label for="playground-country" class="mb-1.5 block font-mono text-xs font-semibold text-ink-muted">country_code</label>
+                                <input id="playground-country" x-model="simCountry" type="text" maxlength="2" placeholder="LT" autocomplete="off" class="app-field font-mono uppercase">
+                            </div>
+                            <div>
+                                <label for="playground-number" class="mb-1.5 block font-mono text-xs font-semibold text-ink-muted">vat_number</label>
+                                <input id="playground-number" x-model="simVat" type="text" placeholder="100019070512" autocomplete="off" class="app-field font-mono" x-on:keydown.enter="runRequest()">
+                            </div>
+                        </div>
+                        <p x-cloak x-show="tab === 'batch'" class="app-note">
+                            <svg
+    class="size-4 shrink-0 mt-1 size-4 text-action"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                            <span>The batch demo validates the number above together with a fixed German example, so you can see the multi-result format.</span>
+                        </p>
+
+                        <div class="app-code overflow-hidden">
+                            <div class="flex items-center justify-between gap-3 border-b border-white/10 py-1.5 pl-4 pr-1.5">
+                                <p class="truncate font-mono text-xs"><span class="font-semibold text-syntax-ok">POST</span> <span class="text-white/60" x-text="currentEndpoint">/api/vat/validation/validate</span></p>
+                                <button type="button" x-on:click="runRequest()" :disabled="loading" :aria-busy="loading.toString()" class="app-button-primary h-8 min-h-8 shrink-0 px-3 text-xs">
+                                    <svg
+    class="size-4 shrink-0 size-3.5" x-show="!loading"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M6 3v18l14-9z"/></svg>
+                                    <span x-cloak x-show="loading" class="block size-3.5 animate-spin rounded-full border-2 border-white/30 border-t-white" aria-hidden="true"></span>
+                                    <span x-text="loading ? 'Sending…' : 'Send request'">Send request</span>
+                                </button>
+                            </div>
+                            <pre tabindex="0" class="overflow-x-auto p-4 font-mono text-xs leading-5 text-syntax-literal" x-text="requestBody"></pre>
+                            <div class="border-t border-white/10" aria-live="polite">
+                                <p x-show="!response && !error && !loading" class="p-4 font-mono text-xs text-syntax-comment">// The response appears here after you send the request.</p>
+                                <p x-cloak x-show="loading" class="flex items-center gap-2 p-4 font-mono text-xs text-white/60">
+                                    <span class="block size-3.5 animate-spin rounded-full border-2 border-syntax-keyword/30 border-t-syntax-keyword" aria-hidden="true"></span>
+                                    Sending the request to VIES…
+                                </p>
+                                <div x-cloak x-show="response">
+                                    <div class="flex items-center justify-between gap-3 border-b border-white/10 py-1.5 pl-4 pr-1.5">
+                                        <p class="font-mono text-xs"><span class="font-semibold text-syntax-ok">200 OK</span> <span class="text-white/45" x-text="elapsed ? elapsed + ' ms' : ''"></span></p>
+                                        <button type="button" class="pressable inline-flex h-8 items-center gap-1.5 rounded-control px-2.5 text-xs font-semibold text-white/80 hover:bg-white/10 hover:text-white" x-on:click="$copy(response, 'Response copied')">
+                                            <svg
+    class="size-4 shrink-0 size-3.5"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                                            Copy
+                                        </button>
+                                    </div>
+                                    <pre tabindex="0" class="overflow-x-auto p-4 font-mono text-xs leading-5 text-syntax-string" x-text="response"></pre>
+                                </div>
+                                <div x-cloak x-show="error" class="p-4">
+                                    <p class="font-mono text-xs font-semibold text-syntax-error">Error</p>
+                                    <pre tabindex="0" class="mt-2 overflow-x-auto font-mono text-xs leading-5 text-syntax-error" x-text="error"></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="response-fields" class="scroll-mt-24" aria-labelledby="response-fields-heading">
+                    <h2 id="response-fields-heading" class="text-xl font-bold text-ink">Response fields</h2>
+                    <div class="app-surface relative mt-4 overflow-x-auto">
+                        <table class="app-table min-w-[34rem]">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="pl-5">Field</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col" class="pr-5">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-xs">
+                                <!--[if BLOCK]><![endif]-->                                    <tr>
+                                        <td class="pl-5"><code class="whitespace-nowrap rounded-xs bg-surface-muted px-1.5 py-0.5 font-mono text-ink">success</code></td>
+                                        <td class="whitespace-nowrap font-mono text-ink-muted">boolean</td>
+                                        <td class="pr-5 leading-5 text-ink-muted">Always <code class="rounded-xs bg-surface-muted px-1 font-mono">true</code> for 200 responses.</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="pl-5"><code class="whitespace-nowrap rounded-xs bg-surface-muted px-1.5 py-0.5 font-mono text-ink">data.valid</code></td>
+                                        <td class="whitespace-nowrap font-mono text-ink-muted">boolean</td>
+                                        <td class="pr-5 leading-5 text-ink-muted">Whether the VAT number is currently active in VIES.</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="pl-5"><code class="whitespace-nowrap rounded-xs bg-surface-muted px-1.5 py-0.5 font-mono text-ink">data.country_code</code></td>
+                                        <td class="whitespace-nowrap font-mono text-ink-muted">string</td>
+                                        <td class="pr-5 leading-5 text-ink-muted">The 2-letter country code, echoed back.</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="pl-5"><code class="whitespace-nowrap rounded-xs bg-surface-muted px-1.5 py-0.5 font-mono text-ink">data.vat_number</code></td>
+                                        <td class="whitespace-nowrap font-mono text-ink-muted">string</td>
+                                        <td class="pr-5 leading-5 text-ink-muted">The VAT number as validated, without the prefix.</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="pl-5"><code class="whitespace-nowrap rounded-xs bg-surface-muted px-1.5 py-0.5 font-mono text-ink">data.name</code></td>
+                                        <td class="whitespace-nowrap font-mono text-ink-muted">string|null</td>
+                                        <td class="pr-5 leading-5 text-ink-muted">Company name returned by VIES. May be <code class="rounded-xs bg-surface-muted px-1 font-mono">N/A</code> when the member state withholds it.</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="pl-5"><code class="whitespace-nowrap rounded-xs bg-surface-muted px-1.5 py-0.5 font-mono text-ink">data.address</code></td>
+                                        <td class="whitespace-nowrap font-mono text-ink-muted">string|null</td>
+                                        <td class="pr-5 leading-5 text-ink-muted">Registered address. Some member states withhold it.</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="pl-5"><code class="whitespace-nowrap rounded-xs bg-surface-muted px-1.5 py-0.5 font-mono text-ink">data.source</code></td>
+                                        <td class="whitespace-nowrap font-mono text-ink-muted">string</td>
+                                        <td class="pr-5 leading-5 text-ink-muted"><code class="rounded-xs bg-surface-muted px-1 font-mono">vies</code> for a live lookup, or <code class="rounded-xs bg-surface-muted px-1 font-mono">cache</code> and <code class="rounded-xs bg-surface-muted px-1 font-mono">database</code> for a cached result.</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="pl-5"><code class="whitespace-nowrap rounded-xs bg-surface-muted px-1.5 py-0.5 font-mono text-ink">data.request_identifier</code></td>
+                                        <td class="whitespace-nowrap font-mono text-ink-muted">string|null</td>
+                                        <td class="pr-5 leading-5 text-ink-muted">VIES consultation reference number for your audit trail.</td>
+                                    </tr>
+                                <!--[if ENDBLOCK]><![endif]-->                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="errors" class="scroll-mt-24" aria-labelledby="errors-heading">
+                    <h2 id="errors-heading" class="text-xl font-bold text-ink">Error responses</h2>
+                    <div class="app-surface relative mt-4 overflow-x-auto">
+                        <table class="app-table min-w-[28rem]">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="pl-5">HTTP status</th>
+                                    <th scope="col" class="pr-5">When</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-xs">
+                                <!--[if BLOCK]><![endif]-->                                    <tr>
+                                        <td class="pl-5"><span class="app-badge bg-danger-soft font-mono text-danger">422</span></td>
+                                        <td class="pr-5 leading-5 text-ink-muted">Validation failed: <code class="rounded-xs bg-surface-muted px-1 font-mono">country_code</code> or <code class="rounded-xs bg-surface-muted px-1 font-mono">vat_number</code> is missing or invalid. The <code class="rounded-xs bg-surface-muted px-1 font-mono">errors</code> field explains why.</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="pl-5"><span class="app-badge bg-danger-soft font-mono text-danger">429</span></td>
+                                        <td class="pr-5 leading-5 text-ink-muted">Too many requests: the fair-use limit was reached. Retry after a short pause.</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="pl-5"><span class="app-badge bg-danger-soft font-mono text-danger">503</span></td>
+                                        <td class="pr-5 leading-5 text-ink-muted">The VIES system is temporarily unavailable. Check <a href="https://ec.europa.eu/taxation_customs/vies" target="_blank" rel="noopener noreferrer" class="app-link">the VIES status page</a>.</td>
+                                    </tr>
+                                <!--[if ENDBLOCK]><![endif]-->                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="examples" class="scroll-mt-24" x-data="{ lang: 'curl' }" aria-labelledby="examples-heading">
+                    <h2 id="examples-heading" class="text-xl font-bold text-ink">Code examples</h2>
+                    <div class="mt-4 flex flex-wrap gap-2" role="group" aria-label="Language">
+                        <!--[if BLOCK]><![endif]-->                            <button type="button" class="app-chip app-chip-active" :class="{ 'app-chip-active': lang === 'curl' }" aria-pressed="true" :aria-pressed="(lang === 'curl').toString()" x-on:click="lang = 'curl'">cURL</button>
+                                                    <button type="button" class="app-chip" :class="{ 'app-chip-active': lang === 'javascript' }" aria-pressed="false" :aria-pressed="(lang === 'javascript').toString()" x-on:click="lang = 'javascript'">JavaScript</button>
+                                                    <button type="button" class="app-chip" :class="{ 'app-chip-active': lang === 'php' }" aria-pressed="false" :aria-pressed="(lang === 'php').toString()" x-on:click="lang = 'php'">PHP</button>
+                                                    <button type="button" class="app-chip" :class="{ 'app-chip-active': lang === 'python' }" aria-pressed="false" :aria-pressed="(lang === 'python').toString()" x-on:click="lang = 'python'">Python</button>
+                        <!--[if ENDBLOCK]><![endif]-->                    </div>
+                    <!--[if BLOCK]><![endif]-->                        <div class="app-code mt-3 overflow-hidden" x-show="lang === 'curl'" >
+                            <div class="flex items-center justify-between gap-3 border-b border-white/10 py-1.5 pl-4 pr-1.5">
+                                <p class="font-mono text-xs text-syntax-comment">cURL</p>
+                                <button type="button" class="pressable inline-flex h-8 items-center gap-1.5 rounded-control px-2.5 text-xs font-semibold text-white/80 hover:bg-white/10 hover:text-white" x-on:click="$copy($refs.example_curl.textContent.trim(), 'Code copied')">
+                                    <svg
+    class="size-4 shrink-0 size-3.5"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <!--[if BLOCK]><![endif]--><pre tabindex="0" x-ref="example_curl" class="overflow-x-auto p-4 font-mono text-xs leading-relaxed text-white/75"><code class="text-syntax-function">curl</code> -X POST https://vat.businesspress.io/api/vat/validation/validate \
+  -H <code class="text-syntax-string">"Content-Type: application/json"</code> \
+  -d <code class="text-syntax-literal">'{"country_code":"LT","vat_number":"100019070512"}'</code></pre>
+                                    <!--[if ENDBLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->                        </div>
+                                            <div class="app-code mt-3 overflow-hidden" x-show="lang === 'javascript'"  x-cloak >
+                            <div class="flex items-center justify-between gap-3 border-b border-white/10 py-1.5 pl-4 pr-1.5">
+                                <p class="font-mono text-xs text-syntax-comment">JavaScript</p>
+                                <button type="button" class="pressable inline-flex h-8 items-center gap-1.5 rounded-control px-2.5 text-xs font-semibold text-white/80 hover:bg-white/10 hover:text-white" x-on:click="$copy($refs.example_javascript.textContent.trim(), 'Code copied')">
+                                    <svg
+    class="size-4 shrink-0 size-3.5"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <!--[if BLOCK]><![endif]--><pre tabindex="0" x-ref="example_javascript" class="overflow-x-auto p-4 font-mono text-xs leading-relaxed text-white/75"><code class="text-syntax-keyword">const</code> <code class="text-white/75">response</code> = <code class="text-syntax-keyword">await</code> <code class="text-syntax-function">fetch</code>(<code class="text-syntax-string">'https://vat.businesspress.io/api/vat/validation/validate'</code>, {
+  <code class="text-syntax-function">method</code>: <code class="text-syntax-string">'POST'</code>,
+  <code class="text-syntax-function">headers</code>: { <code class="text-syntax-string">'Content-Type'</code>: <code class="text-syntax-string">'application/json'</code> },
+  <code class="text-syntax-function">body</code>: <code class="text-syntax-keyword">JSON</code>.<code class="text-syntax-function">stringify</code>({
+    <code class="text-syntax-function">country_code</code>: <code class="text-syntax-string">'LT'</code>,
+    <code class="text-syntax-function">vat_number</code>: <code class="text-syntax-string">'100019070512'</code>
+  })
+});
+<code class="text-syntax-keyword">const</code> <code class="text-white/75">data</code> = <code class="text-syntax-keyword">await</code> <code class="text-white/75">response</code>.<code class="text-syntax-function">json</code>();
+<code class="text-syntax-keyword">console</code>.<code class="text-syntax-function">log</code>(<code class="text-white/75">data</code>.<code class="text-white/75">data</code>.<code class="text-white/75">valid</code>); <code class="text-white/45">// true</code></pre>
+                                    <!--[if ENDBLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->                        </div>
+                                            <div class="app-code mt-3 overflow-hidden" x-show="lang === 'php'"  x-cloak >
+                            <div class="flex items-center justify-between gap-3 border-b border-white/10 py-1.5 pl-4 pr-1.5">
+                                <p class="font-mono text-xs text-syntax-comment">PHP</p>
+                                <button type="button" class="pressable inline-flex h-8 items-center gap-1.5 rounded-control px-2.5 text-xs font-semibold text-white/80 hover:bg-white/10 hover:text-white" x-on:click="$copy($refs.example_php.textContent.trim(), 'Code copied')">
+                                    <svg
+    class="size-4 shrink-0 size-3.5"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <!--[if BLOCK]><![endif]--><pre tabindex="0" x-ref="example_php" class="overflow-x-auto p-4 font-mono text-xs leading-relaxed text-white/75"><code class="text-syntax-keyword">$response</code> = <code class="text-syntax-function">Http</code>::<code class="text-syntax-function">post</code>(<code class="text-syntax-string">'https://vat.businesspress.io/api/vat/validation/validate'</code>, [
+    <code class="text-syntax-string">'country_code'</code> => <code class="text-syntax-string">'LT'</code>,
+    <code class="text-syntax-string">'vat_number'</code>  => <code class="text-syntax-string">'100019070512'</code>,
+]);
+
+<code class="text-syntax-keyword">$data</code> = <code class="text-syntax-keyword">$response</code>-><code class="text-syntax-function">json</code>(<code class="text-syntax-string">'data'</code>);
+<code class="text-syntax-keyword">$isValid</code> = <code class="text-syntax-keyword">$data</code>[<code class="text-syntax-string">'valid'</code>]; <code class="text-white/45">// true</code></pre>
+                                    <!--[if ENDBLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->                        </div>
+                                            <div class="app-code mt-3 overflow-hidden" x-show="lang === 'python'"  x-cloak >
+                            <div class="flex items-center justify-between gap-3 border-b border-white/10 py-1.5 pl-4 pr-1.5">
+                                <p class="font-mono text-xs text-syntax-comment">Python</p>
+                                <button type="button" class="pressable inline-flex h-8 items-center gap-1.5 rounded-control px-2.5 text-xs font-semibold text-white/80 hover:bg-white/10 hover:text-white" x-on:click="$copy($refs.example_python.textContent.trim(), 'Code copied')">
+                                    <svg
+    class="size-4 shrink-0 size-3.5"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <!--[if BLOCK]><![endif]--><pre tabindex="0" x-ref="example_python" class="overflow-x-auto p-4 font-mono text-xs leading-relaxed text-white/75"><code class="text-syntax-keyword">import</code> <code class="text-white/75">requests</code>
+
+<code class="text-syntax-keyword">res</code> = <code class="text-white/75">requests</code>.<code class="text-syntax-function">post</code>(
+    <code class="text-syntax-string">"https://vat.businesspress.io/api/vat/validation/validate"</code>,
+    <code class="text-syntax-function">json</code>={<code class="text-syntax-string">"country_code"</code>: <code class="text-syntax-string">"LT"</code>, <code class="text-syntax-string">"vat_number"</code>: <code class="text-syntax-string">"100019070512"</code>}
+)
+<code class="text-syntax-keyword">data</code> = <code class="text-white/75">res</code>.<code class="text-syntax-function">json</code>()[<code class="text-syntax-string">"data"</code>]
+<code class="text-syntax-keyword">print</code>(<code class="text-white/75">data</code>[<code class="text-syntax-string">"valid"</code>])  <code class="text-white/45"># True</code></pre>
+                                    <!--[if ENDBLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->                        </div>
+                    <!--[if ENDBLOCK]><![endif]-->                </section>
+            </div>
+
+            <aside class="space-y-4 lg:sticky lg:top-24">
+                <nav class="app-surface p-5" aria-labelledby="docs-toc">
+                    <h2 id="docs-toc" class="text-sm font-bold text-ink">On this page</h2>
+                    <ul class="-mx-2 mt-2 space-y-0.5 text-sm">
+                        <!--[if BLOCK]><![endif]-->                            <li>
+                                <a href="#base-url" class="flex min-h-9 items-center gap-2 rounded-control px-2 text-ink-muted transition-colors hover:bg-surface-subtle hover:text-ink">
+                                    <svg
+    class="size-4 shrink-0 size-3.5 text-ink-quiet"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="m9 18 6-6-6-6"/></svg>
+                                    Base URL
+                                </a>
+                            </li>
+                                                    <li>
+                                <a href="#endpoints" class="flex min-h-9 items-center gap-2 rounded-control px-2 text-ink-muted transition-colors hover:bg-surface-subtle hover:text-ink">
+                                    <svg
+    class="size-4 shrink-0 size-3.5 text-ink-quiet"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="m9 18 6-6-6-6"/></svg>
+                                    Endpoints
+                                </a>
+                            </li>
+                                                    <li>
+                                <a href="#playground" class="flex min-h-9 items-center gap-2 rounded-control px-2 text-ink-muted transition-colors hover:bg-surface-subtle hover:text-ink">
+                                    <svg
+    class="size-4 shrink-0 size-3.5 text-ink-quiet"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="m9 18 6-6-6-6"/></svg>
+                                    Interactive playground
+                                </a>
+                            </li>
+                                                    <li>
+                                <a href="#response-fields" class="flex min-h-9 items-center gap-2 rounded-control px-2 text-ink-muted transition-colors hover:bg-surface-subtle hover:text-ink">
+                                    <svg
+    class="size-4 shrink-0 size-3.5 text-ink-quiet"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="m9 18 6-6-6-6"/></svg>
+                                    Response fields
+                                </a>
+                            </li>
+                                                    <li>
+                                <a href="#errors" class="flex min-h-9 items-center gap-2 rounded-control px-2 text-ink-muted transition-colors hover:bg-surface-subtle hover:text-ink">
+                                    <svg
+    class="size-4 shrink-0 size-3.5 text-ink-quiet"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="m9 18 6-6-6-6"/></svg>
+                                    Error responses
+                                </a>
+                            </li>
+                                                    <li>
+                                <a href="#examples" class="flex min-h-9 items-center gap-2 rounded-control px-2 text-ink-muted transition-colors hover:bg-surface-subtle hover:text-ink">
+                                    <svg
+    class="size-4 shrink-0 size-3.5 text-ink-quiet"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="m9 18 6-6-6-6"/></svg>
+                                    Code examples
+                                </a>
+                            </li>
+                        <!--[if ENDBLOCK]><![endif]-->                    </ul>
+                </nav>
+
+                <section class="app-surface p-5" aria-labelledby="docs-reference">
+                    <h2 id="docs-reference" class="text-sm font-bold text-ink">Quick reference</h2>
+                    <ul class="mt-3 space-y-2">
+                        <!--[if BLOCK]><![endif]-->                            <li class="flex items-center gap-2">
+                                <span class="app-badge w-12 shrink-0 justify-center font-mono bg-action-soft text-action-deep">POST</span>
+                                <code class="min-w-0 break-all font-mono text-xs text-ink-muted">/api/vat/validation/validate</code>
+                            </li>
+                                                    <li class="flex items-center gap-2">
+                                <span class="app-badge w-12 shrink-0 justify-center font-mono bg-action-soft text-action-deep">POST</span>
+                                <code class="min-w-0 break-all font-mono text-xs text-ink-muted">/api/vat/validation/batch</code>
+                            </li>
+                                                    <li class="flex items-center gap-2">
+                                <span class="app-badge w-12 shrink-0 justify-center font-mono bg-success-soft text-success">GET</span>
+                                <code class="min-w-0 break-all font-mono text-xs text-ink-muted">/api/vat/validation/health</code>
+                            </li>
+                        <!--[if ENDBLOCK]><![endif]-->                    </ul>
+                </section>
+
+                <section class="app-surface p-5" aria-labelledby="docs-rates">
+                    <h2 id="docs-rates" class="text-sm font-bold text-ink">VAT rates API</h2>
+                    <p class="mt-1.5 text-xs leading-5 text-ink-muted">Need rates rather than validation? The v1 API returns every rate type, and its OpenAPI description works with code generators.</p>
+                    <ul class="mt-3 space-y-2">
+                        <li class="flex items-center gap-2">
+                            <span class="app-badge w-12 shrink-0 justify-center bg-success-soft font-mono text-success">GET</span>
+                            <code class="min-w-0 break-all font-mono text-xs text-ink-muted">/api/v1/countries</code>
+                        </li>
+                    </ul>
+                    <p class="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs font-semibold">
+                        <a href="https://vat.businesspress.io/api/v1/countries" class="inline-flex items-center gap-1 text-action hover:text-action-deep hover:underline">Open the API <svg
+    class="size-4 shrink-0 size-3"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="m9 18 6-6-6-6"/></svg>
+</a>
+                        <a href="https://vat.businesspress.io/api/v1/openapi.json" class="inline-flex items-center gap-1 text-action hover:text-action-deep hover:underline">OpenAPI <svg
+    class="size-4 shrink-0 size-3"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="m9 18 6-6-6-6"/></svg>
+</a>
+                    </p>
+                </section>
+
+                <nav class="app-surface p-5" aria-labelledby="docs-related">
+                    <h2 id="docs-related" class="text-sm font-bold text-ink">Related</h2>
+                    <ul class="-mx-2 mt-2 space-y-0.5 text-sm">
+                        <!--[if BLOCK]><![endif]-->                            <li>
+                                <a href="/v2/vat-number-validator/" class="flex min-h-9 items-center gap-2.5 rounded-control px-2 font-medium text-ink transition-colors hover:bg-surface-subtle hover:text-action">
+                                    <svg
+    class="size-4 shrink-0 size-4 text-action"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+                                    VAT number validator
+                                </a>
+                            </li>
+                                                    <li>
+                                <a href="/v2/mcp-server/" class="flex min-h-9 items-center gap-2.5 rounded-control px-2 font-medium text-ink transition-colors hover:bg-surface-subtle hover:text-action">
+                                    <svg
+    class="size-4 shrink-0 size-4 text-action"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+                                    MCP server
+                                </a>
+                            </li>
+                                                    <li>
+                                <a href="/v2/tools/" class="flex min-h-9 items-center gap-2.5 rounded-control px-2 font-medium text-ink transition-colors hover:bg-surface-subtle hover:text-action">
+                                    <svg
+    class="size-4 shrink-0 size-4 text-action"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+                                    All VAT tools
+                                </a>
+                            </li>
+                        <!--[if ENDBLOCK]><![endif]-->                    </ul>
+                </nav>
+            </aside>
+        </div>
+    </div>
+</div>
+            </main>
+
+    <footer class="on-brand mobile-nav-safe bg-brand-deep text-white">
+    <div class="app-container py-12 lg:py-16">
+        <div class="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,3fr)]">
+            <div class="max-w-sm">
+                <a href="/v2/" class="inline-flex items-center gap-2.5 rounded-control text-lg font-bold tracking-[-0.02em] text-white">
+                    <svg class="size-8 shrink-0" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <rect width="32" height="32" rx="6" fill="#fff"/>
+    <path d="M10.5 21.5 21.5 10.5" stroke="#0a2a7a" stroke-width="2.75" stroke-linecap="round"/>
+    <circle cx="11.25" cy="11.25" r="3.25" fill="#0a2a7a"/>
+    <circle cx="20.75" cy="20.75" r="3.25" fill="#ffcc00"/>
+</svg>
+                    EU VAT Info
+                </a>
+                <p class="mt-4 text-sm leading-6 text-white/70">Your trusted source for current VAT rates, calculations, and compliance information across all 27 European Union member states.</p>
+                <div class="mt-5 flex flex-wrap items-center gap-2">
+                    <a href="https://github.com/eimkasp/eu-vat.info" target="_blank" rel="noopener noreferrer" class="app-button-on-brand h-10 min-h-10 px-3" aria-label="EU VAT Info on GitHub">
+                        <svg
+    class="size-4 shrink-0 size-4"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                        GitHub
+                    </a>
+                    <a href="https://chromewebstore.google.com/detail/eu-vat-calculator/fifmbbpgopnifnoginhmjjedjnabdkka" target="_blank" rel="noopener noreferrer" class="app-button-on-brand h-10 min-h-10 px-3">
+                        <svg
+    class="size-4 shrink-0 size-4"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z"/></svg>
+                        Chrome extension
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-8 sm:grid-cols-4">
+                                    <div>
+                        <h2 class="text-xs font-semibold tracking-[0.08em] text-white uppercase">VAT tools</h2>
+                        <ul class="mt-4 space-y-2.5 text-sm hyphens-auto wrap-anywhere">
+                                                                                            <li>
+                                    <a href="/v2/vat-calculator/"  class="text-white/70 transition-colors hover:text-white">VAT calculator</a>
+                                </li>
+                                                                                            <li>
+                                    <a href="/v2/vat-number-validator/"  class="text-white/70 transition-colors hover:text-white">VAT number validator</a>
+                                </li>
+                                                                                            <li>
+                                    <a href="/v2/vat-map/"  class="text-white/70 transition-colors hover:text-white">Interactive VAT map</a>
+                                </li>
+                                                                                            <li>
+                                    <a href="/v2/vat-changes/"  class="text-white/70 transition-colors hover:text-white">VAT rate history</a>
+                                </li>
+                                                                                            <li>
+                                    <a href="https://vat.businesspress.io/embed"  class="text-white/70 transition-colors hover:text-white">Embed VAT widget</a>
+                                </li>
+                                                                                            <li>
+                                    <a href="/v2/chrome-extension/"  class="text-white/70 transition-colors hover:text-white">Chrome extension</a>
+                                </li>
+                                                    </ul>
+                    </div>
+                                    <div>
+                        <h2 class="text-xs font-semibold tracking-[0.08em] text-white uppercase">Resources</h2>
+                        <ul class="mt-4 space-y-2.5 text-sm hyphens-auto wrap-anywhere">
+                                                                                            <li>
+                                    <a href="/v2/blog/"  class="text-white/70 transition-colors hover:text-white">VAT updates</a>
+                                </li>
+                                                                                            <li>
+                                    <a href="/v2/changelog/"  class="text-white/70 transition-colors hover:text-white">What&#039;s new</a>
+                                </li>
+                                                                                            <li>
+                                    <a href="/v1/"  class="text-white/70 transition-colors hover:text-white">Previous version</a>
+                                </li>
+                                                                                            <li>
+                                    <a href="/v2/sitemap/"  class="text-white/70 transition-colors hover:text-white">Sitemap</a>
+                                </li>
+                                                                                            <li>
+                                    <a href="/v2/donate/"  class="text-white/70 transition-colors hover:text-white">Donate</a>
+                                </li>
+                                                                                            <li>
+                                    <a href="/v2/privacy/"  class="text-white/70 transition-colors hover:text-white">Privacy policy</a>
+                                </li>
+                                                    </ul>
+                    </div>
+                                    <div>
+                        <h2 class="text-xs font-semibold tracking-[0.08em] text-white uppercase">Developers</h2>
+                        <ul class="mt-4 space-y-2.5 text-sm hyphens-auto wrap-anywhere">
+                                                                                            <li>
+                                    <a href="/v2/vat-validation-api/"  class="text-white/70 transition-colors hover:text-white">VAT validation API</a>
+                                </li>
+                                                                                            <li>
+                                    <a href="https://vat.businesspress.io/api/v1/countries"  class="text-white/70 transition-colors hover:text-white">VAT rates API (JSON)</a>
+                                </li>
+                                                                                            <li>
+                                    <a href="/v2/datasets/eu-vat-rates/"  class="text-white/70 transition-colors hover:text-white">EU VAT dataset</a>
+                                </li>
+                                                                                            <li>
+                                    <a href="/v2/mcp-server/"  class="text-white/70 transition-colors hover:text-white">MCP server</a>
+                                </li>
+                                                                                            <li>
+                                    <a href="/v2/styleguide/"  class="text-white/70 transition-colors hover:text-white">Design system</a>
+                                </li>
+                                                                                            <li>
+                                    <a href="https://vat.businesspress.io/llms.txt"  class="text-white/70 transition-colors hover:text-white">llms.txt – AI/LLM data</a>
+                                </li>
+                                                                                            <li>
+                                    <a href="https://vat.businesspress.io/sitemap.xml"  class="text-white/70 transition-colors hover:text-white">XML sitemap</a>
+                                </li>
+                                                    </ul>
+                    </div>
+                                    <div>
+                        <h2 class="text-xs font-semibold tracking-[0.08em] text-white uppercase">Partner tools</h2>
+                        <ul class="mt-4 space-y-2.5 text-sm hyphens-auto wrap-anywhere">
+                                                                                            <li>
+                                    <a href="https://pdfcheck.online/"  target="_blank" rel="noopener noreferrer"  class="text-white/70 transition-colors hover:text-white">PDF Tools – <span class="whitespace-nowrap">BusinessPress<svg
+    class="size-4 shrink-0 ml-1 inline size-3 align-[-1px] text-white/45"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+</span></a>
+                                </li>
+                                                                                            <li>
+                                    <a href="https://ec.europa.eu/taxation_customs/vies/"  target="_blank" rel="noopener noreferrer"  class="text-white/70 transition-colors hover:text-white">EU VIES <span class="whitespace-nowrap">validation<svg
+    class="size-4 shrink-0 ml-1 inline size-3 align-[-1px] text-white/45"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+</span></a>
+                                </li>
+                                                                                            <li>
+                                    <a href="https://europa.eu/youreurope/business/taxation/vat/"  target="_blank" rel="noopener noreferrer"  class="text-white/70 transition-colors hover:text-white">EU VAT <span class="whitespace-nowrap">guide<svg
+    class="size-4 shrink-0 ml-1 inline size-3 align-[-1px] text-white/45"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+</span></a>
+                                </li>
+                                                    </ul>
+                    </div>
+                            </div>
+        </div>
+
+        <div class="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-white/60 md:flex-row md:items-center md:justify-between">
+            <p class="flex flex-wrap items-center gap-x-3 gap-y-1">
+                <span>&copy; 2026 EU VAT Info. All rights reserved.</span>
+                <span class="hidden text-white/40 sm:inline" aria-hidden="true">·</span>
+                <a href="https://pdfcheck.online/" target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-white">PDF Tools – BusinessPress</a>
+            </p>
+            <p class="flex items-start gap-2">
+                <svg
+    class="size-4 shrink-0 mt-0.5 size-4 shrink-0 text-gold"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+                Rates sourced from the European Commission and verified daily
+            </p>
+        </div>
+    </div>
+</footer>
+    <nav class="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-surface pb-[env(safe-area-inset-bottom)] md:hidden" aria-label="Mobile navigation">
+    <div class="mx-auto grid h-16 max-w-lg grid-cols-5">
+                    <a href="/v2/" class="app-tab" >
+                <svg
+    class="size-4 shrink-0 size-5"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                <span class="max-w-full truncate">Home</span>
+            </a>
+                    <a href="/v2/vat-calculator/" class="app-tab" >
+                <svg
+    class="size-4 shrink-0 size-5"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M8 6h8"/><path d="M16 14v4"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+                <span class="max-w-full truncate">Calculator</span>
+            </a>
+                    <a href="/v2/vat-number-validator/" class="app-tab" >
+                <svg
+    class="size-4 shrink-0 size-5"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+                <span class="max-w-full truncate">Validator</span>
+            </a>
+                    <a href="/v2/vat-map/" class="app-tab" >
+                <svg
+    class="size-4 shrink-0 size-5"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg>
+                <span class="max-w-full truncate">Map</span>
+            </a>
+                <button type="button" @click="$store.palette.show()" class="app-tab">
+            <svg
+    class="size-4 shrink-0 size-5"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+            <span class="max-w-full truncate">Search</span>
+        </button>
+    </div>
+</nav>
+    <div
+    x-data="commandPalette({ source: '\/v2\/search-index.json' })"
+    x-show="$store.palette.open"
+    x-cloak
+    @keydown.escape.window="$store.palette.hide()"
+    class="fixed inset-0 z-[70] flex items-start justify-center px-3 pt-[12vh] sm:px-6"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="palette-title"
+>
+    <div class="scrim absolute inset-0" @click="$store.palette.hide()" x-show="$store.palette.open" x-transition.opacity.duration.150ms></div>
+
+    <div class="app-popover relative w-full max-w-xl overflow-hidden rounded-panel" x-show="$store.palette.open" x-transition:enter="transition duration-150 ease-out-quint" x-transition:enter-start="translate-y-1 opacity-0" x-transition:enter-end="translate-y-0 opacity-100">
+        <h2 id="palette-title" class="sr-only">Quick search</h2>
+        <div class="flex items-center gap-3 border-b border-line px-4">
+            <svg
+    class="size-4 shrink-0 size-5 text-ink-quiet"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+            <input
+                x-ref="input"
+                x-model="query"
+                @keydown.arrow-down.prevent="move(1)"
+                @keydown.arrow-up.prevent="move(-1)"
+                @keydown.enter.prevent="go()"
+                type="text"
+                role="combobox"
+                aria-expanded="true"
+                aria-controls="palette-results"
+                :aria-activedescendant="results.length ? 'palette-option-' + active : null"
+                autocomplete="off"
+                spellcheck="false"
+                placeholder="Search a country or tool…"
+                aria-label="Search a country or tool…"
+                class="h-14 w-full bg-transparent text-base text-ink outline-none placeholder:text-ink-quiet"
+            >
+            <kbd class="app-kbd hidden sm:inline-flex">Esc</kbd>
+        </div>
+
+        <ul id="palette-results" x-ref="list" role="listbox" class="max-h-[min(60vh,26rem)] overflow-y-auto overscroll-contain p-2">
+            <template x-for="(item, index) in results" :key="item.url">
+                <li
+                    :id="'palette-option-' + index"
+                    :data-index="index"
+                    role="option"
+                    :aria-selected="(index === active).toString()"
+                    @mousemove="active = index"
+                    @click="go(item)"
+                    class="flex min-h-12 cursor-pointer items-center gap-3 rounded-control px-3 py-2"
+                    :class="index === active ? 'bg-action-soft' : ''"
+                >
+                    <template x-if="item.flag">
+                        <img :src="'\/v2\/images\/flags' + '/' + item.flag + '.svg'" alt="" width="24" height="18" class="app-flag h-[1.125rem] w-6">
+                    </template>
+                    <template x-if="!item.flag">
+                        <span class="flex size-6 items-center justify-center rounded-xs bg-surface-muted text-ink-muted">
+                            <svg
+    class="size-4 shrink-0 size-3.5"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+                        </span>
+                    </template>
+                    <span class="min-w-0 flex-1">
+                        <span class="block truncate text-sm font-semibold text-ink" x-text="item.title"></span>
+                        <span class="block truncate text-xs text-ink-muted" x-text="item.subtitle"></span>
+                    </span>
+                    <span class="tabular shrink-0 text-sm font-semibold text-ink-muted" x-show="item.meta" x-text="item.meta"></span>
+                </li>
+            </template>
+            <li x-show="loading && results.length === 0" class="flex items-center justify-center gap-2 px-3 py-10 text-sm text-ink-muted" role="presentation">
+                <span class="size-4 animate-spin rounded-full border-2 border-action/30 border-t-action" aria-hidden="true"></span>
+                Loading...
+            </li>
+            <li x-show="!loading && results.length === 0" class="px-3 py-10 text-center text-sm text-ink-muted" role="presentation">
+                Nothing matches your search.
+            </li>
+        </ul>
+
+        <div class="hidden items-center gap-4 border-t border-line bg-surface-subtle px-4 py-2.5 text-xs text-ink-muted sm:flex">
+            <span class="inline-flex items-center gap-1.5"><kbd class="app-kbd">↑</kbd><kbd class="app-kbd">↓</kbd> to navigate</span>
+            <span class="inline-flex items-center gap-1.5"><kbd class="app-kbd">↵</kbd> to open</span>
+            <span class="ml-auto inline-flex items-center gap-1.5"><kbd class="app-kbd">⌘</kbd><kbd class="app-kbd">K</kbd> to toggle</span>
+        </div>
+    </div>
+</div>
+    <div x-data class="pointer-events-none fixed inset-x-0 bottom-24 z-[80] flex flex-col items-center gap-2 px-4 md:bottom-6 md:items-end md:px-6" aria-live="polite" aria-atomic="false">
+    <template x-for="toast in $store.toasts.items" :key="toast.id">
+        <div class="app-popover pointer-events-auto flex max-w-sm animate-pop-in items-center gap-2.5 py-2 pl-2.5 pr-2 text-sm font-medium" role="status">
+            <span class="flex size-6 items-center justify-center rounded-control" :class="toast.tone === 'success' ? 'bg-success-soft text-success' : 'bg-action-soft text-action'">
+                <svg
+    class="size-4 shrink-0 size-3.5" x-show="toast.tone === 'success'"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M20 6 9 17l-5-5"/></svg>
+                <svg
+    class="size-4 shrink-0 size-3.5" x-show="toast.tone !== 'success'"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            </span>
+            <span x-text="toast.message"></span>
+            <button type="button" @click="$store.toasts.dismiss(toast.id)" class="ml-1 inline-flex size-7 items-center justify-center rounded-control text-ink-quiet hover:bg-surface-muted hover:text-ink" aria-label="Close">
+                <svg
+    class="size-4 shrink-0 size-3.5"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+     aria-hidden="true" focusable="false" ><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+        </div>
+    </template>
+</div>
+
+    <script src="/v2/livewire/livewire.min.js" data-csrf="archive" data-module-url="/v2/livewire" data-update-uri="/v2/livewire/update" data-navigate-once="true"></script>
+
+    </body>
+</html>

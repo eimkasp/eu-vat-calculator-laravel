@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Kaikki kirjatut verokantamuutokset',
     'widget_desc' => 'Upota laskuri omalle sivustollesi',
     'validator_short' => 'ALV-tarkistin',
+    'shortcuts' => 'Työkalujen pikalinkit',
   ),
   'footer' => 
   array (
@@ -67,14 +68,15 @@ return array (
     'donate' => 'Lahjoita',
     'privacy' => 'Tietosuojaseloste',
     'previous_version' => 'Aiempi versio',
+    'older_version' => 'Vanhempi versio',
     'developers' => 'Kehittäjille',
     'mcp_server' => 'MCP-palvelin',
     'data_source_note' => 'Verokannat perustuvat Euroopan komission tietoihin, ja ne tarkistetaan päivittäin',
   ),
   'home_page' => 
   array (
-    'title' => 'EU ALV-tiedot - ALV-laskuri ja tiedot kaikille EU-maille',
-    'meta_desc' => 'Ajantasaiset arvonlisäverokannat kaikille 27 EU-maalle. Ilmainen verkkolaskuri, historialliset tiedot vuodesta 2000, muutosilmoitukset ja vaatimustenmukaisuusoppaat. Päivitetään päivittäin.',
+    'title' => 'ALV-laskuri ja ALV-kannat kaikille 27 EU-maalle',
+    'meta_desc' => 'Lisää tai poista ALV kaikissa 27 EU-maassa voimassa olevilla yleisillä ja alennetuilla kannoilla. Tarkista ALV-numerot VIES-palvelussa ja seuraa muutoksia.',
     'heading' => 'Arvonlisäverokannat',
     'heading_accent' => 'Euroopan unionissa',
     'subtitle' => 'Ajantasaiset yleiset ALV-kannat, alennetut kannat ja laskuri kaikille 27 EU-jäsenvaltiolle. Päivitetään päivittäin.',
@@ -198,6 +200,29 @@ return array (
     'calculation_reference' => 'Laskukaavat',
     'formula_add' => 'Netto × :multiplier = brutto',
     'formula_remove' => 'Brutto ÷ :multiplier = netto',
+    'quick_amounts' => 'Tavalliset summat',
+    'rate_since' => 'Voimassa :date alkaen',
+    'rate_since_previous' => 'Voimassa :date alkaen, aiemmin :rate %',
+    'vat_number_format' => 'ALV-numeron muoto',
+    'full_rate_history' => 'ALV-kantojen historia: :country',
+    'formula_vat_part' => 'Saat :rate %:n arvonlisäveron sisältävän hinnan ALV-osuuden kertomalla hinnan luvulla :rate ja jakamalla luvulla :divisor.',
+    'common_amounts_heading' => 'ALV tavallisista summista: :country',
+    'common_amounts_intro' => 'Yleisellä :rate %:n kannalla. Avaa summa nähdäksesi koko erittelyn jaettavaksi.',
+    'th_amount' => 'Summa',
+    'th_add_vat' => 'Kun :rate % ALV lisätään',
+    'th_remove_vat' => 'Kun :rate % ALV poistetaan',
+    'faq_heading' => 'Kysymyksiä ALV:sta: :country',
+    'faq_rate_q' => 'Mikä on ALV-kanta maassa :country?',
+    'faq_rate_a' => 'Yleinen ALV-kanta maassa :country on :rate %. Alennettuja kantoja :reduced sovelletaan tiettyihin tavaroihin ja palveluihin.',
+    'faq_rate_a_standard_only' => 'Yleinen ALV-kanta maassa :country on :rate %, eikä maassa :country ole alennettua kantaa.',
+    'faq_add_q' => 'Miten lisään ALV:n hintaan maassa :country?',
+    'faq_add_a' => 'Kerro veroton hinta luvulla :multiplier. Esimerkiksi :net plus :rate % ALV on :gross.',
+    'faq_remove_q' => 'Miten poistan ALV:n hinnasta maassa :country?',
+    'faq_remove_a' => 'Jaa verollinen hinta luvulla :multiplier. Esimerkiksi :gross sisältäen :rate % ALV:n on verottomana :net.',
+    'faq_changed_q' => 'Milloin ALV-kanta muuttui viimeksi maassa :country?',
+    'faq_changed_a' => 'Yleinen kanta muuttui :old %:sta :new %:iin :date.',
+    'faq_number_q' => 'Miltä ALV-numero maasta :country näyttää?',
+    'faq_number_a' => 'Maan :country ALV-numerot alkavat tunnuksella :prefix ja noudattavat muotoa :format, jossa 9 on numero, L kirjain ja X kirjain tai numero. Voit tarkistaa numeron EU:n VIES-rekisteristä ALV-numeron tarkistimella.',
   ),
   'trust' => 
   array (
@@ -205,6 +230,9 @@ return array (
     'always_free' => 'Aina ilmainen',
     'all_27_countries' => 'Kaikki 27 EU-maata',
     'no_signup_required' => 'Ei rekisteröitymistä',
+    'updated' => 'Kannat päivitetty :date',
+    'source_ec' => 'Lähde: Euroopan komissio',
+    'source_dataset' => 'Lähde: avoin vat-rates-aineisto',
   ),
   'map' => 
   array (
@@ -233,12 +261,13 @@ return array (
     'interaction_hint' => 'Näet maiden verokannat viemällä osoittimen maan päälle, napauttamalla maata tai siirtymällä maasta toiseen sarkainnäppäimellä. Avaa tiedot painamalla Enter-näppäintä.',
     'clear_selection' => 'Tyhjennä valinta',
     'table_intro' => 'Samat tiedot kuin kartalla, korkein yleinen verokanta ensin.',
+    'meta_desc' => 'Kaikkien EU-maiden yleiset ALV-kannat yhdellä kartalla sekä yleisten, alennettujen ja erityisen alennettujen kantojen järjestys ja laskuri jokaiselle maalle.',
   ),
   'history' => 
   array (
     'title' => 'ALV-kantojen muutoshistoria',
     'meta_title' => 'ALV-kantojen muutoshistoria - EU-maat | EU ALV-tiedot',
-    'meta_desc' => 'Täydellinen ALV-kantojen muutoshistoria kaikissa EU-maissa vuodesta 2000 alkaen. Seuraa yleisten ja alennettujen kantojen muutoksia vakausindikaattorein.',
+    'meta_desc' => 'Kaikki kirjatut ALV-kantojen muutokset EU:ssa: yleiset, alennetut ja väliaikaiset kannat päivämäärineen, vanhoine ja uusine kantoineen ja lähteineen.',
     'subtitle' => 'Seuraa kaikkia ALV-kantojen muutoksia EU-maissa viimeisen vuosikymmenen ajalta',
     'stability_title' => 'Maiden vakausmittarit',
     'stability_desc' => 'Maat, joissa ALV-kannat muuttuvat harvemmin, osoittavat vakaampaa veroympäristöä',
@@ -457,10 +486,10 @@ return array (
   ),
   'vies_page' => 
   array (
-    'title' => 'VIES ALV-numeron tarkistin — Tarkista EU:n ALV-numerot verkossa',
-    'description' => 'Ilmainen VIES ALV-numeron tarkistustyökalu. Tarkista mikä tahansa EU:n ALV-numero välittömästi käyttämällä Euroopan komission virallista VIES-tietokantaa.',
-    'country_title' => 'VIES ALV-numeron tarkistin :country:ksi — Tarkista :country:n ALV-numerot VIES:n kautta',
-    'country_description' => 'Tarkista :country:n (:code) ALV-numerot välittömästi käyttämällä EU:n virallista VIES-tietokantaa.',
+    'title' => 'EU:n ALV-numeron tarkistus: maksuton VIES-haku',
+    'description' => 'Tarkista mikä tahansa EU:n ALV-numero Euroopan komission VIES-rekisteristä. Näet, onko numero voimassa ja kenelle se kuuluu. Maksuton, ei rekisteröitymistä.',
+    'country_title' => 'ALV-numeron tarkistus, :country: maksuton VIES-haku',
+    'country_description' => 'Tarkista maan :country (:code) ALV-numerot EU:n virallisesta VIES-rekisteristä. Näet, onko numero voimassa ja kenelle se kuuluu. Maksuton.',
     'h1' => 'VIES ALV-numeron tarkistin',
     'country_h1' => 'ALV-numeron tarkistin :country:ksi',
     'subtitle' => 'Tarkista mikä tahansa EU:n ALV-numero Euroopan komission virallisen VIES-tietokannan avulla. Tulokset on välimuistissa nopeampaa hakua varten.',
@@ -523,7 +552,6 @@ return array (
     'format_heading' => ':country – ALV-numeron muoto',
     'format_prefix' => 'Etuliite',
     'format_structure' => 'Rakenne',
-    'format_structure_value' => ':prefix, jota seuraa kansallinen tunniste',
     'format_note_gr' => 'Kreikka käyttää arvonlisäverotunnisteissa etuliitettä EL, vaikka sen ISO-maakoodi on edelleen GR.',
     'format_note_default' => 'Kansallinen osa on maakohtainen numerosarja, joka joissakin maissa sisältää myös kirjaimia.',
     'format_disclaimer' => 'Arvonlisäverotunnisteita myöntävät vain kansalliset veroviranomaiset. VIES vahvistaa rekisteröinnin tilan, mutta se ei ole vero- tai oikeudellista neuvontaa.',
@@ -546,6 +574,11 @@ return array (
     'copied' => 'ALV-numero kopioitu',
     'not_in_vies_title' => 'VIES ei kata maata :country',
     'not_in_vies_desc' => 'VIES tarkistaa vain EU-jäsenvaltioiden myöntämiä ALV-numeroita. Tarkista maan :country ALV-numerot kansalliselta veroviranomaiselta. Voit silti tarkistaa minkä tahansa EU-maan ALV-numeron alla.',
+    'format_legend' => '9 on numero, L kirjain ja X kirjain tai numero. Muut merkit kirjoitetaan sellaisinaan.',
+    'formats_heading' => 'ALV-numeroiden muodot EU:ssa',
+    'formats_intro' => 'Jokainen EU:n ALV-numero alkaa kaksikirjaimisella maatunnuksella (Kreikalla EL), jota seuraa kansallinen numero. Avaa maa tarkistaaksesi sen numeroita.',
+    'formats_th_country' => 'Maa',
+    'format_mismatch' => 'Tämä ei näytä maan :country ALV-numerolta (:format). Tarkista kirjoitusvirhe tai tarkista numero silti.',
   ),
   'validator' => 
   array (
@@ -627,7 +660,7 @@ return array (
   'top_calc' => 
   array (
     'page_title' => 'Suositut ALV-laskelmat — EU ALV-laskin',
-    'page_description' => 'Yleisimmät ALV-laskelmat kaikissa 27 EU-jäsenvaltiossa.',
+    'page_description' => 'ALV tavallisista summista 100 eurosta 10 000 euroon jokaisessa EU-maassa maan yleisellä kannalla. Lisää tai poista ALV yhdellä napsautuksella.',
     'heading' => 'Suositut ALV-laskelmat',
     'subheading' => 'Nopea pääsy yleisimpiin ALV-laskelmiin.',
     'vat_on_amount' => 'ALV €:amount summasta',
@@ -648,7 +681,7 @@ return array (
     'disclaimer' => 'Laskelmat ovat vain tiedoksi.',
     'breadcrumb' => 'Suositut laskelmat',
     'amount_page_heading' => 'ALV €:amount summasta — Kaikki EU-maat',
-    'amount_page_desc' => 'Laske ALV €:amount summasta kaikissa 27 EU-maassa.',
+    'amount_page_desc' => 'ALV €:amount summasta – :count EU:n :member_label, yleiset kannat :min %–:max %: ALV ja kokonaissumma maittain, lisättynä tai poistettuna.',
     'back_to_all' => '← Kaikki suositut laskelmat',
     'matrix_caption' => 'Verollinen kokonaissumma kunkin maan yleisellä verokannalla. Valitse luku nähdäksesi koko erittelyn.',
     'amounts_label' => 'Valitse summa',
@@ -656,6 +689,7 @@ return array (
     'removing' => 'Summaan €:amount sisältyvä ALV',
     'net' => 'Netto',
     'member_states' => 'jäsenvaltiota',
+    'amount_meta_title' => 'ALV €:amount summasta jokaisessa EU-maassa',
   ),
   'changelog' => 
   array (
@@ -681,8 +715,8 @@ return array (
   'skip_to_content' => 'Siirry pääsisältöön',
   'tools' => 
   array (
-    'seo_title' => 'EU-maiden ALV-työkalut ja resurssit – laskurit, tarkistimet ja oppaat',
-    'seo_description' => 'Ilmaiset ALV-työkalut EU-maille: laskuri, ALV-numeron tarkistin, verokantojen vertailukartat ja vaatimustenmukaisuusoppaat kaikille 27 EU-jäsenvaltiolle.',
+    'seo_title' => 'EU:n ALV-työkalut: laskuri, tarkistus, kartta, oppaat',
+    'seo_description' => 'Maksuttomat EU:n ALV-työkalut: laskuri jokaiselle maalle, ALV-numeroiden VIES-tarkistus, kantojen kartta, kantahistoria ja oppaat 27 jäsenvaltioon.',
     'heading' => 'EU ALV-tiedot -palvelun työkalut ja resurssit',
     'intro_text' => 'Tässä on EU-vat.info-tiimin työkaluja ja resursseja, jotka auttavat sinua selviytymään Euroopan unionin monimutkaisesta arvonlisäverotuksesta.',
     'calculator_heading' => 'ALV-laskuri',
@@ -781,7 +815,7 @@ return array (
   array (
     'eyebrow' => 'Maavertailu',
     'title' => ':left vs. :right – ALV-kannat',
-    'meta_title' => ':left vs. :right – ALV-kannat, laskurit ja historia',
+    'meta_title' => 'ALV: :left ja :right vertailussa',
     'meta_description' => 'Vertaa maiden :left ja :right ALV-kantoja, alennettuja verokantoja, valuuttoja, VIES-tarkistuksen saatavuutta ja historiallisia muutoksia.',
     'intro' => 'Vertaa nykyisiä ALV-rakenteita ja siirry kunkin maan laskuriin, tarkistusoppaaseen ja kirjattuun historiaan.',
     'measure' => 'Vertailukohta',
@@ -834,8 +868,8 @@ return array (
   ),
   'mcp_page' =>
   array (
-    'meta_title' => 'EU:n ALV-MCP-palvelin: ajantasaiset ALV-tiedot tekoälyavustajille | EU VAT Info',
-    'meta_desc' => 'Maksuton etä-MCP-palvelin EU:n ALV-kannoilla, laskelmilla, kantojen muutoksilla ja ALV-numeroiden VIES-tarkistuksella. Yhdistä Claude, ChatGPT, VS Code tai Cursor minuutissa.',
+    'meta_title' => 'EU:n ALV-tietojen MCP-palvelin tekoälyavustajille',
+    'meta_desc' => 'Maksuton MCP-palvelin, jossa EU:n ALV-kannat, laskelmat, kantojen muutokset ja VIES-tarkistukset. Yhdistä Claude, ChatGPT, VS Code tai Cursor minuutissa.',
     'kicker' => 'Model Context Protocol',
     'title' => 'EU:n ALV-MCP-palvelin',
     'lede' => 'Anna tekoälyavustajallesi EU:n ajantasaiset ALV-kannat, ALV-laskelmat, tulevat kantojen muutokset ja ALV-numeroiden VIES-tarkistukset. Maksuton, vain luku ja ilman rekisteröitymistä.',
@@ -880,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Yhden maan kannat',
-        'desc' => 'Voimassa olevat kannat, valuutta ja viimeisin päivitys yhdelle maalle.',
+        'desc' => 'Voimassa olevat kannat, valuutta, ALV-numeron muoto ja viimeisin päivitys yhdelle maalle.',
         'prompt' => 'Mitkä ovat Itävallan ALV-kannat?',
       ),
       'calculate_vat' =>
@@ -928,7 +962,7 @@ return array (
     'detail_limits' => 'Kohtuullinen käyttö',
     'limits_value' => ':requests pyyntöä minuutissa IP-osoitetta kohden, joista enintään :checks ALV-numeron tarkistusta',
     'detail_data' => 'Tiedot',
-    'data_value' => 'Euroopan komission ALV-kannat, päivitetään päivittäin',
+    'data_value' => 'Euroopan komission ALV-kannat, päivitetään viikoittain',
     'detail_discovery' => 'Löydettävyys',
     'server_card' => 'Palvelinkortti',
     'faq_heading' => 'Kysymyksiä',
@@ -939,7 +973,7 @@ return array (
     'faq_3_q' => 'Onko yhdistäminen turvallista?',
     'faq_3_a' => 'Kyllä. Kaikki työkalut ovat vain luku -työkaluja: palvelin palauttaa ainoastaan ALV-tietoja ja laskelmia. Se ei näe tiedostojasi eikä toimi puolestasi.',
     'faq_4_q' => 'Kuinka ajantasaisia kannat ovat?',
-    'faq_4_a' => 'Kannat perustuvat Euroopan komission tietoihin, ja ne päivitetään päivittäin. Jokainen tulos kertoo, milloin maan tiedot päivitettiin viimeksi.',
+    'faq_4_a' => 'Kannat perustuvat Euroopan komission tietoihin, ja ne päivitetään viikoittain. Jokainen tulos kertoo, milloin maan tiedot päivitettiin viimeksi.',
     'faq_5_q' => 'Ovatko vastaukset veroneuvontaa?',
     'faq_5_a' => 'Eivät. Palvelin palauttaa viitekantoja. Oikea ALV-käsittely riippuu tavaroista tai palveluista ja asiakkaasta, joten tarkista tärkeät tapaukset veroneuvojalta tai kansalliselta veroviranomaiselta.',
   ),

@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Tutte le variazioni di aliquota registrate',
     'widget_desc' => 'Un calcolatore da incorporare nel proprio sito',
     'validator_short' => 'Validatore IVA',
+    'shortcuts' => 'Scorciatoie agli strumenti',
   ),
   'footer' => 
   array (
@@ -67,14 +68,15 @@ return array (
     'donate' => 'Donazioni',
     'privacy' => 'Informativa sulla privacy',
     'previous_version' => 'Versione precedente',
+    'older_version' => 'Versione più vecchia',
     'developers' => 'Sviluppatori',
     'mcp_server' => 'Server MCP',
     'data_source_note' => 'Aliquote provenienti dalla Commissione Europea e verificate ogni giorno',
   ),
   'home_page' => 
   array (
-    'title' => 'EU VAT Info - Calcolatore aliquote IVA e informazioni per tutti i paesi UE',
-    'meta_desc' => 'Aliquote IVA aggiornate per tutti i 27 paesi UE. Calcolatore online gratuito, dati storici dal 2000, avvisi sui cambi di aliquota e guide alla conformità. Aggiornato quotidianamente.',
+    'title' => 'Calcolatore IVA e aliquote IVA dei 27 paesi dell\'UE',
+    'meta_desc' => 'Aggiungi o scorpora l\'IVA nei 27 paesi dell\'UE con le aliquote ordinarie e ridotte in vigore. Verifica le partite IVA su VIES e segui ogni variazione.',
     'heading' => 'Aliquote IVA nell\'',
     'heading_accent' => 'Unione Europea',
     'subtitle' => 'Aliquote IVA standard, aliquote ridotte e calcolatore per tutti i 27 stati membri dell\'UE. Aggiornato quotidianamente.',
@@ -198,6 +200,29 @@ return array (
     'calculation_reference' => 'Formule di calcolo',
     'formula_add' => 'Netto × :multiplier = lordo',
     'formula_remove' => 'Lordo ÷ :multiplier = netto',
+    'quick_amounts' => 'Importi comuni',
+    'rate_since' => 'In vigore dal :date',
+    'rate_since_previous' => 'In vigore dal :date, in precedenza :rate%',
+    'vat_number_format' => 'Formato della partita IVA',
+    'full_rate_history' => 'Storico delle aliquote IVA: :country',
+    'formula_vat_part' => 'Per l\'IVA contenuta in un prezzo con IVA al :rate%, moltiplica il prezzo per :rate e dividi per :divisor.',
+    'common_amounts_heading' => 'IVA su importi comuni: :country',
+    'common_amounts_intro' => 'All\'aliquota ordinaria del :rate%. Apri un importo per il dettaglio completo, pronto da condividere.',
+    'th_amount' => 'Importo',
+    'th_add_vat' => 'Aggiungendo l\'IVA al :rate%',
+    'th_remove_vat' => 'Scorporando l\'IVA al :rate%',
+    'faq_heading' => 'Domande sull\'IVA: :country',
+    'faq_rate_q' => 'Qual è l\'aliquota IVA in :country?',
+    'faq_rate_a' => 'L\'aliquota IVA ordinaria in :country è del :rate%. Le aliquote ridotte del :reduced si applicano a determinati beni e servizi.',
+    'faq_rate_a_standard_only' => 'L\'aliquota IVA ordinaria in :country è del :rate% e :country non applica aliquote ridotte.',
+    'faq_add_q' => 'Come si aggiunge l\'IVA a un prezzo in :country?',
+    'faq_add_a' => 'Moltiplica il prezzo netto per :multiplier. Ad esempio, :net più IVA al :rate% fa :gross.',
+    'faq_remove_q' => 'Come si scorpora l\'IVA da un prezzo in :country?',
+    'faq_remove_a' => 'Dividi il prezzo IVA inclusa per :multiplier. Ad esempio, :gross con IVA al :rate% inclusa corrispondono a :net al netto dell\'IVA.',
+    'faq_changed_q' => 'Quando è cambiata l\'ultima volta l\'aliquota IVA in :country?',
+    'faq_changed_a' => 'L\'aliquota ordinaria è passata dal :old% al :new% il :date.',
+    'faq_number_q' => 'Com\'è fatta una partita IVA di :country?',
+    'faq_number_a' => 'Le partite IVA di :country iniziano con :prefix e seguono il formato :format, dove 9 è una cifra, L una lettera e X una lettera o una cifra. Puoi verificarne una nel registro VIES dell\'UE con il nostro strumento di verifica.',
   ),
   'trust' => 
   array (
@@ -205,6 +230,9 @@ return array (
     'always_free' => 'Sempre gratuito',
     'all_27_countries' => 'Tutti i 27 paesi UE',
     'no_signup_required' => 'Senza registrazione',
+    'updated' => 'Aliquote aggiornate il :date',
+    'source_ec' => 'Fonte: Commissione europea',
+    'source_dataset' => 'Fonte: dataset aperto vat-rates',
   ),
   'map' => 
   array (
@@ -233,12 +261,13 @@ return array (
     'interaction_hint' => 'Passare il mouse sui paesi, toccarli o scorrerli con il tasto Tab per visualizzarne le aliquote. Premere Invio per aprire i dettagli.',
     'clear_selection' => 'Cancella selezione',
     'table_intro' => 'Gli stessi dati della mappa, in ordine decrescente di aliquota standard.',
+    'meta_desc' => 'Le aliquote IVA ordinarie di tutti i paesi dell\'UE su una mappa, con la classifica delle aliquote ordinarie, ridotte e super ridotte e un calcolatore per paese.',
   ),
   'history' => 
   array (
     'title' => 'Storico delle variazioni delle aliquote IVA',
     'meta_title' => 'Storico delle variazioni delle aliquote IVA - Paesi UE | EU VAT Info',
-    'meta_desc' => 'Storico completo delle variazioni delle aliquote IVA in tutti i paesi UE dal 2000. Monitora le modifiche delle aliquote standard e ridotte con indicatori di stabilità per paese.',
+    'meta_desc' => 'Tutte le variazioni delle aliquote IVA registrate nell\'UE: aliquote ordinarie, ridotte e parking, con date, aliquota precedente e nuova, novità e fonti.',
     'subtitle' => 'Monitora tutte le modifiche delle aliquote IVA nei paesi UE nell\'ultimo decennio',
     'stability_title' => 'Indicatori di stabilità per paese',
     'stability_desc' => 'I paesi con meno variazioni delle aliquote IVA indicano ambienti fiscali più stabili',
@@ -457,10 +486,10 @@ return array (
   ),
   'vies_page' => 
   array (
-    'title' => 'Validatore numero di partita IVA VIES — Verifica i numeri di partita IVA UE online',
-    'description' => 'Strumento gratuito di validazione numero di partita IVA VIES. Verifica qualsiasi numero di partita IVA dell\'UE al istante attraverso il database ufficiale VIES della Commissione europea.',
-    'country_title' => 'Validatore numero di partita IVA VIES :country — Verifica i numeri di partita IVA :country tramite VIES',
-    'country_description' => 'Valida i numeri di partita IVA :country (:code) al istante utilizzando il database ufficiale VIES dell\'UE.',
+    'title' => 'Verifica partita IVA UE: controllo VIES gratuito',
+    'description' => 'Verifica qualsiasi partita IVA dell\'UE nel registro VIES della Commissione europea. Scopri se è valida e a chi appartiene. Gratis, senza registrazione.',
+    'country_title' => 'Partita IVA :country: verifica VIES gratuita',
+    'country_description' => 'Verifica le partite IVA di :country (:code) nel registro ufficiale VIES dell\'UE. Scopri se il numero è valido e a chi appartiene. Gratis e senza account.',
     'h1' => 'Validatore numero di partita IVA VIES',
     'country_h1' => 'Validatore numero di partita IVA :country',
     'subtitle' => 'Verifica qualsiasi numero di partita IVA dell\'UE attraverso il database ufficiale VIES della Commissione europea. I risultati sono memorizzati nella cache per ricerche più veloci.',
@@ -523,7 +552,6 @@ return array (
     'format_heading' => ':country: formato della partita IVA',
     'format_prefix' => 'Prefisso',
     'format_structure' => 'Struttura',
-    'format_structure_value' => ':prefix seguito dall\'identificativo nazionale',
     'format_note_gr' => 'La Grecia utilizza EL per le partite IVA, mentre GR resta il suo codice paese ISO.',
     'format_note_default' => 'La parte nazionale è una sequenza di cifre specifica per ciascun paese che, in alcuni paesi, comprende anche lettere.',
     'format_disclaimer' => 'Solo le amministrazioni fiscali nazionali rilasciano le partite IVA. VIES conferma lo stato di registrazione, ma non costituisce consulenza fiscale o legale.',
@@ -546,6 +574,11 @@ return array (
     'copied' => 'Partita IVA copiata',
     'not_in_vies_title' => 'VIES non copre :country',
     'not_in_vies_desc' => 'VIES convalida solo le partite IVA rilasciate dagli Stati membri dell\'UE. Per i numeri IVA rilasciati in :country occorre rivolgersi all\'amministrazione fiscale nazionale. Qui sotto è comunque possibile validare qualsiasi partita IVA dell\'UE.',
+    'format_legend' => '9 è una cifra, L una lettera e X una lettera o una cifra. Gli altri caratteri si scrivono così come sono.',
+    'formats_heading' => 'Formati delle partite IVA nell\'UE',
+    'formats_intro' => 'Ogni partita IVA dell\'UE inizia con un prefisso di due lettere (EL per la Grecia), seguito dal numero nazionale. Apri un paese per verificarne i numeri.',
+    'formats_th_country' => 'Paese',
+    'format_mismatch' => 'Non sembra una partita IVA di :country (:format). Controlla se c\'è un errore di battitura o verificala comunque.',
   ),
   'validator' => 
   array (
@@ -627,7 +660,7 @@ return array (
   'top_calc' => 
   array (
     'page_title' => 'Calcoli IVA popolari — Calcolatrice IVA UE',
-    'page_description' => 'I calcoli IVA più comuni nei 27 stati membri dell\'UE.',
+    'page_description' => 'L\'IVA su importi comuni da 100 € a 10.000 € in ogni paese dell\'UE, all\'aliquota ordinaria del paese. Aggiungi o scorpora l\'IVA con un clic.',
     'heading' => 'Calcoli IVA popolari',
     'subheading' => 'Accesso rapido ai calcoli IVA più comuni.',
     'vat_on_amount' => 'IVA su €:amount',
@@ -648,7 +681,7 @@ return array (
     'disclaimer' => 'I calcoli sono solo a scopo informativo.',
     'breadcrumb' => 'Calcoli popolari',
     'amount_page_heading' => 'IVA su €:amount — Tutti i paesi UE',
-    'amount_page_desc' => 'Calcola l\'IVA su €:amount per tutti i 27 stati membri.',
+    'amount_page_desc' => 'IVA su €:amount nei :count :member_label dell\'UE con aliquote ordinarie dal :min% al :max%: l\'IVA e il totale per ogni paese, aggiunta o scorporata.',
     'back_to_all' => '← Tutti i calcoli popolari',
     'matrix_caption' => 'Totale IVA inclusa all\'aliquota standard di ciascun paese. Selezionare un importo per visualizzare il dettaglio completo.',
     'amounts_label' => 'Scegli un importo',
@@ -656,6 +689,7 @@ return array (
     'removing' => 'IVA inclusa in €:amount',
     'net' => 'Netto',
     'member_states' => 'Stati membri',
+    'amount_meta_title' => 'IVA su €:amount in ogni paese dell\'UE',
   ),
   'changelog' => 
   array (
@@ -681,8 +715,8 @@ return array (
   'skip_to_content' => 'Vai al contenuto principale',
   'tools' => 
   array (
-    'seo_title' => 'Strumenti e risorse IVA UE – Calcolatori, validatori e guide',
-    'seo_description' => 'Strumenti IVA UE gratuiti: calcolatore, validatore, mappe di confronto delle aliquote e guide alla conformità per tutti i 27 Stati membri dell\'UE.',
+    'seo_title' => 'Strumenti IVA UE: calcolatore, verifica, mappa e guide',
+    'seo_description' => 'Strumenti IVA UE gratuiti: un calcolatore per ogni paese, la verifica delle partite IVA su VIES, la mappa e lo storico delle aliquote e guide per i 27 Stati.',
     'heading' => 'Strumenti e risorse di EU VAT Info',
     'intro_text' => 'Ecco alcuni strumenti e risorse del team di EU-vat.info per orientarsi nel complesso mondo dell\'IVA nell\'Unione Europea.',
     'calculator_heading' => 'Calcolatore IVA',
@@ -781,7 +815,7 @@ return array (
   array (
     'eyebrow' => 'Confronto tra paesi',
     'title' => 'Aliquote IVA: :left vs :right',
-    'meta_title' => 'Aliquote IVA :left vs :right: aliquote, calcolatori e storico',
+    'meta_title' => 'IVA :left e :right: aliquote a confronto',
     'meta_description' => 'Confronto tra :left e :right: aliquote IVA, aliquote ridotte, valute, disponibilità VIES e variazioni storiche.',
     'intro' => 'Confronto delle attuali strutture IVA, con accesso diretto al calcolatore, alla guida alla validazione e allo storico registrato di ciascun paese.',
     'measure' => 'Voce',
@@ -834,8 +868,8 @@ return array (
   ),
   'mcp_page' =>
   array (
-    'meta_title' => 'Server MCP IVA UE: dati IVA in tempo reale per gli assistenti IA | EU VAT Info',
-    'meta_desc' => 'Server MCP remoto e gratuito con aliquote IVA UE, calcoli, variazioni di aliquota e verifica VIES delle partite IVA. Collega Claude, ChatGPT, VS Code o Cursor in un minuto.',
+    'meta_title' => 'Server MCP IVA UE: dati IVA per assistenti IA',
+    'meta_desc' => 'Server MCP gratuito con aliquote IVA dell\'UE, calcoli, variazioni delle aliquote e controlli VIES. Collega Claude, ChatGPT, VS Code o Cursor in un minuto.',
     'kicker' => 'Model Context Protocol',
     'title' => 'Server MCP IVA UE',
     'lede' => 'Dai al tuo assistente IA le aliquote IVA UE aggiornate, i calcoli dell\'IVA, le prossime variazioni di aliquota e la verifica VIES delle partite IVA. Gratuito, in sola lettura e senza registrazione.',
@@ -880,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Le aliquote di un paese',
-        'desc' => 'Aliquote attuali, valuta e ultimo aggiornamento di un singolo paese.',
+        'desc' => 'Aliquote attuali, valuta, formato della partita IVA e ultimo aggiornamento di un singolo paese.',
         'prompt' => 'Quali sono le aliquote IVA in Austria?',
       ),
       'calculate_vat' =>
@@ -928,7 +962,7 @@ return array (
     'detail_limits' => 'Uso corretto',
     'limits_value' => ':requests richieste al minuto per indirizzo IP, di cui fino a :checks verifiche di partite IVA',
     'detail_data' => 'Dati',
-    'data_value' => 'Aliquote IVA della Commissione europea, aggiornate ogni giorno',
+    'data_value' => 'Aliquote IVA della Commissione europea, aggiornate ogni settimana',
     'detail_discovery' => 'Individuazione',
     'server_card' => 'Scheda del server',
     'faq_heading' => 'Domande',
@@ -939,7 +973,7 @@ return array (
     'faq_3_q' => 'È sicuro collegarlo?',
     'faq_3_a' => 'Sì. Tutti gli strumenti sono in sola lettura: il server restituisce solo dati e calcoli IVA. Non può vedere i tuoi file né agire per tuo conto.',
     'faq_4_q' => 'Quanto sono aggiornate le aliquote?',
-    'faq_4_a' => 'Le aliquote provengono da dati della Commissione europea e sono aggiornate ogni giorno. Ogni risultato indica quando il paese è stato aggiornato l\'ultima volta.',
+    'faq_4_a' => 'Le aliquote provengono da dati della Commissione europea e sono aggiornate ogni settimana. Ogni risultato indica quando il paese è stato aggiornato l\'ultima volta.',
     'faq_5_q' => 'Le risposte sono consulenza fiscale?',
     'faq_5_a' => 'No. Il server fornisce aliquote di riferimento. Il corretto trattamento IVA dipende dai beni o servizi e dal cliente, quindi verifica i casi importanti con un consulente fiscale o con l\'amministrazione finanziaria nazionale.',
   ),

@@ -6,6 +6,7 @@
         $calcMetaTitle = __('ui.calculator.meta_title_country', ['country' => $country->name, 'rate' => $rateLabel]);
         $calcMetaDesc = __('ui.calculator.meta_desc_country', ['country' => $country->name, 'rate' => $rateLabel]);
         $calcCanonical = app(\App\Support\Seo\SeoPolicy::class)->localizedUrl('/vat-calculator/'.$country->slug, app()->getLocale());
+        $faqs = \App\Support\Vat\CountryFaq::for($country);
     @endphp
     @section('seo')
         <x-seo-meta :title="$calcMetaTitle" :description="$calcMetaDesc" :url="$calcCanonical">
@@ -26,6 +27,7 @@
                 'description' => __('ui.calculator.schema_page_desc', ['country' => $country->name, 'rate' => $rateLabel]),
                 'url' => $calcCanonical,
                 'inLanguage' => app()->getLocale(),
+                'dateModified' => $country->updated_at?->toIso8601String(),
                 'isPartOf' => ['@type' => 'WebSite', '@id' => url(locale_path('/')).'#website', 'name' => __('ui.site_name'), 'url' => url(locale_path('/'))],
                 'mainEntity' => [
                     '@type' => 'WebApplication',
@@ -37,6 +39,14 @@
                     'featureList' => 'VAT calculation, Add VAT, Remove VAT, Multiple rate types',
                     'about' => ['@type' => 'Country', 'name' => $country->name],
                 ],
+            ]" />
+            <x-json-ld :data="[
+                '@type' => 'FAQPage',
+                'mainEntity' => collect($faqs)->map(fn (array $faq) => [
+                    '@type' => 'Question',
+                    'name' => $faq['q'],
+                    'acceptedAnswer' => ['@type' => 'Answer', 'text' => $faq['a']],
+                ])->all(),
             ]" />
         </x-seo-meta>
     @endsection
@@ -87,8 +97,9 @@
 
         <div class="app-container py-10 sm:py-14">
             <div class="grid grid-cols-1 items-start gap-8 xl:grid-cols-[minmax(0,1fr)_20rem]">
-                <div class="space-y-8">
+                <div class="min-w-0 space-y-8">
                     <x-calculator.country-reference :country="$country" />
+                    <x-calculator.common-amounts :country="$country" />
 
                     @if($country->is_eu_member)
                         @php
@@ -146,6 +157,8 @@
                             @endif
                         </section>
                     @endif
+
+                    <x-faq-list :faqs="$faqs" :title="__('ui.calculator.faq_heading', ['country' => $country->name])" id="country-faq" />
                 </div>
 
                 <aside class="space-y-6">

@@ -40,7 +40,7 @@ it('limits popular calculation pages to EU members and writes a useful amount de
 
     $this->get('/top-vat-calculations/100')
         ->assertOk()
-        ->assertSee('VAT on €100 across 1 EU member state')
+        ->assertSee('VAT on €100 in all 1 EU member states')
         ->assertSee('standard rates from 19% to 19%')
         ->assertDontSee('Switzerland');
 });

@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Vse zabeležene spremembe stopenj',
     'widget_desc' => 'Vdelajte kalkulator v svojo spletno stran',
     'validator_short' => 'Preverjanje številke DDV',
+    'shortcuts' => 'Bližnjice do orodij',
   ),
   'footer' => 
   array (
@@ -67,14 +68,15 @@ return array (
     'donate' => 'Doniraj',
     'privacy' => 'Pravilnik o zasebnosti',
     'previous_version' => 'Prejšnja različica',
+    'older_version' => 'Starejša različica',
     'developers' => 'Za razvijalce',
     'mcp_server' => 'Strežnik MCP',
     'data_source_note' => 'Stopnje so pridobljene od Evropske komisije in se dnevno preverjajo',
   ),
   'home_page' => 
   array (
-    'title' => 'DDV v EU – Kalkulator in informacije o stopnjah DDV za vse države EU',
-    'meta_desc' => 'Aktualne stopnje DDV za vseh 27 držav EU. Brezplačen spletni kalkulator, zgodovinski podatki od leta 2000, obvestila o spremembah stopenj in vodniki za skladnost. Posodobljeno dnevno.',
+    'title' => 'Kalkulator DDV in stopnje DDV za vseh 27 držav EU',
+    'meta_desc' => 'Prištejte ali odštejte DDV v vseh 27 državah EU po veljavnih splošnih in znižanih stopnjah. Preverite številke za DDV v VIES in spremljajte vsako spremembo.',
     'heading' => 'Stopnje DDV v',
     'heading_accent' => 'Evropski uniji',
     'subtitle' => 'Aktualne splošne stopnje DDV, znižane stopnje in kalkulator za vseh 27 držav članic EU. Posodobljeno dnevno.',
@@ -198,6 +200,29 @@ return array (
     'calculation_reference' => 'Pregled izračunov',
     'formula_add' => 'Neto × :multiplier = bruto',
     'formula_remove' => 'Bruto ÷ :multiplier = neto',
+    'quick_amounts' => 'Pogosti zneski',
+    'rate_since' => 'Velja od :date',
+    'rate_since_previous' => 'Velja od :date, prej :rate %',
+    'vat_number_format' => 'Oblika številke za DDV',
+    'full_rate_history' => 'Zgodovina stopenj DDV: :country',
+    'formula_vat_part' => 'DDV v ceni z :rate % DDV dobite tako, da ceno pomnožite s :rate in delite s :divisor.',
+    'common_amounts_heading' => 'DDV na pogoste zneske: :country',
+    'common_amounts_intro' => 'Po splošni stopnji :rate %. Odprite znesek za celoten izračun, pripravljen za deljenje.',
+    'th_amount' => 'Znesek',
+    'th_add_vat' => 'S prištetim :rate % DDV',
+    'th_remove_vat' => 'Z odštetim :rate % DDV',
+    'faq_heading' => 'Vprašanja o DDV: :country',
+    'faq_rate_q' => 'Kakšna je stopnja DDV v državi :country?',
+    'faq_rate_a' => 'Splošna stopnja DDV v državi :country je :rate %. Znižane stopnje :reduced veljajo za izbrano blago in storitve.',
+    'faq_rate_a_standard_only' => 'Splošna stopnja DDV v državi :country je :rate %, :country pa nima znižane stopnje.',
+    'faq_add_q' => 'Kako ceni v državi :country prištejem DDV?',
+    'faq_add_a' => 'Neto ceno pomnožite s :multiplier. Na primer: :net in :rate % DDV znese :gross.',
+    'faq_remove_q' => 'Kako ceni v državi :country odštejem DDV?',
+    'faq_remove_a' => 'Ceno z DDV delite s :multiplier. Na primer: :gross z vključenim :rate % DDV je :net brez DDV.',
+    'faq_changed_q' => 'Kdaj se je stopnja DDV v državi :country nazadnje spremenila?',
+    'faq_changed_a' => 'Splošna stopnja se je :date spremenila s :old % na :new %.',
+    'faq_number_q' => 'Kako je videti številka za DDV iz države :country?',
+    'faq_number_a' => 'Številke za DDV iz države :country se začnejo s :prefix in imajo obliko :format, kjer je 9 števka, L črka, X pa črka ali števka. Številko lahko preverite v registru VIES EU z našim orodjem za preverjanje številk za DDV.',
   ),
   'trust' => 
   array (
@@ -205,6 +230,9 @@ return array (
     'always_free' => 'Vedno brezplačno',
     'all_27_countries' => 'Vseh 27 držav EU',
     'no_signup_required' => 'Brez registracije',
+    'updated' => 'Stopnje posodobljene :date',
+    'source_ec' => 'Vir: Evropska komisija',
+    'source_dataset' => 'Vir: odprti nabor podatkov vat-rates',
   ),
   'map' => 
   array (
@@ -233,12 +261,13 @@ return array (
     'interaction_hint' => 'Premaknite kazalec nad državo, se je dotaknite ali se med državami pomikajte s tipko Tab, da se prikažejo njihove stopnje. S tipko Enter odprete podrobnosti.',
     'clear_selection' => 'Počisti izbor',
     'table_intro' => 'Enaki podatki kot na zemljevidu, razvrščeni od najvišje splošne stopnje.',
+    'meta_desc' => 'Splošne stopnje DDV vseh držav EU na enem zemljevidu, z razvrstitvijo splošnih, znižanih in super znižanih stopenj ter kalkulatorjem za vsako državo.',
   ),
   'history' => 
   array (
     'title' => 'Zgodovina sprememb stopenj DDV',
     'meta_title' => 'Zgodovina sprememb stopenj DDV – Države EU | DDV v EU',
-    'meta_desc' => 'Celotna zgodovina sprememb stopenj DDV v vseh državah EU od leta 2000. Spremljajte spremembe splošnih in znižanih stopenj s kazalniki stabilnosti.',
+    'meta_desc' => 'Vse zabeležene spremembe stopenj DDV v EU: splošne, znižane in prehodne stopnje z datumi, staro in novo stopnjo, prihajajočimi spremembami in viri.',
     'subtitle' => 'Spremljajte vse spremembe stopenj DDV v državah EU v zadnjem desetletju',
     'stability_title' => 'Kazalniki stabilnosti držav',
     'stability_desc' => 'Države z manj spremembami stopenj DDV nakazujejo stabilnejše davčno okolje',
@@ -457,10 +486,10 @@ return array (
   ),
   'vies_page' => 
   array (
-    'title' => 'VIES validator številke DDV — preverite številke DDV v EU',
-    'description' => 'Brezplačen validator številk DDV v EU. Takoj preverite katero koli številko DDV v EU v uradni bazi VIES Evropske komisije. Ime podjetja, naslov in veljavnost brez registracije.',
-    'country_title' => 'Validator številke DDV za :country — brezplačno preverjanje VIES',
-    'country_description' => 'Brezplačen validator številk DDV za :country (:code). Takoj preverite registracijo podjetja v uradni bazi VIES EU, skupaj z imenom in naslovom. Registracija ni potrebna.',
+    'title' => 'Preverjanje številke za DDV v EU: brezplačno v VIES',
+    'description' => 'Preverite katero koli številko za DDV iz EU v registru VIES Evropske komisije. Vidite, ali je veljavna in komu pripada. Brezplačno, brez registracije.',
+    'country_title' => 'Preverjanje številke za DDV, :country: v VIES',
+    'country_description' => 'Preverite številke za DDV iz države :country (:code) v uradnem registru VIES EU. Vidite, ali je številka veljavna in komu pripada. Brezplačno.',
     'h1' => 'VIES validator številke DDV',
     'country_h1' => 'Validator številke DDV za :country',
     'subtitle' => 'Preverite katero koli številko DDV v EU v uradni bazi VIES Evropske komisije. Rezultate hranimo v predpomnilniku za hitrejše preverjanje.',
@@ -523,7 +552,6 @@ return array (
     'format_heading' => 'Oblika številke DDV za :country',
     'format_prefix' => 'Predpona',
     'format_structure' => 'Struktura',
-    'format_structure_value' => ':prefix, ki mu sledi nacionalni identifikator',
     'format_note_gr' => 'Grčija za identifikacijske številke za DDV uporablja EL, GR pa ostaja njena koda države po standardu ISO.',
     'format_note_default' => 'Nacionalni del je za vsako državo značilno zaporedje števk, v nekaterih državah tudi črk.',
     'format_disclaimer' => 'Identifikacijske številke za DDV dodeljujejo samo nacionalne davčne uprave. VIES potrjuje status registracije, vendar ne pomeni davčnega ali pravnega svetovanja.',
@@ -546,6 +574,11 @@ return array (
     'copied' => 'Številka DDV kopirana',
     'not_in_vies_title' => 'Država :country ni vključena v sistem VIES',
     'not_in_vies_desc' => 'VIES preverja samo številke DDV, ki so jih izdale države članice EU. Številke DDV države :country preverite pri tamkajšnji davčni upravi. Spodaj lahko še vedno preverite katero koli številko DDV iz EU.',
+    'format_legend' => '9 je števka, L črka, X pa črka ali števka. Drugi znaki se pišejo, kot so zapisani.',
+    'formats_heading' => 'Oblike številk za DDV v EU',
+    'formats_intro' => 'Vsaka številka za DDV v EU se začne z dvočrkovno predpono (EL za Grčijo), ki ji sledi nacionalna številka. Odprite državo, da preverite njene številke.',
+    'formats_th_country' => 'Država',
+    'format_mismatch' => 'To ni videti kot številka za DDV iz države :country (:format). Preverite, ali je tipkarska napaka, ali številko vseeno preverite.',
   ),
   'validator' => 
   array (
@@ -627,7 +660,7 @@ return array (
   'top_calc' => 
   array (
     'page_title' => 'Priljubljeni izračuni DDV — EU DDV kalkulator',
-    'page_description' => 'Najpogostejši izračuni DDV v vseh 27 državah članicah EU.',
+    'page_description' => 'DDV na pogoste zneske od 100 € do 10.000 € v vsaki državi EU po njeni splošni stopnji. Prištejte ali odštejte DDV z enim klikom.',
     'heading' => 'Priljubljeni izračuni DDV',
     'subheading' => 'Hiter dostop do najpogostejših izračunov DDV.',
     'vat_on_amount' => 'DDV na €:amount',
@@ -648,14 +681,15 @@ return array (
     'disclaimer' => 'Izračuni so zgolj informativni.',
     'breadcrumb' => 'Priljubljeni izračuni',
     'amount_page_heading' => 'DDV na €:amount — Vse države EU',
-    'amount_page_desc' => 'Izračunajte DDV na €:amount za vseh 27 držav članic.',
+    'amount_page_desc' => 'DDV na €:amount za vseh :count :member_label EU po splošnih stopnjah od :min % do :max %: DDV in skupni znesek za vsako državo, prištet ali odštet.',
     'back_to_all' => '← Vsi priljubljeni izračuni',
     'matrix_caption' => 'Skupaj z DDV po splošni stopnji posamezne države. Izberite znesek za celotno razčlenitev izračuna.',
     'amounts_label' => 'Izberite znesek',
     'adding' => 'Dodajanje DDV k €:amount',
     'removing' => 'DDV, vključen v €:amount',
     'net' => 'Neto',
-    'member_states' => 'države članice',
+    'member_states' => 'držav članic',
+    'amount_meta_title' => 'DDV na €:amount v vseh 27 državah EU',
   ),
   'changelog' => 
   array (
@@ -681,8 +715,8 @@ return array (
   'skip_to_content' => 'Preskoči na glavno vsebino',
   'tools' => 
   array (
-    'seo_title' => 'Orodja in viri za DDV v EU – kalkulatorji, preverjalniki in vodniki',
-    'seo_description' => 'Brezplačna orodja za DDV v EU: kalkulator, preverjanje številk DDV, zemljevidi za primerjavo stopenj in vodniki za skladnost za vseh 27 držav članic EU.',
+    'seo_title' => 'Orodja za DDV v EU: kalkulator, preverjanje, zemljevid',
+    'seo_description' => 'Brezplačna orodja za DDV v EU: kalkulator za vsako državo, preverjanje številk za DDV v VIES, zemljevid in zgodovina stopenj ter vodniki za 27 držav.',
     'heading' => 'DDV v EU: orodja in viri',
     'intro_text' => 'Tukaj so orodja in viri ekipe EU-vat.info, ki vam bodo pomagali pri krmarjenju po zapletenem svetu DDV v Evropski uniji.',
     'calculator_heading' => 'Kalkulator DDV',
@@ -781,7 +815,7 @@ return array (
   array (
     'eyebrow' => 'Primerjava držav',
     'title' => 'Stopnje DDV: :left in :right',
-    'meta_title' => 'Primerjava DDV :left in :right: stopnje, kalkulatorji in zgodovina',
+    'meta_title' => 'DDV :left in :right: primerjava stopenj',
     'meta_description' => 'Primerjajte stopnje DDV držav :left in :right, znižane stopnje, valute, razpoložljivost VIES in pretekle spremembe.',
     'intro' => 'Primerjajte trenutne strukture DDV in nadaljujte do kalkulatorja, vodnika za preverjanje in zabeležene zgodovine posamezne države.',
     'measure' => 'Kazalnik',
@@ -834,8 +868,8 @@ return array (
   ),
   'mcp_page' =>
   array (
-    'meta_title' => 'Strežnik MCP za DDV v EU: sprotni podatki o DDV za pomočnike UI | EU VAT Info',
-    'meta_desc' => 'Brezplačen oddaljeni strežnik MCP s stopnjami DDV v EU, izračuni, spremembami stopenj in preverjanjem identifikacijskih številk za DDV v VIES. Povežite Claude, ChatGPT, VS Code ali Cursor v minuti.',
+    'meta_title' => 'Strežnik MCP za DDV v EU: podatki za pomočnike UI',
+    'meta_desc' => 'Brezplačen strežnik MCP s stopnjami DDV v EU, izračuni, spremembami stopenj in preverjanjem v VIES. Povežite Claude, ChatGPT, VS Code ali Cursor v minuti.',
     'kicker' => 'Model Context Protocol',
     'title' => 'Strežnik MCP za DDV v EU',
     'lede' => 'Svojemu pomočniku UI dajte sprotne stopnje DDV v EU, izračune DDV, prihodnje spremembe stopenj in preverjanje identifikacijskih številk za DDV v VIES. Brezplačno, samo za branje in brez registracije.',
@@ -880,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Stopnje ene države',
-        'desc' => 'Veljavne stopnje, valuta in zadnja posodobitev za eno državo.',
+        'desc' => 'Veljavne stopnje, valuta, oblika identifikacijske številke za DDV in zadnja posodobitev za eno državo.',
         'prompt' => 'Kakšne so stopnje DDV v Avstriji?',
       ),
       'calculate_vat' =>
@@ -928,7 +962,7 @@ return array (
     'detail_limits' => 'Poštena raba',
     'limits_value' => ':requests zahtev na minuto z enega naslova IP, od tega do :checks preverjanj številk za DDV',
     'detail_data' => 'Podatki',
-    'data_value' => 'Stopnje DDV Evropske komisije, posodobljene vsak dan',
+    'data_value' => 'Stopnje DDV Evropske komisije, posodobljene vsak teden',
     'detail_discovery' => 'Odkrivanje',
     'server_card' => 'Kartica strežnika',
     'faq_heading' => 'Vprašanja',
@@ -939,7 +973,7 @@ return array (
     'faq_3_q' => 'Ali je povezava varna?',
     'faq_3_a' => 'Da. Vsa orodja so samo za branje: strežnik vrača le podatke in izračune DDV. Ne vidi vaših datotek in ne ukrepa v vašem imenu.',
     'faq_4_q' => 'Kako sveže so stopnje?',
-    'faq_4_a' => 'Stopnje izhajajo iz podatkov Evropske komisije in se posodabljajo vsak dan. Vsak rezultat navaja čas zadnje posodobitve države.',
+    'faq_4_a' => 'Stopnje izhajajo iz podatkov Evropske komisije in se posodabljajo vsak teden. Vsak rezultat navaja čas zadnje posodobitve države.',
     'faq_5_q' => 'Ali so odgovori davčni nasvet?',
     'faq_5_a' => 'Ne. Strežnik vrača referenčne stopnje. Pravilna obravnava DDV je odvisna od blaga ali storitev in od kupca, zato pomembne primere preverite pri davčnem svetovalcu ali nacionalni davčni upravi.',
   ),

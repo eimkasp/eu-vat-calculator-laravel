@@ -18,6 +18,9 @@ use Livewire\Component;
 
 class HeroCalculator extends Component
 {
+    /** Amounts offered as one-tap buttons below the amount field. */
+    public const QUICK_AMOUNTS = [100, 500, 1000, 5000, 10000];
+
     private const HISTORY_KEY = 'hero_calc_history';
 
     private const HISTORY_LIMIT = 6;

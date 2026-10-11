@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Gach athrú ráta a taifeadadh',
     'widget_desc' => 'Leabaigh áireamhán ar do shuíomh',
     'validator_short' => 'Bailíochtóir CBL',
+    'shortcuts' => 'Aicearraí chuig uirlisí',
   ),
   'footer' => 
   array (
@@ -67,14 +68,15 @@ return array (
     'donate' => 'Deonaigh',
     'privacy' => 'Beartas príobháideachais',
     'previous_version' => 'Leagan roimhe seo',
+    'older_version' => 'Leagan níos sine',
     'developers' => 'Forbróirí',
     'mcp_server' => 'Freastalaí MCP',
     'data_source_note' => 'Rátaí ón gCoimisiún Eorpach, fíoraithe go laethúil',
   ),
   'home_page' => 
   array (
-    'title' => 'Eolas CBL an AE - Áireamhán Rátaí CBL agus Faisnéis do Gach Tír san AE',
-    'meta_desc' => 'Rátaí reatha CBL do gach ceann de na 27 tír san AE. Áireamhán saor in aisce ar líne, sonraí stairiúla ó 2000, foláirimh faoi athruithe rátaí, agus treoracha comhlíonta. Nuashonraithe go laethúil.',
+    'title' => 'Áireamhán CBL agus rátaí CBL do 27 tír an AE',
+    'meta_desc' => 'Cuir CBL leis nó bain é i 27 tír an AE leis na rátaí caighdeánacha agus laghdaithe reatha. Seiceáil uimhreacha CBL in VIES agus lean athruithe rátaí.',
     'heading' => 'Rátaí CBL san',
     'heading_accent' => 'Aontas Eorpach',
     'subtitle' => 'Rátaí caighdeánacha reatha CBL, rátaí laghdaithe agus áireamhán do gach ceann de na 27 ballstát. Nuashonraithe go laethúil.',
@@ -198,6 +200,29 @@ return array (
     'calculation_reference' => 'Tagairt ríomha',
     'formula_add' => 'Glan × :multiplier = comhlán',
     'formula_remove' => 'Comhlán ÷ :multiplier = glan',
+    'quick_amounts' => 'Suimeanna coitianta',
+    'rate_since' => 'I bhfeidhm ó :date',
+    'rate_since_previous' => 'I bhfeidhm ó :date, in ionad :rate%',
+    'vat_number_format' => 'Formáid na huimhreach CBL',
+    'full_rate_history' => 'Stair rátaí CBL: :country',
+    'formula_vat_part' => 'Chun an CBL atá i bpraghas le :rate% CBL a fháil, iolraigh an praghas faoi :rate agus roinn ar :divisor.',
+    'common_amounts_heading' => 'CBL ar shuimeanna coitianta: :country',
+    'common_amounts_intro' => 'Ag an ráta caighdeánach de :rate%. Oscail suim le haghaidh an mhionsonraithe iomláin, réidh le roinnt.',
+    'th_amount' => 'Suim',
+    'th_add_vat' => 'Le :rate% CBL curtha leis',
+    'th_remove_vat' => 'Le :rate% CBL bainte',
+    'faq_heading' => 'Ceisteanna faoi CBL: :country',
+    'faq_rate_q' => 'Cad é an ráta CBL in :country?',
+    'faq_rate_a' => 'Is é :rate% an ráta caighdeánach CBL in :country. Baineann rátaí laghdaithe de :reduced le hearraí agus seirbhísí áirithe.',
+    'faq_rate_a_standard_only' => 'Is é :rate% an ráta caighdeánach CBL in :country, agus níl aon ráta laghdaithe ag :country.',
+    'faq_add_q' => 'Conas a chuirim CBL le praghas in :country?',
+    'faq_add_a' => 'Iolraigh an glanphraghas faoi :multiplier. Mar shampla, is ionann :net móide :rate% CBL agus :gross.',
+    'faq_remove_q' => 'Conas a bhainim CBL de phraghas in :country?',
+    'faq_remove_a' => 'Roinn an praghas lena n-áirítear CBL ar :multiplier. Mar shampla, is ionann :gross lena n-áirítear :rate% CBL agus :net roimh CBL.',
+    'faq_changed_q' => 'Cathain a d\'athraigh an ráta CBL in :country go deireanach?',
+    'faq_changed_a' => 'D\'athraigh an ráta caighdeánach ó :old% go :new% ar :date.',
+    'faq_number_q' => 'Cén chuma atá ar uimhir CBL ó :country?',
+    'faq_number_a' => 'Tosaíonn uimhreacha CBL ó :country le :prefix agus leanann siad an fhormáid :format, áit a bhfuil 9 ina dhigit, L ina litir agus X ina litir nó ina dhigit. Is féidir leat uimhir a sheiceáil i gclár VIES an AE leis an uirlis seiceála uimhreacha CBL.',
   ),
   'trust' => 
   array (
@@ -205,6 +230,9 @@ return array (
     'always_free' => 'Saor in aisce i gcónaí',
     'all_27_countries' => 'Gach ceann de 27 tír an AE',
     'no_signup_required' => 'Gan clárú riachtanach',
+    'updated' => 'Rátaí nuashonraithe :date',
+    'source_ec' => 'Foinse: an Coimisiún Eorpach',
+    'source_dataset' => 'Foinse: tacar sonraí oscailte vat-rates',
   ),
   'map' => 
   array (
@@ -233,12 +261,13 @@ return array (
     'interaction_hint' => 'Cuir an cúrsóir ar thír, tapáil í nó úsáid Tab chun dul trí na tíortha agus a rátaí a fheiceáil. Brúigh Enter chun na sonraí a oscailt.',
     'clear_selection' => 'Glan an roghnúchán',
     'table_intro' => 'Na sonraí céanna atá ar an léarscáil, agus an ráta caighdeánach is airde ar dtús.',
+    'meta_desc' => 'Rátaí caighdeánacha CBL gach tíre san AE ar léarscáil amháin, le rangú ar rátaí caighdeánacha, laghdaithe agus sárlaghdaithe agus áireamhán do gach tír.',
   ),
   'history' => 
   array (
     'title' => 'Stair Athruithe Rátaí CBL',
     'meta_title' => 'Stair Athruithe Rátaí CBL - Tíortha an AE | Eolas CBL an AE',
-    'meta_desc' => 'Stair iomlán athruithe rátaí CBL ar fud gach tír san AE ó 2000 ar aghaidh. Lean athruithe rátaí caighdeánacha agus laghdaithe le táscairí cobhsaíochta.',
+    'meta_desc' => 'Gach athrú taifeadta ar rátaí CBL san AE: rátaí caighdeánacha, laghdaithe agus páirceála, le dátaí, seanrátaí agus rátaí nua, athruithe le teacht agus foinsí.',
     'subtitle' => 'Lean gach athrú ar rátaí CBL ar fud tíortha an AE le deich mbliana anuas',
     'stability_title' => 'Táscairí Cobhsaíochta Tíortha',
     'stability_desc' => 'Léiríonn tíortha le níos lú athruithe ar rátaí CBL timpeallacht chánach níos cobhsaí',
@@ -457,10 +486,10 @@ return array (
   ),
   'vies_page' => 
   array (
-    'title' => 'Bailí Uimhreacha CBÉ VIES — Fíoraigh Uimhreacha CBÉ an AE ar líne',
-    'description' => 'Uirlis saor in aisce bailíochta uimhir CBÉ VIES. Fíoraigh aon uimhir CBÉ an AE go tapa ag baint úsáide as bunachar sonraí oifigiúil VIES an Choimisiúin Eorpaigh.',
-    'country_title' => 'Bailí Uimhreacha CBÉ :country — Fíoraigh Uimhreacha CBÉ :country trí VIES',
-    'country_description' => 'Bailíochtaigh uimhreacha CBÉ :country (:code) go tapa ag baint úsáide as bunachar sonraí oifigiúil VIES an AE.',
+    'title' => 'Seiceáil uimhir CBL AE: cuardach VIES saor in aisce',
+    'description' => 'Seiceáil aon uimhir CBL AE i gclár VIES an Choimisiúin Eorpaigh. Feic an bhfuil sí bailí agus cé leis í. Saor in aisce, gan clárú.',
+    'country_title' => 'Seiceáil uimhir CBL, :country: VIES saor in aisce',
+    'country_description' => 'Seiceáil uimhreacha CBL ó :country (:code) i gclár oifigiúil VIES an AE. Feic an bhfuil an uimhir bailí agus cé leis í. Saor in aisce, gan clárú.',
     'h1' => 'Bailí Uimhreacha CBÉ VIES',
     'country_h1' => 'Bailí Uimhreacha CBÉ :country',
     'subtitle' => 'Fíoraigh aon uimhir CBÉ an AE ag baint úsáide as bunachar sonraí oifigiúil VIES an Choimisiúin Eorpaigh. Tá na torthaí cachealaithe chun cuardaigh níos tapa.',
@@ -523,7 +552,6 @@ return array (
     'format_heading' => 'Formáid uimhreacha CBL :country',
     'format_prefix' => 'Réimír',
     'format_structure' => 'Struchtúr',
-    'format_structure_value' => ':prefix agus an t-aitheantóir náisiúnta ina dhiaidh',
     'format_note_gr' => 'Úsáideann an Ghréig EL le haghaidh uimhreacha aitheantais CBL, ach is é GR a cód tíre ISO i gcónaí.',
     'format_note_default' => 'Is éard atá sa chuid náisiúnta ná seicheamh digití, agus litreacha i gcás roinnt tíortha, a bhíonn sainiúil do gach tír.',
     'format_disclaimer' => 'Is iad na riaracháin chánach náisiúnta amháin a eisíonn uimhreacha aitheantais CBL. Deimhníonn VIES stádas clárúcháin, ach ní comhairle chánach ná dlí é.',
@@ -546,6 +574,11 @@ return array (
     'copied' => 'Cóipeáladh an uimhir CBL',
     'not_in_vies_title' => 'Níl :country clúdaithe ag VIES',
     'not_in_vies_desc' => 'Ní bhailíochtaíonn VIES ach uimhreacha CBL a d\'eisigh ballstáit an AE. Seiceáil uimhreacha CBL :country leis an riarachán cánach náisiúnta. Is féidir leat aon uimhir CBL de chuid an AE a bhailíochtú thíos fós.',
+    'format_legend' => 'Is digit é 9, is litir é L agus is litir nó digit é X. Scríobhtar carachtair eile mar atá.',
+    'formats_heading' => 'Formáidí uimhreacha CBL san AE',
+    'formats_intro' => 'Tosaíonn gach uimhir CBL AE le réimír dhá litir (EL don Ghréig) agus an uimhir náisiúnta ina diaidh. Oscail tír chun a cuid uimhreacha a sheiceáil.',
+    'formats_th_country' => 'Tír',
+    'format_mismatch' => 'Ní cosúil gur uimhir CBL ó :country í seo (:format). Seiceáil an bhfuil botún clóscríofa ann, nó seiceáil í ar aon nós.',
   ),
   'validator' => 
   array (
@@ -627,7 +660,7 @@ return array (
   'top_calc' => 
   array (
     'page_title' => 'Ríomhanna CBL coitianta — Áireamhán CBL AE',
-    'page_description' => 'Na ríomhanna CBL is coitianta sna 27 ballstát AE.',
+    'page_description' => 'CBL ar shuimeanna coitianta ó €100 go €10,000 i ngach tír san AE, ag ráta caighdeánach na tíre. Cuir CBL leis nó bain é le cliceáil amháin.',
     'heading' => 'Ríomhanna CBL coitianta',
     'subheading' => 'Rochtain thapa ar na ríomhanna CBL is coitianta.',
     'vat_on_amount' => 'CBL ar €:amount',
@@ -648,7 +681,7 @@ return array (
     'disclaimer' => 'Chun críocha faisnéise amháin.',
     'breadcrumb' => 'Ríomhanna coitianta',
     'amount_page_heading' => 'CBL ar €:amount — Gach tír AE',
-    'amount_page_desc' => 'Ríomh CBL ar €:amount do gach 27 ballstát.',
+    'amount_page_desc' => 'CBL ar €:amount sna :count :member_label den AE ag rátaí caighdeánacha ó :min% go :max%: an CBL agus an t-iomlán do gach tír, curtha leis nó bainte.',
     'back_to_all' => '← Gach ríomh coitianta',
     'matrix_caption' => 'Iomlán, CBL san áireamh, de réir ráta caighdeánach gach tíre. Roghnaigh figiúr chun an miondealú iomlán a fheiceáil.',
     'amounts_label' => 'Roghnaigh méid',
@@ -656,6 +689,7 @@ return array (
     'removing' => 'CBL san áireamh i €:amount',
     'net' => 'Glan',
     'member_states' => 'ballstáit',
+    'amount_meta_title' => 'CBL ar €:amount i ngach tír san AE',
   ),
   'changelog' => 
   array (
@@ -681,8 +715,8 @@ return array (
   'skip_to_content' => 'Léim chuig an bpríomhábhar',
   'tools' => 
   array (
-    'seo_title' => 'Uirlisí agus acmhainní CBL an AE - Áireamháin, bailíochtóirí agus treoracha',
-    'seo_description' => 'Uirlisí CBL an AE saor in aisce: áireamhán, bailíochtóir, léarscáileanna chun rátaí a chur i gcomparáid, agus treoracha comhlíonta do gach ceann de 27 mballstát an AE.',
+    'seo_title' => 'Uirlisí CBL AE: áireamhán, seiceáil, léarscáil, treoracha',
+    'seo_description' => 'Uirlisí CBL AE saor in aisce: áireamhán do gach tír, seiceáil uimhreacha CBL in VIES, léarscáil rátaí, stair na rátaí agus treoracha do 27 ballstát.',
     'heading' => 'Uirlisí agus acmhainní Eolas CBL an AE',
     'intro_text' => 'Seo roinnt uirlisí agus acmhainní ó fhoireann EU-vat.info chun cabhrú leat do bhealach a dhéanamh trí shaol casta CBL san Aontas Eorpach.',
     'calculator_heading' => 'Áireamhán CBL',
@@ -781,7 +815,7 @@ return array (
   array (
     'eyebrow' => 'Comparáid idir tíortha',
     'title' => 'Rátaí CBL :left i gcomparáid le :right',
-    'meta_title' => 'Rátaí CBL :left i gcomparáid le :right: rátaí, áireamháin agus stair',
+    'meta_title' => 'CBL in :left agus :right: rátaí i gcomparáid',
     'meta_description' => 'Cuir rátaí CBL :left agus :right i gcomparáid, chomh maith le rátaí laghdaithe, airgeadraí, infhaighteacht VIES agus athruithe stairiúla.',
     'intro' => 'Cuir struchtúir reatha CBL i gcomparáid agus lean ar aghaidh chuig áireamhán, treoir bhailíochtaithe agus stair thaifeadta gach tíre.',
     'measure' => 'Gné',
@@ -834,8 +868,8 @@ return array (
   ),
   'mcp_page' =>
   array (
-    'meta_title' => 'Freastalaí MCP CBL an AE: sonraí CBL beo do chúntóirí IS | EU VAT Info',
-    'meta_desc' => 'Freastalaí MCP cianda saor in aisce le rátaí CBL an AE, ríomhanna, athruithe rátaí agus seiceálacha VIES ar uimhreacha CBL. Ceangail Claude, ChatGPT, VS Code nó Cursor i nóiméad.',
+    'meta_title' => 'Freastalaí MCP CBL AE: sonraí do chúntóirí IS',
+    'meta_desc' => 'Freastalaí MCP saor in aisce le rátaí CBL an AE, ríomhanna, athruithe rátaí agus seiceálacha VIES. Ceangail Claude, ChatGPT, VS Code nó Cursor i nóiméad.',
     'kicker' => 'Model Context Protocol',
     'title' => 'Freastalaí MCP CBL an AE',
     'lede' => 'Tabhair rátaí CBL beo an AE, ríomhanna CBL, athruithe rátaí atá le teacht agus seiceálacha VIES ar uimhreacha CBL do do chúntóir IS. Saor in aisce, inléite amháin agus gan chlárú.',
@@ -880,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Rátaí tíre amháin',
-        'desc' => 'Rátaí reatha, airgeadra agus an nuashonrú is déanaí do thír amháin.',
+        'desc' => 'Rátaí reatha, airgeadra, formáid na huimhreach CBL agus an nuashonrú is déanaí do thír amháin.',
         'prompt' => 'Cad iad na rátaí CBL san Ostair?',
       ),
       'calculate_vat' =>
@@ -928,7 +962,7 @@ return array (
     'detail_limits' => 'Úsáid chóir',
     'limits_value' => ':requests iarratas sa nóiméad in aghaidh an tseolta IP, lena n-áirítear suas le :checks seiceáil ar uimhreacha CBL',
     'detail_data' => 'Sonraí',
-    'data_value' => 'Rátaí CBL an Choimisiúin Eorpaigh, nuashonraithe gach lá',
+    'data_value' => 'Rátaí CBL an Choimisiúin Eorpaigh, nuashonraithe gach seachtain',
     'detail_discovery' => 'Aimsiú',
     'server_card' => 'Cárta an fhreastalaí',
     'faq_heading' => 'Ceisteanna',
@@ -939,7 +973,7 @@ return array (
     'faq_3_q' => 'An bhfuil sé sábháilte ceangal?',
     'faq_3_a' => 'Tá. Tá gach uirlis inléite amháin: ní thugann an freastalaí ar ais ach sonraí agus ríomhanna CBL. Ní féidir leis do chomhaid a fheiceáil ná gníomhú thar do cheann.',
     'faq_4_q' => 'Cé chomh cothrom le dáta is atá na rátaí?',
-    'faq_4_a' => 'Tagann na rátaí ó shonraí an Choimisiúin Eorpaigh agus nuashonraítear iad gach lá. Léiríonn gach toradh cathain a nuashonraíodh an tír go deireanach.',
+    'faq_4_a' => 'Tagann na rátaí ó shonraí an Choimisiúin Eorpaigh agus nuashonraítear iad gach seachtain. Léiríonn gach toradh cathain a nuashonraíodh an tír go deireanach.',
     'faq_5_q' => 'An comhairle chánach iad na freagraí?',
     'faq_5_a' => 'Ní hea. Tugann an freastalaí rátaí tagartha ar ais. Braitheann an chóireáil cheart CBL ar na hearraí nó na seirbhísí agus ar an gcustaiméir, mar sin seiceáil cásanna tábhachtacha le comhairleoir cánach nó leis an údarás cánach náisiúnta.',
   ),

@@ -658,6 +658,7 @@
 
                 <x-styleguide.section id="results" title="Results" lead="Lead with the answer in display type, restate it in one sentence, break it down, then offer actions. Announce changes through a polite live region.">
                     <x-styleguide.specimen example="pattern-result" title="Calculation result" description="Answer, summary, breakdown and actions" canvas="workspace" />
+                    <x-styleguide.specimen example="pattern-freshness" title="Freshness and source" description="x-rate-freshness: the update date and the source, next to every rate" />
                 </x-styleguide.section>
 
                 <x-styleguide.section id="tiles" title="Tiles and rows" lead="Stat tiles summarise, link cards lead to tools, and list rows keep dates, names and figures in fixed columns.">

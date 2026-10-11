@@ -1,0 +1,5878 @@
+{
+  "benchmark": "EU VAT Info v3",
+  "label": "after-v2-freeze",
+  "model": "Opus 5.5",
+  "modelSlug": "claude-opus-5-5",
+  "rerun": "docs/benchmarks/v3-claude-opus-5-5/tools/run.sh <label>",
+  "commands": [
+    "composer install --no-interaction --prefer-dist && yarn install --frozen-lockfile",
+    "cp .env.example .env && php artisan key:generate, then set APP_ENV=staging APP_DEBUG=false APP_URL=http://127.0.0.1:8123 CACHE_STORE=file SESSION_DRIVER=file QUEUE_CONNECTION=sync",
+    "touch database/database.sqlite && php artisan migrate --force && php artisan db:seed --force",
+    "php artisan tinker --execute 'dispatch_sync(new App\\Jobs\\GenerateVatRateChanges);'",
+    "yarn build && php artisan optimize",
+    "php artisan optimize:clear && php artisan test && ./vendor/bin/pint --test && php artisan optimize",
+    "PHP_CLI_SERVER_WORKERS=6 php artisan serve --host=127.0.0.1 --port=8123",
+    "cd docs/benchmarks/v3-claude-opus-5-5/tools && npm install && node measure.mjs --base=http://127.0.0.1:8123 --runs=3 --out=<raw>/front-end.json",
+    "node site.mjs --base=http://127.0.0.1:8123 --out=<raw>/site.json",
+    "php docs/benchmarks/v3-claude-opus-5-5/tools/backend.php <the 36 page paths> > <raw>/backend.json",
+    "node compile.mjs --raw=<raw> --label=<label> --out=docs/benchmarks/v3-claude-opus-5-5/<label>.json"
+  ],
+  "environment": {
+    "host": "Claude Code cloud container, 4 vCPU, Linux 6.18",
+    "php": "8.3.6",
+    "node": "22.22.0",
+    "browser": "Chromium 141 (Playwright 1.56.1, /opt/pw-browsers), headless",
+    "axe": "axe-core 4.13.0 from npm",
+    "server": "php artisan serve with 6 workers, APP_ENV=staging, APP_DEBUG=false, config/route/view caches on, SQLite, file cache",
+    "data": "Seeded from the repository: CountriesTableSeeder, VatRateSeeder (data/vat_rates.csv) and the GenerateVatRateChanges job. No network refresh, so every run starts from the same data."
+  },
+  "method": {
+    "performance": "Mobile emulation (412x823, DPR 1.75, touch), 4x CPU slowdown and Slow 4G (562.5 ms RTT, 1.47 Mbps down, 675 kbps up) through the Chrome DevTools Protocol, cache disabled, a fresh browser context per run, 3 runs per URL, median reported. LCP and CLS come from PerformanceObserver (CLS as the largest session window). TBT is the INP proxy: the sum of (long task - 50 ms) for long tasks ending after first contentful paint, observed until network idle plus 3 s.",
+    "bytes": "The local PHP server does not compress, so compressed sizes are computed from each response body: gzip level 6 and Brotli quality 5. Raw sizes are reported next to them. Request counts exclude data: URLs.",
+    "accessibility": "axe-core with the wcag2a, wcag2aa, wcag21a, wcag21aa, wcag22aa and best-practice tags on the loaded page in the light theme. The keyboard check presses Tab from the top of the page until the main task's control has focus (recording every focused element without a visible outline or ring), then completes the task with keys only.",
+    "seo": "Title and description lengths in characters, canonical, robots, hreflang count and JSON-LD parsed and checked for the required properties of each type (Google's structured data documentation where it exists). Word counts are visible words of the whole page and of <main>. Internal links out are unique same-site paths linked from the page; internal links in are unique source pages linking to it among the sitemap URLs in en, de and mt. Sitemap membership compares the canonical URL with every <loc> in /sitemap.xml and its sections.",
+    "ai": "The main answer is a per-page pattern (for example 19% on the Germany calculator) searched in the first 600 characters of visible text, of the whole page and of <main>. Machine-readable alternates are <link rel=alternate type=...> tags or a text/markdown response to Accept: text/markdown. Source and as-of date are searched in the visible text of the page and of <main>. Facts are checked in llms.txt, llms-full.txt, /api/v1 and the MCP server (initialize, tools/list, tools/call).",
+    "backend": "Each request runs in a fresh application instance through the HTTP kernel with the query log on: once after Cache::flush() (cold) and once more with the cache it filled (warm, the state production serves from). Livewire snapshot sizes are the decoded wire:snapshot JSON of every component in the response."
+  },
+  "caveats": [
+    "INP needs real user input, so it is not measured; TBT is the proxy, as the prompt allows.",
+    "TTFB is the loopback server's response time and is not comparable with field TTFB.",
+    "Plausible analytics only loads in production, so its script is not part of these numbers. The service worker is: it registers on the first visit and its precache requests count when they finish inside the observation window.",
+    "/vat-rates/categories returns 404 here and on the live site (checked on 10 October 2026): the page needs verified category rules, and the repository has none. It is measured as served.",
+    "The validator's keyboard check submits a real VAT number, so the server calls VIES; the check passes when a result or a designed error state appears.",
+    "Lighthouse is not installed in the environment; the same throttling profile is applied directly through Playwright and the DevTools Protocol instead."
+  ],
+  "commit": "b433ee3",
+  "measuredAt": "2026-10-11T00:48:11.163Z",
+  "performanceMeasuredAt": "2026-10-11T00:48:11.163Z",
+  "profile": {
+    "device": {
+      "viewport": {
+        "width": 412,
+        "height": 823
+      },
+      "deviceScaleFactor": 1.75,
+      "isMobile": true,
+      "hasTouch": true,
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36",
+      "colorScheme": "light",
+      "locale": "en-GB"
+    },
+    "network": {
+      "name": "Slow 4G (Lighthouse devtools values)",
+      "offline": false,
+      "latency": 562.5,
+      "downloadThroughput": 188743.68,
+      "uploadThroughput": 86400
+    },
+    "cpuSlowdown": 4,
+    "cache": "disabled",
+    "runsPerPage": 3,
+    "statistic": "median"
+  },
+  "browser": "Chromium 141.0.7390.37 (Playwright 1.56.1, headless)",
+  "summary": {
+    "pages": 36,
+    "pagesWith200": 33,
+    "pagesNot200": [
+      "/vat-rates/categories (404)",
+      "/de/vat-rates/categories (404)",
+      "/mt/vat-rates/categories (404)"
+    ],
+    "medianLcpMs": 2288,
+    "worstLcp": {
+      "path": "/",
+      "lcpMs": 2568
+    },
+    "medianTbtMs": 148,
+    "maxCls": 0.1115,
+    "medianHtmlGzipBytes": 21169,
+    "medianJsGzipBytes": 91417,
+    "medianCssGzipBytes": 15769,
+    "medianRequests": 16,
+    "axeViolationRulesTotal": 6,
+    "axeViolationsByImpact": {
+      "critical": 0,
+      "serious": 3,
+      "moderate": 3,
+      "minor": 0
+    },
+    "keyboardTasksCompleted": "33/33",
+    "keyboardTasksFailed": [],
+    "titlesOutside30to60": [
+      "/ (69)",
+      "/de (64)",
+      "/mt (109)",
+      "/mt/vat-calculator (61)",
+      "/vat-number-validator (68)",
+      "/mt/vat-number-validator (76)",
+      "/vat-changes (65)",
+      "/mt/vat-changes (86)",
+      "/mt/compare/germany-vs-france-vat (66)",
+      "/de/top-vat-calculations/1000 (65)",
+      "/mcp-server (64)",
+      "/de/mcp-server (70)",
+      "/mt/mcp-server (85)"
+    ],
+    "descriptionsOutside70to160": [
+      "/ (170)",
+      "/de (182)",
+      "/mt (172)",
+      "/vat-number-validator (166)",
+      "/mt/vat-number-validator (162)",
+      "/vat-map (182)",
+      "/de/vat-map (223)",
+      "/mt/vat-map (167)",
+      "/vat-changes (171)",
+      "/de/vat-changes (164)",
+      "/mt/vat-changes (164)",
+      "/de/top-vat-calculations/1000 (58)",
+      "/mt/top-vat-calculations/1000 (52)",
+      "/de/mcp-server (178)"
+    ],
+    "invalidJsonLd": [
+      "/vat-map: no JSON-LD",
+      "/de/vat-map: no JSON-LD",
+      "/mt/vat-map: no JSON-LD",
+      "/vat-calculation/germany/1000/19/exclude: no JSON-LD",
+      "/de/vat-calculation/germany/1000/19/exclude: no JSON-LD",
+      "/mt/vat-calculation/germany/1000/19/exclude: no JSON-LD",
+      "/top-vat-calculations/1000: no JSON-LD",
+      "/de/top-vat-calculations/1000: no JSON-LD",
+      "/mt/top-vat-calculations/1000: no JSON-LD"
+    ],
+    "notInSitemap": [
+      "/vat-calculation/germany/1000/19/exclude",
+      "/de/vat-calculation/germany/1000/19/exclude",
+      "/mt/vat-calculation/germany/1000/19/exclude"
+    ],
+    "answerInFirst600": "30/33",
+    "asOfDateShown": "0/33",
+    "asOfDateShownInMain": "0/33",
+    "sourceShown": "33/33",
+    "sourceShownInMain": "21/33",
+    "answerInFirst600OfMain": "30/33",
+    "machineReadableAlternate": "33/33",
+    "medianWarmQueries": 3,
+    "maxWarmQueries": 9,
+    "medianColdQueries": 5,
+    "maxSnapshotBytes": 9445
+  },
+  "site": {
+    "sitemap": {
+      "sections": 6,
+      "urls": 2267
+    },
+    "inboundLinkMethod": "unique source pages linking to the page, among the 482 sitemap URLs in en, de, mt",
+    "machineReadable": {
+      "llmsTxt": {
+        "status": 200,
+        "bytes": 10487
+      },
+      "llmsFullTxt": {
+        "status": 200,
+        "bytes": 10714
+      },
+      "apiCountries": {
+        "status": 200,
+        "type": "application/json"
+      },
+      "apiCalculate": {
+        "status": 200
+      },
+      "openapi": {
+        "status": 200
+      },
+      "mcp": {
+        "initialize": 200,
+        "protocolVersion": "2025-06-18",
+        "tools": [
+          "get_all_vat_rates",
+          "get_country_vat_rate",
+          "calculate_vat",
+          "compare_vat_rates",
+          "get_vat_rate_changes",
+          "validate_vat_number"
+        ]
+      }
+    },
+    "facts": {
+      "germanyStandardRate19": {
+        "llmsTxt": true,
+        "api": true,
+        "mcp": true
+      },
+      "maltaStandardRate18": {
+        "llmsTxt": true,
+        "api": true
+      },
+      "germany1000Gross1190": {
+        "api": true
+      }
+    }
+  },
+  "repository": {
+    "command": "php artisan test",
+    "passed": true,
+    "tests": 365,
+    "results": {
+      "passed": 365
+    },
+    "assertions": 2846,
+    "reportedDurationSeconds": 28.35,
+    "wallSeconds": 28.7,
+    "pint": {
+      "command": "./vendor/bin/pint --test",
+      "passed": true,
+      "output": "{\"tool\":\"pint\",\"result\":\"passed\"}"
+    }
+  },
+  "backendEnvironment": {
+    "app.env": "staging",
+    "app.debug": false,
+    "database.default": "sqlite",
+    "cache.default": "file"
+  },
+  "pages": [
+    {
+      "path": "/",
+      "locale": "en",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 239571,
+          "gzip": 24313,
+          "brotli": 20071
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 72920,
+        "imageBytes": 28166,
+        "totalTransferGzip": 227827,
+        "requestCount": 26,
+        "ttfbMs": 59,
+        "fcpMs": 2568,
+        "lcpMs": 2568,
+        "lcpElement": "img.hero-photo.opacity-20",
+        "cls": 0.002,
+        "tbtMs": 393,
+        "longTasks": 3,
+        "loadMs": 5718,
+        "perRun": [
+          {
+            "lcpMs": 2592,
+            "cls": 0.002,
+            "tbtMs": 393,
+            "fcpMs": 2592,
+            "requests": 26
+          },
+          {
+            "lcpMs": 2540,
+            "cls": 0.002,
+            "tbtMs": 375,
+            "fcpMs": 2540,
+            "requests": 26
+          },
+          {
+            "lcpMs": 2568,
+            "cls": 0.002,
+            "tbtMs": 404,
+            "fcpMs": 2568,
+            "requests": 26
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 1,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 1,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 1,
+          "minor": 0
+        },
+        "axeViolations": [
+          {
+            "id": "landmark-unique",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+            "sample": ".sm\\:py-16"
+          }
+        ],
+        "keyboard": {
+          "task": "Type an amount with the keyboard and get a total",
+          "completed": true,
+          "tabPresses": 8,
+          "focusVisibleMisses": []
+        }
+      },
+      "seo": {
+        "title": "EU VAT Calculator — All 27 Countries | Free & Real-Time | EU VAT Info",
+        "titleLength": 69,
+        "description": "Free VAT calculator for all 27 EU countries. Add or remove VAT instantly with official 2026 rates. Validate EU VAT numbers, track rate changes & access compliance guides.",
+        "descriptionLength": 170,
+        "canonical": "https://vat.businesspress.io/",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 3,
+          "types": [
+            "DataDownload",
+            "Dataset",
+            "EntryPoint",
+            "Organization",
+            "Place",
+            "SearchAction",
+            "WebSite"
+          ],
+          "valid": true,
+          "problems": []
+        },
+        "h1": [
+          "VAT rates in the European Union"
+        ],
+        "h1Count": 1,
+        "wordCount": 471,
+        "mainWordCount": 354,
+        "internalLinksOut": 74,
+        "internalLinksIn": 311,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "\\d{1,2}(?:[.,]\\d)?\\s?%",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "European Commission",
+        "sourceShownInMain": true,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 7757,
+          "tokens": 1940
+        },
+        "machineReadableAlternate": true,
+        "first600": "Skip to main content EU VAT Info 2026 RATES · 27 MEMBER STATES · UPDATED DAILY VAT rates in the European Union Compare standard and reduced VAT rates, calculate taxes, and stay compliant across all 27 EU member states. Add VAT Remove VAT Official EU data Country Germany 19% Amount (excl. VAT) € Rate Standard 19% Reduced 7% Custom % The standard rate applies to most goods and services. Total (incl. VAT) €119.00 Copy €100.00 plus 19% VAT in Germany Net amount €100.00 VAT 19% + €19.00 Gross amount €119.00 Net 84% VAT 16% Share & details Full calculator Official European Commission data Always up ",
+        "reachableThrough": null
+      },
+      "backend": {
+        "cold": {
+          "queries": 9,
+          "serverMs": 103.5
+        },
+        "warm": {
+          "status": 200,
+          "queries": 4,
+          "queryTimeMs": 0.96,
+          "serverMs": 57,
+          "htmlBytes": 241910,
+          "livewireComponents": 4,
+          "snapshotBytesTotal": 3924,
+          "snapshots": [
+            {
+              "component": "home",
+              "bytes": 2730
+            },
+            {
+              "component": "hero-calculator",
+              "bytes": 644
+            },
+            {
+              "component": "vat-rate-changes",
+              "bytes": 275
+            },
+            {
+              "component": "recent-countries",
+              "bytes": 275
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/de",
+      "locale": "de",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 240832,
+          "gzip": 24958,
+          "brotli": 20612
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 72920,
+        "imageBytes": 27678,
+        "totalTransferGzip": 228166,
+        "requestCount": 25,
+        "ttfbMs": 48,
+        "fcpMs": 2524,
+        "lcpMs": 2524,
+        "lcpElement": "img.hero-photo.opacity-20",
+        "cls": 0.0641,
+        "tbtMs": 316,
+        "longTasks": 3,
+        "loadMs": 5606,
+        "perRun": [
+          {
+            "lcpMs": 2516,
+            "cls": 0.0641,
+            "tbtMs": 311,
+            "fcpMs": 2516,
+            "requests": 25
+          },
+          {
+            "lcpMs": 2604,
+            "cls": 0.0641,
+            "tbtMs": 316,
+            "fcpMs": 2604,
+            "requests": 25
+          },
+          {
+            "lcpMs": 2524,
+            "cls": 0.0641,
+            "tbtMs": 329,
+            "fcpMs": 2524,
+            "requests": 25
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 1,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 1,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 1,
+          "minor": 0
+        },
+        "axeViolations": [
+          {
+            "id": "landmark-unique",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+            "sample": ".sm\\:py-16"
+          }
+        ],
+        "keyboard": {
+          "task": "Type an amount with the keyboard and get a total",
+          "completed": true,
+          "tabPresses": 8,
+          "focusVisibleMisses": []
+        }
+      },
+      "seo": {
+        "title": "EU MwSt. Info – MwSt.-Rechner & Informationen für alle EU-Länder",
+        "titleLength": 64,
+        "description": "Aktuelle Mehrwertsteuersätze für alle 27 EU-Länder. Kostenloser Online-Rechner, historische Daten ab 2000, Änderungsbenachrichtigungen und Compliance-Leitfäden. Täglich aktualisiert.",
+        "descriptionLength": 182,
+        "canonical": "https://vat.businesspress.io/de",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 3,
+          "types": [
+            "DataDownload",
+            "Dataset",
+            "EntryPoint",
+            "Organization",
+            "Place",
+            "SearchAction",
+            "WebSite"
+          ],
+          "valid": true,
+          "problems": []
+        },
+        "h1": [
+          "Mehrwertsteuersätze in der Europäischen Union"
+        ],
+        "h1Count": 1,
+        "wordCount": 426,
+        "mainWordCount": 328,
+        "internalLinksOut": 74,
+        "internalLinksIn": 84,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "\\d{1,2}(?:[.,]\\d)?\\s?%",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "Europäischen Kommission",
+        "sourceShownInMain": true,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 8256,
+          "tokens": 2064
+        },
+        "machineReadableAlternate": true,
+        "first600": "Zum Hauptinhalt springen EU MwSt. Info SÄTZE 2026 · 27 MITGLIEDSTAATEN · TÄGLICH AKTUALISIERT Mehrwertsteuersätze in der Europäischen Union Aktuelle Regelsätze, ermäßigte Sätze und Rechner für alle 27 EU-Mitgliedstaaten. Täglich aktualisiert. MwSt hinzufügen MwSt entfernen Offizielle EU-Daten Land Germany 19% Betrag (exkl. MwSt) € Satz Regelsatz 19% Ermäßigt 7% Benutzerdefiniert % Der Regelsatz gilt für die meisten Waren und Dienstleistungen. Gesamt (inkl. MwSt) 119,00 € Kopieren 100,00 € zzgl. 19% MwSt. in Germany Nettobetrag 100,00 € MwSt. 19% + 19,00 € Bruttobetrag 119,00 € Netto 84% MwSt. ",
+        "reachableThrough": null
+      },
+      "backend": {
+        "cold": {
+          "queries": 9,
+          "serverMs": 57.4
+        },
+        "warm": {
+          "status": 200,
+          "queries": 4,
+          "queryTimeMs": 1.21,
+          "serverMs": 75.3,
+          "htmlBytes": 248691,
+          "livewireComponents": 4,
+          "snapshotBytesTotal": 6696,
+          "snapshots": [
+            {
+              "component": "home",
+              "bytes": 5490
+            },
+            {
+              "component": "hero-calculator",
+              "bytes": 656
+            },
+            {
+              "component": "vat-rate-changes",
+              "bytes": 275
+            },
+            {
+              "component": "recent-countries",
+              "bytes": 275
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/mt",
+      "locale": "mt",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 241583,
+          "gzip": 25038,
+          "brotli": 20721
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 206256,
+        "imageBytes": 27678,
+        "totalTransferGzip": 361582,
+        "requestCount": 26,
+        "ttfbMs": 41,
+        "fcpMs": 2560,
+        "lcpMs": 2560,
+        "lcpElement": "img.hero-photo.opacity-20",
+        "cls": 0.002,
+        "tbtMs": 364,
+        "longTasks": 4,
+        "loadMs": 6040,
+        "perRun": [
+          {
+            "lcpMs": 2540,
+            "cls": 0.002,
+            "tbtMs": 354,
+            "fcpMs": 2540,
+            "requests": 26
+          },
+          {
+            "lcpMs": 2580,
+            "cls": 0.002,
+            "tbtMs": 423,
+            "fcpMs": 2580,
+            "requests": 26
+          },
+          {
+            "lcpMs": 2560,
+            "cls": 0.002,
+            "tbtMs": 364,
+            "fcpMs": 2560,
+            "requests": 26
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 1,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 1,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 1,
+          "minor": 0
+        },
+        "axeViolations": [
+          {
+            "id": "landmark-unique",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+            "sample": ".sm\\:py-16"
+          }
+        ],
+        "keyboard": {
+          "task": "Type an amount with the keyboard and get a total",
+          "completed": true,
+          "tabPresses": 8,
+          "focusVisibleMisses": []
+        }
+      },
+      "seo": {
+        "title": "Informazzjoni dwar il-VAT fl-UE - Kalkulatur u Informazzjoni dwar ir-Rati tal-VAT għall-Pajjiżi Kollha tal-UE",
+        "titleLength": 109,
+        "description": "Rati attwali tal-VAT għas-27 pajjiż kollha tal-UE. Kalkulatur b'xejn online, dejta storika mill-2000, avviżi dwar bidliet fir-rati, u gwidi tal-konformità. Aġġornat kuljum.",
+        "descriptionLength": 172,
+        "canonical": "https://vat.businesspress.io/mt",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 3,
+          "types": [
+            "DataDownload",
+            "Dataset",
+            "EntryPoint",
+            "Organization",
+            "Place",
+            "SearchAction",
+            "WebSite"
+          ],
+          "valid": true,
+          "problems": []
+        },
+        "h1": [
+          "Rati tal-VAT fl- Unjoni Ewropea"
+        ],
+        "h1Count": 1,
+        "wordCount": 474,
+        "mainWordCount": 348,
+        "internalLinksOut": 74,
+        "internalLinksIn": 84,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "\\d{1,2}(?:[.,]\\d)?\\s?%",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "Kummissjoni Ewropea",
+        "sourceShownInMain": true,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 8218,
+          "tokens": 2055
+        },
+        "machineReadableAlternate": true,
+        "first600": "Aqbeż għall-kontenut ewlieni Informazzjoni dwar il-VAT fl-UE RATI TAL-2026 · 27 STAT MEMBRU · AĠĠORNATI KULJUM Rati tal-VAT fl- Unjoni Ewropea Rati standard attwali tal-VAT, rati mnaqqsa u kalkulatur għas-27 stat membru kollha tal-UE. Aġġornat kuljum. Żid il-VAT Neħħi l-VAT Data uffiċjali tal-UE Pajjiż Germany 19% Ammont (eskl. VAT) € Rata Standard 19% Imnaqqsa 7% Personalizzat % Ir-rata standard tapplika għall-biċċa l-kbira tal-oġġetti u s-servizzi. Total (inkl. VAT) € 119.00 Ikkopja € 100.00 flimkien mal-VAT ta' 19% f'Germany Ammont Nett € 100.00 VAT 19% + € 19.00 Ammont gross € 119.00 Nett ",
+        "reachableThrough": null
+      },
+      "backend": {
+        "cold": {
+          "queries": 9,
+          "serverMs": 88.3
+        },
+        "warm": {
+          "status": 200,
+          "queries": 4,
+          "queryTimeMs": 1.28,
+          "serverMs": 72.9,
+          "htmlBytes": 254962,
+          "livewireComponents": 4,
+          "snapshotBytesTotal": 9445,
+          "snapshots": [
+            {
+              "component": "home",
+              "bytes": 8250
+            },
+            {
+              "component": "hero-calculator",
+              "bytes": 645
+            },
+            {
+              "component": "vat-rate-changes",
+              "bytes": 275
+            },
+            {
+              "component": "recent-countries",
+              "bytes": 275
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/vat-calculator",
+      "locale": "en",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 220438,
+          "gzip": 42369,
+          "brotli": 37667
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 72920,
+        "imageBytes": 12843,
+        "totalTransferGzip": 235080,
+        "requestCount": 8,
+        "ttfbMs": 40,
+        "fcpMs": 2528,
+        "lcpMs": 2528,
+        "lcpElement": "img.hero-photo.opacity-20",
+        "cls": 0.0017,
+        "tbtMs": 293,
+        "longTasks": 2,
+        "loadMs": 5151,
+        "perRun": [
+          {
+            "lcpMs": 2484,
+            "cls": 0.0017,
+            "tbtMs": 284,
+            "fcpMs": 2484,
+            "requests": 8
+          },
+          {
+            "lcpMs": 2548,
+            "cls": 0.0017,
+            "tbtMs": 324,
+            "fcpMs": 2548,
+            "requests": 8
+          },
+          {
+            "lcpMs": 2528,
+            "cls": 0.0017,
+            "tbtMs": 293,
+            "fcpMs": 2528,
+            "requests": 8
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Type an amount with the keyboard and get a total",
+          "completed": true,
+          "tabPresses": 9,
+          "focusVisibleMisses": []
+        }
+      },
+      "seo": {
+        "title": "European VAT Calculator — EU & Other Countries | EU VAT Info",
+        "titleLength": 60,
+        "description": "Free VAT calculator for supported European countries. Add or remove VAT instantly with current maintained rates. No registration required.",
+        "descriptionLength": 138,
+        "canonical": "https://vat.businesspress.io/vat-calculator",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 2,
+          "types": [
+            "BreadcrumbList",
+            "ListItem",
+            "Offer",
+            "Organization",
+            "WebApplication"
+          ],
+          "valid": true,
+          "problems": []
+        },
+        "h1": [
+          "European VAT calculator"
+        ],
+        "h1Count": 1,
+        "wordCount": 239,
+        "mainWordCount": 122,
+        "internalLinksOut": 78,
+        "internalLinksIn": 311,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "\\d{1,2}(?:[.,]\\d)?\\s?%",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "European Commission",
+        "sourceShownInMain": true,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 4808,
+          "tokens": 1202
+        },
+        "machineReadableAlternate": true,
+        "first600": "Skip to main content EU VAT Info Home VAT calculator European VAT calculator Calculate VAT across supported European countries, including all 27 European Union member states. Add VAT Remove VAT Official EU data Country Germany 19% Amount (excl. VAT) € Rate Standard 19% Reduced 7% Custom % The standard rate applies to most goods and services. Total (incl. VAT) €119.00 Copy €100.00 plus 19% VAT in Germany Net amount €100.00 VAT 19% + €19.00 Gross amount €119.00 Net 84% VAT 16% Share & details Full calculator Official European Commission data Always up to date Instant results as you type Standard",
+        "reachableThrough": null
+      },
+      "backend": {
+        "cold": {
+          "queries": 6,
+          "serverMs": 61.6
+        },
+        "warm": {
+          "status": 200,
+          "queries": 3,
+          "queryTimeMs": 0.83,
+          "serverMs": 45.2,
+          "htmlBytes": 219998,
+          "livewireComponents": 2,
+          "snapshotBytesTotal": 1066,
+          "snapshots": [
+            {
+              "component": "vat-calculator",
+              "bytes": 410
+            },
+            {
+              "component": "hero-calculator",
+              "bytes": 656
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/de/vat-calculator",
+      "locale": "de",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 221648,
+          "gzip": 43059,
+          "brotli": 38340
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 72920,
+        "imageBytes": 12355,
+        "totalTransferGzip": 235464,
+        "requestCount": 7,
+        "ttfbMs": 36,
+        "fcpMs": 2492,
+        "lcpMs": 2492,
+        "lcpElement": "img.hero-photo.opacity-20",
+        "cls": 0.0005,
+        "tbtMs": 343,
+        "longTasks": 2,
+        "loadMs": 5169,
+        "perRun": [
+          {
+            "lcpMs": 2492,
+            "cls": 0.0005,
+            "tbtMs": 284,
+            "fcpMs": 2492,
+            "requests": 7
+          },
+          {
+            "lcpMs": 2496,
+            "cls": 0.0005,
+            "tbtMs": 344,
+            "fcpMs": 2496,
+            "requests": 7
+          },
+          {
+            "lcpMs": 2480,
+            "cls": 0.0005,
+            "tbtMs": 343,
+            "fcpMs": 2480,
+            "requests": 7
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Type an amount with the keyboard and get a total",
+          "completed": true,
+          "tabPresses": 9,
+          "focusVisibleMisses": []
+        }
+      },
+      "seo": {
+        "title": "EU-MwSt-Rechner — Alle 27 Länder | EU VAT Info",
+        "titleLength": 46,
+        "description": "Kostenloser Online-MwSt-Rechner für alle 27 EU-Mitgliedstaaten. MwSt mit aktuellen offiziellen Sätzen sofort berechnen.",
+        "descriptionLength": 119,
+        "canonical": "https://vat.businesspress.io/de/vat-calculator",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 2,
+          "types": [
+            "BreadcrumbList",
+            "ListItem",
+            "Offer",
+            "Organization",
+            "WebApplication"
+          ],
+          "valid": true,
+          "problems": []
+        },
+        "h1": [
+          "Europäischer MwSt.-Rechner"
+        ],
+        "h1Count": 1,
+        "wordCount": 227,
+        "mainWordCount": 129,
+        "internalLinksOut": 78,
+        "internalLinksIn": 84,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "\\d{1,2}(?:[.,]\\d)?\\s?%",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "Europäischen Kommission",
+        "sourceShownInMain": true,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 5111,
+          "tokens": 1278
+        },
+        "machineReadableAlternate": true,
+        "first600": "Zum Hauptinhalt springen EU MwSt. Info Startseite MwSt.-Rechner Europäischer MwSt.-Rechner Berechnen Sie MwSt.-Beträge schnell für jeden der 27 Mitgliedstaaten der Europäischen Union. MwSt hinzufügen MwSt entfernen Offizielle EU-Daten Land Germany 19% Betrag (exkl. MwSt) € Satz Regelsatz 19% Ermäßigt 7% Benutzerdefiniert % Der Regelsatz gilt für die meisten Waren und Dienstleistungen. Gesamt (inkl. MwSt) 119,00 € Kopieren 100,00 € zzgl. 19% MwSt. in Germany Nettobetrag 100,00 € MwSt. 19% + 19,00 € Bruttobetrag 119,00 € Netto 84% MwSt. 16% Teilen & Details Voller Rechner Offizielle Daten der Eu",
+        "reachableThrough": null
+      },
+      "backend": {
+        "cold": {
+          "queries": 6,
+          "serverMs": 68
+        },
+        "warm": {
+          "status": 200,
+          "queries": 3,
+          "queryTimeMs": 0.83,
+          "serverMs": 46.2,
+          "htmlBytes": 221208,
+          "livewireComponents": 2,
+          "snapshotBytesTotal": 1086,
+          "snapshots": [
+            {
+              "component": "vat-calculator",
+              "bytes": 414
+            },
+            {
+              "component": "hero-calculator",
+              "bytes": 672
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/mt/vat-calculator",
+      "locale": "mt",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 222038,
+          "gzip": 43142,
+          "brotli": 38404
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 206256,
+        "imageBytes": 14680,
+        "totalTransferGzip": 370696,
+        "requestCount": 9,
+        "ttfbMs": 38,
+        "fcpMs": 2520,
+        "lcpMs": 2520,
+        "lcpElement": "img.hero-photo.opacity-20",
+        "cls": 0.1115,
+        "tbtMs": 313,
+        "longTasks": 2,
+        "loadMs": 5871,
+        "perRun": [
+          {
+            "lcpMs": 2500,
+            "cls": 0.1115,
+            "tbtMs": 313,
+            "fcpMs": 2500,
+            "requests": 9
+          },
+          {
+            "lcpMs": 2520,
+            "cls": 0.1115,
+            "tbtMs": 292,
+            "fcpMs": 2520,
+            "requests": 9
+          },
+          {
+            "lcpMs": 2532,
+            "cls": 0.1115,
+            "tbtMs": 338,
+            "fcpMs": 2532,
+            "requests": 9
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Type an amount with the keyboard and get a total",
+          "completed": true,
+          "tabPresses": 9,
+          "focusVisibleMisses": []
+        }
+      },
+      "seo": {
+        "title": "Kalkolatur tal-VAT tal-UE — Il-27 pajjiż kollha | EU VAT Info",
+        "titleLength": 61,
+        "description": "Kalkolatur tal-VAT onlajn b'xejn għall-27 stat membru tal-UE kollha. Ikkalkulaw il-VAT bir-rati uffiċjali attwali.",
+        "descriptionLength": 114,
+        "canonical": "https://vat.businesspress.io/mt/vat-calculator",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 2,
+          "types": [
+            "BreadcrumbList",
+            "ListItem",
+            "Offer",
+            "Organization",
+            "WebApplication"
+          ],
+          "valid": true,
+          "problems": []
+        },
+        "h1": [
+          "Kalkulatur Ewropew tal-VAT"
+        ],
+        "h1Count": 1,
+        "wordCount": 250,
+        "mainWordCount": 124,
+        "internalLinksOut": 78,
+        "internalLinksIn": 84,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "\\d{1,2}(?:[.,]\\d)?\\s?%",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "Kummissjoni Ewropea",
+        "sourceShownInMain": true,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 5043,
+          "tokens": 1261
+        },
+        "machineReadableAlternate": true,
+        "first600": "Aqbeż għall-kontenut ewlieni Informazzjoni dwar il-VAT fl-UE Paġna Ewlenija Kalkulatur tal-VAT Kalkulatur Ewropew tal-VAT Kalkula malajr l-ammonti tal-VAT għal kwalunkwe wieħed mill-27 Stat Membru tal-Unjoni Ewropea. Żid il-VAT Neħħi l-VAT Data uffiċjali tal-UE Pajjiż Germany 19% Ammont (eskl. VAT) € Rata Standard 19% Imnaqqsa 7% Personalizzat % Ir-rata standard tapplika għall-biċċa l-kbira tal-oġġetti u s-servizzi. Total (inkl. VAT) € 119.00 Ikkopja € 100.00 flimkien mal-VAT ta' 19% f'Germany Ammont Nett € 100.00 VAT 19% + € 19.00 Ammont gross € 119.00 Nett 84% VAT 16% Aqsam u dettalji Kalkol",
+        "reachableThrough": null
+      },
+      "backend": {
+        "cold": {
+          "queries": 6,
+          "serverMs": 47.9
+        },
+        "warm": {
+          "status": 200,
+          "queries": 3,
+          "queryTimeMs": 0.84,
+          "serverMs": 43.2,
+          "htmlBytes": 221598,
+          "livewireComponents": 2,
+          "snapshotBytesTotal": 1075,
+          "snapshots": [
+            {
+              "component": "vat-calculator",
+              "bytes": 414
+            },
+            {
+              "component": "hero-calculator",
+              "bytes": 661
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/vat-calculator/germany",
+      "locale": "en",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 159294,
+          "gzip": 21733,
+          "brotli": 18402
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 72920,
+        "imageBytes": 19868,
+        "totalTransferGzip": 219863,
+        "requestCount": 15,
+        "ttfbMs": 42,
+        "fcpMs": 2280,
+        "lcpMs": 2280,
+        "lcpElement": "img.hero-photo.opacity-30",
+        "cls": 0,
+        "tbtMs": 343,
+        "longTasks": 2,
+        "loadMs": 4665,
+        "perRun": [
+          {
+            "lcpMs": 2280,
+            "cls": 0,
+            "tbtMs": 343,
+            "fcpMs": 2280,
+            "requests": 15
+          },
+          {
+            "lcpMs": 2280,
+            "cls": 0,
+            "tbtMs": 288,
+            "fcpMs": 2280,
+            "requests": 15
+          },
+          {
+            "lcpMs": 2312,
+            "cls": 0,
+            "tbtMs": 344,
+            "fcpMs": 2312,
+            "requests": 15
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Type an amount with the keyboard and get a total",
+          "completed": true,
+          "tabPresses": 10,
+          "focusVisibleMisses": []
+        }
+      },
+      "seo": {
+        "title": "Germany VAT Calculator — 19% Standard Rate | EU VAT Info",
+        "titleLength": 56,
+        "description": "Calculate Germany VAT instantly. Current standard rate: 19%. Add or remove VAT with standard, reduced and parking rates. Free.",
+        "descriptionLength": 126,
+        "canonical": "https://vat.businesspress.io/vat-calculator/germany",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 2,
+          "types": [
+            "BreadcrumbList",
+            "Country",
+            "ListItem",
+            "Offer",
+            "WebApplication",
+            "WebPage",
+            "WebSite"
+          ],
+          "valid": true,
+          "problems": []
+        },
+        "h1": [
+          "Germany VAT calculator"
+        ],
+        "h1Count": 1,
+        "wordCount": 350,
+        "mainWordCount": 233,
+        "internalLinksOut": 83,
+        "internalLinksIn": 84,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "19\\s?%",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "European Commission",
+        "sourceShownInMain": true,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 6219,
+          "tokens": 1555
+        },
+        "machineReadableAlternate": true,
+        "first600": "Skip to main content EU VAT Info Home VAT calculator Germany EU MEMBER Germany VAT calculator Calculate VAT for transactions in Germany easily. Current standard rate is 19%. STANDARD 19% REDUCED 7% CURRENCY EUR Add VAT Remove VAT Official EU data Country Germany 19% Amount (excl. VAT) € Rate Standard 19% Reduced 7% Custom % The standard rate applies to most goods and services. Total (incl. VAT) €119.00 Copy €100.00 plus 19% VAT in Germany Net amount €100.00 VAT 19% + €19.00 Gross amount €119.00 Net 84% VAT 16% Share & details Official European Commission data Always up to date Instant results ",
+        "reachableThrough": {
+          "llmsTxt": true,
+          "api": true,
+          "mcp": true
+        }
+      },
+      "backend": {
+        "cold": {
+          "queries": 11,
+          "serverMs": 54.3
+        },
+        "warm": {
+          "status": 200,
+          "queries": 9,
+          "queryTimeMs": 1.75,
+          "serverMs": 58.1,
+          "htmlBytes": 158809,
+          "livewireComponents": 2,
+          "snapshotBytesTotal": 1093,
+          "snapshots": [
+            {
+              "component": "vat-calculator",
+              "bytes": 419
+            },
+            {
+              "component": "hero-calculator",
+              "bytes": 674
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/de/vat-calculator/germany",
+      "locale": "de",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 160470,
+          "gzip": 22403,
+          "brotli": 19022
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 72920,
+        "imageBytes": 19380,
+        "totalTransferGzip": 220227,
+        "requestCount": 14,
+        "ttfbMs": 42,
+        "fcpMs": 2300,
+        "lcpMs": 2300,
+        "lcpElement": "img.hero-photo.opacity-30",
+        "cls": 0,
+        "tbtMs": 366,
+        "longTasks": 3,
+        "loadMs": 4686,
+        "perRun": [
+          {
+            "lcpMs": 2300,
+            "cls": 0,
+            "tbtMs": 309,
+            "fcpMs": 2300,
+            "requests": 14
+          },
+          {
+            "lcpMs": 2304,
+            "cls": 0,
+            "tbtMs": 366,
+            "fcpMs": 2304,
+            "requests": 14
+          },
+          {
+            "lcpMs": 2284,
+            "cls": 0,
+            "tbtMs": 402,
+            "fcpMs": 2284,
+            "requests": 14
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Type an amount with the keyboard and get a total",
+          "completed": true,
+          "tabPresses": 10,
+          "focusVisibleMisses": []
+        }
+      },
+      "seo": {
+        "title": "MwSt-Rechner Germany — Normalsatz 19% | EU VAT Info",
+        "titleLength": 51,
+        "description": "Kostenloser MwSt-Rechner für Germany. Normalsatz 19%. MwSt sofort hinzufügen oder entfernen, alle Sätze und Compliance-Leitfäden.",
+        "descriptionLength": 129,
+        "canonical": "https://vat.businesspress.io/de/vat-calculator/germany",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 2,
+          "types": [
+            "BreadcrumbList",
+            "Country",
+            "ListItem",
+            "Offer",
+            "WebApplication",
+            "WebPage",
+            "WebSite"
+          ],
+          "valid": true,
+          "problems": []
+        },
+        "h1": [
+          "Germany MwSt.-Rechner"
+        ],
+        "h1Count": 1,
+        "wordCount": 321,
+        "mainWordCount": 223,
+        "internalLinksOut": 83,
+        "internalLinksIn": 48,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "19\\s?%",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "Europäischen Kommission",
+        "sourceShownInMain": true,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 6734,
+          "tokens": 1684
+        },
+        "machineReadableAlternate": true,
+        "first600": "Zum Hauptinhalt springen EU MwSt. Info Startseite MwSt.-Rechner Germany EU-MITGLIEDSTAAT Germany MwSt.-Rechner Berechnen Sie die Mehrwertsteuer für Transaktionen in Germany einfach. Der aktuelle Regelsteuersatz beträgt 19%. REGELSATZ 19% ERMÄSSIGT 7% WÄHRUNG EUR MwSt hinzufügen MwSt entfernen Offizielle EU-Daten Land Germany 19% Betrag (exkl. MwSt) € Satz Regelsatz 19% Ermäßigt 7% Benutzerdefiniert % Der Regelsatz gilt für die meisten Waren und Dienstleistungen. Gesamt (inkl. MwSt) 119,00 € Kopieren 100,00 € zzgl. 19% MwSt. in Germany Nettobetrag 100,00 € MwSt. 19% + 19,00 € Bruttobetrag 119,0",
+        "reachableThrough": {
+          "llmsTxt": true,
+          "api": true,
+          "mcp": true
+        }
+      },
+      "backend": {
+        "cold": {
+          "queries": 11,
+          "serverMs": 51.4
+        },
+        "warm": {
+          "status": 200,
+          "queries": 9,
+          "queryTimeMs": 1.94,
+          "serverMs": 52.3,
+          "htmlBytes": 159985,
+          "livewireComponents": 2,
+          "snapshotBytesTotal": 1113,
+          "snapshots": [
+            {
+              "component": "vat-calculator",
+              "bytes": 423
+            },
+            {
+              "component": "hero-calculator",
+              "bytes": 690
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/mt/vat-calculator/germany",
+      "locale": "mt",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 160973,
+          "gzip": 22429,
+          "brotli": 19075
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 206256,
+        "imageBytes": 19380,
+        "totalTransferGzip": 353589,
+        "requestCount": 15,
+        "ttfbMs": 40,
+        "fcpMs": 2308,
+        "lcpMs": 2308,
+        "lcpElement": "img.hero-photo.opacity-30",
+        "cls": 0.0001,
+        "tbtMs": 393,
+        "longTasks": 3,
+        "loadMs": 5422,
+        "perRun": [
+          {
+            "lcpMs": 2328,
+            "cls": 0.0001,
+            "tbtMs": 437,
+            "fcpMs": 2328,
+            "requests": 15
+          },
+          {
+            "lcpMs": 2296,
+            "cls": 0.0001,
+            "tbtMs": 315,
+            "fcpMs": 2296,
+            "requests": 15
+          },
+          {
+            "lcpMs": 2308,
+            "cls": 0.0001,
+            "tbtMs": 393,
+            "fcpMs": 2308,
+            "requests": 15
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Type an amount with the keyboard and get a total",
+          "completed": true,
+          "tabPresses": 10,
+          "focusVisibleMisses": []
+        }
+      },
+      "seo": {
+        "title": "Kalkolatur tal-VAT Germany — Rata standard 19% | EU VAT Info",
+        "titleLength": 60,
+        "description": "Kalkolatur tal-VAT b'xejn għal Germany. Rata standard 19%. Żid jew neħħi l-VAT minnufih, ir-rati kollha u gwidi ta' konformità.",
+        "descriptionLength": 127,
+        "canonical": "https://vat.businesspress.io/mt/vat-calculator/germany",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 2,
+          "types": [
+            "BreadcrumbList",
+            "Country",
+            "ListItem",
+            "Offer",
+            "WebApplication",
+            "WebPage",
+            "WebSite"
+          ],
+          "valid": true,
+          "problems": []
+        },
+        "h1": [
+          "Kalkulatur tal-VAT ta' Germany"
+        ],
+        "h1Count": 1,
+        "wordCount": 367,
+        "mainWordCount": 241,
+        "internalLinksOut": 83,
+        "internalLinksIn": 48,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "19\\s?%",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "Kummissjoni Ewropea",
+        "sourceShownInMain": true,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 6680,
+          "tokens": 1670
+        },
+        "machineReadableAlternate": true,
+        "first600": "Aqbeż għall-kontenut ewlieni Informazzjoni dwar il-VAT fl-UE Paġna Ewlenija Kalkulatur tal-VAT Germany STAT MEMBRU TAL-UE Kalkulatur tal-VAT ta' Germany Kalkula l-VAT b'faċilità għat-tranżazzjonijiet f'Germany. Ir-rata standard attwali hija 19%. STANDARD 19% IMNAQQSA 7% MUNITA EUR Żid il-VAT Neħħi l-VAT Data uffiċjali tal-UE Pajjiż Germany 19% Ammont (eskl. VAT) € Rata Standard 19% Imnaqqsa 7% Personalizzat % Ir-rata standard tapplika għall-biċċa l-kbira tal-oġġetti u s-servizzi. Total (inkl. VAT) € 119.00 Ikkopja € 100.00 flimkien mal-VAT ta' 19% f'Germany Ammont Nett € 100.00 VAT 19% + € 19.",
+        "reachableThrough": {
+          "llmsTxt": true,
+          "api": true,
+          "mcp": true
+        }
+      },
+      "backend": {
+        "cold": {
+          "queries": 11,
+          "serverMs": 53.1
+        },
+        "warm": {
+          "status": 200,
+          "queries": 9,
+          "queryTimeMs": 2.08,
+          "serverMs": 50.5,
+          "htmlBytes": 160488,
+          "livewireComponents": 2,
+          "snapshotBytesTotal": 1102,
+          "snapshots": [
+            {
+              "component": "vat-calculator",
+              "bytes": 423
+            },
+            {
+              "component": "hero-calculator",
+              "bytes": 679
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/vat-calculator/malta",
+      "locale": "en",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 157689,
+          "gzip": 21641,
+          "brotli": 18299
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 72920,
+        "imageBytes": 19647,
+        "totalTransferGzip": 219603,
+        "requestCount": 14,
+        "ttfbMs": 46,
+        "fcpMs": 2288,
+        "lcpMs": 2288,
+        "lcpElement": "img.hero-photo.opacity-30",
+        "cls": 0,
+        "tbtMs": 286,
+        "longTasks": 3,
+        "loadMs": 4623,
+        "perRun": [
+          {
+            "lcpMs": 2284,
+            "cls": 0,
+            "tbtMs": 286,
+            "fcpMs": 2284,
+            "requests": 14
+          },
+          {
+            "lcpMs": 2296,
+            "cls": 0,
+            "tbtMs": 358,
+            "fcpMs": 2296,
+            "requests": 14
+          },
+          {
+            "lcpMs": 2288,
+            "cls": 0,
+            "tbtMs": 285,
+            "fcpMs": 2288,
+            "requests": 14
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Type an amount with the keyboard and get a total",
+          "completed": true,
+          "tabPresses": 10,
+          "focusVisibleMisses": []
+        }
+      },
+      "seo": {
+        "title": "Malta VAT Calculator — 18% Standard Rate | EU VAT Info",
+        "titleLength": 54,
+        "description": "Calculate Malta VAT instantly. Current standard rate: 18%. Add or remove VAT with standard, reduced and parking rates. Free.",
+        "descriptionLength": 124,
+        "canonical": "https://vat.businesspress.io/vat-calculator/malta",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 2,
+          "types": [
+            "BreadcrumbList",
+            "Country",
+            "ListItem",
+            "Offer",
+            "WebApplication",
+            "WebPage",
+            "WebSite"
+          ],
+          "valid": true,
+          "problems": []
+        },
+        "h1": [
+          "Malta VAT calculator"
+        ],
+        "h1Count": 1,
+        "wordCount": 346,
+        "mainWordCount": 229,
+        "internalLinksOut": 80,
+        "internalLinksIn": 46,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "18\\s?%",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "European Commission",
+        "sourceShownInMain": true,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 5890,
+          "tokens": 1473
+        },
+        "machineReadableAlternate": true,
+        "first600": "Skip to main content EU VAT Info Home VAT calculator Malta EU MEMBER Malta VAT calculator Calculate VAT for transactions in Malta easily. Current standard rate is 18%. STANDARD 18% REDUCED 5% · 7% CURRENCY EUR Add VAT Remove VAT Official EU data Country Malta 18% Amount (excl. VAT) € Rate Standard 18% Reduced 7% Reduced 5% Custom % The standard rate applies to most goods and services. Total (incl. VAT) €118.00 Copy €100.00 plus 18% VAT in Malta Net amount €100.00 VAT 18% + €18.00 Gross amount €118.00 Net 84.7% VAT 15.3% Share & details Official European Commission data Always up to date Instan",
+        "reachableThrough": {
+          "llmsTxt": true,
+          "api": true
+        }
+      },
+      "backend": {
+        "cold": {
+          "queries": 11,
+          "serverMs": 49.1
+        },
+        "warm": {
+          "status": 200,
+          "queries": 9,
+          "queryTimeMs": 1.97,
+          "serverMs": 47.8,
+          "htmlBytes": 157219,
+          "livewireComponents": 2,
+          "snapshotBytesTotal": 1145,
+          "snapshots": [
+            {
+              "component": "vat-calculator",
+              "bytes": 415
+            },
+            {
+              "component": "hero-calculator",
+              "bytes": 730
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/de/vat-calculator/malta",
+      "locale": "de",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 158864,
+          "gzip": 22310,
+          "brotli": 18938
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 72920,
+        "imageBytes": 19159,
+        "totalTransferGzip": 219966,
+        "requestCount": 13,
+        "ttfbMs": 45,
+        "fcpMs": 2300,
+        "lcpMs": 2300,
+        "lcpElement": "img.hero-photo.opacity-30",
+        "cls": 0,
+        "tbtMs": 325,
+        "longTasks": 3,
+        "loadMs": 4618,
+        "perRun": [
+          {
+            "lcpMs": 2312,
+            "cls": 0,
+            "tbtMs": 279,
+            "fcpMs": 2312,
+            "requests": 13
+          },
+          {
+            "lcpMs": 2300,
+            "cls": 0,
+            "tbtMs": 328,
+            "fcpMs": 2300,
+            "requests": 13
+          },
+          {
+            "lcpMs": 2292,
+            "cls": 0,
+            "tbtMs": 325,
+            "fcpMs": 2292,
+            "requests": 13
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Type an amount with the keyboard and get a total",
+          "completed": true,
+          "tabPresses": 10,
+          "focusVisibleMisses": []
+        }
+      },
+      "seo": {
+        "title": "MwSt-Rechner Malta — Normalsatz 18% | EU VAT Info",
+        "titleLength": 49,
+        "description": "Kostenloser MwSt-Rechner für Malta. Normalsatz 18%. MwSt sofort hinzufügen oder entfernen, alle Sätze und Compliance-Leitfäden.",
+        "descriptionLength": 127,
+        "canonical": "https://vat.businesspress.io/de/vat-calculator/malta",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 2,
+          "types": [
+            "BreadcrumbList",
+            "Country",
+            "ListItem",
+            "Offer",
+            "WebApplication",
+            "WebPage",
+            "WebSite"
+          ],
+          "valid": true,
+          "problems": []
+        },
+        "h1": [
+          "Malta MwSt.-Rechner"
+        ],
+        "h1Count": 1,
+        "wordCount": 317,
+        "mainWordCount": 219,
+        "internalLinksOut": 80,
+        "internalLinksIn": 44,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "18\\s?%",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "Europäischen Kommission",
+        "sourceShownInMain": true,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 6389,
+          "tokens": 1598
+        },
+        "machineReadableAlternate": true,
+        "first600": "Zum Hauptinhalt springen EU MwSt. Info Startseite MwSt.-Rechner Malta EU-MITGLIEDSTAAT Malta MwSt.-Rechner Berechnen Sie die Mehrwertsteuer für Transaktionen in Malta einfach. Der aktuelle Regelsteuersatz beträgt 18%. REGELSATZ 18% ERMÄSSIGT 5% · 7% WÄHRUNG EUR MwSt hinzufügen MwSt entfernen Offizielle EU-Daten Land Malta 18% Betrag (exkl. MwSt) € Satz Regelsatz 18% Ermäßigt 7% Ermäßigt 5% Benutzerdefiniert % Der Regelsatz gilt für die meisten Waren und Dienstleistungen. Gesamt (inkl. MwSt) 118,00 € Kopieren 100,00 € zzgl. 18% MwSt. in Malta Nettobetrag 100,00 € MwSt. 18% + 18,00 € Bruttobetra",
+        "reachableThrough": {
+          "llmsTxt": true,
+          "api": true
+        }
+      },
+      "backend": {
+        "cold": {
+          "queries": 11,
+          "serverMs": 55.1
+        },
+        "warm": {
+          "status": 200,
+          "queries": 9,
+          "queryTimeMs": 2.34,
+          "serverMs": 56.7,
+          "htmlBytes": 158394,
+          "livewireComponents": 2,
+          "snapshotBytesTotal": 1176,
+          "snapshots": [
+            {
+              "component": "vat-calculator",
+              "bytes": 419
+            },
+            {
+              "component": "hero-calculator",
+              "bytes": 757
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/mt/vat-calculator/malta",
+      "locale": "mt",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 159353,
+          "gzip": 22337,
+          "brotli": 18977
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 206256,
+        "imageBytes": 19159,
+        "totalTransferGzip": 353329,
+        "requestCount": 14,
+        "ttfbMs": 37,
+        "fcpMs": 2272,
+        "lcpMs": 2272,
+        "lcpElement": "img.hero-photo.opacity-30",
+        "cls": 0.0001,
+        "tbtMs": 282,
+        "longTasks": 3,
+        "loadMs": 5286,
+        "perRun": [
+          {
+            "lcpMs": 2284,
+            "cls": 0.0001,
+            "tbtMs": 258,
+            "fcpMs": 2284,
+            "requests": 14
+          },
+          {
+            "lcpMs": 2264,
+            "cls": 0.0001,
+            "tbtMs": 282,
+            "fcpMs": 2264,
+            "requests": 14
+          },
+          {
+            "lcpMs": 2272,
+            "cls": 0.0001,
+            "tbtMs": 378,
+            "fcpMs": 2272,
+            "requests": 14
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Type an amount with the keyboard and get a total",
+          "completed": true,
+          "tabPresses": 10,
+          "focusVisibleMisses": []
+        }
+      },
+      "seo": {
+        "title": "Kalkolatur tal-VAT Malta — Rata standard 18% | EU VAT Info",
+        "titleLength": 58,
+        "description": "Kalkolatur tal-VAT b'xejn għal Malta. Rata standard 18%. Żid jew neħħi l-VAT minnufih, ir-rati kollha u gwidi ta' konformità.",
+        "descriptionLength": 125,
+        "canonical": "https://vat.businesspress.io/mt/vat-calculator/malta",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 2,
+          "types": [
+            "BreadcrumbList",
+            "Country",
+            "ListItem",
+            "Offer",
+            "WebApplication",
+            "WebPage",
+            "WebSite"
+          ],
+          "valid": true,
+          "problems": []
+        },
+        "h1": [
+          "Kalkulatur tal-VAT ta' Malta"
+        ],
+        "h1Count": 1,
+        "wordCount": 363,
+        "mainWordCount": 237,
+        "internalLinksOut": 80,
+        "internalLinksIn": 44,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "18\\s?%",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "Kummissjoni Ewropea",
+        "sourceShownInMain": true,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 6350,
+          "tokens": 1588
+        },
+        "machineReadableAlternate": true,
+        "first600": "Aqbeż għall-kontenut ewlieni Informazzjoni dwar il-VAT fl-UE Paġna Ewlenija Kalkulatur tal-VAT Malta STAT MEMBRU TAL-UE Kalkulatur tal-VAT ta' Malta Kalkula l-VAT b'faċilità għat-tranżazzjonijiet f'Malta. Ir-rata standard attwali hija 18%. STANDARD 18% IMNAQQSA 5% · 7% MUNITA EUR Żid il-VAT Neħħi l-VAT Data uffiċjali tal-UE Pajjiż Malta 18% Ammont (eskl. VAT) € Rata Standard 18% Imnaqqsa 7% Imnaqqsa 5% Personalizzat % Ir-rata standard tapplika għall-biċċa l-kbira tal-oġġetti u s-servizzi. Total (inkl. VAT) € 118.00 Ikkopja € 100.00 flimkien mal-VAT ta' 18% f'Malta Ammont Nett € 100.00 VAT 18% ",
+        "reachableThrough": {
+          "llmsTxt": true,
+          "api": true
+        }
+      },
+      "backend": {
+        "cold": {
+          "queries": 11,
+          "serverMs": 73
+        },
+        "warm": {
+          "status": 200,
+          "queries": 9,
+          "queryTimeMs": 1.85,
+          "serverMs": 49.7,
+          "htmlBytes": 158883,
+          "livewireComponents": 2,
+          "snapshotBytesTotal": 1155,
+          "snapshots": [
+            {
+              "component": "vat-calculator",
+              "bytes": 419
+            },
+            {
+              "component": "hero-calculator",
+              "bytes": 736
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/vat-number-validator",
+      "locale": "en",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 151786,
+          "gzip": 20472,
+          "brotli": 16823
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 72920,
+        "imageBytes": 23958,
+        "totalTransferGzip": 221324,
+        "requestCount": 21,
+        "ttfbMs": 28,
+        "fcpMs": 2280,
+        "lcpMs": 2280,
+        "lcpElement": "img.hero-photo.opacity-20",
+        "cls": 0.0005,
+        "tbtMs": 144,
+        "longTasks": 2,
+        "loadMs": 4439,
+        "perRun": [
+          {
+            "lcpMs": 2280,
+            "cls": 0.0005,
+            "tbtMs": 129,
+            "fcpMs": 2280,
+            "requests": 21
+          },
+          {
+            "lcpMs": 2280,
+            "cls": 0.0005,
+            "tbtMs": 148,
+            "fcpMs": 2280,
+            "requests": 21
+          },
+          {
+            "lcpMs": 2284,
+            "cls": 0.0005,
+            "tbtMs": 144,
+            "fcpMs": 2284,
+            "requests": 21
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Enter a VAT number with the keyboard and submit it",
+          "completed": true,
+          "tabPresses": 6,
+          "focusVisibleMisses": []
+        }
+      },
+      "seo": {
+        "title": "VIES VAT Number Validator — Verify EU VAT Numbers Free | EU VAT Info",
+        "titleLength": 68,
+        "description": "Free EU VAT number validator. Verify any EU VAT number instantly via the official European Commission VIES database. Get company name, address & validity. No sign-up.",
+        "descriptionLength": 166,
+        "canonical": "https://vat.businesspress.io/vat-number-validator",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 2,
+          "types": [
+            "Answer",
+            "FAQPage",
+            "Offer",
+            "Question",
+            "WebApplication"
+          ],
+          "valid": true,
+          "problems": []
+        },
+        "h1": [
+          "VIES VAT number validator"
+        ],
+        "h1Count": 1,
+        "wordCount": 548,
+        "mainWordCount": 431,
+        "internalLinksOut": 72,
+        "internalLinksIn": 311,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "VIES",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "European Commission",
+        "sourceShownInMain": true,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 3739,
+          "tokens": 935
+        },
+        "machineReadableAlternate": true,
+        "first600": "Skip to main content EU VAT Info Home VAT number validator VIES VAT number validator Verify any EU VAT number using the official European Commission VIES database. Results are cached for faster lookups. VAT number Country Select country Austria (AT) Belgium (BE) Bulgaria (BG) Croatia (HR) Cyprus (CY) Czech Republic (CZ) Denmark (DK) Estonia (EE) Finland (FI) France (FR) Germany (DE) Greece (EL) Hungary (HU) Ireland (IE) Italy (IT) Latvia (LV) Lithuania (LT) Luxembourg (LU) Malta (MT) Netherlands (NL) Poland (PL) Portugal (PT) Romania (RO) Slovakia (SK) Slovenia (SI) Spain (ES) Sweden (SE) Vali",
+        "reachableThrough": null
+      },
+      "backend": {
+        "cold": {
+          "queries": 2,
+          "serverMs": 45.7
+        },
+        "warm": {
+          "status": 200,
+          "queries": 1,
+          "queryTimeMs": 0.64,
+          "serverMs": 35.2,
+          "htmlBytes": 151396,
+          "livewireComponents": 1,
+          "snapshotBytesTotal": 368,
+          "snapshots": [
+            {
+              "component": "vies-validator-page",
+              "bytes": 368
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/de/vat-number-validator",
+      "locale": "de",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 152610,
+          "gzip": 21169,
+          "brotli": 17394
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 72920,
+        "imageBytes": 23470,
+        "totalTransferGzip": 221715,
+        "requestCount": 20,
+        "ttfbMs": 30,
+        "fcpMs": 2276,
+        "lcpMs": 2276,
+        "lcpElement": "img.hero-photo.opacity-20",
+        "cls": 0.0004,
+        "tbtMs": 129,
+        "longTasks": 2,
+        "loadMs": 4438,
+        "perRun": [
+          {
+            "lcpMs": 2276,
+            "cls": 0.0004,
+            "tbtMs": 129,
+            "fcpMs": 2276,
+            "requests": 20
+          },
+          {
+            "lcpMs": 2272,
+            "cls": 0.0004,
+            "tbtMs": 124,
+            "fcpMs": 2272,
+            "requests": 20
+          },
+          {
+            "lcpMs": 2276,
+            "cls": 0.0004,
+            "tbtMs": 178,
+            "fcpMs": 2276,
+            "requests": 20
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Enter a VAT number with the keyboard and submit it",
+          "completed": true,
+          "tabPresses": 6,
+          "focusVisibleMisses": []
+        }
+      },
+      "seo": {
+        "title": "VIES USt-IdNr.-Prüfung — EU USt-Nummern online überprüfen",
+        "titleLength": 57,
+        "description": "Kostenloses VIES-Prüftool für USt-IdNr. Überprüfen Sie jede EU-USt-Nummer über die offizielle Datenbank der Europäischen Kommission.",
+        "descriptionLength": 132,
+        "canonical": "https://vat.businesspress.io/de/vat-number-validator",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 2,
+          "types": [
+            "Answer",
+            "FAQPage",
+            "Offer",
+            "Question",
+            "WebApplication"
+          ],
+          "valid": true,
+          "problems": []
+        },
+        "h1": [
+          "VIES USt-IdNr.-Prüfung"
+        ],
+        "h1Count": 1,
+        "wordCount": 458,
+        "mainWordCount": 360,
+        "internalLinksOut": 72,
+        "internalLinksIn": 84,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "VIES",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "Europäischen Kommission",
+        "sourceShownInMain": true,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 3895,
+          "tokens": 974
+        },
+        "machineReadableAlternate": true,
+        "first600": "Zum Hauptinhalt springen EU MwSt. Info Startseite USt-IdNr.-Prüfung VIES USt-IdNr.-Prüfung Überprüfen Sie jede EU-USt-Nummer über die offizielle VIES-Datenbank der Europäischen Kommission. USt-IdNr. Land Land auswählen Austria (AT) Belgium (BE) Bulgaria (BG) Croatia (HR) Cyprus (CY) Czech Republic (CZ) Denmark (DK) Estonia (EE) Finland (FI) France (FR) Germany (DE) Greece (EL) Hungary (HU) Ireland (IE) Italy (IT) Latvia (LV) Lithuania (LT) Luxembourg (LU) Malta (MT) Netherlands (NL) Poland (PL) Portugal (PT) Romania (RO) Slovakia (SK) Slovenia (SI) Spain (ES) Sweden (SE) Prüfen Das Land wird a",
+        "reachableThrough": null
+      },
+      "backend": {
+        "cold": {
+          "queries": 2,
+          "serverMs": 37.6
+        },
+        "warm": {
+          "status": 200,
+          "queries": 1,
+          "queryTimeMs": 0.68,
+          "serverMs": 59.2,
+          "htmlBytes": 152220,
+          "livewireComponents": 1,
+          "snapshotBytesTotal": 372,
+          "snapshots": [
+            {
+              "component": "vies-validator-page",
+              "bytes": 372
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/mt/vat-number-validator",
+      "locale": "mt",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 154453,
+          "gzip": 21382,
+          "brotli": 17677
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 235892,
+        "imageBytes": 25528,
+        "totalTransferGzip": 386509,
+        "requestCount": 22,
+        "ttfbMs": 27,
+        "fcpMs": 2340,
+        "lcpMs": 2340,
+        "lcpElement": "img.hero-photo.opacity-20",
+        "cls": 0.0009,
+        "tbtMs": 148,
+        "longTasks": 3,
+        "loadMs": 5319,
+        "perRun": [
+          {
+            "lcpMs": 2296,
+            "cls": 0.0009,
+            "tbtMs": 142,
+            "fcpMs": 2296,
+            "requests": 22
+          },
+          {
+            "lcpMs": 2340,
+            "cls": 0.0009,
+            "tbtMs": 160,
+            "fcpMs": 2340,
+            "requests": 22
+          },
+          {
+            "lcpMs": 2344,
+            "cls": 0.0009,
+            "tbtMs": 148,
+            "fcpMs": 2344,
+            "requests": 22
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Enter a VAT number with the keyboard and submit it",
+          "completed": true,
+          "tabPresses": 6,
+          "focusVisibleMisses": []
+        }
+      },
+      "seo": {
+        "title": "VIES Validator tan-Numru tal-VAT — Ivverifika In-Numri tal-VAT tal-UE Online",
+        "titleLength": 76,
+        "description": "Issalvataġġ VIES validator tan-numru tal-VAT. Ivverifika kwalunkwe numru VAT tal-UE fuq il-ħasil billi tuża d-database uffiċjali tal-VIES tal-Kummissjoni Ewropea.",
+        "descriptionLength": 162,
+        "canonical": "https://vat.businesspress.io/mt/vat-number-validator",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 2,
+          "types": [
+            "Answer",
+            "FAQPage",
+            "Offer",
+            "Question",
+            "WebApplication"
+          ],
+          "valid": true,
+          "problems": []
+        },
+        "h1": [
+          "VIES Validator tan-Numru tal-VAT"
+        ],
+        "h1Count": 1,
+        "wordCount": 511,
+        "mainWordCount": 385,
+        "internalLinksOut": 72,
+        "internalLinksIn": 84,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "VIES",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "Kummissjoni Ewropea",
+        "sourceShownInMain": true,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 4154,
+          "tokens": 1039
+        },
+        "machineReadableAlternate": true,
+        "first600": "Aqbeż għall-kontenut ewlieni Informazzjoni dwar il-VAT fl-UE Paġna Ewlenija Validator tan-Numru tal-VAT VIES Validator tan-Numru tal-VAT Ivverifika kwalunkwe numru VAT tal-UE billi tuża d-database uffiċjali tal-VIES tal-Kummissjoni Ewropea. Ir-riżultati jiġu kkachati għal tfittxija aktar mabda. Numru tal-VAT Stat Agħżel stat Austria (AT) Belgium (BE) Bulgaria (BG) Croatia (HR) Cyprus (CY) Czech Republic (CZ) Denmark (DK) Estonia (EE) Finland (FI) France (FR) Germany (DE) Greece (EL) Hungary (HU) Ireland (IE) Italy (IT) Latvia (LV) Lithuania (LT) Luxembourg (LU) Malta (MT) Netherlands (NL) Pola",
+        "reachableThrough": null
+      },
+      "backend": {
+        "cold": {
+          "queries": 2,
+          "serverMs": 39.4
+        },
+        "warm": {
+          "status": 200,
+          "queries": 1,
+          "queryTimeMs": 0.62,
+          "serverMs": 37.4,
+          "htmlBytes": 154063,
+          "livewireComponents": 1,
+          "snapshotBytesTotal": 372,
+          "snapshots": [
+            {
+              "component": "vies-validator-page",
+              "bytes": 372
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/vat-map",
+      "locale": "en",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 216788,
+          "gzip": 37421,
+          "brotli": 33253
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 72920,
+        "imageBytes": 28300,
+        "totalTransferGzip": 237693,
+        "requestCount": 37,
+        "ttfbMs": 34,
+        "fcpMs": 2444,
+        "lcpMs": 2444,
+        "lcpElement": "p.mt-3.max-w-[68ch].text-base",
+        "cls": 0,
+        "tbtMs": 205,
+        "longTasks": 2,
+        "loadMs": 5341,
+        "perRun": [
+          {
+            "lcpMs": 2444,
+            "cls": 0,
+            "tbtMs": 119,
+            "fcpMs": 2444,
+            "requests": 37
+          },
+          {
+            "lcpMs": 2432,
+            "cls": 0,
+            "tbtMs": 205,
+            "fcpMs": 2432,
+            "requests": 37
+          },
+          {
+            "lcpMs": 2488,
+            "cls": 0,
+            "tbtMs": 271,
+            "fcpMs": 2488,
+            "requests": 37
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Select a country on the map with the keyboard",
+          "completed": true,
+          "tabPresses": 6,
+          "focusVisibleMisses": [
+            "path \"Austria, Standard 20%\""
+          ]
+        }
+      },
+      "seo": {
+        "title": "European VAT rates map - EU VAT Info",
+        "titleLength": 36,
+        "description": "Interactive map showing current standard VAT rates across all 27 EU member states. Hover over any country to preview its rate, or click to see full details and access the calculator.",
+        "descriptionLength": 182,
+        "canonical": "https://vat.businesspress.io/vat-map",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 0,
+          "types": [],
+          "valid": false,
+          "problems": []
+        },
+        "h1": [
+          "European VAT rates map"
+        ],
+        "h1Count": 1,
+        "wordCount": 435,
+        "mainWordCount": 318,
+        "internalLinksOut": 77,
+        "internalLinksIn": 311,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "\\d{1,2}(?:[.,]\\d)?\\s?%",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "source",
+        "sourceShownInMain": false,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 6477,
+          "tokens": 1620
+        },
+        "machineReadableAlternate": true,
+        "first600": "Skip to main content EU VAT Info Home VAT map VAT TOOLS European VAT rates map Interactive map showing current standard VAT rates across all 27 EU member states. Hover over any country to preview its rate, or click to see full details and access the calculator. Standard VAT rates across Europe < 20% 20% 21–22% 23–24% ≥ 25% No data Hover, tap or tab through the countries to see their rates. Press Enter to open the details. All VAT rates at a glance The same data as the map, highest standard rate first. COUNTRY STANDARD REDUCED SUPER-REDUCED ACTIONS Hungary 27% 5% / 18% — Calculator Croatia 25% ",
+        "reachableThrough": null
+      },
+      "backend": {
+        "cold": {
+          "queries": 2,
+          "serverMs": 40.6
+        },
+        "warm": {
+          "status": 200,
+          "queries": 1,
+          "queryTimeMs": 0.75,
+          "serverMs": 37.8,
+          "htmlBytes": 216428,
+          "livewireComponents": 1,
+          "snapshotBytesTotal": 271,
+          "snapshots": [
+            {
+              "component": "vat-map",
+              "bytes": 271
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/de/vat-map",
+      "locale": "de",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 218149,
+          "gzip": 38039,
+          "brotli": 33825
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 72920,
+        "imageBytes": 28300,
+        "totalTransferGzip": 238311,
+        "requestCount": 37,
+        "ttfbMs": 33,
+        "fcpMs": 2432,
+        "lcpMs": 2432,
+        "lcpElement": "p.mt-3.max-w-[68ch].text-base",
+        "cls": 0,
+        "tbtMs": 105,
+        "longTasks": 2,
+        "loadMs": 5318,
+        "perRun": [
+          {
+            "lcpMs": 2428,
+            "cls": 0,
+            "tbtMs": 90,
+            "fcpMs": 2428,
+            "requests": 37
+          },
+          {
+            "lcpMs": 2444,
+            "cls": 0,
+            "tbtMs": 133,
+            "fcpMs": 2444,
+            "requests": 37
+          },
+          {
+            "lcpMs": 2432,
+            "cls": 0,
+            "tbtMs": 105,
+            "fcpMs": 2432,
+            "requests": 37
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Select a country on the map with the keyboard",
+          "completed": true,
+          "tabPresses": 6,
+          "focusVisibleMisses": [
+            "path \"Austria, Regelsatz 20%\""
+          ]
+        }
+      },
+      "seo": {
+        "title": "Europäische MwSt.-Sätze Karte - EU VAT Info",
+        "titleLength": 43,
+        "description": "Interaktive Karte mit den aktuellen Regelsätzen der Mehrwertsteuer in allen 27 EU-Mitgliedstaaten. Bewegen Sie den Mauszeiger über ein Land, um den Satz anzuzeigen, oder klicken Sie für vollständige Details und den Rechner.",
+        "descriptionLength": 223,
+        "canonical": "https://vat.businesspress.io/de/vat-map",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 0,
+          "types": [],
+          "valid": false,
+          "problems": []
+        },
+        "h1": [
+          "Europäische MwSt.-Sätze Karte"
+        ],
+        "h1Count": 1,
+        "wordCount": 422,
+        "mainWordCount": 324,
+        "internalLinksOut": 77,
+        "internalLinksIn": 84,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "\\d{1,2}(?:[.,]\\d)?\\s?%",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "Quelle",
+        "sourceShownInMain": false,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 6886,
+          "tokens": 1722
+        },
+        "machineReadableAlternate": true,
+        "first600": "Zum Hauptinhalt springen EU MwSt. Info Startseite MwSt.-Karte MWST.-TOOLS Europäische MwSt.-Sätze Karte Interaktive Karte mit den aktuellen Regelsätzen der Mehrwertsteuer in allen 27 EU-Mitgliedstaaten. Bewegen Sie den Mauszeiger über ein Land, um den Satz anzuzeigen, oder klicken Sie für vollständige Details und den Rechner. MwSt.-Regelsätze in Europa < 20% 20% 21–22% 23–24% ≥ 25% Keine Daten Bewegen Sie den Mauszeiger über ein Land, tippen Sie darauf oder wechseln Sie mit der Tabulatortaste zwischen den Ländern, um die Sätze anzuzeigen. Drücken Sie die Eingabetaste, um die Details zu öffnen.",
+        "reachableThrough": null
+      },
+      "backend": {
+        "cold": {
+          "queries": 2,
+          "serverMs": 67.1
+        },
+        "warm": {
+          "status": 200,
+          "queries": 1,
+          "queryTimeMs": 0.68,
+          "serverMs": 41,
+          "htmlBytes": 217789,
+          "livewireComponents": 1,
+          "snapshotBytesTotal": 275,
+          "snapshots": [
+            {
+              "component": "vat-map",
+              "bytes": 275
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/mt/vat-map",
+      "locale": "mt",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 218392,
+          "gzip": 38115,
+          "brotli": 33910
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 206256,
+        "imageBytes": 28300,
+        "totalTransferGzip": 371723,
+        "requestCount": 38,
+        "ttfbMs": 28,
+        "fcpMs": 2472,
+        "lcpMs": 2472,
+        "lcpElement": "p.mt-3.max-w-[68ch].text-base",
+        "cls": 0.0001,
+        "tbtMs": 124,
+        "longTasks": 3,
+        "loadMs": 5785,
+        "perRun": [
+          {
+            "lcpMs": 2472,
+            "cls": 0.0001,
+            "tbtMs": 108,
+            "fcpMs": 2472,
+            "requests": 38
+          },
+          {
+            "lcpMs": 2472,
+            "cls": 0.0001,
+            "tbtMs": 124,
+            "fcpMs": 2472,
+            "requests": 38
+          },
+          {
+            "lcpMs": 2472,
+            "cls": 0.0001,
+            "tbtMs": 166,
+            "fcpMs": 2472,
+            "requests": 38
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Select a country on the map with the keyboard",
+          "completed": true,
+          "tabPresses": 6,
+          "focusVisibleMisses": [
+            "path \"Austria, Standard 20%\""
+          ]
+        }
+      },
+      "seo": {
+        "title": "Mappa tar-Rati tal-VAT Ewropew - EU VAT Info",
+        "titleLength": 44,
+        "description": "Mappa interattiva li turi r-rati standard attwali tal-VAT fis-27 stat membru kollha tal-UE. Mexxi l-maws fuq pajjiż biex tara r-rata, jew ikklikkja għad-dettalji sħaħ.",
+        "descriptionLength": 167,
+        "canonical": "https://vat.businesspress.io/mt/vat-map",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 0,
+          "types": [],
+          "valid": false,
+          "problems": []
+        },
+        "h1": [
+          "Mappa tar-Rati tal-VAT Ewropew"
+        ],
+        "h1Count": 1,
+        "wordCount": 431,
+        "mainWordCount": 305,
+        "internalLinksOut": 77,
+        "internalLinksIn": 84,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "\\d{1,2}(?:[.,]\\d)?\\s?%",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "sors",
+        "sourceShownInMain": false,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 6843,
+          "tokens": 1711
+        },
+        "machineReadableAlternate": true,
+        "first600": "Aqbeż għall-kontenut ewlieni Informazzjoni dwar il-VAT fl-UE Paġna Ewlenija Mappa tal-VAT GĦODOD TAL-VAT Mappa tar-Rati tal-VAT Ewropew Mappa interattiva li turi r-rati standard attwali tal-VAT fis-27 stat membru kollha tal-UE. Mexxi l-maws fuq pajjiż biex tara r-rata, jew ikklikkja għad-dettalji sħaħ. Rati standard tal-VAT madwar l-Ewropa < 20% 20% 21–22% 23–24% ≥ 25% L-ebda data Għaddi l-maws fuq il-pajjiżi, agħfas fuqhom jew mexxi bejniethom bit-Tab biex tara r-rati tagħhom. Agħfas Enter biex tiftaħ id-dettalji. Ir-rati kollha tal-VAT f'ħarsa waħda L-istess data tal-mappa, bl-ogħla rata sta",
+        "reachableThrough": null
+      },
+      "backend": {
+        "cold": {
+          "queries": 2,
+          "serverMs": 41.2
+        },
+        "warm": {
+          "status": 200,
+          "queries": 1,
+          "queryTimeMs": 0.66,
+          "serverMs": 37.2,
+          "htmlBytes": 218032,
+          "livewireComponents": 1,
+          "snapshotBytesTotal": 275,
+          "snapshots": [
+            {
+              "component": "vat-map",
+              "bytes": 275
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/vat-changes",
+      "locale": "en",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 221394,
+          "gzip": 19698,
+          "brotli": 15795
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 72920,
+        "imageBytes": 9816,
+        "totalTransferGzip": 205968,
+        "requestCount": 18,
+        "ttfbMs": 50,
+        "fcpMs": 2476,
+        "lcpMs": 2476,
+        "lcpElement": "p.mt-3.max-w-[68ch].text-base",
+        "cls": 0,
+        "tbtMs": 173,
+        "longTasks": 3,
+        "loadMs": 5326,
+        "perRun": [
+          {
+            "lcpMs": 2476,
+            "cls": 0,
+            "tbtMs": 173,
+            "fcpMs": 2476,
+            "requests": 18
+          },
+          {
+            "lcpMs": 2528,
+            "cls": 0,
+            "tbtMs": 237,
+            "fcpMs": 2528,
+            "requests": 18
+          },
+          {
+            "lcpMs": 2460,
+            "cls": 0,
+            "tbtMs": 171,
+            "fcpMs": 2460,
+            "requests": 18
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Filter the rate history by country with the keyboard",
+          "completed": true,
+          "tabPresses": 6,
+          "focusVisibleMisses": []
+        }
+      },
+      "seo": {
+        "title": "EU VAT Rate Changes History 2026 — All 27 Countries | EU VAT Info",
+        "titleLength": 65,
+        "description": "Track every EU VAT rate change from 2000 to 2026. Standard, reduced & parking rate increases and decreases across all 27 countries with stability rankings. Updated weekly.",
+        "descriptionLength": 171,
+        "canonical": "https://vat.businesspress.io/vat-changes",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 2,
+          "types": [
+            "BreadcrumbList",
+            "Dataset",
+            "ListItem",
+            "Organization",
+            "PropertyValue",
+            "WebPage",
+            "WebSite"
+          ],
+          "valid": true,
+          "problems": []
+        },
+        "h1": [
+          "VAT rate change history"
+        ],
+        "h1Count": 1,
+        "wordCount": 539,
+        "mainWordCount": 422,
+        "internalLinksOut": 84,
+        "internalLinksIn": 311,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "(19|20)\\d\\d",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "source",
+        "sourceShownInMain": false,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 8326,
+          "tokens": 2082
+        },
+        "machineReadableAlternate": true,
+        "first600": "Skip to main content EU VAT Info Home VAT rate changes VAT TOOLS VAT rate change history Track every recorded VAT rate change across EU countries, with filters by country, rate type and direction. Latest change 1 Aug 2025 Recorded changes 140 Increases 111 Decreases 29 Scheduled 0 All recorded changes 140 results Country All countries Austria Belgium Bulgaria Croatia Cyprus Czech Republic Denmark Estonia Finland France Germany Greece Hungary Ireland Italy Latvia Lithuania Luxembourg Malta Netherlands Poland Portugal Romania Slovakia Slovenia Spain Sweden Rate type All types Standard Reduced Su",
+        "reachableThrough": null
+      },
+      "backend": {
+        "cold": {
+          "queries": 12,
+          "serverMs": 63.3
+        },
+        "warm": {
+          "status": 200,
+          "queries": 5,
+          "queryTimeMs": 1.22,
+          "serverMs": 83.5,
+          "htmlBytes": 226486,
+          "livewireComponents": 2,
+          "snapshotBytesTotal": 3601,
+          "snapshots": [
+            {
+              "component": "vat-changes-history",
+              "bytes": 3210
+            },
+            {
+              "component": "vat-change-signup",
+              "bytes": 391
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/de/vat-changes",
+      "locale": "de",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 222298,
+          "gzip": 20185,
+          "brotli": 16276
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 72920,
+        "imageBytes": 9328,
+        "totalTransferGzip": 206149,
+        "requestCount": 17,
+        "ttfbMs": 38,
+        "fcpMs": 2488,
+        "lcpMs": 2488,
+        "lcpElement": "h1.text-3xl.font-bold.tracking-[-0.035em]",
+        "cls": 0,
+        "tbtMs": 177,
+        "longTasks": 3,
+        "loadMs": 5313,
+        "perRun": [
+          {
+            "lcpMs": 2528,
+            "cls": 0,
+            "tbtMs": 262,
+            "fcpMs": 2528,
+            "requests": 17
+          },
+          {
+            "lcpMs": 2488,
+            "cls": 0,
+            "tbtMs": 162,
+            "fcpMs": 2488,
+            "requests": 17
+          },
+          {
+            "lcpMs": 2472,
+            "cls": 0,
+            "tbtMs": 177,
+            "fcpMs": 2472,
+            "requests": 17
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Filter the rate history by country with the keyboard",
+          "completed": true,
+          "tabPresses": 6,
+          "focusVisibleMisses": []
+        }
+      },
+      "seo": {
+        "title": "Verlauf der MwSt.-Satzänderungen – EU-Länder | EU MwSt. Info",
+        "titleLength": 60,
+        "description": "Vollständiger Verlauf der Mehrwertsteueränderungen in allen EU-Ländern ab 2000. Verfolgen Sie Änderungen der Regel- und ermäßigten Sätze mit Stabilitätsindikatoren.",
+        "descriptionLength": 164,
+        "canonical": "https://vat.businesspress.io/de/vat-changes",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 2,
+          "types": [
+            "BreadcrumbList",
+            "Dataset",
+            "ListItem",
+            "Organization",
+            "PropertyValue",
+            "WebPage",
+            "WebSite"
+          ],
+          "valid": true,
+          "problems": []
+        },
+        "h1": [
+          "Verlauf der MwSt.-Satzänderungen"
+        ],
+        "h1Count": 1,
+        "wordCount": 510,
+        "mainWordCount": 412,
+        "internalLinksOut": 84,
+        "internalLinksIn": 84,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "(19|20)\\d\\d",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "Quelle",
+        "sourceShownInMain": false,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 8698,
+          "tokens": 2175
+        },
+        "machineReadableAlternate": true,
+        "first600": "Zum Hauptinhalt springen EU MwSt. Info Startseite MwSt.-Änderungsprotokoll MWST.-TOOLS Verlauf der MwSt.-Satzänderungen Verfolgen Sie alle MwSt.-Satzänderungen in den EU-Ländern der letzten zehn Jahre Letzte Änderung: 1 Aug 2025 Erfasste Änderungen 140 Erhöhungen 111 Senkungen 29 Geplant 0 Alle erfassten Änderungen 140 Ergebnisse Land Alle Länder Austria Belgium Bulgaria Croatia Cyprus Czech Republic Denmark Estonia Finland France Germany Greece Hungary Ireland Italy Latvia Lithuania Luxembourg Malta Netherlands Poland Portugal Romania Slovakia Slovenia Spain Sweden Satztyp Alle Typen Regelsat",
+        "reachableThrough": null
+      },
+      "backend": {
+        "cold": {
+          "queries": 12,
+          "serverMs": 64.8
+        },
+        "warm": {
+          "status": 200,
+          "queries": 5,
+          "queryTimeMs": 1.31,
+          "serverMs": 60.3,
+          "htmlBytes": 227406,
+          "livewireComponents": 2,
+          "snapshotBytesTotal": 3617,
+          "snapshots": [
+            {
+              "component": "vat-changes-history",
+              "bytes": 3222
+            },
+            {
+              "component": "vat-change-signup",
+              "bytes": 395
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/mt/vat-changes",
+      "locale": "mt",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 222878,
+          "gzip": 20324,
+          "brotli": 16369
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 206256,
+        "imageBytes": 11653,
+        "totalTransferGzip": 341437,
+        "requestCount": 19,
+        "ttfbMs": 43,
+        "fcpMs": 2492,
+        "lcpMs": 2492,
+        "lcpElement": "p.mt-3.max-w-[68ch].text-base",
+        "cls": 0.0001,
+        "tbtMs": 208,
+        "longTasks": 4,
+        "loadMs": 5714,
+        "perRun": [
+          {
+            "lcpMs": 2468,
+            "cls": 0.0001,
+            "tbtMs": 208,
+            "fcpMs": 2468,
+            "requests": 19
+          },
+          {
+            "lcpMs": 2508,
+            "cls": 0.0001,
+            "tbtMs": 213,
+            "fcpMs": 2508,
+            "requests": 19
+          },
+          {
+            "lcpMs": 2492,
+            "cls": 0.0001,
+            "tbtMs": 179,
+            "fcpMs": 2492,
+            "requests": 19
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Filter the rate history by country with the keyboard",
+          "completed": true,
+          "tabPresses": 6,
+          "focusVisibleMisses": []
+        }
+      },
+      "seo": {
+        "title": "Storja tal-Bidliet fir-Rati tal-VAT - Pajjiżi tal-UE | Informazzjoni dwar il-VAT fl-UE",
+        "titleLength": 86,
+        "description": "Storja kompluta tal-bidliet fir-rati tal-VAT fl-pajjiżi kollha tal-UE mill-2000 'l quddiem. Segwi l-modifiki fir-rati standard u mnaqqsa b'indikaturi ta' stabilità.",
+        "descriptionLength": 164,
+        "canonical": "https://vat.businesspress.io/mt/vat-changes",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 2,
+          "types": [
+            "BreadcrumbList",
+            "Dataset",
+            "ListItem",
+            "Organization",
+            "PropertyValue",
+            "WebPage",
+            "WebSite"
+          ],
+          "valid": true,
+          "problems": []
+        },
+        "h1": [
+          "Storja tal-Bidliet fir-Rati tal-VAT"
+        ],
+        "h1Count": 1,
+        "wordCount": 547,
+        "mainWordCount": 421,
+        "internalLinksOut": 84,
+        "internalLinksIn": 84,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "(19|20)\\d\\d",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "sors",
+        "sourceShownInMain": false,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 8663,
+          "tokens": 2166
+        },
+        "machineReadableAlternate": true,
+        "first600": "Aqbeż għall-kontenut ewlieni Informazzjoni dwar il-VAT fl-UE Paġna Ewlenija Bidliet fil-VAT GĦODOD TAL-VAT Storja tal-Bidliet fir-Rati tal-VAT Segwi l-bidliet kollha fir-rati tal-VAT fil-pajjiżi tal-UE matul-aħħar għaxar snin L-aħħar bidla: 1 Aww 2025 Bidliet irreġistrati 140 Żidiet 111 Tnaqqisiet 29 Ippjanati 0 Il-bidliet kollha rreġistrati 140 riżultati Pajjiż Il-Pajjiżi Kollha Austria Belgium Bulgaria Croatia Cyprus Czech Republic Denmark Estonia Finland France Germany Greece Hungary Ireland Italy Latvia Lithuania Luxembourg Malta Netherlands Poland Portugal Romania Slovakia Slovenia Spain ",
+        "reachableThrough": null
+      },
+      "backend": {
+        "cold": {
+          "queries": 12,
+          "serverMs": 64.6
+        },
+        "warm": {
+          "status": 200,
+          "queries": 5,
+          "queryTimeMs": 1.07,
+          "serverMs": 51.1,
+          "htmlBytes": 228002,
+          "livewireComponents": 2,
+          "snapshotBytesTotal": 3625,
+          "snapshots": [
+            {
+              "component": "vat-changes-history",
+              "bytes": 3230
+            },
+            {
+              "component": "vat-change-signup",
+              "bytes": 395
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/compare/germany-vs-france-vat",
+      "locale": "en",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 98716,
+          "gzip": 13946,
+          "brotli": 12094
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 72920,
+        "imageBytes": 920,
+        "totalTransferGzip": 194681,
+        "requestCount": 8,
+        "ttfbMs": 30,
+        "fcpMs": 2028,
+        "lcpMs": 2028,
+        "lcpElement": "p.mt-3.max-w-[68ch].text-base",
+        "cls": 0.0001,
+        "tbtMs": 84,
+        "longTasks": 2,
+        "loadMs": 3730,
+        "perRun": [
+          {
+            "lcpMs": 2032,
+            "cls": 0.0001,
+            "tbtMs": 78,
+            "fcpMs": 2032,
+            "requests": 8
+          },
+          {
+            "lcpMs": 2004,
+            "cls": 0.0001,
+            "tbtMs": 88,
+            "fcpMs": 2004,
+            "requests": 8
+          },
+          {
+            "lcpMs": 2028,
+            "cls": 0.0001,
+            "tbtMs": 84,
+            "fcpMs": 2028,
+            "requests": 8
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 1,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 1,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 1,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [
+          {
+            "id": "scrollable-region-focusable",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Scrollable region must have keyboard access",
+            "sample": ".overflow-x-auto"
+          }
+        ],
+        "keyboard": {
+          "task": "Open a compared country calculator with the keyboard",
+          "completed": true,
+          "tabPresses": 8,
+          "focusVisibleMisses": [],
+          "landedOn": "/vat-calculator/germany"
+        }
+      },
+      "seo": {
+        "title": "Germany vs France VAT rates: rates, calculators and history",
+        "titleLength": 59,
+        "description": "Compare Germany and France VAT rates, reduced rates, currencies, VIES availability and historical changes.",
+        "descriptionLength": 106,
+        "canonical": "https://vat.businesspress.io/compare/germany-vs-france-vat",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 1,
+          "types": [
+            "Country",
+            "WebPage"
+          ],
+          "valid": true,
+          "problems": []
+        },
+        "h1": [
+          "Germany vs France VAT rates"
+        ],
+        "h1Count": 1,
+        "wordCount": 266,
+        "mainWordCount": 149,
+        "internalLinksOut": 52,
+        "internalLinksIn": 2,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "19\\s?%[\\s\\S]*20\\s?%|20\\s?%[\\s\\S]*19\\s?%",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "source",
+        "sourceShownInMain": false,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 1842,
+          "tokens": 461
+        },
+        "machineReadableAlternate": true,
+        "first600": "Skip to main content EU VAT Info Home All countries Germany vs France VAT rates COUNTRY COMPARISON Germany vs France VAT rates Compare current VAT structures and continue into each country's calculator, validation guide and recorded history. Germany Standard rate 19% France Standard rate 20% 1 pp higher Germany vs France VAT rates MEASURE GERMANY FRANCE Standard rate 19% 20% Reduced rates 7% 5.5% / 10% Super-reduced rate None 2.1% Parking rate None None Currency EUR EUR VIES validation Available Available Recorded changes 9 8 VAT on a net amount of 100 Each figure is in the country's own curre",
+        "reachableThrough": {
+          "llmsTxt": true,
+          "api": true,
+          "mcp": true
+        }
+      },
+      "backend": {
+        "cold": {
+          "queries": 6,
+          "serverMs": 34.4
+        },
+        "warm": {
+          "status": 200,
+          "queries": 6,
+          "queryTimeMs": 0.92,
+          "serverMs": 31.5,
+          "htmlBytes": 98496,
+          "livewireComponents": 1,
+          "snapshotBytesTotal": 447,
+          "snapshots": [
+            {
+              "component": "vat-comparison",
+              "bytes": 447
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/de/compare/germany-vs-france-vat",
+      "locale": "de",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 99451,
+          "gzip": 14407,
+          "brotli": 12536
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 72920,
+        "imageBytes": 432,
+        "totalTransferGzip": 194836,
+        "requestCount": 7,
+        "ttfbMs": 30,
+        "fcpMs": 2060,
+        "lcpMs": 2060,
+        "lcpElement": "p.mt-3.max-w-[68ch].text-base",
+        "cls": 0.0001,
+        "tbtMs": 88,
+        "longTasks": 2,
+        "loadMs": 3745,
+        "perRun": [
+          {
+            "lcpMs": 2044,
+            "cls": 0.0001,
+            "tbtMs": 57,
+            "fcpMs": 2044,
+            "requests": 7
+          },
+          {
+            "lcpMs": 2064,
+            "cls": 0.0001,
+            "tbtMs": 88,
+            "fcpMs": 2064,
+            "requests": 7
+          },
+          {
+            "lcpMs": 2060,
+            "cls": 0.0001,
+            "tbtMs": 104,
+            "fcpMs": 2060,
+            "requests": 7
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 1,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 1,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 1,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [
+          {
+            "id": "scrollable-region-focusable",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Scrollable region must have keyboard access",
+            "sample": ".overflow-x-auto"
+          }
+        ],
+        "keyboard": {
+          "task": "Open a compared country calculator with the keyboard",
+          "completed": true,
+          "tabPresses": 8,
+          "focusVisibleMisses": [],
+          "landedOn": "/de/vat-calculator/germany"
+        }
+      },
+      "seo": {
+        "title": "MwSt.-Sätze Germany vs. France: Sätze, Rechner und Verlauf",
+        "titleLength": 58,
+        "description": "Vergleichen Sie MwSt.-Sätze, ermäßigte Sätze, Währungen, VIES-Verfügbarkeit und historische Änderungen von Germany und France.",
+        "descriptionLength": 126,
+        "canonical": "https://vat.businesspress.io/de/compare/germany-vs-france-vat",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 1,
+          "types": [
+            "Country",
+            "WebPage"
+          ],
+          "valid": true,
+          "problems": []
+        },
+        "h1": [
+          "MwSt.-Sätze: Germany vs. France"
+        ],
+        "h1Count": 1,
+        "wordCount": 245,
+        "mainWordCount": 147,
+        "internalLinksOut": 52,
+        "internalLinksIn": 2,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "19\\s?%[\\s\\S]*20\\s?%|20\\s?%[\\s\\S]*19\\s?%",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "Quelle",
+        "sourceShownInMain": false,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 2073,
+          "tokens": 519
+        },
+        "machineReadableAlternate": true,
+        "first600": "Zum Hauptinhalt springen EU MwSt. Info Startseite Alle Länder MwSt.-Sätze: Germany vs. France LÄNDERVERGLEICH MwSt.-Sätze: Germany vs. France Vergleichen Sie die aktuellen MwSt.-Strukturen und wechseln Sie direkt zum Rechner, zum Prüfleitfaden und zum erfassten Verlauf des jeweiligen Landes. Germany Regelsatz 19% France Regelsatz 20% 1 Pp. höher MwSt.-Sätze: Germany vs. France MERKMAL GERMANY FRANCE Regelsatz 19% 20% Ermäßigte Sätze 7% 5.5% / 10% Stark ermäßigter Satz Nicht vorhanden 2.1% Parkingsatz Nicht vorhanden Nicht vorhanden Währung EUR EUR VIES-Validierung Verfügbar Verfügbar Erfasste ",
+        "reachableThrough": {
+          "llmsTxt": true,
+          "api": true,
+          "mcp": true
+        }
+      },
+      "backend": {
+        "cold": {
+          "queries": 6,
+          "serverMs": 32.4
+        },
+        "warm": {
+          "status": 200,
+          "queries": 6,
+          "queryTimeMs": 1.01,
+          "serverMs": 32.1,
+          "htmlBytes": 99231,
+          "livewireComponents": 1,
+          "snapshotBytesTotal": 451,
+          "snapshots": [
+            {
+              "component": "vat-comparison",
+              "bytes": 451
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/mt/compare/germany-vs-france-vat",
+      "locale": "mt",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 99885,
+          "gzip": 14447,
+          "brotli": 12587
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 206256,
+        "imageBytes": 2757,
+        "totalTransferGzip": 330025,
+        "requestCount": 9,
+        "ttfbMs": 37,
+        "fcpMs": 2020,
+        "lcpMs": 2020,
+        "lcpElement": "p.mt-3.max-w-[68ch].text-base",
+        "cls": 0.0003,
+        "tbtMs": 84,
+        "longTasks": 2,
+        "loadMs": 4415,
+        "perRun": [
+          {
+            "lcpMs": 2040,
+            "cls": 0.0003,
+            "tbtMs": 92,
+            "fcpMs": 2040,
+            "requests": 9
+          },
+          {
+            "lcpMs": 2020,
+            "cls": 0.0003,
+            "tbtMs": 82,
+            "fcpMs": 2020,
+            "requests": 9
+          },
+          {
+            "lcpMs": 2016,
+            "cls": 0.0003,
+            "tbtMs": 84,
+            "fcpMs": 2016,
+            "requests": 9
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 1,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 1,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 1,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [
+          {
+            "id": "scrollable-region-focusable",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Scrollable region must have keyboard access",
+            "sample": ".overflow-x-auto"
+          }
+        ],
+        "keyboard": {
+          "task": "Open a compared country calculator with the keyboard",
+          "completed": true,
+          "tabPresses": 8,
+          "focusVisibleMisses": [],
+          "landedOn": "/mt/vat-calculator/germany"
+        }
+      },
+      "seo": {
+        "title": "Rati tal-VAT ta' Germany kontra France: rati, kalkulaturi u storja",
+        "titleLength": 66,
+        "description": "Qabbel ir-rati tal-VAT ta' Germany u France, ir-rati mnaqqsa, il-muniti, id-disponibbiltà tal-VIES u l-bidliet storiċi.",
+        "descriptionLength": 119,
+        "canonical": "https://vat.businesspress.io/mt/compare/germany-vs-france-vat",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 1,
+          "types": [
+            "Country",
+            "WebPage"
+          ],
+          "valid": true,
+          "problems": []
+        },
+        "h1": [
+          "Rati tal-VAT ta' Germany kontra France"
+        ],
+        "h1Count": 1,
+        "wordCount": 275,
+        "mainWordCount": 149,
+        "internalLinksOut": 52,
+        "internalLinksIn": 2,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "19\\s?%[\\s\\S]*20\\s?%|20\\s?%[\\s\\S]*19\\s?%",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "sors",
+        "sourceShownInMain": false,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 2029,
+          "tokens": 508
+        },
+        "machineReadableAlternate": true,
+        "first600": "Aqbeż għall-kontenut ewlieni Informazzjoni dwar il-VAT fl-UE Paġna Ewlenija Il-Pajjiżi Kollha Rati tal-VAT ta' Germany kontra France TQABBIL BEJN PAJJIŻI Rati tal-VAT ta' Germany kontra France Qabbel l-istrutturi attwali tal-VAT u kompli lejn il-kalkulatur, il-gwida tal-validazzjoni u l-istorja rreġistrata ta' kull pajjiż. Germany Rata standard 19% France Rata standard 20% 1 punti perċentwali ogħla Rati tal-VAT ta' Germany kontra France KRITERJU GERMANY FRANCE Rata standard 19% 20% Rati mnaqqsa 7% 5.5% / 10% Rata super imnaqqsa Xejn 2.1% Rata ta' pparkjar Xejn Xejn Munita EUR EUR Validazzjoni ",
+        "reachableThrough": {
+          "llmsTxt": true,
+          "api": true,
+          "mcp": true
+        }
+      },
+      "backend": {
+        "cold": {
+          "queries": 6,
+          "serverMs": 32.9
+        },
+        "warm": {
+          "status": 200,
+          "queries": 6,
+          "queryTimeMs": 1,
+          "serverMs": 66.3,
+          "htmlBytes": 99665,
+          "livewireComponents": 1,
+          "snapshotBytesTotal": 451,
+          "snapshots": [
+            {
+              "component": "vat-comparison",
+              "bytes": 451
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/vat-calculation/germany/1000/19/exclude",
+      "locale": "en",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 112990,
+          "gzip": 15542,
+          "brotli": 13362
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 72920,
+        "imageBytes": 21093,
+        "totalTransferGzip": 214276,
+        "requestCount": 16,
+        "ttfbMs": 37,
+        "fcpMs": 2120,
+        "lcpMs": 2120,
+        "lcpElement": "img.hero-photo.opacity-20",
+        "cls": 0.0009,
+        "tbtMs": 97,
+        "longTasks": 2,
+        "loadMs": 3896,
+        "perRun": [
+          {
+            "lcpMs": 2120,
+            "cls": 0.0009,
+            "tbtMs": 87,
+            "fcpMs": 2120,
+            "requests": 16
+          },
+          {
+            "lcpMs": 2132,
+            "cls": 0.0009,
+            "tbtMs": 97,
+            "fcpMs": 2132,
+            "requests": 16
+          },
+          {
+            "lcpMs": 2120,
+            "cls": 0.0009,
+            "tbtMs": 145,
+            "fcpMs": 2120,
+            "requests": 16
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Open the calculation in the calculator with the keyboard",
+          "completed": true,
+          "tabPresses": 6,
+          "focusVisibleMisses": [],
+          "landedOn": "/vat-calculator"
+        }
+      },
+      "seo": {
+        "title": "Add 19% VAT on €1,000.00 in Germany",
+        "titleLength": 35,
+        "description": "Germany VAT calculation: add 19% VAT on €1,000.00. Net €1,000.00, VAT €190.00, total €1,190.00.",
+        "descriptionLength": 95,
+        "canonical": "https://vat.businesspress.io/vat-calculation/germany/1000/19/exclude",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 0,
+          "types": [],
+          "valid": false,
+          "problems": []
+        },
+        "h1": [
+          "€1,000.00 plus 19% VAT in Germany"
+        ],
+        "h1Count": 1,
+        "wordCount": 345,
+        "mainWordCount": 228,
+        "internalLinksOut": 64,
+        "internalLinksIn": 2,
+        "inSitemap": false
+      },
+      "ai": {
+        "answerPattern": "1[.,\\s\\u00a0\\u202f]?190",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "sourced",
+        "sourceShownInMain": true,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 3021,
+          "tokens": 756
+        },
+        "machineReadableAlternate": true,
+        "first600": "Skip to main content EU VAT Info Home VAT calculator Germany 19% VAT on €1,000.00 €1,000.00 plus 19% VAT in Germany VAT added Standard · 19% EUR Total incl. VAT €1,190.00 The standard rate applies to most goods and services. Open in calculator Copy share link Net amount (excl. VAT) €1,000.00 VAT 19% +€190.00 Total (incl. VAT) €1,190.00 Net 84% VAT 16% How this was calculated Formula: VAT = Net × (Rate ÷ 100) €1,000.00 × 19% = €190.00 Formula: Total = Net + VAT €1,000.00 + €190.00 = €1,190.00 Other amounts in Germany NET AMOUNT VAT 19% TOTAL INCL. VAT €100.00 €19.00 €119.00 €200.00 €38.00 €238.",
+        "reachableThrough": {
+          "llmsTxt": true,
+          "api": true,
+          "mcp": true
+        }
+      },
+      "backend": {
+        "cold": {
+          "queries": 4,
+          "serverMs": 40.6
+        },
+        "warm": {
+          "status": 200,
+          "queries": 3,
+          "queryTimeMs": 0.8,
+          "serverMs": 35.3,
+          "htmlBytes": 112715,
+          "livewireComponents": 1,
+          "snapshotBytesTotal": 378,
+          "snapshots": [
+            {
+              "component": "shared-calculation",
+              "bytes": 378
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/de/vat-calculation/germany/1000/19/exclude",
+      "locale": "de",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 113728,
+          "gzip": 15914,
+          "brotli": 13724
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 72920,
+        "imageBytes": 20605,
+        "totalTransferGzip": 214342,
+        "requestCount": 15,
+        "ttfbMs": 32,
+        "fcpMs": 2136,
+        "lcpMs": 2136,
+        "lcpElement": "img.hero-photo.opacity-20",
+        "cls": 0.0011,
+        "tbtMs": 80,
+        "longTasks": 2,
+        "loadMs": 3880,
+        "perRun": [
+          {
+            "lcpMs": 2136,
+            "cls": 0.0011,
+            "tbtMs": 80,
+            "fcpMs": 2136,
+            "requests": 15
+          },
+          {
+            "lcpMs": 2152,
+            "cls": 0.0011,
+            "tbtMs": 80,
+            "fcpMs": 2152,
+            "requests": 15
+          },
+          {
+            "lcpMs": 2116,
+            "cls": 0.0011,
+            "tbtMs": 69,
+            "fcpMs": 2116,
+            "requests": 15
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Open the calculation in the calculator with the keyboard",
+          "completed": true,
+          "tabPresses": 6,
+          "focusVisibleMisses": [],
+          "landedOn": "/de/vat-calculator"
+        }
+      },
+      "seo": {
+        "title": "1.000,00 € in Germany: 19% MwSt. hinzufügen",
+        "titleLength": 43,
+        "description": "MwSt.-Berechnung für Germany: Betrag 1.000,00 €, 19% MwSt. hinzufügen. Netto 1.000,00 €, MwSt. 190,00 €, gesamt 1.190,00 €.",
+        "descriptionLength": 123,
+        "canonical": "https://vat.businesspress.io/de/vat-calculation/germany/1000/19/exclude",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 0,
+          "types": [],
+          "valid": false,
+          "problems": []
+        },
+        "h1": [
+          "1.000,00 € zzgl. 19% MwSt. in Germany"
+        ],
+        "h1Count": 1,
+        "wordCount": 296,
+        "mainWordCount": 198,
+        "internalLinksOut": 64,
+        "internalLinksIn": 2,
+        "inSitemap": false
+      },
+      "ai": {
+        "answerPattern": "1[.,\\s\\u00a0\\u202f]?190",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "Europäischen Kommission",
+        "sourceShownInMain": true,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 3134,
+          "tokens": 784
+        },
+        "machineReadableAlternate": true,
+        "first600": "Zum Hauptinhalt springen EU MwSt. Info Startseite MwSt.-Rechner Germany 19% MwSt. auf 1.000,00 € 1.000,00 € zzgl. 19% MwSt. in Germany MwSt. hinzugefügt Regelsatz · 19% EUR Gesamt inkl. MwSt. 1.190,00 € Der Regelsatz gilt für die meisten Waren und Dienstleistungen. Im Rechner öffnen Link kopieren Nettobetrag (exkl. MwSt.) 1.000,00 € MwSt. 19% +190,00 € Gesamt (inkl. MwSt.) 1.190,00 € Netto 84% MwSt. 16% So wurde berechnet Formel: MwSt. = Netto × (Satz ÷ 100) 1.000,00 € × 19% = 190,00 € Formel: Gesamt = Netto + MwSt. 1.000,00 € + 190,00 € = 1.190,00 € Andere Beträge in Germany NETTOBETRAG MWST.",
+        "reachableThrough": {
+          "llmsTxt": true,
+          "api": true,
+          "mcp": true
+        }
+      },
+      "backend": {
+        "cold": {
+          "queries": 4,
+          "serverMs": 39.5
+        },
+        "warm": {
+          "status": 200,
+          "queries": 3,
+          "queryTimeMs": 0.87,
+          "serverMs": 35.5,
+          "htmlBytes": 113453,
+          "livewireComponents": 1,
+          "snapshotBytesTotal": 382,
+          "snapshots": [
+            {
+              "component": "shared-calculation",
+              "bytes": 382
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/mt/vat-calculation/germany/1000/19/exclude",
+      "locale": "mt",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 113946,
+          "gzip": 16001,
+          "brotli": 13782
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 206256,
+        "imageBytes": 20605,
+        "totalTransferGzip": 347765,
+        "requestCount": 16,
+        "ttfbMs": 32,
+        "fcpMs": 2148,
+        "lcpMs": 2148,
+        "lcpElement": "img.hero-photo.opacity-20",
+        "cls": 0.0925,
+        "tbtMs": 76,
+        "longTasks": 2,
+        "loadMs": 4583,
+        "perRun": [
+          {
+            "lcpMs": 2148,
+            "cls": 0.0925,
+            "tbtMs": 49,
+            "fcpMs": 2148,
+            "requests": 16
+          },
+          {
+            "lcpMs": 2104,
+            "cls": 0.0925,
+            "tbtMs": 76,
+            "fcpMs": 2104,
+            "requests": 16
+          },
+          {
+            "lcpMs": 2148,
+            "cls": 0.0925,
+            "tbtMs": 123,
+            "fcpMs": 2148,
+            "requests": 16
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Open the calculation in the calculator with the keyboard",
+          "completed": true,
+          "tabPresses": 6,
+          "focusVisibleMisses": [],
+          "landedOn": "/mt/vat-calculator"
+        }
+      },
+      "seo": {
+        "title": "Żid VAT ta' 19% fuq €1,000.00 f'Germany",
+        "titleLength": 39,
+        "description": "Kalkolu tal-VAT għal Germany: żid VAT ta' 19% fuq €1,000.00. Nett €1,000.00, VAT €190.00, total €1,190.00.",
+        "descriptionLength": 106,
+        "canonical": "https://vat.businesspress.io/mt/vat-calculation/germany/1000/19/exclude",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 0,
+          "types": [],
+          "valid": false,
+          "problems": []
+        },
+        "h1": [
+          "€1,000.00 flimkien mal-VAT ta' 19% f'Germany"
+        ],
+        "h1Count": 1,
+        "wordCount": 317,
+        "mainWordCount": 191,
+        "internalLinksOut": 64,
+        "internalLinksIn": 2,
+        "inSitemap": false
+      },
+      "ai": {
+        "answerPattern": "1[.,\\s\\u00a0\\u202f]?190",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "sors",
+        "sourceShownInMain": false,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 2961,
+          "tokens": 741
+        },
+        "machineReadableAlternate": true,
+        "first600": "Aqbeż għall-kontenut ewlieni Informazzjoni dwar il-VAT fl-UE Paġna Ewlenija Kalkulatur tal-VAT Germany VAT ta' 19% fuq €1,000.00 €1,000.00 flimkien mal-VAT ta' 19% f'Germany VAT miżjud Standard · 19% EUR Total bil-VAT €1,190.00 Ir-rata standard tapplika għall-biċċa l-kbira tal-oġġetti u s-servizzi. Iftaħ fil-kalkulatur Kopja l-link Ammont nett (mingħajr VAT) €1,000.00 VAT 19% +€190.00 Total (bil-VAT) €1,190.00 Nett 84% VAT 16% Kif ġie kkalkulat dan Formula: VAT = Nett × (Rata ÷ 100) €1,000.00 × 19% = €190.00 Formula: Total = Nett + VAT €1,000.00 + €190.00 = €1,190.00 Ammonti oħra fi Germany AM",
+        "reachableThrough": {
+          "llmsTxt": true,
+          "api": true,
+          "mcp": true
+        }
+      },
+      "backend": {
+        "cold": {
+          "queries": 4,
+          "serverMs": 41.1
+        },
+        "warm": {
+          "status": 200,
+          "queries": 3,
+          "queryTimeMs": 0.8,
+          "serverMs": 36.3,
+          "htmlBytes": 113671,
+          "livewireComponents": 1,
+          "snapshotBytesTotal": 382,
+          "snapshots": [
+            {
+              "component": "shared-calculation",
+              "bytes": 382
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/top-vat-calculations/1000",
+      "locale": "en",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 138351,
+          "gzip": 15147,
+          "brotli": 12623
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 72920,
+        "imageBytes": 26758,
+        "totalTransferGzip": 214412,
+        "requestCount": 33,
+        "ttfbMs": 29,
+        "fcpMs": 2080,
+        "lcpMs": 2080,
+        "lcpElement": "p.mt-3.max-w-[68ch].text-base",
+        "cls": 0,
+        "tbtMs": 134,
+        "longTasks": 2,
+        "loadMs": 4159,
+        "perRun": [
+          {
+            "lcpMs": 2064,
+            "cls": 0,
+            "tbtMs": 134,
+            "fcpMs": 2064,
+            "requests": 33
+          },
+          {
+            "lcpMs": 2080,
+            "cls": 0,
+            "tbtMs": 203,
+            "fcpMs": 2080,
+            "requests": 33
+          },
+          {
+            "lcpMs": 2084,
+            "cls": 0,
+            "tbtMs": 90,
+            "fcpMs": 2084,
+            "requests": 33
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Open a country calculation with the keyboard",
+          "completed": true,
+          "tabPresses": 15,
+          "focusVisibleMisses": [],
+          "landedOn": "/vat-calculation/austria/1000/20/exclude"
+        }
+      },
+      "seo": {
+        "title": "VAT on €1,000 — Popular VAT Calculations — EU VAT Calculator",
+        "titleLength": 60,
+        "description": "VAT on €1,000 across 27 EU member states, using current standard rates from 17% to 27%. Compare VAT amounts and totals.",
+        "descriptionLength": 119,
+        "canonical": "https://vat.businesspress.io/top-vat-calculations/1000",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 0,
+          "types": [],
+          "valid": false,
+          "problems": []
+        },
+        "h1": [
+          "VAT on €1,000"
+        ],
+        "h1Count": 1,
+        "wordCount": 368,
+        "mainWordCount": 251,
+        "internalLinksOut": 134,
+        "internalLinksIn": 7,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "1[.,\\s\\u00a0\\u202f]?190|1[.,\\s\\u00a0\\u202f]?2\\d\\d[.,]\\d\\d",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "sourced",
+        "sourceShownInMain": true,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 6758,
+          "tokens": 1690
+        },
+        "machineReadableAlternate": true,
+        "first600": "Skip to main content EU VAT Info Home Popular calculations VAT on €1,000 POPULAR VAT CALCULATIONS VAT on €1,000 VAT on €1,000 across 27 EU member states, using current standard rates from 17% to 27%. Compare VAT amounts and totals. €100 €200 €500 €1,000 €2,500 €5,000 €10,000 VAT on €1,000 COUNTRY RATE ADDING VAT TO €1,000 VAT INCLUDED IN €1,000 VAT AMOUNT TOTAL INCL. VAT NET VAT AMOUNT Austria 20% €200.00 €1,200.00 €833.33 €166.67 Belgium 21% €210.00 €1,210.00 €826.45 €173.55 Bulgaria 20% €200.00 €1,200.00 €833.33 €166.67 Croatia 25% €250.00 €1,250.00 €800.00 €200.00 Cyprus 19% €190.00 €1,190.",
+        "reachableThrough": null
+      },
+      "backend": {
+        "cold": {
+          "queries": 2,
+          "serverMs": 34.6
+        },
+        "warm": {
+          "status": 200,
+          "queries": 1,
+          "queryTimeMs": 0.6,
+          "serverMs": 36.9,
+          "htmlBytes": 138026,
+          "livewireComponents": 1,
+          "snapshotBytesTotal": 319,
+          "snapshots": [
+            {
+              "component": "top-calculations-amount",
+              "bytes": 319
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/de/top-vat-calculations/1000",
+      "locale": "de",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 138926,
+          "gzip": 15384,
+          "brotli": 12870
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 72920,
+        "imageBytes": 26270,
+        "totalTransferGzip": 214343,
+        "requestCount": 32,
+        "ttfbMs": 30,
+        "fcpMs": 2072,
+        "lcpMs": 2072,
+        "lcpElement": "p.mt-3.max-w-[68ch].text-base",
+        "cls": 0,
+        "tbtMs": 97,
+        "longTasks": 2,
+        "loadMs": 4177,
+        "perRun": [
+          {
+            "lcpMs": 2108,
+            "cls": 0,
+            "tbtMs": 97,
+            "fcpMs": 2108,
+            "requests": 32
+          },
+          {
+            "lcpMs": 2072,
+            "cls": 0,
+            "tbtMs": 93,
+            "fcpMs": 2072,
+            "requests": 32
+          },
+          {
+            "lcpMs": 2068,
+            "cls": 0,
+            "tbtMs": 219,
+            "fcpMs": 2068,
+            "requests": 32
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Open a country calculation with the keyboard",
+          "completed": true,
+          "tabPresses": 15,
+          "focusVisibleMisses": [],
+          "landedOn": "/de/vat-calculation/austria/1000/20/exclude"
+        }
+      },
+      "seo": {
+        "title": "MwSt. auf €1,000 — Beliebte MwSt.-Berechnungen — EU MwSt.-Rechner",
+        "titleLength": 65,
+        "description": "MwSt. auf €1,000 für alle 27 EU-Mitgliedstaaten berechnen.",
+        "descriptionLength": 58,
+        "canonical": "https://vat.businesspress.io/de/top-vat-calculations/1000",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 0,
+          "types": [],
+          "valid": false,
+          "problems": []
+        },
+        "h1": [
+          "MwSt. auf €1,000"
+        ],
+        "h1Count": 1,
+        "wordCount": 309,
+        "mainWordCount": 211,
+        "internalLinksOut": 134,
+        "internalLinksIn": 7,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "1[.,\\s\\u00a0\\u202f]?190|1[.,\\s\\u00a0\\u202f]?2\\d\\d[.,]\\d\\d",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "Quelle",
+        "sourceShownInMain": false,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 6869,
+          "tokens": 1718
+        },
+        "machineReadableAlternate": true,
+        "first600": "Zum Hauptinhalt springen EU MwSt. Info Startseite Beliebte Berechnungen MwSt. auf €1,000 BELIEBTE MWST.-BERECHNUNGEN MwSt. auf €1,000 MwSt. auf €1,000 für alle 27 EU-Mitgliedstaaten berechnen. 100 € 200 € 500 € 1.000 € 2.500 € 5.000 € 10.000 € MwSt. auf €1,000 LAND SATZ €1,000 ZZGL. MWST. €1,000 INKL. MWST. MWST.-BETRAG GESAMT INKL. MWST. NETTO MWST.-BETRAG Austria 20% 200,00 € 1.200,00 € 833,33 € 166,67 € Belgium 21% 210,00 € 1.210,00 € 826,45 € 173,55 € Bulgaria 20% 200,00 € 1.200,00 € 833,33 € 166,67 € Croatia 25% 250,00 € 1.250,00 € 800,00 € 200,00 € Cyprus 19% 190,00 € 1.190,00 € 840,34 €",
+        "reachableThrough": null
+      },
+      "backend": {
+        "cold": {
+          "queries": 2,
+          "serverMs": 36.8
+        },
+        "warm": {
+          "status": 200,
+          "queries": 1,
+          "queryTimeMs": 0.65,
+          "serverMs": 74.9,
+          "htmlBytes": 138601,
+          "livewireComponents": 1,
+          "snapshotBytesTotal": 323,
+          "snapshots": [
+            {
+              "component": "top-calculations-amount",
+              "bytes": 323
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/mt/top-vat-calculations/1000",
+      "locale": "mt",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 139066,
+          "gzip": 15491,
+          "brotli": 12944
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 206256,
+        "imageBytes": 26270,
+        "totalTransferGzip": 347786,
+        "requestCount": 33,
+        "ttfbMs": 30,
+        "fcpMs": 2100,
+        "lcpMs": 2100,
+        "lcpElement": "p.mt-3.max-w-[68ch].text-base",
+        "cls": 0.0001,
+        "tbtMs": 78,
+        "longTasks": 3,
+        "loadMs": 4864,
+        "perRun": [
+          {
+            "lcpMs": 2076,
+            "cls": 0.0001,
+            "tbtMs": 93,
+            "fcpMs": 2076,
+            "requests": 33
+          },
+          {
+            "lcpMs": 2112,
+            "cls": 0.0001,
+            "tbtMs": 78,
+            "fcpMs": 2112,
+            "requests": 33
+          },
+          {
+            "lcpMs": 2100,
+            "cls": 0.0001,
+            "tbtMs": 75,
+            "fcpMs": 2100,
+            "requests": 33
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Open a country calculation with the keyboard",
+          "completed": true,
+          "tabPresses": 15,
+          "focusVisibleMisses": [],
+          "landedOn": "/mt/vat-calculation/austria/1000/20/exclude"
+        }
+      },
+      "seo": {
+        "title": "VAT fuq €1,000 — Kalkoli VAT popolari — Kalkulatur VAT UE",
+        "titleLength": 57,
+        "description": "Ikkalkula VAT fuq €1,000 għas-27 stat membru tal-UE.",
+        "descriptionLength": 52,
+        "canonical": "https://vat.businesspress.io/mt/top-vat-calculations/1000",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 0,
+          "types": [],
+          "valid": false,
+          "problems": []
+        },
+        "h1": [
+          "VAT fuq €1,000"
+        ],
+        "h1Count": 1,
+        "wordCount": 344,
+        "mainWordCount": 218,
+        "internalLinksOut": 134,
+        "internalLinksIn": 7,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "1[.,\\s\\u00a0\\u202f]?190|1[.,\\s\\u00a0\\u202f]?2\\d\\d[.,]\\d\\d",
+        "answerInFirst600": true,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "sors",
+        "sourceShownInMain": false,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 6733,
+          "tokens": 1684
+        },
+        "machineReadableAlternate": true,
+        "first600": "Aqbeż għall-kontenut ewlieni Informazzjoni dwar il-VAT fl-UE Paġna Ewlenija Kalkoli popolari VAT fuq €1,000 KALKOLI VAT POPOLARI VAT fuq €1,000 Ikkalkula VAT fuq €1,000 għas-27 stat membru tal-UE. €100 €200 €500 €1,000 €2,500 €5,000 €10,000 VAT fuq €1,000 PAJJIŻ RATA ŻIEDA TAL-VAT MA' €1,000 VAT INKLUŻ FI €1,000 AMMONT VAT TOTAL BIL-VAT NETT AMMONT VAT Austria 20% €200.00 €1,200.00 €833.33 €166.67 Belgium 21% €210.00 €1,210.00 €826.45 €173.55 Bulgaria 20% €200.00 €1,200.00 €833.33 €166.67 Croatia 25% €250.00 €1,250.00 €800.00 €200.00 Cyprus 19% €190.00 €1,190.00 €840.34 €159.66 Czech Republic ",
+        "reachableThrough": null
+      },
+      "backend": {
+        "cold": {
+          "queries": 2,
+          "serverMs": 37.1
+        },
+        "warm": {
+          "status": 200,
+          "queries": 1,
+          "queryTimeMs": 0.59,
+          "serverMs": 34.3,
+          "htmlBytes": 138741,
+          "livewireComponents": 1,
+          "snapshotBytesTotal": 323,
+          "snapshots": [
+            {
+              "component": "top-calculations-amount",
+              "bytes": 323
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/vat-rates/categories",
+      "locale": "en",
+      "status": 404,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 96850,
+          "gzip": 13429,
+          "brotli": 11420
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 72920,
+        "imageBytes": 22464,
+        "totalTransferGzip": 213554,
+        "requestCount": 19,
+        "ttfbMs": 28,
+        "fcpMs": 2152,
+        "lcpMs": 2152,
+        "lcpElement": "img.hero-photo.opacity-20",
+        "cls": 0.0003,
+        "tbtMs": 53,
+        "longTasks": 2,
+        "loadMs": 3828,
+        "perRun": [
+          {
+            "lcpMs": 2200,
+            "cls": 0.0003,
+            "tbtMs": 53,
+            "fcpMs": 2200,
+            "requests": 19
+          },
+          {
+            "lcpMs": 2144,
+            "cls": 0.0003,
+            "tbtMs": 51,
+            "fcpMs": 2144,
+            "requests": 19
+          },
+          {
+            "lcpMs": 2152,
+            "cls": 0.0003,
+            "tbtMs": 56,
+            "fcpMs": 2152,
+            "requests": 19
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Open a category with the keyboard",
+          "completed": false,
+          "tabPresses": null,
+          "focusVisibleMisses": [],
+          "note": "could not reach main a[href*=\"/vat-rates/categories/\"] with Tab"
+        }
+      },
+      "seo": {
+        "title": "Page not found – EU VAT Info",
+        "titleLength": 28,
+        "description": "The page you were looking for could not be found. Browse EU VAT rates, calculators, and country guides for all 27 EU member states.",
+        "descriptionLength": 131,
+        "canonical": "https://vat.businesspress.io/vat-rates/categories",
+        "robots": "noindex, follow",
+        "hreflangCount": 0,
+        "jsonLd": {
+          "blocks": 0,
+          "types": [],
+          "valid": false,
+          "problems": []
+        },
+        "h1": [
+          "Page not found"
+        ],
+        "h1Count": 1,
+        "wordCount": 285,
+        "mainWordCount": 168,
+        "internalLinksOut": 58,
+        "internalLinksIn": 0,
+        "inSitemap": false
+      },
+      "ai": {
+        "answerPattern": "\\d{1,2}(?:[.,]\\d)?\\s?%",
+        "answerInFirst600": false,
+        "answerInFirst600OfMain": true,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "source",
+        "sourceShownInMain": true,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 2473,
+          "tokens": 619
+        },
+        "machineReadableAlternate": true,
+        "first600": "Skip to main content EU VAT Info 404 Page not found The page you're looking for doesn't exist or has moved. Search for a country or tool, or pick one of the pages below. Go to the home page Search countries and tools… VAT tools VAT calculator Calculate VAT instantly for any EU country with standard or custom rates. VAT number validator Verify EU VAT numbers via the official VIES system. Interactive VAT map Visualize and compare standard VAT rates across all EU member states. VAT rate history Track VAT rate changes across Europe from 2000 onwards. Popular EU countries View all 27 EU countries A",
+        "reachableThrough": null
+      },
+      "backend": {
+        "cold": {
+          "queries": 3,
+          "serverMs": 33.3
+        },
+        "warm": {
+          "status": 404,
+          "queries": 3,
+          "queryTimeMs": 1.1,
+          "serverMs": 31.6,
+          "htmlBytes": 96570,
+          "livewireComponents": 0,
+          "snapshotBytesTotal": 0,
+          "snapshots": []
+        }
+      }
+    },
+    {
+      "path": "/de/vat-rates/categories",
+      "locale": "de",
+      "status": 404,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 97464,
+          "gzip": 13780,
+          "brotli": 11805
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 72920,
+        "imageBytes": 21976,
+        "totalTransferGzip": 213599,
+        "requestCount": 18,
+        "ttfbMs": 30,
+        "fcpMs": 2144,
+        "lcpMs": 2144,
+        "lcpElement": "img.hero-photo.opacity-20",
+        "cls": 0.0768,
+        "tbtMs": 53,
+        "longTasks": 2,
+        "loadMs": 3818,
+        "perRun": [
+          {
+            "lcpMs": 2140,
+            "cls": 0.0768,
+            "tbtMs": 53,
+            "fcpMs": 2140,
+            "requests": 18
+          },
+          {
+            "lcpMs": 2144,
+            "cls": 0.0768,
+            "tbtMs": 64,
+            "fcpMs": 2144,
+            "requests": 18
+          },
+          {
+            "lcpMs": 2180,
+            "cls": 0.0768,
+            "tbtMs": 48,
+            "fcpMs": 2180,
+            "requests": 18
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Open a category with the keyboard",
+          "completed": false,
+          "tabPresses": null,
+          "focusVisibleMisses": [],
+          "note": "could not reach main a[href*=\"/vat-rates/categories/\"] with Tab"
+        }
+      },
+      "seo": {
+        "title": "Seite nicht gefunden - EU VAT Info",
+        "titleLength": 34,
+        "description": "Die gesuchte Seite konnte nicht gefunden werden. Durchsuchen Sie MwSt.-Sätze, Rechner und Länderanleitungen für alle 27 EU-Mitgliedstaaten.",
+        "descriptionLength": 139,
+        "canonical": "https://vat.businesspress.io/vat-rates/categories",
+        "robots": "noindex, follow",
+        "hreflangCount": 0,
+        "jsonLd": {
+          "blocks": 0,
+          "types": [],
+          "valid": false,
+          "problems": []
+        },
+        "h1": [
+          "Hoppla! Seite nicht gefunden"
+        ],
+        "h1Count": 1,
+        "wordCount": 238,
+        "mainWordCount": 140,
+        "internalLinksOut": 58,
+        "internalLinksIn": 0,
+        "inSitemap": false
+      },
+      "ai": {
+        "answerPattern": "\\d{1,2}(?:[.,]\\d)?\\s?%",
+        "answerInFirst600": false,
+        "answerInFirst600OfMain": false,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "Source",
+        "sourceShownInMain": true,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 2676,
+          "tokens": 669
+        },
+        "machineReadableAlternate": true,
+        "first600": "Zum Hauptinhalt springen EU MwSt. Info 404 Hoppla! Seite nicht gefunden Die Seite, die Sie suchen, existiert nicht oder wurde verschoben. Keine Sorge – es gibt viele nützliche MwSt.-Informationen zu entdecken. Zurück zur Startseite Länder und Tools suchen… MwSt.-Tools MwSt.-Rechner Berechnen Sie die MwSt. sofort für jedes EU-Land mit Standard- oder benutzerdefinierten Sätzen. USt-IdNr.-Prüfer Überprüfen Sie EU-USt-IdNr. über das offizielle MIAS-System. Interaktive MwSt.-Karte Visualisieren und vergleichen Sie MwSt.-Sätze in allen EU-Mitgliedstaaten. MwSt.-Satz-Verlauf Verfolgen Sie MwSt.-Satzä",
+        "reachableThrough": null
+      },
+      "backend": {
+        "cold": {
+          "queries": 3,
+          "serverMs": 83.7
+        },
+        "warm": {
+          "status": 404,
+          "queries": 3,
+          "queryTimeMs": 1.11,
+          "serverMs": 32.1,
+          "htmlBytes": 97184,
+          "livewireComponents": 0,
+          "snapshotBytesTotal": 0,
+          "snapshots": []
+        }
+      }
+    },
+    {
+      "path": "/mt/vat-rates/categories",
+      "locale": "mt",
+      "status": 404,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 97926,
+          "gzip": 13903,
+          "brotli": 11899
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 206256,
+        "imageBytes": 24301,
+        "totalTransferGzip": 348871,
+        "requestCount": 20,
+        "ttfbMs": 28,
+        "fcpMs": 2176,
+        "lcpMs": 2176,
+        "lcpElement": "img.hero-photo.opacity-20",
+        "cls": 0.0008,
+        "tbtMs": 69,
+        "longTasks": 3,
+        "loadMs": 4432,
+        "perRun": [
+          {
+            "lcpMs": 2184,
+            "cls": 0.0008,
+            "tbtMs": 69,
+            "fcpMs": 2184,
+            "requests": 20
+          },
+          {
+            "lcpMs": 2176,
+            "cls": 0.0008,
+            "tbtMs": 68,
+            "fcpMs": 2176,
+            "requests": 20
+          },
+          {
+            "lcpMs": 2148,
+            "cls": 0.0008,
+            "tbtMs": 87,
+            "fcpMs": 2148,
+            "requests": 20
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Open a category with the keyboard",
+          "completed": false,
+          "tabPresses": null,
+          "focusVisibleMisses": [],
+          "note": "could not reach main a[href*=\"/vat-rates/categories/\"] with Tab"
+        }
+      },
+      "seo": {
+        "title": "Il-paġna ma nstabitx - EU VAT Info",
+        "titleLength": 34,
+        "description": "Il-paġna li kont qed tfittex ma nstabitx. Ibbrawżja r-rati tal-VAT, kalkulaturi u gwidi tal-pajjiżi għall-27 Stat Membru kollha tal-UE.",
+        "descriptionLength": 135,
+        "canonical": "https://vat.businesspress.io/vat-rates/categories",
+        "robots": "noindex, follow",
+        "hreflangCount": 0,
+        "jsonLd": {
+          "blocks": 0,
+          "types": [],
+          "valid": false,
+          "problems": []
+        },
+        "h1": [
+          "Oops! Il-paġna ma nstabitx"
+        ],
+        "h1Count": 1,
+        "wordCount": 284,
+        "mainWordCount": 158,
+        "internalLinksOut": 58,
+        "internalLinksIn": 0,
+        "inSitemap": false
+      },
+      "ai": {
+        "answerPattern": "\\d{1,2}(?:[.,]\\d)?\\s?%",
+        "answerInFirst600": false,
+        "answerInFirst600OfMain": false,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "source",
+        "sourceShownInMain": true,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 2701,
+          "tokens": 676
+        },
+        "machineReadableAlternate": true,
+        "first600": "Aqbeż għall-kontenut ewlieni Informazzjoni dwar il-VAT fl-UE 404 Oops! Il-paġna ma nstabitx Il-paġna li qed tfittex ma teżistix jew ġiet imċaqilqa. Tinkwetax — hemm ħafna informazzjoni utli dwar il-VAT biex tesplora. Mur lura lejn id-dar Fittex pajjiżi u għodod… Għodd tal-VAT Kalkulatur tal-VAT Ikkalkula l-VAT istantanjament għal kwalunkwe pajjiż tal-UE b'rati standard jew personalizzati. Validatur tan-numru tal-VAT Ivverifika n-numri tal-VAT tal-UE permezz tas-sistema uffiċjali VIES. Mappa interattiva tal-VAT Ivviswalizza u qabbel ir-rati tal-VAT fl-Istati Membri kollha tal-UE. Storja tar-rat",
+        "reachableThrough": null
+      },
+      "backend": {
+        "cold": {
+          "queries": 3,
+          "serverMs": 34.9
+        },
+        "warm": {
+          "status": 404,
+          "queries": 3,
+          "queryTimeMs": 1.55,
+          "serverMs": 32.4,
+          "htmlBytes": 97646,
+          "livewireComponents": 0,
+          "snapshotBytesTotal": 0,
+          "snapshots": []
+        }
+      }
+    },
+    {
+      "path": "/mcp-server",
+      "locale": "en",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 146196,
+          "gzip": 20072,
+          "brotli": 16819
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 72920,
+        "imageBytes": 12632,
+        "totalTransferGzip": 212628,
+        "requestCount": 7,
+        "ttfbMs": 32,
+        "fcpMs": 2236,
+        "lcpMs": 2236,
+        "lcpElement": "img.hero-photo.opacity-20",
+        "cls": 0.0003,
+        "tbtMs": 126,
+        "longTasks": 3,
+        "loadMs": 4203,
+        "perRun": [
+          {
+            "lcpMs": 2236,
+            "cls": 0.0003,
+            "tbtMs": 139,
+            "fcpMs": 2236,
+            "requests": 7
+          },
+          {
+            "lcpMs": 2244,
+            "cls": 0.0003,
+            "tbtMs": 106,
+            "fcpMs": 2244,
+            "requests": 7
+          },
+          {
+            "lcpMs": 2236,
+            "cls": 0.0003,
+            "tbtMs": 126,
+            "fcpMs": 2236,
+            "requests": 7
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Copy the MCP endpoint with the keyboard",
+          "completed": true,
+          "tabPresses": 7,
+          "focusVisibleMisses": []
+        }
+      },
+      "seo": {
+        "title": "EU VAT MCP Server: Live VAT Data for AI Assistants | EU VAT Info",
+        "titleLength": 64,
+        "description": "Free remote MCP server with EU VAT rates, calculations, rate changes and VIES VAT number checks. Connect Claude, ChatGPT, VS Code or Cursor in a minute.",
+        "descriptionLength": 152,
+        "canonical": "https://vat.businesspress.io/mcp-server",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 3,
+          "types": [
+            "Answer",
+            "BreadcrumbList",
+            "ConsumeAction",
+            "FAQPage",
+            "ListItem",
+            "Organization",
+            "Question",
+            "WebAPI"
+          ],
+          "valid": true,
+          "problems": []
+        },
+        "h1": [
+          "EU VAT MCP server"
+        ],
+        "h1Count": 1,
+        "wordCount": 615,
+        "mainWordCount": 498,
+        "internalLinksOut": 46,
+        "internalLinksIn": 311,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "/api/mcp",
+        "answerInFirst600": false,
+        "answerInFirst600OfMain": false,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "sources",
+        "sourceShownInMain": true,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 6902,
+          "tokens": 1726
+        },
+        "machineReadableAlternate": true,
+        "first600": "Skip to main content EU VAT Info Home MCP server MODEL CONTEXT PROTOCOL EU VAT MCP server Give your AI assistant live EU VAT rates, VAT calculations, upcoming rate changes and VIES VAT number checks. Free, read-only and no sign-up. Server URL Copy URL Streamable HTTP No sign-up or API key Read-only Connect your AI client Choose your client and follow the steps. It takes about a minute. Claude Claude Code VS Code Cursor Other clients 1 In Claude, open Settings → Connectors and choose Add custom connector. 2 Name it EU VAT Info, paste the server URL and select Add. 3 Turn EU VAT Info on for a ch",
+        "reachableThrough": null
+      },
+      "backend": {
+        "cold": {
+          "queries": 1,
+          "serverMs": 37.2
+        },
+        "warm": {
+          "status": 200,
+          "queries": 1,
+          "queryTimeMs": 0.64,
+          "serverMs": 104.7,
+          "htmlBytes": 145946,
+          "livewireComponents": 1,
+          "snapshotBytesTotal": 277,
+          "snapshots": [
+            {
+              "component": "mcp-server",
+              "bytes": 277
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/de/mcp-server",
+      "locale": "de",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 147739,
+          "gzip": 20871,
+          "brotli": 17510
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 72920,
+        "imageBytes": 12355,
+        "totalTransferGzip": 213276,
+        "requestCount": 7,
+        "ttfbMs": 34,
+        "fcpMs": 2248,
+        "lcpMs": 2248,
+        "lcpElement": "img.hero-photo.opacity-20",
+        "cls": 0.0003,
+        "tbtMs": 133,
+        "longTasks": 3,
+        "loadMs": 4233,
+        "perRun": [
+          {
+            "lcpMs": 2248,
+            "cls": 0.0003,
+            "tbtMs": 133,
+            "fcpMs": 2248,
+            "requests": 7
+          },
+          {
+            "lcpMs": 2276,
+            "cls": 0.0003,
+            "tbtMs": 149,
+            "fcpMs": 2276,
+            "requests": 7
+          },
+          {
+            "lcpMs": 2244,
+            "cls": 0.0003,
+            "tbtMs": 108,
+            "fcpMs": 2244,
+            "requests": 7
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Copy the MCP endpoint with the keyboard",
+          "completed": true,
+          "tabPresses": 7,
+          "focusVisibleMisses": []
+        }
+      },
+      "seo": {
+        "title": "EU-MwSt.-MCP-Server: Live-MwSt.-Daten für KI-Assistenten | EU VAT Info",
+        "titleLength": 70,
+        "description": "Kostenloser Remote-MCP-Server mit EU-MwSt.-Sätzen, Berechnungen, Satzänderungen und VIES-Prüfung von USt-IdNr. Verbinden Sie Claude, ChatGPT, VS Code oder Cursor in einer Minute.",
+        "descriptionLength": 178,
+        "canonical": "https://vat.businesspress.io/de/mcp-server",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 3,
+          "types": [
+            "Answer",
+            "BreadcrumbList",
+            "ConsumeAction",
+            "FAQPage",
+            "ListItem",
+            "Organization",
+            "Question",
+            "WebAPI"
+          ],
+          "valid": true,
+          "problems": []
+        },
+        "h1": [
+          "EU-MwSt.-MCP-Server"
+        ],
+        "h1Count": 1,
+        "wordCount": 574,
+        "mainWordCount": 476,
+        "internalLinksOut": 46,
+        "internalLinksIn": 84,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "/api/mcp",
+        "answerInFirst600": false,
+        "answerInFirst600OfMain": false,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "Quelle",
+        "sourceShownInMain": true,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 7631,
+          "tokens": 1908
+        },
+        "machineReadableAlternate": true,
+        "first600": "Zum Hauptinhalt springen EU MwSt. Info Startseite MCP-Server MODEL CONTEXT PROTOCOL EU-MwSt.-MCP-Server Geben Sie Ihrem KI-Assistenten aktuelle EU-MwSt.-Sätze, MwSt.-Berechnungen, anstehende Satzänderungen und VIES-Prüfungen von USt-IdNr. Kostenlos, nur lesend und ohne Registrierung. Server-URL URL kopieren Streamable HTTP Ohne Registrierung oder API-Schlüssel Nur lesend KI-Client verbinden Wählen Sie Ihren Client und folgen Sie den Schritten. Das dauert etwa eine Minute. Claude Claude Code VS Code Cursor Andere Clients 1 Öffnen Sie in Claude Settings → Connectors und wählen Sie Add custom con",
+        "reachableThrough": null
+      },
+      "backend": {
+        "cold": {
+          "queries": 1,
+          "serverMs": 31.1
+        },
+        "warm": {
+          "status": 200,
+          "queries": 1,
+          "queryTimeMs": 0.68,
+          "serverMs": 32.3,
+          "htmlBytes": 147489,
+          "livewireComponents": 1,
+          "snapshotBytesTotal": 281,
+          "snapshots": [
+            {
+              "component": "mcp-server",
+              "bytes": 281
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/mt/mcp-server",
+      "locale": "mt",
+      "status": 200,
+      "performance": {
+        "runs": 3,
+        "htmlBytes": {
+          "raw": 148321,
+          "gzip": 21076,
+          "brotli": 17713
+        },
+        "jsBytes": {
+          "raw": 276311,
+          "gzip": 91417,
+          "brotli": 87023,
+          "requests": 2
+        },
+        "cssBytes": {
+          "raw": 93956,
+          "gzip": 15769,
+          "brotli": 14271,
+          "requests": 1
+        },
+        "fontBytes": 206256,
+        "imageBytes": 14469,
+        "totalTransferGzip": 348475,
+        "requestCount": 8,
+        "ttfbMs": 27,
+        "fcpMs": 2256,
+        "lcpMs": 2256,
+        "lcpElement": "img.hero-photo.opacity-20",
+        "cls": 0.0019,
+        "tbtMs": 107,
+        "longTasks": 3,
+        "loadMs": 4919,
+        "perRun": [
+          {
+            "lcpMs": 2256,
+            "cls": 0.0019,
+            "tbtMs": 102,
+            "fcpMs": 2256,
+            "requests": 8
+          },
+          {
+            "lcpMs": 2268,
+            "cls": 0.0019,
+            "tbtMs": 107,
+            "fcpMs": 2268,
+            "requests": 8
+          },
+          {
+            "lcpMs": 2256,
+            "cls": 0.0019,
+            "tbtMs": 127,
+            "fcpMs": 2256,
+            "requests": 8
+          }
+        ]
+      },
+      "accessibility": {
+        "axeViolationRules": 0,
+        "axeViolationsByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeNodesByImpact": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "axeViolations": [],
+        "keyboard": {
+          "task": "Copy the MCP endpoint with the keyboard",
+          "completed": true,
+          "tabPresses": 7,
+          "focusVisibleMisses": []
+        }
+      },
+      "seo": {
+        "title": "Server MCP tal-VAT tal-UE: data tal-VAT diretta għall-assistenti tal-IA | EU VAT Info",
+        "titleLength": 85,
+        "description": "Server MCP remot b’xejn b’rati tal-VAT tal-UE, kalkoli, bidliet fir-rati u verifiki VIES tan-numri tal-VAT. Qabbad Claude, ChatGPT, VS Code jew Cursor f’minuta.",
+        "descriptionLength": 160,
+        "canonical": "https://vat.businesspress.io/mt/mcp-server",
+        "robots": "index, follow",
+        "hreflangCount": 25,
+        "jsonLd": {
+          "blocks": 3,
+          "types": [
+            "Answer",
+            "BreadcrumbList",
+            "ConsumeAction",
+            "FAQPage",
+            "ListItem",
+            "Organization",
+            "Question",
+            "WebAPI"
+          ],
+          "valid": true,
+          "problems": []
+        },
+        "h1": [
+          "Server MCP tal-VAT tal-UE"
+        ],
+        "h1Count": 1,
+        "wordCount": 592,
+        "mainWordCount": 466,
+        "internalLinksOut": 46,
+        "internalLinksIn": 84,
+        "inSitemap": true
+      },
+      "ai": {
+        "answerPattern": "/api/mcp",
+        "answerInFirst600": false,
+        "answerInFirst600OfMain": false,
+        "declaredAlternates": [],
+        "sourceShown": true,
+        "sourceSnippet": "sors",
+        "sourceShownInMain": true,
+        "asOfDateShown": false,
+        "asOfSnippet": null,
+        "asOfDateShownInMain": false,
+        "markdownByAcceptHeader": {
+          "negotiated": true,
+          "bytes": 7543,
+          "tokens": 1886
+        },
+        "machineReadableAlternate": true,
+        "first600": "Aqbeż għall-kontenut ewlieni Informazzjoni dwar il-VAT fl-UE Paġna Ewlenija Server MCP MODEL CONTEXT PROTOCOL Server MCP tal-VAT tal-UE Agħti lill-assistent tal-IA tiegħek ir-rati tal-VAT tal-UE aġġornati, kalkoli tal-VAT, il-bidliet li ġejjin fir-rati u verifiki VIES tan-numri tal-VAT. B’xejn, għall-qari biss u mingħajr reġistrazzjoni. URL tas-server Ikkopja l-URL Streamable HTTP Mingħajr reġistrazzjoni jew ċavetta tal-API Għall-qari biss Qabbad il-klijent tal-IA tiegħek Agħżel il-klijent tiegħek u segwi l-passi. Jieħu madwar minuta. Claude Claude Code VS Code Cursor Klijenti oħra 1 F’Claude,",
+        "reachableThrough": null
+      },
+      "backend": {
+        "cold": {
+          "queries": 1,
+          "serverMs": 32.6
+        },
+        "warm": {
+          "status": 200,
+          "queries": 1,
+          "queryTimeMs": 0.63,
+          "serverMs": 32,
+          "htmlBytes": 148071,
+          "livewireComponents": 1,
+          "snapshotBytesTotal": 281,
+          "snapshots": [
+            {
+              "component": "mcp-server",
+              "bytes": 281
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

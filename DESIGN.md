@@ -233,6 +233,7 @@ Reference page (tables, lists, guides):
 | `app-popover` | Menus, the country combobox, the palette panel and toasts: `rounded-card`, strong border, `shadow-floating` |
 | `app-brand-panel` | Tiles, stat groups, badges and fields on navy |
 | `app-sticky-bar` | A sticky sub-header inside a card, such as the year rows in the rate history |
+| `app-deferred` | A section that starts below the first screen (questions, reference tables, the API tester, the footer): the browser skips its layout and paint until it nears the viewport, while the content stays in the HTML for search engines, screen readers and find-in-page. Never on content in the first screen or on anything sticky |
 | `app-note` | A quiet grey note with an info icon, inside a card |
 | `app-page-header` | Page header band (used by `<x-page-header>`) |
 | `hero-canvas` | Flat navy band; text inside is white and focus is gold |
@@ -305,11 +306,15 @@ Two equal segments on a bordered `surface-muted` track; the white thumb slides i
 | `<x-ui.icon name="…" class="size-4" />` | Lucide icons at 1.75 stroke; add missing paths to `components/ui/icon.blade.php` in alphabetical order |
 | `<x-ui.logo />` | The EU VAT Info mark: white tile, navy slash and dot, gold dot |
 | `<x-json-ld :data="[…]" />` | Structured data; it adds `@context` for you |
+| `<x-rate-freshness :updated="…" :eu="…" />` | The date rates were updated and their source (the European Commission, or the open vat-rates dataset outside the EU); `on-dark` on navy, extra items in the slot |
+| `<x-faq-list :faqs="…" :title="…" id="…" />` | Questions as native disclosures, the first one open; build the FAQPage JSON-LD from the same list |
 | `tabular`, `pressable`, `on-brand`, `scrim`, `app-container` | Utilities described above |
 
 ## Patterns
 
 **Results.** Lead with the answer in display type, then one sentence that restates it in words, then a breakdown `dl`, then actions (share, copy, open). Announce changes through an `aria-live="polite"` region.
+
+**Freshness.** Every rate shows when it was last updated and where it comes from, close to the figure it qualifies: put `<x-rate-freshness>` under the calculator, in the header of a rate table and under a result. Say "Rates updated 1 Oct 2026", never "always up to date".
 
 **Forms.** Validate on the client for instant feedback and again on the server. Never auto-submit input that came from a URL unless it passed the strict pattern.
 
@@ -321,7 +326,7 @@ Two equal segments on a bordered `surface-muted` track; the white thumb slides i
 
 **Embed widget.** `resources/views/layouts/embed.blade.php` has a transparent background. Keep embed markup free of header, footer and tab bar.
 
-**Performance budget.** Application CSS stays under 20 KB gzip and application JS under 10 KB gzip. No third-party hosts on public pages. Heavy libraries are loaded only on the page that needs them.
+**Performance budget.** Application CSS stays under 20 KB gzip and application JS under 10 KB gzip. Sections below the first screen carry `app-deferred`, and `CollapseHtmlWhitespace` strips Blade's indentation from every HTML response, so long reference content costs little to the first paint. No third-party hosts on public pages. Heavy libraries are loaded only on the page that needs them.
 
 ## Accessibility
 
@@ -396,3 +401,4 @@ Also run an automated accessibility check on the pages you changed. The project 
 | `tests/Feature/DesignSystemTest.php` | Design rule checks |
 | `tests/Feature/StyleguideTest.php` | Checks that `/styleguide` and its token and Markdown exports match the sources |
 | `public/v1` | Frozen archive of the previous design. Out of scope for these rules; never restyle it (`tests/Feature/SiteArchiveTest.php` guards it) |
+| `public/v2` | Frozen archive of the 5.0 site. Out of scope for these rules; never restyle it (`tests/Feature/SiteArchiveV2Test.php` guards it) |

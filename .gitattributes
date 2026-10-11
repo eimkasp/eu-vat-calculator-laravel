@@ -7,6 +7,7 @@
 *.php diff=php
 
 /public/v1/** linguist-generated=true
+/public/v2/** linguist-generated=true
 
 /.github export-ignore
 CHANGELOG.md export-ignore

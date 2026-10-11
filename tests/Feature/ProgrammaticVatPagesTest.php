@@ -95,6 +95,29 @@ it('publishes only year archives that contain VAT changes', function () {
     $this->get('/vat-changes/year/1999')->assertNotFound();
 });
 
+it('publishes year archives for historical changes before 2000', function () {
+    $country = seoCountry();
+    seoChange($country, ['old_rate' => 13, 'new_rate' => 14, 'change_date' => '1983-07-01']);
+
+    $this->get('/vat-changes/year/1983')
+        ->assertOk()
+        ->assertSee('/vat-changes/germany/standard/1983-07-01');
+});
+
+it('lists only change pages that exist in the changes sitemap', function () {
+    $country = seoCountry();
+    seoChange($country, ['old_rate' => 13, 'new_rate' => 14, 'change_date' => '1983-07-01']);
+    seoChange($country);
+
+    preg_match_all('#<loc>https://vat\.businesspress\.io([^<]*)</loc>#', $this->get('/sitemaps/changes.xml')->assertOk()->getContent(), $locs);
+
+    expect($locs[1])->toContain('/vat-changes/year/1983', '/vat-changes/year/2026');
+
+    foreach ($locs[1] as $path) {
+        $this->get($path)->assertOk();
+    }
+});
+
 it('publishes an upcoming VAT changes archive from future records', function () {
     $country = seoCountry();
     seoChange($country, [

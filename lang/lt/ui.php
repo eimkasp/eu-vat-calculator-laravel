@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Visi užregistruoti tarifų pokyčiai',
     'widget_desc' => 'Įterpkite skaičiuoklę į savo svetainę',
     'validator_short' => 'PVM numerio tikrinimas',
+    'shortcuts' => 'Greitosios nuorodos į įrankius',
   ),
   'footer' => 
   array (
@@ -67,14 +68,15 @@ return array (
     'donate' => 'Paremti',
     'privacy' => 'Privatumo politika',
     'previous_version' => 'Ankstesnė versija',
+    'older_version' => 'Senesnė versija',
     'developers' => 'Kūrėjams',
     'mcp_server' => 'MCP serveris',
     'data_source_note' => 'Tarifai gaunami iš Europos Komisijos ir tikrinami kasdien',
   ),
   'home_page' => 
   array (
-    'title' => 'ES PVM informacija - PVM tarifų skaičiuoklė ir informacija visoms ES šalims',
-    'meta_desc' => 'Dabartiniai PVM tarifai visoms 27 ES šalims. Nemokama internetinė skaičiuoklė, istoriniai duomenys nuo 2000 m., tarifų pokyčių pranešimai ir atitikties vadovai. Atnaujinama kasdien.',
+    'title' => 'PVM skaičiuoklė ir PVM tarifai visoms 27 ES šalims',
+    'meta_desc' => 'Pridėkite arba išskaičiuokite PVM visose 27 ES šalyse pagal galiojančius standartinius ir lengvatinius tarifus. Tikrinkite PVM kodus VIES ir sekite pokyčius.',
     'heading' => 'PVM tarifai',
     'heading_accent' => 'Europos Sąjungoje',
     'subtitle' => 'Dabartiniai standartiniai PVM tarifai, sumažinti tarifai ir skaičiuoklė visoms 27 ES valstybėms narėms. Atnaujinama kasdien.',
@@ -198,6 +200,29 @@ return array (
     'calculation_reference' => 'Skaičiavimų suvestinė',
     'formula_add' => 'Grynoji suma × :multiplier = bendroji suma',
     'formula_remove' => 'Bendroji suma ÷ :multiplier = grynoji suma',
+    'quick_amounts' => 'Įprastos sumos',
+    'rate_since' => 'Galioja nuo :date',
+    'rate_since_previous' => 'Galioja nuo :date, anksčiau :rate %',
+    'vat_number_format' => 'PVM mokėtojo kodo formatas',
+    'full_rate_history' => 'PVM tarifų istorija: :country',
+    'formula_vat_part' => 'Kainoje su :rate % PVM esantį PVM apskaičiuosite padauginę kainą iš :rate ir padaliję iš :divisor.',
+    'common_amounts_heading' => 'PVM nuo įprastų sumų: :country',
+    'common_amounts_intro' => 'Taikant :rate % standartinį tarifą. Atidarykite sumą, kad pamatytumėte visą išklotinę, kurią galima bendrinti.',
+    'th_amount' => 'Suma',
+    'th_add_vat' => 'Pridėjus :rate % PVM',
+    'th_remove_vat' => 'Išskaičiavus :rate % PVM',
+    'faq_heading' => 'Klausimai apie PVM: :country',
+    'faq_rate_q' => 'Koks PVM tarifas šalyje :country?',
+    'faq_rate_a' => 'Standartinis PVM tarifas šalyje :country yra :rate %. Lengvatiniai :reduced tarifai taikomi tam tikroms prekėms ir paslaugoms.',
+    'faq_rate_a_standard_only' => 'Standartinis PVM tarifas šalyje :country yra :rate %, o :country lengvatinio tarifo neturi.',
+    'faq_add_q' => 'Kaip pridėti PVM prie kainos šalyje :country?',
+    'faq_add_a' => 'Padauginkite kainą be PVM iš :multiplier. Pavyzdžiui, :net plius :rate % PVM yra :gross.',
+    'faq_remove_q' => 'Kaip išskaičiuoti PVM iš kainos šalyje :country?',
+    'faq_remove_a' => 'Padalykite kainą su PVM iš :multiplier. Pavyzdžiui, :gross su :rate % PVM yra :net be PVM.',
+    'faq_changed_q' => 'Kada paskutinį kartą keitėsi PVM tarifas šalyje :country?',
+    'faq_changed_a' => 'Standartinis tarifas pasikeitė iš :old % į :new % :date.',
+    'faq_number_q' => 'Kaip atrodo PVM mokėtojo kodas iš šalies :country?',
+    'faq_number_a' => 'Šalies :country PVM mokėtojų kodai prasideda :prefix ir atitinka formatą :format, kur 9 yra skaitmuo, L raidė, o X raidė arba skaitmuo. Kodą galite patikrinti ES VIES registre mūsų PVM kodo patikros įrankiu.',
   ),
   'trust' => 
   array (
@@ -205,6 +230,9 @@ return array (
     'always_free' => 'Visada nemokamai',
     'all_27_countries' => 'Visos 27 ES šalys',
     'no_signup_required' => 'Be registracijos',
+    'updated' => 'Tarifai atnaujinti :date',
+    'source_ec' => 'Šaltinis: Europos Komisija',
+    'source_dataset' => 'Šaltinis: atvirasis duomenų rinkinys vat-rates',
   ),
   'map' => 
   array (
@@ -233,12 +261,13 @@ return array (
     'interaction_hint' => 'Užveskite žymeklį, bakstelėkite arba pereikite per šalis klavišu Tab, kad pamatytumėte jų tarifus. Paspauskite Enter, kad atvertumėte išsamią informaciją.',
     'clear_selection' => 'Išvalyti pasirinkimą',
     'table_intro' => 'Tie patys duomenys kaip žemėlapyje, pradedant didžiausiu standartiniu tarifu.',
+    'meta_desc' => 'Visų ES šalių standartiniai PVM tarifai viename žemėlapyje su standartinių, lengvatinių ir ypač sumažintų tarifų reitingu ir skaičiuokle kiekvienai šaliai.',
   ),
   'history' => 
   array (
     'title' => 'PVM tarifų pokyčių istorija',
     'meta_title' => 'PVM tarifų pokyčių istorija - ES šalys | ES PVM informacija',
-    'meta_desc' => 'Visa PVM tarifų pokyčių istorija visose ES šalyse nuo 2000 m. Sekite standartinių ir sumažintų tarifų pokyčius su stabilumo rodikliais.',
+    'meta_desc' => 'Visi užfiksuoti PVM tarifų pokyčiai ES: standartiniai, lengvatiniai ir laikinieji tarifai su datomis, senu ir nauju tarifu, būsimais pokyčiais ir šaltiniais.',
     'subtitle' => 'Sekite visus PVM tarifų pokyčius ES šalyse per pastarąjį dešimtmetį',
     'stability_title' => 'Šalių stabilumo rodikliai',
     'stability_desc' => 'Šalys su mažiau PVM tarifų pakeitimų rodo stabilesnę mokesčių aplinką',
@@ -457,10 +486,10 @@ return array (
   ),
   'vies_page' => 
   array (
-    'title' => 'VIES PVM numerio patikrintuvas — Patikrinkite ES PVM numerius internete',
-    'description' => 'Nemokamas VIES PVM numerio patikrinimo įrankis. Iš karto patikrinkite bet kurį ES PVM numerį naudodami oficialią Europos Komisijos VIES duomenų bazę.',
-    'country_title' => 'VIES PVM numerio patikrintuvas :country — Patikrinkite :country PVM numerius per VIES',
-    'country_description' => 'Iš karto patvirtinkite :country (:code) PVM numerius naudodami oficialią ES VIES duomenų bazę.',
+    'title' => 'ES PVM mokėtojo kodo patikra: nemokama VIES paieška',
+    'description' => 'Patikrinkite bet kurį ES PVM mokėtojo kodą Europos Komisijos VIES registre. Sužinokite, ar jis galioja ir kam priklauso. Nemokamai, be registracijos.',
+    'country_title' => 'PVM kodo patikra, :country: nemokama VIES paieška',
+    'country_description' => 'Patikrinkite šalies :country (:code) PVM mokėtojų kodus oficialiame ES VIES registre. Sužinokite, ar kodas galioja ir kam priklauso. Nemokamai.',
     'h1' => 'VIES PVM numerio patikrintuvas',
     'country_h1' => 'PVM numerio patikrintuvas :country',
     'subtitle' => 'Patikrinkite bet kurį ES PVM numerį naudodami oficialią Europos Komisijos VIES duomenų bazę. Rezultatai yra talpinti į talpyklą greitesnei paieškai.',
@@ -523,7 +552,6 @@ return array (
     'format_heading' => ':country PVM numerio formatas',
     'format_prefix' => 'Priešdėlis',
     'format_structure' => 'Struktūra',
-    'format_structure_value' => ':prefix, po kurio eina nacionalinis identifikatorius',
     'format_note_gr' => 'Graikija PVM mokėtojo identifikaciniams numeriams naudoja EL, o GR išlieka jos ISO šalies kodu.',
     'format_note_default' => 'Nacionalinė dalis – kiekvienai šaliai būdinga skaitmenų, o kai kuriose šalyse ir raidžių seka.',
     'format_disclaimer' => 'PVM mokėtojo identifikacinius numerius suteikia tik nacionalinės mokesčių administracijos. VIES patvirtina registracijos būseną, tačiau tai nėra mokesčių ar teisinė konsultacija.',
@@ -546,6 +574,11 @@ return array (
     'copied' => 'PVM numeris nukopijuotas',
     'not_in_vies_title' => 'Šalis :country neįtraukta į VIES',
     'not_in_vies_desc' => 'VIES tikrina tik ES valstybių narių išduotus PVM numerius. Šalies :country PVM numerius tikrinkite tos šalies mokesčių administracijoje. Žemiau vis tiek galite patikrinti bet kurį ES PVM numerį.',
+    'format_legend' => '9 yra skaitmuo, L raidė, o X raidė arba skaitmuo. Kiti ženklai rašomi taip, kaip nurodyta.',
+    'formats_heading' => 'PVM mokėtojų kodų formatai ES',
+    'formats_intro' => 'Kiekvienas ES PVM mokėtojo kodas prasideda dviejų raidžių priešdėliu (Graikijos EL), po kurio eina nacionalinis numeris. Atidarykite šalį, kad patikrintumėte jos kodus.',
+    'formats_th_country' => 'Šalis',
+    'format_mismatch' => 'Tai nepanašu į šalies :country PVM mokėtojo kodą (:format). Patikrinkite, ar nėra rašybos klaidos, arba vis tiek patikrinkite kodą.',
   ),
   'validator' => 
   array (
@@ -627,7 +660,7 @@ return array (
   'top_calc' => 
   array (
     'page_title' => 'Populiarūs PVM skaičiavimai — ES PVM skaičiuoklė',
-    'page_description' => 'Dažniausi PVM skaičiavimai visose 27 ES valstybėse narėse.',
+    'page_description' => 'PVM nuo įprastų sumų nuo 100 € iki 10 000 € kiekvienoje ES šalyje pagal jos standartinį tarifą. Pridėkite arba išskaičiuokite PVM vienu paspaudimu.',
     'heading' => 'Populiarūs PVM skaičiavimai',
     'subheading' => 'Greita prieiga prie dažniausių PVM skaičiavimų.',
     'vat_on_amount' => 'PVM nuo €:amount',
@@ -648,14 +681,15 @@ return array (
     'disclaimer' => 'Skaičiavimai yra tik informacinio pobūdžio.',
     'breadcrumb' => 'Populiarūs skaičiavimai',
     'amount_page_heading' => 'PVM nuo €:amount — Visos ES šalys',
-    'amount_page_desc' => 'Apskaičiuokite PVM nuo €:amount visoms 27 ES valstybėms narėms.',
+    'amount_page_desc' => 'PVM nuo €:amount :count ES :member_label pagal standartinius tarifus nuo :min % iki :max %: PVM ir bendra suma kiekvienai šaliai, pridėjus ar išskaičiavus.',
     'back_to_all' => '← Visi populiarūs skaičiavimai',
     'matrix_caption' => 'Iš viso su PVM pagal kiekvienos šalies standartinį tarifą. Pasirinkite sumą, kad pamatytumėte visą skaičiavimo detalizaciją.',
     'amounts_label' => 'Pasirinkite sumą',
     'adding' => 'PVM pridėjimas prie €:amount',
     'removing' => 'PVM, įskaičiuotas į €:amount',
     'net' => 'Be PVM',
-    'member_states' => 'valstybės narės',
+    'member_states' => 'valstybių narių',
+    'amount_meta_title' => 'PVM nuo €:amount kiekvienoje ES šalyje',
   ),
   'changelog' => 
   array (
@@ -681,8 +715,8 @@ return array (
   'skip_to_content' => 'Pereiti prie pagrindinio turinio',
   'tools' => 
   array (
-    'seo_title' => 'ES PVM įrankiai ir ištekliai – skaičiuoklės, tikrinimo įrankiai ir vadovai',
-    'seo_description' => 'Nemokami ES PVM įrankiai: skaičiuoklė, PVM numerių tikrinimas, tarifų palyginimo žemėlapiai ir atitikties vadovai visoms 27 ES valstybėms narėms.',
+    'seo_title' => 'ES PVM įrankiai: skaičiuoklė, patikra, žemėlapis',
+    'seo_description' => 'Nemokami ES PVM įrankiai: skaičiuoklė kiekvienai šaliai, PVM kodų patikra VIES, tarifų žemėlapis, tarifų istorija ir vadovai visoms 27 valstybėms narėms.',
     'heading' => 'ES PVM informacija: įrankiai ir ištekliai',
     'intro_text' => 'Čia rasite EU-vat.info komandos įrankius ir išteklius, kurie padės orientuotis sudėtingame Europos Sąjungos PVM pasaulyje.',
     'calculator_heading' => 'PVM skaičiuoklė',
@@ -781,7 +815,7 @@ return array (
   array (
     'eyebrow' => 'Šalių palyginimas',
     'title' => 'PVM tarifai: :left ir :right',
-    'meta_title' => ':left ir :right PVM palyginimas: tarifai, skaičiuoklės ir istorija',
+    'meta_title' => 'PVM :left ir :right: tarifų palyginimas',
     'meta_description' => 'Palyginkite šalių :left ir :right PVM tarifus, sumažintus tarifus, valiutas, VIES prieinamumą ir istorinius pokyčius.',
     'intro' => 'Palyginkite dabartines PVM struktūras ir pereikite prie kiekvienos šalies skaičiuoklės, tikrinimo vadovo bei užregistruotos istorijos.',
     'measure' => 'Rodiklis',
@@ -834,8 +868,8 @@ return array (
   ),
   'mcp_page' =>
   array (
-    'meta_title' => 'ES PVM MCP serveris: aktualūs PVM duomenys DI asistentams | EU VAT Info',
-    'meta_desc' => 'Nemokamas nuotolinis MCP serveris su ES PVM tarifais, skaičiavimais, tarifų pokyčiais ir PVM mokėtojų kodų tikrinimu VIES. Prijunkite Claude, ChatGPT, VS Code arba Cursor per minutę.',
+    'meta_title' => 'ES PVM MCP serveris: duomenys DI asistentams',
+    'meta_desc' => 'Nemokamas MCP serveris su ES PVM tarifais, skaičiavimais, tarifų pokyčiais ir VIES patikra. Prijunkite Claude, ChatGPT, VS Code arba Cursor per minutę.',
     'kicker' => 'Model Context Protocol',
     'title' => 'ES PVM MCP serveris',
     'lede' => 'Suteikite savo DI asistentui aktualius ES PVM tarifus, PVM skaičiavimus, būsimus tarifų pokyčius ir PVM mokėtojų kodų tikrinimą VIES. Nemokamai, tik skaitymui ir be registracijos.',
@@ -880,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Vienos šalies tarifai',
-        'desc' => 'Galiojantys tarifai, valiuta ir paskutinis atnaujinimas vienai šaliai.',
+        'desc' => 'Galiojantys tarifai, valiuta, PVM mokėtojo kodo formatas ir paskutinis atnaujinimas vienai šaliai.',
         'prompt' => 'Kokie PVM tarifai taikomi Austrijoje?',
       ),
       'calculate_vat' =>
@@ -928,7 +962,7 @@ return array (
     'detail_limits' => 'Sąžiningas naudojimas',
     'limits_value' => ':requests užklausų per minutę iš vieno IP adreso, iš jų iki :checks PVM mokėtojų kodų patikrinimų',
     'detail_data' => 'Duomenys',
-    'data_value' => 'Europos Komisijos PVM tarifai, atnaujinami kasdien',
+    'data_value' => 'Europos Komisijos PVM tarifai, atnaujinami kas savaitę',
     'detail_discovery' => 'Aptinkamumas',
     'server_card' => 'Serverio kortelė',
     'faq_heading' => 'Klausimai',
@@ -939,7 +973,7 @@ return array (
     'faq_3_q' => 'Ar saugu prisijungti?',
     'faq_3_a' => 'Taip. Visi įrankiai skirti tik skaitymui: serveris grąžina tik PVM duomenis ir skaičiavimus. Jis nemato jūsų failų ir neveikia jūsų vardu.',
     'faq_4_q' => 'Kiek aktualūs tarifai?',
-    'faq_4_a' => 'Tarifai gaunami iš Europos Komisijos duomenų ir atnaujinami kasdien. Kiekviename rezultate nurodoma, kada šalies duomenys atnaujinti paskutinį kartą.',
+    'faq_4_a' => 'Tarifai gaunami iš Europos Komisijos duomenų ir atnaujinami kas savaitę. Kiekviename rezultate nurodoma, kada šalies duomenys atnaujinti paskutinį kartą.',
     'faq_5_q' => 'Ar atsakymai yra mokesčių konsultacija?',
     'faq_5_a' => 'Ne. Serveris grąžina orientacinius tarifus. Tinkamas PVM taikymas priklauso nuo prekių ar paslaugų ir kliento, todėl svarbius atvejus pasitikrinkite su mokesčių konsultantu arba nacionaline mokesčių administracija.',
   ),

@@ -31,7 +31,7 @@
             '@type' => 'Dataset',
             '@id' => $base.'/datasets/eu-vat-rates#dataset',
             'name' => 'EU VAT Rates Dataset',
-            'description' => 'Current standard, reduced, super-reduced and parking VAT rates for the 27 European Union member states, refreshed daily from European Commission data.',
+            'description' => 'Current standard, reduced, super-reduced and parking VAT rates for the 27 European Union member states, from European Commission data and updated every week.',
             'url' => $base.'/datasets/eu-vat-rates',
             'license' => 'https://creativecommons.org/licenses/by/4.0/',
             'isAccessibleForFree' => true,
@@ -69,7 +69,7 @@
         </div>
     </section>
 
-    <section class="app-container py-12 sm:py-16" aria-labelledby="rates-heading">
+    <section class="app-container py-12 sm:py-16">
         <div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-[minmax(0,1fr)_22rem]">
             <x-country-rates-table :countries="$countries" :search="$search" :stats="$stats" />
             <x-home-sidebar />

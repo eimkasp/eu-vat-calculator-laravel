@@ -2,13 +2,40 @@
 @use('App\Support\EuropeMapSvg')
 
 @section('seo')
-    <x-seo-meta :title="__('ui.map.title').' - EU VAT Info'" :description="__('ui.map.subtitle')" :url="url()->current()" />
+    <x-seo-meta :title="__('ui.map.title').' - EU VAT Info'" :description="__('ui.map.meta_desc')" :url="url()->current()">
+        @if($ranked->isNotEmpty())
+            <x-json-ld :data="[
+                '@type' => 'WebPage',
+                'name' => __('ui.map.title'),
+                'description' => __('ui.map.subtitle'),
+                'url' => url(locale_path('/vat-map')),
+                'inLanguage' => app()->getLocale(),
+                'dateModified' => $ranked->max('updated_at')?->toIso8601String(),
+                'isPartOf' => ['@type' => 'WebSite', 'name' => __('ui.site_name'), 'url' => url(locale_path('/'))],
+                'mainEntity' => [
+                    '@type' => 'ItemList',
+                    'name' => __('ui.map.all_rates'),
+                    'itemListOrder' => 'https://schema.org/ItemListOrderDescending',
+                    'numberOfItems' => $ranked->count(),
+                    'itemListElement' => $ranked->values()->map(fn (Country $country, int $index) => [
+                        '@type' => 'ListItem',
+                        'position' => $index + 1,
+                        'name' => $country->name.': '.Country::formatRate($country->standard_rate).'%',
+                        'url' => url(locale_path('/vat-calculator/'.$country->slug)),
+                    ])->all(),
+                ],
+            ]" />
+        @endif
+    </x-seo-meta>
 @endsection
 
 <div>
     <x-page-header :title="__('ui.map.title')" :description="__('ui.map.subtitle')" :eyebrow="__('ui.nav.vat_tools')" :breadcrumbs="[__('ui.breadcrumbs.vat_map') => '']" />
 
     <div class="app-container space-y-8 py-8 sm:py-10">
+        @if($ranked->isNotEmpty())
+            <x-rate-freshness :updated="$ranked->max('updated_at')" class="-mb-4" />
+        @endif
         @if($countries->isEmpty())
             <div class="flex items-start gap-3 rounded-card border border-warning/30 bg-warning-soft p-4" role="status">
                 <x-ui.icon name="info" class="mt-0.5 size-5 text-warning" />

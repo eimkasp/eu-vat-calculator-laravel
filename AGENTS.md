@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-EU VAT Info (`eu-vat.info`) is a Laravel 13 web application providing comprehensive EU VAT rate information, calculators, validators, and country-specific guides. It serves developers, businesses, and tax professionals with real-time data sourced from the European Commission.
+EU VAT Info (`vat.businesspress.io`, set by `SEO_CANONICAL_URL`; the old `eu-vat.info` host redirects to it) is a Laravel 13 web application providing comprehensive EU VAT rate information, calculators, validators, and country-specific guides. It serves developers, businesses, and tax professionals with real-time data sourced from the European Commission.
 
 ## Tech Stack
 
@@ -53,7 +53,8 @@ resources/
 └── js/                        # Alpine.js / app scripts
 lang/                          # 24 language directories (bg, cs, da, de, el, en, es, et, fi, fr, ga, hr, hu, it, lt, lv, mt, nl, pl, pt, ro, sk, sl, sv)
 public/
-└── v1/                        # Frozen static archive of the site before the 5.0 redesign (never edit)
+├── v1/                        # Frozen static archive of the site before the 5.0 redesign (never edit)
+└── v2/                        # Frozen static archive of the 5.0 site (never edit)
 routes/
 ├── web.php                    # Localised routes (/{locale}/path)
 ├── api.php                    # REST API endpoints
@@ -143,11 +144,13 @@ GET  /up                              # Application health check
 - Language files in `lang/{locale}/ui.php`
 - Config: `config/translation.php`
 - Languages without DeepL: `ga` (Irish), `hr` (Croatian), `mt` (Maltese)
+- `tests/Feature/TranslationCompletenessTest.php` requires every key of `lang/en/ui.php` in all 24 files with the same `:placeholders`. Write a full sentence per case instead of joining fragments, and give a word used after a number the case that sentence needs (see `top_calc.member_states`).
 
 ### SEO indexing
 - Every supported language is indexable by default (`config/seo.php`); `SEO_INDEXABLE_LOCALES=en,de` limits it. Translated pages are self-canonical and carry hreflang for every indexable language.
 - Pages whose body text is English in every language are listed in `SeoPolicy::ENGLISH_BODY_ROUTES`. Their translated URLs canonicalize to the English page, carry no hreflang and appear in the XML sitemap only in English. Remove a route from the list once its page is translated; `tests/Feature/SeoBodyLanguageTest.php` checks the sitemap against the list.
-- Shared calculations are indexable only when `CalculationIndexing::isTopCalculation()` accepts them: a top amount (`TopCalculations::AMOUNTS`) at an EU member's standard rate, in either direction, which are exactly the links on the top calculations pages. Every other value is `noindex, follow` and canonicalizes to the country's calculator. Non-canonical segments (`1000.00`, `19.0`) redirect with a 301 (`CanonicalizeSharedCalculation`).
+- Titles must fit 30–60 characters and descriptions 70–160 on the landing pages, in every language (`tests/Feature/SeoMetaLengthTest.php`). `App\Support\Seo\MetaTitle` drops a trailing ` | EU VAT Info` when it pushes a title past 60 characters; rewrite the string when that is not enough.
+- Shared calculations are indexable only when `CalculationIndexing::isTopCalculation()` accepts them: a top amount (`TopCalculations::AMOUNTS`) at an EU member's standard rate, in either direction, which are exactly the links on the top calculations pages. Every other value is `noindex, follow` and canonicalizes to the country's calculator. Non-canonical segments (`1000.00`, `19.0`) redirect with a 301 (`CanonicalizeSharedCalculation`). The same set is listed in `/sitemaps/calculations.xml`, one entry per language and without sitemap alternates (the pages carry hreflang), so the section stays small.
 
 ### Frontend
 - **Read `DESIGN.md` before any UI change.** It is the design system and styleguide (tokens, brand surfaces, component recipes, patterns, accessibility rules). `tests/Feature/DesignSystemTest.php` enforces it, and `.claude/skills/design-system` loads it for Claude Code.
@@ -160,12 +163,26 @@ GET  /up                              # Application health check
 - Icons: `<x-ui.icon name="…">` (inline Lucide paths); flags: `<x-ui.flag :iso="…">` (local SVGs); pagination: return `'pagination.livewire'` from `paginationView()`
 - VAT maths: `App\Support\Vat` (PHP) mirrored by `resources/js/vat.js`; keep both in sync
 - Structured data: `<x-json-ld :data="[…]">` (never write `@context` in Blade)
+- Freshness: every rate shows its update date and source with `<x-rate-freshness :updated="…" :eu="…">` (European Commission for members, the open vat-rates dataset otherwise). Questions use `<x-faq-list>` with FAQPage JSON-LD built from the same list; country calculator questions come from `App\Support\Vat\CountryFaq`, worked out from the country's data.
+- Reduced, super-reduced and parking rates are not in the synced rate history (it has standard rates only). `App\Support\Vat\RateCorrections` lists the ones that changed after the January 2024 snapshot, checked against the Commission's TEDB (`https://ec.europa.eu/taxation_customs/tedb/ws/`, SOAP `retrieveVatRates`; skip `REGION` and `TEMPORARY_EXEMPTION_RATE` entries) and the Commission's Your Europe rates table, which wins where they disagree. A data migration applies it, guarded so hand-corrected values stay.
+- VAT number formats: `config/vat-number-formats.php` holds each member state's masks in the Commission's notation (9 digit, L letter, X letter or digit) and a pattern; `App\Support\Vat\VatNumberFormat` describes them and feeds the validator's non-blocking format hint. VIES stays the authority.
 
 ### Site archive (`/v1`)
 - `public/v1/` is a frozen, static English snapshot of the site as it was before the 5.0 redesign (`main` at `d1670fc`, captured on 29 September 2026). The web server serves its 246 pages directly as `…/index.html`; no Laravel route is involved, so never add a `v1` route.
 - Each page is `noindex, nofollow`, shows the archive bar (`public/v1/archive.css`) and loads `public/v1/archive.js`, which answers the old Livewire 3 runtime in the browser: calculations work, picking a calculator country opens that country's archived page, and server actions (VIES checks, filters, sign-ups) show a read-only notice instead of calling a server.
-- Links to pages that were not archived (other languages, shared calculations, the API) point to the live site. The footer ("Previous version") and the changelog link to `/v1/`.
+- Links to pages that were not archived (other languages, shared calculations, the API) point to the live site. The footer ("Older version") and the changelog link to `/v1/`.
 - It sits outside the design system: do not edit, restyle or reformat it. `tests/Feature/SiteArchiveTest.php` guards that it stays complete, unindexed, self-contained and free of server calls.
+
+### Site archive (`/v2`)
+- `public/v2/` is a frozen, static English snapshot of the 5.0 site (`main` at `cf5c6f7`, captured on 10 October 2026): 290 pages served directly as `…/index.html`, so never add a `v2` route. `scripts/archive-site.mjs` made it from a local server of that commit; rerun it only to rebuild the snapshot of that same commit.
+- Each page is `noindex, nofollow`, carries the archive bar (`public/v2/archive.css`), links the bar to the same page on the live site and loads `public/v2/archive.js`, which answers the Livewire 4 runtime in the browser: calculations work, picking a calculator country opens that country's archived page, search reads `public/v2/search-index.json`, and every other request (VIES checks, filters, sign-ups, the API and MCP testers) shows a read-only notice instead of reaching a server.
+- Assets (the build, fonts, images, flags and `livewire.min.js`) are copies inside `public/v2/`. Links to pages that were not archived (other languages, shared calculations, the API, downloads) point to the live site. The footer ("Previous version" for `/v2/`, "Older version" for `/v1/`) and the changelog link to both archives; `robots.txt` keeps AI crawlers out of both.
+- It sits outside the design system: do not edit, restyle or reformat it. `tests/Feature/SiteArchiveV2Test.php` guards that it stays complete, unindexed, self-contained and free of server calls.
+
+### AI discoverability
+- `llms.txt` and `llms-full.txt` (`LlmsController`) list every rate type, each member state's VAT number format and the primary sources, built from the database; describe the update schedule as it is (the rate dataset is synced every week).
+- Any HTML page answers `Accept: text/markdown` (`MarkdownNegotiation`): the `<main>` content without hidden UI (`x-cloak`, `hidden`, `aria-hidden`) or buttons, with tables, questions as headings and absolute links.
+- `/api/v1/countries` and the MCP country tools return `vat_number` (`VatNumberFormat::forCountry`) next to the rates.
 
 ### MCP server
 - `App\Support\Mcp\VatMcpServer` defines the public MCP server once: name, protocol versions, instructions, rate limits and every tool with its schema and annotations. `Api\McpController` serves it at `POST /api/mcp` (Streamable HTTP, stateless JSON, `throttle:mcp`).
@@ -193,7 +210,8 @@ php artisan serve                    # Start dev server
 yarn dev                             # Vite HMR
 yarn build                           # Production build
 
-# Testing
+# Testing (clear cached config first: with it, tests run against the real database and refresh it)
+php artisan optimize:clear
 php artisan test                     # Run all tests
 ./vendor/bin/pest                    # Run Pest tests
 ./vendor/bin/pest --filter=ClassName # Run specific test
@@ -201,7 +219,7 @@ php artisan test                     # Run all tests
 
 # Database
 php artisan migrate                  # Run migrations
-php artisan db:seed                  # Seed data
+php artisan db:seed                  # Seed data (then applies vat:verify --fix and RateCorrections: current standard, reduced, super-reduced and parking rates)
 
 # Sitemap
 php artisan sitemap:generate         # Or visit /sitemap/generate

@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Todos los cambios de tipos registrados',
     'widget_desc' => 'Integre una calculadora en su sitio web',
     'validator_short' => 'Validador de IVA',
+    'shortcuts' => 'Accesos directos a herramientas',
   ),
   'footer' => 
   array (
@@ -67,14 +68,15 @@ return array (
     'donate' => 'Donar',
     'privacy' => 'Política de privacidad',
     'previous_version' => 'Versión anterior',
+    'older_version' => 'Versión más antigua',
     'developers' => 'Desarrolladores',
     'mcp_server' => 'Servidor MCP',
     'data_source_note' => 'Tipos procedentes de la Comisión Europea y verificados a diario',
   ),
   'home_page' => 
   array (
-    'title' => 'EU VAT Info - Calculadora de tipos de IVA e información para todos los países de la UE',
-    'meta_desc' => 'Tipos de IVA actualizados para los 27 países de la UE. Calculadora en línea gratuita, datos históricos desde 2000, alertas de cambios de tipos y guías de cumplimiento. Actualizado diariamente.',
+    'title' => 'Calculadora de IVA y tipos de IVA de los 27 países de la UE',
+    'meta_desc' => 'Añada o quite el IVA en los 27 países de la UE con los tipos generales y reducidos vigentes. Compruebe números de IVA en VIES y siga cada cambio de tipo.',
     'heading' => 'Tipos de IVA en la',
     'heading_accent' => 'Unión Europea',
     'subtitle' => 'Tipos de IVA estándar, tipos reducidos y calculadora para los 27 estados miembros de la UE. Actualizado diariamente.',
@@ -198,6 +200,29 @@ return array (
     'calculation_reference' => 'Fórmulas de cálculo',
     'formula_add' => 'Neto × :multiplier = bruto',
     'formula_remove' => 'Bruto ÷ :multiplier = neto',
+    'quick_amounts' => 'Importes habituales',
+    'rate_since' => 'Vigente desde el :date',
+    'rate_since_previous' => 'Vigente desde el :date; antes, :rate %',
+    'vat_number_format' => 'Formato del número de IVA',
+    'full_rate_history' => 'Historial de tipos de IVA de :country',
+    'formula_vat_part' => 'Para obtener el IVA incluido en un precio con un :rate % de IVA, multiplique el precio por :rate y divídalo entre :divisor.',
+    'common_amounts_heading' => 'IVA de :country sobre importes habituales',
+    'common_amounts_intro' => 'Al tipo general del :rate %. Abra un importe para ver el desglose completo, listo para compartir.',
+    'th_amount' => 'Importe',
+    'th_add_vat' => 'Sumando el :rate % de IVA',
+    'th_remove_vat' => 'Quitando el :rate % de IVA',
+    'faq_heading' => 'Preguntas sobre el IVA de :country',
+    'faq_rate_q' => '¿Cuál es el tipo de IVA en :country?',
+    'faq_rate_a' => 'El tipo general de IVA en :country es del :rate %. Los tipos reducidos del :reduced se aplican a determinados bienes y servicios.',
+    'faq_rate_a_standard_only' => 'El tipo general de IVA en :country es del :rate %, y :country no tiene tipo reducido.',
+    'faq_add_q' => '¿Cómo añado el IVA a un precio en :country?',
+    'faq_add_a' => 'Multiplique el precio neto por :multiplier. Por ejemplo, :net más el :rate % de IVA son :gross.',
+    'faq_remove_q' => '¿Cómo quito el IVA de un precio en :country?',
+    'faq_remove_a' => 'Divida el precio con IVA entre :multiplier. Por ejemplo, :gross con el :rate % de IVA incluido son :net sin IVA.',
+    'faq_changed_q' => '¿Cuándo cambió por última vez el tipo de IVA en :country?',
+    'faq_changed_a' => 'El tipo general pasó del :old % al :new % el :date.',
+    'faq_number_q' => '¿Cómo es un número de IVA de :country?',
+    'faq_number_a' => 'Los números de IVA de :country empiezan por :prefix y siguen el formato :format, donde 9 es un dígito, L una letra y X una letra o un dígito. Puede comprobar un número en el registro VIES de la UE con el validador de números de IVA.',
   ),
   'trust' => 
   array (
@@ -205,6 +230,9 @@ return array (
     'always_free' => 'Siempre gratuito',
     'all_27_countries' => 'Los 27 países de la UE',
     'no_signup_required' => 'Sin registro',
+    'updated' => 'Tipos actualizados el :date',
+    'source_ec' => 'Fuente: Comisión Europea',
+    'source_dataset' => 'Fuente: conjunto de datos abierto vat-rates',
   ),
   'map' => 
   array (
@@ -233,12 +261,13 @@ return array (
     'interaction_hint' => 'Pase el cursor por encima de los países, tóquelos o recórralos con la tecla Tab para ver sus tipos. Pulse Intro para abrir los detalles.',
     'clear_selection' => 'Borrar la selección',
     'table_intro' => 'Los mismos datos que en el mapa, ordenados de mayor a menor tipo estándar.',
+    'meta_desc' => 'Los tipos generales de IVA de todos los países de la UE en un mapa, con una clasificación de tipos generales, reducidos y superreducidos y una calculadora.',
   ),
   'history' => 
   array (
     'title' => 'Historial de cambios en los tipos de IVA',
     'meta_title' => 'Historial de cambios en los tipos de IVA - Países de la UE | EU VAT Info',
-    'meta_desc' => 'Historial completo de los cambios en los tipos de IVA en todos los países de la UE desde 2000. Seguimiento de modificaciones en tipos estándar y reducidos con indicadores de estabilidad por país.',
+    'meta_desc' => 'Todos los cambios de tipos de IVA registrados en la UE: tipos generales, reducidos y de estacionamiento, con fechas, tipo anterior y nuevo y cambios previstos.',
     'subtitle' => 'Seguimiento de todas las modificaciones de tipos de IVA en los países de la UE durante la última década',
     'stability_title' => 'Indicadores de estabilidad por país',
     'stability_desc' => 'Los países con menos cambios en los tipos de IVA indican entornos fiscales más estables',
@@ -457,10 +486,10 @@ return array (
   ),
   'vies_page' => 
   array (
-    'title' => 'Validador de número de IVA VIES — Verificar números de IVA de la UE en línea',
-    'description' => 'Herramienta gratuita de validación de números de IVA VIES. Verifique cualquier número de IVA de la UE al instante usando la base de datos oficial VIES de la Comisión Europea.',
-    'country_title' => 'Validador de número de IVA para :country — Verificar números de IVA de :country a través de VIES',
-    'country_description' => 'Valide números de IVA de :country (:code) al instante usando la base de datos oficial VIES de la UE.',
+    'title' => 'Validar un número de IVA de la UE: consulta VIES gratis',
+    'description' => 'Compruebe cualquier número de IVA de la UE en el registro VIES de la Comisión Europea. Vea si es válido y a quién pertenece. Gratis y sin registro.',
+    'country_title' => 'Validar un número de IVA de :country en VIES gratis',
+    'country_description' => 'Compruebe números de IVA de :country (:code) en el registro oficial VIES de la UE. Vea si el número es válido y a quién pertenece. Gratis y sin registro.',
     'h1' => 'Validador de número de IVA VIES',
     'country_h1' => 'Validador de número de IVA para :country',
     'subtitle' => 'Verifique cualquier número de IVA de la UE usando la base de datos oficial VIES de la Comisión Europea. Los resultados se almacenan en caché para búsquedas más rápidas.',
@@ -523,7 +552,6 @@ return array (
     'format_heading' => 'Formato del número de IVA de :country',
     'format_prefix' => 'Prefijo',
     'format_structure' => 'Estructura',
-    'format_structure_value' => ':prefix seguido del identificador nacional',
     'format_note_gr' => 'Grecia utiliza EL para los números de identificación a efectos del IVA, mientras que GR sigue siendo su código de país ISO.',
     'format_note_default' => 'La parte nacional es una secuencia de dígitos propia de cada país que, en algunos países, también incluye letras.',
     'format_disclaimer' => 'Solo las administraciones tributarias nacionales asignan números de identificación a efectos del IVA. VIES confirma el estado de registro, pero no constituye asesoramiento fiscal ni jurídico.',
@@ -546,6 +574,11 @@ return array (
     'copied' => 'Número de IVA copiado',
     'not_in_vies_title' => 'VIES no cubre :country',
     'not_in_vies_desc' => 'VIES solo valida números de IVA asignados por los Estados miembros de la UE. Compruebe los números de IVA de :country con la administración tributaria nacional. A continuación puede seguir validando cualquier número de IVA de la UE.',
+    'format_legend' => '9 es un dígito, L una letra y X una letra o un dígito. Los demás caracteres se escriben tal cual.',
+    'formats_heading' => 'Formatos de número de IVA en la UE',
+    'formats_intro' => 'Todo número de IVA de la UE empieza por un prefijo de dos letras (EL para Grecia) seguido del número nacional. Abra un país para comprobar sus números.',
+    'formats_th_country' => 'País',
+    'format_mismatch' => 'No parece un número de IVA de :country (:format). Compruebe si hay un error de escritura o valídelo de todos modos.',
   ),
   'validator' => 
   array (
@@ -627,7 +660,7 @@ return array (
   'top_calc' => 
   array (
     'page_title' => 'Cálculos de IVA populares — Calculadora de IVA UE',
-    'page_description' => 'Los cálculos de IVA más comunes en los 27 estados miembros de la UE.',
+    'page_description' => 'IVA sobre importes habituales de 100 € a 10.000 € en cada país de la UE, al tipo general de cada país. Añada o quite el IVA con un clic.',
     'heading' => 'Cálculos de IVA populares',
     'subheading' => 'Acceso rápido a los cálculos de IVA más comunes en los 27 estados miembros de la UE.',
     'vat_on_amount' => 'IVA sobre €:amount',
@@ -648,7 +681,7 @@ return array (
     'disclaimer' => 'Los cálculos son solo informativos.',
     'breadcrumb' => 'Cálculos populares',
     'amount_page_heading' => 'IVA sobre €:amount — Todos los países UE',
-    'amount_page_desc' => 'Calcule el IVA sobre €:amount para los 27 estados miembros de la UE.',
+    'amount_page_desc' => 'IVA sobre €:amount en los :count :member_label de la UE con tipos generales del :min % al :max %: el IVA y el total de cada país, añadido o descontado.',
     'back_to_all' => '← Todos los cálculos populares',
     'matrix_caption' => 'Total con IVA al tipo estándar de cada país. Seleccione una cifra para ver el desglose completo.',
     'amounts_label' => 'Elija un importe',
@@ -656,6 +689,7 @@ return array (
     'removing' => 'IVA incluido en €:amount',
     'net' => 'Neto',
     'member_states' => 'Estados miembros',
+    'amount_meta_title' => 'IVA sobre €:amount en cada país de la UE',
   ),
   'changelog' => 
   array (
@@ -681,8 +715,8 @@ return array (
   'skip_to_content' => 'Saltar al contenido principal',
   'tools' => 
   array (
-    'seo_title' => 'Herramientas y recursos de IVA de la UE: calculadoras, validadores y guías',
-    'seo_description' => 'Herramientas gratuitas de IVA de la UE: calculadora, validador, mapas comparativos de tipos y guías de cumplimiento para los 27 Estados miembros de la UE.',
+    'seo_title' => 'Herramientas de IVA de la UE: calculadora, validador y mapa',
+    'seo_description' => 'Herramientas gratuitas de IVA de la UE: una calculadora para cada país, validación VIES, un mapa de tipos, el historial de tipos y guías para los 27 Estados.',
     'heading' => 'Herramientas y recursos de EU VAT Info',
     'intro_text' => 'Estas son algunas herramientas y recursos del equipo de EU-vat.info para ayudarle a orientarse en el complejo mundo del IVA en la Unión Europea.',
     'calculator_heading' => 'Calculadora de IVA',
@@ -781,7 +815,7 @@ return array (
   array (
     'eyebrow' => 'Comparación de países',
     'title' => 'Tipos de IVA: :left frente a :right',
-    'meta_title' => 'Tipos de IVA de :left frente a :right: tipos, calculadoras e historial',
+    'meta_title' => 'IVA de :left y :right: tipos comparados',
     'meta_description' => 'Compare los tipos de IVA, los tipos reducidos, las monedas, la disponibilidad de VIES y los cambios históricos de :left y :right.',
     'intro' => 'Compare las estructuras de IVA vigentes y acceda a la calculadora, la guía de validación y el historial registrado de cada país.',
     'measure' => 'Concepto',
@@ -834,8 +868,8 @@ return array (
   ),
   'mcp_page' =>
   array (
-    'meta_title' => 'Servidor MCP de IVA de la UE: datos de IVA en directo para asistentes de IA | EU VAT Info',
-    'meta_desc' => 'Servidor MCP remoto y gratuito con tipos de IVA de la UE, cálculos, cambios de tipos y comprobación VIES de números de IVA. Conecte Claude, ChatGPT, VS Code o Cursor en un minuto.',
+    'meta_title' => 'Servidor MCP de IVA de la UE: datos para asistentes de IA',
+    'meta_desc' => 'Servidor MCP gratuito con tipos de IVA de la UE, cálculos, cambios de tipos y consultas VIES. Conecte Claude, ChatGPT, VS Code o Cursor en un minuto.',
     'kicker' => 'Model Context Protocol',
     'title' => 'Servidor MCP de IVA de la UE',
     'lede' => 'Dé a su asistente de IA los tipos de IVA de la UE en directo, cálculos de IVA, los próximos cambios de tipos y la comprobación VIES de números de IVA. Gratis, de solo lectura y sin registro.',
@@ -880,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Tipos de un país',
-        'desc' => 'Tipos actuales, moneda y última actualización de un país.',
+        'desc' => 'Tipos actuales, moneda, formato del número de IVA y última actualización de un país.',
         'prompt' => '¿Cuáles son los tipos de IVA en Austria?',
       ),
       'calculate_vat' =>
@@ -928,7 +962,7 @@ return array (
     'detail_limits' => 'Uso razonable',
     'limits_value' => ':requests solicitudes por minuto y dirección IP, de las cuales hasta :checks pueden ser comprobaciones de números de IVA',
     'detail_data' => 'Datos',
-    'data_value' => 'Tipos de IVA de la Comisión Europea, actualizados a diario',
+    'data_value' => 'Tipos de IVA de la Comisión Europea, actualizados cada semana',
     'detail_discovery' => 'Descubrimiento',
     'server_card' => 'Ficha del servidor',
     'faq_heading' => 'Preguntas',
@@ -939,7 +973,7 @@ return array (
     'faq_3_q' => '¿Es seguro conectarlo?',
     'faq_3_a' => 'Sí. Todas las herramientas son de solo lectura: el servidor solo devuelve datos y cálculos de IVA. No puede ver sus archivos ni actuar en su nombre.',
     'faq_4_q' => '¿Están actualizados los tipos?',
-    'faq_4_a' => 'Los tipos proceden de datos de la Comisión Europea y se actualizan a diario. Cada resultado incluye la fecha de la última actualización del país.',
+    'faq_4_a' => 'Los tipos proceden de datos de la Comisión Europea y se actualizan cada semana. Cada resultado incluye la fecha de la última actualización del país.',
     'faq_5_q' => '¿Las respuestas son asesoramiento fiscal?',
     'faq_5_a' => 'No. El servidor ofrece tipos de referencia. El tratamiento correcto del IVA depende de los bienes o servicios y del cliente, así que compruebe los casos importantes con un asesor fiscal o la administración tributaria nacional.',
   ),

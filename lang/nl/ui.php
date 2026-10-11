@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Elke geregistreerde tariefwijziging',
     'widget_desc' => 'Sluit een calculator in op uw website',
     'validator_short' => 'BTW-validator',
+    'shortcuts' => 'Snelkoppelingen naar tools',
   ),
   'footer' => 
   array (
@@ -67,14 +68,15 @@ return array (
     'donate' => 'Doneren',
     'privacy' => 'Privacybeleid',
     'previous_version' => 'Vorige versie',
+    'older_version' => 'Oudere versie',
     'developers' => 'Ontwikkelaars',
     'mcp_server' => 'MCP-server',
     'data_source_note' => 'Tarieven afkomstig van de Europese Commissie en dagelijks gecontroleerd',
   ),
   'home_page' => 
   array (
-    'title' => 'EU VAT Info - BTW-tarieven calculator & informatie voor alle EU-landen',
-    'meta_desc' => 'Actuele BTW-tarieven voor alle 27 EU-landen. Gratis online calculator, historische gegevens vanaf 2000, meldingen bij tariefwijzigingen en nalevingsgidsen. Dagelijks bijgewerkt.',
+    'title' => 'Btw-calculator en btw-tarieven voor alle 27 EU-landen',
+    'meta_desc' => 'Tel btw op of reken btw terug voor alle 27 EU-landen met de actuele algemene en verlaagde tarieven. Controleer btw-nummers in VIES en volg elke tariefwijziging.',
     'heading' => 'BTW-tarieven in de',
     'heading_accent' => 'Europese Unie',
     'subtitle' => 'Actuele standaard BTW-tarieven, verlaagde tarieven en calculator voor alle 27 EU-lidstaten. Dagelijks bijgewerkt.',
@@ -198,6 +200,29 @@ return array (
     'calculation_reference' => 'Berekeningsoverzicht',
     'formula_add' => 'Netto × :multiplier = bruto',
     'formula_remove' => 'Bruto ÷ :multiplier = netto',
+    'quick_amounts' => 'Veelgebruikte bedragen',
+    'rate_since' => 'Van kracht sinds :date',
+    'rate_since_previous' => 'Van kracht sinds :date, eerder :rate%',
+    'vat_number_format' => 'Opbouw van het btw-nummer',
+    'full_rate_history' => 'Geschiedenis van de btw-tarieven: :country',
+    'formula_vat_part' => 'De btw in een prijs inclusief :rate% btw vindt u door de prijs met :rate te vermenigvuldigen en door :divisor te delen.',
+    'common_amounts_heading' => 'Btw over veelgebruikte bedragen: :country',
+    'common_amounts_intro' => 'Tegen het algemene tarief van :rate%. Open een bedrag voor de volledige berekening, klaar om te delen.',
+    'th_amount' => 'Bedrag',
+    'th_add_vat' => 'Met :rate% btw erbij',
+    'th_remove_vat' => 'Met :rate% btw eraf',
+    'faq_heading' => 'Vragen over btw in :country',
+    'faq_rate_q' => 'Wat is het btw-tarief in :country?',
+    'faq_rate_a' => 'Het algemene btw-tarief in :country is :rate%. Verlaagde tarieven van :reduced gelden voor bepaalde goederen en diensten.',
+    'faq_rate_a_standard_only' => 'Het algemene btw-tarief in :country is :rate%, en :country kent geen verlaagd tarief.',
+    'faq_add_q' => 'Hoe tel ik btw op bij een prijs in :country?',
+    'faq_add_a' => 'Vermenigvuldig de nettoprijs met :multiplier. Bijvoorbeeld: :net plus :rate% btw is :gross.',
+    'faq_remove_q' => 'Hoe reken ik btw terug uit een prijs in :country?',
+    'faq_remove_a' => 'Deel de prijs inclusief btw door :multiplier. Bijvoorbeeld: :gross inclusief :rate% btw is :net exclusief btw.',
+    'faq_changed_q' => 'Wanneer veranderde het btw-tarief in :country voor het laatst?',
+    'faq_changed_a' => 'Het algemene tarief ging op :date van :old% naar :new%.',
+    'faq_number_q' => 'Hoe ziet een btw-nummer uit :country eruit?',
+    'faq_number_a' => 'Btw-nummers uit :country beginnen met :prefix en hebben de opbouw :format, waarbij 9 een cijfer is, L een letter en X een letter of een cijfer. U kunt een nummer in het VIES-register van de EU controleren met onze btw-nummercontrole.',
   ),
   'trust' => 
   array (
@@ -205,6 +230,9 @@ return array (
     'always_free' => 'Altijd gratis',
     'all_27_countries' => 'Alle 27 EU-landen',
     'no_signup_required' => 'Geen aanmelding vereist',
+    'updated' => 'Tarieven bijgewerkt op :date',
+    'source_ec' => 'Bron: Europese Commissie',
+    'source_dataset' => 'Bron: open dataset vat-rates',
   ),
   'map' => 
   array (
@@ -233,12 +261,13 @@ return array (
     'interaction_hint' => 'Beweeg de muis over een land, tik erop of navigeer met Tab om de tarieven te zien. Druk op Enter om de details te openen.',
     'clear_selection' => 'Selectie wissen',
     'table_intro' => 'Dezelfde gegevens als op de kaart, hoogste standaardtarief eerst.',
+    'meta_desc' => 'De algemene btw-tarieven van alle EU-landen op één kaart, met een ranglijst van algemene, verlaagde en superverlaagde tarieven en een calculator per land.',
   ),
   'history' => 
   array (
     'title' => 'Geschiedenis van BTW-tariefwijzigingen',
     'meta_title' => 'Geschiedenis van BTW-tariefwijzigingen - EU-landen | EU VAT Info',
-    'meta_desc' => 'Volledige geschiedenis van BTW-tariefwijzigingen in alle EU-landen vanaf 2000. Volg standaard- en verlaagde tariefwijzigingen met stabiliteitsindicatoren per land.',
+    'meta_desc' => 'Alle geregistreerde btw-tariefwijzigingen in de EU: algemene, verlaagde en parkeertarieven, met data, oud en nieuw tarief, komende wijzigingen en bronnen.',
     'subtitle' => 'Volg alle BTW-tariefwijzigingen in EU-landen van het afgelopen decennium',
     'stability_title' => 'Stabiliteitsindicatoren per land',
     'stability_desc' => 'Landen met minder BTW-tariefwijzigingen duiden op een stabieler fiscaal klimaat',
@@ -457,10 +486,10 @@ return array (
   ),
   'vies_page' => 
   array (
-    'title' => 'VIES BTW-nummervalidator — Verifieer EU BTW-nummers online',
-    'description' => 'Gratis VIES BTW-nummervalidering-tool. Verifieer elk EU BTW-nummer onmiddellijk met behulp van de officiële VIES-database van de Europese Commissie.',
-    'country_title' => 'VIES BTW-nummervalidator :country — Verifieer :country BTW-nummers via VIES',
-    'country_description' => 'Valideer :country (:code) BTW-nummers onmiddellijk met behulp van de officiële VIES-database van de EU.',
+    'title' => 'EU-btw-nummer controleren: gratis VIES-controle',
+    'description' => 'Controleer elk EU-btw-nummer in het VIES-register van de Europese Commissie. Zie of het geldig is en van wie het is. Gratis en zonder registratie.',
+    'country_title' => 'Btw-nummer :country controleren: gratis in VIES',
+    'country_description' => 'Controleer btw-nummers uit :country (:code) in het officiële VIES-register van de EU. Zie of het nummer geldig is en van wie het is. Gratis, zonder account.',
     'h1' => 'VIES BTW-nummervalidator',
     'country_h1' => 'BTW-nummervalidator :country',
     'subtitle' => 'Verifieer elk EU BTW-nummer met behulp van de officiële VIES-database van de Europese Commissie. Resultaten worden in het cachegeheugen opgeslagen voor sneller zoeken.',
@@ -523,7 +552,6 @@ return array (
     'format_heading' => 'Formaat van BTW-nummers uit :country',
     'format_prefix' => 'Voorvoegsel',
     'format_structure' => 'Opbouw',
-    'format_structure_value' => ':prefix gevolgd door het nationale identificatienummer',
     'format_note_gr' => 'Griekenland gebruikt EL voor BTW-identificatienummers, terwijl GR de ISO-landcode blijft.',
     'format_note_default' => 'Het nationale deel is een landspecifieke reeks cijfers en, voor sommige landen, letters.',
     'format_disclaimer' => 'Alleen nationale belastingdiensten geven BTW-identificatienummers uit. VIES bevestigt de registratiestatus, maar is geen fiscaal of juridisch advies.',
@@ -546,6 +574,11 @@ return array (
     'copied' => 'BTW-nummer gekopieerd',
     'not_in_vies_title' => ':country valt niet onder VIES',
     'not_in_vies_desc' => 'VIES valideert alleen BTW-nummers die door EU-lidstaten zijn uitgegeven. Controleer BTW-nummers uit :country bij de nationale belastingdienst. Hieronder kunt u nog steeds elk EU BTW-nummer valideren.',
+    'format_legend' => '9 is een cijfer, L een letter en X een letter of een cijfer. Andere tekens staan er zoals ze geschreven worden.',
+    'formats_heading' => 'Opbouw van btw-nummers in de EU',
+    'formats_intro' => 'Elk EU-btw-nummer begint met een landcode van twee letters (EL voor Griekenland), gevolgd door het nationale nummer. Open een land om de nummers daarvan te controleren.',
+    'formats_th_country' => 'Land',
+    'format_mismatch' => 'Dit lijkt geen btw-nummer uit :country (:format). Controleer op een typefout, of laat het nummer toch controleren.',
   ),
   'validator' => 
   array (
@@ -627,7 +660,7 @@ return array (
   'top_calc' => 
   array (
     'page_title' => 'Populaire BTW-berekeningen — EU BTW-calculator',
-    'page_description' => 'De meest voorkomende BTW-berekeningen in alle 27 EU-lidstaten.',
+    'page_description' => 'Btw over veelgebruikte bedragen van € 100 tot € 10.000 in elk EU-land tegen het algemene tarief van dat land. Tel btw op of reken het terug met één klik.',
     'heading' => 'Populaire BTW-berekeningen',
     'subheading' => 'Snelle toegang tot de meest voorkomende BTW-berekeningen.',
     'vat_on_amount' => 'BTW over €:amount',
@@ -648,7 +681,7 @@ return array (
     'disclaimer' => 'Berekeningen zijn alleen ter informatie.',
     'breadcrumb' => 'Populaire berekeningen',
     'amount_page_heading' => 'BTW over €:amount — Alle EU-landen',
-    'amount_page_desc' => 'Bereken BTW over €:amount voor alle 27 EU-lidstaten.',
+    'amount_page_desc' => 'Btw over €:amount in alle :count EU-:member_label tegen algemene tarieven van :min% tot :max%: de btw en het totaal per land, opgeteld of teruggerekend.',
     'back_to_all' => '← Alle populaire berekeningen',
     'matrix_caption' => 'Totaal inclusief BTW tegen het standaardtarief van elk land. Selecteer een bedrag voor de volledige berekening.',
     'amounts_label' => 'Kies een bedrag',
@@ -656,6 +689,7 @@ return array (
     'removing' => 'BTW inbegrepen in €:amount',
     'net' => 'Netto',
     'member_states' => 'lidstaten',
+    'amount_meta_title' => 'Btw over €:amount in alle 27 EU-landen',
   ),
   'changelog' => 
   array (
@@ -681,8 +715,8 @@ return array (
   'skip_to_content' => 'Direct naar de hoofdinhoud',
   'tools' => 
   array (
-    'seo_title' => 'EU BTW-tools en bronnen - calculators, validators en gidsen',
-    'seo_description' => 'Gratis EU BTW-tools: calculator, validator, kaarten om tarieven te vergelijken en nalevingsgidsen voor alle 27 EU-lidstaten.',
+    'seo_title' => 'EU-btw-tools: calculator, nummercontrole, kaart en gidsen',
+    'seo_description' => 'Gratis EU-btw-tools: een btw-calculator per land, VIES-controle van btw-nummers, een tariefkaart, de tariefgeschiedenis en gidsen voor alle 27 lidstaten.',
     'heading' => 'Tools en bronnen van EU VAT Info',
     'intro_text' => 'Hier vindt u tools en bronnen van het team van EU-vat.info die u helpen de complexe wereld van de BTW in de Europese Unie te doorgronden.',
     'calculator_heading' => 'BTW-calculator',
@@ -781,7 +815,7 @@ return array (
   array (
     'eyebrow' => 'Landenvergelijking',
     'title' => 'BTW-tarieven :left vs :right',
-    'meta_title' => 'BTW-tarieven :left vs :right: tarieven, calculators en geschiedenis',
+    'meta_title' => 'Btw in :left en :right: tarieven vergeleken',
     'meta_description' => 'Vergelijk de BTW-tarieven, verlaagde tarieven, valuta, VIES-beschikbaarheid en historische wijzigingen van :left en :right.',
     'intro' => 'Vergelijk de huidige BTW-structuren en ga verder naar de calculator, de validatiegids en de geregistreerde geschiedenis van elk land.',
     'measure' => 'Kenmerk',
@@ -834,8 +868,8 @@ return array (
   ),
   'mcp_page' =>
   array (
-    'meta_title' => 'EU-btw-MCP-server: actuele btw-gegevens voor AI-assistenten | EU VAT Info',
-    'meta_desc' => 'Gratis externe MCP-server met EU-btw-tarieven, berekeningen, tariefwijzigingen en VIES-controle van btw-nummers. Verbind Claude, ChatGPT, VS Code of Cursor in een minuut.',
+    'meta_title' => 'EU-btw MCP-server: btw-gegevens voor AI-assistenten',
+    'meta_desc' => 'Gratis MCP-server met EU-btw-tarieven, berekeningen, tariefwijzigingen en VIES-controles. Koppel Claude, ChatGPT, VS Code of Cursor binnen een minuut.',
     'kicker' => 'Model Context Protocol',
     'title' => 'EU-btw-MCP-server',
     'lede' => 'Geef uw AI-assistent actuele EU-btw-tarieven, btw-berekeningen, komende tariefwijzigingen en VIES-controles van btw-nummers. Gratis, alleen-lezen en zonder registratie.',
@@ -880,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Tarieven van één land',
-        'desc' => 'Actuele tarieven, valuta en laatste update voor één land.',
+        'desc' => 'Actuele tarieven, valuta, notatie van het btw-nummer en laatste update voor één land.',
         'prompt' => 'Wat zijn de btw-tarieven in Oostenrijk?',
       ),
       'calculate_vat' =>
@@ -928,7 +962,7 @@ return array (
     'detail_limits' => 'Redelijk gebruik',
     'limits_value' => ':requests verzoeken per minuut per IP-adres, waarvan maximaal :checks btw-nummercontroles',
     'detail_data' => 'Gegevens',
-    'data_value' => 'Btw-tarieven van de Europese Commissie, dagelijks bijgewerkt',
+    'data_value' => 'Btw-tarieven van de Europese Commissie, wekelijks bijgewerkt',
     'detail_discovery' => 'Vindbaarheid',
     'server_card' => 'Serverkaart',
     'faq_heading' => 'Vragen',
@@ -939,7 +973,7 @@ return array (
     'faq_3_q' => 'Is verbinden veilig?',
     'faq_3_a' => 'Ja. Alle tools zijn alleen-lezen: de server geeft alleen btw-gegevens en berekeningen terug. Hij kan uw bestanden niet zien en niet namens u handelen.',
     'faq_4_q' => 'Hoe actueel zijn de tarieven?',
-    'faq_4_a' => 'De tarieven komen uit gegevens van de Europese Commissie en worden dagelijks bijgewerkt. Elk resultaat vermeldt wanneer het land voor het laatst is bijgewerkt.',
+    'faq_4_a' => 'De tarieven komen uit gegevens van de Europese Commissie en worden wekelijks bijgewerkt. Elk resultaat vermeldt wanneer het land voor het laatst is bijgewerkt.',
     'faq_5_q' => 'Zijn de antwoorden belastingadvies?',
     'faq_5_a' => 'Nee. De server geeft referentietarieven. De juiste btw-behandeling hangt af van de goederen of diensten en van de klant, dus controleer belangrijke gevallen bij een belastingadviseur of de nationale belastingdienst.',
   ),

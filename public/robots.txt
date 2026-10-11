@@ -8,7 +8,7 @@ Disallow: /admin/
 Disallow: /filament/
 Disallow: /vat-change-alerts/unsubscribe/
 
-# AI crawlers and assistants are welcome. /v1/ is a frozen archive whose rates are out of date.
+# AI crawlers and assistants are welcome. /v1/ and /v2/ are frozen archives whose rates are out of date.
 User-agent: GPTBot
 User-agent: OAI-SearchBot
 User-agent: ChatGPT-User
@@ -25,6 +25,7 @@ Disallow: /admin/
 Disallow: /filament/
 Disallow: /vat-change-alerts/unsubscribe/
 Disallow: /v1/
+Disallow: /v2/
 
 User-agent: MJ12bot
 Disallow: /

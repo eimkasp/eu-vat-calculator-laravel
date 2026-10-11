@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\TopCalculations;
 use App\Models\Country;
 
 function indexingCountry(array $overrides = []): Country
@@ -104,4 +105,29 @@ it('serves canonical calculation URLs without redirecting', function () {
     indexingCountry();
 
     $this->get('/vat-calculation/germany/1000.5/19/exclude')->assertOk();
+});
+
+it('lists exactly the indexable top calculations in their own sitemap section', function () {
+    indexingCountry();
+    indexingCountry(['name' => 'Switzerland', 'slug' => 'switzerland', 'iso_code' => 'CH', 'standard_rate' => 8.1, 'is_eu_member' => false]);
+
+    $this->get('/sitemap.xml')->assertOk()->assertSee('https://vat.businesspress.io/sitemaps/calculations.xml', false);
+
+    $xml = $this->get('/sitemaps/calculations.xml')->assertOk()->getContent();
+    preg_match_all('#<loc>https://vat\.businesspress\.io([^<]*)</loc>#', $xml, $locs);
+    $english = array_values(array_filter($locs[1], fn (string $path) => str_starts_with($path, '/vat-calculation/')));
+
+    expect($locs[1])->toHaveCount(count(TopCalculations::AMOUNTS) * 2 * count(config('translation.supported_languages')))
+        ->and($english)->toHaveCount(count(TopCalculations::AMOUNTS) * 2)
+        ->and($english)->toContain('/vat-calculation/germany/100/19/exclude', '/vat-calculation/germany/10000/19/include')
+        ->and($xml)->not->toContain('switzerland')
+        ->and($xml)->not->toContain('xhtml:link');
+
+    foreach (['/vat-calculation/germany/100/19/exclude', '/de/vat-calculation/germany/2500/19/include'] as $path) {
+        expect($locs[1])->toContain($path);
+        $this->get($path)
+            ->assertOk()
+            ->assertSee('<meta name="robots" content="index, follow">', false)
+            ->assertSee('<link rel="canonical" href="https://vat.businesspress.io'.$path.'">', false);
+    }
 });

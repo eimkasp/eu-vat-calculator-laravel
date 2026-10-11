@@ -9,7 +9,7 @@
     ];
 @endphp
 
-<nav class="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-surface pb-[env(safe-area-inset-bottom)] md:hidden" aria-label="{{ __('ui.nav.mobile') }}">
+<nav class="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-surface pb-[env(safe-area-inset-bottom)] md:hidden" aria-label="{{ __('ui.nav.shortcuts') }}">
     <div class="mx-auto grid h-16 max-w-lg grid-cols-5">
         @foreach($items as $item)
             <a href="{{ $item['url'] }}" class="app-tab" @if($item['active']) aria-current="page" @endif>

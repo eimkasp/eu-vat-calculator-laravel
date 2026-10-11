@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Wszystkie zarejestrowane zmiany stawek',
     'widget_desc' => 'Osadź kalkulator na swojej stronie',
     'validator_short' => 'Walidator VAT',
+    'shortcuts' => 'Skróty do narzędzi',
   ),
   'footer' => 
   array (
@@ -67,14 +68,15 @@ return array (
     'donate' => 'Wesprzyj projekt',
     'privacy' => 'Polityka prywatności',
     'previous_version' => 'Poprzednia wersja',
+    'older_version' => 'Starsza wersja',
     'developers' => 'Dla programistów',
     'mcp_server' => 'Serwer MCP',
     'data_source_note' => 'Stawki pochodzą od Komisji Europejskiej i są codziennie weryfikowane',
   ),
   'home_page' => 
   array (
-    'title' => 'EU VAT Info - Kalkulator stawek VAT i informacje dla wszystkich krajów UE',
-    'meta_desc' => 'Aktualne stawki VAT dla wszystkich 27 krajów UE. Darmowy kalkulator online, dane historyczne od 2000 roku, alerty o zmianach stawek i przewodniki po zgodności. Aktualizowane codziennie.',
+    'title' => 'Kalkulator VAT i stawki VAT dla 27 krajów UE',
+    'meta_desc' => 'Dolicz lub odlicz VAT we wszystkich 27 krajach UE według aktualnych stawek podstawowych i obniżonych. Sprawdzaj numery VAT w VIES i śledź każdą zmianę stawek.',
     'heading' => 'Stawki VAT w',
     'heading_accent' => 'Unii Europejskiej',
     'subtitle' => 'Aktualne standardowe stawki VAT, stawki obniżone i kalkulator dla wszystkich 27 państw członkowskich UE. Aktualizowane codziennie.',
@@ -198,6 +200,29 @@ return array (
     'calculation_reference' => 'Sposób obliczania',
     'formula_add' => 'Netto × :multiplier = brutto',
     'formula_remove' => 'Brutto ÷ :multiplier = netto',
+    'quick_amounts' => 'Typowe kwoty',
+    'rate_since' => 'Obowiązuje od :date',
+    'rate_since_previous' => 'Obowiązuje od :date, wcześniej :rate%',
+    'vat_number_format' => 'Format numeru VAT',
+    'full_rate_history' => 'Historia stawek VAT: :country',
+    'formula_vat_part' => 'Aby obliczyć VAT zawarty w cenie z :rate% VAT, pomnóż cenę przez :rate i podziel przez :divisor.',
+    'common_amounts_heading' => 'VAT od typowych kwot: :country',
+    'common_amounts_intro' => 'Według stawki podstawowej :rate%. Otwórz kwotę, aby zobaczyć pełne wyliczenie gotowe do udostępnienia.',
+    'th_amount' => 'Kwota',
+    'th_add_vat' => 'Po doliczeniu :rate% VAT',
+    'th_remove_vat' => 'Po odliczeniu :rate% VAT',
+    'faq_heading' => 'Pytania o VAT: :country',
+    'faq_rate_q' => 'Jaka jest stawka VAT w kraju :country?',
+    'faq_rate_a' => 'Podstawowa stawka VAT w kraju :country wynosi :rate%. Stawki obniżone :reduced dotyczą wybranych towarów i usług.',
+    'faq_rate_a_standard_only' => 'Podstawowa stawka VAT w kraju :country wynosi :rate%, a :country nie stosuje stawki obniżonej.',
+    'faq_add_q' => 'Jak doliczyć VAT do ceny w kraju :country?',
+    'faq_add_a' => 'Pomnóż cenę netto przez :multiplier. Na przykład :net plus :rate% VAT to :gross.',
+    'faq_remove_q' => 'Jak odliczyć VAT od ceny w kraju :country?',
+    'faq_remove_a' => 'Podziel cenę brutto przez :multiplier. Na przykład :gross z :rate% VAT to :net netto.',
+    'faq_changed_q' => 'Kiedy ostatnio zmieniła się stawka VAT w kraju :country?',
+    'faq_changed_a' => 'Stawka podstawowa zmieniła się z :old% na :new% w dniu :date.',
+    'faq_number_q' => 'Jak wygląda numer VAT z kraju :country?',
+    'faq_number_a' => 'Numery VAT z kraju :country zaczynają się od :prefix i mają format :format, gdzie 9 to cyfra, L to litera, a X to litera lub cyfra. Numer możesz sprawdzić w rejestrze VIES UE za pomocą naszego narzędzia do weryfikacji numerów VAT.',
   ),
   'trust' => 
   array (
@@ -205,6 +230,9 @@ return array (
     'always_free' => 'Zawsze bezpłatnie',
     'all_27_countries' => 'Wszystkie 27 krajów UE',
     'no_signup_required' => 'Bez rejestracji',
+    'updated' => 'Stawki zaktualizowane :date',
+    'source_ec' => 'Źródło: Komisja Europejska',
+    'source_dataset' => 'Źródło: otwarty zbiór danych vat-rates',
   ),
   'map' => 
   array (
@@ -233,12 +261,13 @@ return array (
     'interaction_hint' => 'Najedź kursorem, dotknij lub przechodź między krajami klawiszem Tab, aby zobaczyć ich stawki. Naciśnij Enter, aby otworzyć szczegóły.',
     'clear_selection' => 'Wyczyść wybór',
     'table_intro' => 'Te same dane co na mapie, od najwyższej stawki standardowej.',
+    'meta_desc' => 'Podstawowe stawki VAT wszystkich krajów UE na jednej mapie, z rankingiem stawek podstawowych, obniżonych i superobniżonych oraz kalkulatorem dla każdego kraju.',
   ),
   'history' => 
   array (
     'title' => 'Historia zmian stawek VAT',
     'meta_title' => 'Historia zmian stawek VAT - Kraje UE | EU VAT Info',
-    'meta_desc' => 'Pełna historia zmian stawek VAT we wszystkich krajach UE od 2000 roku. Śledź zmiany stawek standardowych i obniżonych ze wskaźnikami stabilności krajów.',
+    'meta_desc' => 'Wszystkie odnotowane zmiany stawek VAT w UE: stawki podstawowe, obniżone i parkingowe z datami, starą i nową stawką, planowanymi zmianami i źródłami.',
     'subtitle' => 'Śledź wszystkie zmiany stawek VAT w krajach UE na przestrzeni ostatniej dekady',
     'stability_title' => 'Wskaźniki stabilności krajów',
     'stability_desc' => 'Kraje z mniejszą liczbą zmian stawek VAT wskazują na bardziej stabilne środowisko podatkowe',
@@ -457,10 +486,10 @@ return array (
   ),
   'vies_page' => 
   array (
-    'title' => 'VIES Validator numeru VAT — Weryfikuj numery VAT UE online',
-    'description' => 'Bezpłatne narzędzie weryfikacji numeru VAT VIES. Weryfikuj dowolny numer VAT UE natychmiast za pomocą oficjalnej bazy danych VIES Komisji Europejskiej.',
-    'country_title' => 'VIES Validator numeru VAT :country — Weryfikuj numery VAT :country przez VIES',
-    'country_description' => 'Weryfikuj numery VAT :country (:code) natychmiast za pomocą oficjalnej bazy danych VIES UE.',
+    'title' => 'Sprawdź numer VAT UE: bezpłatna weryfikacja w VIES',
+    'description' => 'Sprawdź dowolny numer VAT z UE w rejestrze VIES Komisji Europejskiej. Zobacz, czy jest ważny i do kogo należy. Bezpłatnie i bez rejestracji.',
+    'country_title' => 'Sprawdź numer VAT, :country: bezpłatnie w VIES',
+    'country_description' => 'Sprawdź numery VAT z kraju :country (:code) w oficjalnym rejestrze VIES UE. Zobacz, czy numer jest ważny i do kogo należy. Bezpłatnie i bez rejestracji.',
     'h1' => 'VIES Validator numeru VAT',
     'country_h1' => 'Validator numeru VAT :country',
     'subtitle' => 'Weryfikuj dowolny numer VAT UE za pomocą oficjalnej bazy danych VIES Komisji Europejskiej. Wyniki są buforowane w celu szybszych wyszukiwań.',
@@ -523,7 +552,6 @@ return array (
     'format_heading' => 'Format numeru VAT – :country',
     'format_prefix' => 'Prefiks',
     'format_structure' => 'Struktura',
-    'format_structure_value' => ':prefix, a po nim krajowy identyfikator',
     'format_note_gr' => 'Grecja stosuje prefiks EL w numerach identyfikacyjnych VAT, natomiast GR pozostaje jej kodem kraju ISO.',
     'format_note_default' => 'Część krajowa to specyficzny dla danego kraju ciąg cyfr, a w niektórych krajach także liter.',
     'format_disclaimer' => 'Numery identyfikacyjne VAT nadają wyłącznie krajowe administracje podatkowe. VIES potwierdza status rejestracji, ale nie stanowi porady podatkowej ani prawnej.',
@@ -546,6 +574,11 @@ return array (
     'copied' => 'Skopiowano numer VAT',
     'not_in_vies_title' => 'VIES nie obejmuje kraju :country',
     'not_in_vies_desc' => 'VIES weryfikuje wyłącznie numery VAT nadane przez państwa członkowskie UE. Numery VAT z kraju :country należy sprawdzać w krajowej administracji podatkowej. Poniżej nadal można zweryfikować dowolny numer VAT z UE.',
+    'format_legend' => '9 to cyfra, L to litera, a X to litera lub cyfra. Pozostałe znaki zapisuje się tak, jak podano.',
+    'formats_heading' => 'Formaty numerów VAT w UE',
+    'formats_intro' => 'Każdy numer VAT w UE zaczyna się od dwuliterowego prefiksu (EL dla Grecji), po którym następuje numer krajowy. Otwórz kraj, aby sprawdzić jego numery.',
+    'formats_th_country' => 'Kraj',
+    'format_mismatch' => 'To nie wygląda na numer VAT z kraju :country (:format). Sprawdź, czy nie ma literówki, albo zweryfikuj go mimo to.',
   ),
   'validator' => 
   array (
@@ -627,7 +660,7 @@ return array (
   'top_calc' => 
   array (
     'page_title' => 'Popularne obliczenia VAT — Kalkulator VAT UE',
-    'page_description' => 'Najczęstsze obliczenia VAT we wszystkich 27 krajach UE.',
+    'page_description' => 'VAT od typowych kwot od 100 € do 10 000 € w każdym kraju UE według jego stawki podstawowej. Dolicz lub odlicz VAT jednym kliknięciem.',
     'heading' => 'Popularne obliczenia VAT',
     'subheading' => 'Szybki dostęp do najczęstszych obliczeń VAT.',
     'vat_on_amount' => 'VAT od €:amount',
@@ -648,14 +681,15 @@ return array (
     'disclaimer' => 'Obliczenia mają charakter informacyjny.',
     'breadcrumb' => 'Popularne obliczenia',
     'amount_page_heading' => 'VAT od €:amount — Wszystkie kraje UE',
-    'amount_page_desc' => 'Oblicz VAT od €:amount dla wszystkich 27 krajów UE.',
+    'amount_page_desc' => 'VAT od €:amount dla wszystkich :count :member_label UE według stawek podstawowych od :min% do :max%: VAT i kwota łączna dla każdego kraju.',
     'back_to_all' => '← Wszystkie popularne obliczenia',
     'matrix_caption' => 'Kwota z VAT według stawki standardowej każdego kraju. Wybierz wartość, aby zobaczyć pełne wyliczenie.',
     'amounts_label' => 'Wybierz kwotę',
     'adding' => 'VAT doliczony do €:amount',
     'removing' => 'VAT zawarty w €:amount',
     'net' => 'Netto',
-    'member_states' => 'państwa członkowskie',
+    'member_states' => 'państw członkowskich',
+    'amount_meta_title' => 'VAT od €:amount we wszystkich krajach UE',
   ),
   'changelog' => 
   array (
@@ -681,8 +715,8 @@ return array (
   'skip_to_content' => 'Przejdź do głównej treści',
   'tools' => 
   array (
-    'seo_title' => 'Narzędzia i zasoby VAT UE - kalkulatory, walidatory i przewodniki',
-    'seo_description' => 'Bezpłatne narzędzia VAT UE: kalkulator, walidator, mapy porównawcze stawek i przewodniki po zgodności dla wszystkich 27 państw członkowskich UE.',
+    'seo_title' => 'Narzędzia VAT UE: kalkulator, weryfikacja, mapa i poradniki',
+    'seo_description' => 'Bezpłatne narzędzia VAT UE: kalkulator dla każdego kraju, weryfikacja numerów VAT w VIES, mapa stawek, historia stawek i poradniki dla 27 państw.',
     'heading' => 'Narzędzia i zasoby EU VAT Info',
     'intro_text' => 'Oto narzędzia i zasoby przygotowane przez zespół EU-vat.info, które pomogą poruszać się po złożonym świecie VAT w Unii Europejskiej.',
     'calculator_heading' => 'Kalkulator VAT',
@@ -781,7 +815,7 @@ return array (
   array (
     'eyebrow' => 'Porównanie krajów',
     'title' => 'Stawki VAT: :left vs :right',
-    'meta_title' => 'Stawki VAT :left vs :right: stawki, kalkulatory i historia',
+    'meta_title' => 'VAT :left i :right: porównanie stawek',
     'meta_description' => 'Porównaj :left i :right: stawki VAT, stawki obniżone, waluty, dostępność VIES i historię zmian.',
     'intro' => 'Porównaj obecne struktury stawek VAT i przejdź do kalkulatora, przewodnika po weryfikacji oraz historii zmian każdego z krajów.',
     'measure' => 'Parametr',
@@ -834,8 +868,8 @@ return array (
   ),
   'mcp_page' =>
   array (
-    'meta_title' => 'Serwer MCP VAT UE: aktualne dane o VAT dla asystentów AI | EU VAT Info',
-    'meta_desc' => 'Bezpłatny zdalny serwer MCP ze stawkami VAT w UE, obliczeniami, zmianami stawek i weryfikacją numerów VAT w VIES. Połącz Claude, ChatGPT, VS Code lub Cursor w minutę.',
+    'meta_title' => 'Serwer MCP VAT UE: dane VAT dla asystentów AI',
+    'meta_desc' => 'Bezpłatny serwer MCP ze stawkami VAT w UE, obliczeniami, zmianami stawek i weryfikacją VIES. Połącz Claude, ChatGPT, VS Code lub Cursor w minutę.',
     'kicker' => 'Model Context Protocol',
     'title' => 'Serwer MCP VAT UE',
     'lede' => 'Daj swojemu asystentowi AI aktualne stawki VAT w UE, obliczenia VAT, nadchodzące zmiany stawek i weryfikację numerów VAT w VIES. Bezpłatnie, tylko do odczytu i bez rejestracji.',
@@ -880,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Stawki jednego kraju',
-        'desc' => 'Aktualne stawki, waluta i data ostatniej aktualizacji dla jednego kraju.',
+        'desc' => 'Aktualne stawki, waluta, format numeru VAT i data ostatniej aktualizacji dla jednego kraju.',
         'prompt' => 'Jakie są stawki VAT w Austrii?',
       ),
       'calculate_vat' =>
@@ -928,7 +962,7 @@ return array (
     'detail_limits' => 'Uczciwe korzystanie',
     'limits_value' => ':requests żądań na minutę z jednego adresu IP, w tym do :checks weryfikacji numerów VAT',
     'detail_data' => 'Dane',
-    'data_value' => 'Stawki VAT Komisji Europejskiej, aktualizowane codziennie',
+    'data_value' => 'Stawki VAT Komisji Europejskiej, aktualizowane co tydzień',
     'detail_discovery' => 'Wykrywanie',
     'server_card' => 'Karta serwera',
     'faq_heading' => 'Pytania',
@@ -939,7 +973,7 @@ return array (
     'faq_3_q' => 'Czy połączenie jest bezpieczne?',
     'faq_3_a' => 'Tak. Wszystkie narzędzia działają tylko do odczytu: serwer zwraca wyłącznie dane i obliczenia VAT. Nie widzi Twoich plików i nie działa w Twoim imieniu.',
     'faq_4_q' => 'Jak aktualne są stawki?',
-    'faq_4_a' => 'Stawki pochodzą z danych Komisji Europejskiej i są aktualizowane codziennie. Każdy wynik zawiera czas ostatniej aktualizacji danych kraju.',
+    'faq_4_a' => 'Stawki pochodzą z danych Komisji Europejskiej i są aktualizowane co tydzień. Każdy wynik zawiera czas ostatniej aktualizacji danych kraju.',
     'faq_5_q' => 'Czy odpowiedzi są poradą podatkową?',
     'faq_5_a' => 'Nie. Serwer podaje stawki referencyjne. Właściwe traktowanie VAT zależy od towarów lub usług i od klienta, dlatego ważne przypadki sprawdź z doradcą podatkowym lub krajową administracją skarbową.',
   ),

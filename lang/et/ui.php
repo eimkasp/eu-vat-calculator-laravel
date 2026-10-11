@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Kõik registreeritud määramuudatused',
     'widget_desc' => 'Manustage kalkulaator oma veebisaidile',
     'validator_short' => 'Käibemaksunumbri kontroll',
+    'shortcuts' => 'Tööriistade otseteed',
   ),
   'footer' => 
   array (
@@ -67,14 +68,15 @@ return array (
     'donate' => 'Anneta',
     'privacy' => 'Privaatsuspoliitika',
     'previous_version' => 'Eelmine versioon',
+    'older_version' => 'Vanem versioon',
     'developers' => 'Arendajatele',
     'mcp_server' => 'MCP server',
     'data_source_note' => 'Määrad pärinevad Euroopa Komisjonilt ja neid kontrollitakse iga päev',
   ),
   'home_page' => 
   array (
-    'title' => 'EL käibemaks - Käibemaksumäärade kalkulaator ja teave kõigi EL riikide kohta',
-    'meta_desc' => 'Kehtivad käibemaksumäärad kõigis 27 EL riigis. Tasuta veebikal­kulaator, ajaloolised andmed alates aastast 2000, määrade muutuste teavitused ja vastavusjuhendid. Uuendatakse iga päev.',
+    'title' => 'Käibemaksukalkulaator ja määrad kõigis 27 ELi riigis',
+    'meta_desc' => 'Lisage või eemaldage käibemaks kõigis 27 ELi riigis kehtivate üld- ja vähendatud määradega. Kontrollige KMKR-numbreid VIES-is ja jälgige määrade muutusi.',
     'heading' => 'Käibemaksumäärad',
     'heading_accent' => 'Euroopa Liidus',
     'subtitle' => 'Kehtivad tavamäärad, vähendatud käibemaksumäärad ja kalkulaator kõigi 27 EL liikmesriigi jaoks. Uuendatakse iga päev.',
@@ -198,6 +200,29 @@ return array (
     'calculation_reference' => 'Arvutusvalemid',
     'formula_add' => 'Neto × :multiplier = bruto',
     'formula_remove' => 'Bruto ÷ :multiplier = neto',
+    'quick_amounts' => 'Levinud summad',
+    'rate_since' => 'Kehtib alates :date',
+    'rate_since_previous' => 'Kehtib alates :date, varem :rate%',
+    'vat_number_format' => 'KMKR-numbri vorming',
+    'full_rate_history' => 'Käibemaksumäärade ajalugu: :country',
+    'formula_vat_part' => 'Hinnas sisalduva :rate% käibemaksu saamiseks korrutage hind arvuga :rate ja jagage arvuga :divisor.',
+    'common_amounts_heading' => 'Käibemaks levinud summadelt: :country',
+    'common_amounts_intro' => 'Üldmääraga :rate%. Avage summa, et näha täielikku arvutust, mida saab jagada.',
+    'th_amount' => 'Summa',
+    'th_add_vat' => ':rate% käibemaksuga',
+    'th_remove_vat' => ':rate% käibemaksuta',
+    'faq_heading' => 'Küsimused käibemaksu kohta: :country',
+    'faq_rate_q' => 'Kui suur on käibemaks riigis :country?',
+    'faq_rate_a' => 'Riigi :country käibemaksu üldmäär on :rate%. Vähendatud määrad :reduced kehtivad valitud kaupadele ja teenustele.',
+    'faq_rate_a_standard_only' => 'Riigi :country käibemaksu üldmäär on :rate% ja riigil :country vähendatud määra ei ole.',
+    'faq_add_q' => 'Kuidas lisada käibemaks hinnale riigis :country?',
+    'faq_add_a' => 'Korrutage netohind arvuga :multiplier. Näiteks :net pluss :rate% käibemaksu on :gross.',
+    'faq_remove_q' => 'Kuidas eemaldada käibemaks hinnast riigis :country?',
+    'faq_remove_a' => 'Jagage käibemaksuga hind arvuga :multiplier. Näiteks :gross koos :rate% käibemaksuga on ilma käibemaksuta :net.',
+    'faq_changed_q' => 'Millal muutus käibemaksumäär riigis :country viimati?',
+    'faq_changed_a' => 'Üldmäär muutus :old%-lt :new%-le kuupäeval :date.',
+    'faq_number_q' => 'Milline on riigi :country KMKR-number?',
+    'faq_number_a' => 'Riigi :country KMKR-numbrid algavad eesliitega :prefix ja on vormingus :format, kus 9 on number, L täht ja X täht või number. Numbrit saate ELi VIES-registris kontrollida meie KMKR-numbri kontrolliga.',
   ),
   'trust' => 
   array (
@@ -205,6 +230,9 @@ return array (
     'always_free' => 'Alati tasuta',
     'all_27_countries' => 'Kõik 27 EL-i riiki',
     'no_signup_required' => 'Registreerimine pole vajalik',
+    'updated' => 'Määrad uuendatud :date',
+    'source_ec' => 'Allikas: Euroopa Komisjon',
+    'source_dataset' => 'Allikas: avatud andmestik vat-rates',
   ),
   'map' => 
   array (
@@ -233,12 +261,13 @@ return array (
     'interaction_hint' => 'Määrade nägemiseks viige kursor riigi kohale, puudutage riiki või liikuge riikide vahel tabeldusklahviga. Üksikasjade avamiseks vajutage Enter.',
     'clear_selection' => 'Tühista valik',
     'table_intro' => 'Samad andmed mis kaardil, kõrgeim tavamäär eespool.',
+    'meta_desc' => 'Kõigi ELi riikide käibemaksu üldmäärad ühel kaardil koos üld-, vähendatud ja ülivähendatud määrade pingerea ning iga riigi kalkulaatoriga.',
   ),
   'history' => 
   array (
     'title' => 'Käibemaksumäärade muutuste ajalugu',
     'meta_title' => 'Käibemaksumäärade muutuste ajalugu - EL riigid | EL käibemaks',
-    'meta_desc' => 'Täielik käibemaksumäärade muutuste ajalugu kõigis EL riikides alates aastast 2000. Jälgige tavamäärade ja vähendatud määrade muutusi stabiilsusnäitajatega.',
+    'meta_desc' => 'Kõik registreeritud käibemaksumäärade muutused ELis: üld-, vähendatud ja parkimismäärad kuupäevade, vana ja uue määra, tulevaste muutuste ja allikatega.',
     'subtitle' => 'Jälgige kõiki käibemaksumäärade muutusi EL riikides viimase kümnendi jooksul',
     'stability_title' => 'Riikide stabiilsusnäitajad',
     'stability_desc' => 'Vähemate käibemaksumäärade muutustega riikides on stabiilsem maksukeskkond',
@@ -457,10 +486,10 @@ return array (
   ),
   'vies_page' => 
   array (
-    'title' => 'VIES käibemaksu numbri valideerija — Kinnitage EL käibemaksu numbreid veebis',
-    'description' => 'Tasuta VIES käibemaksu numbri valideerimistööriist. Kinnitage mis tahes EL käibemaksu number koheselt, kasutades Euroopa Komisjoni ametlikku VIES andmebaasi.',
-    'country_title' => 'VIES käibemaksu numbri valideerija :country jaoks — Kinnitage :country käibemaksu numbreid VIES-i kaudu',
-    'country_description' => 'KinnitAge :country (:code) käibemaksu numbreid koheselt, kasutades EL ametlikku VIES andmebaasi.',
+    'title' => 'ELi KMKR-numbri kontroll: tasuta päring VIES-is',
+    'description' => 'Kontrollige mis tahes ELi KMKR-numbrit Euroopa Komisjoni VIES-registris. Näete, kas number kehtib ja kellele see kuulub. Tasuta, registreerimata.',
+    'country_title' => 'KMKR-numbri kontroll, :country: tasuta VIES-is',
+    'country_description' => 'Kontrollige riigi :country (:code) KMKR-numbreid ELi ametlikus VIES-registris. Näete, kas number kehtib ja kellele see kuulub. Tasuta, registreerimata.',
     'h1' => 'VIES käibemaksu numbri valideerija',
     'country_h1' => 'Käibemaksu numbri valideerija :country jaoks',
     'subtitle' => 'Kinnitage mis tahes EL käibemaksu number, kasutades Euroopa Komisjoni ametlikku VIES andmebaasi. Tulemused on kiiremaks otsinguteks vahemälus.',
@@ -523,7 +552,6 @@ return array (
     'format_heading' => ':country käibemaksunumbri vorming',
     'format_prefix' => 'Eesliide',
     'format_structure' => 'Struktuur',
-    'format_structure_value' => ':prefix, millele järgneb riiklik tunnus',
     'format_note_gr' => 'Kreeka kasutab käibemaksukohustuslase registreerimisnumbrites eesliidet EL, kuigi riigi ISO-kood on endiselt GR.',
     'format_note_default' => 'Riiklik osa on riigipõhine numbrijada, mis mõnes riigis sisaldab ka tähti.',
     'format_disclaimer' => 'Käibemaksukohustuslase registreerimisnumbreid väljastavad ainult riiklikud maksuhaldurid. VIES kinnitab registreeringu olekut, kuid ei ole maksu- ega õigusnõu.',
@@ -546,6 +574,11 @@ return array (
     'copied' => 'Käibemaksunumber kopeeritud',
     'not_in_vies_title' => 'VIES ei hõlma riiki :country',
     'not_in_vies_desc' => 'VIES kontrollib ainult EL-i liikmesriikide väljastatud käibemaksunumbreid. Kontrollige :country käibemaksunumbreid riikliku maksuhalduri kaudu. Allpool saate endiselt kontrollida mis tahes EL-i käibemaksunumbrit.',
+    'format_legend' => '9 on number, L täht ja X täht või number. Muud märgid kirjutatakse nii, nagu need on.',
+    'formats_heading' => 'KMKR-numbrite vormingud ELis',
+    'formats_intro' => 'Iga ELi KMKR-number algab kahetähelise eesliitega (Kreekal EL), millele järgneb riiklik number. Avage riik, et selle numbreid kontrollida.',
+    'formats_th_country' => 'Riik',
+    'format_mismatch' => 'See ei näe välja nagu riigi :country KMKR-number (:format). Kontrollige trükiviga või kontrollige numbrit ikkagi.',
   ),
   'validator' => 
   array (
@@ -627,7 +660,7 @@ return array (
   'top_calc' => 
   array (
     'page_title' => 'Populaarsed KM arvutused — EL KM kalkulaator',
-    'page_description' => 'Levinumad KM arvutused kõigis 27 EL liikmesriigis.',
+    'page_description' => 'Käibemaks levinud summadelt 100 € kuni 10 000 € igas ELi riigis selle üldmääraga. Lisage või eemaldage käibemaks ühe klõpsuga.',
     'heading' => 'Populaarsed KM arvutused',
     'subheading' => 'Kiire ligipääs levinumatele KM arvutustele.',
     'vat_on_amount' => 'KM €:amount pealt',
@@ -648,7 +681,7 @@ return array (
     'disclaimer' => 'Arvutused on ainult informatiivsed.',
     'breadcrumb' => 'Populaarsed arvutused',
     'amount_page_heading' => 'KM €:amount pealt — Kõik EL riigid',
-    'amount_page_desc' => 'Arvutage KM €:amount pealt kõigis 27 EL liikmesriigis.',
+    'amount_page_desc' => 'KM €:amount pealt – :count ELi :member_label, üldmäärad :min% kuni :max%: käibemaks ja kogusumma iga riigi kohta, lisatud või eemaldatud.',
     'back_to_all' => '← Kõik populaarsed arvutused',
     'matrix_caption' => 'Kogusumma koos käibemaksuga iga riigi tavamäära järgi. Täieliku jaotuse nägemiseks valige summa.',
     'amounts_label' => 'Valige summa',
@@ -656,6 +689,7 @@ return array (
     'removing' => 'Summas €:amount sisalduv käibemaks',
     'net' => 'Neto',
     'member_states' => 'liikmesriiki',
+    'amount_meta_title' => 'KM €:amount pealt kõigis 27 ELi riigis',
   ),
   'changelog' => 
   array (
@@ -681,8 +715,8 @@ return array (
   'skip_to_content' => 'Liigu põhisisu juurde',
   'tools' => 
   array (
-    'seo_title' => 'EL-i käibemaksu tööriistad ja ressursid – kalkulaatorid, validaatorid ja juhendid',
-    'seo_description' => 'Tasuta EL-i käibemaksu tööriistad: kalkulaator, validaator, määrade võrdluskaardid ja nõuetele vastavuse juhendid kõigi 27 EL-i liikmesriigi kohta.',
+    'seo_title' => 'ELi käibemaksu tööriistad: kalkulaator, kontroll ja kaart',
+    'seo_description' => 'Tasuta ELi käibemaksu tööriistad: kalkulaator igale riigile, KMKR-numbrite kontroll VIES-is, määrade kaart, määrade ajalugu ja juhendid 27 riigile.',
     'heading' => 'EL käibemaks – tööriistad ja ressursid',
     'intro_text' => 'Siin on mõned EU-vat.info meeskonna tööriistad ja ressursid, mis aitavad teil orienteeruda Euroopa Liidu keerulises käibemaksumaailmas.',
     'calculator_heading' => 'Käibemaksukalkulaator',
@@ -781,7 +815,7 @@ return array (
   array (
     'eyebrow' => 'Riikide võrdlus',
     'title' => ':left vs :right – käibemaksumäärad',
-    'meta_title' => ':left vs :right – käibemaksumäärad, kalkulaatorid ja ajalugu',
+    'meta_title' => 'Käibemaks: :left ja :right võrdluses',
     'meta_description' => 'Võrrelge riikide :left ja :right käibemaksumäärasid, vähendatud määrasid, valuutasid, VIES-i kättesaadavust ja varasemaid muudatusi.',
     'intro' => 'Võrrelge kehtivaid käibemaksustruktuure ja jätkake iga riigi kalkulaatori, kontrollijuhendi ning registreeritud ajaloo juurde.',
     'measure' => 'Näitaja',
@@ -834,8 +868,8 @@ return array (
   ),
   'mcp_page' =>
   array (
-    'meta_title' => 'ELi käibemaksu MCP-server: värsked käibemaksuandmed tehisintellekti assistentidele | EU VAT Info',
-    'meta_desc' => 'Tasuta kaug-MCP-server ELi käibemaksumäärade, arvutuste, määramuutuste ja käibemaksukohustuslase numbrite VIES-kontrolliga. Ühendage Claude, ChatGPT, VS Code või Cursor minutiga.',
+    'meta_title' => 'ELi käibemaksu MCP-server: andmed tehisaru abilistele',
+    'meta_desc' => 'Tasuta MCP-server ELi käibemaksumäärade, arvutuste, määramuutuste ja VIES-i kontrollidega. Ühendage Claude, ChatGPT, VS Code või Cursor minutiga.',
     'kicker' => 'Model Context Protocol',
     'title' => 'ELi käibemaksu MCP-server',
     'lede' => 'Andke oma tehisintellekti assistendile ELi värsked käibemaksumäärad, käibemaksuarvutused, tulevased määramuutused ja käibemaksukohustuslase numbrite VIES-kontroll. Tasuta, ainult lugemiseks ja registreerimata.',
@@ -880,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Ühe riigi määrad',
-        'desc' => 'Kehtivad määrad, valuuta ja viimane uuendus ühe riigi kohta.',
+        'desc' => 'Kehtivad määrad, valuuta, KMKR numbri vorming ja viimane uuendus ühe riigi kohta.',
         'prompt' => 'Millised on käibemaksumäärad Austrias?',
       ),
       'calculate_vat' =>
@@ -928,7 +962,7 @@ return array (
     'detail_limits' => 'Õiglane kasutus',
     'limits_value' => ':requests päringut minutis IP-aadressi kohta, sealhulgas kuni :checks käibemaksukohustuslase numbri kontrolli',
     'detail_data' => 'Andmed',
-    'data_value' => 'Euroopa Komisjoni käibemaksumäärad, uuendatakse iga päev',
+    'data_value' => 'Euroopa Komisjoni käibemaksumäärad, uuendatakse iga nädal',
     'detail_discovery' => 'Leitavus',
     'server_card' => 'Serveri kaart',
     'faq_heading' => 'Küsimused',
@@ -939,7 +973,7 @@ return array (
     'faq_3_q' => 'Kas ühendamine on turvaline?',
     'faq_3_a' => 'Jah. Kõik tööriistad on ainult lugemiseks: server tagastab vaid käibemaksuandmeid ja arvutusi. See ei näe teie faile ega tegutse teie nimel.',
     'faq_4_q' => 'Kui värsked on määrad?',
-    'faq_4_a' => 'Määrad pärinevad Euroopa Komisjoni andmetest ja neid uuendatakse iga päev. Iga tulemus näitab, millal riigi andmeid viimati uuendati.',
+    'faq_4_a' => 'Määrad pärinevad Euroopa Komisjoni andmetest ja neid uuendatakse iga nädal. Iga tulemus näitab, millal riigi andmeid viimati uuendati.',
     'faq_5_q' => 'Kas vastused on maksunõustamine?',
     'faq_5_a' => 'Ei. Server tagastab viitemäärad. Õige käibemaksukäsitlus sõltub kaupadest või teenustest ja kliendist, seega kontrollige olulisi juhtumeid maksunõustaja või riikliku maksuhalduriga.',
   ),

@@ -45,6 +45,7 @@ return array (
     'history_desc' => 'Alla registrerade momssatsändringar',
     'widget_desc' => 'Bädda in en räknare på din webbplats',
     'validator_short' => 'Momsvalidering',
+    'shortcuts' => 'Genvägar till verktyg',
   ),
   'footer' => 
   array (
@@ -67,14 +68,15 @@ return array (
     'donate' => 'Donera',
     'privacy' => 'Integritetspolicy',
     'previous_version' => 'Tidigare version',
+    'older_version' => 'Äldre version',
     'developers' => 'Utvecklare',
     'mcp_server' => 'MCP-server',
     'data_source_note' => 'Satserna kommer från Europeiska kommissionen och kontrolleras dagligen',
   ),
   'home_page' => 
   array (
-    'title' => 'EU Moms Info – Momsräknare och information för alla EU-länder',
-    'meta_desc' => 'Aktuella momssatser för alla 27 EU-länder. Gratis onlineräknare, historisk data från 2000, ändringsaviseringar och efterlevnadsguider. Uppdateras dagligen.',
+    'title' => 'Momsräknare och momssatser för alla 27 EU-länder',
+    'meta_desc' => 'Lägg till eller räkna bort moms i alla 27 EU-länder med aktuella normalsatser och reducerade satser. Kontrollera momsnummer i VIES och följ varje ändring.',
     'heading' => 'Momssatser i',
     'heading_accent' => 'Europeiska unionen',
     'subtitle' => 'Aktuella normala momssatser, reducerade satser och räknare för alla 27 EU-medlemsstater. Uppdateras dagligen.',
@@ -198,6 +200,29 @@ return array (
     'calculation_reference' => 'Beräkningsöversikt',
     'formula_add' => 'Netto × :multiplier = brutto',
     'formula_remove' => 'Brutto ÷ :multiplier = netto',
+    'quick_amounts' => 'Vanliga belopp',
+    'rate_since' => 'Gäller sedan :date',
+    'rate_since_previous' => 'Gäller sedan :date, tidigare :rate %',
+    'vat_number_format' => 'Momsnumrets format',
+    'full_rate_history' => 'Momssatsernas historik i :country',
+    'formula_vat_part' => 'Momsen i ett pris inklusive :rate % moms får du genom att multiplicera priset med :rate och dela med :divisor.',
+    'common_amounts_heading' => 'Moms på vanliga belopp i :country',
+    'common_amounts_intro' => 'Med normalsatsen :rate %. Öppna ett belopp för hela beräkningen, redo att dela.',
+    'th_amount' => 'Belopp',
+    'th_add_vat' => 'Med :rate % moms tillagd',
+    'th_remove_vat' => 'Med :rate % moms bortdragen',
+    'faq_heading' => 'Frågor om moms i :country',
+    'faq_rate_q' => 'Vad är momssatsen i :country?',
+    'faq_rate_a' => 'Normalsatsen för moms i :country är :rate %. Reducerade satser på :reduced gäller för vissa varor och tjänster.',
+    'faq_rate_a_standard_only' => 'Normalsatsen för moms i :country är :rate %, och :country har ingen reducerad sats.',
+    'faq_add_q' => 'Hur lägger jag till moms på ett pris i :country?',
+    'faq_add_a' => 'Multiplicera nettopriset med :multiplier. Till exempel blir :net plus :rate % moms :gross.',
+    'faq_remove_q' => 'Hur räknar jag bort moms från ett pris i :country?',
+    'faq_remove_a' => 'Dela priset inklusive moms med :multiplier. Till exempel är :gross inklusive :rate % moms :net före moms.',
+    'faq_changed_q' => 'När ändrades momssatsen i :country senast?',
+    'faq_changed_a' => 'Normalsatsen ändrades från :old % till :new % den :date.',
+    'faq_number_q' => 'Hur ser ett momsnummer från :country ut?',
+    'faq_number_a' => 'Momsnummer från :country börjar med :prefix och följer formatet :format, där 9 är en siffra, L en bokstav och X en bokstav eller en siffra. Du kan kontrollera ett nummer i EU:s VIES-register med vår momsnummerkontroll.',
   ),
   'trust' => 
   array (
@@ -205,6 +230,9 @@ return array (
     'always_free' => 'Alltid gratis',
     'all_27_countries' => 'Alla 27 EU-länder',
     'no_signup_required' => 'Ingen registrering krävs',
+    'updated' => 'Satser uppdaterade :date',
+    'source_ec' => 'Källa: Europeiska kommissionen',
+    'source_dataset' => 'Källa: den öppna datamängden vat-rates',
   ),
   'map' => 
   array (
@@ -233,12 +261,13 @@ return array (
     'interaction_hint' => 'Håll pekaren över ett land, tryck på det eller tabba mellan länderna för att se satserna. Tryck på Enter för att öppna detaljerna.',
     'clear_selection' => 'Rensa val',
     'table_intro' => 'Samma data som på kartan, med högsta normalsats först.',
+    'meta_desc' => 'Normalsatserna för moms i alla EU-länder på en karta, med en rangordning av normalsatser, reducerade och superreducerade satser och en momsräknare per land.',
   ),
   'history' => 
   array (
     'title' => 'Historik över momssatsändringar',
     'meta_title' => 'Historik över momssatsändringar – EU-länder | EU Moms Info',
-    'meta_desc' => 'Komplett historik över momssatsändringar i alla EU-länder från 2000. Följ ändringar av normala och reducerade satser med stabilitetsindikatorer.',
+    'meta_desc' => 'Alla registrerade ändringar av momssatser i EU: normalsatser, reducerade satser och parkeringssatser med datum, gammal och ny sats, kommande ändringar.',
     'subtitle' => 'Följ alla momssatsändringar i EU-länder under det senaste decenniet',
     'stability_title' => 'Stabilitetsindikatorer för länder',
     'stability_desc' => 'Länder med färre momssatsändringar indikerar en stabilare skattemiljö',
@@ -457,10 +486,10 @@ return array (
   ),
   'vies_page' => 
   array (
-    'title' => 'VIES momsregistreringsnummervalideringsprogram — Verifiera EU momsregistreringsnummer online',
-    'description' => 'Gratis VIES momsregistreringsnummer valideringverktyg. Verifiera något EU momsregistreringsnummer omedelbarf med den officiella VIES databasen från Europakommissionen.',
-    'country_title' => 'VIES momsregistreringsnummervalideringsprogram :country — Verifiera momsregistreringsnummer för :country via VIES',
-    'country_description' => 'Validera momsregistreringsnummer för :country (:code) omedelbar med den officiella VIES-databasen från EU.',
+    'title' => 'Kontrollera EU-momsnummer: gratis sökning i VIES',
+    'description' => 'Kontrollera alla EU-momsnummer i Europeiska kommissionens VIES-register. Se om numret är giltigt och vem det tillhör. Gratis, utan registrering.',
+    'country_title' => 'Kontrollera momsnummer från :country i VIES',
+    'country_description' => 'Kontrollera momsnummer från :country (:code) i EU:s officiella VIES-register. Se om numret är giltigt och vem det tillhör. Gratis och utan registrering.',
     'h1' => 'VIES momsregistreringsnummervalideringsprogram',
     'country_h1' => 'Momsregistreringsnummervalideringsprogram för :country',
     'subtitle' => 'Verifiera något EU momsregistreringsnummer med den officiella VIES-databasen från Europakommissionen. Resultaten är cachelagda för snabbare sökningar.',
@@ -523,7 +552,6 @@ return array (
     'format_heading' => 'Format för momsnummer från :country',
     'format_prefix' => 'Prefix',
     'format_structure' => 'Struktur',
-    'format_structure_value' => ':prefix följt av det nationella identifieringsnumret',
     'format_note_gr' => 'Grekland använder EL i momsregistreringsnummer, medan GR fortfarande är landets ISO-landskod.',
     'format_note_default' => 'Den nationella delen är en landsspecifik följd av siffror och, i vissa länder, bokstäver.',
     'format_disclaimer' => 'Endast nationella skattemyndigheter utfärdar momsregistreringsnummer. VIES bekräftar registreringsstatus men utgör inte skatterådgivning eller juridisk rådgivning.',
@@ -546,6 +574,11 @@ return array (
     'copied' => 'Momsnumret har kopierats',
     'not_in_vies_title' => ':country omfattas inte av VIES',
     'not_in_vies_desc' => 'VIES validerar endast momsnummer som utfärdats av EU-medlemsstater. Kontrollera momsnummer från :country hos den nationella skattemyndigheten. Du kan fortfarande validera alla EU-momsnummer nedan.',
+    'format_legend' => '9 är en siffra, L en bokstav och X en bokstav eller en siffra. Övriga tecken skrivs som de står.',
+    'formats_heading' => 'Momsnummerformat i EU',
+    'formats_intro' => 'Alla EU-momsnummer börjar med ett landsprefix på två bokstäver (EL för Grekland) följt av det nationella numret. Öppna ett land för att kontrollera dess nummer.',
+    'formats_th_country' => 'Land',
+    'format_mismatch' => 'Det här ser inte ut som ett momsnummer från :country (:format). Kontrollera om det finns ett skrivfel, eller kontrollera numret ändå.',
   ),
   'validator' => 
   array (
@@ -627,7 +660,7 @@ return array (
   'top_calc' => 
   array (
     'page_title' => 'Populära momsberäkningar — EU Momskalkylator',
-    'page_description' => 'De vanligaste momsberäkningarna i alla 27 EU-medlemsstater.',
+    'page_description' => 'Moms på vanliga belopp från 100 € till 10 000 € i varje EU-land med landets normalsats. Lägg till eller räkna bort moms med ett klick.',
     'heading' => 'Populära momsberäkningar',
     'subheading' => 'Snabb åtkomst till de vanligaste momsberäkningarna.',
     'vat_on_amount' => 'Moms på €:amount',
@@ -648,7 +681,7 @@ return array (
     'disclaimer' => 'Beräkningar är enbart informativa.',
     'breadcrumb' => 'Populära beräkningar',
     'amount_page_heading' => 'Moms på €:amount — Alla EU-länder',
-    'amount_page_desc' => 'Beräkna moms på €:amount för alla 27 EU-medlemsstater.',
+    'amount_page_desc' => 'Moms på €:amount i alla :count EU-:member_label med normalsatser från :min % till :max %: momsen och totalen för varje land, tillagd eller bortdragen.',
     'back_to_all' => '← Alla populära beräkningar',
     'matrix_caption' => 'Totalt inklusive moms enligt varje lands normalsats. Välj ett belopp för att se hela beräkningen.',
     'amounts_label' => 'Välj ett belopp',
@@ -656,6 +689,7 @@ return array (
     'removing' => 'Moms som ingår i €:amount',
     'net' => 'Netto',
     'member_states' => 'medlemsstater',
+    'amount_meta_title' => 'Moms på €:amount i alla 27 EU-länder',
   ),
   'changelog' => 
   array (
@@ -681,8 +715,8 @@ return array (
   'skip_to_content' => 'Hoppa till huvudinnehållet',
   'tools' => 
   array (
-    'seo_title' => 'EU-momsverktyg och resurser - räknare, validerare och guider',
-    'seo_description' => 'Kostnadsfria EU-momsverktyg: räknare, validerare, kartor för att jämföra satser och guider för regelefterlevnad för alla 27 EU-medlemsstater.',
+    'seo_title' => 'EU-momsverktyg: räknare, nummerkontroll, karta och guider',
+    'seo_description' => 'Gratis EU-momsverktyg: en momsräknare för varje land, kontroll av momsnummer i VIES, en karta och historik över satser och guider för alla 27 länder.',
     'heading' => 'Verktyg och resurser från EU Moms Info',
     'intro_text' => 'Här är verktyg och resurser från teamet bakom EU-vat.info som hjälper dig att hitta rätt i den komplexa momsvärlden i Europeiska unionen.',
     'calculator_heading' => 'Momsräknare',
@@ -781,7 +815,7 @@ return array (
   array (
     'eyebrow' => 'Jämförelse av länder',
     'title' => 'Momssatser: :left vs :right',
-    'meta_title' => 'Momssatser :left vs :right: satser, räknare och historik',
+    'meta_title' => 'Moms i :left och :right: satserna jämförda',
     'meta_description' => 'Jämför momssatser, reducerade satser, valutor, tillgänglighet i VIES och historiska ändringar för :left och :right.',
     'intro' => 'Jämför nuvarande momsstrukturer och gå vidare till varje lands räknare, valideringsguide och registrerade historik.',
     'measure' => 'Uppgift',
@@ -834,8 +868,8 @@ return array (
   ),
   'mcp_page' =>
   array (
-    'meta_title' => 'MCP-server för EU-moms: aktuella momsdata för AI-assistenter | EU VAT Info',
-    'meta_desc' => 'Kostnadsfri fjärr-MCP-server med EU:s momssatser, beräkningar, satsändringar och VIES-kontroll av momsnummer. Anslut Claude, ChatGPT, VS Code eller Cursor på en minut.',
+    'meta_title' => 'MCP-server för EU-moms: momsdata för AI-assistenter',
+    'meta_desc' => 'Gratis MCP-server med EU:s momssatser, beräkningar, satsändringar och VIES-kontroller. Anslut Claude, ChatGPT, VS Code eller Cursor på en minut.',
     'kicker' => 'Model Context Protocol',
     'title' => 'MCP-server för EU-moms',
     'lede' => 'Ge din AI-assistent aktuella momssatser i EU, momsberäkningar, kommande satsändringar och VIES-kontroll av momsnummer. Kostnadsfritt, skrivskyddat och utan registrering.',
@@ -880,7 +914,7 @@ return array (
       'get_country_vat_rate' =>
       array (
         'title' => 'Ett lands satser',
-        'desc' => 'Aktuella satser, valuta och senaste uppdatering för ett land.',
+        'desc' => 'Aktuella satser, valuta, momsregistreringsnumrets format och senaste uppdatering för ett land.',
         'prompt' => 'Vilka momssatser gäller i Österrike?',
       ),
       'calculate_vat' =>
@@ -928,7 +962,7 @@ return array (
     'detail_limits' => 'Skälig användning',
     'limits_value' => ':requests begäranden per minut och IP-adress, varav högst :checks kontroller av momsnummer',
     'detail_data' => 'Data',
-    'data_value' => 'Europeiska kommissionens momssatser, uppdateras dagligen',
+    'data_value' => 'Europeiska kommissionens momssatser, uppdateras varje vecka',
     'detail_discovery' => 'Upptäckt',
     'server_card' => 'Serverkort',
     'faq_heading' => 'Frågor',
@@ -939,7 +973,7 @@ return array (
     'faq_3_q' => 'Är det säkert att ansluta?',
     'faq_3_a' => 'Ja. Alla verktyg är skrivskyddade: servern returnerar bara momsdata och beräkningar. Den kan inte se dina filer eller agera för din räkning.',
     'faq_4_q' => 'Hur aktuella är satserna?',
-    'faq_4_a' => 'Satserna kommer från Europeiska kommissionens data och uppdateras dagligen. Varje resultat visar när landet senast uppdaterades.',
+    'faq_4_a' => 'Satserna kommer från Europeiska kommissionens data och uppdateras varje vecka. Varje resultat visar när landet senast uppdaterades.',
     'faq_5_q' => 'Är svaren skatterådgivning?',
     'faq_5_a' => 'Nej. Servern returnerar referenssatser. Rätt momsbehandling beror på varorna eller tjänsterna och på kunden, så kontrollera viktiga fall med en skatterådgivare eller den nationella skattemyndigheten.',
   ),

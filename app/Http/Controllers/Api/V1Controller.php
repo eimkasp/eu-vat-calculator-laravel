@@ -7,6 +7,7 @@ use App\Models\Country;
 use App\Services\ViesValidationService;
 use App\Support\Vat\VatCalculation;
 use App\Support\Vat\VatMode;
+use App\Support\Vat\VatNumberFormat;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -251,9 +252,20 @@ class V1Controller extends Controller
                                 'type' => 'object',
                                 'properties' => [
                                     'standard' => ['type' => 'number', 'example' => 19],
-                                    'reduced' => ['type' => ['number', 'null'], 'example' => 7],
+                                    'reduced' => ['type' => ['number', 'null'], 'example' => 7, 'description' => 'The lowest reduced rate'],
+                                    'reduced_rates' => ['type' => 'array', 'items' => ['type' => 'number'], 'example' => [7], 'description' => 'Every reduced rate, lowest first'],
                                     'super_reduced' => ['type' => ['number', 'null']],
                                     'parking' => ['type' => ['number', 'null']],
+                                ],
+                            ],
+                            'vat_number' => [
+                                'type' => ['object', 'null'],
+                                'description' => 'The shape of the country\'s VAT numbers in the Commission\'s notation (9 a digit, L a letter, X a letter or a digit); null outside the EU VAT system. VIES decides whether a number exists.',
+                                'properties' => [
+                                    'prefix' => ['type' => 'string', 'example' => 'DE'],
+                                    'format' => ['type' => 'string', 'example' => 'DE999999999'],
+                                    'masks' => ['type' => 'array', 'items' => ['type' => 'string'], 'example' => ['DE999999999']],
+                                    'pattern' => ['type' => 'string', 'example' => '^DE\\d{9}$', 'description' => 'Regular expression for a number written without spaces or punctuation'],
                                 ],
                             ],
                             'last_updated' => ['type' => 'string', 'format' => 'date-time'],
@@ -323,6 +335,7 @@ class V1Controller extends Controller
             'slug' => $c->slug,
             'currency' => $c->currencyCode(),
             'rates' => $c->apiRates(),
+            'vat_number' => VatNumberFormat::forCountry($c),
             'last_updated' => $c->updated_at?->toIso8601String(),
         ];
     }
