@@ -38,6 +38,7 @@
         "Plausible analytics only loads in production, so its script is not part of these numbers. The service worker is: it registers on the first visit and its precache requests count when they finish inside the observation window.",
         "/vat-rates/categories returns 404 here and on the live site (checked on 10 October 2026): the page needs verified category rules, and the repository has none. It is measured as served.",
         "The validator's keyboard check submits a real VAT number, so the server calls VIES; the check passes when a result or a designed error state appears.",
-        "Lighthouse is not installed in the environment; the same throttling profile is applied directly through Playwright and the DevTools Protocol instead."
+        "Lighthouse is not installed in the environment; the same throttling profile is applied directly through Playwright and the DevTools Protocol instead.",
+        "The as-of pattern accepts inflected Maltese forms (aġġornati) since the after-v3 run; the baseline had no as-of date in any language, so its result is unchanged."
     ]
 }

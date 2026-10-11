@@ -442,7 +442,7 @@ async function auditRun(browser, url, definition, locale) {
 
     const answer = definition.answer?.[locale] ?? definition.answer?.default ?? null;
     const source = /\b(European Commission|Europäische[n]? Kommission|Kummissjoni Ewropea|TEDB|Taxes in Europe|kdeldycke|source[sd]?|Quelle[n]?|sors)\b/iu;
-    const asOf = /\b(updated|as of|last (?:checked|verified|updated)|verified|aktualisiert|geprüft|Stand:|aġġornat|ivverifikat)\b[^.]{0,40}?(\d{1,2}\.?\s+\p{L}+\.?\s+\d{4}|\d{4}-\d{2}-\d{2}|\d{1,2}[./]\d{1,2}[./]\d{2,4}|\p{L}+\s+\d{1,2},?\s+\d{4})/iu;
+    const asOf = /\b(updated|as of|last (?:checked|verified|updated)|verified|aktualisiert|geprüft|Stand:|aġġornat[a-zġħżċ]*|ivverifikat[a-zġħżċ]*)\b[^.]{0,40}?(\d{1,2}\.?\s+\p{L}+\.?\s+\d{4}|\d{4}-\d{2}-\d{2}|\d{1,2}[./]\d{1,2}[./]\d{2,4}|\p{L}+\s+\d{1,2},?\s+\d{4})/iu;
     const sourceMatch = seo.visibleText.match(source);
     const dateMatch = seo.visibleText.match(asOf);
     const mainSourceMatch = seo.mainText.match(source);
