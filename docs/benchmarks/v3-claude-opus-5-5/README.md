@@ -5,6 +5,7 @@ Measurements for the Opus 5.5 run of the v3 build prompt, starting from `cf5c6f7
 | File | What it is |
 |---|---|
 | `baseline.json` | The site at `cf5c6f7`, before any v3 change: 12 pages in English, German and Maltese |
+| `after-v2-freeze.json` | The same measurement after the v2 archive and its footer link. Every count is unchanged; timings ran faster in a fresh container (LCP −176 to +4 ms, TBT −210 to +5 ms per page), which is machine variance, not an effect of the change |
 | `tools/run.sh` | Rebuilds the site from the checked-out commit and writes `<label>.json` again |
 | `tools/measure.mjs` | Performance, accessibility, SEO and AI readiness per page (Playwright and axe-core) |
 | `tools/site.mjs` | Sitemap membership, internal links in, and the facts in llms.txt, the API and the MCP server |
