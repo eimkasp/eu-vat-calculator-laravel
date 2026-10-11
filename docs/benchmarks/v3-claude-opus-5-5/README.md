@@ -69,11 +69,15 @@ Same profile and pages. Lower is better except where marked.
 
 LCP equals FCP on every page, so it follows how much HTML the throttled phone has to parse; the regressions sit on the pages that gained content. Other pages moved within machine variance.
 
+Closed after the measurement (no effect on the measured pages):
+
+- Reduced, super-reduced and parking rates were the January 2024 snapshot. They now follow the Commission's Taxes in Europe Database (TEDB) for Estonia, Finland, Lithuania, Romania, Slovakia, Austria, Cyprus and Malta, dated by querying TEDB on past dates (`RateCorrections`, applied by a guarded data migration).
+- Geolocation is cached per address for a day (an hour after a failure), so repeat views no longer call ip-api.
+
 Still open:
 
-- `/vat-rates/categories` stays 404 in every language: there are no verified category rules to publish.
-- Reduced rates in the seed data and in production may lag the 2025 changes in Estonia, Finland, Romania and Slovakia; they need checking against the Commission's tables before anything is changed.
-- Production still looks up the visitor's location with ip-api for every tracked view (after the response is sent); private and reserved addresses no longer call it.
+- `/vat-rates/categories` returns 404 by design until verified category rules exist; nothing links to it, and the sitemap and `llms.txt` leave it out.
+- TEDB files a few rates differently from the Commission's summary table: it lists no parking rate for Austria or Ireland and no super-reduced rate for Ireland, files Luxembourg's 14% under both reduced and parking, and adds a 4% super-reduced and a 13% parking rate for Greece. These were left as they are.
 - The `public/v1` archive bar links to itself; `public/v1` is frozen.
 
 ## Found while freezing v2
