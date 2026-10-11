@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Country;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Stevebauman\Location\Facades\Location;
 
 use function Illuminate\Support\defer;
@@ -27,14 +28,38 @@ class CountryAnalyticsService
             'meta_data' => $metadata !== [] ? $metadata : null,
         ];
 
-        defer(function () use ($country, $ip, $attributes) {
-            $location = self::isPublicIp($ip) ? rescue(fn () => Location::get($ip), null, false) : null;
+        defer(fn () => $country->analytics()->create($attributes + self::locate($ip)));
+    }
 
-            $country->analytics()->create($attributes + [
-                'location_country' => $location ? $location->countryName : null,
-                'location_city' => $location ? $location->cityName : null,
-            ]);
-        });
+    /**
+     * Looks an address up at most once a day (once an hour after a failed lookup), so repeat visits and every
+     * calculation in a session reuse the first answer instead of calling the geolocation service again.
+     *
+     * @return array{location_country: ?string, location_city: ?string}
+     */
+    public static function locate(?string $ip): array
+    {
+        $unknown = ['location_country' => null, 'location_city' => null];
+
+        if (! self::isPublicIp($ip)) {
+            return $unknown;
+        }
+
+        $key = 'geoip:'.hash('sha256', $ip);
+        $cached = Cache::get($key);
+
+        if (is_array($cached)) {
+            return $cached;
+        }
+
+        $location = rescue(fn () => Location::get($ip), null, false);
+        $result = $location
+            ? ['location_country' => $location->countryName ?: null, 'location_city' => $location->cityName ?: null]
+            : $unknown;
+
+        Cache::put($key, $result, $location ? now()->addDay() : now()->addHour());
+
+        return $result;
     }
 
     /**
