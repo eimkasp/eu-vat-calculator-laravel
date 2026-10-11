@@ -34,7 +34,7 @@
     ];
 @endphp
 
-<footer class="on-brand mobile-nav-safe bg-brand-deep text-white">
+<footer class="on-brand mobile-nav-safe app-deferred bg-brand-deep text-white">
     <div class="app-container py-12 lg:py-16">
         <div class="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,3fr)]">
             <div class="max-w-sm">

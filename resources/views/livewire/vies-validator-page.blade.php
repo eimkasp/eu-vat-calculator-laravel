@@ -310,7 +310,7 @@
                 </section>
 
                 @unless($pageCountry)
-                    <section class="app-surface overflow-hidden" aria-labelledby="vat-number-formats">
+                    <section class="app-surface app-deferred overflow-hidden" aria-labelledby="vat-number-formats">
                         <div class="border-b border-line px-5 py-4 sm:px-6">
                             <h2 id="vat-number-formats" class="text-xl font-bold text-ink">{{ __('ui.vies_page.formats_heading') }}</h2>
                             <p class="mt-1 max-w-[72ch] text-sm text-ink-muted">{{ __('ui.vies_page.formats_intro') }}</p>
@@ -346,7 +346,7 @@
 
                 <x-faq-list :faqs="$faqs" :title="__('ui.vies_page.faq_heading')" id="vies-faq" />
 
-                <section class="app-surface overflow-hidden" aria-labelledby="vies-api" x-data="apiPlayground(@js(['endpoint' => $endpoint]))">
+                <section class="app-surface app-deferred overflow-hidden" aria-labelledby="vies-api" x-data="apiPlayground(@js(['endpoint' => $endpoint]))">
                     <div class="flex flex-wrap items-start justify-between gap-3 border-b border-line px-5 py-4 sm:px-6">
                         <div>
                             <h2 id="vies-api" class="flex items-center gap-2 text-lg font-bold text-ink">

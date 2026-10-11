@@ -1,7 +1,7 @@
 @props(['faqs', 'title', 'id' => 'faq'])
 
 {{-- Questions as native disclosures, first one open. Pair it with FAQPage structured data built from the same list. --}}
-<section {{ $attributes->class(['app-surface overflow-hidden']) }} aria-labelledby="{{ $id }}">
+<section {{ $attributes->class(['app-surface app-deferred overflow-hidden']) }} aria-labelledby="{{ $id }}">
     <h2 id="{{ $id }}" class="border-b border-line px-5 py-4 text-lg font-bold text-ink sm:px-6">{{ $title }}</h2>
     <div class="divide-y divide-line">
         @foreach($faqs as $faq)

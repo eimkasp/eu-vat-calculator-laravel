@@ -290,6 +290,11 @@
         @apply sticky top-16 z-10 border-b border-line bg-surface-subtle;
     }
 
+    .app-deferred {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 40rem;
+    }
+
     .app-eyebrow {
         @apply text-xs font-semibold tracking-[0.08em] text-action uppercase;
     }

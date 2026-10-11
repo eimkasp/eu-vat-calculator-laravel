@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Middleware\AddLinkHeaders;
+use App\Http\Middleware\CollapseHtmlWhitespace;
 use App\Http\Middleware\EmbedCookieFix;
 use App\Http\Middleware\MarkdownNegotiation;
 use App\Http\Middleware\PublicDiscoveryCacheHeaders;
@@ -28,6 +29,7 @@ return Application::configure(basePath: dirname(__DIR__))
             SecurityHeaders::class,
             SetLocale::class,
             AddLinkHeaders::class,
+            CollapseHtmlWhitespace::class,
             MarkdownNegotiation::class,
         ]);
 

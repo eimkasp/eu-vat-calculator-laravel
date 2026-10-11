@@ -233,6 +233,7 @@ Reference page (tables, lists, guides):
 | `app-popover` | Menus, the country combobox, the palette panel and toasts: `rounded-card`, strong border, `shadow-floating` |
 | `app-brand-panel` | Tiles, stat groups, badges and fields on navy |
 | `app-sticky-bar` | A sticky sub-header inside a card, such as the year rows in the rate history |
+| `app-deferred` | A section that starts below the first screen (questions, reference tables, the API tester, the footer): the browser skips its layout and paint until it nears the viewport, while the content stays in the HTML for search engines, screen readers and find-in-page. Never on content in the first screen or on anything sticky |
 | `app-note` | A quiet grey note with an info icon, inside a card |
 | `app-page-header` | Page header band (used by `<x-page-header>`) |
 | `hero-canvas` | Flat navy band; text inside is white and focus is gold |
@@ -325,7 +326,7 @@ Two equal segments on a bordered `surface-muted` track; the white thumb slides i
 
 **Embed widget.** `resources/views/layouts/embed.blade.php` has a transparent background. Keep embed markup free of header, footer and tab bar.
 
-**Performance budget.** Application CSS stays under 20 KB gzip and application JS under 10 KB gzip. No third-party hosts on public pages. Heavy libraries are loaded only on the page that needs them.
+**Performance budget.** Application CSS stays under 20 KB gzip and application JS under 10 KB gzip. Sections below the first screen carry `app-deferred`, and `CollapseHtmlWhitespace` strips Blade's indentation from every HTML response, so long reference content costs little to the first paint. No third-party hosts on public pages. Heavy libraries are loaded only on the page that needs them.
 
 ## Accessibility
 
