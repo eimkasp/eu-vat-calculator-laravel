@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Livewire\SharedCalculation;
 use App\Livewire\TopCalculations;
 use App\Models\Country;
 use App\Models\VatRateChange;
@@ -12,7 +13,7 @@ use Illuminate\Support\Facades\File;
 
 class SitemapGenerator
 {
-    public const SECTIONS = ['core', 'countries', 'validators', 'changes', 'categories', 'editorial'];
+    public const SECTIONS = ['core', 'countries', 'validators', 'changes', 'calculations', 'categories', 'editorial'];
 
     public function __construct(
         protected SeoPolicy $seoPolicy,
@@ -52,7 +53,7 @@ class SitemapGenerator
             $locales = $this->localesFor($record);
 
             foreach ($locales as $locale) {
-                $xml .= $this->urlEntry($record['path'], $record['lastmod'], $locale, $locales);
+                $xml .= $this->urlEntry($record['path'], $record['lastmod'], $locale, ($record['alternates'] ?? true) ? $locales : []);
             }
         }
 
@@ -88,6 +89,7 @@ class SitemapGenerator
             'countries' => $this->countryRecords('/vat-calculator'),
             'validators' => $this->countryRecords('/vat-number-validator'),
             'changes' => $this->changeRecords(),
+            'calculations' => $this->calculationRecords(),
             'categories' => $this->categoryRecords(),
             'editorial' => $this->editorialRecords(),
         };
@@ -256,6 +258,26 @@ class SitemapGenerator
         return $records;
     }
 
+    /**
+     * The indexable shared calculations: every top amount at each member state's standard rate, in both directions,
+     * exactly the set CalculationIndexing accepts. The pages carry their own hreflang, so the entries list no
+     * alternates and the section stays small enough to crawl.
+     */
+    protected function calculationRecords(): Collection
+    {
+        $updated = Country::query()->where('is_eu_member', true)->pluck('updated_at', 'slug');
+
+        return collect(TopCalculations::euCountries())
+            ->filter(fn (array $country) => $country['standard_rate'] > 0)
+            ->flatMap(fn (array $country) => collect(TopCalculations::AMOUNTS)->crossJoin(['exclude', 'include'])
+                ->map(fn (array $pair) => [
+                    'path' => '/vat-calculation/'.$country['slug'].'/'.$pair[0].'/'.SharedCalculation::segment($country['standard_rate']).'/'.$pair[1],
+                    'lastmod' => CarbonImmutable::parse($updated[$country['slug']] ?? now()->startOfDay())->toAtomString(),
+                    'alternates' => false,
+                ]))
+            ->values();
+    }
+
     protected function editorialRecords(): Collection
     {
         $records = collect([
@@ -334,7 +356,7 @@ class SitemapGenerator
     }
 
     /**
-     * @param  array<int, string>  $locales
+     * @param  array<int, string>  $locales  the alternates to list; none for pages that declare hreflang themselves
      */
     protected function urlEntry(string $path, string $lastmod, string $locale, array $locales): string
     {
@@ -348,7 +370,9 @@ class SitemapGenerator
             $entry .= '        <xhtml:link rel="alternate" hreflang="'.$alternateLocale.'" href="'.$this->escape($alternate).'" />'."\n";
         }
 
-        $entry .= '        <xhtml:link rel="alternate" hreflang="x-default" href="'.$this->escape($this->seoPolicy->localizedUrl($path, 'en')).'" />'."\n";
+        if ($locales !== []) {
+            $entry .= '        <xhtml:link rel="alternate" hreflang="x-default" href="'.$this->escape($this->seoPolicy->localizedUrl($path, 'en')).'" />'."\n";
+        }
 
         return $entry."    </url>\n";
     }

@@ -20,7 +20,7 @@ class VatChangesArchive extends Component
             ->whereHas('country', fn ($countryQuery) => $countryQuery->where('is_eu_member', true));
 
         if ($this->year !== null) {
-            abort_unless($this->year >= 2000 && $this->year <= 2100, 404);
+            abort_unless($this->year >= 1900 && $this->year <= 2100, 404);
             abort_unless((clone $eligibleChanges)->whereYear('change_date', $this->year)->exists(), 404);
         }
 

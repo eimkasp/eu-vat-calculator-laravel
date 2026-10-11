@@ -4,6 +4,7 @@ use App\Models\Country;
 use App\Models\VatRate;
 use App\Models\VatRateChange;
 use App\Models\VatRateRule;
+use App\Services\SitemapGenerator;
 use App\Support\Seo\SeoPolicy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -71,7 +72,7 @@ it('lists a sitemap URL in every language only when its page is translated', fun
     $locales = array_keys(config('translation.supported_languages'));
     $listed = [];
 
-    foreach (['core', 'countries', 'validators', 'changes', 'categories', 'editorial'] as $section) {
+    foreach (SitemapGenerator::SECTIONS as $section) {
         preg_match_all('#<loc>https://vat\.businesspress\.io(/[^<]*)</loc>#', $this->get("/sitemaps/{$section}.xml")->assertOk()->getContent(), $matches);
 
         foreach ($matches[1] as $url) {
@@ -84,7 +85,7 @@ it('lists a sitemap URL in every language only when its page is translated', fun
         '/', '/top-vat-calculations/1000', '/vat-calculator/germany', '/vat-number-validator/france', '/vat-changes', '/vat-rates/germany/history',
         '/vat-changes/germany/standard/2026-01-01', '/vat-changes/year/2026', '/vat-changes/upcoming', '/vat-rates/categories', '/vat-rates/categories/books',
         '/vat-rates/spain/categories/books', '/vat-guides/b2b-services', '/blog', '/blog/upcoming-vat-changes-2026-2027', '/datasets/eu-vat-rates',
-        '/vat-validation-api', '/styleguide'
+        '/vat-validation-api', '/styleguide', '/vat-calculation/germany/1000/20/exclude', '/vat-calculation/germany/100/20/include'
     );
 
     foreach ($listed as $path => $count) {
