@@ -156,3 +156,18 @@ it('lists every member state VAT number format on the validator and hints at typ
         ->assertSee('9 is a digit, L a letter and X a letter or a digit.')
         ->assertDontSee('VAT number formats in the EU');
 });
+
+it('aligns the country calculator with the page edges and puts the flag in the kicker', function () {
+    redesignGermany();
+
+    $country = $this->get('/vat-calculator/germany')->assertOk()->getContent();
+    $generic = $this->get('/vat-calculator')->assertOk()->getContent();
+
+    preg_match('/<div id="hero-calculator" class="([^"]+)"/', $country, $countryCard);
+    preg_match('/<div id="hero-calculator" class="([^"]+)"/', $generic, $genericCard);
+    preg_match('/<header data-country-header.*?<\/h1>/s', $country, $heading);
+
+    expect($countryCard[1])->not->toContain('max-w-5xl')
+        ->and($genericCard[1])->toContain('mx-auto max-w-5xl')
+        ->and($heading[0])->toMatch('/<p class="flex items-center gap-3">(?:(?!<\/p>).)*flags\/de\.svg(?:(?!<\/p>).)*<span class="app-kicker sm:before:hidden">/s');
+});

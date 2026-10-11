@@ -1,6 +1,7 @@
 @php
     $locale = str_replace('_', '-', app()->getLocale());
     $compact = $variant === 'compact';
+    $wide = ! $compact && $surface === 'country-image';
     $embedded = $surface === 'embed';
     $onDark = ! in_array($surface, ['workspace', 'embed'], true);
     $id = $this->getId();
@@ -32,7 +33,7 @@
     @else
         <div id="hero-calculator" @class([
             'scroll-mb-24 app-surface-raised text-ink md:scroll-mb-6',
-            'mx-auto max-w-5xl' => ! $compact,
+            'mx-auto max-w-5xl' => ! $compact && ! $wide,
             'grid md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]' => ! $compact,
         ])>
             {{-- Inputs --}}
@@ -155,16 +156,16 @@
 
                 @unless($compact)
                     @php($numbers = new \NumberFormatter($locale, \NumberFormatter::DECIMAL))
-                    <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3" role="group" aria-labelledby="quick-amounts-{{ $id }}">
-                        <span id="quick-amounts-{{ $id }}" class="text-[0.8125rem] font-semibold text-ink-muted">{{ __('ui.calculator.quick_amounts') }}</span>
-                        <div class="grid grid-cols-5 gap-1.5 sm:flex sm:flex-wrap sm:gap-2">
+                    <div role="group" aria-labelledby="quick-amounts-{{ $id }}">
+                        <span id="quick-amounts-{{ $id }}" class="mb-2 block text-[0.8125rem] font-semibold text-ink-muted">{{ __('ui.calculator.quick_amounts') }}</span>
+                        <div class="grid grid-cols-5 gap-1.5 sm:gap-2">
                         @foreach(\App\Livewire\HeroCalculator::QUICK_AMOUNTS as $quick)
                             <button
                                 type="button"
                                 @click="setAmount({{ $quick }})"
                                 :aria-pressed="(parsedAmount === {{ $quick }}).toString()"
                                 aria-pressed="{{ (float) $amount === (float) $quick ? 'true' : 'false' }}"
-                                class="app-chip tabular min-h-10 justify-center px-1 sm:px-3"
+                                class="app-chip tabular min-h-10 justify-center px-1"
                                 :class="parsedAmount === {{ $quick }} && 'app-chip-active'"
                             >{{ $numbers->format($quick) }}</button>
                         @endforeach
@@ -269,14 +270,14 @@
         </div>
 
         @unless($compact || $embedded)
-            <x-rate-freshness :updated="$country->updated_at" :eu="$country->is_eu_member" :on-dark="$onDark" class="mx-auto mt-4 max-w-5xl justify-center">
+            <x-rate-freshness :updated="$country->updated_at" :eu="$country->is_eu_member" :on-dark="$onDark" :class="\Illuminate\Support\Arr::toCssClasses(['mt-4', 'mx-auto max-w-5xl justify-center' => ! $wide])">
                 <span class="inline-flex items-center gap-1.5">
                     <x-ui.icon name="zap" class="size-3.5 shrink-0" />
                     {{ __('ui.calculator.instant_results') }}
                 </span>
             </x-rate-freshness>
 
-            <section x-cloak x-show="$wire.history.length > 0" class="mx-auto mt-8 max-w-5xl" aria-labelledby="history-heading-{{ $id }}">
+            <section x-cloak x-show="$wire.history.length > 0" @class(['mt-8', 'mx-auto max-w-5xl' => ! $wide]) aria-labelledby="history-heading-{{ $id }}">
                 <div class="mb-3 flex items-center justify-between gap-3">
                     <h2 id="history-heading-{{ $id }}" @class(['inline-flex items-center gap-2 text-sm font-semibold', 'text-white' => $onDark, 'text-ink' => ! $onDark])>
                         <x-ui.icon name="history" class="size-4" />
