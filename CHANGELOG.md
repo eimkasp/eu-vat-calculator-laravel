@@ -4,6 +4,26 @@ All notable changes to EU VAT Info are documented here.
 
 ---
 
+## [5.1.0] — 2026-10-11 — A calculator and validator you can check
+
+### Added
+- **The date and the source next to every rate** — the calculator, each country's rate table, shared calculations, comparisons, the VAT map and the popular calculations now say when the rates were last updated and link to where they come from: the European Commission for EU countries.
+- **Common amounts in one tap** — choose 100, 500, 1,000, 5,000 or 10,000 under the amount field instead of typing it.
+- **Since when a rate applies** — each country's standard rate shows the date it took effect and the rate it replaced, with a link to the full rate history.
+- **VAT on common amounts for every country** — a table of €100 to €10,000 with VAT added and removed, each figure opening its full calculation.
+- **Answers to the common questions** — every country calculator answers what the rate is, how to add and remove VAT, when the rate last changed and what a VAT number looks like, worked out from that country's own figures.
+- **Real VAT number formats** — the validator shows each country's exact format, such as DE999999999 or NL999999999B99, with a table of all 27 member states, and points out a number that does not fit its country's format before you check it.
+
+### Improved
+- **Clearer search results in every language** — page titles and descriptions now fit what search engines show, in all 24 languages.
+- **The rate history in the site map** — the year pages before 2000 open again, and the popular calculations are listed for search engines.
+- **Easier on phones and keyboards** — the comparison table can be scrolled with the keyboard, page regions have unique names for screen readers, and long translated site names no longer push the header off the screen.
+
+### Fixed
+- A fresh installation showed outdated standard rates for Estonia, Finland, Romania and Slovakia until the rates were refreshed.
+
+---
+
 ## [5.0.3] — 2026-10-10 — The 5.0 site, preserved
 
 ### Added

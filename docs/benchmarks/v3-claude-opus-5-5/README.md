@@ -6,6 +6,7 @@ Measurements for the Opus 5.5 run of the v3 build prompt, starting from `cf5c6f7
 |---|---|
 | `baseline.json` | The site at `cf5c6f7`, before any v3 change: 12 pages in English, German and Maltese |
 | `after-v2-freeze.json` | The same measurement after the v2 archive and its footer link. Every count is unchanged; timings ran faster in a fresh container (LCP −176 to +4 ms, TBT −210 to +5 ms per page), which is machine variance, not an effect of the change |
+| `after-v3.json` | The same 12 pages after the 5.1.0 calculator and validator work (`91c8374`) |
 | `tools/run.sh` | Rebuilds the site from the checked-out commit and writes `<label>.json` again |
 | `tools/measure.mjs` | Performance, accessibility, SEO and AI readiness per page (Playwright and axe-core) |
 | `tools/site.mjs` | Sitemap membership, internal links in, and the facts in llms.txt, the API and the MCP server |
@@ -43,6 +44,37 @@ Mobile emulation, 4× CPU slowdown, Slow 4G, median of 3 runs.
 | Not in the sitemap | the indexable top calculation `/vat-calculation/germany/1000/19/exclude` |
 | Warm DB queries | median 3, max 9 (country calculators) |
 | Tests | 359 passed, 2,808 assertions, 29.0 s; Pint passes |
+
+## After 5.1.0 (`after-v3.json`)
+
+Same profile and pages. Lower is better except where marked.
+
+| Measure | Baseline | After | Note |
+|---|---|---|---|
+| axe-core violations | 6 (3 serious, 3 moderate) | 0 | |
+| Titles outside 30–60 characters | 13 of 33 | 0 | |
+| Descriptions outside 70–160 characters | 14 of 33 | 0 | |
+| Pages without JSON-LD | 9 of 33 | 0 | |
+| Not in the sitemap | 1 | 0 | |
+| Answer in the first 600 characters (higher is better) | 30 of 33 | 33 of 33 | |
+| "As of" date shown (higher is better) | 0 of 33 | 24 of 33 | not on the MCP, changes and categories pages |
+| Source named inside `<main>` (higher is better) | 21 of 33 | 30 of 33 | |
+| Keyboard-only main task (higher is better) | 33 of 33 | 33 of 33 | |
+| Median TBT | 262 ms | 153 ms | |
+| Median LCP | 2,356 ms | 2,464 ms | **worse**: +104 to +172 ms on country calculators, +124 to +196 ms on the validator |
+| Median HTML (gzip) | 21.2 KB | 23.9 KB | **worse**: +2.4 KB on country calculators, +2.7 KB on the validator (common amounts, FAQ, formats) |
+| Max warm DB queries | 9 | 12 | **worse**: country calculators read the rate history and the latest change (3 indexed queries, 2 ms in total); top calculations 1 → 3 |
+| JavaScript (gzip) | 91.6 KB | 91.6 KB | |
+| Tests | 359, 2,808 assertions | 400, 3,413 assertions | Pint passes |
+
+LCP equals FCP on every page, so it follows how much HTML the throttled phone has to parse; the regressions sit on the pages that gained content. Other pages moved within machine variance.
+
+Still open:
+
+- `/vat-rates/categories` stays 404 in every language: there are no verified category rules to publish.
+- Reduced rates in the seed data and in production may lag the 2025 changes in Estonia, Finland, Romania and Slovakia; they need checking against the Commission's tables before anything is changed.
+- Production still looks up the visitor's location with ip-api for every tracked view (after the response is sent); private and reserved addresses no longer call it.
+- The `public/v1` archive bar links to itself; `public/v1` is frozen.
 
 ## Found while freezing v2
 
