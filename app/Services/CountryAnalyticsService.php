@@ -28,12 +28,21 @@ class CountryAnalyticsService
         ];
 
         defer(function () use ($country, $ip, $attributes) {
-            $location = rescue(fn () => Location::get($ip), null, false);
+            $location = self::isPublicIp($ip) ? rescue(fn () => Location::get($ip), null, false) : null;
 
             $country->analytics()->create($attributes + [
                 'location_country' => $location ? $location->countryName : null,
                 'location_city' => $location ? $location->cityName : null,
             ]);
         });
+    }
+
+    /**
+     * Private and reserved addresses (local development, tests, proxies without forwarded headers) cannot be
+     * located, so they never cost a request to the geolocation service.
+     */
+    public static function isPublicIp(?string $ip): bool
+    {
+        return filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) !== false;
     }
 }
