@@ -6,9 +6,9 @@
     <x-site-breadcrumbs variant="dark" :items="[__('ui.calculator.breadcrumb_label') => locale_path('/vat-calculator'), $country->name => '']" />
 
     <div class="mt-6 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-        <div class="flex min-w-0 items-start gap-4">
-            <x-ui.flag :iso="$country->iso_code" size="xl" :lazy="false" :alt="$country->name" class="mt-1 shadow-none ring-1 ring-white/25" />
-            <div class="min-w-0">
+        <div class="flex min-w-0 items-start justify-between gap-4 sm:justify-start">
+            <x-ui.flag :iso="$country->iso_code" size="xl" :lazy="false" :alt="$country->name" class="order-last mt-1 shrink-0 shadow-none ring-1 ring-white/25 sm:order-none" />
+            <div class="min-w-0 flex-1 sm:flex-none">
                 <p class="app-kicker">{{ $country->is_eu_member ? __('ui.calculator.scope.eu') : __('ui.calculator.scope.other_europe') }}</p>
                 <h1 class="mt-2 text-3xl font-bold tracking-[-0.03em] text-white sm:text-4xl">{{ __('ui.calculator.country_heading', ['country' => $country->name]) }}</h1>
                 <p class="mt-2 max-w-2xl text-sm leading-6 text-white/80 sm:text-base">
