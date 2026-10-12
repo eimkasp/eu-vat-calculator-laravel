@@ -977,4 +977,10 @@ return array (
     'faq_5_q' => 'Sind die Antworten Steuerberatung?',
     'faq_5_a' => 'Nein. Der Server liefert Referenzsätze. Die richtige umsatzsteuerliche Behandlung hängt von Waren oder Dienstleistungen und vom Kunden ab. Klären Sie wichtige Fälle mit Ihrer Steuerberatung oder der zuständigen Steuerbehörde.',
   ),
+  'brand' => 
+  array (
+    'nav_label' => 'Marke',
+    'nav_desc' => 'Logo, Farben, Schrift und Tonalität von EU VAT Info',
+    'english_only' => 'Die Markenrichtlinien sind auf Englisch veröffentlicht.',
+  ),
 );

@@ -977,4 +977,10 @@ return array (
     'faq_5_q' => 'Adótanácsadásnak számítanak a válaszok?',
     'faq_5_a' => 'Nem. A szerver referenciakulcsokat ad vissza. A helyes ÁFA-kezelés a termékektől vagy szolgáltatásoktól és a vevőtől függ, ezért a fontos eseteket egyeztesse adótanácsadóval vagy a nemzeti adóhatósággal.',
   ),
+  'brand' => 
+  array (
+    'nav_label' => 'Arculat',
+    'nav_desc' => 'Az EU VAT Info logója, színei, betűi és hangneme',
+    'english_only' => 'Az arculati útmutató angol nyelven érhető el.',
+  ),
 );

@@ -977,4 +977,10 @@ return array (
     'faq_5_q' => '¿Las respuestas son asesoramiento fiscal?',
     'faq_5_a' => 'No. El servidor ofrece tipos de referencia. El tratamiento correcto del IVA depende de los bienes o servicios y del cliente, así que compruebe los casos importantes con un asesor fiscal o la administración tributaria nacional.',
   ),
+  'brand' => 
+  array (
+    'nav_label' => 'Marca',
+    'nav_desc' => 'Logotipo, colores, tipografía y tono de EU VAT Info',
+    'english_only' => 'Las pautas de marca se publican en inglés.',
+  ),
 );

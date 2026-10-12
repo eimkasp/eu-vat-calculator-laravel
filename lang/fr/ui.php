@@ -977,4 +977,10 @@ return array (
     'faq_5_q' => 'Les réponses sont-elles un conseil fiscal ?',
     'faq_5_a' => 'Non. Le serveur fournit des taux de référence. Le bon traitement de TVA dépend des biens ou services et du client : vérifiez les cas importants avec un conseiller fiscal ou l\'administration fiscale nationale.',
   ),
+  'brand' => 
+  array (
+    'nav_label' => 'Marque',
+    'nav_desc' => 'Logo, couleurs, typographie et ton d’EU VAT Info',
+    'english_only' => 'La charte de marque est publiée en anglais.',
+  ),
 );

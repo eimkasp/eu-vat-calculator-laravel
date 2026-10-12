@@ -116,6 +116,14 @@
                         <x-ui.icon name="file-text" class="size-4" />
                         Read DESIGN.md
                     </a>
+                    <a href="{{ url('/storybook/') }}" class="app-button-on-brand">
+                        <x-ui.icon name="puzzle" class="size-4" />
+                        Browse Storybook
+                    </a>
+                    <a href="{{ locale_path('/brand') }}" class="app-button-on-brand">
+                        <x-ui.icon name="flag" class="size-4" />
+                        Brand guidelines
+                    </a>
                 </div>
             </div>
 
@@ -689,6 +697,12 @@
 
                 {{-- Resources --}}
                 <x-styleguide.section id="storybook" title="Storybook" lead="Every example on this page is also a Storybook story, rendered from the same Blade file, so designers and developers can browse, theme-switch and audit components in isolation without the two ever drifting apart.">
+                    <p>
+                        <a href="{{ url('/storybook/') }}" class="app-button-primary">
+                            <x-ui.icon name="puzzle" class="size-4" />
+                            Open Storybook
+                        </a>
+                    </p>
                     <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
                         <div class="app-surface p-5 sm:p-6">
                             <h3 class="text-lg font-bold text-ink">How the stories are made</h3>
@@ -708,7 +722,7 @@
                         </div>
                         <x-styleguide.specimen
                             title="Run it"
-                            description="Regenerate after changing an example or app.css, then serve on port 6006 or build to storybook-static"
+                            description="Regenerate after changing an example or app.css; every deploy also publishes it at /storybook"
                             language="Shell"
                             :code="'yarn install'.PHP_EOL.'php artisan design-system:storybook'.PHP_EOL.'yarn storybook'.PHP_EOL.'yarn build-storybook'"
                         />

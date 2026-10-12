@@ -1005,4 +1005,11 @@ return [
         'faq_5_q' => 'Are the answers tax advice?',
         'faq_5_a' => 'No. The server returns reference rates. The right VAT treatment depends on the goods or services and the customer, so check important cases with a tax adviser or the national tax authority.',
     ],
+
+    // ── Brand page ──────────────────────────────────────────────────────
+    'brand' => [
+        'nav_label' => 'Brand',
+        'nav_desc' => 'Logo, colours, type and voice of EU VAT Info',
+        'english_only' => 'The brand guidelines are published in English.',
+    ],
 ];

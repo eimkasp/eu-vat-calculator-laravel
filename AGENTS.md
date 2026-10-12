@@ -91,6 +91,7 @@ routes/
 | `VatComparison` | `/compare/{a}-vs-{b}-vat` | Approved country comparisons |
 | `HtmlSitemap` | `/sitemap` | HTML sitemap for SEO |
 | `Styleguide` | `/styleguide` | Design system reference (English only, rendered from `app.css` and `DESIGN.md`) |
+| `BrandGuidelines` | `/brand` | Brand guidelines: mark, colours from the tokens, type, voice, data credit |
 
 ### Services
 
@@ -154,6 +155,7 @@ GET  /up                              # Application health check
 
 ### Frontend
 - **Read `DESIGN.md` before any UI change.** It is the design system and styleguide (tokens, brand surfaces, component recipes, patterns, accessibility rules). `tests/Feature/DesignSystemTest.php` enforces it, and `.claude/skills/design-system` loads it for Claude Code.
+- The design system is public at `/styleguide` (reference), `/brand` (brand guidelines, English-only like the styleguide) and `/storybook/` (static Storybook that `yarn build` writes to `public/storybook`, git-ignored and `noindex`; never add a `storybook` route or a `public/styleguide` folder, which would shadow the `/styleguide` route on nginx).
 - Storybook (`yarn storybook`, `yarn build-storybook`) shows every styleguide example as a story. `App\Support\DesignSystem\ComponentCatalog` describes each example once for `/styleguide` and Storybook; after changing an example, a component it uses or `app.css`, run `php artisan design-system:storybook` and commit `storybook/` (`StorybookExportTest` fails while it is stale).
 - `/styleguide` renders the design system with live examples from `resources/views/styleguide/examples`; `/styleguide/design.tokens.json` (Design Tokens Community Group JSON) and `/styleguide.md` are generated from `resources/css/app.css` and `DESIGN.md` by `App\Support\DesignSystem`, so they never need editing by hand. `tests/Feature/StyleguideTest.php` keeps them in step
 - Interactive UI uses **Livewire 4** components with **Alpine.js** (`resources/js/app.js`) for instant client-side feedback — no SPA framework

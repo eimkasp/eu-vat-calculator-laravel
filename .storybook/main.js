@@ -6,6 +6,6 @@ export default {
     },
     stories: ['../storybook/**/*.mdx', '../storybook/**/*.stories.js'],
     addons: ['@storybook/addon-docs', '@storybook/addon-a11y', '@storybook/addon-themes'],
-    staticDirs: [{ from: '../resources/images', to: '/images' }],
+    staticDirs: [{ from: '../resources/images/flags', to: '/images/flags' }],
     core: { disableTelemetry: true },
 };

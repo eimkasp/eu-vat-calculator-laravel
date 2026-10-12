@@ -977,4 +977,10 @@ return array (
     'faq_5_q' => 'It-tweġibiet huma parir dwar it-taxxa?',
     'faq_5_a' => 'Le. Is-server jagħti rati ta’ referenza. It-trattament korrett tal-VAT jiddependi fuq l-oġġetti jew is-servizzi u fuq il-klijent, għalhekk ivverifika każijiet importanti ma’ konsulent tat-taxxa jew mal-awtorità nazzjonali tat-taxxa.',
   ),
+  'brand' => 
+  array (
+    'nav_label' => 'Marka',
+    'nav_desc' => 'Il-logo, il-kuluri, it-tipa u t-ton ta’ EU VAT Info',
+    'english_only' => 'Il-linji gwida tal-marka huma ppubblikati bl-Ingliż.',
+  ),
 );

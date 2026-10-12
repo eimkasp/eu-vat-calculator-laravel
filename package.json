@@ -6,7 +6,7 @@
     },
     "scripts": {
         "dev": "vite",
-        "build": "vite build",
+        "build": "vite build && (storybook build --quiet -o public/storybook || echo 'Storybook build failed; the site build is unaffected.')",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build -o storybook-static"
     },

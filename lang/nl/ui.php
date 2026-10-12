@@ -977,4 +977,10 @@ return array (
     'faq_5_q' => 'Zijn de antwoorden belastingadvies?',
     'faq_5_a' => 'Nee. De server geeft referentietarieven. De juiste btw-behandeling hangt af van de goederen of diensten en van de klant, dus controleer belangrijke gevallen bij een belastingadviseur of de nationale belastingdienst.',
   ),
+  'brand' => 
+  array (
+    'nav_label' => 'Merk',
+    'nav_desc' => 'Logo, kleuren, letters en toon van EU VAT Info',
+    'english_only' => 'De merkrichtlijnen zijn in het Engels gepubliceerd.',
+  ),
 );

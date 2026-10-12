@@ -10,6 +10,7 @@ class SeoPolicy
      */
     public const ENGLISH_BODY_ROUTES = [
         'blog.index',
+        'brand',
         'blog.show',
         'changelog',
         'chrome-extension',

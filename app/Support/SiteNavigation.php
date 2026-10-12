@@ -105,7 +105,8 @@ final class SiteNavigation
                     'icon' => $tool['icon'],
                 ], self::tools()),
                 ['title' => __('ui.sitemap.mcp_server'), 'subtitle' => __('ui.sitemap.mcp_server_desc'), 'url' => locale_path('/mcp-server'), 'icon' => 'server', 'keywords' => 'mcp ai agents claude'],
-                ['title' => __('ui.styleguide.nav_label'), 'subtitle' => __('ui.styleguide.nav_desc'), 'url' => locale_path('/styleguide'), 'icon' => 'grid', 'keywords' => 'styleguide design system tokens components'],
+                ['title' => __('ui.styleguide.nav_label'), 'subtitle' => __('ui.styleguide.nav_desc'), 'url' => locale_path('/styleguide'), 'icon' => 'grid', 'keywords' => 'styleguide design system tokens components storybook'],
+                ['title' => __('ui.brand.nav_label'), 'subtitle' => __('ui.brand.nav_desc'), 'url' => locale_path('/brand'), 'icon' => 'flag', 'keywords' => 'brand logo colours voice press kit'],
                 ['title' => __('ui.nav.updates'), 'subtitle' => __('ui.palette.updates_subtitle'), 'url' => locale_path('/blog'), 'icon' => 'news'],
             ];
 

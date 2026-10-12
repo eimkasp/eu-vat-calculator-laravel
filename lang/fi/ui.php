@@ -977,4 +977,10 @@ return array (
     'faq_5_q' => 'Ovatko vastaukset veroneuvontaa?',
     'faq_5_a' => 'Eivät. Palvelin palauttaa viitekantoja. Oikea ALV-käsittely riippuu tavaroista tai palveluista ja asiakkaasta, joten tarkista tärkeät tapaukset veroneuvojalta tai kansalliselta veroviranomaiselta.',
   ),
+  'brand' => 
+  array (
+    'nav_label' => 'Brändi',
+    'nav_desc' => 'EU VAT Infon logo, värit, typografia ja äänensävy',
+    'english_only' => 'Brändiohjeet on julkaistu englanniksi.',
+  ),
 );

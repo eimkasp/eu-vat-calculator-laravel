@@ -977,4 +977,10 @@ return array (
     'faq_5_q' => 'Czy odpowiedzi są poradą podatkową?',
     'faq_5_a' => 'Nie. Serwer podaje stawki referencyjne. Właściwe traktowanie VAT zależy od towarów lub usług i od klienta, dlatego ważne przypadki sprawdź z doradcą podatkowym lub krajową administracją skarbową.',
   ),
+  'brand' => 
+  array (
+    'nav_label' => 'Marka',
+    'nav_desc' => 'Logo, kolory, krój pisma i ton EU VAT Info',
+    'english_only' => 'Wytyczne marki są opublikowane po angielsku.',
+  ),
 );

@@ -977,4 +977,10 @@ return array (
     'faq_5_q' => 'Vai atbildes ir nodokļu konsultācija?',
     'faq_5_a' => 'Nē. Serveris atgriež atsauces likmes. Pareizais PVN režīms ir atkarīgs no precēm vai pakalpojumiem un klienta, tāpēc svarīgus gadījumus pārbaudiet pie nodokļu konsultanta vai valsts nodokļu administrācijā.',
   ),
+  'brand' => 
+  array (
+    'nav_label' => 'Zīmols',
+    'nav_desc' => 'EU VAT Info logotips, krāsas, burti un tonis',
+    'english_only' => 'Zīmola vadlīnijas ir publicētas angļu valodā.',
+  ),
 );

@@ -4,11 +4,12 @@ All notable changes to EU VAT Info are documented here.
 
 ---
 
-## [5.2.0] — 2026-10-12 — The design system, in one place
+## [5.2.0] — 2026-10-12 — The design system and brand, in one place
 
 ### Added
 - **The country calculator pieces in the design system** — the [design system reference](/styleguide) now shows the country heading, the rate reference, VAT on common amounts, the questions list and the VAT number format hint, with code you can copy.
-- **A Storybook for developers** — every component and pattern is also a Storybook story, built from the same templates as the site, with a light and dark switch and an accessibility check on each one.
+- **Brand guidelines** — [/brand](/brand) shows the mark (with an SVG to download), the colours, the type and the voice of EU VAT Info, and how to credit our VAT data.
+- **A Storybook for developers** — every component and pattern is also a story at [/storybook](/storybook/), built from the same templates as the site, with a light and dark switch and an accessibility check on each one.
 
 ### Improved
 - **Clearer design system figures** — the reference counts its live examples and components, and lists how the stories are made and how to run them.

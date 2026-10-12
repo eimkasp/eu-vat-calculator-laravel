@@ -304,7 +304,7 @@ Two equal segments on a bordered `surface-muted` track; the white thumb slides i
 | `app-kbd` | Keyboard hints such as ⌘K |
 | `app-flag`, `<x-ui.flag :iso="…" size="xs|sm|md|lg|xl" />` | Country flags (local SVGs; Greece accepts `el`) |
 | `<x-ui.icon name="…" class="size-4" />` | Lucide icons at 1.75 stroke; add missing paths to `components/ui/icon.blade.php` in alphabetical order |
-| `<x-ui.logo />` | The EU VAT Info mark: white tile, navy slash and dot, gold dot |
+| `<x-ui.logo />` | The EU VAT Info mark: white tile, navy slash and dot, gold dot; `size-8` unless a `size-*` class is passed |
 | `<x-json-ld :data="[…]" />` | Structured data; it adds `@context` for you |
 | `<x-rate-freshness :updated="…" :eu="…" />` | The date rates were updated and their source (the European Commission, or the open vat-rates dataset outside the EU); `on-dark` on navy, extra items in the slot |
 | `<x-faq-list :faqs="…" :title="…" id="…" />` | Questions as native disclosures, the first one open; build the FAQPage JSON-LD from the same list |
@@ -372,7 +372,7 @@ Two equal segments on a bordered `surface-muted` track; the white thumb slides i
 
 Every example in `resources/views/styleguide/examples` is also a Storybook story. `App\Support\DesignSystem\ComponentCatalog` describes each example once (section, title, description, canvas), and both `/styleguide` and `php artisan design-system:storybook` read it. The command renders each example through Blade into `storybook/generated/examples.json`, copies the Design Tokens to `storybook/generated/design.tokens.json` and writes one story file per section in `storybook/stories`. Never edit the generated files; change the example or the catalog and run the command again.
 
-`yarn storybook` serves it at http://localhost:6006 and `yarn build-storybook` writes `storybook-static`. Storybook loads `resources/css/app.css` and the Alpine components in `resources/js/app.js` with the Alpine version Livewire bundles, switches light and dark with the `.dark` class and runs axe-core on every story. To add an example, create the Blade file, describe it in the catalog, show it on `/styleguide` with `<x-styleguide.specimen example="…" />` and regenerate. An example renders without the database: use `ComponentCatalog::sampleCountry()` for country data.
+`yarn storybook` serves it at http://localhost:6006. `yarn build`, which every deploy runs, also builds it into `public/storybook`, so it is published at [/storybook](/storybook/) with `noindex` (a failed Storybook build never stops the site build); `yarn build-storybook` writes a standalone copy to `storybook-static`. Storybook loads `resources/css/app.css` and the Alpine components in `resources/js/app.js` with the Alpine version Livewire bundles, switches light and dark with the `.dark` class and runs axe-core on every story. To add an example, create the Blade file, describe it in the catalog, show it on `/styleguide` with `<x-styleguide.specimen example="…" />` and regenerate. An example renders without the database: use `ComponentCatalog::sampleCountry()` for country data.
 
 ## Enforcement
 
@@ -407,6 +407,7 @@ Also run an automated accessibility check on the pages you changed. The project 
 | `resources/views/layouts/app.blade.php` | Page shell, theme bootstrap, skip link |
 | `resources/views/layouts/embed.blade.php` | Transparent shell for the iframe widget |
 | `resources/views/livewire/styleguide.blade.php` | The `/styleguide` reference page |
+| `resources/views/livewire/brand-guidelines.blade.php` | The `/brand` page: the mark (also served as SVG at `/brand/eu-vat-info-mark.svg`), colours from the tokens, type, voice and how to credit the data |
 | `resources/views/styleguide/examples` | Live component and pattern examples shown on `/styleguide` |
 | `app/Support/DesignSystem` | Reads the tokens from `app.css` and this file, and exports them as Design Tokens JSON; `ComponentCatalog` describes the examples and `StorybookExport` builds the stories |
 | `.storybook` | Storybook configuration: framework, add-ons, the brand theme and the preview that loads the site's CSS and Alpine |

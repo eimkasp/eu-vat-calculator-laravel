@@ -977,4 +977,10 @@ return array (
     'faq_5_q' => 'Kas vastused on maksunõustamine?',
     'faq_5_a' => 'Ei. Server tagastab viitemäärad. Õige käibemaksukäsitlus sõltub kaupadest või teenustest ja kliendist, seega kontrollige olulisi juhtumeid maksunõustaja või riikliku maksuhalduriga.',
   ),
+  'brand' => 
+  array (
+    'nav_label' => 'Bränd',
+    'nav_desc' => 'EU VAT Info logo, värvid, kiri ja hääl',
+    'english_only' => 'Brändijuhised on avaldatud inglise keeles.',
+  ),
 );
