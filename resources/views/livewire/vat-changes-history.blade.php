@@ -20,7 +20,7 @@
             'description' => __('ui.history.meta_desc'),
             'url' => $historyCanonical,
             'inLanguage' => app()->getLocale(),
-            'isPartOf' => ['@type' => 'WebSite', '@id' => $seo->canonicalHost().'/#website', 'name' => 'EU VAT Info'],
+            'isPartOf' => ['@type' => 'WebSite', '@id' => $seo->canonicalHost().'/#website', 'name' => 'EU VAT Info', 'url' => $seo->canonicalHost().'/'],
         ]" />
         <x-json-ld :data="array_filter([
             '@type' => 'Dataset',

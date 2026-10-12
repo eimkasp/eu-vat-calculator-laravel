@@ -26,7 +26,7 @@
                 'url' => $calcCanonical,
                 'inLanguage' => app()->getLocale(),
                 'dateModified' => $country->updated_at?->toIso8601String(),
-                'isPartOf' => ['@type' => 'WebSite', '@id' => rtrim((string) config('seo.canonical_url'), '/').'/#website', 'name' => 'EU VAT Info'],
+                'isPartOf' => ['@type' => 'WebSite', '@id' => rtrim((string) config('seo.canonical_url'), '/').'/#website', 'name' => 'EU VAT Info', 'url' => rtrim((string) config('seo.canonical_url'), '/').'/'],
                 'mainEntity' => [
                     '@type' => 'WebApplication',
                     '@id' => $calcCanonical.'#calculator',
