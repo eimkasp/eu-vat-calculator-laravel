@@ -1,6 +1,30 @@
 # EU VAT Info — Backlog
 
-Items identified during the audit/fix/growth/polish cycle. Grouped by priority.
+Items identified during the audit/fix/growth/polish cycles. Grouped by priority. The newest cycle comes first.
+
+---
+
+## Next cycle (found in the 5.3.0 cycle)
+
+Measurements and the full list of what 5.3.0 fixed are in `docs/benchmarks/cycle-5.3/README.md`.
+
+### High
+- [ ] **Country names in every language.** Titles, headings and questions say "MwSt-Rechner Germany" and "Calculateur de TVA pour Germany": `Country::name` is English and goes into every `:country` placeholder (55 keys × 23 languages). Add the CLDR name per locale (`lang/{locale}/countries.php`, generated once from PHP intl) and rewrite each template so the name fits the sentence's case (nominative forms such as "Niemcy: kalkulator VAT" where a language inflects). Native-language queries ("Mehrwertsteuer Deutschland") are the largest search gain left.
+- [ ] **Turn off Rocket Loader in Cloudflare** (Speed → Optimization → Content Optimization). 5.3.0 opts every script out, but the loader still injects its own script on every page.
+
+### Medium
+- [ ] **Hashed build assets cache for one year.** `/build/assets/*` is served with `max-age=2678400` (31 days) and no `immutable`; set `Cache-Control: public, max-age=31536000, immutable` for `/build/` in the Forge nginx config.
+- [ ] **Duplicate security headers.** HTML responses carry `X-Frame-Options` and `X-Content-Type-Options` twice (nginx and `SecurityHeaders`); keep one source.
+- [ ] **One brand name in titles.** Titles end in "| EU VAT Info", "| EU MwSt. Info", "| IVA na UE" and so on, while the WebSite entity and `og:site_name` say "EU VAT Info". Decide whether `ui.site_name` stays translated.
+- [ ] **Translate the embed widget builder** (`widget/embed.blade.php`, linked from the Tools menu in every language), or give it a `locale.` route and list it as English-only.
+- [ ] **A social image per country calculator** ("Germany VAT 19%"), rendered from the same template as `public/images/og-default.png`, regenerated when a rate changes.
+- [ ] **Rate history for France and Greece.** The synced dataset has none, so their history pages do not exist.
+- [ ] **Check the Roboto fallback on an Android phone.** Its 105% `size-adjust` was derived from Roboto's measured width against Arial, not measured on a device.
+
+### Low
+- [ ] Inline source links (European Commission, pdfcheck.online, "Try LT100…") are under 24px tall; they pass as inline text, but a larger hit area would help on phones.
+- [ ] The generic calculator and the map page still inline the 35 KB map; render it after the first screen on `/vat-calculator`.
+- [ ] `generate-og.php` at the repository root draws the pre-5.0 share image and is unused; remove it.
 
 ---
 
@@ -16,12 +40,12 @@ Items identified during the audit/fix/growth/polish cycle. Grouped by priority.
 - [x] Translate new `ui.php` keys to all 23 non-English locales (tools, navigator, country_page, calculator, validator sections)
 - [x] Rate labels in `vat-calculator-simple.blade.php` still hardcoded (Standard, Reduced, Super Reduced, Parking) — extract to translation keys
 - [x] VAT Navigator result text (`$result['action']`, `$result['explanation']`) is generated server-side in English — needs i18n support in the Livewire component
-- [ ] Country names are stored in English in the database — consider per-locale country name translations
+- [ ] Country names are stored in English in the database — consider per-locale country name translations (now planned under Next cycle)
 
 ### Accessibility
 - [x] Dark mode coverage ~70% — several components have incomplete dark mode styling
 - [x] Add `aria-current="page"` to the active navigation link
-- [ ] Add visible focus ring to all interactive elements (currently only `*:focus-visible` global rule)
+- [x] Add visible focus ring to all interactive elements (the `*:focus-visible` rule with the gold ring on navy)
 - [x] Improve color contrast on some light-gray text elements (e.g., `text-gray-400`)
 
 ### Performance
@@ -43,13 +67,13 @@ Items identified during the audit/fix/growth/polish cycle. Grouped by priority.
 
 ### Code Quality
 - [x] Remove dead routes: `/counter`, commented-out `/vat-check` and `/vat-navigator` in `routes/web.php`
-- [ ] `tools.blade.php` calculator link is hardcoded as `/vat-calculator` instead of using `locale_path()`
+- [x] `tools.blade.php` calculator link is hardcoded as `/vat-calculator` instead of using `locale_path()`
 - [ ] Consider extracting FAQ generation logic from `country.blade.php` into a dedicated service or view model
 
 ### UX / Design
 - [ ] Add `wire:transition` to more Livewire dynamic sections (currently only 2 uses)
-- [ ] Consider adding a global search/autocomplete for country navigation
-- [ ] Mobile bottom navigation could highlight the current active page
+- [x] Consider adding a global search/autocomplete for country navigation (the search dialog, ⌘K)
+- [x] Mobile bottom navigation could highlight the current active page
 - [ ] Add skeleton loading states for the VAT map SVG and country page sidebar
 
 ---

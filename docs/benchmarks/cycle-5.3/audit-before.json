@@ -1,0 +1,3345 @@
+{
+  "total": 11340,
+  "english": 691,
+  "audited": 36,
+  "linksChecked": 645,
+  "broken": [
+    "302 /lang/en -> ",
+    "302 /lang/bg -> /bg",
+    "302 /lang/cs -> /cs",
+    "302 /lang/da -> /da",
+    "302 /lang/de -> /de",
+    "302 /lang/el -> /el",
+    "302 /lang/es -> /es",
+    "302 /lang/et -> /et",
+    "302 /lang/fi -> /fi",
+    "302 /lang/fr -> /fr",
+    "302 /lang/ga -> /ga",
+    "302 /lang/hr -> /hr",
+    "302 /lang/hu -> /hu",
+    "302 /lang/it -> /it",
+    "302 /lang/lt -> /lt",
+    "302 /lang/lv -> /lv",
+    "302 /lang/mt -> /mt",
+    "302 /lang/nl -> /nl",
+    "302 /lang/pl -> /pl",
+    "302 /lang/pt -> /pt",
+    "302 /lang/ro -> /ro",
+    "302 /lang/sk -> /sk",
+    "302 /lang/sl -> /sl",
+    "302 /lang/sv -> /sv"
+  ],
+  "duplicateTitles": [],
+  "results": [
+    {
+      "url": "/",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "EU VAT Calculator and VAT Rates for All 27 Countries",
+        "description": "Add or remove VAT for all 27 EU countries with current standard and reduced rates. Check EU VAT numbers in VIES and follow every VAT rate change.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/",
+        "hreflang": 25,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "VAT rates in the\n                    European Union"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "WebSite"
+            ]
+          },
+          {
+            "ok": true,
+            "types": [
+              "Organization"
+            ]
+          },
+          {
+            "ok": true,
+            "types": [
+              "Dataset"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-changes\" class=\"text-xs font-semibold text-action hover:text-action-deep\">Fu",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ],
+        "emptyLinks": 0,
+        "mainText": 2339,
+        "domNodes": 1623
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-changes\" class=\"text-xs font-semibold text-action hover:text-action-deep\">Fu",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-changes\" class=\"text-xs font-semibold text-action hover:text-action-deep\">Fu",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-changes\" class=\"text-xs font-semibold text-action hover:text-action-deep\">Fu",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 6837
+      }
+    },
+    {
+      "url": "/vat-calculator",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "European VAT Calculator — EU & Other Countries | EU VAT Info",
+        "description": "Free VAT calculator for supported European countries. Add or remove VAT instantly with current maintained rates. No registration required.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/vat-calculator",
+        "hreflang": 25,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "European VAT calculator"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "WebApplication"
+            ]
+          },
+          {
+            "ok": true,
+            "types": [
+              "BreadcrumbList"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<path d=\"M607.8 434.9l-0.9 2.4 0.1 0.8 1.6 2.9 2.3 2.9-0.6 0.7-0.6 1.9 0.7 2-3.9 0.3-2.5-0",
+          "<path d=\"M470 401.8l1.6-0.5 0.8 0.8 1.2 0.1 3 2.3-0.4 1.5 1.7 0.7 0.4 2-2.3 1.3-0.6 1.7-1.",
+          "<path d=\"M759.6 509.6l0.2 3.7-0.9 1.8-2-0.6-2.2 0.5-1 2-1.2 1.2 0 2.6 0.4 4.2-1.6 0.7-2.9 "
+        ],
+        "emptyLinks": 0,
+        "mainText": 811,
+        "domNodes": 1077
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<path d=\"M607.8 434.9l-0.9 2.4 0.1 0.8 1.6 2.9 2.3 2.9-0.6 0.7-0.6 1.9 0.7 2-3.9 0.3-2.5-0",
+          "<path d=\"M470 401.8l1.6-0.5 0.8 0.8 1.2 0.1 3 2.3-0.4 1.5 1.7 0.7 0.4 2-2.3 1.3-0.6 1.7-1.",
+          "<path d=\"M759.6 509.6l0.2 3.7-0.9 1.8-2-0.6-2.2 0.5-1 2-1.2 1.2 0 2.6 0.4 4.2-1.6 0.7-2.9 "
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<path d=\"M475.4 411.7l0.3 2.2 1.5 1.6 2.8 1.1 0 1.4-0.9 0.9-0.6 3-1.3-0.7-2 0.6-1.4 0-2.1-",
+          "<path d=\"M605.2 467.1l-2.5-0.6-0.9 0.8 0 1.7-2 0-0.7 1-4.4 1.7-0.4 1.4 0.9 0.9 0.2 2.2-0.4",
+          "<path d=\"M843.2 646.3l-0.1 0-0.1 0 0.1-0.1 0.1 0.1z m0 0l0.1 0 0.1 0 0.1 0.1-0.1 0-0.1 0-0"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<path d=\"M475.4 411.7l0.3 2.2 1.5 1.6 2.8 1.1 0 1.4-0.9 0.9-0.6 3-1.3-0.7-2 0.6-1.4 0-2.1-",
+          "<path d=\"M605.2 467.1l-2.5-0.6-0.9 0.8 0 1.7-2 0-0.7 1-4.4 1.7-0.4 1.4 0.9 0.9 0.2 2.2-0.4",
+          "<path d=\"M843.2 646.3l-0.1 0-0.1 0 0.1-0.1 0.1 0.1z m0 0l0.1 0 0.1 0 0.1 0.1-0.1 0-0.1 0-0"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 3426
+      }
+    },
+    {
+      "url": "/vat-number-validator",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "EU VAT Number Validator: Free VIES Check",
+        "description": "Check any EU VAT number in the European Commission's VIES register. See whether it is valid and who it belongs to. Free, with no sign-up.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/vat-number-validator",
+        "hreflang": 25,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "VIES VAT number validator"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "WebApplication"
+            ]
+          },
+          {
+            "ok": true,
+            "types": [
+              "FAQPage"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<button type=\"button\" wire:click=\"prefillExample\" class=\"app-link font-semibold\">Try LT100",
+          "<a href=\"/vat-validation-api\" class=\"app-link inline-flex items-center gap-1 text-sm font-",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ],
+        "emptyLinks": 0,
+        "mainText": 3837,
+        "domNodes": 1061
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<button type=\"button\" wire:click=\"prefillExample\" class=\"app-link font-semibold\">Try LT100",
+          "<a href=\"/vat-validation-api\" class=\"app-link inline-flex items-center gap-1 text-sm font-",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<button type=\"button\" wire:click=\"prefillExample\" class=\"app-link font-semibold\">Try LT100",
+          "<a href=\"/vat-validation-api\" class=\"app-link inline-flex items-center gap-1 text-sm font-",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<button type=\"button\" wire:click=\"prefillExample\" class=\"app-link font-semibold\">Try LT100",
+          "<a href=\"/vat-validation-api\" class=\"app-link inline-flex items-center gap-1 text-sm font-",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 6121
+      }
+    },
+    {
+      "url": "/vat-validation-api",
+      "390-light": {
+        "status": 200,
+        "axe": [
+          {
+            "id": "scrollable-region-focusable",
+            "impact": "serious",
+            "help": "Scrollable region must have keyboard access",
+            "nodes": [
+              ".rounded-card ::   Element should have focusable content",
+              "#response-fields > .relative.app-surface.mt-4 ::   Element should have focusable content"
+            ],
+            "count": 2
+          }
+        ],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "EU VAT Number Validation API — Free REST API Documentation",
+        "description": "Free REST API to validate EU VAT numbers in real-time via the official VIES database. Single and batch validation, CORS headers, no API key required.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/vat-validation-api",
+        "hreflang": 0,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "EU VAT validation API"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "WebAPI"
+            ]
+          },
+          {
+            "ok": true,
+            "types": [
+              "BreadcrumbList"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-number-validator\" itemprop=\"item\" class=\"rounded-control font-medium transit",
+          "<a href=\"/api/v1/countries\" class=\"inline-flex items-center gap-1 text-action hover:text-a",
+          "<a href=\"/api/v1/openapi.json\" class=\"inline-flex items-center gap-1 text-action hover:tex",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ],
+        "emptyLinks": 0,
+        "mainText": 4043,
+        "domNodes": 936
+      },
+      "390-dark": {
+        "axe": [
+          {
+            "id": "scrollable-region-focusable",
+            "impact": "serious",
+            "help": "Scrollable region must have keyboard access",
+            "nodes": [
+              ".rounded-card ::   Element should have focusable content",
+              "#response-fields > .relative.app-surface.mt-4 ::   Element should have focusable content"
+            ],
+            "count": 2
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-number-validator\" itemprop=\"item\" class=\"rounded-control font-medium transit",
+          "<a href=\"/api/v1/countries\" class=\"inline-flex items-center gap-1 text-action hover:text-a",
+          "<a href=\"/api/v1/openapi.json\" class=\"inline-flex items-center gap-1 text-action hover:tex",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-number-validator\" itemprop=\"item\" class=\"rounded-control font-medium transit",
+          "<a href=\"/api/v1/countries\" class=\"inline-flex items-center gap-1 text-action hover:text-a",
+          "<a href=\"/api/v1/openapi.json\" class=\"inline-flex items-center gap-1 text-action hover:tex",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-number-validator\" itemprop=\"item\" class=\"rounded-control font-medium transit",
+          "<a href=\"/api/v1/countries\" class=\"inline-flex items-center gap-1 text-action hover:text-a",
+          "<a href=\"/api/v1/openapi.json\" class=\"inline-flex items-center gap-1 text-action hover:tex",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 4652
+      }
+    },
+    {
+      "url": "/vat-map",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "European VAT rates map - EU VAT Info",
+        "description": "Standard VAT rates of every EU country on one map, with a ranked table of standard, reduced and super-reduced rates and a calculator for each country.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/vat-map",
+        "hreflang": 25,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "European VAT rates map"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "WebPage"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<path d=\"M607.8 434.9l-0.9 2.4 0.1 0.8 1.6 2.9 2.3 2.9-0.6 0.7-0.6 1.9 0.7 2-3.9 0.3-2.5-0",
+          "<path d=\"M470 401.8l1.6-0.5 0.8 0.8 1.2 0.1 3 2.3-0.4 1.5 1.7 0.7 0.4 2-2.3 1.3-0.6 1.7-1.",
+          "<path d=\"M759.6 509.6l0.2 3.7-0.9 1.8-2-0.6-2.2 0.5-1 2-1.2 1.2 0 2.6 0.4 4.2-1.6 0.7-2.9 "
+        ],
+        "emptyLinks": 0,
+        "mainText": 2233,
+        "domNodes": 1062
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<path d=\"M607.8 434.9l-0.9 2.4 0.1 0.8 1.6 2.9 2.3 2.9-0.6 0.7-0.6 1.9 0.7 2-3.9 0.3-2.5-0",
+          "<path d=\"M470 401.8l1.6-0.5 0.8 0.8 1.2 0.1 3 2.3-0.4 1.5 1.7 0.7 0.4 2-2.3 1.3-0.6 1.7-1.",
+          "<path d=\"M759.6 509.6l0.2 3.7-0.9 1.8-2-0.6-2.2 0.5-1 2-1.2 1.2 0 2.6 0.4 4.2-1.6 0.7-2.9 "
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<path d=\"M475.4 411.7l0.3 2.2 1.5 1.6 2.8 1.1 0 1.4-0.9 0.9-0.6 3-1.3-0.7-2 0.6-1.4 0-2.1-",
+          "<path d=\"M843.2 646.3l-0.1 0-0.1 0 0.1-0.1 0.1 0.1z m0 0l0.1 0 0.1 0 0.1 0.1-0.1 0-0.1 0-0",
+          "<circle cx=\"588.2\" cy=\"632.2\" r=\"3.4\" class=\"eu-map-region eu-map-b0\" data-iso=\"MT\" tabind"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<path d=\"M475.4 411.7l0.3 2.2 1.5 1.6 2.8 1.1 0 1.4-0.9 0.9-0.6 3-1.3-0.7-2 0.6-1.4 0-2.1-",
+          "<path d=\"M843.2 646.3l-0.1 0-0.1 0 0.1-0.1 0.1 0.1z m0 0l0.1 0 0.1 0 0.1 0.1-0.1 0-0.1 0-0",
+          "<circle cx=\"588.2\" cy=\"632.2\" r=\"3.4\" class=\"eu-map-region eu-map-b0\" data-iso=\"MT\" tabind"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 6525
+      }
+    },
+    {
+      "url": "/tools",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "EU VAT Tools: Calculator, Validator, Map and Guides",
+        "description": "Free EU VAT tools: a VAT calculator for every country, VIES number checks, a rate map, the rate history and compliance guides for all 27 states.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/tools",
+        "hreflang": 25,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "EU VAT tools and resources"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "ItemList"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ],
+        "emptyLinks": 0,
+        "mainText": 1460,
+        "domNodes": 705
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 2330
+      }
+    },
+    {
+      "url": "/top-vat-calculations",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "Popular VAT Calculations — EU VAT Calculator",
+        "description": "VAT on common amounts from €100 to €10,000 in every EU country, at each country's standard rate. Add or remove VAT with one click.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/top-vat-calculations",
+        "hreflang": 25,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "Popular VAT calculations"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "ItemList"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/top-vat-calculations/100\" class=\"tabular hover:text-action\">€100</a>",
+          "<a href=\"/top-vat-calculations/200\" class=\"tabular hover:text-action\">€200</a>",
+          "<a href=\"/top-vat-calculations/500\" class=\"tabular hover:text-action\">€500</a>",
+          "<a href=\"/top-vat-calculations/1000\" class=\"tabular hover:text-action\">€1,000</a>"
+        ],
+        "emptyLinks": 0,
+        "mainText": 3236,
+        "domNodes": 1091
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/top-vat-calculations/100\" class=\"tabular hover:text-action\">€100</a>",
+          "<a href=\"/top-vat-calculations/200\" class=\"tabular hover:text-action\">€200</a>",
+          "<a href=\"/top-vat-calculations/500\" class=\"tabular hover:text-action\">€500</a>",
+          "<a href=\"/top-vat-calculations/1000\" class=\"tabular hover:text-action\">€1,000</a>"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/top-vat-calculations/100\" class=\"tabular hover:text-action\">€100</a>",
+          "<a href=\"/top-vat-calculations/200\" class=\"tabular hover:text-action\">€200</a>",
+          "<a href=\"/top-vat-calculations/500\" class=\"tabular hover:text-action\">€500</a>",
+          "<a href=\"/top-vat-calculations/1000\" class=\"tabular hover:text-action\">€1,000</a>"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/top-vat-calculations/100\" class=\"tabular hover:text-action\">€100</a>",
+          "<a href=\"/top-vat-calculations/200\" class=\"tabular hover:text-action\">€200</a>",
+          "<a href=\"/top-vat-calculations/500\" class=\"tabular hover:text-action\">€500</a>",
+          "<a href=\"/top-vat-calculations/1000\" class=\"tabular hover:text-action\">€1,000</a>"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 19550
+      }
+    },
+    {
+      "url": "/top-vat-calculations/100",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "VAT on €100 in Every EU Country",
+        "description": "VAT on €100 in all 27 EU member states at standard rates from 17% to 27%: the VAT and the total for each country, added or removed.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/top-vat-calculations/100",
+        "hreflang": 25,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "VAT on €100"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "ItemList"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/top-vat-calculations\" itemprop=\"item\" class=\"rounded-control font-medium transit",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-calculator/austria\" class=\"flex items-center gap-2.5 font-semibold whitespac",
+          "<a href=\"/vat-calculator/belgium\" class=\"flex items-center gap-2.5 font-semibold whitespac"
+        ],
+        "emptyLinks": 0,
+        "mainText": 1828,
+        "domNodes": 962
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/top-vat-calculations\" itemprop=\"item\" class=\"rounded-control font-medium transit",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-calculator/austria\" class=\"flex items-center gap-2.5 font-semibold whitespac",
+          "<a href=\"/vat-calculator/belgium\" class=\"flex items-center gap-2.5 font-semibold whitespac"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/top-vat-calculations\" itemprop=\"item\" class=\"rounded-control font-medium transit",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-calculator/austria\" class=\"flex items-center gap-2.5 font-semibold whitespac",
+          "<a href=\"/vat-calculator/belgium\" class=\"flex items-center gap-2.5 font-semibold whitespac"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/top-vat-calculations\" itemprop=\"item\" class=\"rounded-control font-medium transit",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-calculator/austria\" class=\"flex items-center gap-2.5 font-semibold whitespac",
+          "<a href=\"/vat-calculator/belgium\" class=\"flex items-center gap-2.5 font-semibold whitespac"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 7700
+      }
+    },
+    {
+      "url": "/top-vat-calculations/200",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "VAT on €200 in Every EU Country",
+        "description": "VAT on €200 in all 27 EU member states at standard rates from 17% to 27%: the VAT and the total for each country, added or removed.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/top-vat-calculations/200",
+        "hreflang": 25,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "VAT on €200"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "ItemList"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/top-vat-calculations\" itemprop=\"item\" class=\"rounded-control font-medium transit",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-calculator/austria\" class=\"flex items-center gap-2.5 font-semibold whitespac",
+          "<a href=\"/vat-calculator/belgium\" class=\"flex items-center gap-2.5 font-semibold whitespac"
+        ],
+        "emptyLinks": 0,
+        "mainText": 1855,
+        "domNodes": 962
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/top-vat-calculations\" itemprop=\"item\" class=\"rounded-control font-medium transit",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-calculator/austria\" class=\"flex items-center gap-2.5 font-semibold whitespac",
+          "<a href=\"/vat-calculator/belgium\" class=\"flex items-center gap-2.5 font-semibold whitespac"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/top-vat-calculations\" itemprop=\"item\" class=\"rounded-control font-medium transit",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-calculator/austria\" class=\"flex items-center gap-2.5 font-semibold whitespac",
+          "<a href=\"/vat-calculator/belgium\" class=\"flex items-center gap-2.5 font-semibold whitespac"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/top-vat-calculations\" itemprop=\"item\" class=\"rounded-control font-medium transit",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-calculator/austria\" class=\"flex items-center gap-2.5 font-semibold whitespac",
+          "<a href=\"/vat-calculator/belgium\" class=\"flex items-center gap-2.5 font-semibold whitespac"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 7727
+      }
+    },
+    {
+      "url": "/datasets/eu-vat-rates",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "EU VAT Rates Dataset — Current Rates, History and Downloads",
+        "description": "Download current VAT rates for all 27 EU member states as CSV, JSON or Markdown, with source provenance and verification dates.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/datasets/eu-vat-rates",
+        "hreflang": 0,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "EU VAT rates dataset"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "BreadcrumbList",
+              "Dataset"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ],
+        "emptyLinks": 0,
+        "mainText": 899,
+        "domNodes": 593
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 1395
+      }
+    },
+    {
+      "url": "/mcp-server",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "EU VAT MCP Server: Live VAT Data for AI Assistants",
+        "description": "Free remote MCP server with EU VAT rates, calculations, rate changes and VIES checks. Connect Claude, ChatGPT, VS Code or Cursor in a minute.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/mcp-server",
+        "hreflang": 25,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "EU VAT MCP server"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "WebAPI"
+            ]
+          },
+          {
+            "ok": true,
+            "types": [
+              "BreadcrumbList"
+            ]
+          },
+          {
+            "ok": true,
+            "types": [
+              "FAQPage"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ],
+        "emptyLinks": 0,
+        "mainText": 3650,
+        "domNodes": 922
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 4728
+      }
+    },
+    {
+      "url": "/styleguide",
+      "390-light": {
+        "status": 200,
+        "axe": [
+          {
+            "id": "scrollable-region-focusable",
+            "impact": "serious",
+            "help": "Scrollable region must have keyboard access",
+            "nodes": [
+              ".overflow-x-auto.relative ::   Element should have focusable content"
+            ],
+            "count": 1
+          }
+        ],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "Design system: tokens, components and patterns | EU VAT Info",
+        "description": "The EU VAT Info design system: colour, type, shape and motion tokens, accessible Blade components and page patterns, with a Design Tokens (DTCG) file and Markdown guide for AI agents.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/styleguide",
+        "hreflang": 0,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "The EU VAT Info design system"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "TechArticle"
+            ]
+          },
+          {
+            "ok": true,
+            "types": [
+              "BreadcrumbList"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co"
+        ],
+        "emptyLinks": 0,
+        "mainText": 25594,
+        "domNodes": 6930
+      },
+      "390-dark": {
+        "axe": [
+          {
+            "id": "scrollable-region-focusable",
+            "impact": "serious",
+            "help": "Scrollable region must have keyboard access",
+            "nodes": [
+              ".overflow-x-auto.relative ::   Element should have focusable content"
+            ],
+            "count": 1
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://businesspress.io/?utm_source=eu-vat-info&amp;utm_medium=referral&amp;utm_",
+          "<p role=\"tabpanel\" id=\"sg-panel-claude\" aria-labelledby=\"sg-tab-claude\" tabindex=\"0\" class",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://businesspress.io/?utm_source=eu-vat-info&amp;utm_medium=referral&amp;utm_",
+          "<p role=\"tabpanel\" id=\"sg-panel-claude\" aria-labelledby=\"sg-tab-claude\" tabindex=\"0\" class",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 155592
+      }
+    },
+    {
+      "url": "/brand",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "Brand guidelines: logo, colour and voice | EU VAT Info",
+        "description": "The EU VAT Info brand: the mark and how to use it, the navy, gold and blue palette, Inter type, the plain voice and how to credit our VAT data.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/brand",
+        "hreflang": 0,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "The EU VAT Info brand"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "WebPage"
+            ]
+          },
+          {
+            "ok": true,
+            "types": [
+              "BreadcrumbList"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ],
+        "emptyLinks": 0,
+        "mainText": 3463,
+        "domNodes": 799
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 4160
+      }
+    },
+    {
+      "url": "/sitemap",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "HTML Sitemap - All EU VAT Pages | EU VAT Info",
+        "description": "Complete sitemap of EU VAT Info. Browse all pages including VAT calculators, country guides, validators, and tools for all 27 EU member states.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/sitemap",
+        "hreflang": 25,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "Site map"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "CollectionPage"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ],
+        "emptyLinks": 0,
+        "mainText": 5924,
+        "domNodes": 1693
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 12881
+      }
+    },
+    {
+      "url": "/compare/germany-vs-france-vat",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "Germany vs France VAT Rates Compared",
+        "description": "Compare Germany and France VAT rates, reduced rates, currencies, VIES availability and historical changes.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/compare/germany-vs-france-vat",
+        "hreflang": 25,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "Germany vs France VAT rates"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "WebPage"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/\" itemprop=\"item\" class=\"rounded-control font-medium transition-colors text-ink-",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ],
+        "emptyLinks": 0,
+        "mainText": 1022,
+        "domNodes": 697
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/\" itemprop=\"item\" class=\"rounded-control font-medium transition-colors text-ink-",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/\" itemprop=\"item\" class=\"rounded-control font-medium transition-colors text-ink-",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/\" itemprop=\"item\" class=\"rounded-control font-medium transition-colors text-ink-",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 1766
+      }
+    },
+    {
+      "url": "/compare/germany-vs-netherlands-vat",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "Germany vs Netherlands VAT Rates Compared",
+        "description": "Compare Germany and Netherlands VAT rates, reduced rates, currencies, VIES availability and historical changes.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/compare/germany-vs-netherlands-vat",
+        "hreflang": 25,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "Germany vs Netherlands VAT rates"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "WebPage"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/\" itemprop=\"item\" class=\"rounded-control font-medium transition-colors text-ink-",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ],
+        "emptyLinks": 0,
+        "mainText": 1044,
+        "domNodes": 697
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/\" itemprop=\"item\" class=\"rounded-control font-medium transition-colors text-ink-",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/\" itemprop=\"item\" class=\"rounded-control font-medium transition-colors text-ink-",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/\" itemprop=\"item\" class=\"rounded-control font-medium transition-colors text-ink-",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 1823
+      }
+    },
+    {
+      "url": "/vat-guides/b2b-services",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "EU B2B services VAT guide | EU VAT Info",
+        "description": "The general EU rule for services supplied to a business customer is taxation where that customer is established.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/vat-guides/b2b-services",
+        "hreflang": 0,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "EU B2B services VAT guide"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "BreadcrumbList",
+              "Article"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/tools\" itemprop=\"item\" class=\"rounded-control font-medium transition-colors text",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ],
+        "emptyLinks": 0,
+        "mainText": 1188,
+        "domNodes": 581
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/tools\" itemprop=\"item\" class=\"rounded-control font-medium transition-colors text",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/tools\" itemprop=\"item\" class=\"rounded-control font-medium transition-colors text",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/tools\" itemprop=\"item\" class=\"rounded-control font-medium transition-colors text",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 1984
+      }
+    },
+    {
+      "url": "/vat-guides/b2c-services",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "EU B2C services VAT guide | EU VAT Info",
+        "description": "The general EU rule for services supplied to a private consumer is taxation where the supplier is established.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/vat-guides/b2c-services",
+        "hreflang": 0,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "EU B2C services VAT guide"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "BreadcrumbList",
+              "Article"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/tools\" itemprop=\"item\" class=\"rounded-control font-medium transition-colors text",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ],
+        "emptyLinks": 0,
+        "mainText": 992,
+        "domNodes": 572
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/tools\" itemprop=\"item\" class=\"rounded-control font-medium transition-colors text",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/tools\" itemprop=\"item\" class=\"rounded-control font-medium transition-colors text",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/tools\" itemprop=\"item\" class=\"rounded-control font-medium transition-colors text",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 1692
+      }
+    },
+    {
+      "url": "/vat-calculator/austria",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "Austria VAT Calculator — 20% Standard Rate | EU VAT Info",
+        "description": "Calculate Austria VAT instantly. Current standard rate: 20%. Add or remove VAT with standard, reduced and parking rates. Free.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/vat-calculator/austria",
+        "hreflang": 25,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "Austria VAT calculator"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "BreadcrumbList"
+            ]
+          },
+          {
+            "ok": true,
+            "types": [
+              "WebPage"
+            ]
+          },
+          {
+            "ok": true,
+            "types": [
+              "FAQPage"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-rates/austria/history\" class=\"app-link mt-4 inline-flex items-center gap-1.5"
+        ],
+        "emptyLinks": 0,
+        "mainText": 2975,
+        "domNodes": 1265
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-rates/austria/history\" class=\"app-link mt-4 inline-flex items-center gap-1.5"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-rates/austria/history\" class=\"app-link mt-4 inline-flex items-center gap-1.5"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-rates/austria/history\" class=\"app-link mt-4 inline-flex items-center gap-1.5"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 7949
+      }
+    },
+    {
+      "url": "/vat-calculator/belgium",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "Belgium VAT Calculator — 21% Standard Rate | EU VAT Info",
+        "description": "Calculate Belgium VAT instantly. Current standard rate: 21%. Add or remove VAT with standard, reduced and parking rates. Free.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/vat-calculator/belgium",
+        "hreflang": 25,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "Belgium VAT calculator"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "BreadcrumbList"
+            ]
+          },
+          {
+            "ok": true,
+            "types": [
+              "WebPage"
+            ]
+          },
+          {
+            "ok": true,
+            "types": [
+              "FAQPage"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-rates/belgium/history\" class=\"app-link mt-4 inline-flex items-center gap-1.5"
+        ],
+        "emptyLinks": 0,
+        "mainText": 2829,
+        "domNodes": 1257
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-rates/belgium/history\" class=\"app-link mt-4 inline-flex items-center gap-1.5"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-rates/belgium/history\" class=\"app-link mt-4 inline-flex items-center gap-1.5"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-rates/belgium/history\" class=\"app-link mt-4 inline-flex items-center gap-1.5"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 7831
+      }
+    },
+    {
+      "url": "/vat-number-validator/austria",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "Austria VAT Number Validator: Free VIES Check",
+        "description": "Check Austria (AT) VAT numbers in the official EU VIES register. See whether a number is valid and who it belongs to. Free, with no sign-up.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/vat-number-validator/austria",
+        "hreflang": 25,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "Austria VAT number validator"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "WebApplication"
+            ]
+          },
+          {
+            "ok": true,
+            "types": [
+              "FAQPage"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-number-validator\" itemprop=\"item\" class=\"rounded-control font-medium transit",
+          "<button type=\"button\" wire:click=\"prefillExample\" class=\"app-link font-semibold\">Try LT100",
+          "<a href=\"/vat-validation-api\" class=\"app-link inline-flex items-center gap-1 text-sm font-",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ],
+        "emptyLinks": 0,
+        "mainText": 3115,
+        "domNodes": 939
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-number-validator\" itemprop=\"item\" class=\"rounded-control font-medium transit",
+          "<button type=\"button\" wire:click=\"prefillExample\" class=\"app-link font-semibold\">Try LT100",
+          "<a href=\"/vat-validation-api\" class=\"app-link inline-flex items-center gap-1 text-sm font-",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-number-validator\" itemprop=\"item\" class=\"rounded-control font-medium transit",
+          "<button type=\"button\" wire:click=\"prefillExample\" class=\"app-link font-semibold\">Try LT100",
+          "<a class=\"app-link mt-4 inline-flex items-center gap-1 text-sm font-semibold\" href=\"https:",
+          "<a href=\"/vat-validation-api\" class=\"app-link inline-flex items-center gap-1 text-sm font-"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-number-validator\" itemprop=\"item\" class=\"rounded-control font-medium transit",
+          "<button type=\"button\" wire:click=\"prefillExample\" class=\"app-link font-semibold\">Try LT100",
+          "<a class=\"app-link mt-4 inline-flex items-center gap-1 text-sm font-semibold\" href=\"https:",
+          "<a href=\"/vat-validation-api\" class=\"app-link inline-flex items-center gap-1 text-sm font-"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 3786
+      }
+    },
+    {
+      "url": "/vat-number-validator/belgium",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "Belgium VAT Number Validator: Free VIES Check",
+        "description": "Check Belgium (BE) VAT numbers in the official EU VIES register. See whether a number is valid and who it belongs to. Free, with no sign-up.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/vat-number-validator/belgium",
+        "hreflang": 25,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "Belgium VAT number validator"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "WebApplication"
+            ]
+          },
+          {
+            "ok": true,
+            "types": [
+              "FAQPage"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-number-validator\" itemprop=\"item\" class=\"rounded-control font-medium transit",
+          "<button type=\"button\" wire:click=\"prefillExample\" class=\"app-link font-semibold\">Try LT100",
+          "<a href=\"/vat-validation-api\" class=\"app-link inline-flex items-center gap-1 text-sm font-",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ],
+        "emptyLinks": 0,
+        "mainText": 3116,
+        "domNodes": 939
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-number-validator\" itemprop=\"item\" class=\"rounded-control font-medium transit",
+          "<button type=\"button\" wire:click=\"prefillExample\" class=\"app-link font-semibold\">Try LT100",
+          "<a href=\"/vat-validation-api\" class=\"app-link inline-flex items-center gap-1 text-sm font-",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-number-validator\" itemprop=\"item\" class=\"rounded-control font-medium transit",
+          "<button type=\"button\" wire:click=\"prefillExample\" class=\"app-link font-semibold\">Try LT100",
+          "<a class=\"app-link mt-4 inline-flex items-center gap-1 text-sm font-semibold\" href=\"https:",
+          "<a href=\"/vat-validation-api\" class=\"app-link inline-flex items-center gap-1 text-sm font-"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-number-validator\" itemprop=\"item\" class=\"rounded-control font-medium transit",
+          "<button type=\"button\" wire:click=\"prefillExample\" class=\"app-link font-semibold\">Try LT100",
+          "<a class=\"app-link mt-4 inline-flex items-center gap-1 text-sm font-semibold\" href=\"https:",
+          "<a href=\"/vat-validation-api\" class=\"app-link inline-flex items-center gap-1 text-sm font-"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 3787
+      }
+    },
+    {
+      "url": "/vat-changes",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "EU VAT Rate Changes History 2026 — All 27 Countries",
+        "description": "Every recorded EU VAT rate change: standard, reduced and parking rates, with dates, old and new rates, upcoming changes and official sources.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/vat-changes",
+        "hreflang": 25,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "VAT rate change history"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "WebPage"
+            ]
+          },
+          {
+            "ok": true,
+            "types": [
+              "Dataset"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ],
+        "emptyLinks": 0,
+        "mainText": 2493,
+        "domNodes": 1519
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 6254
+      }
+    },
+    {
+      "url": "/vat-rates/austria/history",
+      "390-light": {
+        "status": 200,
+        "axe": [
+          {
+            "id": "scrollable-region-focusable",
+            "impact": "serious",
+            "help": "Scrollable region must have keyboard access",
+            "nodes": [
+              ".overflow-x-auto ::   Element should have focusable content"
+            ],
+            "count": 1
+          }
+        ],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "Austria VAT Rate History — Changes and Effective Dates",
+        "description": "Review Austria VAT rate history, including effective dates, previous rates, current rates and source-backed tax changes.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/vat-rates/austria/history",
+        "hreflang": 0,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "Austria VAT rate history"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "Dataset"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co",
+          "<a href=\"/vat-calculator/austria\" itemprop=\"item\" class=\"rounded-control font-medium trans",
+          "<a class=\"inline-flex items-center gap-1 font-semibold text-action hover:text-action-deep ",
+          "<a class=\"inline-flex items-center gap-1 font-semibold text-action hover:text-action-deep "
+        ],
+        "emptyLinks": 0,
+        "mainText": 750,
+        "domNodes": 642
+      },
+      "390-dark": {
+        "axe": [
+          {
+            "id": "scrollable-region-focusable",
+            "impact": "serious",
+            "help": "Scrollable region must have keyboard access",
+            "nodes": [
+              ".overflow-x-auto ::   Element should have focusable content"
+            ],
+            "count": 1
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co",
+          "<a href=\"/vat-calculator/austria\" itemprop=\"item\" class=\"rounded-control font-medium trans",
+          "<a class=\"inline-flex items-center gap-1 font-semibold text-action hover:text-action-deep ",
+          "<a class=\"inline-flex items-center gap-1 font-semibold text-action hover:text-action-deep "
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co",
+          "<a href=\"/vat-calculator/austria\" itemprop=\"item\" class=\"rounded-control font-medium trans",
+          "<a class=\"inline-flex items-center gap-1 font-semibold text-action hover:text-action-deep ",
+          "<a class=\"inline-flex items-center gap-1 font-semibold text-action hover:text-action-deep "
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co",
+          "<a href=\"/vat-calculator/austria\" itemprop=\"item\" class=\"rounded-control font-medium trans",
+          "<a class=\"inline-flex items-center gap-1 font-semibold text-action hover:text-action-deep ",
+          "<a class=\"inline-flex items-center gap-1 font-semibold text-action hover:text-action-deep "
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 1336
+      }
+    },
+    {
+      "url": "/vat-rates/belgium/history",
+      "390-light": {
+        "status": 200,
+        "axe": [
+          {
+            "id": "scrollable-region-focusable",
+            "impact": "serious",
+            "help": "Scrollable region must have keyboard access",
+            "nodes": [
+              ".overflow-x-auto ::   Element should have focusable content"
+            ],
+            "count": 1
+          }
+        ],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "Belgium VAT Rate History — Changes and Effective Dates",
+        "description": "Review Belgium VAT rate history, including effective dates, previous rates, current rates and source-backed tax changes.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/vat-rates/belgium/history",
+        "hreflang": 0,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "Belgium VAT rate history"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "Dataset"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co",
+          "<a href=\"/vat-calculator/belgium\" itemprop=\"item\" class=\"rounded-control font-medium trans",
+          "<a class=\"inline-flex items-center gap-1 font-semibold text-action hover:text-action-deep ",
+          "<a class=\"inline-flex items-center gap-1 font-semibold text-action hover:text-action-deep "
+        ],
+        "emptyLinks": 0,
+        "mainText": 1174,
+        "domNodes": 742
+      },
+      "390-dark": {
+        "axe": [
+          {
+            "id": "scrollable-region-focusable",
+            "impact": "serious",
+            "help": "Scrollable region must have keyboard access",
+            "nodes": [
+              ".overflow-x-auto ::   Element should have focusable content"
+            ],
+            "count": 1
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co",
+          "<a href=\"/vat-calculator/belgium\" itemprop=\"item\" class=\"rounded-control font-medium trans",
+          "<a class=\"inline-flex items-center gap-1 font-semibold text-action hover:text-action-deep ",
+          "<a class=\"inline-flex items-center gap-1 font-semibold text-action hover:text-action-deep "
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co",
+          "<a href=\"/vat-calculator/belgium\" itemprop=\"item\" class=\"rounded-control font-medium trans",
+          "<a class=\"inline-flex items-center gap-1 font-semibold text-action hover:text-action-deep ",
+          "<a class=\"inline-flex items-center gap-1 font-semibold text-action hover:text-action-deep "
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co",
+          "<a href=\"/vat-calculator/belgium\" itemprop=\"item\" class=\"rounded-control font-medium trans",
+          "<a class=\"inline-flex items-center gap-1 font-semibold text-action hover:text-action-deep ",
+          "<a class=\"inline-flex items-center gap-1 font-semibold text-action hover:text-action-deep "
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 2088
+      }
+    },
+    {
+      "url": "/vat-changes/austria/standard/1976-01-01",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "Austria standard VAT rate changed from 16% to 18%",
+        "description": "Rate changed from 16.00% to 18.00%",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/vat-changes/austria/standard/1976-01-01",
+        "hreflang": 0,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "Austria standard VAT rate changed from 16% to 18%"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "BreadcrumbList",
+              "Article"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-changes\" itemprop=\"item\" class=\"rounded-control font-medium transition-color",
+          "<a href=\"/vat-rates/austria/history\" itemprop=\"item\" class=\"rounded-control font-medium tr",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ],
+        "emptyLinks": 0,
+        "mainText": 334,
+        "domNodes": 576
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-changes\" itemprop=\"item\" class=\"rounded-control font-medium transition-color",
+          "<a href=\"/vat-rates/austria/history\" itemprop=\"item\" class=\"rounded-control font-medium tr",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-changes\" itemprop=\"item\" class=\"rounded-control font-medium transition-color",
+          "<a href=\"/vat-rates/austria/history\" itemprop=\"item\" class=\"rounded-control font-medium tr",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-changes\" itemprop=\"item\" class=\"rounded-control font-medium transition-color",
+          "<a href=\"/vat-rates/austria/history\" itemprop=\"item\" class=\"rounded-control font-medium tr",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 590
+      }
+    },
+    {
+      "url": "/vat-changes/austria/standard/1984-01-01",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "Austria standard VAT rate changed from 18% to 20%",
+        "description": "Rate changed from 18.00% to 20.00%",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/vat-changes/austria/standard/1984-01-01",
+        "hreflang": 0,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "Austria standard VAT rate changed from 18% to 20%"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "BreadcrumbList",
+              "Article"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-changes\" itemprop=\"item\" class=\"rounded-control font-medium transition-color",
+          "<a href=\"/vat-rates/austria/history\" itemprop=\"item\" class=\"rounded-control font-medium tr",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ],
+        "emptyLinks": 0,
+        "mainText": 334,
+        "domNodes": 576
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-changes\" itemprop=\"item\" class=\"rounded-control font-medium transition-color",
+          "<a href=\"/vat-rates/austria/history\" itemprop=\"item\" class=\"rounded-control font-medium tr",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-changes\" itemprop=\"item\" class=\"rounded-control font-medium transition-color",
+          "<a href=\"/vat-rates/austria/history\" itemprop=\"item\" class=\"rounded-control font-medium tr",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-changes\" itemprop=\"item\" class=\"rounded-control font-medium transition-color",
+          "<a href=\"/vat-rates/austria/history\" itemprop=\"item\" class=\"rounded-control font-medium tr",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 590
+      }
+    },
+    {
+      "url": "/vat-calculation/austria/100/20/exclude",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "Add 20% VAT on €100.00 in Austria",
+        "description": "Austria VAT calculation: add 20% VAT on €100.00. Net €100.00, VAT €20.00, total €120.00.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/vat-calculation/austria/100/20/exclude",
+        "hreflang": 25,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "€100.00 plus 20% VAT in Austria"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "WebPage"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co",
+          "<a href=\"/vat-calculator/austria\" itemprop=\"item\" class=\"rounded-control font-medium trans",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-calculation/bulgaria/100/20/exclude\" class=\"flex items-center gap-2.5 font-s"
+        ],
+        "emptyLinks": 0,
+        "mainText": 1577,
+        "domNodes": 787
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co",
+          "<a href=\"/vat-calculator/austria\" itemprop=\"item\" class=\"rounded-control font-medium trans",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-calculation/bulgaria/100/20/exclude\" class=\"flex items-center gap-2.5 font-s"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co",
+          "<a href=\"/vat-calculator/austria\" itemprop=\"item\" class=\"rounded-control font-medium trans",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-calculation/bulgaria/100/20/exclude\" class=\"flex items-center gap-2.5 font-s"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co",
+          "<a href=\"/vat-calculator/austria\" itemprop=\"item\" class=\"rounded-control font-medium trans",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-calculation/bulgaria/100/20/exclude\" class=\"flex items-center gap-2.5 font-s"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 3030
+      }
+    },
+    {
+      "url": "/vat-calculation/austria/100/20/include",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "Remove 20% VAT on €100.00 in Austria",
+        "description": "Austria VAT calculation: remove 20% VAT on €100.00. Net €83.33, VAT €16.67, total €100.00.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/vat-calculation/austria/100/20/include",
+        "hreflang": 25,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "VAT included in €100.00 at 20% in Austria"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "WebPage"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co",
+          "<a href=\"/vat-calculator/austria\" itemprop=\"item\" class=\"rounded-control font-medium trans",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-calculation/bulgaria/100/20/include\" class=\"flex items-center gap-2.5 font-s"
+        ],
+        "emptyLinks": 0,
+        "mainText": 1575,
+        "domNodes": 786
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co",
+          "<a href=\"/vat-calculator/austria\" itemprop=\"item\" class=\"rounded-control font-medium trans",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-calculation/bulgaria/100/20/include\" class=\"flex items-center gap-2.5 font-s"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co",
+          "<a href=\"/vat-calculator/austria\" itemprop=\"item\" class=\"rounded-control font-medium trans",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-calculation/bulgaria/100/20/include\" class=\"flex items-center gap-2.5 font-s"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition-co",
+          "<a href=\"/vat-calculator/austria\" itemprop=\"item\" class=\"rounded-control font-medium trans",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/vat-calculation/bulgaria/100/20/include\" class=\"flex items-center gap-2.5 font-s"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 3043
+      }
+    },
+    {
+      "url": "/blog",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "EU VAT Updates and Guides",
+        "description": "Research-backed VAT updates, EU VAT changes, and practical compliance guides for businesses tracking European VAT rates.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/blog",
+        "hreflang": 0,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "Research-backed VAT changes and guides"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "Blog"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ],
+        "emptyLinks": 0,
+        "mainText": 697,
+        "domNodes": 556
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 1084
+      }
+    },
+    {
+      "url": "/blog/upcoming-vat-changes-2026-2027",
+      "390-light": {
+        "status": 200,
+        "axe": [
+          {
+            "id": "scrollable-region-focusable",
+            "impact": "serious",
+            "help": "Scrollable region must have keyboard access",
+            "nodes": [
+              "table ::   Element should have focusable content"
+            ],
+            "count": 1
+          }
+        ],
+        "errors": [],
+        "failed": [],
+        "lang": "en",
+        "title": "Upcoming VAT Changes in 2026 and 2027 | EU VAT Info",
+        "description": "A practical, source-backed guide to confirmed EU VAT changes in 2026 and 2027, including ViDA, national VAT rate updates, and e-commerce customs changes.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/blog/upcoming-vat-changes-2026-2027",
+        "hreflang": 0,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "Upcoming VAT Changes in 2026 and 2027"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "BlogPosting"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/blog\" itemprop=\"item\" class=\"rounded-control font-medium transition-colors text-",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ],
+        "emptyLinks": 0,
+        "mainText": 10294,
+        "domNodes": 733
+      },
+      "390-dark": {
+        "axe": [
+          {
+            "id": "scrollable-region-focusable",
+            "impact": "serious",
+            "help": "Scrollable region must have keyboard access",
+            "nodes": [
+              "table ::   Element should have focusable content"
+            ],
+            "count": 1
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/blog\" itemprop=\"item\" class=\"rounded-control font-medium transition-colors text-",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/blog\" itemprop=\"item\" class=\"rounded-control font-medium transition-colors text-",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control transi",
+          "<a href=\"/blog\" itemprop=\"item\" class=\"rounded-control font-medium transition-colors text-",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 12895
+      }
+    },
+    {
+      "url": "/de",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "de",
+        "title": "EU-MwSt.-Rechner und MwSt.-Sätze für alle 27 Länder",
+        "description": "MwSt. für alle 27 EU-Länder hinzurechnen oder herausrechnen, mit aktuellen Regel- und ermäßigten Sätzen. USt-IdNr. per VIES prüfen und Satzänderungen verfolgen.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/de",
+        "hreflang": 25,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "Mehrwertsteuersätze in der\n                    Europäischen Union"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "WebSite"
+            ]
+          },
+          {
+            "ok": true,
+            "types": [
+              "Organization"
+            ]
+          },
+          {
+            "ok": true,
+            "types": [
+              "Dataset"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ],
+        "emptyLinks": 0,
+        "mainText": 2584,
+        "domNodes": 1634
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 7257
+      }
+    },
+    {
+      "url": "/mt",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "mt",
+        "title": "Kalkulatur tal-VAT u rati tal-VAT għas-27 pajjiż tal-UE",
+        "description": "Żid jew neħħi l-VAT fis-27 pajjiż tal-UE bir-rati standard u mnaqqsa attwali. Iċċekkja n-numri tal-VAT fil-VIES u segwi kull bidla fir-rati.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/mt",
+        "hreflang": 25,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "Rati tal-VAT fl-\n                    Unjoni Ewropea"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "WebSite"
+            ]
+          },
+          {
+            "ok": true,
+            "types": [
+              "Organization"
+            ]
+          },
+          {
+            "ok": true,
+            "types": [
+              "Dataset"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/mt/vat-changes\" class=\"text-xs font-semibold text-action hover:text-action-deep\"",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ],
+        "emptyLinks": 0,
+        "mainText": 2561,
+        "domNodes": 1634
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/mt/vat-changes\" class=\"text-xs font-semibold text-action hover:text-action-deep\"",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-light": {
+        "axe": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "nodes": [
+              ".border-white\\/25 ::   Element has insufficient color contrast of 1.05 (foreground color: #fdfdfe, background color: #f5f7f9, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "button[aria-controls=\"language-menu\"] ::   Element has insufficient color contrast of 1.07 (foreground color: #fdfefe, background color: #f4f6f9, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+            ],
+            "count": 2
+          }
+        ],
+        "overflow": 185,
+        "wide": [
+          "div.ml-auto.flex.items-center",
+          "button.app-brand-panel.pressable.hidden",
+          "kbd.rounded-xs.border.border-white/25",
+          "button.h-10.items-center.justify-center",
+          "svg.size-4.shrink-0.size-[1.125rem]"
+        ],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 185,
+        "wide": [
+          "div.ml-auto.flex.items-center",
+          "button.app-brand-panel.pressable.hidden",
+          "kbd.rounded-xs.border.border-white/25",
+          "button.h-10.items-center.justify-center",
+          "svg.size-4.shrink-0.size-[1.125rem]"
+        ],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 7216
+      }
+    },
+    {
+      "url": "/de/vat-calculator/germany",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "de",
+        "title": "MwSt-Rechner Germany — Normalsatz 19% | EU VAT Info",
+        "description": "Kostenloser MwSt-Rechner für Germany. Normalsatz 19%. MwSt sofort hinzufügen oder entfernen, alle Sätze und Compliance-Leitfäden.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/de/vat-calculator/germany",
+        "hreflang": 25,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "Germany MwSt.-Rechner"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "BreadcrumbList"
+            ]
+          },
+          {
+            "ok": true,
+            "types": [
+              "WebPage"
+            ]
+          },
+          {
+            "ok": true,
+            "types": [
+              "FAQPage"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/de\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control tran",
+          "<a href=\"/de/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/de/vat-rates/germany/history\" class=\"app-link mt-4 inline-flex items-center gap-"
+        ],
+        "emptyLinks": 0,
+        "mainText": 3231,
+        "domNodes": 1251
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/de\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control tran",
+          "<a href=\"/de/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/de/vat-rates/germany/history\" class=\"app-link mt-4 inline-flex items-center gap-"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/de\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control tran",
+          "<a href=\"/de/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/de/vat-rates/germany/history\" class=\"app-link mt-4 inline-flex items-center gap-"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/de\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control tran",
+          "<a href=\"/de/vat-calculator\" itemprop=\"item\" class=\"rounded-control font-medium transition",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<a href=\"/de/vat-rates/germany/history\" class=\"app-link mt-4 inline-flex items-center gap-"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 8584
+      }
+    },
+    {
+      "url": "/fr/vat-number-validator",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "fr",
+        "title": "Vérifier un numéro de TVA UE : contrôle VIES gratuit",
+        "description": "Vérifiez tout numéro de TVA de l'UE dans le registre VIES de la Commission européenne : validité et titulaire du numéro. Gratuit, sans inscription.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/fr/vat-number-validator",
+        "hreflang": 25,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "Vérification de numéro de TVA VIES"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "WebApplication"
+            ]
+          },
+          {
+            "ok": true,
+            "types": [
+              "FAQPage"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/fr\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control tran",
+          "<button type=\"button\" wire:click=\"prefillExample\" class=\"app-link font-semibold\">Essayez L",
+          "<a href=\"/fr/vat-validation-api\" class=\"app-link inline-flex items-center gap-1 text-sm fo",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ],
+        "emptyLinks": 0,
+        "mainText": 3998,
+        "domNodes": 1061
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/fr\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control tran",
+          "<button type=\"button\" wire:click=\"prefillExample\" class=\"app-link font-semibold\">Essayez L",
+          "<a href=\"/fr/vat-validation-api\" class=\"app-link inline-flex items-center gap-1 text-sm fo",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/fr\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control tran",
+          "<button type=\"button\" wire:click=\"prefillExample\" class=\"app-link font-semibold\">Essayez L",
+          "<a href=\"/fr/vat-validation-api\" class=\"app-link inline-flex items-center gap-1 text-sm fo",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/fr\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control tran",
+          "<button type=\"button\" wire:click=\"prefillExample\" class=\"app-link font-semibold\">Essayez L",
+          "<a href=\"/fr/vat-validation-api\" class=\"app-link inline-flex items-center gap-1 text-sm fo",
+          "<a href=\"https://pdfcheck.online/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"transi"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 6506
+      }
+    },
+    {
+      "url": "/ga/vat-map",
+      "390-light": {
+        "status": 200,
+        "axe": [],
+        "errors": [],
+        "failed": [],
+        "lang": "ga",
+        "title": "Léarscáil Rátaí CBL na hEorpa - EU VAT Info",
+        "description": "Rátaí caighdeánacha CBL gach tíre san AE ar léarscáil amháin, le rangú ar rátaí caighdeánacha, laghdaithe agus sárlaghdaithe agus áireamhán do gach tír.",
+        "robots": "index, follow",
+        "canonical": "https://vat.businesspress.io/ga/vat-map",
+        "hreflang": 25,
+        "ogImage": "https://vat.businesspress.io/images/og-default.png",
+        "h1": [
+          "Léarscáil Rátaí CBL na hEorpa"
+        ],
+        "ld": [
+          {
+            "ok": true,
+            "types": [
+              "WebPage"
+            ]
+          }
+        ],
+        "overflow": 0,
+        "wide": [],
+        "imgNoAlt": 0,
+        "imgNoSize": [],
+        "dupIds": [],
+        "smallTargets": [
+          "<a href=\"/ga\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control tran",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<path d=\"M607.8 434.9l-0.9 2.4 0.1 0.8 1.6 2.9 2.3 2.9-0.6 0.7-0.6 1.9 0.7 2-3.9 0.3-2.5-0",
+          "<path d=\"M470 401.8l1.6-0.5 0.8 0.8 1.2 0.1 3 2.3-0.4 1.5 1.7 0.7 0.4 2-2.3 1.3-0.6 1.7-1.",
+          "<path d=\"M759.6 509.6l0.2 3.7-0.9 1.8-2-0.6-2.2 0.5-1 2-1.2 1.2 0 2.6 0.4 4.2-1.6 0.7-2.9 "
+        ],
+        "emptyLinks": 0,
+        "mainText": 2374,
+        "domNodes": 1062
+      },
+      "390-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/ga\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control tran",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<path d=\"M607.8 434.9l-0.9 2.4 0.1 0.8 1.6 2.9 2.3 2.9-0.6 0.7-0.6 1.9 0.7 2-3.9 0.3-2.5-0",
+          "<path d=\"M470 401.8l1.6-0.5 0.8 0.8 1.2 0.1 3 2.3-0.4 1.5 1.7 0.7 0.4 2-2.3 1.3-0.6 1.7-1.",
+          "<path d=\"M759.6 509.6l0.2 3.7-0.9 1.8-2-0.6-2.2 0.5-1 2-1.2 1.2 0 2.6 0.4 4.2-1.6 0.7-2.9 "
+        ]
+      },
+      "1440-light": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/ga\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control tran",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<path d=\"M475.4 411.7l0.3 2.2 1.5 1.6 2.8 1.1 0 1.4-0.9 0.9-0.6 3-1.3-0.7-2 0.6-1.4 0-2.1-",
+          "<path d=\"M843.2 646.3l-0.1 0-0.1 0 0.1-0.1 0.1 0.1z m0 0l0.1 0 0.1 0 0.1 0.1-0.1 0-0.1 0-0",
+          "<circle cx=\"588.2\" cy=\"632.2\" r=\"3.4\" class=\"eu-map-region eu-map-b0\" data-iso=\"MT\" tabind"
+        ]
+      },
+      "1440-dark": {
+        "axe": [],
+        "overflow": 0,
+        "wide": [],
+        "errors": [],
+        "failed": [],
+        "smallTargets": [
+          "<a href=\"/ga\" itemprop=\"item\" class=\"inline-flex items-center gap-1.5 rounded-control tran",
+          "<a href=\"https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en\" ta",
+          "<path d=\"M475.4 411.7l0.3 2.2 1.5 1.6 2.8 1.1 0 1.4-0.9 0.9-0.6 3-1.3-0.7-2 0.6-1.4 0-2.1-",
+          "<path d=\"M843.2 646.3l-0.1 0-0.1 0 0.1-0.1 0.1 0.1z m0 0l0.1 0 0.1 0 0.1 0.1-0.1 0-0.1 0-0",
+          "<circle cx=\"588.2\" cy=\"632.2\" r=\"3.4\" class=\"eu-map-region eu-map-b0\" data-iso=\"MT\" tabind"
+        ]
+      },
+      "markdown": {
+        "status": 200,
+        "type": "text/markdown; charset=utf-8",
+        "length": 6885
+      }
+    }
+  ]
+}
