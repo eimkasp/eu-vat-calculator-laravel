@@ -22,15 +22,17 @@
             <x-ui.icon name="chevron-down" class="size-3.5 transition-transform duration-150" x-bind:class="open && 'rotate-180'" />
         </button>
         {{ $slot }}
+        @php($languages = collect($locales)->map(fn (array $config, string $code) => ['code' => $code, 'name' => $config['native'], 'flag' => strtolower($config['flag']), 'href' => locale_switch_path($code)])->values())
+        {{-- Built in the browser: the desktop menu already lists every language as a link in the HTML. --}}
         <ul id="mobile-language-menu" x-cloak x-show="open" class="grid basis-full grid-cols-2 gap-1">
-            @foreach($locales as $code => $config)
+            <template x-for="language in @js($languages)" :key="language.code">
                 <li>
-                    <a href="{{ locale_switch_path($code) }}" lang="{{ $code }}" @class(['flex min-h-11 items-center gap-2 border-l-2 px-3 text-sm font-medium', 'border-gold bg-white/10 text-white' => $code === $current, 'border-transparent text-white/85 hover:bg-white/10 hover:text-white' => $code !== $current]) @if($code === $current) aria-current="true" @endif>
-                        <x-ui.flag :iso="$config['flag']" size="sm" />
-                        <span class="truncate">{{ $config['native'] }}</span>
+                    <a :href="language.href" :lang="language.code" :aria-current="language.code === @js($current) ? 'true' : null" class="flex min-h-11 items-center gap-2 border-l-2 px-3 text-sm font-medium" :class="language.code === @js($current) ? 'border-gold bg-white/10 text-white' : 'border-transparent text-white/85 hover:bg-white/10 hover:text-white'">
+                        <img :src="@js(asset('images/flags')) + '/' + language.flag + '.svg'" alt="" width="18" height="14" decoding="async" class="app-flag h-3.5 w-[1.125rem]">
+                        <span class="truncate" x-text="language.name"></span>
                     </a>
                 </li>
-            @endforeach
+            </template>
         </ul>
     </div>
 @else
