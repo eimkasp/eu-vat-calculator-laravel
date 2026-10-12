@@ -1,0 +1,32 @@
+# Interleaved A/B on one machine: A = 5.2.0 (ca3dc37) on :8124, B = 5.3.0 with the phone language list built on open (0c220b8) on :8123.
+# measure.mjs --runs=3 --only=<path>, alternating A and B, three rounds. Columns: path, side, median TBT ms, median LCP ms, median requests.
+/ A tbt 393 lcp 2520 req 25
+/ B tbt 538 lcp 2588 req 25
+/vat-calculator/germany A tbt 336 lcp 2280 req 8
+/vat-calculator/germany B tbt 368 lcp 2360 req 8
+/vat-map A tbt 124 lcp 2380 req 37
+/vat-map B tbt 127 lcp 2288 req 37
+/compare/germany-vs-france-vat A tbt 119 lcp 2236 req 8
+/compare/germany-vs-france-vat B tbt 96 lcp 2204 req 8
+/mcp-server A tbt 263 lcp 2248 req 7
+/mcp-server B tbt 212 lcp 2276 req 7
+/ A tbt 474 lcp 2556 req 25
+/ B tbt 458 lcp 2584 req 25
+/vat-calculator/germany A tbt 378 lcp 2336 req 8
+/vat-calculator/germany B tbt 376 lcp 2360 req 8
+/vat-map A tbt 105 lcp 2368 req 37
+/vat-map B tbt 118 lcp 2252 req 37
+/compare/germany-vs-france-vat A tbt 68 lcp 2252 req 8
+/compare/germany-vs-france-vat B tbt 122 lcp 2224 req 8
+/mcp-server A tbt 145 lcp 2228 req 7
+/mcp-server B tbt 232 lcp 2232 req 7
+/ A tbt 441 lcp 2532 req 25
+/ B tbt 511 lcp 2608 req 25
+/vat-calculator/germany A tbt 429 lcp 2312 req 8
+/vat-calculator/germany B tbt 369 lcp 2368 req 8
+/vat-map A tbt 165 lcp 2388 req 37
+/vat-map B tbt 143 lcp 2288 req 37
+/compare/germany-vs-france-vat A tbt 91 lcp 2232 req 8
+/compare/germany-vs-france-vat B tbt 99 lcp 2196 req 8
+/mcp-server A tbt 141 lcp 2248 req 7
+/mcp-server B tbt 194 lcp 2232 req 7
