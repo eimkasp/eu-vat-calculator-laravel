@@ -1,7 +1,7 @@
 ---
 name: EU VAT Info
 description: A solid, institutional EU VAT reference. Flat EU navy identity, a thin EU gold signature, square-cornered controls and quiet white surfaces where every number is easy to read.
-version: 5.0
+version: 5.2
 source: resources/css/app.css
 enforced-by: tests/Feature/DesignSystemTest.php
 colors:
@@ -308,6 +308,9 @@ Two equal segments on a bordered `surface-muted` track; the white thumb slides i
 | `<x-json-ld :data="[…]" />` | Structured data; it adds `@context` for you |
 | `<x-rate-freshness :updated="…" :eu="…" />` | The date rates were updated and their source (the European Commission, or the open vat-rates dataset outside the EU); `on-dark` on navy, extra items in the slot |
 | `<x-faq-list :faqs="…" :title="…" id="…" />` | Questions as native disclosures, the first one open; build the FAQPage JSON-LD from the same list |
+| `<x-calculator.country-header :country="…" />` | The country calculator heading on one grid with the calculator below: the flag in the kicker from `sm` up, the heading (`heading-level`, default 1) and the rate panel; `breadcrumb-label` names its trail wherever it is not the page's own |
+| `<x-calculator.country-reference :country="…" />` | Each rate with what it covers, the standard rate's start date (`since` replaces the lookup), the VAT number format and the formulas |
+| `<x-calculator.common-amounts :country="…" />` | VAT on the top amounts in both directions; every figure links its indexable calculation |
 | `tabular`, `pressable`, `on-brand`, `scrim`, `app-container` | Utilities described above |
 
 ## Patterns
@@ -365,6 +368,12 @@ Two equal segments on a bordered `surface-muted` track; the white thumb slides i
 
 **Need an icon that does not exist.** Copy the Lucide path into `components/ui/icon.blade.php` in alphabetical order; never paste an inline `<svg>` into a template.
 
+## Storybook
+
+Every example in `resources/views/styleguide/examples` is also a Storybook story. `App\Support\DesignSystem\ComponentCatalog` describes each example once (section, title, description, canvas), and both `/styleguide` and `php artisan design-system:storybook` read it. The command renders each example through Blade into `storybook/generated/examples.json`, copies the Design Tokens to `storybook/generated/design.tokens.json` and writes one story file per section in `storybook/stories`. Never edit the generated files; change the example or the catalog and run the command again.
+
+`yarn storybook` serves it at http://localhost:6006 and `yarn build-storybook` writes `storybook-static`. Storybook loads `resources/css/app.css` and the Alpine components in `resources/js/app.js` with the Alpine version Livewire bundles, switches light and dark with the `.dark` class and runs axe-core on every story. To add an example, create the Blade file, describe it in the catalog, show it on `/styleguide` with `<x-styleguide.specimen example="…" />` and regenerate. An example renders without the database: use `ComponentCatalog::sampleCountry()` for country data.
+
 ## Enforcement
 
 `tests/Feature/DesignSystemTest.php` runs with `php artisan test` and fails when a template (outside `resources/views/vendor` and `resources/views/amp`):
@@ -382,6 +391,8 @@ Two equal segments on a bordered `surface-muted` track; the white thumb slides i
 11. adds inline `<svg>` outside the icon and logo components;
 12. or when a token, utility or component class in `app.css` is missing from this file.
 
+`tests/Feature/ComponentCatalogTest.php` fails when an example file has no catalog entry, and `tests/Feature/StorybookExportTest.php` fails while the generated Storybook files are out of date.
+
 Also run an automated accessibility check on the pages you changed. The project was verified with axe-core (WCAG 2.2 A/AA) in both themes and with a horizontal-overflow check at 320px and 390px.
 
 ## File map
@@ -397,7 +408,9 @@ Also run an automated accessibility check on the pages you changed. The project 
 | `resources/views/layouts/embed.blade.php` | Transparent shell for the iframe widget |
 | `resources/views/livewire/styleguide.blade.php` | The `/styleguide` reference page |
 | `resources/views/styleguide/examples` | Live component and pattern examples shown on `/styleguide` |
-| `app/Support/DesignSystem` | Reads the tokens from `app.css` and this file, and exports them as Design Tokens JSON |
+| `app/Support/DesignSystem` | Reads the tokens from `app.css` and this file, and exports them as Design Tokens JSON; `ComponentCatalog` describes the examples and `StorybookExport` builds the stories |
+| `.storybook` | Storybook configuration: framework, add-ons, the brand theme and the preview that loads the site's CSS and Alpine |
+| `storybook` | Generated stories and data (`stories`, `generated`), the render helper, the foundation stories and the introduction |
 | `tests/Feature/DesignSystemTest.php` | Design rule checks |
 | `tests/Feature/StyleguideTest.php` | Checks that `/styleguide` and its token and Markdown exports match the sources |
 | `public/v1` | Frozen archive of the previous design. Out of scope for these rules; never restyle it (`tests/Feature/SiteArchiveTest.php` guards it) |

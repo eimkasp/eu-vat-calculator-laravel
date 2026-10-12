@@ -119,7 +119,7 @@
                 </div>
             </div>
 
-            <dl class="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-4" lang="en">
+            <dl class="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-6" lang="en">
                 @foreach($stats as $stat)
                     <div class="app-brand-panel flex flex-col-reverse p-4">
                         <dt class="mt-1 text-sm text-white/70">{{ $stat['label'] }}</dt>
@@ -688,6 +688,33 @@
                 </x-styleguide.section>
 
                 {{-- Resources --}}
+                <x-styleguide.section id="storybook" title="Storybook" lead="Every example on this page is also a Storybook story, rendered from the same Blade file, so designers and developers can browse, theme-switch and audit components in isolation without the two ever drifting apart.">
+                    <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
+                        <div class="app-surface p-5 sm:p-6">
+                            <h3 class="text-lg font-bold text-ink">How the stories are made</h3>
+                            <ol class="mt-4 space-y-3">
+                                @foreach([
+                                    'Each example in <code>resources/views/styleguide/examples</code> is described once in <code>ComponentCatalog</code>: its section, title, description and canvas.',
+                                    '<code>php artisan design-system:storybook</code> renders every example through Blade and writes one story file per section, plus the Design Tokens for the foundation pages.',
+                                    'Storybook '.Styleguide::STORYBOOK_VERSION.' loads the production stylesheet and the site\'s Alpine components, with a light and dark switch and axe-core on every story.',
+                                    'The test suite fails while the generated stories are out of date, so a change to an example, a component or the stylesheet always reaches Storybook.',
+                                ] as $step)
+                                    <li class="flex gap-3 text-sm leading-6 text-ink-muted">
+                                        <span class="tabular flex size-6 shrink-0 items-center justify-center rounded-full bg-action-soft text-xs font-bold text-action-deep" aria-hidden="true">{{ $loop->iteration }}</span>
+                                        <span class="{{ $inlineCode }}">{!! $step !!}</span>
+                                    </li>
+                                @endforeach
+                            </ol>
+                        </div>
+                        <x-styleguide.specimen
+                            title="Run it"
+                            description="Regenerate after changing an example or app.css, then serve on port 6006 or build to storybook-static"
+                            language="Shell"
+                            :code="'yarn install'.PHP_EOL.'php artisan design-system:storybook'.PHP_EOL.'yarn storybook'.PHP_EOL.'yarn build-storybook'"
+                        />
+                    </div>
+                </x-styleguide.section>
+
                 <x-styleguide.section id="agents" title="For AI agents" lead="Everything on this page is also available in machine-readable form, generated from the same files the site is built from.">
                     <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
                         <div class="app-surface flex flex-col p-5">
