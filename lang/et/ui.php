@@ -11,6 +11,7 @@ return array (
   'save' => 'Salvesta',
   'calculate' => 'Arvuta',
   'loading' => 'Laadimine...',
+  'opens_new_tab' => 'avaneb uuel vahelehel',
   'all_rights_reserved' => 'Kõik õigused kaitstud.',
   'data_updated_daily' => 'Andmeid uuendatakse iga päev',
   'country' => 'Riik',
@@ -320,6 +321,7 @@ return array (
     'explore_map' => 'Avasta käibemaksu kaart',
     'increase' => 'Tõus',
     'decrease' => 'Langus',
+    'points' => ':value pp',
   ),
   'country_page' => 
   array (

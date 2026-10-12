@@ -100,7 +100,8 @@ class MarkdownNegotiation
     }
 
     /**
-     * Drops what a visitor does not see on arrival (x-cloak popovers, hidden and aria-hidden elements) and turns
+     * Drops what a visitor does not see on arrival (x-cloak popovers, hidden and aria-hidden elements, and screen-reader
+     * hints marked data-markdown-skip) and turns
      * each question of a details list into a heading, so the answer reads under its question.
      */
     protected function visibleContent(string $html): string
@@ -119,7 +120,7 @@ class MarkdownNegotiation
 
         $xpath = new DOMXPath($document);
 
-        foreach (iterator_to_array($xpath->query('//*[@x-cloak or @hidden or @aria-hidden="true"]')) as $node) {
+        foreach (iterator_to_array($xpath->query('//*[@x-cloak or @hidden or @aria-hidden="true" or @data-markdown-skip]')) as $node) {
             $node->parentNode?->removeChild($node);
         }
 

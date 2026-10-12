@@ -66,7 +66,7 @@
                                 <li>
                                     <a href="{{ $source['url'] }}" target="_blank" rel="noopener noreferrer" class="app-link inline font-medium">
                                         {{ $source['title'] }}<x-ui.icon name="arrow-up-right" class="ml-1 inline size-3 align-[-1px]" />
-                                    </a>
+                                    <x-ui.new-tab /></a>
                                 </li>
                             @endforeach
                         </ul>

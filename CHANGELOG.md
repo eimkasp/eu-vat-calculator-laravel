@@ -4,6 +4,26 @@ All notable changes to EU VAT Info are documented here.
 
 ---
 
+## [5.3.0] — 2026-10-12 — Faster, steadier and easier to use with a keyboard
+
+### Improved
+- **The calculator responds sooner** — the page scripts no longer wait for Cloudflare's script loader, so the calculator, the theme and dark mode are ready as soon as the page is.
+- **Back and forward are instant** — going back to a page you just left restores it straight away instead of loading it again.
+- **No jump when the font arrives** — text first shows in a font sized like Inter, so headings and paragraphs no longer move when it loads (on the Maltese calculator this layout shift drops from 0.11 to none).
+- **A lighter map** — the Europe map is 40% smaller with the same shapes, so the map and calculator pages load less.
+- **The header fits every language** — in Bulgarian, Estonian, Maltese, Spanish, Greek, Lithuanian and Portuguese the desktop header no longer pushes the page sideways; below 1280px the menu button holds the navigation and the search field stays visible.
+- **Language links open the same page** — choosing a language opens the page you are on in that language, with ordinary links instead of a list that switches as you scroll it.
+- **Keyboard and screen reader fixes** — the country picker and the search dialog give focus back where it was, the search dialog keeps focus inside it, the add or remove VAT switch works with the arrow keys, wide tables scroll with the keyboard, validator errors are read with their field, results are announced briefly instead of in full, links that open a new tab say so, and the clear buttons are easier to tap.
+- **Clearer pages in search and social previews** — each rate change has a dated title and a full description, every page names its language and translations for social previews, the share image follows the current design, and breadcrumbs, the dataset and the site name are described the same way everywhere.
+- **More for AI assistants** — llms.txt lists the VAT guides and the country comparisons, and llms-full.txt lists the rate changes of the last 24 months; every page links its Markdown version.
+
+### Fixed
+- Translated pages no longer point to AMP pages in English, pages with no translation or with noindex no longer list other languages, and the 404 page no longer names a canonical address.
+- The sitemap lists the changelog, privacy, donation and Chrome extension pages, leaves out the empty categories section, and dates pages by their last release instead of the last deploy.
+- Percentage points in the rate history are written the way each language writes them.
+
+---
+
 ## [5.2.0] — 2026-10-12 — The design system and brand, in one place
 
 ### Added

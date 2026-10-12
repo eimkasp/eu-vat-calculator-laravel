@@ -46,7 +46,7 @@
 
         <section class="app-surface overflow-hidden" aria-labelledby="amount-table">
             <h2 id="amount-table" class="sr-only">{{ $heading }}</h2>
-            <div class="relative overflow-x-auto">
+            <div class="relative overflow-x-auto" tabindex="0" role="region" aria-labelledby="amount-table">
                 <table class="app-table min-w-[52rem]">
                     <thead>
                         <tr>

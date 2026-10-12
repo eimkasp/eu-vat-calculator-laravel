@@ -11,6 +11,7 @@ return array (
   'save' => 'Shrani',
   'calculate' => 'Izračunaj',
   'loading' => 'Nalaganje...',
+  'opens_new_tab' => 'odpre se v novem zavihku',
   'all_rights_reserved' => 'Vse pravice pridržane.',
   'data_updated_daily' => 'Podatki se posodabljajo dnevno',
   'country' => 'Država',
@@ -320,6 +321,7 @@ return array (
     'explore_map' => 'Razišči zemljevid DDV',
     'increase' => 'Povišanje',
     'decrease' => 'Znižanje',
+    'points' => ':value o. t.',
   ),
   'country_page' => 
   array (

@@ -15,6 +15,9 @@ class SitemapGenerator
 {
     public const SECTIONS = ['core', 'countries', 'validators', 'changes', 'calculations', 'categories', 'editorial'];
 
+    /** Sections listed in the index only while they have pages (categories need verified rules). */
+    public const OPTIONAL_SECTIONS = ['categories'];
+
     public function __construct(
         protected SeoPolicy $seoPolicy,
         protected BlogPostRepository $blogPosts,
@@ -32,6 +35,10 @@ class SitemapGenerator
         $xml .= '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'."\n";
 
         foreach (self::SECTIONS as $section) {
+            if (in_array($section, self::OPTIONAL_SECTIONS, true) && $this->recordsFor($section)->isEmpty()) {
+                continue;
+            }
+
             $xml .= "    <sitemap>\n";
             $xml .= '        <loc>'.$this->escape($this->seoPolicy->canonicalHost().'/sitemaps/'.$section.'.xml')."</loc>\n";
             $xml .= '        <lastmod>'.$this->sectionLastModified($section)."</lastmod>\n";
@@ -97,11 +104,7 @@ class SitemapGenerator
 
     protected function coreRecords(): Collection
     {
-        $lastmod = $this->filesLastModified([
-            resource_path('views/livewire/home.blade.php'),
-            resource_path('views/livewire/vat-calculator.blade.php'),
-            base_path('routes/web.php'),
-        ]);
+        $release = $this->releaseDate();
 
         $euCountries = Country::query()
             ->where('is_eu_member', true)
@@ -110,7 +113,9 @@ class SitemapGenerator
         $latestCountryUpdate = $euCountries->max('updated_at');
         $datasetLastmod = $latestCountryUpdate
             ? CarbonImmutable::parse($latestCountryUpdate)->toAtomString()
-            : $lastmod;
+            : $release;
+        // Pages that show the current rates change with the data and with each release.
+        $lastmod = max($release, $datasetLastmod);
 
         $records = collect([
             ['path' => '/', 'lastmod' => $lastmod],
@@ -122,20 +127,14 @@ class SitemapGenerator
             ['path' => '/top-vat-calculations', 'lastmod' => $lastmod],
             ...array_map(fn (int $amount) => ['path' => '/top-vat-calculations/'.$amount, 'lastmod' => $lastmod], TopCalculations::AMOUNTS),
             ['path' => '/datasets/eu-vat-rates', 'lastmod' => $datasetLastmod, 'locales' => $this->englishOnly()],
-            ['path' => '/mcp-server', 'lastmod' => $this->filesLastModified([
-                resource_path('views/livewire/mcp-server.blade.php'),
-                app_path('Support/Mcp/VatMcpServer.php'),
-            ])],
-            ['path' => '/styleguide', 'locales' => $this->englishOnly(), 'lastmod' => $this->filesLastModified([
-                resource_path('views/livewire/styleguide.blade.php'),
-                resource_path('css/app.css'),
-                base_path('DESIGN.md'),
-            ])],
-            ['path' => '/brand', 'locales' => $this->englishOnly(), 'lastmod' => $this->filesLastModified([
-                resource_path('views/livewire/brand-guidelines.blade.php'),
-                resource_path('css/app.css'),
-            ])],
+            ['path' => '/mcp-server', 'lastmod' => $release],
+            ['path' => '/styleguide', 'locales' => $this->englishOnly(), 'lastmod' => $release],
+            ['path' => '/brand', 'locales' => $this->englishOnly(), 'lastmod' => $release],
             ['path' => '/sitemap', 'lastmod' => $lastmod],
+            ['path' => '/chrome-extension', 'locales' => $this->englishOnly(), 'lastmod' => $release],
+            ['path' => '/changelog', 'locales' => $this->englishOnly(), 'lastmod' => $release],
+            ['path' => '/donate', 'locales' => $this->englishOnly(), 'lastmod' => $release],
+            ['path' => '/privacy', 'locales' => $this->englishOnly(), 'lastmod' => $release],
         ]);
 
         $existingSlugs = $euCountries->keys()->all();
@@ -159,10 +158,7 @@ class SitemapGenerator
         foreach (array_keys(config('vat-scenarios', [])) as $scenario) {
             $records->push([
                 'path' => '/vat-guides/'.$scenario,
-                'lastmod' => $this->filesLastModified([
-                    config_path('vat-scenarios.php'),
-                    resource_path('views/livewire/vat-scenario-guide.blade.php'),
-                ]),
+                'lastmod' => $release,
                 'locales' => $this->englishOnly(),
             ]);
         }
@@ -197,7 +193,7 @@ class SitemapGenerator
             ->max('updated_at');
         $lastmod = $latest
             ? CarbonImmutable::parse($latest)->toAtomString()
-            : $this->filesLastModified([resource_path('views/livewire/vat-changes-history.blade.php')]);
+            : $this->releaseDate();
 
         $records = collect([
             ['path' => '/vat-changes', 'lastmod' => $lastmod],
@@ -284,15 +280,16 @@ class SitemapGenerator
 
     protected function editorialRecords(): Collection
     {
+        $posts = $this->blogPosts->all();
         $records = collect([
             [
                 'path' => '/blog',
-                'lastmod' => $this->filesLastModified([resource_path('views/livewire/blog-index.blade.php')]),
+                'lastmod' => $posts->max('updated_at')?->toAtomString() ?? $this->releaseDate(),
                 'locales' => $this->englishOnly(),
             ],
         ]);
 
-        return $records->concat($this->blogPosts->all()->map(fn (array $post) => [
+        return $records->concat($posts->map(fn (array $post) => [
             'path' => '/blog/'.$post['slug'],
             'lastmod' => $post['updated_at']->toAtomString(),
             'locales' => $this->englishOnly(),
@@ -389,14 +386,18 @@ class SitemapGenerator
             ->max() ?? now()->startOfDay()->toAtomString();
     }
 
-    protected function filesLastModified(array $files): string
+    /**
+     * The date of the latest release in CHANGELOG.md: when pages built from templates last changed. File times are
+     * not used, because every deploy rewrites them.
+     */
+    protected function releaseDate(): string
     {
-        $timestamp = collect($files)
-            ->filter(fn (string $file) => File::exists($file))
-            ->map(fn (string $file) => File::lastModified($file))
-            ->max() ?? now()->startOfDay()->timestamp;
+        $changelog = base_path('CHANGELOG.md');
+        $date = File::exists($changelog) && preg_match('/^## \[[^\]]+\] — (\d{4}-\d{2}-\d{2})/m', File::get($changelog), $match)
+            ? $match[1]
+            : now()->toDateString();
 
-        return CarbonImmutable::createFromTimestamp($timestamp)->toAtomString();
+        return CarbonImmutable::parse($date)->startOfDay()->toAtomString();
     }
 
     protected function escape(string $value): string

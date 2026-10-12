@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Route;
 
 if (! function_exists('locale_url')) {
     /**
@@ -56,5 +57,29 @@ if (! function_exists('current_locale_config')) {
         $locale = App::getLocale();
 
         return config("translation.supported_languages.{$locale}", []);
+    }
+}
+
+if (! function_exists('locale_switch_path')) {
+    /**
+     * The current page in another locale, or that locale's home page when the page has no localized route.
+     */
+    function locale_switch_path(string $locale): string
+    {
+        $default = config('translation.default_language', 'en');
+        $supported = array_keys(config('translation.supported_languages', []));
+        $route = request()->route();
+        $name = (string) $route?->getName();
+        $localized = $route && $name !== '' && (str_starts_with($name, 'locale.') || Route::has('locale.'.$name));
+        $prefix = $locale === $default ? '' : '/'.$locale;
+
+        if (! $localized) {
+            return $prefix ?: '/';
+        }
+
+        $path = preg_replace('#^/('.implode('|', array_map('preg_quote', $supported)).')(?=/|$)#', '', '/'.ltrim(request()->path(), '/')) ?: '/';
+        $query = request()->getQueryString();
+
+        return ($prefix.($path === '/' ? '' : $path) ?: '/').($query ? '?'.$query : '');
     }
 }

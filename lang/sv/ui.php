@@ -11,6 +11,7 @@ return array (
   'save' => 'Spara',
   'calculate' => 'Beräkna',
   'loading' => 'Laddar...',
+  'opens_new_tab' => 'öppnas i en ny flik',
   'all_rights_reserved' => 'Alla rättigheter förbehållna.',
   'data_updated_daily' => 'Data uppdateras dagligen',
   'country' => 'Land',
@@ -320,6 +321,7 @@ return array (
     'explore_map' => 'Utforska momskarta',
     'increase' => 'Höjning',
     'decrease' => 'Sänkning',
+    'points' => ':value p.e.',
   ),
   'country_page' => 
   array (

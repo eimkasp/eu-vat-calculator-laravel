@@ -20,7 +20,7 @@
 @endphp
 
 @section('seo')
-    <x-seo-meta :title="__('ui.error_404.meta_title')" :description="__('ui.error_404.meta_desc')" :url="url()->current()" robots="noindex, follow" />
+    <x-seo-meta :title="__('ui.error_404.meta_title')" :description="__('ui.error_404.meta_desc')" :url="url()->current()" robots="noindex, follow" :canonical="false" />
 @endsection
 
 @section('content')
@@ -91,7 +91,7 @@
                             <span class="block text-sm font-semibold text-ink group-hover:text-action">{{ $label }}</span>
                             <span class="mt-0.5 block text-xs leading-5 text-ink-muted">{{ $description }}</span>
                         </span>
-                    </a>
+                    @if($external)<x-ui.new-tab />@endif</a>
                 @endforeach
             </div>
         </section>

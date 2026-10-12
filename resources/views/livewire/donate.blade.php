@@ -37,7 +37,7 @@
                             <span class="block text-sm text-white/70">One-time or monthly · For people</span>
                         </span>
                         <x-ui.icon name="arrow-up-right" class="size-5 text-white/55 transition-colors group-hover:text-white" />
-                    </a>
+                    <x-ui.new-tab /></a>
                     <a href="#x402-test" class="group app-brand-panel pressable flex items-center gap-4 p-4 hover:border-white/30 hover:bg-white/10">
                         <span class="flex size-11 shrink-0 items-center justify-center rounded-control bg-white/10 text-gold" aria-hidden="true">
                             <x-ui.icon name="zap" class="size-5" />
@@ -107,7 +107,7 @@
                     <a href="https://github.com/sponsors/eimkasp" target="_blank" rel="noopener noreferrer" class="app-button-primary">
                         <x-ui.icon name="heart" class="size-4" />
                         Sponsor on GitHub
-                    </a>
+                    <x-ui.new-tab /></a>
                 </div>
             </section>
         </div>
@@ -158,7 +158,7 @@
 
         <section aria-labelledby="x402-premium">
             <h2 id="x402-premium" class="text-xl font-bold text-ink">Premium API endpoints (x402)</h2>
-            <p class="mt-2 max-w-[68ch] text-sm leading-6 text-ink-muted">These endpoints return enriched data through <a href="https://x402.org" target="_blank" rel="noopener noreferrer" class="app-link">x402 micropayments</a>. All core data stays free through the <a href="/api/countries" class="app-link">public API</a>.</p>
+            <p class="mt-2 max-w-[68ch] text-sm leading-6 text-ink-muted">These endpoints return enriched data through <a href="https://x402.org" target="_blank" rel="noopener noreferrer" class="app-link">x402 micropayments<x-ui.new-tab /></a>. All core data stays free through the <a href="/api/countries" class="app-link">public API</a>.</p>
             <ul class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 @foreach ($x402Routes as $route => $config)
                     <li class="app-surface flex flex-col p-5">
@@ -201,7 +201,7 @@
         <section aria-labelledby="about-x402">
             <h2 id="about-x402" class="text-xl font-bold text-ink">About the x402 protocol</h2>
             <div class="app-surface mt-4 p-5 sm:p-6">
-                <p class="max-w-[68ch] text-sm leading-6 text-ink-muted"><a href="https://x402.org" target="_blank" rel="noopener noreferrer" class="app-link font-semibold">x402</a> is an open, neutral standard for internet-native payments. It uses the HTTP <code class="font-semibold text-ink">402 Payment Required</code> status code for frictionless, programmatic payments, which suits AI agents and automated systems.</p>
+                <p class="max-w-[68ch] text-sm leading-6 text-ink-muted"><a href="https://x402.org" target="_blank" rel="noopener noreferrer" class="app-link font-semibold">x402<x-ui.new-tab /></a> is an open, neutral standard for internet-native payments. It uses the HTTP <code class="font-semibold text-ink">402 Payment Required</code> status code for frictionless, programmatic payments, which suits AI agents and automated systems.</p>
                 <dl class="mt-5 grid grid-cols-2 gap-3 lg:grid-cols-4">
                     @foreach($protocol as [$value, $label])
                         <div class="flex flex-col-reverse rounded-card border border-line bg-surface-subtle p-3 text-center">
@@ -223,18 +223,18 @@
                     <a href="https://github.com/sponsors/eimkasp" target="_blank" rel="noopener noreferrer" class="app-button-inverse">
                         <x-ui.icon name="heart" class="size-4" />
                         Sponsor
-                    </a>
+                    <x-ui.new-tab /></a>
                     <a href="https://github.com/eimkasp/eu-vat.info" target="_blank" rel="noopener noreferrer" class="app-button-on-brand">
                         <x-ui.icon name="github" class="size-4" />
                         Star on GitHub
-                    </a>
+                    <x-ui.new-tab /></a>
                 </div>
             </div>
         </section>
     </div>
 </div>
 
-<script>
+<script data-cfasync="false">
 function x402Test() {
     return {
         loading: false,

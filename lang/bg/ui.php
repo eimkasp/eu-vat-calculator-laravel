@@ -11,6 +11,7 @@ return array (
   'save' => 'Запази',
   'calculate' => 'Изчисли',
   'loading' => 'Зареждане...',
+  'opens_new_tab' => 'отваря се в нов раздел',
   'all_rights_reserved' => 'Всички права запазени.',
   'data_updated_daily' => 'Данните се актуализират ежедневно',
   'country' => 'Държава',
@@ -320,6 +321,7 @@ return array (
     'explore_map' => 'Разгледайте картата на ДДС',
     'increase' => 'Увеличение',
     'decrease' => 'Намаление',
+    'points' => ':value п.п.',
   ),
   'country_page' => 
   array (

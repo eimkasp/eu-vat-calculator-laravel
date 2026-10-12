@@ -11,6 +11,7 @@ return array (
   'save' => 'Tallenna',
   'calculate' => 'Laske',
   'loading' => 'Ladataan...',
+  'opens_new_tab' => 'avautuu uuteen välilehteen',
   'all_rights_reserved' => 'Kaikki oikeudet pidätetään.',
   'data_updated_daily' => 'Tiedot päivitetään päivittäin',
   'country' => 'Maa',
@@ -320,6 +321,7 @@ return array (
     'explore_map' => 'Tutustu ALV-karttaan',
     'increase' => 'Korotus',
     'decrease' => 'Alennus',
+    'points' => ':value %-yks.',
   ),
   'country_page' => 
   array (

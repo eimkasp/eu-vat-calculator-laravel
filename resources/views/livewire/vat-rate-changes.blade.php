@@ -24,7 +24,7 @@
                                 <span @class(['tabular inline-flex items-center gap-0.5 text-xs font-semibold', 'text-danger' => $up, 'text-success' => ! $up])>
                                     <x-ui.icon :name="$up ? 'trending-up' : 'trending-down'" class="size-3" />
                                     <span class="sr-only">{{ $up ? __('ui.rate_changes.increase') : __('ui.rate_changes.decrease') }}</span>
-                                    {{ $up ? '+' : '−' }}{{ Country::formatRate(abs((float) $change->new_rate - (float) $change->old_rate)) }} pp
+                                    {{ __('ui.rate_changes.points', ['value' => ($up ? '+' : '−').Country::formatRate(abs((float) $change->new_rate - (float) $change->old_rate))]) }}
                                 </span>
                             </span>
                         </a>

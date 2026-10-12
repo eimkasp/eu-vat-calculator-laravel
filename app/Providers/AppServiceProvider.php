@@ -10,7 +10,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,6 +26,10 @@ class AppServiceProvider extends ServiceProvider
         if ($this->app->environment('production')) {
             URL::forceScheme('https');
         }
+
+        // Cloudflare Rocket Loader would otherwise defer these until after load, delaying the calculator and the theme.
+        Vite::useScriptTagAttributes(['data-cfasync' => 'false']);
+        Livewire::useScriptTagAttributes(['data-cfasync' => 'false']);
 
         Gate::define('viewPulse', fn (User $user): bool => $user->canAccessPanel(Filament::getPanel('admin')));
 

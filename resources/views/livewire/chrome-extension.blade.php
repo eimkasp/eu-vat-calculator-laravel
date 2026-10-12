@@ -32,7 +32,7 @@
                 <p class="mt-4 max-w-2xl text-base leading-7 text-white/85 sm:text-lg">Calculate EU VAT from your browser toolbar. All 27 EU country rates, calculation history and a new-tab mode, always one click away.</p>
                 <a href="{{ $storeUrl }}" target="_blank" rel="noopener noreferrer" class="mt-8 inline-block rounded-card transition-opacity hover:opacity-90">
                     <img src="/images/chrome-web-store-badge.png" alt="Available in the Chrome Web Store" class="h-14 sm:h-16" loading="eager">
-                </a>
+                <x-ui.new-tab /></a>
             </div>
         </div>
     </section>
@@ -100,7 +100,7 @@
                 </div>
                 <a href="{{ $storeUrl }}" target="_blank" rel="noopener noreferrer" class="inline-block shrink-0 rounded-card transition-opacity hover:opacity-90">
                     <img src="/images/chrome-web-store-badge.png" alt="Available in the Chrome Web Store" class="h-14" loading="lazy">
-                </a>
+                <x-ui.new-tab /></a>
             </div>
         </section>
     </div>

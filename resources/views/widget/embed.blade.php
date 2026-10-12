@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @php
-    $pageTitle = 'Embed a free VAT calculator for '.$selectedCountry->name;
+    $pageTitle = request()->route('country') ? 'Embed a free VAT calculator for '.$selectedCountry->name : 'Embed a free EU VAT calculator on your website';
     $config = [
         'base' => route('widget.iframe'),
         'country' => $selectedCountry->slug,
@@ -17,9 +17,9 @@
 
 @section('seo')
     <x-seo-meta
-        :title="$pageTitle.' - EU VAT Info'"
+        :title="$pageTitle.' | EU VAT Info'"
         description="Add a free, always up-to-date EU VAT calculator to your website with one iframe snippet. No account, API key or tracking cookies required."
-        :url="url()->current()"
+        :url="url('/embed')"
     />
 @endsection
 
@@ -74,7 +74,7 @@
                         <a :href="src" target="_blank" rel="noopener" class="app-link inline-flex items-center gap-1 text-sm">
                             Open
                             <x-ui.icon name="arrow-up-right" class="size-3.5" />
-                        </a>
+                        <x-ui.new-tab /></a>
                     </div>
                     <div class="bg-[repeating-conic-gradient(var(--ui-surface-subtle)_0_25%,var(--ui-surface)_0_50%)] bg-[length:24px_24px] p-4 sm:p-6">
                         <iframe :src="src" :style="'height:' + height + 'px'" class="mx-auto block w-full rounded-card border-0 bg-transparent transition-[max-width] duration-200" :class="style === 'vertical' ? 'max-w-md' : 'max-w-none'" title="EU VAT calculator widget preview" loading="lazy"></iframe>

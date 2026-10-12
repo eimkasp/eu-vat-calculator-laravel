@@ -101,7 +101,7 @@
                             <a class="calc-link" href="{{ url('/vat-calculator/' . $country->slug) }}">Calculate →</a>
                         </td>
                         <td><span class="badge">{{ $country->iso_code }}</span></td>
-                        <td class="rate">{{ $country->standard_rate }}%</td>
+                        <td class="rate">{{ \App\Models\Country::formatRate($country->standard_rate) }}%</td>
                         <td class="{{ $country->reduced_rate ? 'rate-secondary' : 'rate-none' }}">{{ $country->reduced_rate ? $country->reduced_rate.'%' : '—' }}</td>
                         <td class="{{ $country->super_reduced_rate ? 'rate-secondary' : 'rate-none' }}">{{ $country->super_reduced_rate ? $country->super_reduced_rate.'%' : '—' }}</td>
                         <td class="{{ $country->zero_rate !== null ? 'rate-secondary' : 'rate-none' }}">{{ $country->zero_rate !== null ? $country->zero_rate.'%' : '—' }}</td>

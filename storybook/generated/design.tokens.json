@@ -1055,6 +1055,8 @@
         "sans": {
             "$value": [
                 "Inter Variable",
+                "Inter Fallback",
+                "Inter Fallback Roboto",
                 "ui-sans-serif",
                 "system-ui",
                 "-apple-system",

@@ -54,7 +54,7 @@
         </div>
     </div>
 
-    <div class="relative overflow-x-auto">
+    <div class="relative overflow-x-auto" tabindex="0" role="region" aria-labelledby="rates-heading">
         <table class="app-table sm:min-w-[34rem]">
             <thead>
                 <tr>
@@ -90,7 +90,7 @@
                                     <span class="text-xs text-ink-quiet">—</span>
                                 @endforelse
                                 @if((float) $country->super_reduced_rate > 0)
-                                    <span class="tabular rounded-control border border-dashed border-line-strong px-1.5 text-[0.6875rem] font-medium text-ink-quiet" title="{{ __('ui.rate_type.super_reduced') }}">{{ Country::formatRate($country->super_reduced_rate) }}%</span>
+                                    <span class="tabular rounded-control border border-dashed border-line-strong px-1.5 text-[0.6875rem] font-medium text-ink-quiet" title="{{ __('ui.rate_type.super_reduced') }}"><span class="sr-only">{{ __('ui.rate_type.super_reduced') }}: </span>{{ Country::formatRate($country->super_reduced_rate) }}%</span>
                                 @endif
                             </div>
                         </td>
@@ -110,7 +110,7 @@
                                     <span class="text-ink-quiet">—</span>
                                 @endforelse
                                 @if((float) $country->super_reduced_rate > 0)
-                                    <span class="tabular rounded-control border border-dashed border-line-strong px-2 py-0.5 text-xs font-medium text-ink-quiet" title="{{ __('ui.rate_type.super_reduced') }}">{{ Country::formatRate($country->super_reduced_rate) }}%</span>
+                                    <span class="tabular rounded-control border border-dashed border-line-strong px-2 py-0.5 text-xs font-medium text-ink-quiet" title="{{ __('ui.rate_type.super_reduced') }}"><span class="sr-only">{{ __('ui.rate_type.super_reduced') }}: </span>{{ Country::formatRate($country->super_reduced_rate) }}%</span>
                                 @endif
                             </div>
                         </td>
@@ -125,9 +125,11 @@
         </table>
     </div>
 
-    <p x-cloak x-show="noMatches" class="px-6 py-10 text-center text-sm text-ink-muted">
-        {{ __('ui.no_results') }}
-    </p>
+    <div role="status">
+        <p x-cloak x-show="noMatches" class="px-6 py-10 text-center text-sm text-ink-muted">
+            {{ __('ui.no_results') }}
+        </p>
+    </div>
 
     <div class="flex flex-wrap items-center justify-between gap-2 border-t border-line bg-surface-subtle px-5 py-3 text-xs text-ink-muted sm:px-6">
         <span class="hidden items-center gap-1.5 sm:inline-flex">

@@ -39,7 +39,7 @@
             {{-- Inputs --}}
             <div @class(['flex flex-col gap-5 p-5', 'sm:p-7' => ! $compact])>
                 <div class="flex flex-wrap items-center justify-between gap-3">
-                    <div role="radiogroup" aria-label="{{ __('ui.calculator.mode_label') }}" class="app-segmented" data-value="{{ $mode }}" :data-value="mode">
+                    <div role="radiogroup" aria-label="{{ __('ui.calculator.mode_label') }}" @keydown.arrow-right.prevent="$rove($event)" @keydown.arrow-down.prevent="$rove($event)" @keydown.arrow-left.prevent="$rove($event)" @keydown.arrow-up.prevent="$rove($event)" class="app-segmented" data-value="{{ $mode }}" :data-value="mode">
                         <span class="app-segmented-thumb" aria-hidden="true"></span>
                         @foreach(['exclude' => ['plus', __('ui.calculator.add_vat_mode')], 'include' => ['minus', __('ui.calculator.remove_vat_mode')]] as $value => [$icon, $label])
                             <button
@@ -48,6 +48,8 @@
                                 @click="setMode(@js($value))"
                                 :aria-checked="(mode === @js($value)).toString()"
                                 aria-checked="{{ $mode === $value ? 'true' : 'false' }}"
+                                tabindex="{{ $mode === $value ? '0' : '-1' }}"
+                                :tabindex="mode === @js($value) ? 0 : -1"
                                 class="app-segment"
                             >
                                 <x-ui.icon :name="$icon" class="size-3.5" />
@@ -63,13 +65,16 @@
 
                 <div @class(['grid gap-4', 'sm:grid-cols-2' => ! $compact])>
                     {{-- Country combobox --}}
-                    <div class="relative" @click.outside="countryOpen = false" @keydown.escape="countryOpen = false">
+                    <div class="relative" @click.outside="countryOpen = false" @keydown.escape="closeCountries()">
                         <label id="country-label-{{ $id }}" class="mb-1.5 block text-[0.8125rem] font-semibold text-ink-muted">{{ __('ui.calculator.country_label') }}</label>
                         <button
                             type="button"
+                            x-ref="countryTrigger"
                             @click="toggleCountries()"
                             class="app-field flex h-12 items-center gap-2.5 pr-10 text-left"
                             aria-haspopup="listbox"
+                            aria-controls="country-list-{{ $id }}"
+                            aria-expanded="false"
                             :aria-expanded="countryOpen.toString()"
                             aria-labelledby="country-label-{{ $id }} country-value-{{ $id }}"
                         >
@@ -78,6 +83,9 @@
                             <span class="tabular text-sm font-semibold text-ink-muted">{{ \App\Models\Country::formatRate($country->standard_rate) }}%</span>
                             <x-ui.icon name="chevron-down" class="pointer-events-none absolute right-3.5 bottom-4 size-4 text-ink-quiet" />
                         </button>
+                        @if($errorMessage)
+                            <p class="mt-1.5 text-xs font-medium text-danger" role="alert">{{ $errorMessage }}</p>
+                        @endif
                         <span wire:loading wire:target="selectCountry" class="absolute right-10 bottom-4">
                             <span class="block size-4 animate-spin rounded-full border-2 border-action/30 border-t-action"></span>
                         </span>
@@ -97,6 +105,7 @@
                                     placeholder="{{ __('ui.calculator.search_countries') }}"
                                     class="app-field min-h-10 text-sm"
                                     role="combobox"
+                                    aria-expanded="true"
                                     aria-controls="country-list-{{ $id }}"
                                     aria-autocomplete="list"
                                     :aria-activedescendant="filteredCountries.length ? '{{ $id }}-country-' + countryActive : null"
@@ -145,12 +154,12 @@
                                 value="{{ $amount }}"
                                 placeholder="0.00"
                                 :aria-invalid="invalid.toString()"
-                                aria-describedby="amount-error-{{ $id }}"
+                                :aria-describedby="invalid ? 'amount-error-{{ $id }}' : null"
                                 class="app-field tabular h-12 pl-11 text-lg font-semibold"
                                 :class="invalid && 'border-danger focus:border-danger focus:ring-danger/15'"
                             >
                         </div>
-                        <p id="amount-error-{{ $id }}" x-show="invalid" x-cloak class="mt-1.5 text-xs font-medium text-danger">{{ __('ui.calculator.invalid_amount') }}</p>
+                        <p id="amount-error-{{ $id }}" role="alert" class="mt-1.5 text-xs font-medium text-danger empty:hidden" x-text="invalid ? @js(__('ui.calculator.invalid_amount')) : ''"></p>
                     </div>
                 </div>
 
@@ -257,7 +266,7 @@
                     <a :href="shareUrl(@js(url(locale_path('/vat-calculation'))), $wire.selectedCountrySlug)" href="{{ url(\App\Livewire\SharedCalculation::calculationUrl($country->slug, $calculation->input(), $customRate ?? $selectedRate, $mode)) }}" @if($embedded) target="_blank" rel="noopener" @endif class="app-button-primary h-10 min-h-10 flex-1 whitespace-nowrap px-4">
                         <x-ui.icon name="share" class="size-4" />
                         {{ __('ui.calculator.share_details') }}
-                    </a>
+                    @if($embedded)<x-ui.new-tab />@endif</a>
                     @unless(in_array($surface, ['workspace', 'country-image', 'embed'], true) || $compact)
                         <a href="{{ locale_path('/vat-calculator/'.$country->slug) }}" x-bind:href="@js(locale_path('/vat-calculator')) + '/' + $wire.selectedCountrySlug" class="app-button-secondary h-10 min-h-10 flex-1 whitespace-nowrap px-4">
                             {{ __('ui.calculator.full_calculator') }}
@@ -283,7 +292,7 @@
                         <x-ui.icon name="history" class="size-4" />
                         {{ __('ui.calculator.recent_calculations') }}
                     </h2>
-                    <button type="button" wire:click="clearHistory" @class(['rounded-xs px-2 py-1 text-xs font-semibold', 'text-white/75 hover:bg-white/10 hover:text-white' => $onDark, 'text-action hover:bg-action-soft' => ! $onDark])>{{ __('ui.calculator.clear_all') }}</button>
+                    <button type="button" wire:click="clearHistory" @click="document.getElementById('amount-{{ $id }}')?.focus()" @class(['min-h-11 rounded-xs px-2 py-1 text-xs font-semibold', 'text-white/75 hover:bg-white/10 hover:text-white' => $onDark, 'text-action hover:bg-action-soft' => ! $onDark])>{{ __('ui.calculator.clear_all') }}</button>
                 </div>
                 <div class="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
                     <template x-for="entry in $wire.history" :key="entry.key">

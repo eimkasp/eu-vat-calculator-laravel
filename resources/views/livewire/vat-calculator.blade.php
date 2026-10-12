@@ -10,8 +10,6 @@
     @endphp
     @section('seo')
         <x-seo-meta :title="$calcMetaTitle" :description="$calcMetaDesc" :url="$calcCanonical">
-            <meta property="og:locale" content="{{ str_replace('-', '_', app()->getLocale()) }}">
-            <meta property="article:modified_time" content="{{ $country->updated_at?->toIso8601String() }}">
             <x-json-ld :data="[
                 '@type' => 'BreadcrumbList',
                 'itemListElement' => [
@@ -28,7 +26,7 @@
                 'url' => $calcCanonical,
                 'inLanguage' => app()->getLocale(),
                 'dateModified' => $country->updated_at?->toIso8601String(),
-                'isPartOf' => ['@type' => 'WebSite', '@id' => url(locale_path('/')).'#website', 'name' => __('ui.site_name'), 'url' => url(locale_path('/'))],
+                'isPartOf' => ['@type' => 'WebSite', '@id' => rtrim((string) config('seo.canonical_url'), '/').'/#website', 'name' => 'EU VAT Info'],
                 'mainEntity' => [
                     '@type' => 'WebApplication',
                     '@id' => $calcCanonical.'#calculator',
@@ -76,11 +74,11 @@
     @endsection
 @endif
 
-@push('head')
-    @if($isCountryPage)
+@if($isCountryPage && app()->getLocale() === config('translation.default_language', 'en'))
+    @push('head')
         <link rel="amphtml" href="{{ url('/amp/vat-calculator/'.$country->slug) }}">
-    @endif
-@endpush
+    @endpush
+@endif
 
 <div>
     @if($isCountryPage)
@@ -89,7 +87,7 @@
             <div class="app-container relative pb-10 pt-6 sm:pb-14 sm:pt-8">
                 <x-calculator.country-header :country="$country" />
 
-                <div id="calculator" class="mt-8 scroll-mt-24" aria-label="{{ __('ui.calculator.country_heading', ['country' => $country->name]) }}">
+                <div id="calculator" role="region" class="mt-8 scroll-mt-24" aria-label="{{ __('ui.calculator.country_heading', ['country' => $country->name]) }}">
                     <livewire:hero-calculator :key="'hero-calc-'.$country->id" :initial-country="$country->slug" :initial-amount="$prefill['amount']" :initial-rate="$prefill['rate']" :initial-mode="$prefill['mode']" surface="country-image" />
                 </div>
             </div>

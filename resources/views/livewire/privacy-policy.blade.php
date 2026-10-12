@@ -139,7 +139,7 @@
                 <h2>9. Third-Party Services</h2>
                 <p>Our Service integrates with the following third parties:</p>
                 <ul>
-                    <li><strong>European Commission VIES:</strong> For VAT number validation. Subject to the <a href="https://ec.europa.eu/info/legal-notice_en" target="_blank" rel="noopener">EU legal notice</a>.</li>
+                    <li><strong>European Commission VIES:</strong> For VAT number validation. Subject to the <a href="https://ec.europa.eu/info/legal-notice_en" target="_blank" rel="noopener">EU legal notice<x-ui.new-tab /></a>.</li>
                     <li><strong>DeepL:</strong> For automated translation of interface elements. No personal data is shared with DeepL.</li>
                 </ul>
 

@@ -11,6 +11,7 @@ return array (
   'save' => 'Salvează',
   'calculate' => 'Calculează',
   'loading' => 'Se încarcă...',
+  'opens_new_tab' => 'se deschide într-o filă nouă',
   'all_rights_reserved' => 'Toate drepturile rezervate.',
   'data_updated_daily' => 'Datele sunt actualizate zilnic',
   'country' => 'Țară',
@@ -320,6 +321,7 @@ return array (
     'explore_map' => 'Explorați harta TVA',
     'increase' => 'Creștere',
     'decrease' => 'Scădere',
+    'points' => ':value p.p.',
   ),
   'country_page' => 
   array (

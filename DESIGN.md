@@ -22,7 +22,7 @@ colors:
   warning: "#AE4900"
   danger: "#BE2323"
 typography:
-  family: "Inter Variable (optical sizing), system-ui fallback"
+  family: "Inter Variable (optical sizing), metric-matched Arial or Roboto fallback"
   display: { size: "3rem", weight: 700, lineHeight: 1.08, letterSpacing: "-0.03em" }
   headline: { size: "2.5rem", weight: 700, lineHeight: 1.1, letterSpacing: "-0.035em" }
   title: { size: "1.125rem", weight: 700, lineHeight: 1.35 }
@@ -127,7 +127,7 @@ Navy areas are flat `brand` or `brand-deep` fills. They carry the `on-brand` uti
 
 ### Typography
 
-Inter Variable is self-hosted with the optical-size axis, so large text automatically uses Inter's display cut. Body text uses the stylistic sets `cv11` and `ss03`.
+Inter Variable is self-hosted with the optical-size axis, so large text automatically uses Inter's display cut. Body text uses the stylistic sets `cv11` and `ss03`. Until it loads, text uses `Inter Fallback` (local Arial) or `Inter Fallback Roboto` (Android), resized with `size-adjust` and the ascent and descent overrides to Inter's metrics, so the swap does not rewrap lines or shift the layout. Keep both in `--font-sans` right after Inter.
 
 | Role | Classes | Where |
 |---|---|---|
@@ -183,9 +183,10 @@ Enter popovers with `x-transition:enter="transition duration-150 ease-out-quint"
 - `app-container` is the only page width: max 80rem, with 16/24/32px gutters at mobile, `sm` and `lg`.
 - Section rhythm: `py-8 sm:py-10` between content sections, `pb-12 sm:pb-16` at the bottom of heroes.
 - Grids start from one column (`grid grid-cols-1 md:grid-cols-2`). A grid without a base `grid-cols-*` can overflow on phones.
-- Wrap wide tables in `relative overflow-x-auto`. No page may scroll horizontally at 320px.
+- Wrap wide tables in `relative overflow-x-auto` with `tabindex="0" role="region"` and a name (`aria-labelledby` the section heading), so keyboard users can scroll them. No page may scroll horizontally at 320px.
 - `mobile-nav-safe` on the footer reserves the height of the mobile tab bar on phones, so the end of every page scrolls clear of it.
 - A card that holds a sticky bar uses `overflow-clip`, not `overflow-hidden`, so the bar can stick to the viewport.
+- The header shows the full navigation from `xl` (1280px) and the menu button below it, so the longest languages fit. Its right-hand group is a container (`@container`): the search field and the GitHub link appear only when there is room for them (`@min-[27rem]`, `@min-[30rem]`), and the site name truncates before anything overflows. Check a header change in Bulgarian, Estonian and Maltese at 1024, 1280 and 1536px.
 
 ## Components
 
@@ -305,6 +306,7 @@ Two equal segments on a bordered `surface-muted` track; the white thumb slides i
 | `app-flag`, `<x-ui.flag :iso="…" size="xs|sm|md|lg|xl" />` | Country flags (local SVGs; Greece accepts `el`) |
 | `<x-ui.icon name="…" class="size-4" />` | Lucide icons at 1.75 stroke; add missing paths to `components/ui/icon.blade.php` in alphabetical order |
 | `<x-ui.logo />` | The EU VAT Info mark: white tile, navy slash and dot, gold dot; `size-8` unless a `size-*` class is passed |
+| `<x-ui.new-tab />` | Screen-reader note "(opens in a new tab)" in the page language; put it last inside every `target="_blank"` link (or append the words to its `aria-label`). Markdown output leaves it out |
 | `<x-json-ld :data="[…]" />` | Structured data; it adds `@context` for you |
 | `<x-rate-freshness :updated="…" :eu="…" />` | The date rates were updated and their source (the European Commission, or the open vat-rates dataset outside the EU); `on-dark` on navy, extra items in the slot |
 | `<x-faq-list :faqs="…" :title="…" id="…" />` | Questions as native disclosures, the first one open; build the FAQPage JSON-LD from the same list |

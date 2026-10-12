@@ -22,7 +22,7 @@ class LlmsController extends Controller
     {
         [$countries, $updatedAt] = $this->countries();
 
-        $text = Cache::remember('llms_txt:v4:'.$updatedAt->timestamp, 3600, function () use ($countries, $updatedAt, $vatCategories) {
+        $text = Cache::remember('llms_txt:v5:'.$updatedAt->timestamp, 3600, function () use ($countries, $updatedAt, $vatCategories) {
             $base = $this->baseUrl();
             $mcp = VatMcpServer::endpoint();
 
@@ -37,7 +37,25 @@ class LlmsController extends Controller
             $text .= "- [VAT number validator]({$base}/vat-number-validator): Check an EU VAT number against the European Commission's VIES service.\n";
             $text .= "- [VAT rate changes]({$base}/vat-changes): Recorded and upcoming rate changes with their official sources.\n";
             $text .= "- [VAT map]({$base}/vat-map): Standard rates across Europe with a ranked table.\n";
-            $text .= "- [Popular VAT calculations]({$base}/top-vat-calculations): VAT on common amounts in every EU country.\n\n";
+            $text .= "- [Popular VAT calculations]({$base}/top-vat-calculations): VAT on common amounts in every EU country.\n";
+            $text .= "- [All VAT tools]({$base}/tools): Every calculator, checker and data download on the site.\n\n";
+
+            $text .= "## Guides\n\n";
+
+            foreach (config('vat-scenarios', []) as $slug => $guide) {
+                $text .= "- [{$guide['title']}]({$base}/vat-guides/{$slug}): {$guide['summary']}\n";
+            }
+
+            $text .= "\n## Comparisons\n\n";
+            $bySlug = $countries->keyBy('slug');
+
+            foreach (config('seo.comparisons', []) as [$first, $second]) {
+                if ($bySlug->has($first) && $bySlug->has($second)) {
+                    $text .= "- [{$bySlug[$first]->name} vs {$bySlug[$second]->name} VAT]({$base}/compare/{$first}-vs-{$second}-vat): Rates side by side, with the difference on common amounts.\n";
+                }
+            }
+
+            $text .= "\n";
 
             $text .= "## Data and APIs\n\n";
             $text .= "- [Full VAT rates in Markdown]({$base}/llms-full.txt): Every rate, currency and VAT number format in one table, plus upcoming changes and sources.\n";
@@ -89,7 +107,7 @@ class LlmsController extends Controller
     {
         [$countries, $updatedAt] = $this->countries();
 
-        $text = Cache::remember('llms_full_txt:v2:'.$updatedAt->timestamp, 3600, function () use ($countries, $updatedAt) {
+        $text = Cache::remember('llms_full_txt:v3:'.$updatedAt->timestamp, 3600, function () use ($countries, $updatedAt) {
             $base = $this->baseUrl();
 
             $text = "# EU VAT Info: EU VAT rates reference\n\n";
@@ -157,6 +175,32 @@ class LlmsController extends Controller
                         $change->old_rate === null ? '-' : Country::formatRate($change->old_rate).'%',
                         $change->new_rate === null ? '-' : Country::formatRate($change->new_rate).'%',
                         $change->change_date?->toDateString() ?? '-',
+                    ])." |\n";
+                }
+            }
+
+            $recent = VatRateChange::query()
+                ->with('country:id,name,slug')
+                ->whereHas('country', fn ($query) => $query->where('is_eu_member', true))
+                ->whereDate('change_date', '<', today())
+                ->whereDate('change_date', '>=', today()->subMonths(24))
+                ->orderByDesc('change_date')
+                ->limit(50)
+                ->get();
+
+            if ($recent->isNotEmpty()) {
+                $text .= "\n## Recent VAT rate changes (last 24 months)\n\n";
+                $text .= "| Country | Rate | From | To | Took effect |\n";
+                $text .= "|---|---|---|---|---|\n";
+
+                foreach ($recent as $change) {
+                    $date = $change->change_date->toDateString();
+                    $text .= '| '.implode(' | ', [
+                        $change->country->name,
+                        str_replace('_', '-', (string) $change->rate_type),
+                        $change->old_rate === null ? '-' : Country::formatRate($change->old_rate).'%',
+                        $change->new_rate === null ? '-' : Country::formatRate($change->new_rate).'%',
+                        "[{$date}]({$base}/vat-changes/{$change->country->slug}/{$change->rate_type}/{$date})",
                     ])." |\n";
                 }
             }

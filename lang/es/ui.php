@@ -11,6 +11,7 @@ return array (
   'save' => 'Guardar',
   'calculate' => 'Calcular',
   'loading' => 'Cargando...',
+  'opens_new_tab' => 'se abre en una pestaña nueva',
   'all_rights_reserved' => 'Todos los derechos reservados.',
   'data_updated_daily' => 'Datos actualizados diariamente',
   'country' => 'País',
@@ -320,6 +321,7 @@ return array (
     'explore_map' => 'Explorar mapa del IVA',
     'increase' => 'Aumento',
     'decrease' => 'Reducción',
+    'points' => ':value p. p.',
   ),
   'country_page' => 
   array (

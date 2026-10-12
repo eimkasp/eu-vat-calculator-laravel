@@ -14,11 +14,6 @@
         <script type="application/ld+json">{!! json_encode([
             '@@context' => 'https://schema.org',
             '@graph' => [
-                ['@type' => 'BreadcrumbList', '@id' => $canonical.'#breadcrumbs', 'itemListElement' => [
-                    ['@type' => 'ListItem', 'position' => 1, 'name' => 'EU VAT Info', 'item' => $baseUrl.'/'],
-                    ['@type' => 'ListItem', 'position' => 2, 'name' => 'VAT tools', 'item' => $baseUrl.locale_path('/tools')],
-                    ['@type' => 'ListItem', 'position' => 3, 'name' => $guide['title'], 'item' => $canonical],
-                ]],
                 ['@type' => 'Article', '@id' => $canonical.'#article', 'headline' => $guide['title'], 'description' => $guide['summary'], 'mainEntityOfPage' => $canonical, 'author' => ['@type' => 'Organization', 'name' => 'EU VAT Info'], 'citation' => $guide['sources']],
             ],
         ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG) !!}</script>

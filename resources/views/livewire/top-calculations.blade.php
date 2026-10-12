@@ -39,7 +39,7 @@
                 <h2 id="matrix-heading" class="text-lg font-bold text-ink">{{ __('ui.top_calc.total_incl_vat') }}</h2>
                 <p class="mt-1 text-sm text-ink-muted">{{ __('ui.top_calc.matrix_caption') }}</p>
             </div>
-            <div class="relative overflow-x-auto">
+            <div class="relative overflow-x-auto" tabindex="0" role="region" aria-labelledby="matrix-heading">
                 <table class="app-table min-w-[56rem]">
                     <thead>
                         <tr>

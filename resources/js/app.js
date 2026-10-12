@@ -72,10 +72,13 @@ document.addEventListener('alpine:init', () => {
 
     Alpine.store('toasts', {
         items: [],
-        push(message, tone = 'success') {
+        push(message, tone = 'success', sticky = false) {
             const id = Date.now() + Math.random();
-            this.items.push({ id, message, tone });
-            setTimeout(() => this.dismiss(id), 3800);
+            this.items.push({ id, message, tone, sticky });
+
+            if (!sticky) {
+                setTimeout(() => this.dismiss(id), 3800);
+            }
         },
         dismiss(id) {
             this.items = this.items.filter((item) => item.id !== id);
@@ -84,20 +87,50 @@ document.addEventListener('alpine:init', () => {
 
     Alpine.store('palette', {
         open: false,
+        opener: null,
         show() {
+            if (!this.open) {
+                this.opener = document.activeElement;
+            }
+
             this.open = true;
         },
         hide() {
+            if (!this.open) {
+                return;
+            }
+
             this.open = false;
+            const opener = this.opener;
+            this.opener = null;
+            setTimeout(() => opener?.isConnected && opener.focus({ preventScroll: true }), 0);
         },
         toggle() {
-            this.open = !this.open;
+            if (this.open) {
+                this.hide();
+            } else {
+                this.show();
+            }
         },
+    });
+
+    Alpine.magic('rove', () => (event) => {
+        const radios = [...event.currentTarget.querySelectorAll('[role="radio"]')];
+        const index = radios.indexOf(document.activeElement);
+
+        if (index === -1) {
+            return;
+        }
+
+        const step = ['ArrowRight', 'ArrowDown'].includes(event.key) ? 1 : -1;
+        const next = radios[(index + step + radios.length) % radios.length];
+        next.click();
+        next.focus();
     });
 
     Alpine.magic('copy', () => async (text, message) => {
         const copied = await copyText(text);
-        Alpine.store('toasts').push(copied ? message : text, copied ? 'success' : 'info');
+        Alpine.store('toasts').push(copied ? message : text, copied ? 'success' : 'info', !copied);
     });
 
     Alpine.data('commandPalette', ({ source, recentKey = 'palette-recent' } = {}) => ({
@@ -240,8 +273,10 @@ document.addEventListener('alpine:init', () => {
             }
         },
         clear() {
+            const code = this.selected?.code;
             this.selected = null;
             this.highlight(null, 'is-selected');
+            this.$nextTick(() => this.$refs.canvas.querySelector(`[data-iso="${code}"][tabindex="0"]`)?.focus());
         },
         highlight(code, className) {
             this.$refs.canvas.querySelectorAll(`.${className}`).forEach((node) => node.classList.remove(className));
@@ -367,6 +402,10 @@ document.addEventListener('alpine:init', () => {
                 this.$nextTick(() => this.$refs.countryList?.querySelector(`[data-index="${this.countryActive}"]`)?.scrollIntoView({ block: 'nearest' }));
             }
         },
+        closeCountries() {
+            this.countryOpen = false;
+            this.$nextTick(() => this.$refs.countryTrigger?.focus());
+        },
         chooseActiveCountry() {
             const country = this.filteredCountries[this.countryActive];
 
@@ -375,7 +414,7 @@ document.addEventListener('alpine:init', () => {
             }
         },
         async selectCountry(slug) {
-            this.countryOpen = false;
+            this.closeCountries();
 
             if (slug === this.$wire.selectedCountrySlug) {
                 return;
@@ -401,7 +440,7 @@ document.addEventListener('alpine:init', () => {
             this.useCustomRate = !known;
             this.rate = known ? Number(entry.rate) : this.rate;
             this.customRate = known ? '' : String(entry.rate);
-            document.getElementById('hero-calculator')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            document.getElementById('hero-calculator')?.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'center' });
         },
         shareUrl(base, slug) {
             const amount = this.mode === 'include' ? this.result.gross : this.result.net;

@@ -19,7 +19,7 @@
     <x-toasts />
     @livewireScripts
     @if (config('app.data_domain') && app()->isProduction())
-        <script defer data-domain="{{ config('app.data_domain') }}" src="{{ config('app.plausible_script') }}"></script>
+        <script defer data-cfasync="false" data-domain="{{ config('app.data_domain') }}" src="{{ config('app.plausible_script') }}"></script>
     @endif
 </body>
 </html>

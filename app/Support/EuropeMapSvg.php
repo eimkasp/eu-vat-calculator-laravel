@@ -47,7 +47,7 @@ final class EuropeMapSvg
     {
         $version = md5($countries->map(fn (Country $country) => $country->iso_code.':'.$country->standard_rate.':'.$country->slug)->implode('|'));
 
-        $markup = Cache::remember("europe_map_svg_v3_{$version}_".app()->getLocale(), 3600, function () use ($countries) {
+        $markup = Cache::remember("europe_map_svg_v4_{$version}_".app()->getLocale(), 3600, function () use ($countries) {
             $byIso = $countries->keyBy(fn (Country $country) => strtoupper((string) $country->iso_code));
             $source = (string) file_get_contents(resource_path('images/europe.svg'));
             $seen = [];

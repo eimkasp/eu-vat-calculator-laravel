@@ -88,7 +88,7 @@
                             <a href="{{ url('/amp/vat-calculator/' . $country->slug) }}">{{ $country->name }}</a><br>
                             <a class="calc-link" href="{{ url('/vat-calculator/' . $country->slug) }}">Calculate VAT →</a>
                         </td>
-                        <td class="rate">{{ $country->standard_rate }}%</td>
+                        <td class="rate">{{ \App\Models\Country::formatRate($country->standard_rate) }}%</td>
                         <td>{{ $country->reduced_rate ? $country->reduced_rate.'%' : '—' }}</td>
                         <td>{{ $country->super_reduced_rate ? $country->super_reduced_rate.'%' : '—' }}</td>
                         <td>{{ $country->parking_rate ? $country->parking_rate.'%' : '—' }}</td>

@@ -11,6 +11,7 @@ return array (
   'save' => 'Uložit',
   'calculate' => 'Vypočítat',
   'loading' => 'Načítání...',
+  'opens_new_tab' => 'otevře se v nové kartě',
   'all_rights_reserved' => 'Všechna práva vyhrazena.',
   'data_updated_daily' => 'Data jsou aktualizována denně',
   'country' => 'Země',
@@ -320,6 +321,7 @@ return array (
     'explore_map' => 'Prozkoumat mapu DPH',
     'increase' => 'Zvýšení',
     'decrease' => 'Snížení',
+    'points' => ':value p. b.',
   ),
   'country_page' => 
   array (

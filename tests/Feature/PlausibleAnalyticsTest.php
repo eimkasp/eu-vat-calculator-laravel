@@ -12,7 +12,7 @@ it('reports the main site to its own Plausible site, not the embed widget site',
 
     $this->get('/')
         ->assertOk()
-        ->assertSee('<script defer data-domain="vat.businesspress.io" src="https://stats.businesspress.io/js/script.tagged-events.outbound-links.js"></script>', false)
+        ->assertSee('<script defer data-cfasync="false" data-domain="vat.businesspress.io" src="https://stats.businesspress.io/js/script.tagged-events.outbound-links.js"></script>', false)
         ->assertDontSee('data-domain="eu-vat.info"', false);
 });
 

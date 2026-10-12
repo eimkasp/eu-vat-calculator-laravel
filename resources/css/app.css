@@ -1,6 +1,26 @@
 @import 'tailwindcss' source(none);
 @import '@fontsource-variable/inter/opsz.css';
 
+/* Local fonts sized to Inter's metrics, shown until Inter loads so the swap does not reflow text (Arial and its
+   metric twins on desktop and iOS, Roboto on Android). */
+@font-face {
+    font-family: 'Inter Fallback';
+    src: local('Arial'), local('ArialMT'), local('Liberation Sans'), local('Arimo');
+    size-adjust: 104.5%;
+    ascent-override: 92.70%;
+    descent-override: 23.10%;
+    line-gap-override: 0%;
+}
+
+@font-face {
+    font-family: 'Inter Fallback Roboto';
+    src: local('Roboto'), local('Roboto-Regular');
+    size-adjust: 105%;
+    ascent-override: 92.26%;
+    descent-override: 22.99%;
+    line-gap-override: 0%;
+}
+
 @source '../views';
 @source '../js';
 @source '../../vendor/livewire/livewire/src/Features/SupportPagination/views';
@@ -9,7 +29,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-    --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+    --font-sans: 'Inter Variable', 'Inter Fallback', 'Inter Fallback Roboto', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
     --font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Menlo, Consolas, monospace;
 
     --color-gold: #ffcc00;

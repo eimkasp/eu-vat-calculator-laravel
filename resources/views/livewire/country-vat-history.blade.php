@@ -115,7 +115,7 @@
 
                 <section class="app-surface overflow-hidden" aria-labelledby="rate-periods">
                     <h2 id="rate-periods" class="border-b border-line px-5 py-4 text-lg font-bold text-ink sm:px-6">Rate periods</h2>
-                    <div class="relative overflow-x-auto">
+                    <div class="relative overflow-x-auto" tabindex="0" role="region" aria-labelledby="rate-periods">
                         <table class="app-table min-w-[32rem]">
                             <thead>
                                 <tr>
