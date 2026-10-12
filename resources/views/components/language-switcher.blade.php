@@ -23,17 +23,19 @@
         </button>
         {{ $slot }}
         @php($languages = collect($locales)->map(fn (array $config, string $code) => ['code' => $code, 'name' => $config['native'], 'flag' => strtolower($config['flag']), 'href' => locale_switch_path($code)])->values())
-        {{-- Built in the browser: the desktop menu already lists every language as a link in the HTML. --}}
-        <ul id="mobile-language-menu" x-cloak x-show="open" class="grid basis-full grid-cols-2 gap-1">
-            <template x-for="language in @js($languages)" :key="language.code">
-                <li>
-                    <a :href="language.href" :lang="language.code" :aria-current="language.code === @js($current) ? 'true' : null" class="flex min-h-11 items-center gap-2 border-l-2 px-3 text-sm font-medium" :class="language.code === @js($current) ? 'border-gold bg-white/10 text-white' : 'border-transparent text-white/85 hover:bg-white/10 hover:text-white'">
-                        <img :src="@js(asset('images/flags')) + '/' + language.flag + '.svg'" alt="" width="18" height="14" decoding="async" class="app-flag h-3.5 w-[1.125rem]">
-                        <span class="truncate" x-text="language.name"></span>
-                    </a>
-                </li>
-            </template>
-        </ul>
+        {{-- Built when opened: the desktop menu already lists every language as a link in the HTML. --}}
+        <template x-if="open">
+            <ul id="mobile-language-menu" class="grid basis-full grid-cols-2 gap-1">
+                <template x-for="language in @js($languages)" :key="language.code">
+                    <li>
+                        <a :href="language.href" :lang="language.code" :aria-current="language.code === @js($current) ? 'true' : null" class="flex min-h-11 items-center gap-2 border-l-2 px-3 text-sm font-medium" :class="language.code === @js($current) ? 'border-gold bg-white/10 text-white' : 'border-transparent text-white/85 hover:bg-white/10 hover:text-white'">
+                            <img :src="@js(asset('images/flags')) + '/' + language.flag + '.svg'" alt="" width="18" height="14" loading="lazy" decoding="async" class="app-flag h-3.5 w-[1.125rem]">
+                            <span class="truncate" x-text="language.name"></span>
+                        </a>
+                    </li>
+                </template>
+            </ul>
+        </template>
     </div>
 @else
     <div x-data="{ open: false }" @click.outside="open = false" @keydown.escape="if (open) { open = false; $refs.trigger.focus(); }" @focusout="if (! $el.contains($event.relatedTarget)) open = false" {{ $attributes->merge(['class' => 'relative']) }}>
