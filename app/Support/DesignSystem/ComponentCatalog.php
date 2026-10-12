@@ -13,6 +13,16 @@ use InvalidArgumentException;
 final class ComponentCatalog
 {
     /**
+     * The background each example is shown on, as classes.
+     */
+    public const CANVASES = [
+        'surface' => 'bg-surface',
+        'subtle' => 'bg-surface-subtle',
+        'workspace' => 'bg-workspace',
+        'brand' => 'hero-canvas',
+    ];
+
+    /**
      * @var array<string, array{section: string, title: string, description: string, canvas: 'surface'|'subtle'|'workspace'|'brand'}>
      */
     public const EXAMPLES = [

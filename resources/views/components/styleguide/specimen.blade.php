@@ -10,12 +10,7 @@
     $canvas ??= $entry['canvas'] ?? 'surface';
     $preview ??= $example ? 'styleguide.examples.'.$example : null;
     $source = trim($code ?? file_get_contents(resource_path('views/styleguide/examples/'.$example.'.blade.php')));
-    $canvasClass = [
-        'surface' => 'bg-surface',
-        'subtle' => 'bg-surface-subtle',
-        'workspace' => 'bg-workspace',
-        'brand' => 'hero-canvas',
-    ][$canvas] ?? 'bg-surface';
+    $canvasClass = ComponentCatalog::CANVASES[$canvas] ?? ComponentCatalog::CANVASES['surface'];
 @endphp
 
 <figure {{ $attributes->merge(['class' => 'app-surface flex flex-col overflow-hidden']) }} x-data>
