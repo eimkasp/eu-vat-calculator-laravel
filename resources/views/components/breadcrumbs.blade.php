@@ -4,7 +4,7 @@
     $dark = $variant === 'dark';
 @endphp
 
-<nav {{ $attributes->merge(['class' => 'text-sm']) }} aria-label="{{ __('ui.breadcrumbs.label') }}">
+<nav {{ $attributes->merge(['class' => 'text-sm', 'aria-label' => __('ui.breadcrumbs.label')]) }}>
     <ol class="flex flex-wrap items-center gap-x-1.5 gap-y-1" itemscope itemtype="https://schema.org/BreadcrumbList">
         <li class="inline-flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
             <a href="{{ locale_path('/') }}" itemprop="item" @class(['inline-flex items-center gap-1.5 rounded-control transition-colors', 'text-white/70 hover:text-white' => $dark, 'text-ink-muted hover:text-action' => ! $dark])>

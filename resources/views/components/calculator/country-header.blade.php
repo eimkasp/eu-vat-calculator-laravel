@@ -1,9 +1,9 @@
-@props(['country'])
+@props(['country', 'headingLevel' => 1, 'breadcrumbLabel' => null])
 
 @use('App\Models\Country')
 
 <header data-country-header class="text-white">
-    <x-site-breadcrumbs variant="dark" :items="[__('ui.calculator.breadcrumb_label') => locale_path('/vat-calculator'), $country->name => '']" />
+    <x-site-breadcrumbs variant="dark" :items="[__('ui.calculator.breadcrumb_label') => locale_path('/vat-calculator'), $country->name => '']" :aria-label="$breadcrumbLabel ?? __('ui.breadcrumbs.label')" />
 
     <div class="mt-6 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div class="flex min-w-0 items-start justify-between gap-4">
@@ -12,7 +12,7 @@
                     <x-ui.flag :iso="$country->iso_code" size="lg" :lazy="false" :alt="$country->name" class="hidden shadow-none ring-1 ring-white/25 sm:block" />
                     <span class="app-kicker sm:before:hidden">{{ $country->is_eu_member ? __('ui.calculator.scope.eu') : __('ui.calculator.scope.other_europe') }}</span>
                 </p>
-                <h1 class="mt-2 text-3xl font-bold tracking-[-0.03em] text-white sm:text-4xl">{{ __('ui.calculator.country_heading', ['country' => $country->name]) }}</h1>
+                <h{{ $headingLevel }} class="mt-2 text-3xl font-bold tracking-[-0.03em] text-white sm:text-4xl">{{ __('ui.calculator.country_heading', ['country' => $country->name]) }}</h{{ $headingLevel }}>
                 <p class="mt-2 max-w-2xl text-sm leading-6 text-white/80 sm:text-base">
                     {{ __('ui.calculator.country_subtitle', ['country' => $country->name, 'rate' => Country::formatRate($country->standard_rate)]) }}
                 </p>

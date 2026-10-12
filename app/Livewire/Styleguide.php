@@ -36,6 +36,7 @@ class Styleguide extends Component
         'Patterns' => [
             'skeletons' => 'Page skeletons',
             'results' => 'Results',
+            'country' => 'Country pages',
             'tiles' => 'Tiles and rows',
             'states' => 'States',
             'calls-to-action' => 'Calls to action',
