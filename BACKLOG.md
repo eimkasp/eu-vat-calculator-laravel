@@ -21,6 +21,8 @@ Measurements and the full list of what 5.3.0 fixed are in `docs/benchmarks/cycle
 - [ ] **Rate history for France and Greece.** The synced dataset has none, so their history pages do not exist.
 - [ ] **Check the Roboto fallback on an Android phone.** Its 105% `size-adjust` was derived from Roboto's measured width against Arial, not measured on a device.
 
+- [ ] **Recheck TBT on the home page.** The 5.3.0 benchmark's median TBT rose 179 → 224 ms; interleaved runs matched 5.2.0 on most pages but put the home page about 60 ms higher (`docs/benchmarks/cycle-5.3/ab-timing.txt`). Profile Alpine start-up on `/` with and without the 5.3.0 header and palette changes.
+
 ### Low
 - [ ] Inline source links (European Commission, pdfcheck.online, "Try LT100…") are under 24px tall; they pass as inline text, but a larger hit area would help on phones.
 - [ ] The generic calculator and the map page still inline the 35 KB map; render it after the first screen on `/vat-calculator`.

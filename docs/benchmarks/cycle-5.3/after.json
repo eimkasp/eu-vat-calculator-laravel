@@ -1,6 +1,6 @@
 {
   "benchmark": "EU VAT Info v3",
-  "label": "after-5-3",
+  "label": "final-5-3",
   "model": "Opus 5.5",
   "modelSlug": "claude-opus-5-5",
   "rerun": "docs/benchmarks/v3-claude-opus-5-5/tools/run.sh <label>",
@@ -43,9 +43,9 @@
     "Lighthouse is not installed in the environment; the same throttling profile is applied directly through Playwright and the DevTools Protocol instead.",
     "The as-of pattern accepts inflected Maltese forms (aġġornati) since the after-v3 run; the baseline had no as-of date in any language, so its result is unchanged."
   ],
-  "commit": "59d7be9",
-  "measuredAt": "2026-10-12T17:46:57.024Z",
-  "performanceMeasuredAt": "2026-10-12T17:46:57.024Z",
+  "commit": "a21a211",
+  "measuredAt": "2026-10-12T19:56:43.590Z",
+  "performanceMeasuredAt": "2026-10-12T19:56:43.590Z",
   "profile": {
     "device": {
       "viewport": {
@@ -80,16 +80,16 @@
       "/de/vat-rates/categories (404)",
       "/mt/vat-rates/categories (404)"
     ],
-    "medianLcpMs": 2368,
+    "medianLcpMs": 2340,
     "worstLcp": {
       "path": "/mt",
-      "lcpMs": 2728
+      "lcpMs": 2628
     },
-    "medianTbtMs": 267,
-    "maxCls": 0.2551,
-    "medianHtmlGzipBytes": 22826,
+    "medianTbtMs": 224,
+    "maxCls": 0.0377,
+    "medianHtmlGzipBytes": 22644,
     "medianJsGzipBytes": 91832,
-    "medianCssGzipBytes": 16307,
+    "medianCssGzipBytes": 16419,
     "medianRequests": 16,
     "axeViolationRulesTotal": 0,
     "axeViolationsByImpact": {
@@ -106,17 +106,7 @@
     ],
     "titlesOutside30to60": [],
     "descriptionsOutside70to160": [],
-    "invalidJsonLd": [
-      "/vat-calculator/germany: block1.isPartOf WebSite is missing url",
-      "/de/vat-calculator/germany: block1.isPartOf WebSite is missing url",
-      "/mt/vat-calculator/germany: block1.isPartOf WebSite is missing url",
-      "/vat-calculator/malta: block1.isPartOf WebSite is missing url",
-      "/de/vat-calculator/malta: block1.isPartOf WebSite is missing url",
-      "/mt/vat-calculator/malta: block1.isPartOf WebSite is missing url",
-      "/vat-changes: block0.isPartOf WebSite is missing url",
-      "/de/vat-changes: block0.isPartOf WebSite is missing url",
-      "/mt/vat-changes: block0.isPartOf WebSite is missing url"
-    ],
+    "invalidJsonLd": [],
     "notInSitemap": [],
     "answerInFirst600": "33/33",
     "asOfDateShown": "24/33",
@@ -191,8 +181,8 @@
       "passed": 470
     },
     "assertions": 3977,
-    "reportedDurationSeconds": 29.92,
-    "wallSeconds": 30.27,
+    "reportedDurationSeconds": 29.66,
+    "wallSeconds": 30.07,
     "pint": {
       "command": "./vendor/bin/pint --test",
       "passed": true,
@@ -213,9 +203,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 204870,
-          "gzip": 24144,
-          "brotli": 20326
+          "raw": 195005,
+          "gzip": 23929,
+          "brotli": 20142
         },
         "jsBytes": {
           "raw": 277503,
@@ -224,43 +214,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 72920,
         "imageBytes": 27058,
-        "totalTransferGzip": 228103,
+        "totalTransferGzip": 228000,
         "requestCount": 25,
-        "ttfbMs": 50,
-        "fcpMs": 2624,
-        "lcpMs": 2624,
+        "ttfbMs": 59,
+        "fcpMs": 2592,
+        "lcpMs": 2592,
         "lcpElement": "img.hero-photo.opacity-20",
-        "cls": 0.0002,
-        "tbtMs": 445,
+        "cls": 0.0006,
+        "tbtMs": 459,
         "longTasks": 3,
-        "loadMs": 5376,
+        "loadMs": 5253,
         "perRun": [
           {
-            "lcpMs": 2640,
-            "cls": 0.0002,
-            "tbtMs": 377,
-            "fcpMs": 2640,
+            "lcpMs": 2592,
+            "cls": 0.0006,
+            "tbtMs": 459,
+            "fcpMs": 2592,
             "requests": 25
           },
           {
-            "lcpMs": 2624,
-            "cls": 0.0002,
-            "tbtMs": 474,
-            "fcpMs": 2624,
+            "lcpMs": 2632,
+            "cls": 0.0006,
+            "tbtMs": 370,
+            "fcpMs": 2632,
             "requests": 25
           },
           {
-            "lcpMs": 2596,
-            "cls": 0.0002,
-            "tbtMs": 445,
-            "fcpMs": 2596,
+            "lcpMs": 2552,
+            "cls": 0.0006,
+            "tbtMs": 498,
+            "fcpMs": 2552,
             "requests": 25
           }
         ]
@@ -348,14 +338,14 @@
       "backend": {
         "cold": {
           "queries": 10,
-          "serverMs": 115.6
+          "serverMs": 89
         },
         "warm": {
           "status": 200,
           "queries": 5,
-          "queryTimeMs": 1.16,
-          "serverMs": 65.1,
-          "htmlBytes": 207085,
+          "queryTimeMs": 0.96,
+          "serverMs": 48.3,
+          "htmlBytes": 197340,
           "livewireComponents": 4,
           "snapshotBytesTotal": 3924,
           "snapshots": [
@@ -386,9 +376,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 206274,
-          "gzip": 24806,
-          "brotli": 20944
+          "raw": 196409,
+          "gzip": 24589,
+          "brotli": 20761
         },
         "jsBytes": {
           "raw": 277503,
@@ -397,43 +387,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 72920,
         "imageBytes": 26570,
-        "totalTransferGzip": 228459,
+        "totalTransferGzip": 228354,
         "requestCount": 24,
-        "ttfbMs": 43,
-        "fcpMs": 2624,
-        "lcpMs": 2624,
+        "ttfbMs": 55,
+        "fcpMs": 2564,
+        "lcpMs": 2564,
         "lcpElement": "img.hero-photo.opacity-20",
-        "cls": 0.0005,
-        "tbtMs": 417,
+        "cls": 0.0377,
+        "tbtMs": 475,
         "longTasks": 3,
-        "loadMs": 5369,
+        "loadMs": 5314,
         "perRun": [
           {
-            "lcpMs": 2624,
-            "cls": 0.0005,
-            "tbtMs": 417,
-            "fcpMs": 2624,
+            "lcpMs": 2564,
+            "cls": 0.0377,
+            "tbtMs": 475,
+            "fcpMs": 2564,
             "requests": 24
           },
           {
-            "lcpMs": 2628,
-            "cls": 0.0005,
-            "tbtMs": 450,
-            "fcpMs": 2628,
+            "lcpMs": 2612,
+            "cls": 0.0377,
+            "tbtMs": 464,
+            "fcpMs": 2612,
             "requests": 24
           },
           {
-            "lcpMs": 2620,
-            "cls": 0.0005,
-            "tbtMs": 393,
-            "fcpMs": 2620,
+            "lcpMs": 2544,
+            "cls": 0.0377,
+            "tbtMs": 480,
+            "fcpMs": 2544,
             "requests": 24
           }
         ]
@@ -521,14 +511,14 @@
       "backend": {
         "cold": {
           "queries": 10,
-          "serverMs": 87.2
+          "serverMs": 60.8
         },
         "warm": {
           "status": 200,
           "queries": 5,
           "queryTimeMs": 1.14,
-          "serverMs": 60,
-          "htmlBytes": 214014,
+          "serverMs": 54.8,
+          "htmlBytes": 204269,
           "livewireComponents": 4,
           "snapshotBytesTotal": 6696,
           "snapshots": [
@@ -559,9 +549,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 206751,
-          "gzip": 24841,
-          "brotli": 20996
+          "raw": 196886,
+          "gzip": 24626,
+          "brotli": 20814
         },
         "jsBytes": {
           "raw": 277503,
@@ -570,43 +560,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 206256,
         "imageBytes": 26303,
-        "totalTransferGzip": 361626,
+        "totalTransferGzip": 361523,
         "requestCount": 24,
-        "ttfbMs": 44,
-        "fcpMs": 2728,
-        "lcpMs": 2728,
+        "ttfbMs": 48,
+        "fcpMs": 2628,
+        "lcpMs": 2628,
         "lcpElement": "img.hero-photo.opacity-20",
-        "cls": 0.0001,
-        "tbtMs": 542,
+        "cls": 0.0002,
+        "tbtMs": 561,
         "longTasks": 4,
-        "loadMs": 6113,
+        "loadMs": 5984,
         "perRun": [
           {
-            "lcpMs": 2796,
-            "cls": 0.0001,
-            "tbtMs": 617,
-            "fcpMs": 2796,
+            "lcpMs": 2664,
+            "cls": 0.0002,
+            "tbtMs": 468,
+            "fcpMs": 2664,
             "requests": 24
           },
           {
-            "lcpMs": 2712,
-            "cls": 0.0001,
-            "tbtMs": 486,
-            "fcpMs": 2712,
+            "lcpMs": 2628,
+            "cls": 0.0002,
+            "tbtMs": 602,
+            "fcpMs": 2628,
             "requests": 24
           },
           {
-            "lcpMs": 2728,
-            "cls": 0.0001,
-            "tbtMs": 542,
-            "fcpMs": 2728,
+            "lcpMs": 2616,
+            "cls": 0.0002,
+            "tbtMs": 561,
+            "fcpMs": 2616,
             "requests": 24
           }
         ]
@@ -694,14 +684,14 @@
       "backend": {
         "cold": {
           "queries": 10,
-          "serverMs": 81.1
+          "serverMs": 54.6
         },
         "warm": {
           "status": 200,
           "queries": 5,
-          "queryTimeMs": 1.27,
-          "serverMs": 56.9,
-          "htmlBytes": 220011,
+          "queryTimeMs": 0.97,
+          "serverMs": 49.4,
+          "htmlBytes": 210266,
           "livewireComponents": 4,
           "snapshotBytesTotal": 9445,
           "snapshots": [
@@ -732,9 +722,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 188590,
-          "gzip": 36629,
-          "brotli": 32000
+          "raw": 178366,
+          "gzip": 36386,
+          "brotli": 31813
         },
         "jsBytes": {
           "raw": 277503,
@@ -743,43 +733,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 72920,
         "imageBytes": 12843,
-        "totalTransferGzip": 230293,
+        "totalTransferGzip": 230162,
         "requestCount": 8,
-        "ttfbMs": 51,
-        "fcpMs": 2512,
-        "lcpMs": 2512,
+        "ttfbMs": 42,
+        "fcpMs": 2452,
+        "lcpMs": 2452,
         "lcpElement": "img.hero-photo.opacity-20",
-        "cls": 0.0001,
-        "tbtMs": 398,
+        "cls": 0.0003,
+        "tbtMs": 457,
         "longTasks": 3,
-        "loadMs": 4977,
+        "loadMs": 4890,
         "perRun": [
           {
-            "lcpMs": 2512,
-            "cls": 0.0001,
-            "tbtMs": 400,
-            "fcpMs": 2512,
+            "lcpMs": 2420,
+            "cls": 0.0003,
+            "tbtMs": 457,
+            "fcpMs": 2420,
+            "requests": 8
+          },
+          {
+            "lcpMs": 2452,
+            "cls": 0.0003,
+            "tbtMs": 462,
+            "fcpMs": 2452,
             "requests": 8
           },
           {
             "lcpMs": 2472,
-            "cls": 0.0001,
-            "tbtMs": 398,
+            "cls": 0.0003,
+            "tbtMs": 336,
             "fcpMs": 2472,
-            "requests": 8
-          },
-          {
-            "lcpMs": 2608,
-            "cls": 0.0001,
-            "tbtMs": 375,
-            "fcpMs": 2608,
             "requests": 8
           }
         ]
@@ -864,14 +854,14 @@
       "backend": {
         "cold": {
           "queries": 6,
-          "serverMs": 74.3
+          "serverMs": 79.3
         },
         "warm": {
           "status": 200,
           "queries": 3,
-          "queryTimeMs": 0.86,
-          "serverMs": 53.2,
-          "htmlBytes": 188035,
+          "queryTimeMs": 1.2,
+          "serverMs": 69.3,
+          "htmlBytes": 177931,
           "livewireComponents": 2,
           "snapshotBytesTotal": 1066,
           "snapshots": [
@@ -894,9 +884,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 189861,
-          "gzip": 37309,
-          "brotli": 32708
+          "raw": 179637,
+          "gzip": 37075,
+          "brotli": 32536
         },
         "jsBytes": {
           "raw": 277503,
@@ -905,43 +895,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 72920,
         "imageBytes": 12355,
-        "totalTransferGzip": 230667,
+        "totalTransferGzip": 230545,
         "requestCount": 7,
-        "ttfbMs": 42,
-        "fcpMs": 2444,
-        "lcpMs": 2444,
+        "ttfbMs": 40,
+        "fcpMs": 2440,
+        "lcpMs": 2440,
         "lcpElement": "img.hero-photo.opacity-20",
         "cls": 0.001,
-        "tbtMs": 415,
-        "longTasks": 3,
-        "loadMs": 4979,
+        "tbtMs": 406,
+        "longTasks": 2,
+        "loadMs": 4872,
         "perRun": [
           {
-            "lcpMs": 2468,
+            "lcpMs": 2424,
             "cls": 0.001,
-            "tbtMs": 465,
-            "fcpMs": 2468,
+            "tbtMs": 414,
+            "fcpMs": 2424,
             "requests": 7
           },
           {
-            "lcpMs": 2444,
+            "lcpMs": 2440,
             "cls": 0.001,
-            "tbtMs": 365,
-            "fcpMs": 2444,
+            "tbtMs": 406,
+            "fcpMs": 2440,
             "requests": 7
           },
           {
-            "lcpMs": 2444,
+            "lcpMs": 2500,
             "cls": 0.001,
-            "tbtMs": 415,
-            "fcpMs": 2444,
+            "tbtMs": 371,
+            "fcpMs": 2500,
             "requests": 7
           }
         ]
@@ -1026,14 +1016,14 @@
       "backend": {
         "cold": {
           "queries": 6,
-          "serverMs": 66.3
+          "serverMs": 72.5
         },
         "warm": {
           "status": 200,
           "queries": 3,
-          "queryTimeMs": 0.88,
-          "serverMs": 48.9,
-          "htmlBytes": 189306,
+          "queryTimeMs": 1.03,
+          "serverMs": 50.2,
+          "htmlBytes": 179202,
           "livewireComponents": 2,
           "snapshotBytesTotal": 1086,
           "snapshots": [
@@ -1056,9 +1046,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 190173,
-          "gzip": 37407,
-          "brotli": 32782
+          "raw": 179949,
+          "gzip": 37168,
+          "brotli": 32615
         },
         "jsBytes": {
           "raw": 277503,
@@ -1067,43 +1057,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 206256,
         "imageBytes": 14680,
-        "totalTransferGzip": 365914,
+        "totalTransferGzip": 365787,
         "requestCount": 9,
-        "ttfbMs": 42,
-        "fcpMs": 2496,
-        "lcpMs": 2496,
+        "ttfbMs": 47,
+        "fcpMs": 2472,
+        "lcpMs": 2472,
         "lcpElement": "img.hero-photo.opacity-20",
-        "cls": 0.0001,
-        "tbtMs": 361,
-        "longTasks": 2,
-        "loadMs": 5664,
+        "cls": 0.0002,
+        "tbtMs": 493,
+        "longTasks": 4,
+        "loadMs": 5705,
         "perRun": [
           {
-            "lcpMs": 2452,
-            "cls": 0.0001,
-            "tbtMs": 361,
-            "fcpMs": 2452,
+            "lcpMs": 2420,
+            "cls": 0.0002,
+            "tbtMs": 536,
+            "fcpMs": 2420,
             "requests": 9
           },
           {
-            "lcpMs": 2536,
-            "cls": 0.0001,
-            "tbtMs": 453,
-            "fcpMs": 2536,
+            "lcpMs": 2472,
+            "cls": 0.0002,
+            "tbtMs": 488,
+            "fcpMs": 2472,
             "requests": 9
           },
           {
-            "lcpMs": 2496,
-            "cls": 0.0001,
-            "tbtMs": 349,
-            "fcpMs": 2496,
+            "lcpMs": 2492,
+            "cls": 0.0002,
+            "tbtMs": 493,
+            "fcpMs": 2492,
             "requests": 9
           }
         ]
@@ -1188,14 +1178,14 @@
       "backend": {
         "cold": {
           "queries": 6,
-          "serverMs": 57
+          "serverMs": 54.3
         },
         "warm": {
           "status": 200,
           "queries": 3,
-          "queryTimeMs": 0.87,
-          "serverMs": 48.8,
-          "htmlBytes": 189618,
+          "queryTimeMs": 0.76,
+          "serverMs": 42.5,
+          "htmlBytes": 179514,
           "livewireComponents": 2,
           "snapshotBytesTotal": 1075,
           "snapshots": [
@@ -1218,9 +1208,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 163958,
-          "gzip": 23465,
-          "brotli": 19590
+          "raw": 153580,
+          "gzip": 23229,
+          "brotli": 19430
         },
         "jsBytes": {
           "raw": 277503,
@@ -1229,43 +1219,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 72920,
         "imageBytes": 12843,
-        "totalTransferGzip": 217129,
+        "totalTransferGzip": 217005,
         "requestCount": 8,
-        "ttfbMs": 59,
-        "fcpMs": 2368,
-        "lcpMs": 2368,
+        "ttfbMs": 54,
+        "fcpMs": 2340,
+        "lcpMs": 2340,
         "lcpElement": "img.hero-photo.opacity-30",
-        "cls": 0,
-        "tbtMs": 403,
+        "cls": 0.0001,
+        "tbtMs": 426,
         "longTasks": 3,
-        "loadMs": 4731,
+        "loadMs": 4683,
         "perRun": [
           {
-            "lcpMs": 2360,
-            "cls": 0,
-            "tbtMs": 304,
-            "fcpMs": 2360,
+            "lcpMs": 2340,
+            "cls": 0.0001,
+            "tbtMs": 426,
+            "fcpMs": 2340,
             "requests": 8
           },
           {
-            "lcpMs": 2368,
-            "cls": 0,
-            "tbtMs": 410,
-            "fcpMs": 2368,
+            "lcpMs": 2332,
+            "cls": 0.0001,
+            "tbtMs": 402,
+            "fcpMs": 2332,
             "requests": 8
           },
           {
-            "lcpMs": 2372,
-            "cls": 0,
-            "tbtMs": 403,
-            "fcpMs": 2372,
+            "lcpMs": 2344,
+            "cls": 0.0001,
+            "tbtMs": 462,
+            "fcpMs": 2344,
             "requests": 8
           }
         ]
@@ -1314,10 +1304,8 @@
             "WebPage",
             "WebSite"
           ],
-          "valid": false,
-          "problems": [
-            "block1.isPartOf WebSite is missing url"
-          ]
+          "valid": true,
+          "problems": []
         },
         "h1": [
           "Germany VAT calculator"
@@ -1361,14 +1349,14 @@
       "backend": {
         "cold": {
           "queries": 14,
-          "serverMs": 83.3
+          "serverMs": 72.7
         },
         "warm": {
           "status": 200,
           "queries": 12,
-          "queryTimeMs": 2.46,
-          "serverMs": 76.3,
-          "htmlBytes": 163363,
+          "queryTimeMs": 2.13,
+          "serverMs": 64,
+          "htmlBytes": 153105,
           "livewireComponents": 2,
           "snapshotBytesTotal": 1093,
           "snapshots": [
@@ -1391,9 +1379,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 165602,
-          "gzip": 24319,
-          "brotli": 20344
+          "raw": 155224,
+          "gzip": 24073,
+          "brotli": 20200
         },
         "jsBytes": {
           "raw": 277503,
@@ -1402,43 +1390,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 72920,
         "imageBytes": 12355,
-        "totalTransferGzip": 217677,
+        "totalTransferGzip": 217543,
         "requestCount": 7,
-        "ttfbMs": 50,
-        "fcpMs": 2372,
-        "lcpMs": 2372,
+        "ttfbMs": 59,
+        "fcpMs": 2340,
+        "lcpMs": 2340,
         "lcpElement": "img.hero-photo.opacity-30",
-        "cls": 0,
-        "tbtMs": 402,
+        "cls": 0.0001,
+        "tbtMs": 407,
         "longTasks": 3,
-        "loadMs": 4716,
+        "loadMs": 4574,
         "perRun": [
           {
-            "lcpMs": 2380,
-            "cls": 0,
-            "tbtMs": 331,
-            "fcpMs": 2380,
+            "lcpMs": 2340,
+            "cls": 0.0001,
+            "tbtMs": 350,
+            "fcpMs": 2340,
             "requests": 7
           },
           {
             "lcpMs": 2372,
-            "cls": 0,
-            "tbtMs": 454,
+            "cls": 0.0001,
+            "tbtMs": 547,
             "fcpMs": 2372,
             "requests": 7
           },
           {
-            "lcpMs": 2360,
-            "cls": 0,
-            "tbtMs": 402,
-            "fcpMs": 2360,
+            "lcpMs": 2312,
+            "cls": 0.0001,
+            "tbtMs": 407,
+            "fcpMs": 2312,
             "requests": 7
           }
         ]
@@ -1487,10 +1475,8 @@
             "WebPage",
             "WebSite"
           ],
-          "valid": false,
-          "problems": [
-            "block1.isPartOf WebSite is missing url"
-          ]
+          "valid": true,
+          "problems": []
         },
         "h1": [
           "Germany MwSt.-Rechner"
@@ -1534,14 +1520,14 @@
       "backend": {
         "cold": {
           "queries": 14,
-          "serverMs": 108
+          "serverMs": 62.9
         },
         "warm": {
           "status": 200,
           "queries": 12,
-          "queryTimeMs": 3.41,
-          "serverMs": 96.1,
-          "htmlBytes": 165012,
+          "queryTimeMs": 2.38,
+          "serverMs": 59.8,
+          "htmlBytes": 154754,
           "livewireComponents": 2,
           "snapshotBytesTotal": 1113,
           "snapshots": [
@@ -1564,9 +1550,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 165793,
-          "gzip": 24259,
-          "brotli": 20399
+          "raw": 155415,
+          "gzip": 24010,
+          "brotli": 20235
         },
         "jsBytes": {
           "raw": 277503,
@@ -1575,43 +1561,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 206256,
         "imageBytes": 14680,
-        "totalTransferGzip": 352766,
+        "totalTransferGzip": 352629,
         "requestCount": 9,
-        "ttfbMs": 50,
-        "fcpMs": 2416,
-        "lcpMs": 2416,
+        "ttfbMs": 51,
+        "fcpMs": 2368,
+        "lcpMs": 2368,
         "lcpElement": "img.hero-photo.opacity-30",
-        "cls": 0,
-        "tbtMs": 417,
-        "longTasks": 4,
-        "loadMs": 5448,
+        "cls": 0.0001,
+        "tbtMs": 495,
+        "longTasks": 3,
+        "loadMs": 5412,
         "perRun": [
           {
-            "lcpMs": 2416,
-            "cls": 0,
-            "tbtMs": 395,
-            "fcpMs": 2416,
+            "lcpMs": 2352,
+            "cls": 0.0001,
+            "tbtMs": 491,
+            "fcpMs": 2352,
             "requests": 9
           },
           {
-            "lcpMs": 2384,
-            "cls": 0,
-            "tbtMs": 417,
-            "fcpMs": 2384,
+            "lcpMs": 2376,
+            "cls": 0.0001,
+            "tbtMs": 495,
+            "fcpMs": 2376,
             "requests": 9
           },
           {
-            "lcpMs": 2436,
-            "cls": 0,
-            "tbtMs": 619,
-            "fcpMs": 2436,
+            "lcpMs": 2368,
+            "cls": 0.0001,
+            "tbtMs": 516,
+            "fcpMs": 2368,
             "requests": 9
           }
         ]
@@ -1660,10 +1646,8 @@
             "WebPage",
             "WebSite"
           ],
-          "valid": false,
-          "problems": [
-            "block1.isPartOf WebSite is missing url"
-          ]
+          "valid": true,
+          "problems": []
         },
         "h1": [
           "Kalkulatur tal-VAT ta' Germany"
@@ -1707,14 +1691,14 @@
       "backend": {
         "cold": {
           "queries": 14,
-          "serverMs": 56.8
+          "serverMs": 62.3
         },
         "warm": {
           "status": 200,
           "queries": 12,
-          "queryTimeMs": 1.91,
-          "serverMs": 74.7,
-          "htmlBytes": 165203,
+          "queryTimeMs": 2.38,
+          "serverMs": 84.4,
+          "htmlBytes": 154945,
           "livewireComponents": 2,
           "snapshotBytesTotal": 1102,
           "snapshots": [
@@ -1737,9 +1721,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 164692,
-          "gzip": 23488,
-          "brotli": 19618
+          "raw": 154362,
+          "gzip": 23264,
+          "brotli": 19454
         },
         "jsBytes": {
           "raw": 277503,
@@ -1748,43 +1732,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 72920,
         "imageBytes": 14957,
-        "totalTransferGzip": 218810,
+        "totalTransferGzip": 218698,
         "requestCount": 8,
-        "ttfbMs": 50,
-        "fcpMs": 2376,
-        "lcpMs": 2376,
+        "ttfbMs": 56,
+        "fcpMs": 2328,
+        "lcpMs": 2328,
         "lcpElement": "img.hero-photo.opacity-30",
-        "cls": 0,
-        "tbtMs": 393,
+        "cls": 0.0001,
+        "tbtMs": 546,
         "longTasks": 3,
-        "loadMs": 4704,
+        "loadMs": 4778,
         "perRun": [
           {
-            "lcpMs": 2492,
-            "cls": 0,
-            "tbtMs": 422,
-            "fcpMs": 2492,
+            "lcpMs": 2308,
+            "cls": 0.0001,
+            "tbtMs": 546,
+            "fcpMs": 2308,
             "requests": 8
           },
           {
-            "lcpMs": 2376,
-            "cls": 0,
-            "tbtMs": 393,
-            "fcpMs": 2376,
+            "lcpMs": 2328,
+            "cls": 0.0001,
+            "tbtMs": 446,
+            "fcpMs": 2328,
             "requests": 8
           },
           {
-            "lcpMs": 2376,
-            "cls": 0,
-            "tbtMs": 340,
-            "fcpMs": 2376,
+            "lcpMs": 2392,
+            "cls": 0.0001,
+            "tbtMs": 603,
+            "fcpMs": 2392,
             "requests": 8
           }
         ]
@@ -1833,10 +1817,8 @@
             "WebPage",
             "WebSite"
           ],
-          "valid": false,
-          "problems": [
-            "block1.isPartOf WebSite is missing url"
-          ]
+          "valid": true,
+          "problems": []
         },
         "h1": [
           "Malta VAT calculator"
@@ -1879,14 +1861,14 @@
       "backend": {
         "cold": {
           "queries": 14,
-          "serverMs": 88.2
+          "serverMs": 63
         },
         "warm": {
           "status": 200,
           "queries": 12,
-          "queryTimeMs": 2.92,
+          "queryTimeMs": 2.5,
           "serverMs": 63.9,
-          "htmlBytes": 164112,
+          "htmlBytes": 153902,
           "livewireComponents": 2,
           "snapshotBytesTotal": 1206,
           "snapshots": [
@@ -1909,9 +1891,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 166378,
-          "gzip": 24334,
-          "brotli": 20356
+          "raw": 156048,
+          "gzip": 24089,
+          "brotli": 20202
         },
         "jsBytes": {
           "raw": 277503,
@@ -1920,43 +1902,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 72920,
         "imageBytes": 14680,
-        "totalTransferGzip": 219505,
+        "totalTransferGzip": 219372,
         "requestCount": 8,
-        "ttfbMs": 50,
-        "fcpMs": 2376,
-        "lcpMs": 2376,
+        "ttfbMs": 79,
+        "fcpMs": 2380,
+        "lcpMs": 2380,
         "lcpElement": "img.hero-photo.opacity-30",
-        "cls": 0,
-        "tbtMs": 374,
-        "longTasks": 2,
-        "loadMs": 4727,
+        "cls": 0.0001,
+        "tbtMs": 437,
+        "longTasks": 3,
+        "loadMs": 4624,
         "perRun": [
           {
-            "lcpMs": 2376,
-            "cls": 0,
-            "tbtMs": 424,
-            "fcpMs": 2376,
+            "lcpMs": 2372,
+            "cls": 0.0001,
+            "tbtMs": 478,
+            "fcpMs": 2372,
             "requests": 8
           },
           {
-            "lcpMs": 2396,
-            "cls": 0,
-            "tbtMs": 374,
-            "fcpMs": 2396,
+            "lcpMs": 2380,
+            "cls": 0.0001,
+            "tbtMs": 398,
+            "fcpMs": 2380,
             "requests": 8
           },
           {
-            "lcpMs": 2360,
-            "cls": 0,
-            "tbtMs": 363,
-            "fcpMs": 2360,
+            "lcpMs": 2408,
+            "cls": 0.0001,
+            "tbtMs": 437,
+            "fcpMs": 2408,
             "requests": 8
           }
         ]
@@ -2005,10 +1987,8 @@
             "WebPage",
             "WebSite"
           ],
-          "valid": false,
-          "problems": [
-            "block1.isPartOf WebSite is missing url"
-          ]
+          "valid": true,
+          "problems": []
         },
         "h1": [
           "Malta MwSt.-Rechner"
@@ -2051,14 +2031,14 @@
       "backend": {
         "cold": {
           "queries": 14,
-          "serverMs": 57
+          "serverMs": 81
         },
         "warm": {
           "status": 200,
           "queries": 12,
-          "queryTimeMs": 2.38,
-          "serverMs": 62.1,
-          "htmlBytes": 165803,
+          "queryTimeMs": 2.29,
+          "serverMs": 54.9,
+          "htmlBytes": 155593,
           "livewireComponents": 2,
           "snapshotBytesTotal": 1241,
           "snapshots": [
@@ -2081,9 +2061,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 166568,
-          "gzip": 24299,
-          "brotli": 20428
+          "raw": 156238,
+          "gzip": 24047,
+          "brotli": 20260
         },
         "jsBytes": {
           "raw": 277503,
@@ -2092,43 +2072,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 206256,
         "imageBytes": 14469,
-        "totalTransferGzip": 352651,
+        "totalTransferGzip": 352511,
         "requestCount": 8,
-        "ttfbMs": 60,
-        "fcpMs": 2372,
-        "lcpMs": 2372,
+        "ttfbMs": 51,
+        "fcpMs": 2420,
+        "lcpMs": 2420,
         "lcpElement": "img.hero-photo.opacity-30",
-        "cls": 0,
-        "tbtMs": 460,
+        "cls": 0.0001,
+        "tbtMs": 504,
         "longTasks": 4,
-        "loadMs": 5451,
+        "loadMs": 5340,
         "perRun": [
           {
-            "lcpMs": 2340,
-            "cls": 0,
-            "tbtMs": 470,
-            "fcpMs": 2340,
+            "lcpMs": 2420,
+            "cls": 0.0001,
+            "tbtMs": 422,
+            "fcpMs": 2420,
             "requests": 8
           },
           {
-            "lcpMs": 2488,
-            "cls": 0,
-            "tbtMs": 390,
-            "fcpMs": 2488,
+            "lcpMs": 2744,
+            "cls": 0.0001,
+            "tbtMs": 652,
+            "fcpMs": 2744,
             "requests": 8
           },
           {
-            "lcpMs": 2372,
-            "cls": 0,
-            "tbtMs": 460,
-            "fcpMs": 2372,
+            "lcpMs": 2328,
+            "cls": 0.0001,
+            "tbtMs": 504,
+            "fcpMs": 2328,
             "requests": 8
           }
         ]
@@ -2177,10 +2157,8 @@
             "WebPage",
             "WebSite"
           ],
-          "valid": false,
-          "problems": [
-            "block1.isPartOf WebSite is missing url"
-          ]
+          "valid": true,
+          "problems": []
         },
         "h1": [
           "Kalkulatur tal-VAT ta' Malta"
@@ -2223,14 +2201,14 @@
       "backend": {
         "cold": {
           "queries": 14,
-          "serverMs": 78.3
+          "serverMs": 78
         },
         "warm": {
           "status": 200,
           "queries": 12,
-          "queryTimeMs": 1.97,
-          "serverMs": 49.8,
-          "htmlBytes": 165993,
+          "queryTimeMs": 2.3,
+          "serverMs": 59.9,
+          "htmlBytes": 155783,
           "livewireComponents": 2,
           "snapshotBytesTotal": 1226,
           "snapshots": [
@@ -2253,9 +2231,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 156577,
-          "gzip": 21973,
-          "brotli": 18357
+          "raw": 146209,
+          "gzip": 21786,
+          "brotli": 18188
         },
         "jsBytes": {
           "raw": 277503,
@@ -2264,43 +2242,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 72920,
         "imageBytes": 38902,
-        "totalTransferGzip": 234335,
+        "totalTransferGzip": 234260,
         "requestCount": 34,
-        "ttfbMs": 36,
-        "fcpMs": 2392,
-        "lcpMs": 2392,
+        "ttfbMs": 41,
+        "fcpMs": 2372,
+        "lcpMs": 2372,
         "lcpElement": "img.hero-photo.opacity-20",
-        "cls": 0.0006,
-        "tbtMs": 212,
+        "cls": 0.0029,
+        "tbtMs": 223,
         "longTasks": 3,
-        "loadMs": 4537,
+        "loadMs": 4463,
         "perRun": [
           {
-            "lcpMs": 2392,
-            "cls": 0.0006,
-            "tbtMs": 138,
-            "fcpMs": 2392,
+            "lcpMs": 2328,
+            "cls": 0.0029,
+            "tbtMs": 223,
+            "fcpMs": 2328,
             "requests": 34
           },
           {
-            "lcpMs": 2324,
-            "cls": 0.0006,
-            "tbtMs": 212,
-            "fcpMs": 2324,
+            "lcpMs": 2388,
+            "cls": 0.0029,
+            "tbtMs": 192,
+            "fcpMs": 2388,
             "requests": 34
           },
           {
-            "lcpMs": 2472,
-            "cls": 0.0006,
-            "tbtMs": 264,
-            "fcpMs": 2472,
+            "lcpMs": 2372,
+            "cls": 0.0029,
+            "tbtMs": 262,
+            "fcpMs": 2372,
             "requests": 34
           }
         ]
@@ -2387,14 +2365,14 @@
       "backend": {
         "cold": {
           "queries": 2,
-          "serverMs": 38.2
+          "serverMs": 44.1
         },
         "warm": {
           "status": 200,
           "queries": 1,
-          "queryTimeMs": 0.67,
-          "serverMs": 36.9,
-          "htmlBytes": 155937,
+          "queryTimeMs": 0.78,
+          "serverMs": 44.1,
+          "htmlBytes": 145689,
           "livewireComponents": 1,
           "snapshotBytesTotal": 368,
           "snapshots": [
@@ -2413,9 +2391,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 157892,
-          "gzip": 22826,
-          "brotli": 19073
+          "raw": 147524,
+          "gzip": 22644,
+          "brotli": 18889
         },
         "jsBytes": {
           "raw": 277503,
@@ -2424,43 +2402,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 72920,
         "imageBytes": 38414,
-        "totalTransferGzip": 234882,
+        "totalTransferGzip": 234812,
         "requestCount": 33,
-        "ttfbMs": 39,
-        "fcpMs": 2356,
-        "lcpMs": 2356,
+        "ttfbMs": 36,
+        "fcpMs": 2324,
+        "lcpMs": 2324,
         "lcpElement": "img.hero-photo.opacity-20",
         "cls": 0.0001,
-        "tbtMs": 170,
+        "tbtMs": 162,
         "longTasks": 3,
-        "loadMs": 4534,
+        "loadMs": 4413,
         "perRun": [
           {
-            "lcpMs": 2356,
+            "lcpMs": 2296,
             "cls": 0.0001,
-            "tbtMs": 170,
-            "fcpMs": 2356,
+            "tbtMs": 162,
+            "fcpMs": 2296,
             "requests": 33
           },
           {
-            "lcpMs": 2388,
+            "lcpMs": 2424,
             "cls": 0.0001,
-            "tbtMs": 144,
-            "fcpMs": 2388,
+            "tbtMs": 157,
+            "fcpMs": 2424,
             "requests": 33
           },
           {
-            "lcpMs": 2348,
+            "lcpMs": 2324,
             "cls": 0.0001,
-            "tbtMs": 191,
-            "fcpMs": 2348,
+            "tbtMs": 178,
+            "fcpMs": 2324,
             "requests": 33
           }
         ]
@@ -2547,14 +2525,14 @@
       "backend": {
         "cold": {
           "queries": 2,
-          "serverMs": 38.2
+          "serverMs": 55.8
         },
         "warm": {
           "status": 200,
           "queries": 1,
-          "queryTimeMs": 0.68,
-          "serverMs": 65.6,
-          "htmlBytes": 157252,
+          "queryTimeMs": 0.97,
+          "serverMs": 104.3,
+          "htmlBytes": 147004,
           "livewireComponents": 1,
           "snapshotBytesTotal": 372,
           "snapshots": [
@@ -2573,9 +2551,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 159558,
-          "gzip": 23016,
-          "brotli": 19306
+          "raw": 149190,
+          "gzip": 22820,
+          "brotli": 19127
         },
         "jsBytes": {
           "raw": 277503,
@@ -2584,43 +2562,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 235892,
         "imageBytes": 38414,
-        "totalTransferGzip": 398044,
+        "totalTransferGzip": 397960,
         "requestCount": 35,
-        "ttfbMs": 36,
-        "fcpMs": 2368,
-        "lcpMs": 2368,
+        "ttfbMs": 35,
+        "fcpMs": 2356,
+        "lcpMs": 2356,
         "lcpElement": "img.hero-photo.opacity-20",
         "cls": 0.0002,
-        "tbtMs": 231,
+        "tbtMs": 197,
         "longTasks": 4,
-        "loadMs": 5427,
+        "loadMs": 5296,
         "perRun": [
           {
-            "lcpMs": 2352,
+            "lcpMs": 2316,
             "cls": 0.0002,
-            "tbtMs": 176,
-            "fcpMs": 2352,
+            "tbtMs": 197,
+            "fcpMs": 2316,
             "requests": 35
           },
           {
-            "lcpMs": 2368,
+            "lcpMs": 2400,
             "cls": 0.0002,
-            "tbtMs": 249,
-            "fcpMs": 2368,
+            "tbtMs": 143,
+            "fcpMs": 2400,
             "requests": 35
           },
           {
-            "lcpMs": 2488,
+            "lcpMs": 2356,
             "cls": 0.0002,
-            "tbtMs": 231,
-            "fcpMs": 2488,
+            "tbtMs": 204,
+            "fcpMs": 2356,
             "requests": 35
           }
         ]
@@ -2707,14 +2685,14 @@
       "backend": {
         "cold": {
           "queries": 2,
-          "serverMs": 46.2
+          "serverMs": 67.9
         },
         "warm": {
           "status": 200,
           "queries": 1,
-          "queryTimeMs": 0.72,
-          "serverMs": 44.2,
-          "htmlBytes": 158918,
+          "queryTimeMs": 0.61,
+          "serverMs": 43.9,
+          "htmlBytes": 148670,
           "livewireComponents": 1,
           "snapshotBytesTotal": 372,
           "snapshots": [
@@ -2733,9 +2711,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 172031,
-          "gzip": 32328,
-          "brotli": 28309
+          "raw": 161975,
+          "gzip": 32205,
+          "brotli": 28185
         },
         "jsBytes": {
           "raw": 277503,
@@ -2744,43 +2722,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 72920,
         "imageBytes": 28300,
-        "totalTransferGzip": 233553,
+        "totalTransferGzip": 233542,
         "requestCount": 37,
-        "ttfbMs": 41,
-        "fcpMs": 2308,
-        "lcpMs": 2308,
+        "ttfbMs": 39,
+        "fcpMs": 2252,
+        "lcpMs": 2252,
         "lcpElement": "p.mt-3.max-w-[68ch].text-base",
-        "cls": 0.0001,
-        "tbtMs": 305,
+        "cls": 0,
+        "tbtMs": 155,
         "longTasks": 3,
-        "loadMs": 4577,
+        "loadMs": 4478,
         "perRun": [
           {
-            "lcpMs": 2308,
-            "cls": 0.0001,
-            "tbtMs": 305,
-            "fcpMs": 2308,
+            "lcpMs": 2288,
+            "cls": 0,
+            "tbtMs": 360,
+            "fcpMs": 2288,
             "requests": 37
           },
           {
-            "lcpMs": 2328,
-            "cls": 0.0001,
-            "tbtMs": 313,
-            "fcpMs": 2328,
+            "lcpMs": 2252,
+            "cls": 0,
+            "tbtMs": 155,
+            "fcpMs": 2252,
             "requests": 37
           },
           {
-            "lcpMs": 2268,
-            "cls": 0.0001,
-            "tbtMs": 246,
-            "fcpMs": 2268,
+            "lcpMs": 2248,
+            "cls": 0,
+            "tbtMs": 108,
+            "fcpMs": 2248,
             "requests": 37
           }
         ]
@@ -2867,14 +2845,14 @@
       "backend": {
         "cold": {
           "queries": 2,
-          "serverMs": 63.3
+          "serverMs": 50.3
         },
         "warm": {
           "status": 200,
           "queries": 1,
-          "queryTimeMs": 0.52,
-          "serverMs": 37.8,
-          "htmlBytes": 171386,
+          "queryTimeMs": 0.61,
+          "serverMs": 44,
+          "htmlBytes": 161450,
           "livewireComponents": 1,
           "snapshotBytesTotal": 271,
           "snapshots": [
@@ -2893,9 +2871,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 173546,
-          "gzip": 32933,
-          "brotli": 28702
+          "raw": 163490,
+          "gzip": 32814,
+          "brotli": 28632
         },
         "jsBytes": {
           "raw": 277503,
@@ -2904,43 +2882,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 72920,
         "imageBytes": 28300,
-        "totalTransferGzip": 234158,
+        "totalTransferGzip": 234151,
         "requestCount": 37,
-        "ttfbMs": 39,
-        "fcpMs": 2324,
-        "lcpMs": 2324,
+        "ttfbMs": 41,
+        "fcpMs": 2280,
+        "lcpMs": 2280,
         "lcpElement": "p.mt-3.max-w-[68ch].text-base",
         "cls": 0.0168,
-        "tbtMs": 124,
+        "tbtMs": 224,
         "longTasks": 3,
-        "loadMs": 4598,
+        "loadMs": 4542,
         "perRun": [
           {
-            "lcpMs": 2324,
+            "lcpMs": 2268,
             "cls": 0.0168,
-            "tbtMs": 286,
-            "fcpMs": 2324,
+            "tbtMs": 230,
+            "fcpMs": 2268,
             "requests": 37
           },
           {
-            "lcpMs": 2264,
+            "lcpMs": 2308,
             "cls": 0.0168,
-            "tbtMs": 115,
-            "fcpMs": 2264,
+            "tbtMs": 119,
+            "fcpMs": 2308,
             "requests": 37
           },
           {
-            "lcpMs": 2324,
+            "lcpMs": 2280,
             "cls": 0.0168,
-            "tbtMs": 124,
-            "fcpMs": 2324,
+            "tbtMs": 224,
+            "fcpMs": 2280,
             "requests": 37
           }
         ]
@@ -3027,14 +3005,14 @@
       "backend": {
         "cold": {
           "queries": 2,
-          "serverMs": 90.3
+          "serverMs": 83.5
         },
         "warm": {
           "status": 200,
           "queries": 1,
-          "queryTimeMs": 0.78,
-          "serverMs": 55.1,
-          "htmlBytes": 172901,
+          "queryTimeMs": 0.58,
+          "serverMs": 42.1,
+          "htmlBytes": 162965,
           "livewireComponents": 1,
           "snapshotBytesTotal": 275,
           "snapshots": [
@@ -3053,9 +3031,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 173928,
-          "gzip": 32981,
-          "brotli": 28754
+          "raw": 163872,
+          "gzip": 32861,
+          "brotli": 28620
         },
         "jsBytes": {
           "raw": 277503,
@@ -3064,43 +3042,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 206256,
         "imageBytes": 28300,
-        "totalTransferGzip": 367542,
+        "totalTransferGzip": 367534,
         "requestCount": 38,
         "ttfbMs": 38,
-        "fcpMs": 2384,
-        "lcpMs": 2384,
+        "fcpMs": 2288,
+        "lcpMs": 2288,
         "lcpElement": "p.mt-3.max-w-[68ch].text-base",
-        "cls": 0.0001,
-        "tbtMs": 327,
-        "longTasks": 3,
-        "loadMs": 5363,
+        "cls": 0,
+        "tbtMs": 336,
+        "longTasks": 4,
+        "loadMs": 5228,
         "perRun": [
           {
-            "lcpMs": 2384,
-            "cls": 0.0001,
-            "tbtMs": 327,
-            "fcpMs": 2384,
+            "lcpMs": 2280,
+            "cls": 0,
+            "tbtMs": 336,
+            "fcpMs": 2280,
             "requests": 38
           },
           {
-            "lcpMs": 2328,
-            "cls": 0.0001,
-            "tbtMs": 152,
-            "fcpMs": 2328,
+            "lcpMs": 2316,
+            "cls": 0,
+            "tbtMs": 145,
+            "fcpMs": 2316,
             "requests": 38
           },
           {
-            "lcpMs": 2384,
-            "cls": 0.0001,
-            "tbtMs": 441,
-            "fcpMs": 2384,
+            "lcpMs": 2288,
+            "cls": 0,
+            "tbtMs": 339,
+            "fcpMs": 2288,
             "requests": 38
           }
         ]
@@ -3187,14 +3165,14 @@
       "backend": {
         "cold": {
           "queries": 2,
-          "serverMs": 78.6
+          "serverMs": 47
         },
         "warm": {
           "status": 200,
           "queries": 1,
-          "queryTimeMs": 0.88,
-          "serverMs": 49.5,
-          "htmlBytes": 173283,
+          "queryTimeMs": 0.6,
+          "serverMs": 44.4,
+          "htmlBytes": 163347,
           "livewireComponents": 1,
           "snapshotBytesTotal": 275,
           "snapshots": [
@@ -3213,9 +3191,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 178196,
-          "gzip": 18793,
-          "brotli": 15533
+          "raw": 168082,
+          "gzip": 18640,
+          "brotli": 15393
         },
         "jsBytes": {
           "raw": 277503,
@@ -3224,43 +3202,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 72920,
         "imageBytes": 9816,
-        "totalTransferGzip": 206016,
+        "totalTransferGzip": 205975,
         "requestCount": 18,
-        "ttfbMs": 47,
-        "fcpMs": 2376,
-        "lcpMs": 2376,
+        "ttfbMs": 55,
+        "fcpMs": 2384,
+        "lcpMs": 2384,
         "lcpElement": "p.mt-3.max-w-[68ch].text-base",
         "cls": 0,
-        "tbtMs": 223,
+        "tbtMs": 246,
         "longTasks": 3,
-        "loadMs": 4681,
+        "loadMs": 4605,
         "perRun": [
           {
-            "lcpMs": 2372,
+            "lcpMs": 2384,
             "cls": 0,
-            "tbtMs": 210,
-            "fcpMs": 2372,
+            "tbtMs": 264,
+            "fcpMs": 2384,
             "requests": 18
           },
           {
-            "lcpMs": 2380,
+            "lcpMs": 2456,
             "cls": 0,
-            "tbtMs": 223,
-            "fcpMs": 2380,
+            "tbtMs": 246,
+            "fcpMs": 2456,
             "requests": 18
           },
           {
-            "lcpMs": 2376,
+            "lcpMs": 2340,
             "cls": 0,
-            "tbtMs": 293,
-            "fcpMs": 2376,
+            "tbtMs": 218,
+            "fcpMs": 2340,
             "requests": 18
           }
         ]
@@ -3306,10 +3284,8 @@
             "WebPage",
             "WebSite"
           ],
-          "valid": false,
-          "problems": [
-            "block0.isPartOf WebSite is missing url"
-          ]
+          "valid": true,
+          "problems": []
         },
         "h1": [
           "VAT rate change history"
@@ -3349,14 +3325,14 @@
       "backend": {
         "cold": {
           "queries": 13,
-          "serverMs": 69
+          "serverMs": 66.8
         },
         "warm": {
           "status": 200,
           "queries": 6,
-          "queryTimeMs": 1.4,
-          "serverMs": 96.7,
-          "htmlBytes": 183306,
+          "queryTimeMs": 1.36,
+          "serverMs": 92.3,
+          "htmlBytes": 173312,
           "livewireComponents": 2,
           "snapshotBytesTotal": 3660,
           "snapshots": [
@@ -3379,9 +3355,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 179351,
-          "gzip": 19340,
-          "brotli": 16071
+          "raw": 169237,
+          "gzip": 19198,
+          "brotli": 15935
         },
         "jsBytes": {
           "raw": 277503,
@@ -3390,43 +3366,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 72920,
         "imageBytes": 9328,
-        "totalTransferGzip": 206257,
+        "totalTransferGzip": 206227,
         "requestCount": 17,
-        "ttfbMs": 48,
-        "fcpMs": 2376,
-        "lcpMs": 2376,
+        "ttfbMs": 43,
+        "fcpMs": 2368,
+        "lcpMs": 2368,
         "lcpElement": "h1.text-3xl.font-bold.tracking-[-0.035em]",
         "cls": 0,
-        "tbtMs": 232,
+        "tbtMs": 283,
         "longTasks": 3,
-        "loadMs": 4679,
+        "loadMs": 4618,
         "perRun": [
           {
-            "lcpMs": 2376,
+            "lcpMs": 2368,
             "cls": 0,
-            "tbtMs": 182,
-            "fcpMs": 2376,
+            "tbtMs": 200,
+            "fcpMs": 2368,
             "requests": 17
           },
           {
-            "lcpMs": 2404,
+            "lcpMs": 2388,
             "cls": 0,
-            "tbtMs": 243,
-            "fcpMs": 2404,
+            "tbtMs": 297,
+            "fcpMs": 2388,
             "requests": 17
           },
           {
-            "lcpMs": 2348,
+            "lcpMs": 2336,
             "cls": 0,
-            "tbtMs": 232,
-            "fcpMs": 2348,
+            "tbtMs": 283,
+            "fcpMs": 2336,
             "requests": 17
           }
         ]
@@ -3472,10 +3448,8 @@
             "WebPage",
             "WebSite"
           ],
-          "valid": false,
-          "problems": [
-            "block0.isPartOf WebSite is missing url"
-          ]
+          "valid": true,
+          "problems": []
         },
         "h1": [
           "Verlauf der MwSt.-Satzänderungen"
@@ -3515,14 +3489,14 @@
       "backend": {
         "cold": {
           "queries": 13,
-          "serverMs": 63.8
+          "serverMs": 61.5
         },
         "warm": {
           "status": 200,
           "queries": 6,
-          "queryTimeMs": 1.34,
-          "serverMs": 62.3,
-          "htmlBytes": 184477,
+          "queryTimeMs": 1.36,
+          "serverMs": 59.6,
+          "htmlBytes": 174483,
           "livewireComponents": 2,
           "snapshotBytesTotal": 3676,
           "snapshots": [
@@ -3545,9 +3519,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 179701,
-          "gzip": 19459,
-          "brotli": 16139
+          "raw": 169587,
+          "gzip": 19323,
+          "brotli": 16013
         },
         "jsBytes": {
           "raw": 277503,
@@ -3556,43 +3530,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 206256,
         "imageBytes": 11653,
-        "totalTransferGzip": 341525,
+        "totalTransferGzip": 341501,
         "requestCount": 19,
         "ttfbMs": 49,
-        "fcpMs": 2384,
-        "lcpMs": 2384,
+        "fcpMs": 2364,
+        "lcpMs": 2364,
         "lcpElement": "p.mt-3.max-w-[68ch].text-base",
         "cls": 0,
-        "tbtMs": 306,
+        "tbtMs": 248,
         "longTasks": 4,
-        "loadMs": 5416,
+        "loadMs": 5300,
         "perRun": [
           {
-            "lcpMs": 2384,
+            "lcpMs": 2456,
             "cls": 0,
-            "tbtMs": 306,
-            "fcpMs": 2384,
+            "tbtMs": 553,
+            "fcpMs": 2456,
             "requests": 19
           },
           {
-            "lcpMs": 2444,
+            "lcpMs": 2352,
             "cls": 0,
-            "tbtMs": 347,
-            "fcpMs": 2444,
+            "tbtMs": 218,
+            "fcpMs": 2352,
             "requests": 19
           },
           {
-            "lcpMs": 2360,
+            "lcpMs": 2364,
             "cls": 0,
-            "tbtMs": 209,
-            "fcpMs": 2360,
+            "tbtMs": 248,
+            "fcpMs": 2364,
             "requests": 19
           }
         ]
@@ -3638,10 +3612,8 @@
             "WebPage",
             "WebSite"
           ],
-          "valid": false,
-          "problems": [
-            "block0.isPartOf WebSite is missing url"
-          ]
+          "valid": true,
+          "problems": []
         },
         "h1": [
           "Storja tal-Bidliet fir-Rati tal-VAT"
@@ -3681,14 +3653,14 @@
       "backend": {
         "cold": {
           "queries": 13,
-          "serverMs": 54
+          "serverMs": 60.5
         },
         "warm": {
           "status": 200,
           "queries": 6,
-          "queryTimeMs": 1.32,
-          "serverMs": 105.8,
-          "htmlBytes": 184843,
+          "queryTimeMs": 1.2,
+          "serverMs": 100.8,
+          "htmlBytes": 174849,
           "livewireComponents": 2,
           "snapshotBytesTotal": 3684,
           "snapshots": [
@@ -3711,9 +3683,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 95668,
-          "gzip": 13958,
-          "brotli": 12178
+          "raw": 85084,
+          "gzip": 13514,
+          "brotli": 12031
         },
         "jsBytes": {
           "raw": 277503,
@@ -3722,43 +3694,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 72920,
         "imageBytes": 920,
-        "totalTransferGzip": 195646,
+        "totalTransferGzip": 195314,
         "requestCount": 8,
-        "ttfbMs": 37,
-        "fcpMs": 2104,
-        "lcpMs": 2104,
+        "ttfbMs": 34,
+        "fcpMs": 2220,
+        "lcpMs": 2220,
         "lcpElement": "p.mt-3.max-w-[68ch].text-base",
         "cls": 0.0001,
-        "tbtMs": 102,
-        "longTasks": 3,
+        "tbtMs": 80,
+        "longTasks": 2,
         "loadMs": 3766,
         "perRun": [
           {
-            "lcpMs": 2100,
+            "lcpMs": 2208,
             "cls": 0.0001,
-            "tbtMs": 65,
-            "fcpMs": 2100,
+            "tbtMs": 80,
+            "fcpMs": 2208,
             "requests": 8
           },
           {
-            "lcpMs": 2104,
+            "lcpMs": 2236,
             "cls": 0.0001,
-            "tbtMs": 102,
-            "fcpMs": 2104,
+            "tbtMs": 80,
+            "fcpMs": 2236,
             "requests": 8
           },
           {
-            "lcpMs": 2156,
+            "lcpMs": 2220,
             "cls": 0.0001,
-            "tbtMs": 103,
-            "fcpMs": 2156,
+            "tbtMs": 125,
+            "fcpMs": 2220,
             "requests": 8
           }
         ]
@@ -3847,14 +3819,14 @@
       "backend": {
         "cold": {
           "queries": 6,
-          "serverMs": 41.3
+          "serverMs": 39.3
         },
         "warm": {
           "status": 200,
           "queries": 6,
-          "queryTimeMs": 1.22,
-          "serverMs": 39,
-          "htmlBytes": 95333,
+          "queryTimeMs": 1.03,
+          "serverMs": 40.7,
+          "htmlBytes": 84869,
           "livewireComponents": 1,
           "snapshotBytesTotal": 447,
           "snapshots": [
@@ -3873,9 +3845,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 96535,
-          "gzip": 14432,
-          "brotli": 12659
+          "raw": 85951,
+          "gzip": 13996,
+          "brotli": 12522
         },
         "jsBytes": {
           "raw": 277503,
@@ -3884,43 +3856,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 72920,
         "imageBytes": 432,
-        "totalTransferGzip": 195814,
+        "totalTransferGzip": 195490,
         "requestCount": 7,
-        "ttfbMs": 37,
-        "fcpMs": 2168,
-        "lcpMs": 2168,
+        "ttfbMs": 32,
+        "fcpMs": 2216,
+        "lcpMs": 2216,
         "lcpElement": "p.mt-3.max-w-[68ch].text-base",
         "cls": 0.0001,
-        "tbtMs": 124,
+        "tbtMs": 125,
         "longTasks": 3,
-        "loadMs": 3736,
+        "loadMs": 3800,
         "perRun": [
           {
-            "lcpMs": 2244,
+            "lcpMs": 2216,
             "cls": 0.0001,
-            "tbtMs": 148,
-            "fcpMs": 2244,
+            "tbtMs": 81,
+            "fcpMs": 2216,
             "requests": 7
           },
           {
-            "lcpMs": 2124,
+            "lcpMs": 2252,
             "cls": 0.0001,
-            "tbtMs": 82,
-            "fcpMs": 2124,
+            "tbtMs": 134,
+            "fcpMs": 2252,
             "requests": 7
           },
           {
-            "lcpMs": 2168,
+            "lcpMs": 2212,
             "cls": 0.0001,
-            "tbtMs": 124,
-            "fcpMs": 2168,
+            "tbtMs": 125,
+            "fcpMs": 2212,
             "requests": 7
           }
         ]
@@ -4009,14 +3981,14 @@
       "backend": {
         "cold": {
           "queries": 6,
-          "serverMs": 38.7
+          "serverMs": 51.6
         },
         "warm": {
           "status": 200,
           "queries": 6,
-          "queryTimeMs": 1.22,
-          "serverMs": 40.4,
-          "htmlBytes": 96200,
+          "queryTimeMs": 1.16,
+          "serverMs": 38.5,
+          "htmlBytes": 85736,
           "livewireComponents": 1,
           "snapshotBytesTotal": 451,
           "snapshots": [
@@ -4035,9 +4007,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 96912,
-          "gzip": 14479,
-          "brotli": 12712
+          "raw": 86328,
+          "gzip": 14024,
+          "brotli": 12569
         },
         "jsBytes": {
           "raw": 277503,
@@ -4046,43 +4018,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 206256,
         "imageBytes": 2757,
-        "totalTransferGzip": 331010,
+        "totalTransferGzip": 330667,
         "requestCount": 9,
-        "ttfbMs": 35,
-        "fcpMs": 2148,
-        "lcpMs": 2148,
+        "ttfbMs": 38,
+        "fcpMs": 2220,
+        "lcpMs": 2220,
         "lcpElement": "p.mt-3.max-w-[68ch].text-base",
-        "cls": 0.0004,
-        "tbtMs": 119,
+        "cls": 0.0003,
+        "tbtMs": 111,
         "longTasks": 3,
-        "loadMs": 4438,
+        "loadMs": 4357,
         "perRun": [
           {
-            "lcpMs": 2120,
-            "cls": 0.0004,
-            "tbtMs": 80,
-            "fcpMs": 2120,
+            "lcpMs": 2220,
+            "cls": 0.0003,
+            "tbtMs": 111,
+            "fcpMs": 2220,
             "requests": 9
           },
           {
-            "lcpMs": 2236,
-            "cls": 0.0004,
-            "tbtMs": 119,
-            "fcpMs": 2236,
+            "lcpMs": 2208,
+            "cls": 0.0003,
+            "tbtMs": 102,
+            "fcpMs": 2208,
             "requests": 9
           },
           {
-            "lcpMs": 2148,
-            "cls": 0.0004,
-            "tbtMs": 183,
-            "fcpMs": 2148,
+            "lcpMs": 2288,
+            "cls": 0.0003,
+            "tbtMs": 112,
+            "fcpMs": 2288,
             "requests": 9
           }
         ]
@@ -4171,14 +4143,14 @@
       "backend": {
         "cold": {
           "queries": 6,
-          "serverMs": 86.3
+          "serverMs": 87.2
         },
         "warm": {
           "status": 200,
           "queries": 6,
-          "queryTimeMs": 1.02,
-          "serverMs": 38.8,
-          "htmlBytes": 96577,
+          "queryTimeMs": 1.14,
+          "serverMs": 38.6,
+          "htmlBytes": 86113,
           "livewireComponents": 1,
           "snapshotBytesTotal": 451,
           "snapshots": [
@@ -4197,9 +4169,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 105068,
-          "gzip": 15378,
-          "brotli": 13508
+          "raw": 94244,
+          "gzip": 15214,
+          "brotli": 13354
         },
         "jsBytes": {
           "raw": 277503,
@@ -4208,43 +4180,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 72920,
         "imageBytes": 20081,
-        "totalTransferGzip": 214640,
+        "totalTransferGzip": 214588,
         "requestCount": 16,
-        "ttfbMs": 45,
-        "fcpMs": 2244,
-        "lcpMs": 2244,
+        "ttfbMs": 41,
+        "fcpMs": 2328,
+        "lcpMs": 2328,
         "lcpElement": "img.hero-photo.opacity-20",
-        "cls": 0.0001,
-        "tbtMs": 117,
-        "longTasks": 2,
-        "loadMs": 3977,
+        "cls": 0.0002,
+        "tbtMs": 138,
+        "longTasks": 3,
+        "loadMs": 3974,
         "perRun": [
           {
-            "lcpMs": 2212,
-            "cls": 0.0001,
-            "tbtMs": 117,
-            "fcpMs": 2212,
+            "lcpMs": 2340,
+            "cls": 0.0002,
+            "tbtMs": 131,
+            "fcpMs": 2340,
             "requests": 16
           },
           {
-            "lcpMs": 2288,
-            "cls": 0.0001,
-            "tbtMs": 114,
-            "fcpMs": 2288,
+            "lcpMs": 2296,
+            "cls": 0.0002,
+            "tbtMs": 142,
+            "fcpMs": 2296,
             "requests": 16
           },
           {
-            "lcpMs": 2244,
-            "cls": 0.0001,
-            "tbtMs": 134,
-            "fcpMs": 2244,
+            "lcpMs": 2328,
+            "cls": 0.0002,
+            "tbtMs": 138,
+            "fcpMs": 2328,
             "requests": 16
           }
         ]
@@ -4335,14 +4307,14 @@
       "backend": {
         "cold": {
           "queries": 4,
-          "serverMs": 45.3
+          "serverMs": 49.8
         },
         "warm": {
           "status": 200,
           "queries": 3,
-          "queryTimeMs": 0.79,
-          "serverMs": 34,
-          "htmlBytes": 104668,
+          "queryTimeMs": 0.74,
+          "serverMs": 34.6,
+          "htmlBytes": 93964,
           "livewireComponents": 1,
           "snapshotBytesTotal": 378,
           "snapshots": [
@@ -4361,9 +4333,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 105929,
-          "gzip": 15834,
-          "brotli": 13922
+          "raw": 95105,
+          "gzip": 15669,
+          "brotli": 13768
         },
         "jsBytes": {
           "raw": 277503,
@@ -4372,43 +4344,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 72920,
         "imageBytes": 19593,
-        "totalTransferGzip": 214790,
+        "totalTransferGzip": 214737,
         "requestCount": 15,
-        "ttfbMs": 39,
-        "fcpMs": 2280,
-        "lcpMs": 2280,
+        "ttfbMs": 41,
+        "fcpMs": 2324,
+        "lcpMs": 2324,
         "lcpElement": "img.hero-photo.opacity-20",
-        "cls": 0.001,
-        "tbtMs": 97,
+        "cls": 0.0003,
+        "tbtMs": 131,
         "longTasks": 3,
-        "loadMs": 3938,
+        "loadMs": 3955,
         "perRun": [
           {
-            "lcpMs": 2280,
-            "cls": 0.001,
-            "tbtMs": 97,
-            "fcpMs": 2280,
+            "lcpMs": 2300,
+            "cls": 0.0003,
+            "tbtMs": 72,
+            "fcpMs": 2300,
             "requests": 15
           },
           {
-            "lcpMs": 2240,
-            "cls": 0.001,
-            "tbtMs": 60,
-            "fcpMs": 2240,
+            "lcpMs": 2332,
+            "cls": 0.0003,
+            "tbtMs": 155,
+            "fcpMs": 2332,
             "requests": 15
           },
           {
-            "lcpMs": 2292,
-            "cls": 0.001,
-            "tbtMs": 135,
-            "fcpMs": 2292,
+            "lcpMs": 2324,
+            "cls": 0.0003,
+            "tbtMs": 131,
+            "fcpMs": 2324,
             "requests": 15
           }
         ]
@@ -4499,14 +4471,14 @@
       "backend": {
         "cold": {
           "queries": 4,
-          "serverMs": 44.4
+          "serverMs": 43.1
         },
         "warm": {
           "status": 200,
           "queries": 3,
-          "queryTimeMs": 1.15,
-          "serverMs": 92.1,
-          "htmlBytes": 105529,
+          "queryTimeMs": 1.03,
+          "serverMs": 96,
+          "htmlBytes": 94825,
           "livewireComponents": 1,
           "snapshotBytesTotal": 382,
           "snapshots": [
@@ -4525,9 +4497,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 106153,
-          "gzip": 15942,
-          "brotli": 13990
+          "raw": 95329,
+          "gzip": 15743,
+          "brotli": 13832
         },
         "jsBytes": {
           "raw": 277503,
@@ -4536,43 +4508,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 206256,
         "imageBytes": 19593,
-        "totalTransferGzip": 348234,
+        "totalTransferGzip": 348147,
         "requestCount": 16,
-        "ttfbMs": 39,
-        "fcpMs": 2240,
-        "lcpMs": 2240,
+        "ttfbMs": 32,
+        "fcpMs": 2356,
+        "lcpMs": 2356,
         "lcpElement": "img.hero-photo.opacity-20",
         "cls": 0.0014,
-        "tbtMs": 86,
-        "longTasks": 3,
-        "loadMs": 4493,
+        "tbtMs": 97,
+        "longTasks": 2,
+        "loadMs": 4443,
         "perRun": [
           {
-            "lcpMs": 2240,
+            "lcpMs": 2356,
             "cls": 0.0014,
-            "tbtMs": 66,
-            "fcpMs": 2240,
+            "tbtMs": 100,
+            "fcpMs": 2356,
             "requests": 16
           },
           {
-            "lcpMs": 2224,
+            "lcpMs": 2364,
             "cls": 0.0014,
-            "tbtMs": 86,
-            "fcpMs": 2224,
+            "tbtMs": 97,
+            "fcpMs": 2364,
             "requests": 16
           },
           {
-            "lcpMs": 2240,
+            "lcpMs": 2316,
             "cls": 0.0014,
-            "tbtMs": 119,
-            "fcpMs": 2240,
+            "tbtMs": 94,
+            "fcpMs": 2316,
             "requests": 16
           }
         ]
@@ -4663,14 +4635,14 @@
       "backend": {
         "cold": {
           "queries": 4,
-          "serverMs": 45
+          "serverMs": 36.7
         },
         "warm": {
           "status": 200,
           "queries": 3,
-          "queryTimeMs": 0.95,
-          "serverMs": 41.9,
-          "htmlBytes": 105753,
+          "queryTimeMs": 0.7,
+          "serverMs": 35.3,
+          "htmlBytes": 95049,
           "livewireComponents": 1,
           "snapshotBytesTotal": 382,
           "snapshots": [
@@ -4689,9 +4661,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 123991,
-          "gzip": 15968,
-          "brotli": 13212
+          "raw": 113503,
+          "gzip": 15802,
+          "brotli": 13095
         },
         "jsBytes": {
           "raw": 277503,
@@ -4700,43 +4672,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 72920,
         "imageBytes": 26758,
-        "totalTransferGzip": 216186,
+        "totalTransferGzip": 216132,
         "requestCount": 33,
-        "ttfbMs": 38,
-        "fcpMs": 2064,
-        "lcpMs": 2064,
+        "ttfbMs": 36,
+        "fcpMs": 2164,
+        "lcpMs": 2164,
         "lcpElement": "p.mt-3.max-w-[68ch].text-base",
-        "cls": 0.0016,
-        "tbtMs": 267,
-        "longTasks": 3,
-        "loadMs": 3997,
+        "cls": 0.0046,
+        "tbtMs": 159,
+        "longTasks": 2,
+        "loadMs": 3904,
         "perRun": [
           {
-            "lcpMs": 2056,
-            "cls": 0.0016,
-            "tbtMs": 310,
-            "fcpMs": 2056,
+            "lcpMs": 2068,
+            "cls": 0.0046,
+            "tbtMs": 100,
+            "fcpMs": 2068,
             "requests": 33
           },
           {
-            "lcpMs": 2064,
-            "cls": 0.0016,
-            "tbtMs": 267,
-            "fcpMs": 2064,
+            "lcpMs": 2176,
+            "cls": 0.0046,
+            "tbtMs": 159,
+            "fcpMs": 2176,
             "requests": 33
           },
           {
-            "lcpMs": 2088,
-            "cls": 0.0016,
-            "tbtMs": 188,
-            "fcpMs": 2088,
+            "lcpMs": 2164,
+            "cls": 0.0046,
+            "tbtMs": 334,
+            "fcpMs": 2164,
             "requests": 33
           }
         ]
@@ -4820,14 +4792,14 @@
       "backend": {
         "cold": {
           "queries": 4,
-          "serverMs": 43
+          "serverMs": 42.2
         },
         "warm": {
           "status": 200,
           "queries": 3,
-          "queryTimeMs": 1,
-          "serverMs": 41.8,
-          "htmlBytes": 123416,
+          "queryTimeMs": 0.87,
+          "serverMs": 40.8,
+          "htmlBytes": 113048,
           "livewireComponents": 1,
           "snapshotBytesTotal": 319,
           "snapshots": [
@@ -4846,9 +4818,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 125015,
-          "gzip": 16299,
-          "brotli": 13562
+          "raw": 114527,
+          "gzip": 16142,
+          "brotli": 13437
         },
         "jsBytes": {
           "raw": 277503,
@@ -4857,42 +4829,42 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 72920,
         "imageBytes": 26270,
-        "totalTransferGzip": 216211,
+        "totalTransferGzip": 216166,
         "requestCount": 32,
-        "ttfbMs": 34,
-        "fcpMs": 2084,
-        "lcpMs": 2084,
+        "ttfbMs": 44,
+        "fcpMs": 2096,
+        "lcpMs": 2096,
         "lcpElement": "p.mt-3.max-w-[68ch].text-base",
-        "cls": 0.0031,
-        "tbtMs": 299,
+        "cls": 0.0048,
+        "tbtMs": 114,
         "longTasks": 3,
-        "loadMs": 3941,
+        "loadMs": 3897,
         "perRun": [
           {
-            "lcpMs": 2084,
-            "cls": 0.0031,
-            "tbtMs": 299,
-            "fcpMs": 2084,
+            "lcpMs": 2132,
+            "cls": 0.0048,
+            "tbtMs": 222,
+            "fcpMs": 2132,
             "requests": 32
           },
           {
-            "lcpMs": 2044,
-            "cls": 0.0031,
-            "tbtMs": 130,
-            "fcpMs": 2044,
+            "lcpMs": 2096,
+            "cls": 0.0048,
+            "tbtMs": 100,
+            "fcpMs": 2096,
             "requests": 32
           },
           {
             "lcpMs": 2092,
-            "cls": 0.0031,
-            "tbtMs": 318,
+            "cls": 0.0048,
+            "tbtMs": 114,
             "fcpMs": 2092,
             "requests": 32
           }
@@ -4977,14 +4949,14 @@
       "backend": {
         "cold": {
           "queries": 4,
-          "serverMs": 98.2
+          "serverMs": 106.2
         },
         "warm": {
           "status": 200,
           "queries": 3,
-          "queryTimeMs": 0.88,
-          "serverMs": 41.9,
-          "htmlBytes": 124440,
+          "queryTimeMs": 0.78,
+          "serverMs": 35.5,
+          "htmlBytes": 114072,
           "livewireComponents": 1,
           "snapshotBytesTotal": 323,
           "snapshots": [
@@ -5003,9 +4975,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 125209,
-          "gzip": 16421,
-          "brotli": 13631
+          "raw": 114721,
+          "gzip": 16264,
+          "brotli": 13509
         },
         "jsBytes": {
           "raw": 277503,
@@ -5014,43 +4986,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 206256,
         "imageBytes": 26270,
-        "totalTransferGzip": 349669,
+        "totalTransferGzip": 349624,
         "requestCount": 33,
-        "ttfbMs": 36,
-        "fcpMs": 2072,
-        "lcpMs": 2072,
+        "ttfbMs": 38,
+        "fcpMs": 2172,
+        "lcpMs": 2172,
         "lcpElement": "p.mt-3.max-w-[68ch].text-base",
-        "cls": 0.2551,
-        "tbtMs": 211,
+        "cls": 0.0046,
+        "tbtMs": 163,
         "longTasks": 4,
-        "loadMs": 4770,
+        "loadMs": 4737,
         "perRun": [
           {
-            "lcpMs": 2048,
-            "cls": 0.2551,
-            "tbtMs": 116,
-            "fcpMs": 2048,
+            "lcpMs": 2172,
+            "cls": 0.0046,
+            "tbtMs": 151,
+            "fcpMs": 2172,
             "requests": 33
           },
           {
-            "lcpMs": 2072,
-            "cls": 0.2551,
-            "tbtMs": 211,
-            "fcpMs": 2072,
+            "lcpMs": 2112,
+            "cls": 0.0046,
+            "tbtMs": 163,
+            "fcpMs": 2112,
             "requests": 33
           },
           {
-            "lcpMs": 2124,
-            "cls": 0.2551,
-            "tbtMs": 211,
-            "fcpMs": 2124,
+            "lcpMs": 2200,
+            "cls": 0.0046,
+            "tbtMs": 221,
+            "fcpMs": 2200,
             "requests": 33
           }
         ]
@@ -5134,14 +5106,14 @@
       "backend": {
         "cold": {
           "queries": 4,
-          "serverMs": 42.4
+          "serverMs": 43.6
         },
         "warm": {
           "status": 200,
           "queries": 3,
-          "queryTimeMs": 0.83,
-          "serverMs": 40.8,
-          "htmlBytes": 124634,
+          "queryTimeMs": 0.71,
+          "serverMs": 36.9,
+          "htmlBytes": 114266,
           "livewireComponents": 1,
           "snapshotBytesTotal": 323,
           "snapshots": [
@@ -5160,9 +5132,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 111860,
-          "gzip": 14098,
-          "brotli": 11952
+          "raw": 98521,
+          "gzip": 13706,
+          "brotli": 11672
         },
         "jsBytes": {
           "raw": 277503,
@@ -5171,43 +5143,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 72920,
         "imageBytes": 22464,
-        "totalTransferGzip": 215176,
+        "totalTransferGzip": 214896,
         "requestCount": 19,
-        "ttfbMs": 28,
-        "fcpMs": 2156,
-        "lcpMs": 2156,
+        "ttfbMs": 29,
+        "fcpMs": 2240,
+        "lcpMs": 2240,
         "lcpElement": "img.hero-photo.opacity-20",
-        "cls": 0.0015,
-        "tbtMs": 91,
+        "cls": 0.0023,
+        "tbtMs": 62,
         "longTasks": 2,
-        "loadMs": 3907,
+        "loadMs": 3880,
         "perRun": [
           {
-            "lcpMs": 2180,
-            "cls": 0.0015,
-            "tbtMs": 173,
-            "fcpMs": 2180,
+            "lcpMs": 2244,
+            "cls": 0.0023,
+            "tbtMs": 80,
+            "fcpMs": 2244,
             "requests": 19
           },
           {
-            "lcpMs": 2156,
-            "cls": 0.0015,
-            "tbtMs": 91,
-            "fcpMs": 2156,
+            "lcpMs": 2240,
+            "cls": 0.0023,
+            "tbtMs": 62,
+            "fcpMs": 2240,
             "requests": 19
           },
           {
-            "lcpMs": 2124,
-            "cls": 0.0015,
-            "tbtMs": 0,
-            "fcpMs": 2124,
+            "lcpMs": 2212,
+            "cls": 0.0023,
+            "tbtMs": 50,
+            "fcpMs": 2212,
             "requests": 19
           }
         ]
@@ -5287,14 +5259,14 @@
       "backend": {
         "cold": {
           "queries": 3,
-          "serverMs": 35.7
+          "serverMs": 36.7
         },
         "warm": {
           "status": 404,
           "queries": 3,
-          "queryTimeMs": 1.24,
-          "serverMs": 92.9,
-          "htmlBytes": 111460,
+          "queryTimeMs": 1.3,
+          "serverMs": 96.1,
+          "htmlBytes": 98241,
           "livewireComponents": 0,
           "snapshotBytesTotal": 0,
           "snapshots": []
@@ -5308,9 +5280,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 112554,
-          "gzip": 14465,
-          "brotli": 12369
+          "raw": 99215,
+          "gzip": 14068,
+          "brotli": 12088
         },
         "jsBytes": {
           "raw": 277503,
@@ -5319,43 +5291,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 72920,
         "imageBytes": 21976,
-        "totalTransferGzip": 215237,
+        "totalTransferGzip": 214952,
         "requestCount": 18,
-        "ttfbMs": 36,
-        "fcpMs": 2128,
-        "lcpMs": 2128,
+        "ttfbMs": 30,
+        "fcpMs": 2248,
+        "lcpMs": 2248,
         "lcpElement": "img.hero-photo.opacity-20",
-        "cls": 0.0008,
-        "tbtMs": 71,
+        "cls": 0.0917,
+        "tbtMs": 47,
         "longTasks": 2,
-        "loadMs": 3894,
+        "loadMs": 3891,
         "perRun": [
           {
-            "lcpMs": 2136,
-            "cls": 0.0008,
-            "tbtMs": 71,
-            "fcpMs": 2136,
-            "requests": 18
-          },
-          {
-            "lcpMs": 2128,
-            "cls": 0.0008,
-            "tbtMs": 106,
-            "fcpMs": 2128,
-            "requests": 18
-          },
-          {
-            "lcpMs": 2128,
-            "cls": 0.0008,
+            "lcpMs": 2196,
+            "cls": 0.0917,
             "tbtMs": 43,
-            "fcpMs": 2128,
+            "fcpMs": 2196,
+            "requests": 18
+          },
+          {
+            "lcpMs": 2260,
+            "cls": 0.0917,
+            "tbtMs": 81,
+            "fcpMs": 2260,
+            "requests": 18
+          },
+          {
+            "lcpMs": 2248,
+            "cls": 0.0917,
+            "tbtMs": 47,
+            "fcpMs": 2248,
             "requests": 18
           }
         ]
@@ -5435,14 +5407,14 @@
       "backend": {
         "cold": {
           "queries": 3,
-          "serverMs": 35.4
+          "serverMs": 33
         },
         "warm": {
           "status": 404,
           "queries": 3,
-          "queryTimeMs": 1.14,
-          "serverMs": 34.4,
-          "htmlBytes": 112154,
+          "queryTimeMs": 1.13,
+          "serverMs": 35.1,
+          "htmlBytes": 98935,
           "livewireComponents": 0,
           "snapshotBytesTotal": 0,
           "snapshots": []
@@ -5456,9 +5428,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 112993,
-          "gzip": 14587,
-          "brotli": 12473
+          "raw": 99654,
+          "gzip": 14202,
+          "brotli": 12188
         },
         "jsBytes": {
           "raw": 277503,
@@ -5467,43 +5439,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 206256,
         "imageBytes": 24301,
-        "totalTransferGzip": 350508,
+        "totalTransferGzip": 350235,
         "requestCount": 20,
         "ttfbMs": 31,
-        "fcpMs": 2148,
-        "lcpMs": 2148,
+        "fcpMs": 2212,
+        "lcpMs": 2212,
         "lcpElement": "img.hero-photo.opacity-20",
-        "cls": 0.0049,
-        "tbtMs": 66,
+        "cls": 0.0053,
+        "tbtMs": 67,
         "longTasks": 2,
-        "loadMs": 4612,
+        "loadMs": 4442,
         "perRun": [
           {
-            "lcpMs": 2176,
-            "cls": 0.0049,
-            "tbtMs": 41,
-            "fcpMs": 2176,
+            "lcpMs": 2204,
+            "cls": 0.0053,
+            "tbtMs": 58,
+            "fcpMs": 2204,
             "requests": 20
           },
           {
-            "lcpMs": 2148,
-            "cls": 0.0049,
-            "tbtMs": 87,
-            "fcpMs": 2148,
+            "lcpMs": 2212,
+            "cls": 0.0053,
+            "tbtMs": 67,
+            "fcpMs": 2212,
             "requests": 20
           },
           {
-            "lcpMs": 2140,
-            "cls": 0.0049,
-            "tbtMs": 66,
-            "fcpMs": 2140,
+            "lcpMs": 2316,
+            "cls": 0.0053,
+            "tbtMs": 76,
+            "fcpMs": 2316,
             "requests": 20
           }
         ]
@@ -5583,14 +5555,14 @@
       "backend": {
         "cold": {
           "queries": 3,
-          "serverMs": 34
+          "serverMs": 32.1
         },
         "warm": {
           "status": 404,
           "queries": 3,
-          "queryTimeMs": 1.15,
-          "serverMs": 34.8,
-          "htmlBytes": 112593,
+          "queryTimeMs": 1.23,
+          "serverMs": 29.6,
+          "htmlBytes": 99374,
           "livewireComponents": 0,
           "snapshotBytesTotal": 0,
           "snapshots": []
@@ -5604,9 +5576,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 129480,
-          "gzip": 19296,
-          "brotli": 16540
+          "raw": 119352,
+          "gzip": 19107,
+          "brotli": 16383
         },
         "jsBytes": {
           "raw": 277503,
@@ -5615,43 +5587,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 72920,
         "imageBytes": 12632,
-        "totalTransferGzip": 212805,
+        "totalTransferGzip": 212728,
         "requestCount": 7,
-        "ttfbMs": 33,
-        "fcpMs": 2180,
-        "lcpMs": 2180,
+        "ttfbMs": 34,
+        "fcpMs": 2252,
+        "lcpMs": 2252,
         "lcpElement": "img.hero-photo.opacity-20",
-        "cls": 0.0003,
-        "tbtMs": 160,
-        "longTasks": 3,
-        "loadMs": 4018,
+        "cls": 0.0001,
+        "tbtMs": 150,
+        "longTasks": 2,
+        "loadMs": 3919,
         "perRun": [
           {
-            "lcpMs": 2180,
-            "cls": 0.0003,
-            "tbtMs": 152,
-            "fcpMs": 2180,
+            "lcpMs": 2252,
+            "cls": 0.0001,
+            "tbtMs": 150,
+            "fcpMs": 2252,
             "requests": 7
           },
           {
-            "lcpMs": 2156,
-            "cls": 0.0003,
-            "tbtMs": 232,
-            "fcpMs": 2156,
+            "lcpMs": 2252,
+            "cls": 0.0001,
+            "tbtMs": 137,
+            "fcpMs": 2252,
             "requests": 7
           },
           {
-            "lcpMs": 2208,
-            "cls": 0.0003,
-            "tbtMs": 160,
-            "fcpMs": 2208,
+            "lcpMs": 2276,
+            "cls": 0.0001,
+            "tbtMs": 167,
+            "fcpMs": 2276,
             "requests": 7
           }
         ]
@@ -5739,14 +5711,14 @@
       "backend": {
         "cold": {
           "queries": 1,
-          "serverMs": 98.1
+          "serverMs": 92.4
         },
         "warm": {
           "status": 200,
           "queries": 1,
-          "queryTimeMs": 0.64,
-          "serverMs": 34.7,
-          "htmlBytes": 129115,
+          "queryTimeMs": 0.52,
+          "serverMs": 28.4,
+          "htmlBytes": 119107,
           "livewireComponents": 1,
           "snapshotBytesTotal": 277,
           "snapshots": [
@@ -5765,9 +5737,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 131040,
-          "gzip": 20111,
-          "brotli": 17267
+          "raw": 120912,
+          "gzip": 19908,
+          "brotli": 17102
         },
         "jsBytes": {
           "raw": 277503,
@@ -5776,43 +5748,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 72920,
         "imageBytes": 12355,
-        "totalTransferGzip": 213469,
+        "totalTransferGzip": 213378,
         "requestCount": 7,
-        "ttfbMs": 34,
-        "fcpMs": 2212,
-        "lcpMs": 2212,
+        "ttfbMs": 30,
+        "fcpMs": 2252,
+        "lcpMs": 2252,
         "lcpElement": "img.hero-photo.opacity-20",
-        "cls": 0.0001,
-        "tbtMs": 141,
+        "cls": 0.0004,
+        "tbtMs": 163,
         "longTasks": 3,
-        "loadMs": 4047,
+        "loadMs": 3937,
         "perRun": [
           {
-            "lcpMs": 2212,
-            "cls": 0.0001,
-            "tbtMs": 157,
-            "fcpMs": 2212,
+            "lcpMs": 2248,
+            "cls": 0.0004,
+            "tbtMs": 155,
+            "fcpMs": 2248,
             "requests": 7
           },
           {
-            "lcpMs": 2196,
-            "cls": 0.0001,
-            "tbtMs": 141,
-            "fcpMs": 2196,
+            "lcpMs": 2268,
+            "cls": 0.0004,
+            "tbtMs": 186,
+            "fcpMs": 2268,
             "requests": 7
           },
           {
-            "lcpMs": 2224,
-            "cls": 0.0001,
-            "tbtMs": 141,
-            "fcpMs": 2224,
+            "lcpMs": 2252,
+            "cls": 0.0004,
+            "tbtMs": 163,
+            "fcpMs": 2252,
             "requests": 7
           }
         ]
@@ -5900,14 +5872,14 @@
       "backend": {
         "cold": {
           "queries": 1,
-          "serverMs": 41.7
+          "serverMs": 30.3
         },
         "warm": {
           "status": 200,
           "queries": 1,
-          "queryTimeMs": 0.67,
-          "serverMs": 35.8,
-          "htmlBytes": 130675,
+          "queryTimeMs": 0.55,
+          "serverMs": 28.6,
+          "htmlBytes": 120667,
           "livewireComponents": 1,
           "snapshotBytesTotal": 281,
           "snapshots": [
@@ -5926,9 +5898,9 @@
       "performance": {
         "runs": 3,
         "htmlBytes": {
-          "raw": 131575,
-          "gzip": 20297,
-          "brotli": 17415
+          "raw": 121447,
+          "gzip": 20109,
+          "brotli": 17250
         },
         "jsBytes": {
           "raw": 277503,
@@ -5937,43 +5909,43 @@
           "requests": 2
         },
         "cssBytes": {
-          "raw": 97331,
-          "gzip": 16307,
-          "brotli": 14746,
+          "raw": 98227,
+          "gzip": 16419,
+          "brotli": 14852,
           "requests": 1
         },
         "fontBytes": 206256,
         "imageBytes": 14469,
-        "totalTransferGzip": 348649,
+        "totalTransferGzip": 348573,
         "requestCount": 8,
-        "ttfbMs": 31,
-        "fcpMs": 2180,
-        "lcpMs": 2180,
+        "ttfbMs": 37,
+        "fcpMs": 2264,
+        "lcpMs": 2264,
         "lcpElement": "img.hero-photo.opacity-20",
-        "cls": 0.001,
-        "tbtMs": 147,
-        "longTasks": 3,
-        "loadMs": 4786,
+        "cls": 0.0009,
+        "tbtMs": 150,
+        "longTasks": 4,
+        "loadMs": 4644,
         "perRun": [
           {
-            "lcpMs": 2180,
-            "cls": 0.001,
-            "tbtMs": 182,
-            "fcpMs": 2180,
+            "lcpMs": 2264,
+            "cls": 0.0009,
+            "tbtMs": 200,
+            "fcpMs": 2264,
             "requests": 8
           },
           {
-            "lcpMs": 2176,
-            "cls": 0.001,
-            "tbtMs": 116,
-            "fcpMs": 2176,
+            "lcpMs": 2264,
+            "cls": 0.0009,
+            "tbtMs": 150,
+            "fcpMs": 2264,
             "requests": 8
           },
           {
-            "lcpMs": 2208,
-            "cls": 0.001,
-            "tbtMs": 147,
-            "fcpMs": 2208,
+            "lcpMs": 2260,
+            "cls": 0.0009,
+            "tbtMs": 141,
+            "fcpMs": 2260,
             "requests": 8
           }
         ]
@@ -6061,14 +6033,14 @@
       "backend": {
         "cold": {
           "queries": 1,
-          "serverMs": 36.6
+          "serverMs": 29.7
         },
         "warm": {
           "status": 200,
           "queries": 1,
-          "queryTimeMs": 0.71,
-          "serverMs": 105.4,
-          "htmlBytes": 131210,
+          "queryTimeMs": 0.64,
+          "serverMs": 96.9,
+          "htmlBytes": 121202,
           "livewireComponents": 1,
           "snapshotBytesTotal": 281,
           "snapshots": [
