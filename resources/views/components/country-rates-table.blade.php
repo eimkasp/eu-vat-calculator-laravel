@@ -54,7 +54,7 @@
         </div>
     </div>
 
-    <div class="relative overflow-x-auto" tabindex="0" role="region" aria-labelledby="rates-heading">
+    <div class="relative overflow-x-auto" tabindex="0" role="group" aria-labelledby="rates-heading">
         <table class="app-table sm:min-w-[34rem]">
             <thead>
                 <tr>

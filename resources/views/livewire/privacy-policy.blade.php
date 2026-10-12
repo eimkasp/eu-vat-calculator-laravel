@@ -1,6 +1,6 @@
 @section('seo')
     <x-seo-meta
-        title="Privacy Policy — EU VAT Info"
+        title="Privacy policy: how EU VAT Info handles data"
         description="Privacy policy for EU VAT Info website and mobile apps. Learn how we collect, use, and protect your data."
         type="website" />
 @endsection

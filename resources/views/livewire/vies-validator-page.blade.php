@@ -321,7 +321,7 @@
                             <h2 id="vat-number-formats" class="text-xl font-bold text-ink">{{ __('ui.vies_page.formats_heading') }}</h2>
                             <p class="mt-1 max-w-[72ch] text-sm text-ink-muted">{{ __('ui.vies_page.formats_intro') }}</p>
                         </div>
-                        <div class="relative overflow-x-auto" tabindex="0" role="region" aria-labelledby="vat-number-formats">
+                        <div class="relative overflow-x-auto" tabindex="0" role="group" aria-labelledby="vat-number-formats">
                             <table class="app-table min-w-[30rem]">
                                 <thead>
                                     <tr>

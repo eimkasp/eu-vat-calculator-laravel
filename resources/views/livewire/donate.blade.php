@@ -1,7 +1,7 @@
 @section('seo')
     <x-seo-meta
-        title="Donate — Support EU VAT Info"
-        description="Support EU VAT Info, a free open-source platform providing VAT rates, calculators, and validators for all 27 EU member states. Donate via x402 crypto payments or GitHub Sponsors."
+        title="Donate: support free EU VAT rates and tools | EU VAT Info"
+        description="Support EU VAT Info, the free and open-source home of EU VAT rates, calculators and validators, through GitHub Sponsors or x402 payments."
         :url="url()->current()" />
 @endsection
 

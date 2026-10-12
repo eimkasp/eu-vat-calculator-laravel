@@ -127,7 +127,7 @@
 
                             <div>
                                 <h4 id="request-body-heading" class="app-eyebrow">Request body</h4>
-                                <div class="relative mt-2 overflow-x-auto rounded-card border border-line" tabindex="0" role="region" aria-labelledby="request-body-heading">
+                                <div class="relative mt-2 overflow-x-auto rounded-card border border-line" tabindex="0" role="group" aria-labelledby="request-body-heading">
                                     <table class="app-table min-w-[34rem]">
                                         <thead>
                                             <tr>
@@ -309,7 +309,7 @@
 
                 <section id="response-fields" class="scroll-mt-24" aria-labelledby="response-fields-heading">
                     <h2 id="response-fields-heading" class="text-xl font-bold text-ink">Response fields</h2>
-                    <div class="app-surface relative mt-4 overflow-x-auto" tabindex="0" role="region" aria-labelledby="response-fields-heading">
+                    <div class="app-surface relative mt-4 overflow-x-auto" tabindex="0" role="group" aria-labelledby="response-fields-heading">
                         <table class="app-table min-w-[34rem]">
                             <thead>
                                 <tr>
@@ -342,7 +342,7 @@
 
                 <section id="errors" class="scroll-mt-24" aria-labelledby="errors-heading">
                     <h2 id="errors-heading" class="text-xl font-bold text-ink">Error responses</h2>
-                    <div class="app-surface relative mt-4 overflow-x-auto" tabindex="0" role="region" aria-labelledby="errors-heading">
+                    <div class="app-surface relative mt-4 overflow-x-auto" tabindex="0" role="group" aria-labelledby="errors-heading">
                         <table class="app-table min-w-[28rem]">
                             <thead>
                                 <tr>

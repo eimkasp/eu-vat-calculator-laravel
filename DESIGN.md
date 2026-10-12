@@ -1,7 +1,7 @@
 ---
 name: EU VAT Info
 description: A solid, institutional EU VAT reference. Flat EU navy identity, a thin EU gold signature, square-cornered controls and quiet white surfaces where every number is easy to read.
-version: 5.2
+version: 5.3
 source: resources/css/app.css
 enforced-by: tests/Feature/DesignSystemTest.php
 colors:
@@ -183,7 +183,7 @@ Enter popovers with `x-transition:enter="transition duration-150 ease-out-quint"
 - `app-container` is the only page width: max 80rem, with 16/24/32px gutters at mobile, `sm` and `lg`.
 - Section rhythm: `py-8 sm:py-10` between content sections, `pb-12 sm:pb-16` at the bottom of heroes.
 - Grids start from one column (`grid grid-cols-1 md:grid-cols-2`). A grid without a base `grid-cols-*` can overflow on phones.
-- Wrap wide tables in `relative overflow-x-auto` with `tabindex="0" role="region"` and a name (`aria-labelledby` the section heading), so keyboard users can scroll them. No page may scroll horizontally at 320px.
+- Wrap wide tables in `relative overflow-x-auto` with `tabindex="0" role="group"` and a name (`aria-labelledby` the section heading), so keyboard users can scroll them. No page may scroll horizontally at 320px.
 - `mobile-nav-safe` on the footer reserves the height of the mobile tab bar on phones, so the end of every page scrolls clear of it.
 - A card that holds a sticky bar uses `overflow-clip`, not `overflow-hidden`, so the bar can stick to the viewport.
 - The header shows the full navigation from `xl` (1280px) and the menu button below it, so the longest languages fit. Its right-hand group is a container (`@container`): the search field and the GitHub link appear only when there is room for them (`@min-[27rem]`, `@min-[30rem]`), and the site name truncates before anything overflows. Check a header change in Bulgarian, Estonian and Maltese at 1024, 1280 and 1536px.

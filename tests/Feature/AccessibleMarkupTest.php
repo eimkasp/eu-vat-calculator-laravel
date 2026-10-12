@@ -44,7 +44,7 @@ it('lets keyboard users reach every table that scrolls sideways', function (stri
     expect($wrappers[0])->not->toBeEmpty();
 
     foreach ($wrappers[0] as $wrapper) {
-        expect($wrapper)->toContain('tabindex="0"')->toContain('role="region"')->toMatch('/aria-label(ledby)?="[^"]+"/');
+        expect($wrapper)->toContain('tabindex="0"')->toContain('role="group"')->toMatch('/aria-label(ledby)?="[^"]+"/');
     }
 })->with(['/', '/vat-map', '/vat-number-validator', '/vat-validation-api', '/top-vat-calculations']);
 

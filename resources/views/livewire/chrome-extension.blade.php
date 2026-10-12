@@ -1,7 +1,7 @@
 @section('seo')
     <x-seo-meta
         title="EU VAT Calculator — Free Chrome Extension"
-        description="Calculate EU VAT instantly from your browser toolbar. Free Chrome extension with all 27 EU country rates, calculation history, new-tab mode, and offline support."
+        description="Calculate EU VAT from your browser toolbar. A free Chrome extension with every EU rate, calculation history, a new-tab mode and offline use."
         type="website" />
 @endsection
 
