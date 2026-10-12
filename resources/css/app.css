@@ -2,10 +2,12 @@
 @import '@fontsource-variable/inter/opsz.css';
 
 /* Local fonts sized to Inter's metrics, shown until Inter loads so the swap does not reflow text (Arial and its
-   metric twins on desktop and iOS, Roboto on Android). */
+   metric twins on desktop and iOS, Roboto on Android). Regular, medium and bold text differ in width, so each weight
+   range has its own face; the sizes were tuned on the benchmark pages in English, German and Maltese. */
 @font-face {
     font-family: 'Inter Fallback';
     src: local('Arial'), local('ArialMT'), local('Liberation Sans'), local('Arimo');
+    font-weight: 100 449;
     size-adjust: 104.5%;
     ascent-override: 92.70%;
     descent-override: 23.10%;
@@ -13,11 +15,52 @@
 }
 
 @font-face {
+    font-family: 'Inter Fallback';
+    src: local('Arial'), local('ArialMT'), local('Liberation Sans'), local('Arimo');
+    font-weight: 450 549;
+    size-adjust: 107%;
+    ascent-override: 90.54%;
+    descent-override: 22.56%;
+    line-gap-override: 0%;
+}
+
+@font-face {
+    font-family: 'Inter Fallback';
+    src: local('Arial Bold'), local('Arial-BoldMT'), local('Liberation Sans Bold'), local('LiberationSans-Bold'), local('Arimo Bold');
+    font-weight: 550 900;
+    size-adjust: 99%;
+    ascent-override: 97.85%;
+    descent-override: 24.38%;
+    line-gap-override: 0%;
+}
+
+@font-face {
     font-family: 'Inter Fallback Roboto';
     src: local('Roboto'), local('Roboto-Regular');
-    size-adjust: 105%;
-    ascent-override: 92.26%;
-    descent-override: 22.99%;
+    font-weight: 100 449;
+    size-adjust: 106%;
+    ascent-override: 91.39%;
+    descent-override: 22.77%;
+    line-gap-override: 0%;
+}
+
+@font-face {
+    font-family: 'Inter Fallback Roboto';
+    src: local('Roboto Medium'), local('Roboto-Medium');
+    font-weight: 450 549;
+    size-adjust: 106%;
+    ascent-override: 91.39%;
+    descent-override: 22.77%;
+    line-gap-override: 0%;
+}
+
+@font-face {
+    font-family: 'Inter Fallback Roboto';
+    src: local('Roboto Bold'), local('Roboto-Bold');
+    font-weight: 550 900;
+    size-adjust: 104%;
+    ascent-override: 93.15%;
+    descent-override: 23.21%;
     line-gap-override: 0%;
 }
 

@@ -127,7 +127,7 @@ Navy areas are flat `brand` or `brand-deep` fills. They carry the `on-brand` uti
 
 ### Typography
 
-Inter Variable is self-hosted with the optical-size axis, so large text automatically uses Inter's display cut. Body text uses the stylistic sets `cv11` and `ss03`. Until it loads, text uses `Inter Fallback` (local Arial) or `Inter Fallback Roboto` (Android), resized with `size-adjust` and the ascent and descent overrides to Inter's metrics, so the swap does not rewrap lines or shift the layout. Keep both in `--font-sans` right after Inter.
+Inter Variable is self-hosted with the optical-size axis, so large text automatically uses Inter's display cut. Body text uses the stylistic sets `cv11` and `ss03`. Until it loads, text uses `Inter Fallback` (local Arial and Arial Bold) or `Inter Fallback Roboto` (Android), with one face per weight range (regular, medium, bold) resized with `size-adjust` and the ascent and descent overrides to Inter's metrics, so the swap does not rewrap lines or shift the layout. Keep both in `--font-sans` right after Inter.
 
 | Role | Classes | Where |
 |---|---|---|
