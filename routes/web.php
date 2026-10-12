@@ -17,6 +17,7 @@ use App\Http\Middleware\CanonicalizeSharedCalculation;
 use App\Http\Middleware\CanonicalizeVatComparison;
 use App\Livewire\BlogIndex;
 use App\Livewire\BlogShow;
+use App\Livewire\BrandGuidelines;
 use App\Livewire\Changelog;
 use App\Livewire\ChromeExtension;
 use App\Livewire\CountryVatCategory;
@@ -117,6 +118,7 @@ $registerRoutes = function () {
     Route::get('/changelog', Changelog::class)->name('changelog');
     Route::get('/mcp-server', McpServer::class)->name('mcp-server');
     Route::get('/styleguide', Styleguide::class)->name('styleguide');
+    Route::get('/brand', BrandGuidelines::class)->name('brand');
     Route::get('/chrome-extension', ChromeExtension::class)->name('chrome-extension');
     Route::get('/donate', Donate::class)->name('donate');
     Route::get('/privacy', PrivacyPolicy::class)->name('privacy');
@@ -206,6 +208,7 @@ Route::get('/search-index.json', SearchIndexController::class)->name('search-ind
 // Machine-readable design system: DTCG design tokens and DESIGN.md
 Route::get('/styleguide/design.tokens.json', [StyleguideController::class, 'tokens'])->name('styleguide.tokens');
 Route::get('/styleguide.md', [StyleguideController::class, 'markdown'])->name('styleguide.markdown');
+Route::get('/brand/eu-vat-info-mark.svg', [StyleguideController::class, 'mark'])->name('brand.mark');
 
 // LLM-optimised site map and full VAT rates table
 Route::get('/llms.txt', [LlmsController::class, 'index']);

@@ -977,4 +977,10 @@ return array (
     'faq_5_q' => 'As respostas são aconselhamento fiscal?',
     'faq_5_a' => 'Não. O servidor devolve taxas de referência. O tratamento correto do IVA depende dos bens ou serviços e do cliente, por isso confirme os casos importantes com um consultor fiscal ou com a autoridade tributária nacional.',
   ),
+  'brand' => 
+  array (
+    'nav_label' => 'Marca',
+    'nav_desc' => 'Logótipo, cores, tipografia e tom do EU VAT Info',
+    'english_only' => 'As diretrizes da marca estão publicadas em inglês.',
+  ),
 );

@@ -977,4 +977,10 @@ return array (
     'faq_5_q' => 'Ar atsakymai yra mokesčių konsultacija?',
     'faq_5_a' => 'Ne. Serveris grąžina orientacinius tarifus. Tinkamas PVM taikymas priklauso nuo prekių ar paslaugų ir kliento, todėl svarbius atvejus pasitikrinkite su mokesčių konsultantu arba nacionaline mokesčių administracija.',
   ),
+  'brand' => 
+  array (
+    'nav_label' => 'Prekės ženklas',
+    'nav_desc' => 'EU VAT Info logotipas, spalvos, šriftas ir tonas',
+    'english_only' => 'Prekės ženklo gairės skelbiamos anglų kalba.',
+  ),
 );

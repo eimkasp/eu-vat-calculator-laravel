@@ -977,4 +977,10 @@ return array (
     'faq_5_q' => 'Ali so odgovori davčni nasvet?',
     'faq_5_a' => 'Ne. Strežnik vrača referenčne stopnje. Pravilna obravnava DDV je odvisna od blaga ali storitev in od kupca, zato pomembne primere preverite pri davčnem svetovalcu ali nacionalni davčni upravi.',
   ),
+  'brand' => 
+  array (
+    'nav_label' => 'Blagovna znamka',
+    'nav_desc' => 'Logotip, barve, pisava in ton EU VAT Info',
+    'english_only' => 'Smernice blagovne znamke so objavljene v angleščini.',
+  ),
 );

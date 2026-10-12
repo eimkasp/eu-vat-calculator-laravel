@@ -1,0 +1,20 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction" />
+
+# EU VAT Info design system
+
+Solid and institutional: flat EU navy for the header, heroes and footer, EU gold only as a thin accent on navy, opaque white surfaces with hairline borders, square corners and tabular figures.
+
+Every story here is the site's own Blade output. `php artisan design-system:storybook` renders each example in `resources/views/styleguide/examples` through Blade and writes the stories, so Storybook never re-implements a component and cannot drift from the site. The same examples appear on [/styleguide](https://vat.businesspress.io/styleguide), the brand guidelines are on [/brand](https://vat.businesspress.io/brand), and this Storybook is published at [/storybook](https://vat.businesspress.io/storybook/) with every deploy.
+
+## Working with it
+
+- `yarn storybook` starts Storybook at http://localhost:6006. `yarn build` builds it into `public/storybook` next to the site's assets, and `yarn build-storybook` writes a standalone copy to `storybook-static`.
+- After changing an example, a component or `resources/css/app.css`, run `php artisan design-system:storybook` and commit the result. `php artisan test` fails while the stories are out of date.
+- Add an example by creating `resources/views/styleguide/examples/<name>.blade.php` and describing it in `App\Support\DesignSystem\ComponentCatalog`; it then appears on /styleguide and here.
+- Use the toolbar to switch between light and dark, and the Accessibility panel to run axe-core on any story.
+
+## Rules
+
+`DESIGN.md` is the source of truth. Style with semantic tokens and the `app-*` classes from `resources/css/app.css`: no raw palette colours, `dark:` variants, literal colours, default shadows, blur or gradients, and radii only from the scale. `tests/Feature/DesignSystemTest.php` enforces them.

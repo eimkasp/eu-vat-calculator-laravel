@@ -1,0 +1,1455 @@
+{
+    "$description": "EU VAT Info design tokens, generated from resources/css/app.css. Light values are the defaults; dark values are under $extensions.io.businesspress.vat.dark. Documentation: http://127.0.0.1:8123/styleguide",
+    "color": {
+        "$type": "color",
+        "semantic": {
+            "workspace": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.972,
+                        0.005,
+                        258.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#f4f6f9"
+                },
+                "$description": "Page canvas behind cards",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--ui-workspace",
+                        "utility": "bg-workspace",
+                        "group": "Surfaces",
+                        "dark": {
+                            "colorSpace": "oklch",
+                            "components": [
+                                0.16,
+                                0.016,
+                                262.0
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#090d14"
+                        }
+                    }
+                }
+            },
+            "surface": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        1.0,
+                        0.0,
+                        0.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#ffffff"
+                },
+                "$description": "Cards, fields, tables, menus",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--ui-surface",
+                        "utility": "bg-surface",
+                        "group": "Surfaces",
+                        "dark": {
+                            "colorSpace": "oklch",
+                            "components": [
+                                0.2,
+                                0.02,
+                                262.0
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#11161f"
+                        }
+                    }
+                }
+            },
+            "surface-subtle": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.982,
+                        0.004,
+                        258.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#f7f9fc"
+                },
+                "$description": "Table heads, result panes, sticky bars inside cards",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--ui-surface-subtle",
+                        "utility": "bg-surface-subtle",
+                        "group": "Surfaces",
+                        "dark": {
+                            "colorSpace": "oklch",
+                            "components": [
+                                0.222,
+                                0.022,
+                                262.0
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#151b25"
+                        }
+                    }
+                }
+            },
+            "surface-muted": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.955,
+                        0.007,
+                        258.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#edf0f5"
+                },
+                "$description": "Notes, tracks, hover fills, placeholders",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--ui-surface-muted",
+                        "utility": "bg-surface-muted",
+                        "group": "Surfaces",
+                        "dark": {
+                            "colorSpace": "oklch",
+                            "components": [
+                                0.255,
+                                0.024,
+                                262.0
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#1c232f"
+                        }
+                    }
+                }
+            },
+            "line": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.91,
+                        0.01,
+                        258.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#dde2e8"
+                },
+                "$description": "Hairlines between rows and around cards",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--ui-line",
+                        "utility": "border-line",
+                        "group": "Surfaces",
+                        "dark": {
+                            "colorSpace": "oklch",
+                            "components": [
+                                0.3,
+                                0.024,
+                                262.0
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#272e3a"
+                        }
+                    }
+                }
+            },
+            "line-strong": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.84,
+                        0.014,
+                        258.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#c5cbd4"
+                },
+                "$description": "Field and control outlines, popover edges",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--ui-line-strong",
+                        "utility": "border-line-strong",
+                        "group": "Surfaces",
+                        "dark": {
+                            "colorSpace": "oklch",
+                            "components": [
+                                0.38,
+                                0.028,
+                                262.0
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#3a4352"
+                        }
+                    }
+                }
+            },
+            "ink": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.21,
+                        0.035,
+                        262.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#0f1828"
+                },
+                "$description": "Headings, values, primary text",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--ui-ink",
+                        "utility": "text-ink",
+                        "group": "Text",
+                        "dark": {
+                            "colorSpace": "oklch",
+                            "components": [
+                                0.965,
+                                0.006,
+                                258.0
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#f1f4f8"
+                        }
+                    }
+                }
+            },
+            "ink-muted": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.44,
+                        0.03,
+                        262.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#4a5364"
+                },
+                "$description": "Supporting text and labels (AA on every surface)",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--ui-ink-muted",
+                        "utility": "text-ink-muted",
+                        "group": "Text",
+                        "dark": {
+                            "colorSpace": "oklch",
+                            "components": [
+                                0.8,
+                                0.016,
+                                258.0
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#b7bec8"
+                        }
+                    }
+                }
+            },
+            "ink-quiet": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.53,
+                        0.026,
+                        262.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#646c7b"
+                },
+                "$description": "Placeholders, disabled text, meta",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--ui-ink-quiet",
+                        "utility": "text-ink-quiet",
+                        "group": "Text",
+                        "dark": {
+                            "colorSpace": "oklch",
+                            "components": [
+                                0.69,
+                                0.02,
+                                258.0
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#949ca8"
+                        }
+                    }
+                }
+            },
+            "brand": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.3,
+                        0.09,
+                        262.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#132b5a"
+                },
+                "$description": "EU navy: heroes, navy cards and panels",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--ui-brand",
+                        "utility": "bg-brand",
+                        "group": "Brand",
+                        "dark": {
+                            "colorSpace": "oklch",
+                            "components": [
+                                0.235,
+                                0.06,
+                                262.0
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#0e1d3a"
+                        }
+                    }
+                }
+            },
+            "brand-deep": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.245,
+                        0.075,
+                        262.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#0b1e44"
+                },
+                "$description": "Header, footer, text on white buttons",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--ui-brand-deep",
+                        "utility": "bg-brand-deep",
+                        "group": "Brand",
+                        "dark": {
+                            "colorSpace": "oklch",
+                            "components": [
+                                0.195,
+                                0.045,
+                                262.0
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#091429"
+                        }
+                    }
+                }
+            },
+            "brand-soft": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.962,
+                        0.016,
+                        258.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#ecf3fe"
+                },
+                "$description": "Brand-tinted panels on light surfaces",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--ui-brand-soft",
+                        "utility": "bg-brand-soft",
+                        "group": "Brand",
+                        "dark": {
+                            "colorSpace": "oklch",
+                            "components": [
+                                0.28,
+                                0.05,
+                                262.0
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#1b2942"
+                        }
+                    }
+                }
+            },
+            "action": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.49,
+                        0.17,
+                        261.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#2159bf"
+                },
+                "$description": "Links, selection, focus, data bars (never behind white text)",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--ui-action",
+                        "utility": "bg-action",
+                        "group": "Action",
+                        "dark": {
+                            "colorSpace": "oklch",
+                            "components": [
+                                0.76,
+                                0.11,
+                                255.0
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#81b4f6"
+                        }
+                    }
+                }
+            },
+            "action-deep": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.42,
+                        0.15,
+                        261.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#16479d"
+                },
+                "$description": "Text on action-soft, hovered links",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--ui-action-deep",
+                        "utility": "bg-action-deep",
+                        "group": "Action",
+                        "dark": {
+                            "colorSpace": "oklch",
+                            "components": [
+                                0.84,
+                                0.08,
+                                252.0
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#a5cffe"
+                        }
+                    }
+                }
+            },
+            "action-soft": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.958,
+                        0.018,
+                        258.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#eaf2fe"
+                },
+                "$description": "Selected chips, active rows, icon wells",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--ui-action-soft",
+                        "utility": "bg-action-soft",
+                        "group": "Action",
+                        "dark": {
+                            "colorSpace": "oklch",
+                            "components": [
+                                0.29,
+                                0.055,
+                                262.0
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#1c2b47"
+                        }
+                    }
+                }
+            },
+            "button": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.49,
+                        0.17,
+                        261.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#2159bf"
+                },
+                "$description": "Fills that carry white text (stays saturated in dark)",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--ui-button",
+                        "utility": "bg-button",
+                        "group": "Action",
+                        "dark": {
+                            "colorSpace": "oklch",
+                            "components": [
+                                0.5,
+                                0.16,
+                                261.0
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#295ebd"
+                        }
+                    }
+                }
+            },
+            "button-hover": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.42,
+                        0.15,
+                        261.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#16479d"
+                },
+                "$description": "Hover for button fills",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--ui-button-hover",
+                        "utility": "bg-button-hover",
+                        "group": "Action",
+                        "dark": {
+                            "colorSpace": "oklch",
+                            "components": [
+                                0.56,
+                                0.16,
+                                261.0
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#3a70d1"
+                        }
+                    }
+                }
+            },
+            "success": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.5,
+                        0.12,
+                        158.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#007748"
+                },
+                "$description": "Verified, valid, decrease in rate",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--ui-success",
+                        "utility": "bg-success",
+                        "group": "Status",
+                        "dark": {
+                            "colorSpace": "oklch",
+                            "components": [
+                                0.8,
+                                0.14,
+                                158.0
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#63d99b"
+                        }
+                    }
+                }
+            },
+            "success-soft": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.962,
+                        0.035,
+                        158.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#e0faea"
+                },
+                "$description": "Verified, valid, decrease in rate",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--ui-success-soft",
+                        "utility": "bg-success-soft",
+                        "group": "Status",
+                        "dark": {
+                            "colorSpace": "oklch",
+                            "components": [
+                                0.29,
+                                0.05,
+                                162.0
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#103324"
+                        }
+                    }
+                }
+            },
+            "warning": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.53,
+                        0.15,
+                        48.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#ae4900"
+                },
+                "$description": "Needs attention, scheduled",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--ui-warning",
+                        "utility": "bg-warning",
+                        "group": "Status",
+                        "dark": {
+                            "colorSpace": "oklch",
+                            "components": [
+                                0.83,
+                                0.13,
+                                75.0
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#f9ba5f"
+                        }
+                    }
+                }
+            },
+            "warning-soft": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.968,
+                        0.04,
+                        78.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#fff2d7"
+                },
+                "$description": "Needs attention, scheduled",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--ui-warning-soft",
+                        "utility": "bg-warning-soft",
+                        "group": "Status",
+                        "dark": {
+                            "colorSpace": "oklch",
+                            "components": [
+                                0.3,
+                                0.055,
+                                60.0
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#42270e"
+                        }
+                    }
+                }
+            },
+            "danger": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.52,
+                        0.19,
+                        27.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#be2323"
+                },
+                "$description": "Invalid, error, increase in rate",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--ui-danger",
+                        "utility": "bg-danger",
+                        "group": "Status",
+                        "dark": {
+                            "colorSpace": "oklch",
+                            "components": [
+                                0.76,
+                                0.14,
+                                25.0
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#fe8b83"
+                        }
+                    }
+                }
+            },
+            "danger-soft": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.965,
+                        0.02,
+                        20.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#ffeeee"
+                },
+                "$description": "Invalid, error, increase in rate",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--ui-danger-soft",
+                        "utility": "bg-danger-soft",
+                        "group": "Status",
+                        "dark": {
+                            "colorSpace": "oklch",
+                            "components": [
+                                0.3,
+                                0.07,
+                                25.0
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#4b1d1b"
+                        }
+                    }
+                }
+            }
+        },
+        "fixed": {
+            "gold": {
+                "$value": {
+                    "colorSpace": "srgb",
+                    "components": [
+                        1.0,
+                        0.8,
+                        0.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#ffcc00"
+                },
+                "$description": "EU gold signature, only on navy: active nav underline, kicker square, logo dot, accent icons, focus ring. Never on white, never for body text.",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--color-gold",
+                        "utility": "bg-gold"
+                    }
+                }
+            },
+            "code": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.17,
+                        0.025,
+                        264.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#0a0f1a"
+                },
+                "$description": "Code blocks, which stay dark in both themes",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--color-code",
+                        "utility": "bg-code"
+                    }
+                }
+            },
+            "code-raised": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.225,
+                        0.027,
+                        264.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#151c29"
+                },
+                "$description": "Code blocks, which stay dark in both themes",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--color-code-raised",
+                        "utility": "bg-code-raised"
+                    }
+                }
+            },
+            "code-muted": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.3,
+                        0.027,
+                        264.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#272e3c"
+                },
+                "$description": "Code blocks, which stay dark in both themes",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--color-code-muted",
+                        "utility": "bg-code-muted"
+                    }
+                }
+            }
+        },
+        "syntax": {
+            "keyword": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.83,
+                        0.1,
+                        232.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#81d3fd"
+                },
+                "$description": "Keywords, variables, spinner on code",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--color-syntax-keyword",
+                        "utility": "text-syntax-keyword"
+                    }
+                }
+            },
+            "function": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.9,
+                        0.15,
+                        100.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#f5e05d"
+                },
+                "$description": "Function and property names",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--color-syntax-function",
+                        "utility": "text-syntax-function"
+                    }
+                }
+            },
+            "string": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.87,
+                        0.14,
+                        154.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#84efaa"
+                },
+                "$description": "Strings, JSON responses",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--color-syntax-string",
+                        "utility": "text-syntax-string"
+                    }
+                }
+            },
+            "literal": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.85,
+                        0.13,
+                        72.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#ffbf67"
+                },
+                "$description": "Request bodies, literals",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--color-syntax-literal",
+                        "utility": "text-syntax-literal"
+                    }
+                }
+            },
+            "comment": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.72,
+                        0.03,
+                        260.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#9aa5b8"
+                },
+                "$description": "Comments, meta, placeholders on code",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--color-syntax-comment",
+                        "utility": "text-syntax-comment"
+                    }
+                }
+            },
+            "ok": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.78,
+                        0.15,
+                        163.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#3fd59b"
+                },
+                "$description": "HTTP methods, 2xx status",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--color-syntax-ok",
+                        "utility": "text-syntax-ok"
+                    }
+                }
+            },
+            "error": {
+                "$value": {
+                    "colorSpace": "oklch",
+                    "components": [
+                        0.74,
+                        0.15,
+                        18.0
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#fb8087"
+                },
+                "$description": "Errors, 4xx/5xx status",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--color-syntax-error",
+                        "utility": "text-syntax-error"
+                    }
+                }
+            }
+        },
+        "map": {
+            "step-0": {
+                "$value": {
+                    "colorSpace": "srgb",
+                    "components": [
+                        0.5255,
+                        0.7137,
+                        0.9373
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#86b6ef"
+                },
+                "$description": "Step 1 of the five-step VAT map ramp, stepped separately for dark mode.",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--map-0",
+                        "dark": {
+                            "colorSpace": "srgb",
+                            "components": [
+                                0.0941,
+                                0.3098,
+                                0.5843
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#184f95"
+                        }
+                    }
+                }
+            },
+            "step-1": {
+                "$value": {
+                    "colorSpace": "srgb",
+                    "components": [
+                        0.3333,
+                        0.5961,
+                        0.9059
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#5598e7"
+                },
+                "$description": "Step 2 of the five-step VAT map ramp, stepped separately for dark mode.",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--map-1",
+                        "dark": {
+                            "colorSpace": "srgb",
+                            "components": [
+                                0.1451,
+                                0.4157,
+                                0.749
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#256abf"
+                        }
+                    }
+                }
+            },
+            "step-2": {
+                "$value": {
+                    "colorSpace": "srgb",
+                    "components": [
+                        0.1647,
+                        0.4706,
+                        0.8392
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#2a78d6"
+                },
+                "$description": "Step 3 of the five-step VAT map ramp, stepped separately for dark mode.",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--map-2",
+                        "dark": {
+                            "colorSpace": "srgb",
+                            "components": [
+                                0.2235,
+                                0.5294,
+                                0.898
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#3987e5"
+                        }
+                    }
+                }
+            },
+            "step-3": {
+                "$value": {
+                    "colorSpace": "srgb",
+                    "components": [
+                        0.1098,
+                        0.3608,
+                        0.6706
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#1c5cab"
+                },
+                "$description": "Step 4 of the five-step VAT map ramp, stepped separately for dark mode.",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--map-3",
+                        "dark": {
+                            "colorSpace": "srgb",
+                            "components": [
+                                0.4275,
+                                0.6549,
+                                0.9255
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#6da7ec"
+                        }
+                    }
+                }
+            },
+            "step-4": {
+                "$value": {
+                    "colorSpace": "srgb",
+                    "components": [
+                        0.0627,
+                        0.2588,
+                        0.5059
+                    ],
+                    "alpha": 1.0,
+                    "hex": "#104281"
+                },
+                "$description": "Step 5 of the five-step VAT map ramp, stepped separately for dark mode.",
+                "$extensions": {
+                    "io.businesspress.vat": {
+                        "cssVariable": "--map-4",
+                        "dark": {
+                            "colorSpace": "srgb",
+                            "components": [
+                                0.6196,
+                                0.7725,
+                                0.9569
+                            ],
+                            "alpha": 1.0,
+                            "hex": "#9ec5f4"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "font": {
+        "$type": "fontFamily",
+        "sans": {
+            "$value": [
+                "Inter Variable",
+                "ui-sans-serif",
+                "system-ui",
+                "-apple-system",
+                "Segoe UI",
+                "Roboto",
+                "sans-serif",
+                "Apple Color Emoji",
+                "Segoe UI Emoji"
+            ]
+        },
+        "mono": {
+            "$value": [
+                "ui-monospace",
+                "SF Mono",
+                "Cascadia Code",
+                "JetBrains Mono",
+                "Menlo",
+                "Consolas",
+                "monospace"
+            ]
+        }
+    },
+    "typography": {
+        "$type": "typography",
+        "display": {
+            "$value": {
+                "fontFamily": "{font.sans}",
+                "fontSize": {
+                    "value": 3.0,
+                    "unit": "rem"
+                },
+                "fontWeight": 700,
+                "letterSpacing": {
+                    "value": -0.09,
+                    "unit": "rem"
+                },
+                "lineHeight": 1.08
+            }
+        },
+        "headline": {
+            "$value": {
+                "fontFamily": "{font.sans}",
+                "fontSize": {
+                    "value": 2.5,
+                    "unit": "rem"
+                },
+                "fontWeight": 700,
+                "letterSpacing": {
+                    "value": -0.0875,
+                    "unit": "rem"
+                },
+                "lineHeight": 1.1
+            }
+        },
+        "title": {
+            "$value": {
+                "fontFamily": "{font.sans}",
+                "fontSize": {
+                    "value": 1.125,
+                    "unit": "rem"
+                },
+                "fontWeight": 700,
+                "letterSpacing": {
+                    "value": 0.0,
+                    "unit": "rem"
+                },
+                "lineHeight": 1.35
+            }
+        },
+        "body": {
+            "$value": {
+                "fontFamily": "{font.sans}",
+                "fontSize": {
+                    "value": 1.0,
+                    "unit": "rem"
+                },
+                "fontWeight": 400,
+                "letterSpacing": {
+                    "value": 0.0,
+                    "unit": "rem"
+                },
+                "lineHeight": 1.6
+            }
+        },
+        "label": {
+            "$value": {
+                "fontFamily": "{font.sans}",
+                "fontSize": {
+                    "value": 0.8125,
+                    "unit": "rem"
+                },
+                "fontWeight": 600,
+                "letterSpacing": {
+                    "value": 0.0,
+                    "unit": "rem"
+                },
+                "lineHeight": 1.35
+            }
+        },
+        "kicker": {
+            "$value": {
+                "fontFamily": "{font.sans}",
+                "fontSize": {
+                    "value": 0.75,
+                    "unit": "rem"
+                },
+                "fontWeight": 600,
+                "letterSpacing": {
+                    "value": 0.06,
+                    "unit": "rem"
+                },
+                "lineHeight": 1.67
+            },
+            "$extensions": {
+                "io.businesspress.vat": {
+                    "textTransform": "uppercase"
+                }
+            }
+        }
+    },
+    "radius": {
+        "$type": "dimension",
+        "control": {
+            "$value": {
+                "value": 0.25,
+                "unit": "rem"
+            },
+            "$extensions": {
+                "io.businesspress.vat": {
+                    "cssVariable": "--radius-control",
+                    "utility": "rounded-control"
+                }
+            }
+        },
+        "card": {
+            "$value": {
+                "value": 0.375,
+                "unit": "rem"
+            },
+            "$extensions": {
+                "io.businesspress.vat": {
+                    "cssVariable": "--radius-card",
+                    "utility": "rounded-card"
+                }
+            }
+        },
+        "panel": {
+            "$value": {
+                "value": 0.5,
+                "unit": "rem"
+            },
+            "$extensions": {
+                "io.businesspress.vat": {
+                    "cssVariable": "--radius-panel",
+                    "utility": "rounded-panel"
+                }
+            }
+        }
+    },
+    "shadow": {
+        "$type": "shadow",
+        "card": {
+            "$value": [
+                {
+                    "color": {
+                        "colorSpace": "oklch",
+                        "components": [
+                            0.2,
+                            0.03,
+                            262.0
+                        ],
+                        "alpha": 0.06,
+                        "hex": "#0e1624"
+                    },
+                    "offsetX": {
+                        "value": 0.0,
+                        "unit": "px"
+                    },
+                    "offsetY": {
+                        "value": 1.0,
+                        "unit": "px"
+                    },
+                    "blur": {
+                        "value": 2.0,
+                        "unit": "px"
+                    },
+                    "spread": {
+                        "value": 0.0,
+                        "unit": "px"
+                    }
+                }
+            ],
+            "$extensions": {
+                "io.businesspress.vat": {
+                    "cssVariable": "--shadow-card",
+                    "utility": "shadow-card"
+                }
+            }
+        },
+        "workflow": {
+            "$value": [
+                {
+                    "color": {
+                        "colorSpace": "oklch",
+                        "components": [
+                            0.2,
+                            0.04,
+                            262.0
+                        ],
+                        "alpha": 0.1,
+                        "hex": "#0c1628"
+                    },
+                    "offsetX": {
+                        "value": 0.0,
+                        "unit": "px"
+                    },
+                    "offsetY": {
+                        "value": 1.0,
+                        "unit": "px"
+                    },
+                    "blur": {
+                        "value": 2.0,
+                        "unit": "px"
+                    },
+                    "spread": {
+                        "value": 0.0,
+                        "unit": "px"
+                    }
+                },
+                {
+                    "color": {
+                        "colorSpace": "oklch",
+                        "components": [
+                            0.15,
+                            0.06,
+                            262.0
+                        ],
+                        "alpha": 0.45,
+                        "hex": "#010924"
+                    },
+                    "offsetX": {
+                        "value": 0.0,
+                        "unit": "px"
+                    },
+                    "offsetY": {
+                        "value": 12.0,
+                        "unit": "px"
+                    },
+                    "blur": {
+                        "value": 32.0,
+                        "unit": "px"
+                    },
+                    "spread": {
+                        "value": -12.0,
+                        "unit": "px"
+                    }
+                }
+            ],
+            "$extensions": {
+                "io.businesspress.vat": {
+                    "cssVariable": "--shadow-workflow",
+                    "utility": "shadow-workflow"
+                }
+            }
+        },
+        "floating": {
+            "$value": [
+                {
+                    "color": {
+                        "colorSpace": "oklch",
+                        "components": [
+                            0.2,
+                            0.03,
+                            262.0
+                        ],
+                        "alpha": 0.08,
+                        "hex": "#0e1624"
+                    },
+                    "offsetX": {
+                        "value": 0.0,
+                        "unit": "px"
+                    },
+                    "offsetY": {
+                        "value": 2.0,
+                        "unit": "px"
+                    },
+                    "blur": {
+                        "value": 6.0,
+                        "unit": "px"
+                    },
+                    "spread": {
+                        "value": 0.0,
+                        "unit": "px"
+                    }
+                },
+                {
+                    "color": {
+                        "colorSpace": "oklch",
+                        "components": [
+                            0.2,
+                            0.04,
+                            262.0
+                        ],
+                        "alpha": 0.22,
+                        "hex": "#0c1628"
+                    },
+                    "offsetX": {
+                        "value": 0.0,
+                        "unit": "px"
+                    },
+                    "offsetY": {
+                        "value": 14.0,
+                        "unit": "px"
+                    },
+                    "blur": {
+                        "value": 32.0,
+                        "unit": "px"
+                    },
+                    "spread": {
+                        "value": -8.0,
+                        "unit": "px"
+                    }
+                }
+            ],
+            "$extensions": {
+                "io.businesspress.vat": {
+                    "cssVariable": "--shadow-floating",
+                    "utility": "shadow-floating"
+                }
+            }
+        }
+    },
+    "easing": {
+        "$type": "cubicBezier",
+        "out-quint": {
+            "$value": [
+                0.22,
+                1.0,
+                0.36,
+                1.0
+            ],
+            "$extensions": {
+                "io.businesspress.vat": {
+                    "cssVariable": "--ease-out-quint",
+                    "utility": "ease-out-quint"
+                }
+            }
+        }
+    },
+    "duration": {
+        "$type": "duration",
+        "colour": {
+            "$value": {
+                "value": 150,
+                "unit": "ms"
+            }
+        },
+        "position": {
+            "$value": {
+                "value": 200,
+                "unit": "ms"
+            }
+        }
+    },
+    "size": {
+        "$type": "dimension",
+        "container": {
+            "$value": {
+                "value": 80.0,
+                "unit": "rem"
+            },
+            "$description": "Maximum width of app-container."
+        },
+        "gutter": {
+            "base": {
+                "$value": {
+                    "value": 1.0,
+                    "unit": "rem"
+                },
+                "$description": "Inline padding of app-container from the base breakpoint."
+            },
+            "sm": {
+                "$value": {
+                    "value": 1.5,
+                    "unit": "rem"
+                },
+                "$description": "Inline padding of app-container from the sm breakpoint."
+            },
+            "lg": {
+                "$value": {
+                    "value": 2.0,
+                    "unit": "rem"
+                },
+                "$description": "Inline padding of app-container from the lg breakpoint."
+            }
+        }
+    }
+}

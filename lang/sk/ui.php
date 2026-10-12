@@ -977,4 +977,10 @@ return array (
     'faq_5_q' => 'Sú odpovede daňovým poradenstvom?',
     'faq_5_a' => 'Nie. Server poskytuje referenčné sadzby. Správne uplatnenie DPH závisí od tovaru alebo služieb a od zákazníka, preto dôležité prípady overte u daňového poradcu alebo národnej finančnej správy.',
   ),
+  'brand' => 
+  array (
+    'nav_label' => 'Značka',
+    'nav_desc' => 'Logo, farby, písmo a tón EU VAT Info',
+    'english_only' => 'Pravidlá značky sú zverejnené v angličtine.',
+  ),
 );

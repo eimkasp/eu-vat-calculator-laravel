@@ -977,4 +977,10 @@ return array (
     'faq_5_q' => 'Er svarene skatterådgivning?',
     'faq_5_a' => 'Nej. Serveren returnerer referencesatser. Den rigtige momsbehandling afhænger af varerne eller ydelserne og af kunden, så tjek vigtige sager med en skatterådgiver eller den nationale skattemyndighed.',
   ),
+  'brand' => 
+  array (
+    'nav_label' => 'Brand',
+    'nav_desc' => 'Logo, farver, skrift og tone for EU VAT Info',
+    'english_only' => 'Retningslinjerne for brandet er udgivet på engelsk.',
+  ),
 );

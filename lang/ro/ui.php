@@ -977,4 +977,10 @@ return array (
     'faq_5_q' => 'Răspunsurile reprezintă consultanță fiscală?',
     'faq_5_a' => 'Nu. Serverul returnează cote de referință. Tratamentul corect al TVA depinde de bunuri sau servicii și de client, așa că verificați cazurile importante cu un consultant fiscal sau cu administrația fiscală națională.',
   ),
+  'brand' => 
+  array (
+    'nav_label' => 'Marcă',
+    'nav_desc' => 'Logo, culori, tipografie și ton EU VAT Info',
+    'english_only' => 'Ghidul mărcii este publicat în limba engleză.',
+  ),
 );

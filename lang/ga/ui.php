@@ -977,4 +977,10 @@ return array (
     'faq_5_q' => 'An comhairle chánach iad na freagraí?',
     'faq_5_a' => 'Ní hea. Tugann an freastalaí rátaí tagartha ar ais. Braitheann an chóireáil cheart CBL ar na hearraí nó na seirbhísí agus ar an gcustaiméir, mar sin seiceáil cásanna tábhachtacha le comhairleoir cánach nó leis an údarás cánach náisiúnta.',
   ),
+  'brand' => 
+  array (
+    'nav_label' => 'Branda',
+    'nav_desc' => 'Lógó, dathanna, cló agus guth EU VAT Info',
+    'english_only' => 'Foilsítear treoirlínte an bhranda i mBéarla.',
+  ),
 );

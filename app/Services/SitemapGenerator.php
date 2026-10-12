@@ -131,6 +131,10 @@ class SitemapGenerator
                 resource_path('css/app.css'),
                 base_path('DESIGN.md'),
             ])],
+            ['path' => '/brand', 'locales' => $this->englishOnly(), 'lastmod' => $this->filesLastModified([
+                resource_path('views/livewire/brand-guidelines.blade.php'),
+                resource_path('css/app.css'),
+            ])],
             ['path' => '/sitemap', 'lastmod' => $lastmod],
         ]);
 

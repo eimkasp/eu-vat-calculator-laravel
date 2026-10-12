@@ -1,16 +1,16 @@
 @use('App\Support\DesignSystem\CodeHighlighter')
+@use('App\Support\DesignSystem\ComponentCatalog')
 
-@props(['title', 'example' => null, 'preview' => null, 'code' => null, 'description' => null, 'canvas' => 'surface', 'language' => 'Blade'])
+@props(['title' => null, 'example' => null, 'preview' => null, 'code' => null, 'description' => null, 'canvas' => null, 'language' => 'Blade'])
 
 @php
+    $entry = $example ? ComponentCatalog::example($example) : [];
+    $title ??= $entry['title'] ?? '';
+    $description ??= $entry['description'] ?? null;
+    $canvas ??= $entry['canvas'] ?? 'surface';
     $preview ??= $example ? 'styleguide.examples.'.$example : null;
     $source = trim($code ?? file_get_contents(resource_path('views/styleguide/examples/'.$example.'.blade.php')));
-    $canvasClass = [
-        'surface' => 'bg-surface',
-        'subtle' => 'bg-surface-subtle',
-        'workspace' => 'bg-workspace',
-        'brand' => 'hero-canvas',
-    ][$canvas] ?? 'bg-surface';
+    $canvasClass = ComponentCatalog::CANVASES[$canvas] ?? ComponentCatalog::CANVASES['surface'];
 @endphp
 
 <figure {{ $attributes->merge(['class' => 'app-surface flex flex-col overflow-hidden']) }} x-data>

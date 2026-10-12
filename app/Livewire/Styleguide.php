@@ -3,12 +3,15 @@
 namespace App\Livewire;
 
 use App\Support\DesignSystem\Color;
+use App\Support\DesignSystem\ComponentCatalog;
 use App\Support\DesignSystem\DesignGuide;
 use App\Support\DesignSystem\DesignTokens;
 use Livewire\Component;
 
 class Styleguide extends Component
 {
+    public const STORYBOOK_VERSION = '10.6.0';
+
     public const BUSINESSPRESS_URL = 'https://businesspress.io/?utm_source=eu-vat-info&utm_medium=referral&utm_campaign=design-system';
 
     public const SECTIONS = [
@@ -36,11 +39,13 @@ class Styleguide extends Component
         'Patterns' => [
             'skeletons' => 'Page skeletons',
             'results' => 'Results',
+            'country' => 'Country pages',
             'tiles' => 'Tiles and rows',
             'states' => 'States',
             'calls-to-action' => 'Calls to action',
         ],
         'Resources' => [
+            'storybook' => 'Storybook',
             'agents' => 'For AI agents',
             'rules' => 'Rules and checks',
         ],
@@ -80,6 +85,8 @@ class Styleguide extends Component
                 ['value' => count($tokens->radii()) + count($tokens->shadows()) + count($tokens->easings()), 'label' => 'Shape, depth and motion tokens'],
                 ['value' => count(self::componentClasses()), 'label' => 'Component classes'],
                 ['value' => count($icons), 'label' => 'Icons'],
+                ['value' => count(ComponentCatalog::EXAMPLES), 'label' => 'Live examples'],
+                ['value' => count(glob(resource_path('views/components/{,*/}*.blade.php'), GLOB_BRACE) ?: []), 'label' => 'Blade components'],
             ],
         ]);
     }

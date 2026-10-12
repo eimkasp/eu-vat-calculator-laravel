@@ -977,4 +977,10 @@ return array (
     'faq_5_q' => 'Le risposte sono consulenza fiscale?',
     'faq_5_a' => 'No. Il server fornisce aliquote di riferimento. Il corretto trattamento IVA dipende dai beni o servizi e dal cliente, quindi verifica i casi importanti con un consulente fiscale o con l\'amministrazione finanziaria nazionale.',
   ),
+  'brand' => 
+  array (
+    'nav_label' => 'Marchio',
+    'nav_desc' => 'Logo, colori, caratteri e tono di EU VAT Info',
+    'english_only' => 'Le linee guida del marchio sono pubblicate in inglese.',
+  ),
 );

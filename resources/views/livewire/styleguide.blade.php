@@ -116,10 +116,18 @@
                         <x-ui.icon name="file-text" class="size-4" />
                         Read DESIGN.md
                     </a>
+                    <a href="{{ url('/storybook/') }}" class="app-button-on-brand">
+                        <x-ui.icon name="puzzle" class="size-4" />
+                        Browse Storybook
+                    </a>
+                    <a href="{{ locale_path('/brand') }}" class="app-button-on-brand">
+                        <x-ui.icon name="flag" class="size-4" />
+                        Brand guidelines
+                    </a>
                 </div>
             </div>
 
-            <dl class="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-4" lang="en">
+            <dl class="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-6" lang="en">
                 @foreach($stats as $stat)
                     <div class="app-brand-panel flex flex-col-reverse p-4">
                         <dt class="mt-1 text-sm text-white/70">{{ $stat['label'] }}</dt>
@@ -551,55 +559,57 @@
 
                 {{-- Components --}}
                 <x-styleguide.section id="buttons" title="Buttons" lead="44px rectangles with pressable feedback. Use one primary button per view, secondary or ghost for the rest, and the inverse and on-brand pair on navy.">
-                    <x-styleguide.specimen example="buttons-variants" title="Primary, secondary and ghost" description="app-button-primary is the one main action" />
-                    <x-styleguide.specimen example="buttons-on-brand" title="On navy" description="app-button-inverse and app-button-on-brand" canvas="brand" />
-                    <x-styleguide.specimen example="buttons-sizes" title="Sizes and icon-only" description="Size tweaks are extra classes; icon-only buttons need aria-label" />
-                    <x-styleguide.specimen example="buttons-states" title="Loading and disabled" description="Select Validate to see the busy state" />
+                    <x-styleguide.specimen example="buttons-variants" />
+                    <x-styleguide.specimen example="buttons-on-brand" />
+                    <x-styleguide.specimen example="buttons-sizes" />
+                    <x-styleguide.specimen example="buttons-states" />
                 </x-styleguide.section>
 
                 <x-styleguide.section id="fields" title="Form fields" lead="Labels sit above the field, help and errors below, linked with aria-describedby. Validate on the client for instant feedback and again on the server.">
                     <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
-                        <x-styleguide.specimen example="field-text" title="Text field" description="app-field with help text" />
-                        <x-styleguide.specimen example="field-error" title="Error" description="aria-invalid plus a message that says what to fix" />
-                        <x-styleguide.specimen example="field-select" title="Select" description="app-select keeps the native control" />
-                        <x-styleguide.specimen example="field-amount" title="Prefix and search" description="Money inputs are tabular" />
+                        <x-styleguide.specimen example="field-text" />
+                        <x-styleguide.specimen example="field-error" />
+                        <x-styleguide.specimen example="field-select" />
+                        <x-styleguide.specimen example="field-amount" />
+                        <x-styleguide.specimen example="field-format-hint" class="xl:col-span-2" />
                     </div>
                 </x-styleguide.section>
 
                 <x-styleguide.section id="selection" title="Selection controls" lead="A segmented control for two equal modes, chips for choosing among values, and chip tabs for switching panels.">
-                    <x-styleguide.specimen example="segmented" title="Segmented control" description="The thumb slides 200ms; data-value is rendered on the server too" />
-                    <x-styleguide.specimen example="chips" title="Chips" description="app-chip-active with aria-pressed; dashed for “add custom”" />
-                    <x-styleguide.specimen example="tabs" title="Chip tabs" description="A tablist with arrow-key movement" />
+                    <x-styleguide.specimen example="segmented" />
+                    <x-styleguide.specimen example="chips" />
+                    <x-styleguide.specimen example="tabs" />
                 </x-styleguide.section>
 
                 <x-styleguide.section id="surfaces" title="Surfaces" lead="Opaque white paper with hairline borders. Cards hold content, the raised card holds the primary task, popovers float, and brand panels sit on navy.">
                     <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
-                        <x-styleguide.specimen example="surface-card" title="Card" description="app-surface on the workspace" canvas="workspace" />
-                        <x-styleguide.specimen example="surface-raised" title="Raised task card" description="app-surface-raised, once per view, on a hero" canvas="brand" />
-                        <x-styleguide.specimen example="surface-popover" title="Popover" description="app-popover for menus, the palette and toasts" canvas="workspace" />
-                        <x-styleguide.specimen example="surface-brand-panel" title="Brand panel" description="app-brand-panel for tiles and fields on navy" canvas="brand" />
+                        <x-styleguide.specimen example="surface-card" />
+                        <x-styleguide.specimen example="surface-raised" />
+                        <x-styleguide.specimen example="surface-popover" />
+                        <x-styleguide.specimen example="surface-brand-panel" />
                     </div>
-                    <x-styleguide.specimen example="surface-note" title="Note" description="app-note: a quiet grey aside with an info icon" />
+                    <x-styleguide.specimen example="surface-note" />
                 </x-styleguide.section>
 
                 <x-styleguide.section id="content" title="Text and code" lead="Links, keyboard hints, badges, long-form prose, code and disclosures. Status badges always carry an icon or a word, never colour alone.">
-                    <x-styleguide.specimen example="content-inline" title="Links, keys and inline code" description="app-link, app-kbd and app-eyebrow" />
-                    <x-styleguide.specimen example="content-badges" title="Badges" description="app-badge with a tone pair" />
-                    <x-styleguide.specimen example="content-prose" title="Prose" description="app-prose for Markdown and long translations" />
-                    <x-styleguide.specimen example="content-code" title="Code block" description="app-code stays dark in both themes" />
-                    <x-styleguide.specimen example="content-disclosure" title="Disclosure" description="Native details and summary for FAQs" />
+                    <x-styleguide.specimen example="content-inline" />
+                    <x-styleguide.specimen example="content-badges" />
+                    <x-styleguide.specimen example="content-prose" />
+                    <x-styleguide.specimen example="content-code" />
+                    <x-styleguide.specimen example="content-disclosure" />
+                    <x-styleguide.specimen example="content-faq" />
                 </x-styleguide.section>
 
                 <x-styleguide.section id="data" title="Data display" lead="Numbers are the hero. Tables right-align figures in tabular type, breakdowns use definition lists, and bars run on an action track with square ends.">
-                    <x-styleguide.specimen example="data-table" title="Table" description="app-table inside a card, scrollable on phones" />
+                    <x-styleguide.specimen example="data-table" />
                     <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
-                        <x-styleguide.specimen example="data-breakdown" title="Breakdown" description="A dl of label and value pairs" />
-                        <x-styleguide.specimen example="data-meter" title="Meter and map legend" description="bg-action on bg-action/15; the map ramp swatches" />
+                        <x-styleguide.specimen example="data-breakdown" />
+                        <x-styleguide.specimen example="data-meter" />
                     </div>
                 </x-styleguide.section>
 
                 <x-styleguide.section id="navigation" title="Navigation" lead="Navy frames the page: the header marks the current section with the gold underline, the mobile tab bar with an action-blue rule, and breadcrumbs lead every page.">
-                    <x-styleguide.specimen example="nav-header" title="Header links" description="app-nav-link and app-nav-link-active on brand-deep" canvas="brand" />
+                    <x-styleguide.specimen example="nav-header" />
                     <x-styleguide.specimen
                         title="Breadcrumbs"
                         description="The trail at the top of this page is the live component"
@@ -609,9 +619,9 @@
 
                 <x-styleguide.section id="overlays" title="Menus and toasts" lead="Popovers fade in with a 4px drop and close on Escape or an outside click. Toasts confirm quick actions without moving the page.">
                     <div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
-                        <x-styleguide.specimen example="overlay-menu" title="Menu" description="Closes on Escape or an outside click" />
-                        <x-styleguide.specimen example="overlay-toast" title="Toasts" description="$store.toasts.push(message, tone)" />
-                        <x-styleguide.specimen example="overlay-palette" title="Quick search" description="Opens with ⌘K, Ctrl K or /" />
+                        <x-styleguide.specimen example="overlay-menu" />
+                        <x-styleguide.specimen example="overlay-toast" />
+                        <x-styleguide.specimen example="overlay-palette" />
                     </div>
                 </x-styleguide.section>
 
@@ -643,8 +653,8 @@
 
                 <x-styleguide.section id="identity" title="Flags and logo" lead="The mark is a white tile with a navy slash and a gold dot. Flags are local SVGs with a hairline edge, in five sizes; Greece also accepts EL.">
                     <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
-                        <x-styleguide.specimen example="identity-logo" title="Logo" description="The mark with and without the wordmark" canvas="brand" />
-                        <x-styleguide.specimen example="identity-flags" title="Flags" description="{{ $flagCount }} countries, sizes xs to xl" />
+                        <x-styleguide.specimen example="identity-logo" />
+                        <x-styleguide.specimen example="identity-flags" description="{{ $flagCount }} countries, sizes xs to xl" />
                     </div>
                 </x-styleguide.section>
 
@@ -657,29 +667,68 @@
                 </x-styleguide.section>
 
                 <x-styleguide.section id="results" title="Results" lead="Lead with the answer in display type, restate it in one sentence, break it down, then offer actions. Announce changes through a polite live region.">
-                    <x-styleguide.specimen example="pattern-result" title="Calculation result" description="Answer, summary, breakdown and actions" canvas="workspace" />
-                    <x-styleguide.specimen example="pattern-freshness" title="Freshness and source" description="x-rate-freshness: the update date and the source, next to every rate" />
+                    <x-styleguide.specimen example="pattern-result" />
+                    <x-styleguide.specimen example="pattern-freshness" />
+                </x-styleguide.section>
+
+                <x-styleguide.section id="country" title="Country pages" lead="Every country calculator is built from the same pieces: a heading on one grid with the content below, a rate reference that dates each rate, and common amounts that link their calculations.">
+                    <x-styleguide.specimen example="country-heading" />
+                    <x-styleguide.specimen example="country-reference" />
+                    <x-styleguide.specimen example="country-common-amounts" />
                 </x-styleguide.section>
 
                 <x-styleguide.section id="tiles" title="Tiles and rows" lead="Stat tiles summarise, link cards lead to tools, and list rows keep dates, names and figures in fixed columns.">
-                    <x-styleguide.specimen example="pattern-stat-tiles" title="Stat tiles" description="Status colour only on the icon" canvas="workspace" />
-                    <x-styleguide.specimen example="pattern-feature-cards" title="Link cards" description="An icon well, a title and one line" canvas="workspace" />
-                    <x-styleguide.specimen example="pattern-list-rows" title="List rows" description="Direction as an icon, a word for screen readers and a sign" canvas="workspace" />
+                    <x-styleguide.specimen example="pattern-stat-tiles" />
+                    <x-styleguide.specimen example="pattern-feature-cards" />
+                    <x-styleguide.specimen example="pattern-list-rows" />
                 </x-styleguide.section>
 
                 <x-styleguide.section id="states" title="States" lead="Every async control has a loading state, every list an empty state with a next step, and every error says what happened and what to do.">
                     <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
-                        <x-styleguide.specimen example="pattern-empty" title="Empty" description="A next step, not a dead end" canvas="workspace" />
-                        <x-styleguide.specimen example="pattern-loading" title="Loading" description="Spinner plus aria-busy or a disabled button" />
+                        <x-styleguide.specimen example="pattern-empty" />
+                        <x-styleguide.specimen example="pattern-loading" />
                     </div>
-                    <x-styleguide.specimen example="pattern-alerts" title="Success, outage and error" description="Outages are about the service, never the visitor" />
+                    <x-styleguide.specimen example="pattern-alerts" />
                 </x-styleguide.section>
 
                 <x-styleguide.section id="calls-to-action" title="Calls to action" lead="A flat navy block with white and outlined buttons. Use one per page, after the content it follows from.">
-                    <x-styleguide.specimen example="pattern-cta" title="Navy call to action" description="hero-canvas rounded-panel" canvas="workspace" />
+                    <x-styleguide.specimen example="pattern-cta" />
                 </x-styleguide.section>
 
                 {{-- Resources --}}
+                <x-styleguide.section id="storybook" title="Storybook" lead="Every example on this page is also a Storybook story, rendered from the same Blade file, so designers and developers can browse, theme-switch and audit components in isolation without the two ever drifting apart.">
+                    <p>
+                        <a href="{{ url('/storybook/') }}" class="app-button-primary">
+                            <x-ui.icon name="puzzle" class="size-4" />
+                            Open Storybook
+                        </a>
+                    </p>
+                    <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
+                        <div class="app-surface p-5 sm:p-6">
+                            <h3 class="text-lg font-bold text-ink">How the stories are made</h3>
+                            <ol class="mt-4 space-y-3">
+                                @foreach([
+                                    'Each example in <code>resources/views/styleguide/examples</code> is described once in <code>ComponentCatalog</code>: its section, title, description and canvas.',
+                                    '<code>php artisan design-system:storybook</code> renders every example through Blade and writes one story file per section, plus the Design Tokens for the foundation pages.',
+                                    'Storybook '.Styleguide::STORYBOOK_VERSION.' loads the production stylesheet and the site\'s Alpine components, with a light and dark switch and axe-core on every story.',
+                                    'The test suite fails while the generated stories are out of date, so a change to an example, a component or the stylesheet always reaches Storybook.',
+                                ] as $step)
+                                    <li class="flex gap-3 text-sm leading-6 text-ink-muted">
+                                        <span class="tabular flex size-6 shrink-0 items-center justify-center rounded-full bg-action-soft text-xs font-bold text-action-deep" aria-hidden="true">{{ $loop->iteration }}</span>
+                                        <span class="{{ $inlineCode }}">{!! $step !!}</span>
+                                    </li>
+                                @endforeach
+                            </ol>
+                        </div>
+                        <x-styleguide.specimen
+                            title="Run it"
+                            description="Regenerate after changing an example or app.css; every deploy also publishes it at /storybook"
+                            language="Shell"
+                            :code="'yarn install'.PHP_EOL.'php artisan design-system:storybook'.PHP_EOL.'yarn storybook'.PHP_EOL.'yarn build-storybook'"
+                        />
+                    </div>
+                </x-styleguide.section>
+
                 <x-styleguide.section id="agents" title="For AI agents" lead="Everything on this page is also available in machine-readable form, generated from the same files the site is built from.">
                     <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
                         <div class="app-surface flex flex-col p-5">

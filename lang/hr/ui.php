@@ -977,4 +977,10 @@ return array (
     'faq_5_q' => 'Jesu li odgovori porezni savjet?',
     'faq_5_a' => 'Ne. Poslužitelj vraća referentne stope. Pravilan tretman PDV-a ovisi o robi ili uslugama i o kupcu, pa važne slučajeve provjerite s poreznim savjetnikom ili nacionalnom poreznom upravom.',
   ),
+  'brand' => 
+  array (
+    'nav_label' => 'Brend',
+    'nav_desc' => 'Logotip, boje, pismo i ton EU VAT Infa',
+    'english_only' => 'Smjernice brenda objavljene su na engleskom.',
+  ),
 );

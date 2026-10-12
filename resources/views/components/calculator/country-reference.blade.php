@@ -1,4 +1,4 @@
-@props(['country'])
+@props(['country', 'since' => null])
 
 @use('App\Models\Country')
 @use('App\Support\Vat\Money')
@@ -12,7 +12,7 @@
     $currency = $country->currencyCode();
     $add = VatCalculation::addVat(100, $standard);
     $remove = VatCalculation::removeVat(100, $standard);
-    $since = $country->standardRateSince();
+    $since ??= $country->standardRateSince();
     $format = $country->vies_available ? config('vat-number-formats.'.strtoupper((string) $country->iso_code)) : null;
     $historyUrl = $country->is_eu_member && $country->hasVatHistory() ? locale_path('/vat-rates/'.$country->slug.'/history') : null;
 @endphp
