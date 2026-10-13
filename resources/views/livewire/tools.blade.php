@@ -26,8 +26,7 @@
         ->reject(fn (array $tool) => $tool['icon'] === 'shield-check')
         ->map(fn (array $tool) => ['url' => $tool['url'], 'icon' => $tool['icon'], 'title' => $tool['label'], 'description' => $tool['description']])
         ->merge([
-            ['url' => locale_path('/'), 'icon' => 'globe', 'title' => __('ui.nav.all_countries'), 'description' => __('ui.tools.countries_desc')],
-            ['url' => locale_path('/top-vat-calculations'), 'icon' => 'trending-up', 'title' => __('ui.tools.top_calculations'), 'description' => __('ui.tools.top_calculations_desc')],
+            ['url' => locale_path('/vat-changes'), 'icon' => 'history', 'title' => __('ui.nav.vat_history'), 'description' => __('ui.nav.history_desc')],
             ['url' => locale_path('/chrome-extension'), 'icon' => 'puzzle', 'title' => __('ui.footer.chrome_extension'), 'description' => __('ui.tools.extension_desc')],
         ]);
 @endphp
@@ -84,7 +83,7 @@
             <h2 id="more-tools" class="app-eyebrow">{{ __('ui.tools.more_heading') }}</h2>
             <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 @foreach($more as $tool)
-                    <a href="{{ $tool['url'] }}" class="group app-surface flex gap-4 p-5 transition-[border-color,box-shadow] duration-200 hover:border-action/40 hover:shadow-workflow">
+                    <a href="{{ $tool['url'] }}" class="group app-surface flex h-full gap-4 p-5 transition-[border-color,box-shadow] duration-200 hover:border-action/40 hover:shadow-workflow">
                         <span class="flex size-10 shrink-0 items-center justify-center rounded-card bg-surface-muted text-ink-muted transition-colors group-hover:bg-action-soft group-hover:text-action" aria-hidden="true">
                             <x-ui.icon :name="$tool['icon']" class="size-5" />
                         </span>
@@ -100,6 +99,20 @@
             </div>
         </section>
 
+        <section aria-labelledby="vat-guides">
+            <h2 id="vat-guides" class="app-eyebrow">{{ __('ui.tools.guides_heading') }}</h2>
+            <ul class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" lang="en">
+                @foreach(config('vat-scenarios', []) as $slug => $guide)
+                    <li>
+                        <a href="{{ locale_path('/vat-guides/'.$slug) }}" class="group app-surface flex h-full flex-col p-5 transition-[border-color,box-shadow] duration-200 hover:border-action/40 hover:shadow-workflow">
+                            <span class="font-semibold text-ink group-hover:text-action">{{ $guide['title'] }}</span>
+                            <span class="mt-1 block text-sm leading-6 text-ink-muted">{{ $guide['summary'] }}</span>
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </section>
+
         <section class="hero-canvas rounded-panel" aria-labelledby="api-cta">
             <div class="relative flex flex-col gap-5 p-6 sm:p-8 md:flex-row md:items-center md:justify-between">
                 <div>
@@ -107,7 +120,7 @@
                     <p class="mt-1.5 max-w-xl text-sm leading-6 text-white/80">{{ __('ui.tools.cta_desc') }}</p>
                 </div>
                 <div class="flex shrink-0 flex-wrap gap-3">
-                    <a href="{{ locale_path('/vat-validation-api') }}" class="app-button-inverse">
+                    <a href="{{ locale_path('/vat-validation-api') }}#rates-api" class="app-button-inverse">
                         <x-ui.icon name="code" class="size-4" />
                         {{ __('ui.tools.cta_api') }}
                     </a>

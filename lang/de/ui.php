@@ -72,7 +72,7 @@ return array (
     'older_version' => 'Ältere Version',
     'developers' => 'Entwickler',
     'mcp_server' => 'MCP-Server',
-    'data_source_note' => 'Sätze stammen von der Europäischen Kommission und werden täglich überprüft',
+    'data_source_note' => 'Sätze stammen von der Europäischen Kommission und werden wöchentlich überprüft',
   ),
   'home_page' => 
   array (
@@ -89,7 +89,7 @@ return array (
     'view_full' => 'Rechner & Verlauf anzeigen',
     'rates_heading' => 'EU-MwSt.-Sätze nach Land',
     'rates_year' => 'Sätze :year',
-    'hero_badge' => 'Sätze :year · :count Mitgliedstaaten · täglich aktualisiert',
+    'hero_badge' => 'Sätze :year · :count Mitgliedstaaten',
     'rates_intro' => 'Derzeit geltende Regel- und ermäßigte Sätze, beginnend mit dem niedrigsten Regelsatz.',
     'stat_lowest' => 'Tiefstwert',
     'stat_average' => 'EU-Durchschnitt',
@@ -268,7 +268,7 @@ return array (
   array (
     'title' => 'Verlauf der MwSt.-Satzänderungen',
     'meta_title' => 'Verlauf der MwSt.-Satzänderungen – EU-Länder | EU MwSt. Info',
-    'meta_desc' => 'Alle erfassten MwSt.-Satzänderungen in der EU: Regel-, ermäßigte und Zwischensätze mit Datum, altem und neuem Satz, geplanten Änderungen und Quellen.',
+    'meta_desc' => 'Alle erfassten Änderungen der MwSt.-Sätze in der EU mit Datum, alten und neuen Sätzen, geplanten Änderungen und amtlichen Quellen.',
     'subtitle' => 'Verfolgen Sie alle MwSt.-Satzänderungen in den EU-Ländern der letzten zehn Jahre',
     'stability_title' => 'Stabilitätsindikatoren der Länder',
     'stability_desc' => 'Länder mit weniger MwSt.-Satzänderungen weisen ein stabileres Steuerumfeld auf',
@@ -534,6 +534,7 @@ return array (
     'source_recent' => 'Aktuelles Ergebnis, in den letzten 7 Tagen geprüft',
     'source_fallback' => 'Zuletzt gespeichertes Ergebnis, da VIES derzeit nicht verfügbar ist',
     'lookup_count' => 'Abfragen auf EU MwSt. Info: :count',
+    'checked_on' => 'In VIES geprüft: :date',
     'not_provided' => 'Vom Mitgliedstaat nicht übermittelt',
     'copy_number' => 'USt-IdNr. kopieren',
     'invalid_format' => 'Geben Sie die USt-IdNr. nur mit Buchstaben und Ziffern ein, zum Beispiel LT100019070512.',
@@ -718,6 +719,7 @@ return array (
   'tools' => 
   array (
     'seo_title' => 'EU-MwSt.-Tools: Rechner, USt-IdNr.-Prüfung, Karte',
+    'guides_heading' => 'Leitfäden zur MwSt. in der EU',
     'seo_description' => 'Kostenlose EU-MwSt.-Tools: ein Rechner für jedes Land, USt-IdNr.-Prüfung per VIES, eine Satzkarte, der Satzverlauf und Leitfäden für alle 27 Staaten.',
     'heading' => 'Tools und Ressourcen von EU MwSt. Info',
     'intro_text' => 'Hier finden Sie Tools und Ressourcen des EU-vat.info-Teams, die Ihnen helfen, sich in der komplexen Welt der Mehrwertsteuer in der Europäischen Union zurechtzufinden.',

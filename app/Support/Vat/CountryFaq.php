@@ -17,12 +17,12 @@ final class CountryFaq
     public static function for(Country $country): array
     {
         $rate = (float) $country->standard_rate;
-        $rateLabel = Country::formatRate($rate);
+        $rateLabel = Country::formatNumber($rate);
         $currency = $country->currencyCode();
         $add = VatCalculation::addVat(100, $rate);
         $remove = VatCalculation::removeVat(100, $rate);
-        $multiplier = Country::formatRate(1 + $rate / 100);
-        $reduced = $country->formattedReducedRates(', ');
+        $multiplier = Country::formatNumber(1 + $rate / 100, 4);
+        $reduced = $country->reducedRates() === [] ? null : implode(', ', array_map(fn (float $value) => Country::formatPercent($value), $country->reducedRates()));
         $replace = ['country' => $country->name, 'rate' => $rateLabel];
 
         $faqs = [[
@@ -59,8 +59,8 @@ final class CountryFaq
             $faqs[] = [
                 'q' => __('ui.calculator.faq_changed_q', $replace),
                 'a' => __('ui.calculator.faq_changed_a', $replace + [
-                    'old' => Country::formatRate($change->old_rate),
-                    'new' => Country::formatRate($change->new_rate),
+                    'old' => Country::formatNumber($change->old_rate),
+                    'new' => Country::formatNumber($change->new_rate),
                     'date' => $change->change_date->locale(app()->getLocale())->translatedFormat('j F Y'),
                 ]),
             ];

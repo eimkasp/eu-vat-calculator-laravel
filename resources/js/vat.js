@@ -123,8 +123,14 @@ export function formatMoney(value, currency = 'EUR', locale = 'en') {
     return moneyFormatters.get(key).format(Number(value) || 0);
 }
 
+const percentFormatters = new Map();
+
 export function formatPercent(value, locale = 'en') {
-    return `${new Intl.NumberFormat(locale, { maximumFractionDigits: 2 }).format(Number(value) || 0)}%`;
+    if (!percentFormatters.has(locale)) {
+        percentFormatters.set(locale, new Intl.NumberFormat(locale, { maximumFractionDigits: 2 }));
+    }
+
+    return `${percentFormatters.get(locale).format(Number(value) || 0)}%`;
 }
 
 export function normalizeSearch(value) {

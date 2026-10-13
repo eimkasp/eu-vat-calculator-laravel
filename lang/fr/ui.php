@@ -72,7 +72,7 @@ return array (
     'older_version' => 'Version plus ancienne',
     'developers' => 'Développeurs',
     'mcp_server' => 'Serveur MCP',
-    'data_source_note' => 'Taux issus de la Commission européenne et vérifiés quotidiennement',
+    'data_source_note' => 'Taux issus de la Commission européenne et vérifiés chaque semaine',
   ),
   'home_page' => 
   array (
@@ -89,7 +89,7 @@ return array (
     'view_full' => 'Voir le calculateur complet et l\'historique',
     'rates_heading' => 'Taux de TVA de l\'UE par pays',
     'rates_year' => 'Taux :year',
-    'hero_badge' => 'Taux :year · :count États membres · mis à jour quotidiennement',
+    'hero_badge' => 'Taux :year · :count États membres',
     'rates_intro' => 'Taux standard et réduits actuellement en vigueur, du taux standard le plus bas au plus élevé.',
     'stat_lowest' => 'Le plus bas',
     'stat_average' => 'Moyenne UE',
@@ -268,7 +268,7 @@ return array (
   array (
     'title' => 'Historique des changements de taux de TVA',
     'meta_title' => 'Historique des changements de taux de TVA - Pays de l\'UE | EU VAT Info',
-    'meta_desc' => 'Tous les changements de taux de TVA enregistrés dans l\'UE : taux normaux, réduits et parking, avec dates, ancien et nouveau taux, changements prévus et sources.',
+    'meta_desc' => 'Tous les changements de taux de TVA enregistrés dans l’UE : dates, anciens et nouveaux taux, changements à venir et sources officielles.',
     'subtitle' => 'Suivez toutes les modifications de taux de TVA dans les pays de l\'UE au cours de la dernière décennie',
     'stability_title' => 'Indicateurs de stabilité par pays',
     'stability_desc' => 'Les pays avec moins de changements de taux de TVA indiquent des environnements fiscaux plus stables',
@@ -534,6 +534,7 @@ return array (
     'source_recent' => 'Résultat récent, vérifié au cours des 7 derniers jours',
     'source_fallback' => 'Dernier résultat enregistré, VIES étant actuellement indisponible',
     'lookup_count' => 'Vérifications sur EU VAT Info : :count',
+    'checked_on' => 'Vérifié dans VIES : :date',
     'not_provided' => 'Non communiqué par l\'État membre',
     'copy_number' => 'Copier le numéro de TVA',
     'invalid_format' => 'Saisissez le numéro de TVA en lettres et en chiffres uniquement, par exemple LT100019070512.',
@@ -718,6 +719,7 @@ return array (
   'tools' => 
   array (
     'seo_title' => 'Outils TVA UE : calculateur, vérification, carte, guides',
+    'guides_heading' => 'Guides de TVA dans l’UE',
     'seo_description' => 'Outils TVA UE gratuits : un calculateur pour chaque pays, la vérification VIES, une carte des taux, l\'historique des taux et des guides pour les 27 États.',
     'heading' => 'Outils et ressources d\'EU VAT Info',
     'intro_text' => 'Voici quelques outils et ressources proposés par l\'équipe EU-vat.info pour vous aider à vous repérer dans l\'univers complexe de la TVA dans l\'Union européenne.',

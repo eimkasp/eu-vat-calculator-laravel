@@ -72,7 +72,7 @@ return array (
     'older_version' => 'Versiune mai veche',
     'developers' => 'Dezvoltatori',
     'mcp_server' => 'Server MCP',
-    'data_source_note' => 'Cote preluate de la Comisia Europeană și verificate zilnic',
+    'data_source_note' => 'Cote preluate de la Comisia Europeană și verificate săptămânal',
   ),
   'home_page' => 
   array (
@@ -89,7 +89,7 @@ return array (
     'view_full' => 'Vedeți calculatorul complet și istoricul',
     'rates_heading' => 'Cotele de TVA din UE pe țări',
     'rates_year' => 'Cotele din :year',
-    'hero_badge' => 'Cotele din :year · :count de state membre · actualizare zilnică',
+    'hero_badge' => 'Cotele din :year · :count de state membre',
     'rates_intro' => 'Cotele standard și reduse în vigoare, începând cu cea mai mică cotă standard.',
     'stat_lowest' => 'Cea mai mică',
     'stat_average' => 'Media UE',
@@ -268,7 +268,7 @@ return array (
   array (
     'title' => 'Istoricul modificărilor cotelor de TVA',
     'meta_title' => 'Istoricul modificărilor cotelor de TVA - Țări UE | TVA în UE',
-    'meta_desc' => 'Toate modificările înregistrate ale cotelor de TVA din UE: cote standard, reduse și intermediare, cu date, cota veche și cea nouă, schimbări viitoare și surse.',
+    'meta_desc' => 'Toate modificările înregistrate ale cotelor de TVA din UE, cu date, cote vechi și noi, modificări viitoare și surse oficiale.',
     'subtitle' => 'Urmăriți toate modificările cotelor de TVA în țările UE în ultimul deceniu',
     'stability_title' => 'Indicatori de stabilitate a țărilor',
     'stability_desc' => 'Țările cu mai puține modificări ale cotelor de TVA indică un mediu fiscal mai stabil',
@@ -534,6 +534,7 @@ return array (
     'source_recent' => 'Rezultat recent, verificat în ultimele 7 zile',
     'source_fallback' => 'Ultimul rezultat stocat, VIES este momentan indisponibil',
     'lookup_count' => 'Verificări pe site-ul „TVA în UE”: :count',
+    'checked_on' => 'Verificat în VIES: :date',
     'not_provided' => 'Nu este furnizat de statul membru',
     'copy_number' => 'Copiază numărul de TVA',
     'invalid_format' => 'Introduceți numărul de TVA folosind doar litere și cifre, de exemplu LT100019070512.',
@@ -718,6 +719,7 @@ return array (
   'tools' => 
   array (
     'seo_title' => 'Instrumente TVA UE: calculator, verificare, hartă, ghiduri',
+    'guides_heading' => 'Ghiduri TVA în UE',
     'seo_description' => 'Instrumente TVA UE gratuite: un calculator pentru fiecare țară, verificarea codurilor de TVA în VIES, harta și istoricul cotelor și ghiduri pentru 27 de state.',
     'heading' => 'Instrumente și resurse TVA în UE',
     'intro_text' => 'Iată câteva instrumente și resurse de la echipa EU-vat.info care vă ajută să vă orientați în lumea complexă a TVA-ului din Uniunea Europeană.',

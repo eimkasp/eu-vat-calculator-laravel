@@ -34,7 +34,7 @@
 
     <div class="app-container space-y-8 py-8 sm:py-10">
         @if($ranked->isNotEmpty())
-            <x-rate-freshness :updated="$ranked->max('updated_at')" class="-mb-4" />
+            <x-rate-freshness :updated="$ranked->max('updated_at')" class="mb-4" />
         @endif
         @if($countries->isEmpty())
             <div class="flex items-start gap-3 rounded-card border border-warning/30 bg-warning-soft p-4" role="status">

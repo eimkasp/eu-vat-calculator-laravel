@@ -234,7 +234,7 @@ Reference page (tables, lists, guides):
 | `app-popover` | Menus, the country combobox, the palette panel and toasts: `rounded-card`, strong border, `shadow-floating` |
 | `app-brand-panel` | Tiles, stat groups, badges and fields on navy |
 | `app-sticky-bar` | A sticky sub-header inside a card, such as the year rows in the rate history |
-| `app-deferred` | A section that starts below the first screen (questions, reference tables, the API tester, the footer): the browser skips its layout and paint until it nears the viewport, while the content stays in the HTML for search engines, screen readers and find-in-page. Never on content in the first screen or on anything sticky |
+| `app-deferred` | A section that starts below the first screen (questions, reference tables, the API tester, the footer): the browser skips its layout and paint until it nears the viewport, while the content stays in the HTML for search engines, screen readers and find-in-page. Never on content in the first screen or on anything sticky. A tall section sets its expected height with `[--deferred-size:…]` (40rem by default) so the scrollbar does not jump |
 | `app-note` | A quiet grey note with an info icon, inside a card |
 | `app-page-header` | Page header band (used by `<x-page-header>`) |
 | `hero-canvas` | Flat navy band; text inside is white and focus is gold |
@@ -319,6 +319,8 @@ Two equal segments on a bordered `surface-muted` track; the white thumb slides i
 
 **Results.** Lead with the answer in display type, then one sentence that restates it in words, then a breakdown `dl`, then actions (share, copy, open). Announce changes through an `aria-live="polite"` region.
 
+**One main action.** A view has one `app-button-primary`; links to other tools beside it are `app-button-secondary` or ghost. On phones the full calculator repeats its total in a `bg-action-soft` line under the amount (`aria-hidden`, since the result region announces it), so the answer is on the first screen.
+
 **Freshness.** Every rate shows when it was last updated and where it comes from, close to the figure it qualifies: put `<x-rate-freshness>` under the calculator, in the header of a rate table and under a result. Say "Rates updated 1 Oct 2026", never "always up to date".
 
 **Forms.** Validate on the client for instant feedback and again on the server. Never auto-submit input that came from a URL unless it passed the strict pattern.
@@ -331,7 +333,7 @@ Two equal segments on a bordered `surface-muted` track; the white thumb slides i
 
 **Embed widget.** `resources/views/layouts/embed.blade.php` has a transparent background. Keep embed markup free of header, footer and tab bar.
 
-**Performance budget.** Application CSS stays under 20 KB gzip and application JS under 10 KB gzip. Sections below the first screen carry `app-deferred`, and `CollapseHtmlWhitespace` strips Blade's indentation from every HTML response, so long reference content costs little to the first paint. No third-party hosts on public pages. Heavy libraries are loaded only on the page that needs them.
+**Performance budget.** Application CSS stays under 20 KB gzip and application JS under 10 KB gzip. Long lists are rendered on the server and filtered by one Alpine effect, not built with `x-for`. Sections below the first screen carry `app-deferred`, and `CollapseHtmlWhitespace` strips Blade's indentation from every HTML response, so long reference content costs little to the first paint. No third-party hosts on public pages. Heavy libraries are loaded only on the page that needs them.
 
 ## Accessibility
 

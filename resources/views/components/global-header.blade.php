@@ -2,7 +2,8 @@
 
 @php
     $tools = SiteNavigation::tools();
-    $toolsActive = SiteNavigation::isActive('tools', 'vat-map', 'vat-changes*', 'widget.*', 'vat-validation-api', 'vat-dataset');
+    $toolsActive = SiteNavigation::isActive('tools', 'vat-map', 'widget.*', 'vat-validation-api', 'vat-dataset', 'blog.*');
+    $historyActive = SiteNavigation::isActive('vat-changes*', 'vat-rates.country-history');
     $primary = [
         ['label' => __('ui.nav.all_countries'), 'url' => locale_path('/'), 'active' => SiteNavigation::isActive('home')],
         ['label' => __('ui.nav.vat_calculator'), 'url' => locale_path('/vat-calculator'), 'active' => SiteNavigation::isActive('vat-calculator*', 'shared-calculation', 'top-calculations*')],
@@ -51,7 +52,7 @@
                 </div>
             </div>
 
-            <a href="{{ locale_path('/blog') }}" @class(['app-nav-link', 'app-nav-link-active' => SiteNavigation::isActive('blog.*')]) @if(SiteNavigation::isActive('blog.*')) aria-current="page" @endif>{{ __('ui.nav.updates') }}</a>
+            <a href="{{ locale_path('/vat-changes') }}" @class(['app-nav-link', 'app-nav-link-active' => $historyActive]) @if($historyActive) aria-current="page" @endif>{{ __('ui.nav.vat_history') }}</a>
         </nav>
 
         <div class="@container ml-auto flex min-w-[10.5rem] flex-1 items-center justify-end gap-1">
@@ -83,7 +84,7 @@
             @foreach($primary as $item)
                 <a href="{{ $item['url'] }}" @class(['flex min-h-11 items-center border-l-2 px-3 text-[0.9375rem] font-medium', $mobileActive => $item['active'], $mobileIdle => ! $item['active']]) @if($item['active']) aria-current="page" @endif>{{ $item['label'] }}</a>
             @endforeach
-            <a href="{{ locale_path('/blog') }}" @class(['flex min-h-11 items-center border-l-2 px-3 text-[0.9375rem] font-medium', $mobileActive => SiteNavigation::isActive('blog.*'), $mobileIdle => ! SiteNavigation::isActive('blog.*')]) @if(SiteNavigation::isActive('blog.*')) aria-current="page" @endif>{{ __('ui.nav.updates') }}</a>
+            <a href="{{ locale_path('/vat-changes') }}" @class(['flex min-h-11 items-center border-l-2 px-3 text-[0.9375rem] font-medium', $mobileActive => $historyActive, $mobileIdle => ! $historyActive]) @if($historyActive) aria-current="page" @endif>{{ __('ui.nav.vat_history') }}</a>
 
             <p class="mt-4 px-3 text-xs font-semibold tracking-[0.08em] text-white/60 uppercase">{{ __('ui.nav.vat_tools') }}</p>
             <div class="grid grid-cols-2 gap-1">

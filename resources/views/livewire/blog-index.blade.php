@@ -43,6 +43,8 @@
                 @empty
                     <p class="app-surface p-10 text-center text-sm text-ink-muted">{{ __('ui.blog.empty') }}</p>
                 @endforelse
+
+                <livewire:vat-rate-changes />
             </section>
 
             <aside class="lg:sticky lg:top-24">

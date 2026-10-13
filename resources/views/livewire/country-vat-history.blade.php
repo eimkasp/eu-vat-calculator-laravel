@@ -30,7 +30,7 @@
         :title="$country->name.' VAT rate history'"
         :description="'Every recorded '.$country->name.' VAT rate, with effective periods and source-backed changes.'"
         eyebrow="Historical VAT data"
-        :breadcrumbs="['VAT calculator' => locale_path('/vat-calculator'), $country->name => locale_path('/vat-calculator/'.$country->slug), 'Rate history' => '']"
+        :breadcrumbs="[__('ui.nav.vat_history') => locale_path('/vat-changes'), $country->name => locale_path('/vat-calculator/'.$country->slug), 'Rate history' => '']"
     />
 
     <div class="app-container py-8 sm:py-10">

@@ -72,7 +72,7 @@ return array (
     'older_version' => 'Ældre version',
     'developers' => 'Udviklere',
     'mcp_server' => 'MCP-server',
-    'data_source_note' => 'Satserne stammer fra Europa-Kommissionen og kontrolleres dagligt',
+    'data_source_note' => 'Satserne stammer fra Europa-Kommissionen og kontrolleres hver uge',
   ),
   'home_page' => 
   array (
@@ -89,7 +89,7 @@ return array (
     'view_full' => 'Se fuld beregner og historik',
     'rates_heading' => 'EU-momssatser efter land',
     'rates_year' => 'Satser for :year',
-    'hero_badge' => 'Satser for :year · :count medlemsstater · opdateres dagligt',
+    'hero_badge' => 'Satser for :year · :count medlemsstater',
     'rates_intro' => 'Gældende standardsatser og reducerede satser, med den laveste standardsats først.',
     'stat_lowest' => 'Laveste',
     'stat_average' => 'EU-gennemsnit',
@@ -268,7 +268,7 @@ return array (
   array (
     'title' => 'Historik over momssatsændringer',
     'meta_title' => 'Historik over momssatsændringer - EU-lande | EU Moms Info',
-    'meta_desc' => 'Alle registrerede ændringer af momssatser i EU: standardsatser, nedsatte satser og parkeringssatser med datoer, gamle og nye satser, kommende ændringer.',
+    'meta_desc' => 'Alle registrerede ændringer af momssatser i EU med datoer, gamle og nye satser, kommende ændringer og officielle kilder.',
     'subtitle' => 'Spor alle momssatsændringer i EU-lande over det seneste årti',
     'stability_title' => 'Stabilitetsindikatorer for lande',
     'stability_desc' => 'Lande med færre momssatsændringer indikerer et mere stabilt skattemiljø',
@@ -534,6 +534,7 @@ return array (
     'source_recent' => 'Nyligt resultat, kontrolleret inden for de seneste 7 dage',
     'source_fallback' => 'Senest gemte resultat, VIES er i øjeblikket utilgængelig',
     'lookup_count' => 'Opslag på EU Moms Info: :count',
+    'checked_on' => 'Kontrolleret i VIES: :date',
     'not_provided' => 'Ikke oplyst af medlemsstaten',
     'copy_number' => 'Kopiér momsnummer',
     'invalid_format' => 'Indtast momsnummeret med kun bogstaver og cifre, f.eks. LT100019070512.',
@@ -718,6 +719,7 @@ return array (
   'tools' => 
   array (
     'seo_title' => 'EU-momsværktøjer: beregner, momsnummertjek, kort og guides',
+    'guides_heading' => 'Vejledninger om moms i EU',
     'seo_description' => 'Gratis EU-momsværktøjer: en momsberegner for hvert land, tjek af momsnumre i VIES, et kort over satser, satshistorikken og guides til alle 27 lande.',
     'heading' => 'EU Moms Info – værktøjer og ressourcer',
     'intro_text' => 'Her er nogle værktøjer og ressourcer fra EU-vat.info-teamet, der hjælper dig med at navigere i den komplekse verden af moms i Den Europæiske Union.',

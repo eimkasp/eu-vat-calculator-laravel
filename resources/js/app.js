@@ -133,7 +133,7 @@ document.addEventListener('alpine:init', () => {
         Alpine.store('toasts').push(copied ? message : text, copied ? 'success' : 'info', !copied);
     });
 
-    Alpine.data('commandPalette', ({ source, recentKey = 'palette-recent' } = {}) => ({
+    Alpine.data('commandPalette', ({ source, recentKey = 'palette-recent', validator = null } = {}) => ({
         query: '',
         active: 0,
         items: [],
@@ -157,17 +157,32 @@ document.addEventListener('alpine:init', () => {
                 return [...recent, ...this.items.filter((item) => !recent.includes(item))].slice(0, 12);
             }
 
-            return this.items
+            const words = query.split(/\s+/).filter(Boolean);
+            const typeOrder = { country: 0, page: 0.5, 'country-page': 0.75 };
+            const matches = this.items
                 .map((item) => {
-                    const haystack = normalizeSearch(`${item.title} ${item.keywords ?? ''}`);
-                    const index = haystack.indexOf(query);
+                    const title = normalizeSearch(item.title);
+                    const haystack = `${title} ${normalizeSearch(`${item.subtitle ?? ''} ${item.keywords ?? ''}`)}`;
 
-                    return { item, score: index === -1 ? -1 : (index === 0 ? 0 : 1) + (item.type === 'country' ? 0 : 0.5) };
+                    if (!words.every((word) => haystack.includes(word))) {
+                        return null;
+                    }
+
+                    const rank = title.startsWith(query) ? 0 : (title.includes(query) ? 1 : (words.every((word) => title.includes(word)) ? 2 : 3));
+
+                    return { item, score: rank + (typeOrder[item.type] ?? 1) };
                 })
-                .filter(({ score }) => score >= 0)
+                .filter(Boolean)
                 .sort((a, b) => a.score - b.score)
-                .map(({ item }) => item)
-                .slice(0, 12);
+                .map(({ item }) => item);
+
+            const number = this.query.toUpperCase().replace(/[\s.\-]/g, '');
+
+            if (validator && /^[A-Z]{2}[0-9A-Z]{2,13}$/.test(number) && /\d/.test(number)) {
+                matches.unshift({ type: 'action', title: validator.title, subtitle: number, url: `${validator.url}?vat_number=${encodeURIComponent(number)}`, flag: null, icon: 'shield-check', meta: null });
+            }
+
+            return matches.slice(0, 12);
         },
         async load() {
             if (this.loaded || this.loading || !source) {
@@ -390,7 +405,7 @@ document.addEventListener('alpine:init', () => {
                 this.countryActive = Math.max(0, this.countries.findIndex((item) => item.slug === this.$wire.selectedCountrySlug));
                 this.$nextTick(() => {
                     this.$refs.countrySearch?.focus();
-                    this.$refs.countryList?.querySelector(`[data-index="${this.countryActive}"]`)?.scrollIntoView({ block: 'nearest' });
+                    this.scrollToActiveCountry();
                 });
             }
         },
@@ -399,7 +414,52 @@ document.addEventListener('alpine:init', () => {
 
             if (total > 0) {
                 this.countryActive = (this.countryActive + step + total) % total;
-                this.$nextTick(() => this.$refs.countryList?.querySelector(`[data-index="${this.countryActive}"]`)?.scrollIntoView({ block: 'nearest' }));
+                this.$nextTick(() => this.scrollToActiveCountry());
+            }
+        },
+        scrollToActiveCountry() {
+            const slug = this.filteredCountries[this.countryActive]?.slug;
+
+            if (slug) {
+                this.$refs.countryList?.querySelector(`[data-slug="${slug}"]`)?.scrollIntoView({ block: 'nearest' });
+            }
+        },
+        syncCountryList() {
+            const list = this.$refs.countryList;
+            const filtered = this.filteredCountries;
+            const positions = new Map(filtered.map((country, index) => [country.slug, index]));
+            const active = filtered[this.countryActive]?.slug;
+            const selected = this.$wire.selectedCountrySlug;
+
+            list?.querySelectorAll('[data-slug]').forEach((option) => {
+                const slug = option.dataset.slug;
+                const index = positions.get(slug);
+                const isSelected = slug === selected;
+                option.hidden = index === undefined;
+                option.setAttribute('aria-selected', isSelected.toString());
+                option.classList.toggle('bg-action-soft', slug === active);
+                option.querySelector('[data-group-label]')?.classList.toggle('hidden', !(index === 0 || (index > 0 && filtered[index - 1].group !== filtered[index].group)));
+                const name = option.querySelector('[data-name]');
+                name?.classList.toggle('font-semibold', isSelected);
+                name?.classList.toggle('text-action-deep', isSelected);
+                name?.classList.toggle('text-ink', !isSelected);
+            });
+        },
+        countryOptionFrom(event) {
+            return event.target.closest?.('[data-slug]') ?? null;
+        },
+        pickCountry(event) {
+            const option = this.countryOptionFrom(event);
+
+            if (option) {
+                this.selectCountry(option.dataset.slug);
+            }
+        },
+        hoverCountry(event) {
+            const index = this.filteredCountries.findIndex((country) => country.slug === this.countryOptionFrom(event)?.dataset.slug);
+
+            if (index !== -1 && index !== this.countryActive) {
+                this.countryActive = index;
             }
         },
         closeCountries() {

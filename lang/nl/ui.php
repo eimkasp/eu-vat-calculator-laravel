@@ -72,7 +72,7 @@ return array (
     'older_version' => 'Oudere versie',
     'developers' => 'Ontwikkelaars',
     'mcp_server' => 'MCP-server',
-    'data_source_note' => 'Tarieven afkomstig van de Europese Commissie en dagelijks gecontroleerd',
+    'data_source_note' => 'Tarieven afkomstig van de Europese Commissie en wekelijks gecontroleerd',
   ),
   'home_page' => 
   array (
@@ -89,7 +89,7 @@ return array (
     'view_full' => 'Bekijk volledige calculator & geschiedenis',
     'rates_heading' => 'BTW-tarieven in de EU per land',
     'rates_year' => 'Tarieven :year',
-    'hero_badge' => 'Tarieven :year · :count lidstaten · dagelijks bijgewerkt',
+    'hero_badge' => 'Tarieven :year · :count lidstaten',
     'rates_intro' => 'Standaard- en verlaagde tarieven die momenteel gelden, laagste standaardtarief eerst.',
     'stat_lowest' => 'Laagste',
     'stat_average' => 'EU-gemiddelde',
@@ -268,7 +268,7 @@ return array (
   array (
     'title' => 'Geschiedenis van BTW-tariefwijzigingen',
     'meta_title' => 'Geschiedenis van BTW-tariefwijzigingen - EU-landen | EU VAT Info',
-    'meta_desc' => 'Alle geregistreerde btw-tariefwijzigingen in de EU: algemene, verlaagde en parkeertarieven, met data, oud en nieuw tarief, komende wijzigingen en bronnen.',
+    'meta_desc' => 'Alle geregistreerde wijzigingen van btw-tarieven in de EU, met data, oude en nieuwe tarieven, komende wijzigingen en officiële bronnen.',
     'subtitle' => 'Volg alle BTW-tariefwijzigingen in EU-landen van het afgelopen decennium',
     'stability_title' => 'Stabiliteitsindicatoren per land',
     'stability_desc' => 'Landen met minder BTW-tariefwijzigingen duiden op een stabieler fiscaal klimaat',
@@ -534,6 +534,7 @@ return array (
     'source_recent' => 'Recent resultaat, gecontroleerd in de afgelopen 7 dagen',
     'source_fallback' => 'Laatst opgeslagen resultaat, VIES is momenteel niet beschikbaar',
     'lookup_count' => 'Controles op EU VAT Info: :count',
+    'checked_on' => 'Gecontroleerd in VIES: :date',
     'not_provided' => 'Niet gedeeld door de lidstaat',
     'copy_number' => 'BTW-nummer kopiëren',
     'invalid_format' => 'Voer het BTW-nummer in met alleen letters en cijfers, bijvoorbeeld LT100019070512.',
@@ -718,6 +719,7 @@ return array (
   'tools' => 
   array (
     'seo_title' => 'EU-btw-tools: calculator, nummercontrole, kaart en gidsen',
+    'guides_heading' => 'Btw-gidsen voor de EU',
     'seo_description' => 'Gratis EU-btw-tools: een btw-calculator per land, VIES-controle van btw-nummers, een tariefkaart, de tariefgeschiedenis en gidsen voor alle 27 lidstaten.',
     'heading' => 'Tools en bronnen van EU VAT Info',
     'intro_text' => 'Hier vindt u tools en bronnen van het team van EU-vat.info die u helpen de complexe wereld van de BTW in de Europese Unie te doorgronden.',

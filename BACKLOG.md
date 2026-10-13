@@ -4,6 +4,30 @@ Items identified during the audit/fix/growth/polish cycles. Grouped by priority.
 
 ---
 
+## Next cycle (found in the 5.4.0 reviews)
+
+5.4.0 came from four read-only reviews (visual, UX and content architecture, front-end performance, SEO). What they found and 5.4.0 did not ship:
+
+### High
+- [ ] **The old domain is gone.** `eu-vat.info` no longer resolves (NXDOMAIN), so the 301s that `RedirectLegacySeoHost` answers never run and every backlink to it is dead. Renew the domain, point it at Forge and keep the redirect; then use the change-of-address tool in Search Console.
+- [ ] **Inline the CSS on a first visit.** Inlining the 16 KB (brotli) stylesheet moved first paint from about 1.24 s to 0.21 s after the HTML on production in the review's runs. Write it inline when a visitor has no CSS-version cookie, prefetch the file after load and use the normal link afterwards. Then keep the hero texture from being the phone LCP element (leave it out below 640px or make it small enough to be ignored).
+
+### Medium
+- [ ] **Turn on Early Hints in Cloudflare** (Speed → Optimization). 5.4.0 sends the `Link` preload headers it needs.
+- [ ] **Start hidden widgets later.** `x-ignore` the search dialog, the phone menu, the language menu and the footer theme menu, and start them on idle or first use; make `RecentCountries` and `VatRateChanges` plain Blade components (home goes from 4 Livewire snapshots to 2).
+- [ ] **A /vat-rates hub and rate categories.** One indexable page per rate type, with the TEDB categories (food, books, medicines, hotels…) per country, and the distance-selling threshold. The largest content gap the SEO review found.
+- [ ] **Comparison pages that compare.** Each approved comparison is a table; add two or three sentences worked out from the data (rate gap, VAT on €100, last change) so the pages are not near-duplicates.
+- [ ] **Validator pages per country** say little that differs; add the country's format notes, where to find a VAT number on an invoice and the local name of the number.
+- [ ] **Map on phones.** The visual review found the map hard to use on a phone: small countries are hard to tap and the selected country's details sit away from the map. Show the selection next to the tap and lead with the ranked list on narrow screens.
+
+### Low
+- [ ] Footer archive links read "Previous version" and "Older version"; name the versions ("5.0 site", "4.x site").
+- [ ] "Full calculator" under the home calculator could name the country ("Germany calculator").
+- [ ] The MCP badge on the tools pages is louder than the tool cards around it.
+- [ ] Inter without the optical-size axis is 48 KB instead of 73 KB (latin); a design trade-off to decide.
+
+---
+
 ## Next cycle (found in the 5.3.0 cycle)
 
 Measurements and the full list of what 5.3.0 fixed are in `docs/benchmarks/cycle-5.3/README.md`.
@@ -21,7 +45,7 @@ Measurements and the full list of what 5.3.0 fixed are in `docs/benchmarks/cycle
 - [ ] **Rate history for France and Greece.** The synced dataset has none, so their history pages do not exist.
 - [ ] **Check the Roboto fallback on an Android phone.** Its 105% `size-adjust` was derived from Roboto's measured width against Arial, not measured on a device.
 
-- [ ] **Recheck TBT on the home page.** The 5.3.0 benchmark's median TBT rose 179 → 224 ms; interleaved runs matched 5.2.0 on most pages but put the home page about 60 ms higher (`docs/benchmarks/cycle-5.3/ab-timing.txt`). Profile Alpine start-up on `/` with and without the 5.3.0 header and palette changes.
+- [x] **Recheck TBT on the home page.** Profiled in 5.4.0: the country list built with `x-for`, the per-row filters and a new number formatter per call. Fixed; home 497 → about 360 ms and the country calculator 448 → 310 ms (4× CPU, median of 7, side by side).
 
 ### Low
 - [ ] Inline source links (European Commission, pdfcheck.online, "Try LT100…") are under 24px tall; they pass as inline text, but a larger hit area would help on phones.

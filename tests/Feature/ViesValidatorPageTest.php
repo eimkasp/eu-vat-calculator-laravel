@@ -65,7 +65,7 @@ it('validates a VAT number and records a single lookup', function () {
         ->assertSet('result.name', 'UAB "BusinessPress"')
         ->assertSet('result.address', null)
         ->assertSet('result.source', 'live')
-        ->assertSet('result.lookups', 1)
+        ->assertSet('result.checked', now()->toDateString())
         ->assertDispatched('validation-complete', cc: 'LT', prefix: 'LT', vn: '100019070512', valid: true)
         ->assertSee('Valid VAT number')
         ->assertSee('Not shared by the member state');
@@ -83,10 +83,11 @@ it('reuses a recent result without calling VIES again', function () {
         ->assertSet('result.valid', false)
         ->call('validateVat')
         ->assertSet('result.source', 'recent')
-        ->assertSet('result.lookups', 2)
-        ->assertSee('Not a valid VAT number');
+        ->assertSee('Not a valid VAT number')
+        ->assertSee('Checked in VIES:');
 
     Http::assertSentCount(1);
+    expect(VatValidationLog::query()->count())->toBe(2);
 });
 
 it('explains member-state outages instead of reporting the number as invalid', function () {

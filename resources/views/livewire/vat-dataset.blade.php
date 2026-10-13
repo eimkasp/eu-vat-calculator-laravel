@@ -36,12 +36,14 @@
         <div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-[minmax(0,1fr)_20rem]">
             <div class="min-w-0 space-y-8">
                 <section class="app-surface overflow-hidden" aria-labelledby="dataset-downloads">
-                    <h2 id="dataset-downloads" class="border-b border-line px-5 py-4 text-lg font-bold text-ink sm:px-6">Download the data</h2>
+                    <h2 id="dataset-downloads" class="border-b border-line px-5 py-4 text-lg font-bold text-ink sm:px-6">Get the data</h2>
                     <ul class="divide-y divide-line">
                         @foreach([
                             ['CSV', 'Spreadsheet and analysis workflows', '/datasets/eu-vat-rates.csv', 'Download', 'download', 'table'],
                             ['JSON', 'Applications and data pipelines', '/datasets/eu-vat-rates.json', 'Open', 'arrow-right', 'braces'],
                             ['Markdown', 'Research and language-model context', '/llms-full.txt', 'Open', 'arrow-right', 'file-text'],
+                            ['REST API', 'Live rates and calculations, one country at a time', locale_path('/vat-validation-api').'#rates-api', 'Read', 'arrow-right', 'code'],
+                            ['MCP server', 'VAT tools for Claude, ChatGPT and other AI agents', locale_path('/mcp-server'), 'Connect', 'arrow-right', 'server'],
                         ] as [$format, $use, $href, $action, $actionIcon, $icon])
                             <li class="flex items-center gap-4 px-5 py-4 sm:px-6">
                                 <span class="flex size-10 shrink-0 items-center justify-center rounded-control bg-action-soft text-action" aria-hidden="true">
@@ -51,7 +53,7 @@
                                     <span class="block font-semibold text-ink">{{ $format }}</span>
                                     <span class="block text-sm text-ink-muted">{{ $use }}</span>
                                 </span>
-                                <a href="{{ $href }}" class="app-button-secondary h-10 min-h-10 shrink-0 px-4" aria-label="{{ $action }} the {{ $format }} file">
+                                <a href="{{ $href }}" class="app-button-secondary h-10 min-h-10 shrink-0 px-4" aria-label="{{ $action }}: {{ $format }}">
                                     {{ $action }}
                                     <x-ui.icon :name="$actionIcon" class="size-4" />
                                 </a>

@@ -87,7 +87,7 @@
             <div class="app-container relative pb-10 pt-6 sm:pb-14 sm:pt-8">
                 <x-calculator.country-header :country="$country" />
 
-                <div id="calculator" role="region" class="mt-8 scroll-mt-24" aria-label="{{ __('ui.calculator.country_heading', ['country' => $country->name]) }}">
+                <div id="calculator" role="region" class="mt-6 scroll-mt-24 sm:mt-8" aria-label="{{ __('ui.calculator.country_heading', ['country' => $country->name]) }}">
                     <livewire:hero-calculator :key="'hero-calc-'.$country->id" :initial-country="$country->slug" :initial-amount="$prefill['amount']" :initial-rate="$prefill['rate']" :initial-mode="$prefill['mode']" surface="country-image" />
                 </div>
             </div>
@@ -118,7 +118,7 @@
 
                             <div class="mt-5 flex flex-wrap gap-2.5">
                                 @if($country->vies_available)
-                                    <a href="{{ locale_path('/vat-number-validator/'.$country->slug) }}" class="app-button-primary">
+                                    <a href="{{ locale_path('/vat-number-validator/'.$country->slug) }}" class="app-button-secondary">
                                         <x-ui.icon name="shield-check" class="size-4" />
                                         {{ __('ui.country_page.validate_vat_cta', ['country' => $country->name]) }}
                                     </a>

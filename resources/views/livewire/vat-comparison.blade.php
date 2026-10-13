@@ -40,10 +40,10 @@
 @endsection
 
 <div>
-    <x-page-header :title="$title" :description="__('ui.compare.intro')" :eyebrow="__('ui.compare.eyebrow')" :breadcrumbs="[__('ui.nav.all_countries') => locale_path('/'), $title => '']" />
+    <x-page-header :title="$title" :description="__('ui.compare.intro')" :eyebrow="__('ui.compare.eyebrow')" :breadcrumbs="[$title => '']" />
 
     <div class="app-container space-y-8 py-8 sm:py-10">
-        <x-rate-freshness :updated="collect([$leftCountry->updated_at, $rightCountry->updated_at])->filter()->max()" class="-mb-4" />
+        <x-rate-freshness :updated="collect([$leftCountry->updated_at, $rightCountry->updated_at])->filter()->max()" class="mb-4" />
         <section class="grid gap-4 md:grid-cols-2" aria-label="{{ __('ui.compare.standard_rate') }}">
             @foreach($pair as ['country' => $country])
                 @php($isHigher = $higher?->is($country))
@@ -71,7 +71,7 @@
         <section class="app-surface overflow-hidden">
             <h2 id="comparison-table" class="sr-only">{{ $title }}</h2>
             <div class="relative overflow-x-auto" tabindex="0" role="group" aria-labelledby="comparison-table">
-                <table class="app-table min-w-[36rem]">
+                <table class="app-table table-fixed sm:min-w-[36rem]">
                     <thead>
                         <tr>
                             <th scope="col" class="w-1/3 pl-5 sm:pl-6">{{ __('ui.compare.measure') }}</th>
@@ -136,7 +136,7 @@
                             </div>
                         </dl>
                         <div class="mt-5 flex flex-wrap gap-2 border-t border-line pt-4">
-                            <a href="{{ locale_path('/vat-calculator/'.$country->slug) }}" class="app-button-primary h-10 min-h-10 px-4">
+                            <a href="{{ locale_path('/vat-calculator/'.$country->slug) }}" class="app-button-secondary h-10 min-h-10 px-4">
                                 <x-ui.icon name="calculator" class="size-4" />
                                 {{ __('ui.compare.calculator') }}
                             </a>

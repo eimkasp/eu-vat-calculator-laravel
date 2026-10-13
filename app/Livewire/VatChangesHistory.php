@@ -80,6 +80,19 @@ class VatChangesHistory extends Component
      *
      * @return list<array{name: string, slug: string, iso: string, changes: int, stability: string, history: bool}>
      */
+    /**
+     * The rate types that have recorded changes, so the filter offers no option that always comes back empty.
+     *
+     * @return list<string>
+     */
+    #[Computed]
+    public function rateTypes(): array
+    {
+        $recorded = VatRateChange::query()->distinct()->pluck('rate_type')->all();
+
+        return array_values(array_intersect(self::RATE_TYPES, $recorded));
+    }
+
     #[Computed]
     public function stability(): array
     {

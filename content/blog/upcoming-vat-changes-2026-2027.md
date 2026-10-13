@@ -1,11 +1,11 @@
 ---
-title: "Upcoming VAT Changes in 2026 and 2027"
+title: "Upcoming VAT changes in 2026 and 2027"
 slug: "upcoming-vat-changes-2026-2027"
 description: "A practical, source-backed guide to confirmed EU VAT changes in 2026 and 2027, including ViDA, national VAT rate updates, and e-commerce customs changes."
 published_at: "2026-06-10"
 updated_at: "2026-06-10"
 author: "EU VAT Info"
-category: "VAT Changes"
+category: "VAT changes"
 tags:
   - "VAT rates"
   - "EU VAT"

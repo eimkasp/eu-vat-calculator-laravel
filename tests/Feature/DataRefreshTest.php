@@ -20,7 +20,9 @@ it('loads vat-changes page with correct layout', function () {
 });
 
 it('vat-changes page shows country filter', function () {
-    Country::factory()->create(['name' => 'TestCountry', 'iso_code' => 'TC']);
+    $country = Country::factory()->create(['name' => 'TestCountry', 'iso_code' => 'TC']);
+    VatRateChange::factory()->for($country)->create(['rate_type' => 'standard', 'old_rate' => 20, 'new_rate' => 21]);
+    VatRateChange::factory()->for($country)->create(['rate_type' => 'reduced', 'old_rate' => 9, 'new_rate' => 10]);
 
     $this->get('/vat-changes')
         ->assertStatus(200)
@@ -28,6 +30,16 @@ it('vat-changes page shows country filter', function () {
         ->assertSee('TestCountry')
         ->assertSee('All types')
         ->assertSee('Standard');
+});
+
+it('vat-changes page hides the type filter when only one rate type has changes', function () {
+    $country = Country::factory()->create(['name' => 'TestCountry', 'iso_code' => 'TC']);
+    VatRateChange::factory()->for($country)->create(['rate_type' => 'standard', 'old_rate' => 20, 'new_rate' => 21]);
+
+    $this->get('/vat-changes')
+        ->assertStatus(200)
+        ->assertSee('TestCountry')
+        ->assertDontSee('All types');
 });
 
 it('vat-changes page shows empty state when no changes', function () {

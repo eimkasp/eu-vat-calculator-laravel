@@ -72,7 +72,7 @@ return array (
     'older_version' => 'Staršia verzia',
     'developers' => 'Pre vývojárov',
     'mcp_server' => 'MCP server',
-    'data_source_note' => 'Sadzby pochádzajú od Európskej komisie a denne sa overujú',
+    'data_source_note' => 'Sadzby pochádzajú od Európskej komisie a overujú sa každý týždeň',
   ),
   'home_page' => 
   array (
@@ -89,7 +89,7 @@ return array (
     'view_full' => 'Zobraziť kalkulačku a históriu',
     'rates_heading' => 'Sadzby DPH v EÚ podľa krajín',
     'rates_year' => 'Sadzby :year',
-    'hero_badge' => 'Sadzby :year · :count členských štátov · aktualizované denne',
+    'hero_badge' => 'Sadzby :year · :count členských štátov',
     'rates_intro' => 'Aktuálne platné štandardné a znížené sadzby, zoradené od najnižšej štandardnej sadzby.',
     'stat_lowest' => 'Najnižšia',
     'stat_average' => 'Priemer EÚ',
@@ -268,7 +268,7 @@ return array (
   array (
     'title' => 'História zmien sadzieb DPH',
     'meta_title' => 'História zmien sadzieb DPH - Krajiny EÚ | DPH v EÚ',
-    'meta_desc' => 'Všetky zaznamenané zmeny sadzieb DPH v EÚ: základné, znížené a parkovacie sadzby s dátumami, starou a novou sadzbou, plánovanými zmenami a zdrojmi.',
+    'meta_desc' => 'Všetky zaznamenané zmeny sadzieb DPH v EÚ s dátumami, starými a novými sadzbami, pripravovanými zmenami a oficiálnymi zdrojmi.',
     'subtitle' => 'Sledujte všetky zmeny sadzieb DPH v krajinách EÚ za posledné desaťročie',
     'stability_title' => 'Ukazovatele stability krajín',
     'stability_desc' => 'Krajiny s menším počtom zmien sadzieb DPH naznačujú stabilnejšie daňové prostredie',
@@ -534,6 +534,7 @@ return array (
     'source_recent' => 'Nedávny výsledok, overený počas posledných 7 dní',
     'source_fallback' => 'Posledný uložený výsledok, VIES je momentálne nedostupný',
     'lookup_count' => 'Počet overení na webe „DPH v EÚ“: :count',
+    'checked_on' => 'Overené vo VIES: :date',
     'not_provided' => 'Členský štát tento údaj neposkytuje',
     'copy_number' => 'Kopírovať IČ DPH',
     'invalid_format' => 'Zadajte IČ DPH iba pomocou písmen a číslic, napríklad LT100019070512.',
@@ -718,6 +719,7 @@ return array (
   'tools' => 
   array (
     'seo_title' => 'Nástroje pre DPH v EÚ: kalkulačka, overenie a mapa',
+    'guides_heading' => 'Sprievodcovia DPH v EÚ',
     'seo_description' => 'Bezplatné nástroje pre DPH v EÚ: kalkulačka pre každú krajinu, overenie IČ DPH vo VIES, mapa a história sadzieb a sprievodcovia pre všetkých 27 štátov.',
     'heading' => 'DPH v EÚ: nástroje a zdroje',
     'intro_text' => 'Tu nájdete nástroje a zdroje od tímu EU-vat.info, ktoré vám pomôžu zorientovať sa v zložitom svete DPH v Európskej únii.',

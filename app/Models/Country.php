@@ -303,6 +303,30 @@ class Country extends Model implements Auditable, Sitemapable
         return rtrim(rtrim($formatted, '0'), '.');
     }
 
+    /**
+     * A rate or factor written for running text in the current language: 5,5 in German and French, 5.5 in English.
+     */
+    public static function formatNumber(float|int|string|null $value, int $decimals = 2): string
+    {
+        $formatter = new \NumberFormatter(app()->getLocale(), \NumberFormatter::DECIMAL);
+        $formatter->setAttribute(\NumberFormatter::MIN_FRACTION_DIGITS, 0);
+        $formatter->setAttribute(\NumberFormatter::MAX_FRACTION_DIGITS, $decimals);
+
+        return (string) $formatter->format((float) $value);
+    }
+
+    /**
+     * A percentage written the way the current language writes it: 5,5 % in German and French, 5.5% in English.
+     */
+    public static function formatPercent(float|int|string|null $value): string
+    {
+        $formatter = new \NumberFormatter(app()->getLocale(), \NumberFormatter::PERCENT);
+        $formatter->setAttribute(\NumberFormatter::MIN_FRACTION_DIGITS, 0);
+        $formatter->setAttribute(\NumberFormatter::MAX_FRACTION_DIGITS, 2);
+
+        return (string) $formatter->format((float) $value / 100);
+    }
+
     public function getCurrencyDisplayAttribute(): string
     {
         return $this->currency_symbol ?: match ($this->currencyCode()) {

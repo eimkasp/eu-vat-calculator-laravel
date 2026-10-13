@@ -1,6 +1,6 @@
 @php
     $links = [
-        ['icon' => 'shield-check', 'title' => __('ui.useful_links.vies_service'), 'text' => __('ui.footer.eu_vies'), 'url' => 'https://ec.europa.eu/taxation_customs/vies/'],
+        ['icon' => 'shield-check', 'title' => __('ui.nav.vat_number_validator'), 'text' => __('ui.nav.validator_desc'), 'url' => locale_path('/vat-number-validator')],
         ['icon' => 'book', 'title' => __('ui.useful_links.your_europe'), 'text' => __('ui.footer.eu_vat_guide'), 'url' => 'https://europa.eu/youreurope/business/taxation/vat/'],
         ['icon' => 'database', 'title' => __('ui.nav.dataset'), 'text' => __('ui.nav.dataset_desc'), 'url' => locale_path('/datasets/eu-vat-rates')],
     ];

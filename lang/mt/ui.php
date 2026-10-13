@@ -72,7 +72,7 @@ return array (
     'older_version' => 'Verżjoni eqdem',
     'developers' => 'Żviluppaturi',
     'mcp_server' => 'Server MCP',
-    'data_source_note' => 'Rati mill-Kummissjoni Ewropea, ivverifikati kuljum',
+    'data_source_note' => 'Rati mill-Kummissjoni Ewropea, ivverifikati kull ġimgħa',
   ),
   'home_page' => 
   array (
@@ -89,7 +89,7 @@ return array (
     'view_full' => 'Ara l-kalkulatur sħiħ u l-istorja',
     'rates_heading' => 'Rati tal-VAT fl-UE skont il-pajjiż',
     'rates_year' => 'Rati tal-:year',
-    'hero_badge' => 'Rati tal-:year · :count stat membru · aġġornati kuljum',
+    'hero_badge' => 'Rati tal-:year · :count stat membru',
     'rates_intro' => 'Ir-rati standard u mnaqqsa fis-seħħ bħalissa, bl-inqas rata standard l-ewwel.',
     'stat_lowest' => 'L-inqas',
     'stat_average' => 'Medja tal-UE',
@@ -268,7 +268,7 @@ return array (
   array (
     'title' => 'Storja tal-Bidliet fir-Rati tal-VAT',
     'meta_title' => 'Storja tal-Bidliet fir-Rati tal-VAT - Pajjiżi tal-UE | Informazzjoni dwar il-VAT fl-UE',
-    'meta_desc' => 'Kull bidla rreġistrata fir-rati tal-VAT fl-UE: rati standard, imnaqqsa u ta\' parkeġġ, bid-dati, ir-rata l-qadima u l-ġdida, bidliet ġejjin u sorsi.',
+    'meta_desc' => 'Kull bidla rreġistrata fir-rati tal-VAT tal-UE, bid-dati, ir-rati qodma u ġodda, il-bidliet li ġejjin u s-sorsi uffiċjali.',
     'subtitle' => 'Segwi l-bidliet kollha fir-rati tal-VAT fil-pajjiżi tal-UE matul-aħħar għaxar snin',
     'stability_title' => 'Indikaturi ta\' Stabilità tal-Pajjiżi',
     'stability_desc' => 'Pajjiżi b\'inqas bidliet fir-rati tal-VAT jindikaw ambjent fiskali aktar stabbli',
@@ -534,6 +534,7 @@ return array (
     'source_recent' => 'Riżultat riċenti, iċċekkjat fl-aħħar 7 ijiem',
     'source_fallback' => 'L-aħħar riżultat maħżun, il-VIES mhijiex disponibbli bħalissa',
     'lookup_count' => 'Tfittxijiet fuq Informazzjoni dwar il-VAT fl-UE: :count',
+    'checked_on' => 'Ivverifikat fil-VIES: :date',
     'not_provided' => 'Mhux kondiviż mill-istat membru',
     'copy_number' => 'Ikkopja n-numru tal-VAT',
     'invalid_format' => 'Daħħal in-numru tal-VAT b\'ittri u ċifri biss, pereżempju LT100019070512.',
@@ -718,6 +719,7 @@ return array (
   'tools' => 
   array (
     'seo_title' => 'Għodod tal-VAT tal-UE: kalkulatur, verifika u mappa',
+    'guides_heading' => 'Gwidi dwar il-VAT tal-UE',
     'seo_description' => 'Għodod b\'xejn għall-VAT tal-UE: kalkulatur għal kull pajjiż, verifika tan-numri tal-VAT fil-VIES, mappa tar-rati, l-istorja tar-rati u gwidi għas-27 stat.',
     'heading' => 'Għodod u riżorsi ta\' Informazzjoni dwar il-VAT fl-UE',
     'intro_text' => 'Hawn issib xi għodod u riżorsi mit-tim ta\' EU-vat.info biex jgħinuk issib triqtek fid-dinja kumplessa tal-VAT fl-Unjoni Ewropea.',

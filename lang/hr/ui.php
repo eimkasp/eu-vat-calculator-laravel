@@ -72,7 +72,7 @@ return array (
     'older_version' => 'Starija verzija',
     'developers' => 'Za programere',
     'mcp_server' => 'MCP poslužitelj',
-    'data_source_note' => 'Stope potječu od Europske komisije i svakodnevno se provjeravaju',
+    'data_source_note' => 'Stope potječu od Europske komisije i provjeravaju se svaki tjedan',
   ),
   'home_page' => 
   array (
@@ -89,7 +89,7 @@ return array (
     'view_full' => 'Pogledajte kalkulator i povijest',
     'rates_heading' => 'Stope PDV-a u EU po državama',
     'rates_year' => 'Stope za :year.',
-    'hero_badge' => 'Stope za :year. · :count država članica · ažurirano svakodnevno',
+    'hero_badge' => 'Stope za :year. · :count država članica',
     'rates_intro' => 'Standardne i snižene stope koje su trenutačno na snazi, poredane od najniže standardne stope.',
     'stat_lowest' => 'Najniža',
     'stat_average' => 'Prosjek EU-a',
@@ -268,7 +268,7 @@ return array (
   array (
     'title' => 'Povijest promjena stopa PDV-a',
     'meta_title' => 'Povijest promjena stopa PDV-a - Države EU | PDV u EU',
-    'meta_desc' => 'Sve zabilježene promjene stopa PDV-a u EU-u: opće, snižene i privremene stope s datumima, starom i novom stopom, najavljenim promjenama i izvorima.',
+    'meta_desc' => 'Sve zabilježene promjene stopa PDV-a u EU-u s datumima, starim i novim stopama, nadolazećim promjenama i službenim izvorima.',
     'subtitle' => 'Pratite sve promjene stopa PDV-a u državama EU tijekom posljednjeg desetljeća',
     'stability_title' => 'Pokazatelji stabilnosti država',
     'stability_desc' => 'Države s manje promjena stopa PDV-a ukazuju na stabilnije porezno okruženje',
@@ -534,6 +534,7 @@ return array (
     'source_recent' => 'Nedavni rezultat, provjeren u posljednjih 7 dana',
     'source_fallback' => 'Posljednji spremljeni rezultat, VIES trenutačno nije dostupan',
     'lookup_count' => 'Broj provjera na stranici PDV u EU: :count',
+    'checked_on' => 'Provjereno u VIES-u: :date',
     'not_provided' => 'Država članica ne dijeli taj podatak',
     'copy_number' => 'Kopiraj PDV broj',
     'invalid_format' => 'Unesite PDV broj koristeći samo slova i znamenke, na primjer LT100019070512.',
@@ -718,6 +719,7 @@ return array (
   'tools' => 
   array (
     'seo_title' => 'Alati za PDV u EU-u: kalkulator, provjera, karta, vodiči',
+    'guides_heading' => 'Vodiči za PDV u EU-u',
     'seo_description' => 'Besplatni alati za PDV u EU-u: kalkulator za svaku zemlju, VIES provjera PDV brojeva, karta i povijest stopa te vodiči za svih 27 država članica.',
     'heading' => 'PDV u EU: alati i resursi',
     'intro_text' => 'Evo nekoliko alata i resursa tima EU-vat.info koji će vam pomoći da se snađete u složenom svijetu PDV-a u Europskoj uniji.',

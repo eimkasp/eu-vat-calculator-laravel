@@ -85,7 +85,7 @@ return [
         'older_version' => 'Older version',
         'developers' => 'Developers',
         'mcp_server' => 'MCP server',
-        'data_source_note' => 'Rates sourced from the European Commission and verified daily',
+        'data_source_note' => 'Rates sourced from the European Commission and checked every week',
     ],
 
     // ── Home Page ───────────────────────────────────────────────────────
@@ -103,7 +103,7 @@ return [
         'view_full' => 'View full calculator & history',
         'rates_heading' => 'EU VAT rates by country',
         'rates_year' => ':year rates',
-        'hero_badge' => ':year rates · :count member states · updated daily',
+        'hero_badge' => ':year rates · :count member states',
         'rates_intro' => 'Standard and reduced rates currently in force, lowest standard rate first.',
         'stat_lowest' => 'Lowest',
         'stat_average' => 'EU average',
@@ -285,7 +285,7 @@ return [
     'history' => [
         'title' => 'VAT rate change history',
         'meta_title' => 'EU VAT Rate Changes History 2026 — All 27 Countries | EU VAT Info',
-        'meta_desc' => 'Every recorded EU VAT rate change: standard, reduced and parking rates, with dates, old and new rates, upcoming changes and official sources.',
+        'meta_desc' => 'Every recorded EU VAT rate change, with dates, old and new rates, upcoming changes and official sources.',
         'subtitle' => 'Track every recorded VAT rate change across EU countries, with filters by country, rate type and direction.',
         'stability_title' => 'Country stability',
         'stability_desc' => 'Fewer recorded rate changes point to a more stable tax environment.',
@@ -558,6 +558,7 @@ return [
         'source_recent' => 'Recent result, checked within the last 7 days',
         'source_fallback' => 'Last stored result, VIES is currently unavailable',
         'lookup_count' => 'Lookups on EU VAT Info: :count',
+        'checked_on' => 'Checked in VIES: :date',
         'not_provided' => 'Not shared by the member state',
         'copy_number' => 'Copy VAT number',
         'invalid_format' => 'Enter the VAT number using letters and digits only, for example LT100019070512.',
@@ -629,6 +630,7 @@ return [
     // ── Tools Page ──────────────────────────────────────────────────────
     'tools' => [
         'seo_title' => 'EU VAT Tools: Calculator, Validator, Map and Guides',
+        'guides_heading' => 'EU VAT guides',
         'seo_description' => 'Free EU VAT tools: a VAT calculator for every country, VIES number checks, a rate map, the rate history and compliance guides for all 27 states.',
         'heading' => 'EU VAT tools and resources',
         'intro_text' => 'Free calculators, validators, data and guides from EU VAT Info to help you work with VAT across the European Union.',
