@@ -21,7 +21,7 @@
                         <span class="block truncate text-xs text-ink-muted">{{ $link['text'] }}</span>
                     </span>
                     <x-ui.icon :name="$external ? 'arrow-up-right' : 'arrow-right'" class="size-4 text-ink-quiet" />
-                </a>
+                @if($external)<x-ui.new-tab />@endif</a>
             </li>
         @endforeach
     </ul>

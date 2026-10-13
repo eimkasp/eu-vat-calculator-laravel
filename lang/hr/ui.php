@@ -11,6 +11,7 @@ return array (
   'save' => 'Spremi',
   'calculate' => 'Izračunaj',
   'loading' => 'Učitavanje...',
+  'opens_new_tab' => 'otvara se u novoj kartici',
   'all_rights_reserved' => 'Sva prava pridržana.',
   'data_updated_daily' => 'Podaci se ažuriraju svakodnevno',
   'country' => 'Država',
@@ -320,6 +321,7 @@ return array (
     'explore_map' => 'Istražite kartu PDV-a',
     'increase' => 'Povećanje',
     'decrease' => 'Smanjenje',
+    'points' => ':value p. b.',
   ),
   'country_page' => 
   array (

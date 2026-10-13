@@ -11,6 +11,7 @@ return array (
   'save' => 'Αποθήκευση',
   'calculate' => 'Υπολογισμός',
   'loading' => 'Φόρτωση...',
+  'opens_new_tab' => 'ανοίγει σε νέα καρτέλα',
   'all_rights_reserved' => 'Με επιφύλαξη παντός δικαιώματος.',
   'data_updated_daily' => 'Τα δεδομένα ενημερώνονται καθημερινά',
   'country' => 'Χώρα',
@@ -320,6 +321,7 @@ return array (
     'explore_map' => 'Εξερεύνηση χάρτη ΦΠΑ',
     'increase' => 'Αύξηση',
     'decrease' => 'Μείωση',
+    'points' => ':value π.μ.',
   ),
   'country_page' => 
   array (

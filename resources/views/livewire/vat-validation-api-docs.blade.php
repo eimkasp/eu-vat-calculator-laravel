@@ -126,8 +126,8 @@
                             <p class="text-sm leading-6 text-ink-muted">Validate a single EU VAT number in real time against the VIES database. Results are cached for 7 days.</p>
 
                             <div>
-                                <h4 class="app-eyebrow">Request body</h4>
-                                <div class="relative mt-2 overflow-x-auto rounded-card border border-line">
+                                <h4 id="request-body-heading" class="app-eyebrow">Request body</h4>
+                                <div class="relative mt-2 overflow-x-auto rounded-card border border-line" tabindex="0" role="group" aria-labelledby="request-body-heading">
                                     <table class="app-table min-w-[34rem]">
                                         <thead>
                                             <tr>
@@ -309,7 +309,7 @@
 
                 <section id="response-fields" class="scroll-mt-24" aria-labelledby="response-fields-heading">
                     <h2 id="response-fields-heading" class="text-xl font-bold text-ink">Response fields</h2>
-                    <div class="app-surface relative mt-4 overflow-x-auto">
+                    <div class="app-surface relative mt-4 overflow-x-auto" tabindex="0" role="group" aria-labelledby="response-fields-heading">
                         <table class="app-table min-w-[34rem]">
                             <thead>
                                 <tr>
@@ -342,7 +342,7 @@
 
                 <section id="errors" class="scroll-mt-24" aria-labelledby="errors-heading">
                     <h2 id="errors-heading" class="text-xl font-bold text-ink">Error responses</h2>
-                    <div class="app-surface relative mt-4 overflow-x-auto">
+                    <div class="app-surface relative mt-4 overflow-x-auto" tabindex="0" role="group" aria-labelledby="errors-heading">
                         <table class="app-table min-w-[28rem]">
                             <thead>
                                 <tr>
@@ -354,7 +354,7 @@
                                 @foreach([
                                     ['422', 'Validation failed: <code class="rounded-xs bg-surface-muted px-1 font-mono">country_code</code> or <code class="rounded-xs bg-surface-muted px-1 font-mono">vat_number</code> is missing or invalid. The <code class="rounded-xs bg-surface-muted px-1 font-mono">errors</code> field explains why.'],
                                     ['429', 'Too many requests: the fair-use limit was reached. Retry after a short pause.'],
-                                    ['503', 'The VIES system is temporarily unavailable. Check <a href="https://ec.europa.eu/taxation_customs/vies" target="_blank" rel="noopener noreferrer" class="app-link">the VIES status page</a>.'],
+                                    ['503', 'The VIES system is temporarily unavailable. Check <a href="https://ec.europa.eu/taxation_customs/vies" target="_blank" rel="noopener noreferrer" class="app-link">the VIES status page<span class="sr-only" data-markdown-skip> ('.e(__('ui.opens_new_tab')).')</span></a>.'],
                                 ] as [$status, $description])
                                     <tr>
                                         <td class="pl-5"><span class="app-badge bg-danger-soft font-mono text-danger">{{ $status }}</span></td>

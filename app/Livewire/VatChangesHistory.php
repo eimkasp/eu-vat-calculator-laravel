@@ -132,10 +132,15 @@ class VatChangesHistory extends Component
             ->whereHas('country', fn (Builder $query) => $query->where('is_eu_member', true))
             ->max('updated_at');
 
+        $firstChange = VatRateChange::query()
+            ->whereHas('country', fn (Builder $query) => $query->where('is_eu_member', true))
+            ->min('change_date');
+
         return view('livewire.vat-changes-history', [
             'changes' => $changes,
             'hasFilters' => $this->hasActiveFilters(),
             'datasetModified' => $datasetModified ? CarbonImmutable::parse($datasetModified) : null,
+            'firstChangeYear' => $firstChange ? CarbonImmutable::parse($firstChange)->year : null,
         ]);
     }
 }

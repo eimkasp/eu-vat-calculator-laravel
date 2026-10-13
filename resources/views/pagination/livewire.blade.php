@@ -1,6 +1,7 @@
 @php
     $scrollTo ??= 'body';
-    $scroll = $scrollTo !== false ? "(\$el.closest('{$scrollTo}') || document.querySelector('{$scrollTo}')).scrollIntoView()" : '';
+    $target = $scrollTo === 'body' ? '$wire.$el' : "(\$el.closest('{$scrollTo}') || document.querySelector('{$scrollTo}'))";
+    $scroll = $scrollTo !== false ? "((target) => { target.scrollIntoView(); target.setAttribute('tabindex', '-1'); target.style.outline = 'none'; target.focus({ preventScroll: true }); })({$target})" : '';
     $pageName = $paginator->getPageName();
     $step = 'pressable inline-flex h-10 items-center gap-1.5 rounded-control px-3.5 text-sm font-semibold';
 @endphp

@@ -11,6 +11,7 @@ return array (
   'save' => 'Išsaugoti',
   'calculate' => 'Skaičiuoti',
   'loading' => 'Įkeliama...',
+  'opens_new_tab' => 'atsidaro naujame skirtuke',
   'all_rights_reserved' => 'Visos teisės saugomos.',
   'data_updated_daily' => 'Duomenys atnaujinami kasdien',
   'country' => 'Šalis',
@@ -320,6 +321,7 @@ return array (
     'explore_map' => 'Tyrinėti PVM žemėlapį',
     'increase' => 'Padidinimas',
     'decrease' => 'Sumažinimas',
+    'points' => ':value proc. p.',
   ),
   'country_page' => 
   array (

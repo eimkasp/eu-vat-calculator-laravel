@@ -14,18 +14,18 @@
 
 <header x-data="{ menu: false }" @keydown.escape.window="menu = false" class="on-brand sticky top-0 z-40 border-b border-white/10 bg-brand-deep text-white">
     <div class="app-container flex h-16 items-center gap-2">
-        <a href="{{ locale_path('/') }}" class="-ml-1 flex min-w-0 items-center gap-2.5 whitespace-nowrap rounded-control px-1 py-1 text-[1.0625rem] font-bold tracking-[-0.02em] text-white lg:shrink-0">
+        <a href="{{ locale_path('/') }}" class="-ml-1 flex min-w-0 items-center gap-2.5 whitespace-nowrap rounded-control px-1 py-1 text-[1.0625rem] font-bold tracking-[-0.02em] text-white">
             <x-ui.logo />
             <span class="truncate">{{ __('ui.site_name') }}</span>
         </a>
 
-        <nav class="ml-4 hidden items-center self-stretch lg:flex xl:ml-6" aria-label="{{ __('ui.nav.primary') }}">
+        <nav class="ml-4 hidden shrink-0 items-center self-stretch xl:flex 2xl:ml-6" aria-label="{{ __('ui.nav.primary') }}">
             @foreach($primary as $item)
                 <a href="{{ $item['url'] }}" @class(['app-nav-link', 'app-nav-link-active' => $item['active']]) @if($item['active']) aria-current="page" @endif>{{ $item['label'] }}</a>
             @endforeach
 
-            <div class="relative flex" x-data="{ open: false }" @click.outside="open = false" @keydown.escape="open = false">
-                <button type="button" @click="open = !open" :aria-expanded="open.toString()" aria-haspopup="true" aria-controls="tools-menu" @class(['app-nav-link', 'app-nav-link-active' => $toolsActive])>
+            <div class="relative flex" x-data="{ open: false }" @click.outside="open = false" @keydown.escape="if (open) { open = false; $refs.trigger.focus(); }" @focusout="if (! $el.contains($event.relatedTarget)) open = false">
+                <button type="button" x-ref="trigger" @click="open = !open" aria-expanded="false" :aria-expanded="open.toString()" aria-controls="tools-menu" @class(['app-nav-link', 'app-nav-link-active' => $toolsActive])>
                     {{ __('ui.nav.vat_tools') }}
                     <x-ui.icon name="chevron-down" class="size-3.5 transition-transform duration-150" x-bind:class="open && 'rotate-180'" />
                 </button>
@@ -54,31 +54,31 @@
             <a href="{{ locale_path('/blog') }}" @class(['app-nav-link', 'app-nav-link-active' => SiteNavigation::isActive('blog.*')]) @if(SiteNavigation::isActive('blog.*')) aria-current="page" @endif>{{ __('ui.nav.updates') }}</a>
         </nav>
 
-        <div class="ml-auto flex items-center gap-1">
-            <button type="button" @click="$store.palette.show()" class="app-brand-panel pressable hidden h-10 w-72 items-center gap-2.5 rounded-control px-3 text-left text-sm text-white/80 hover:border-white/30 hover:bg-white/10 hover:text-white xl:flex" aria-label="{{ __('ui.nav.search') }}">
+        <div class="@container ml-auto flex min-w-[10.5rem] flex-1 items-center justify-end gap-1">
+            <button type="button" @click="$store.palette.show()" class="app-brand-panel pressable hidden h-10 w-72 items-center gap-2.5 rounded-control px-3 text-left text-sm text-white/80 hover:border-white/30 hover:bg-white/10 hover:text-white @min-[27rem]:flex" aria-label="{{ __('ui.nav.search') }}">
                 <x-ui.icon name="search" class="size-4" />
                 <span class="flex-1 truncate">{{ __('ui.nav.search_placeholder') }}</span>
                 <kbd class="rounded-xs border border-white/25 px-1.5 py-0.5 font-sans text-[0.6875rem] font-semibold text-white/80">⌘K</kbd>
             </button>
-            <button type="button" @click="$store.palette.show()" class="inline-flex size-10 items-center justify-center rounded-control text-white/85 transition-colors hover:bg-white/10 hover:text-white xl:hidden" aria-label="{{ __('ui.nav.search') }}">
+            <button type="button" @click="$store.palette.show()" class="inline-flex size-10 items-center justify-center rounded-control text-white/85 transition-colors hover:bg-white/10 hover:text-white @min-[27rem]:hidden" aria-label="{{ __('ui.nav.search') }}">
                 <x-ui.icon name="search" class="size-5" />
             </button>
 
             <x-theme-toggle class="hidden sm:inline-flex" />
             <x-language-switcher class="hidden lg:block" />
 
-            <a href="https://github.com/eimkasp/eu-vat.info" target="_blank" rel="noopener noreferrer" class="hidden size-10 items-center justify-center rounded-control text-white/80 transition-colors hover:bg-white/10 hover:text-white 2xl:inline-flex" aria-label="{{ __('ui.nav.github') }}">
+            <a href="https://github.com/eimkasp/eu-vat.info" target="_blank" rel="noopener noreferrer" class="hidden size-10 items-center justify-center rounded-control text-white/80 transition-colors hover:bg-white/10 hover:text-white @min-[30rem]:inline-flex" aria-label="{{ __('ui.nav.github') }} ({{ __('ui.opens_new_tab') }})">
                 <x-ui.icon name="github" class="size-5" />
             </a>
 
-            <button type="button" @click="menu = !menu" class="inline-flex size-10 items-center justify-center rounded-control text-white transition-colors hover:bg-white/10 lg:hidden" aria-controls="mobile-navigation" :aria-expanded="menu.toString()" aria-label="{{ __('ui.nav.toggle_menu') }}">
+            <button type="button" @click="menu = !menu" class="inline-flex size-10 items-center justify-center rounded-control text-white transition-colors hover:bg-white/10 xl:hidden" aria-controls="mobile-navigation" :aria-expanded="menu.toString()" aria-label="{{ __('ui.nav.toggle_menu') }}">
                 <x-ui.icon name="menu" class="size-6" x-show="!menu" />
                 <x-ui.icon name="x" class="size-6" x-show="menu" x-cloak />
             </button>
         </div>
     </div>
 
-    <nav id="mobile-navigation" x-cloak x-show="menu" x-transition.opacity.duration.150ms class="max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-white/10 pb-4 lg:hidden" aria-label="{{ __('ui.nav.mobile') }}">
+    <nav id="mobile-navigation" x-cloak x-show="menu" x-transition.opacity.duration.150ms class="max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-white/10 pb-4 xl:hidden" aria-label="{{ __('ui.nav.mobile') }}">
         <div class="app-container grid gap-1 pt-3">
             @foreach($primary as $item)
                 <a href="{{ $item['url'] }}" @class(['flex min-h-11 items-center border-l-2 px-3 text-[0.9375rem] font-medium', $mobileActive => $item['active'], $mobileIdle => ! $item['active']]) @if($item['active']) aria-current="page" @endif>{{ $item['label'] }}</a>
@@ -95,10 +95,9 @@
                 @endforeach
             </div>
 
-            <div class="mt-3 flex items-center justify-between gap-3 border-t border-white/10 px-1 pt-4">
-                <x-language-switcher :mobile="true" />
+            <x-language-switcher :mobile="true" class="mt-3 border-t border-white/10 px-1 pt-4">
                 <x-theme-toggle :with-label="true" />
-            </div>
+            </x-language-switcher>
         </div>
     </nav>
 </header>

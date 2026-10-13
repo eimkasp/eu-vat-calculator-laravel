@@ -11,6 +11,7 @@ return array (
   'save' => 'Sábháil',
   'calculate' => 'Ríomh',
   'loading' => 'Ag lódáil...',
+  'opens_new_tab' => 'osclaítear i gcluaisín nua é',
   'all_rights_reserved' => 'Gach ceart ar cosaint.',
   'data_updated_daily' => 'Nuashonraítear sonraí go laethúil',
   'country' => 'Tír',
@@ -320,6 +321,7 @@ return array (
     'explore_map' => 'Féach ar Léarscáil CBL',
     'increase' => 'Méadú',
     'decrease' => 'Laghdú',
+    'points' => ':value pp',
   ),
   'country_page' => 
   array (

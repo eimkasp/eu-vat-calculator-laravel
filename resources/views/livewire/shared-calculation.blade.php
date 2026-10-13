@@ -147,7 +147,7 @@
             <div class="min-w-0 space-y-8">
                 <section class="app-surface overflow-hidden" aria-labelledby="other-amounts">
                     <h2 id="other-amounts" class="border-b border-line px-5 py-4 text-lg font-bold text-ink sm:px-6">{{ __('ui.shared_calc.same_country_other_amounts', ['country' => $countryModel->name]) }}</h2>
-                    <div class="relative overflow-x-auto">
+                    <div class="relative overflow-x-auto" tabindex="0" role="group" aria-labelledby="other-amounts">
                         <table class="app-table min-w-[28rem]">
                             <thead>
                                 <tr>
@@ -179,7 +179,7 @@
                             <h2 id="nearby-rates" class="text-lg font-bold text-ink">{{ __('ui.shared_calc.nearby_heading') }}</h2>
                             <p class="mt-1 text-sm text-ink-muted">{{ __('ui.shared_calc.nearby_note') }}</p>
                         </div>
-                        <div class="relative overflow-x-auto">
+                        <div class="relative overflow-x-auto" tabindex="0" role="group" aria-labelledby="nearby-rates">
                             <table class="app-table min-w-[32rem]">
                                 <thead>
                                     <tr>

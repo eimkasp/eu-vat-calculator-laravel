@@ -4,7 +4,8 @@
         <x-json-ld :data="[
             '@type' => 'WebSite',
             '@id' => $base.'/#website',
-            'name' => __('ui.site_name'),
+            'name' => 'EU VAT Info',
+            'alternateName' => array_values(array_unique(['vat.businesspress.io', __('ui.site_name')])),
             'url' => $base.'/',
             'description' => __('ui.home_page.meta_desc'),
             'inLanguage' => app()->getLocale(),
@@ -27,28 +28,15 @@
                 'https://chromewebstore.google.com/detail/eu-vat-calculator/fifmbbpgopnifnoginhmjjedjnabdkka',
             ],
         ]" />
-        <x-json-ld :data="[
-            '@type' => 'Dataset',
-            '@id' => $base.'/datasets/eu-vat-rates#dataset',
-            'name' => 'EU VAT Rates Dataset',
-            'description' => 'Current standard, reduced, super-reduced and parking VAT rates for the 27 European Union member states, from European Commission data and updated every week.',
-            'url' => $base.'/datasets/eu-vat-rates',
-            'license' => 'https://creativecommons.org/licenses/by/4.0/',
-            'isAccessibleForFree' => true,
-            'creator' => ['@type' => 'Organization', '@id' => $base.'/#organization', 'name' => 'EU VAT Info', 'url' => $base.'/'],
-            'distribution' => [
-                ['@type' => 'DataDownload', 'encodingFormat' => 'text/csv', 'contentUrl' => $base.'/datasets/eu-vat-rates.csv'],
-                ['@type' => 'DataDownload', 'encodingFormat' => 'application/json', 'contentUrl' => $base.'/datasets/eu-vat-rates.json'],
-            ],
-            'temporalCoverage' => '2000/'.date('Y'),
-            'spatialCoverage' => ['@type' => 'Place', 'name' => 'European Union'],
-        ]" />
+        <x-json-ld :data="\App\Support\Seo\DatasetSchema::rates()" />
     </x-seo-meta>
 @endsection
 
-@push('head')
-    <link rel="amphtml" href="{{ url('/amp') }}">
-@endpush
+@if(app()->getLocale() === config('translation.default_language', 'en'))
+    @push('head')
+        <link rel="amphtml" href="{{ url('/amp') }}">
+    @endpush
+@endif
 
 <div>
     <section class="hero-canvas" aria-labelledby="home-heading">

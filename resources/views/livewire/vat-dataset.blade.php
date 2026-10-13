@@ -1,50 +1,9 @@
 @php
     $canonical = app(\App\Support\Seo\SeoPolicy::class)->canonicalHost().locale_path('/datasets/eu-vat-rates');
-    $baseUrl = app(\App\Support\Seo\SeoPolicy::class)->canonicalHost();
     $schema = [
         '@context' => 'https://schema.org',
         '@graph' => [
-            [
-                '@type' => 'BreadcrumbList',
-                '@id' => $canonical.'#breadcrumbs',
-                'itemListElement' => [
-                    ['@type' => 'ListItem', 'position' => 1, 'name' => 'EU VAT Info', 'item' => $baseUrl.'/'],
-                    ['@type' => 'ListItem', 'position' => 2, 'name' => 'EU VAT rates dataset', 'item' => $canonical],
-                ],
-            ],
-            [
-                '@type' => 'Dataset',
-                '@id' => $canonical.'#dataset',
-                'name' => 'EU VAT Rates Dataset',
-                'description' => 'Current standard, reduced, super-reduced and parking VAT rates for the 27 European Union member states.',
-                'url' => $canonical,
-                'dateModified' => $dateModified->toIso8601String(),
-                'license' => 'https://creativecommons.org/licenses/by/4.0/',
-                'isAccessibleForFree' => true,
-                'spatialCoverage' => 'European Union',
-                'temporalCoverage' => '2000/'.now()->year,
-                'isBasedOn' => [
-                    'https://taxation-customs.ec.europa.eu/taxation/vat_en',
-                    'https://github.com/kdeldycke/vat-rates',
-                ],
-                'creator' => [
-                    '@type' => 'Organization',
-                    '@id' => $baseUrl.'/#organization',
-                    'name' => 'EU VAT Info',
-                    'url' => $baseUrl,
-                ],
-                'variableMeasured' => [
-                    ['@type' => 'PropertyValue', 'name' => 'Standard VAT rate', 'unitText' => 'percent'],
-                    ['@type' => 'PropertyValue', 'name' => 'Reduced VAT rate', 'unitText' => 'percent'],
-                    ['@type' => 'PropertyValue', 'name' => 'Super-reduced VAT rate', 'unitText' => 'percent'],
-                    ['@type' => 'PropertyValue', 'name' => 'Parking VAT rate', 'unitText' => 'percent'],
-                ],
-                'distribution' => [
-                    ['@type' => 'DataDownload', 'encodingFormat' => 'text/csv', 'contentUrl' => $baseUrl.'/datasets/eu-vat-rates.csv'],
-                    ['@type' => 'DataDownload', 'encodingFormat' => 'application/json', 'contentUrl' => $baseUrl.'/datasets/eu-vat-rates.json'],
-                    ['@type' => 'DataDownload', 'encodingFormat' => 'text/markdown', 'contentUrl' => $baseUrl.'/llms-full.txt'],
-                ],
-            ],
+            \App\Support\Seo\DatasetSchema::rates($dateModified),
         ],
     ];
 @endphp

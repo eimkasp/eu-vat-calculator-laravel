@@ -12,6 +12,6 @@
             @elseif($banner->content)
                 <div class="p-4 text-sm text-ink">{!! $banner->content !!}</div>
             @endif
-        </a>
+        <x-ui.new-tab /></a>
     </div>
 @endforeach

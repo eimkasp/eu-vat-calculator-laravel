@@ -11,6 +11,7 @@ return array (
   'save' => 'Zapisz',
   'calculate' => 'Oblicz',
   'loading' => 'Ładowanie...',
+  'opens_new_tab' => 'otwiera się w nowej karcie',
   'all_rights_reserved' => 'Wszelkie prawa zastrzeżone.',
   'data_updated_daily' => 'Dane aktualizowane codziennie',
   'country' => 'Kraj',
@@ -320,6 +321,7 @@ return array (
     'explore_map' => 'Odkryj mapę VAT',
     'increase' => 'Podwyżka',
     'decrease' => 'Obniżka',
+    'points' => ':value p.p.',
   ),
   'country_page' => 
   array (

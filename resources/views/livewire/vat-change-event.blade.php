@@ -5,23 +5,22 @@
     $baseUrl = app(\App\Support\Seo\SeoPolicy::class)->canonicalHost();
     $canonical = $baseUrl.locale_path('/vat-changes/'.$country->slug.'/'.$change->rate_type.'/'.$change->change_date->toDateString());
     $typeLabel = str_replace('_', '-', $change->rate_type);
-    $headline = $country->name.' '.$typeLabel.' VAT rate changed from '.Country::formatRate($change->old_rate).'% to '.Country::formatRate($change->new_rate).'%';
     $delta = (float) $change->new_rate - (float) $change->old_rate;
     $up = $delta > 0;
     $upcoming = $change->change_date->isFuture();
+    $fromTo = Country::formatRate($change->old_rate).'% to '.Country::formatRate($change->new_rate).'%';
+    $headline = $country->name.' '.$typeLabel.' VAT rate '.($upcoming ? 'changes' : 'changed').' from '.$fromTo;
+    $metaTitle = $country->name.' '.$typeLabel.' VAT: '.$fromTo.' on '.$change->change_date->format('j M Y').' | EU VAT Info';
+    $verb = $delta == 0 ? ($upcoming ? 'changes' : 'changed') : ($upcoming ? ($up ? 'rises' : 'falls') : ($up ? 'rose' : 'fell'));
+    $metaDescription = ($upcoming ? 'From ' : 'On ').$change->change_date->format('j F Y').', '.$country->name.'’s '.$typeLabel.' VAT rate '.$verb.' from '.$fromTo.'. See the source, the full rate history and today’s rate.';
 @endphp
 
 @section('seo')
-    <x-seo-meta :title="$headline.' | EU VAT Info'" :description="$change->description ?: $headline" :url="$canonical" type="article">
+    <x-seo-meta :title="$metaTitle" :description="$metaDescription" :url="$canonical" type="article">
         <script type="application/ld+json">{!! json_encode([
             '@@context' => 'https://schema.org',
             '@graph' => [
-                ['@type' => 'BreadcrumbList', '@id' => $canonical.'#breadcrumbs', 'itemListElement' => [
-                    ['@type' => 'ListItem', 'position' => 1, 'name' => 'EU VAT Info', 'item' => $baseUrl.'/'],
-                    ['@type' => 'ListItem', 'position' => 2, 'name' => 'VAT changes', 'item' => $baseUrl.locale_path('/vat-changes')],
-                    ['@type' => 'ListItem', 'position' => 3, 'name' => $country->name, 'item' => $canonical],
-                ]],
-                ['@type' => 'Article', '@id' => $canonical.'#article', 'headline' => $headline, 'description' => $change->description ?: $headline, 'datePublished' => ($change->announced_date ?? $change->change_date)->toIso8601String(), 'dateModified' => $change->updated_at->toIso8601String(), 'mainEntityOfPage' => $canonical, 'author' => ['@type' => 'Organization', 'name' => 'EU VAT Info'], 'citation' => array_values(array_filter([$change->source_url, $change->official_document]))],
+                ['@type' => 'Article', '@id' => $canonical.'#article', 'headline' => $headline, 'description' => $metaDescription, 'datePublished' => ($change->created_at ?? $change->updated_at)->toIso8601String(), 'dateModified' => $change->updated_at->toIso8601String(), 'mainEntityOfPage' => $canonical, 'author' => ['@type' => 'Organization', 'name' => 'EU VAT Info'], 'citation' => array_values(array_filter([$change->source_url, $change->official_document]))],
             ],
         ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG) !!}</script>
     </x-seo-meta>

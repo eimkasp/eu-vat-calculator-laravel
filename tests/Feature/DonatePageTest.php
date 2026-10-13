@@ -12,7 +12,7 @@ it('renders the donate page', function () {
 it('has correct SEO meta on donate page', function () {
     $this->get('/donate')
         ->assertSuccessful()
-        ->assertSee('Donate — Support EU VAT Info', false)
+        ->assertSee('<title>Donate: support free EU VAT rates and tools | EU VAT Info</title>', false)
         ->assertSee('meta name="description"', false);
 });
 

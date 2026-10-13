@@ -11,6 +11,7 @@ return array (
   'save' => 'Gem',
   'calculate' => 'Beregn',
   'loading' => 'Indlæser...',
+  'opens_new_tab' => 'åbner i en ny fane',
   'all_rights_reserved' => 'Alle rettigheder forbeholdes.',
   'data_updated_daily' => 'Data opdateres dagligt',
   'country' => 'Land',
@@ -320,6 +321,7 @@ return array (
     'explore_map' => 'Udforsk momskort',
     'increase' => 'Stigning',
     'decrease' => 'Fald',
+    'points' => ':value pp.',
   ),
   'country_page' => 
   array (

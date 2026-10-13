@@ -11,6 +11,7 @@ return array (
   'save' => 'Opslaan',
   'calculate' => 'Berekenen',
   'loading' => 'Laden...',
+  'opens_new_tab' => 'opent in een nieuw tabblad',
   'all_rights_reserved' => 'Alle rechten voorbehouden.',
   'data_updated_daily' => 'Gegevens dagelijks bijgewerkt',
   'country' => 'Land',
@@ -320,6 +321,7 @@ return array (
     'explore_map' => 'BTW-kaart verkennen',
     'increase' => 'Verhoging',
     'decrease' => 'Verlaging',
+    'points' => ':value %-punt',
   ),
   'country_page' => 
   array (

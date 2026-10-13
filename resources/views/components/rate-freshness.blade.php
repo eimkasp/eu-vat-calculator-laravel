@@ -16,6 +16,6 @@
         <x-ui.icon name="shield-check" class="size-3.5 shrink-0" />
         {{ $eu ? __('ui.trust.source_ec') : __('ui.trust.source_dataset') }}
         <x-ui.icon name="arrow-up-right" class="size-3 shrink-0" />
-    </a>
+    <x-ui.new-tab /></a>
     {{ $slot }}
 </div>

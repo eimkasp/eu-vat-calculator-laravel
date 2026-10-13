@@ -21,6 +21,7 @@ return [
     'save' => 'Save',
     'calculate' => 'Calculate',
     'loading' => 'Loading...',
+    'opens_new_tab' => 'opens in a new tab',
     'all_rights_reserved' => 'All rights reserved.',
     'data_updated_daily' => 'Always up to date',
     'country' => 'Country',
@@ -338,6 +339,7 @@ return [
         'explore_map' => 'Explore the VAT map',
         'increase' => 'Increase',
         'decrease' => 'Decrease',
+        'points' => ':value pp',
     ],
 
     // ── Country Page ────────────────────────────────────────────────────
@@ -874,7 +876,7 @@ return [
     ],
 
     'blog' => [
-        'meta_title' => 'EU VAT Updates and Guides',
+        'meta_title' => 'EU VAT updates: rate changes and guides | EU VAT Info',
         'meta_description' => 'Research-backed VAT updates, EU VAT changes, and practical compliance guides for businesses tracking European VAT rates.',
         'eyebrow' => 'EU VAT updates',
         'title' => 'Research-backed VAT changes and guides',

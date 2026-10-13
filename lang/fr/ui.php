@@ -11,6 +11,7 @@ return array (
   'save' => 'Enregistrer',
   'calculate' => 'Calculer',
   'loading' => 'Chargement...',
+  'opens_new_tab' => 's’ouvre dans un nouvel onglet',
   'all_rights_reserved' => 'Tous droits réservés.',
   'data_updated_daily' => 'Données mises à jour quotidiennement',
   'country' => 'Pays',
@@ -320,6 +321,7 @@ return array (
     'explore_map' => 'Explorer la carte TVA',
     'increase' => 'Augmentation',
     'decrease' => 'Baisse',
+    'points' => ':value pt',
   ),
   'country_page' => 
   array (

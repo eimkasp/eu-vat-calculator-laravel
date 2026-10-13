@@ -7,10 +7,20 @@ Each phase is self-contained — stop after any phase to review before continuin
 
 ## Instructions
 
-Read AGENTS.md first to understand the project. Then execute the phases below in order. Use the installed skills when applicable:
+Read AGENTS.md and DESIGN.md first to understand the project. Then execute the phases below in order. Use the installed skills when applicable (the project's `design-system` skill for any UI change).
 
-**Project-level skills**: laravel-11-12-app-guidelines, livewire-development, pest-testing, resource (Filament), i18n-localization
-**User-level skills**: seo-audit, programmatic-seo, accessibility, performance, frontend-design, refactor, web-design-reviewer, git-commit
+---
+
+## Phase 0: Measure
+
+Measure before changing anything, and again at the end, on the same machine:
+
+```bash
+docs/benchmarks/v3-claude-opus-5-5/tools/run.sh before   # 12 pages × en/de/mt: LCP, TBT, CLS, bytes, axe, keyboard tasks, SEO, AI, queries
+BASE=http://127.0.0.1:8123 OUT=audit-before.json node docs/benchmarks/cycle-5.3/tools/audit.mjs   # every page type, light and dark, 390 and 1440px
+```
+
+Also check production directly (`curl -sI https://vat.businesspress.io/…`): caching headers, compression, what Cloudflare rewrites. The 5.3 cycle found Rocket Loader and Livewire's `no-store` this way; neither shows on a local server. Run the wide audit again after the fixes: the second pass of 5.3 caught a regression the first fixes introduced.
 
 ---
 
@@ -35,7 +45,7 @@ Use the `seo-audit` skill. Check:
 Use the `accessibility` skill. Check:
 - [ ] Semantic HTML on all page types
 - [ ] ARIA labels on interactive elements (calculator, validator, map)
-- [ ] Color contrast (DaisyUI theme)
+- [ ] Color contrast (semantic tokens, light and dark)
 - [ ] Keyboard navigation (tab order, focus indicators)
 - [ ] Form labels and error messages
 - [ ] Skip navigation link
@@ -43,9 +53,9 @@ Use the `accessibility` skill. Check:
 - [ ] Screen reader compatibility for dynamic Livewire content
 
 ### 1.3 Code Quality Audit
-Use the `refactor` and `laravel-11-12-app-guidelines` skills. Check:
-- [ ] Laravel 11 conventions (route files, middleware, providers)
-- [ ] Livewire 3 best practices (lazy loading, wire:navigate, events)
+Check:
+- [ ] Laravel 13 conventions (route files, middleware, providers)
+- [ ] Livewire 4 best practices (lazy loading, wire:navigate, events)
 - [ ] N+1 query issues in Livewire components
 - [ ] Service class responsibilities (single responsibility)
 - [ ] Test coverage gaps (compare existing tests vs. components)

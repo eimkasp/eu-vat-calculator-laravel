@@ -11,6 +11,7 @@ return array (
   'save' => 'Speichern',
   'calculate' => 'Berechnen',
   'loading' => 'Wird geladen...',
+  'opens_new_tab' => 'öffnet in einem neuen Tab',
   'all_rights_reserved' => 'Alle Rechte vorbehalten.',
   'data_updated_daily' => 'Daten werden täglich aktualisiert',
   'country' => 'Land',
@@ -320,6 +321,7 @@ return array (
     'explore_map' => 'MwSt.-Karte erkunden',
     'increase' => 'Erhöhung',
     'decrease' => 'Senkung',
+    'points' => ':value Pp.',
   ),
   'country_page' => 
   array (

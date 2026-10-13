@@ -81,7 +81,7 @@
                                                         @else
                                                             <li class="flex items-start gap-3 text-[0.9375rem] leading-7 text-ink-muted">
                                                                 <span class="mt-3 size-1 shrink-0 rounded-full bg-ink-quiet" aria-hidden="true"></span>
-                                                                <span class="[&_a]:text-action [&_a]:underline [&_code]:rounded-xs [&_code]:bg-surface-muted [&_code]:px-1 [&_strong]:font-semibold [&_strong]:text-ink">{!! Str::inlineMarkdown($item['text'], ['html_input' => 'escape', 'allow_unsafe_links' => false]) !!}</span>
+                                                                <span class="min-w-0 [overflow-wrap:anywhere] [&_a]:text-action [&_a]:underline [&_code]:rounded-xs [&_code]:bg-surface-muted [&_code]:px-1 [&_strong]:font-semibold [&_strong]:text-ink">{!! Str::inlineMarkdown($item['text'], ['html_input' => 'escape', 'allow_unsafe_links' => false]) !!}</span>
                                                             </li>
                                                         @endif
                                                     @endforeach

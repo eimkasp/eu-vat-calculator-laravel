@@ -2,6 +2,8 @@
 
 namespace App\Support\Seo;
 
+use Illuminate\Support\Facades\Route;
+
 class SeoPolicy
 {
     /**
@@ -28,6 +30,23 @@ class SeoPolicy
         'vat-rates.country-history',
         'vat-scenario-guide',
     ];
+
+    /**
+     * Open Graph locale (language_TERRITORY) for each supported language.
+     */
+    public const OG_LOCALES = [
+        'bg' => 'bg_BG', 'cs' => 'cs_CZ', 'da' => 'da_DK', 'de' => 'de_DE', 'el' => 'el_GR', 'en' => 'en_GB',
+        'es' => 'es_ES', 'et' => 'et_EE', 'fi' => 'fi_FI', 'fr' => 'fr_FR', 'ga' => 'ga_IE', 'hr' => 'hr_HR',
+        'hu' => 'hu_HU', 'it' => 'it_IT', 'lt' => 'lt_LT', 'lv' => 'lv_LV', 'mt' => 'mt_MT', 'nl' => 'nl_NL',
+        'pl' => 'pl_PL', 'pt' => 'pt_PT', 'ro' => 'ro_RO', 'sk' => 'sk_SK', 'sl' => 'sl_SI', 'sv' => 'sv_SE',
+    ];
+
+    public function ogLocale(?string $locale = null): string
+    {
+        $locale ??= app()->getLocale();
+
+        return self::OG_LOCALES[$locale] ?? str_replace('-', '_', $locale);
+    }
 
     public function canonicalHost(): string
     {
@@ -70,7 +89,11 @@ class SeoPolicy
 
     public function shouldEmitHreflang(): bool
     {
-        if (! $this->isLocaleIndexable(app()->getLocale()) || ! $this->hasTranslatedBody()) {
+        if (! $this->isLocaleIndexable(app()->getLocale()) || ! $this->hasTranslatedBody() || ! $this->hasLocalizedRoute()) {
+            return false;
+        }
+
+        if (str_contains((string) request()->attributes->get('seo.robots'), 'noindex')) {
             return false;
         }
 
@@ -83,6 +106,16 @@ class SeoPolicy
         }
 
         return true;
+    }
+
+    /**
+     * Whether the current page exists in every language: a /{locale} route, or an English route with one.
+     */
+    public function hasLocalizedRoute(): bool
+    {
+        $name = (string) request()->route()?->getName();
+
+        return $name !== '' && (str_starts_with($name, 'locale.') || Route::has('locale.'.$name));
     }
 
     /**

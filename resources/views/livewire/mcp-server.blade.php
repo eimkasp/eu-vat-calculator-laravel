@@ -199,13 +199,15 @@
                 <h2 id="mcp-try" class="text-lg font-bold text-ink">{{ __('ui.mcp_page.try_heading') }}</h2>
                 <p class="mt-1 text-sm leading-6 text-ink-muted">{{ __('ui.mcp_page.try_desc') }}</p>
 
-                <div role="radiogroup" aria-label="{{ __('ui.mcp_page.examples_label') }}" class="mt-4 flex flex-wrap gap-2">
+                <div role="radiogroup" aria-label="{{ __('ui.mcp_page.examples_label') }}" @keydown.arrow-right.prevent="$rove($event)" @keydown.arrow-down.prevent="$rove($event)" @keydown.arrow-left.prevent="$rove($event)" @keydown.arrow-up.prevent="$rove($event)" class="mt-4 flex flex-wrap gap-2">
                     @foreach(['initialize' => __('ui.mcp_page.example_initialize'), 'list' => __('ui.mcp_page.example_list'), 'call' => __('ui.mcp_page.example_call')] as $key => $label)
                         <button
                             type="button"
                             role="radio"
                             aria-checked="{{ $loop->first ? 'true' : 'false' }}"
                             :aria-checked="(active === @js($key)).toString()"
+                            tabindex="{{ $loop->first ? '0' : '-1' }}"
+                            :tabindex="active === @js($key) ? 0 : -1"
                             @class(['app-chip', 'app-chip-active' => $loop->first])
                             :class="{ 'app-chip-active': active === @js($key) }"
                             x-on:click="select(@js($key))"
@@ -223,7 +225,8 @@
                         </button>
                     </div>
                     <pre tabindex="0" class="max-h-64 overflow-auto p-4 font-mono text-xs leading-5 text-syntax-literal" x-text="body">{{ $json($examples['initialize']) }}</pre>
-                    <div class="border-t border-white/10" aria-live="polite">
+                    <div class="border-t border-white/10">
+                        <p class="sr-only" role="status" x-text="status === null ? '' : (status === 0 ? @js(__('ui.mcp_page.network_error')) : 'HTTP ' + status + (elapsed !== null ? ', ' + elapsed + ' ms' : ''))"></p>
                         <div x-show="status !== null" x-cloak class="flex items-center justify-between px-4 pt-3 font-mono text-xs">
                             <span :class="ok ? 'text-syntax-ok' : 'text-syntax-error'" x-text="status === 0 ? @js(__('ui.mcp_page.network_error')) : 'HTTP ' + status"></span>
                             <span class="text-syntax-comment" x-text="elapsed !== null ? elapsed + ' ms' : ''"></span>

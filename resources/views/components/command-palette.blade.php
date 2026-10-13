@@ -5,6 +5,7 @@
 <div
     x-data="commandPalette({ source: @js(route('search-index', ['locale' => app()->getLocale()])) })"
     x-show="$store.palette.open"
+    x-trap.noscroll="$store.palette.open"
     x-cloak
     @keydown.escape.window="$store.palette.hide()"
     class="fixed inset-0 z-[70] flex items-start justify-center px-3 pt-[12vh] sm:px-6"

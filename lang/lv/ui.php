@@ -11,6 +11,7 @@ return array (
   'save' => 'Saglabāt',
   'calculate' => 'Aprēķināt',
   'loading' => 'Ielādē...',
+  'opens_new_tab' => 'atveras jaunā cilnē',
   'all_rights_reserved' => 'Visas tiesības aizsargātas.',
   'data_updated_daily' => 'Dati tiek atjaunināti katru dienu',
   'country' => 'Valsts',
@@ -320,6 +321,7 @@ return array (
     'explore_map' => 'Izpētīt PVN karti',
     'increase' => 'Palielinājums',
     'decrease' => 'Samazinājums',
+    'points' => ':value p.p.',
   ),
   'country_page' => 
   array (

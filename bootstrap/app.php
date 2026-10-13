@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Middleware\AddLinkHeaders;
+use App\Http\Middleware\AllowBackForwardCache;
 use App\Http\Middleware\CollapseHtmlWhitespace;
 use App\Http\Middleware\EmbedCookieFix;
 use App\Http\Middleware\MarkdownNegotiation;
@@ -21,6 +22,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->prepend(PublicDiscoveryCacheHeaders::class);
+        $middleware->prepend(AllowBackForwardCache::class);
 
         $middleware->throttleApi();
 

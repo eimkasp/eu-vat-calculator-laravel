@@ -65,7 +65,7 @@
 @section('seo')
     <x-seo-meta
         title="Design system: tokens, components and patterns | EU VAT Info"
-        description="The EU VAT Info design system: colour, type, shape and motion tokens, accessible Blade components and page patterns, with a Design Tokens (DTCG) file and Markdown guide for AI agents."
+        description="The EU VAT Info design system: colour, type, shape and motion tokens, accessible components and page patterns, with DTCG tokens and a Markdown guide."
         :url="$pageUrl"
         type="article">
         <x-json-ld :data="[
@@ -141,7 +141,7 @@
                     <span class="size-2 shrink-0 bg-gold" aria-hidden="true"></span>
                     <span class="underline decoration-white/30 underline-offset-4 group-hover:decoration-white">Get a design system like this for your business on BusinessPress</span>
                     <x-ui.icon name="arrow-up-right" class="size-4" />
-                </a>
+                <x-ui.new-tab /></a>
             </p>
         </div>
     </section>
@@ -832,7 +832,7 @@
                 <a href="{{ Styleguide::BUSINESSPRESS_URL }}" target="_blank" rel="noopener" class="app-button-inverse shrink-0 px-6">
                     Get yours on BusinessPress
                     <x-ui.icon name="arrow-up-right" class="size-4" />
-                </a>
+                <x-ui.new-tab /></a>
             </div>
         </section>
     </div>

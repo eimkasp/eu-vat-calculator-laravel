@@ -26,6 +26,7 @@
                 [__('ui.nav.updates'), locale_path('/blog'), __('ui.blog.description')],
                 ...collect($blogPosts)->map(fn (array $post) => [$post['title'], locale_path('/blog/'.$post['slug']), $post['description']])->all(),
                 [__('ui.changelog.nav_label'), locale_path('/changelog'), __('ui.changelog.subheading')],
+                ...collect(config('vat-scenarios', []))->map(fn (array $guide, string $slug) => [$guide['title'], locale_path('/vat-guides/'.$slug), $guide['summary']])->values()->all(),
             ],
         ],
         'developers' => [
@@ -74,7 +75,7 @@
                                 @foreach($section['links'] as [$label, $url, $description])
                                     @php($external = str_starts_with($url, 'http') && ! str_starts_with($url, url('/')))
                                     <li>
-                                        <a href="{{ $url }}" @if($external) target="_blank" rel="noopener noreferrer" @endif class="font-semibold text-action hover:text-action-deep hover:underline">{{ Str::contains($label, ' ') ? Str::beforeLast($label, ' ').' ' : '' }}<span class="whitespace-nowrap">{{ Str::afterLast($label, ' ') }}<x-ui.icon :name="$external ? 'arrow-up-right' : 'chevron-right'" class="ml-1 inline size-3.5 align-[-2px]" /></span></a>
+                                        <a href="{{ $url }}" @if($external) target="_blank" rel="noopener noreferrer" @endif class="font-semibold text-action hover:text-action-deep hover:underline">{{ Str::contains($label, ' ') ? Str::beforeLast($label, ' ').' ' : '' }}<span class="whitespace-nowrap">{{ Str::afterLast($label, ' ') }}<x-ui.icon :name="$external ? 'arrow-up-right' : 'chevron-right'" class="ml-1 inline size-3.5 align-[-2px]" /></span>@if($external)<x-ui.new-tab />@endif</a>
                                         <p class="mt-0.5 text-sm leading-6 text-ink-muted">{{ $description }}</p>
                                     </li>
                                 @endforeach

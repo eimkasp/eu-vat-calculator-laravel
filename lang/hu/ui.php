@@ -11,6 +11,7 @@ return array (
   'save' => 'Mentés',
   'calculate' => 'Számítás',
   'loading' => 'Betöltés...',
+  'opens_new_tab' => 'új lapon nyílik meg',
   'all_rights_reserved' => 'Minden jog fenntartva.',
   'data_updated_daily' => 'Az adatok naponta frissülnek',
   'country' => 'Ország',
@@ -320,6 +321,7 @@ return array (
     'explore_map' => 'Fedezze fel az ÁFA-térképet',
     'increase' => 'Emelés',
     'decrease' => 'Csökkentés',
+    'points' => ':value %-pont',
   ),
   'country_page' => 
   array (

@@ -20,18 +20,11 @@
             'description' => __('ui.history.meta_desc'),
             'url' => $historyCanonical,
             'inLanguage' => app()->getLocale(),
-            'isPartOf' => ['@type' => 'WebSite', 'name' => __('ui.site_name'), 'url' => url(locale_path('/'))],
-            'breadcrumb' => [
-                '@type' => 'BreadcrumbList',
-                'itemListElement' => [
-                    ['@type' => 'ListItem', 'position' => 1, 'name' => __('ui.site_name'), 'item' => url(locale_path('/'))],
-                    ['@type' => 'ListItem', 'position' => 2, 'name' => __('ui.history.title'), 'item' => url(locale_path('/vat-changes'))],
-                ],
-            ],
+            'isPartOf' => ['@type' => 'WebSite', '@id' => $seo->canonicalHost().'/#website', 'name' => 'EU VAT Info', 'url' => $seo->canonicalHost().'/'],
         ]" />
         <x-json-ld :data="array_filter([
             '@type' => 'Dataset',
-            'name' => 'EU VAT Rate Changes 2000–'.now()->year,
+            'name' => 'EU VAT Rate Changes since '.($firstChangeYear ?? now()->year),
             'description' => __('ui.history.meta_desc'),
             'url' => $historyCanonical,
             'creator' => ['@type' => 'Organization', 'name' => __('ui.site_name'), 'url' => $seo->canonicalHost()],
@@ -39,7 +32,7 @@
             'license' => 'https://creativecommons.org/licenses/by/4.0/',
             'keywords' => ['VAT rate changes', 'EU VAT history', 'European VAT rates', 'tax rate changes'],
             'spatialCoverage' => 'European Union',
-            'temporalCoverage' => '2000/'.now()->year,
+            'temporalCoverage' => ($firstChangeYear ?? now()->year).'/..',
             'variableMeasured' => [
                 ['@type' => 'PropertyValue', 'name' => 'Standard VAT Rate', 'unitText' => 'percent'],
                 ['@type' => 'PropertyValue', 'name' => 'Reduced VAT Rate', 'unitText' => 'percent'],
@@ -129,7 +122,7 @@
 
                 <div wire:loading.class="opacity-60" class="transition-opacity">
                     @forelse($changes->groupBy(fn ($change) => $change->change_date?->year) as $year => $yearChanges)
-                        <h3 class="app-sticky-bar tabular px-4 py-2 text-xs font-bold tracking-[0.08em] text-ink-muted sm:px-6">{{ $year }}</h3>
+                        <h3 class="app-sticky-bar tabular px-4 py-2 text-xs font-bold tracking-[0.08em] text-ink-muted sm:px-6"><a href="{{ locale_path('/vat-changes/year/'.$year) }}" class="inline-flex min-h-6 items-center hover:text-action">{{ $year }}</a></h3>
                         <ol class="divide-y divide-line">
                             @foreach($yearChanges as $change)
                                 @php
@@ -169,7 +162,7 @@
                                             <span @class(['tabular inline-flex min-w-16 items-center justify-end gap-0.5 text-xs font-semibold', 'text-danger' => $up, 'text-success' => ! $up])>
                                                 <x-ui.icon :name="$up ? 'trending-up' : 'trending-down'" class="size-3.5" />
                                                 <span class="sr-only">{{ $up ? __('ui.rate_changes.increase') : __('ui.rate_changes.decrease') }}</span>
-                                                {{ $up ? '+' : '−' }}{{ Country::formatRate(abs($delta)) }} pp
+                                                {{ __('ui.rate_changes.points', ['value' => ($up ? '+' : '−').Country::formatRate(abs($delta))]) }}
                                             </span>
                                         @else
                                             <span class="min-w-16"></span>

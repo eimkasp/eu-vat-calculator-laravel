@@ -56,7 +56,7 @@
                         <p class="mt-1 text-sm text-ink-muted">{{ __('ui.map.table_intro') }}</p>
                     </div>
                 </div>
-                <div class="relative overflow-x-auto">
+                <div class="relative overflow-x-auto" tabindex="0" role="group" aria-labelledby="map-rates-heading">
                     <table class="app-table min-w-[36rem]">
                         <thead>
                             <tr>

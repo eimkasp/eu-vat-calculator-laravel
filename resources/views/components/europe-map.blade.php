@@ -59,31 +59,33 @@
 
     <p class="mt-2 text-xs text-ink-muted">{{ __('ui.map.interaction_hint') }}</p>
 
-    <div x-cloak x-show="selected" x-transition.opacity.duration.150ms class="mt-4 rounded-card border border-line bg-surface p-4 sm:p-5" aria-live="polite">
-        <template x-if="selected">
-            <div class="flex flex-wrap items-center gap-4">
-                <img :src="'{{ asset('images/flags') }}/' + selected.iso + '.svg'" alt="" width="48" height="36" class="app-flag h-9 w-12 rounded-control">
-                <div class="min-w-0 flex-1">
-                    <p class="text-lg font-bold text-ink" x-text="selected.name"></p>
-                    <p class="text-sm text-ink-muted">
-                        {{ __('ui.rate_type.standard') }} <strong class="text-ink" x-text="selected.rate"></strong>
-                        <span x-show="selected.reduced"> · {{ __('ui.rate_type.reduced') }} <strong class="text-ink" x-text="selected.reduced"></strong></span>
-                    </p>
+    <div aria-live="polite">
+        <div x-cloak x-show="selected" x-transition.opacity.duration.150ms class="mt-4 rounded-card border border-line bg-surface p-4 sm:p-5">
+            <template x-if="selected">
+                <div class="flex flex-wrap items-center gap-4">
+                    <img :src="'{{ asset('images/flags') }}/' + selected.iso + '.svg'" alt="" width="48" height="36" class="app-flag h-9 w-12 rounded-control">
+                    <div class="min-w-0 flex-1">
+                        <p class="text-lg font-bold text-ink" x-text="selected.name"></p>
+                        <p class="text-sm text-ink-muted">
+                            {{ __('ui.rate_type.standard') }} <strong class="text-ink" x-text="selected.rate"></strong>
+                            <span x-show="selected.reduced"> · {{ __('ui.rate_type.reduced') }} <strong class="text-ink" x-text="selected.reduced"></strong></span>
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <a :href="selected.url" class="app-button-primary h-10 min-h-10 px-4">
+                            <x-ui.icon name="calculator" class="size-4" />
+                            {{ __('ui.nav.vat_calculator') }}
+                        </a>
+                        <a x-show="selected.validator" :href="selected.validator" class="app-button-secondary h-10 min-h-10 px-4">
+                            <x-ui.icon name="shield-check" class="size-4" />
+                            {{ __('ui.nav.validator_short') }}
+                        </a>
+                        <button type="button" @click="clear()" class="app-button-ghost size-10 min-h-10 px-0" aria-label="{{ __('ui.map.clear_selection') }}">
+                            <x-ui.icon name="x" class="size-4" />
+                        </button>
+                    </div>
                 </div>
-                <div class="flex flex-wrap gap-2">
-                    <a :href="selected.url" class="app-button-primary h-10 min-h-10 px-4">
-                        <x-ui.icon name="calculator" class="size-4" />
-                        {{ __('ui.nav.vat_calculator') }}
-                    </a>
-                    <a x-show="selected.validator" :href="selected.validator" class="app-button-secondary h-10 min-h-10 px-4">
-                        <x-ui.icon name="shield-check" class="size-4" />
-                        {{ __('ui.nav.validator_short') }}
-                    </a>
-                    <button type="button" @click="clear()" class="app-button-ghost size-10 min-h-10 px-0" aria-label="{{ __('ui.map.clear_selection') }}">
-                        <x-ui.icon name="x" class="size-4" />
-                    </button>
-                </div>
-            </div>
-        </template>
+            </template>
+        </div>
     </div>
 </div>

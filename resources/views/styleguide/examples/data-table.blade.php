@@ -1,5 +1,5 @@
 <div class="app-surface overflow-hidden">
-    <div class="relative overflow-x-auto">
+    <div class="relative overflow-x-auto" tabindex="0" role="group" aria-label="Standard rates">
         <table class="app-table min-w-[30rem]">
             <thead>
                 <tr>

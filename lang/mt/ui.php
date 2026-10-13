@@ -11,6 +11,7 @@ return array (
   'save' => 'Issejvja',
   'calculate' => 'Ikkalkula',
   'loading' => 'Qed jillowdja...',
+  'opens_new_tab' => 'jinfetaħ f’tab ġdida',
   'all_rights_reserved' => 'Id-drittijiet kollha riżervati.',
   'data_updated_daily' => 'Id-dejta tiġi aġġornata kuljum',
   'country' => 'Pajjiż',
@@ -320,6 +321,7 @@ return array (
     'explore_map' => 'Esplora l-Mappa tal-VAT',
     'increase' => 'Żieda',
     'decrease' => 'Tnaqqis',
+    'points' => ':value pp',
   ),
   'country_page' => 
   array (

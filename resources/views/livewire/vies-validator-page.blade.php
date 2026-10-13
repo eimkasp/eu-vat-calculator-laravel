@@ -106,7 +106,8 @@
                                 enterkeyhint="search"
                                 placeholder="{{ __('ui.vies_page.vat_placeholder') }}"
                                 class="app-field h-12 font-mono text-base tracking-wide uppercase placeholder:font-sans placeholder:normal-case placeholder:tracking-normal"
-                                aria-describedby="vat-number-hint vat-number-format-hint"
+                                aria-required="true"
+                                aria-describedby="{{ $errors->has('vat_number') ? 'vat-number-error ' : '' }}vat-number-hint vat-number-format-hint"
                                 @error('vat_number') aria-invalid="true" @enderror
                             >
                         </div>
@@ -129,7 +130,7 @@
                                     x-on:change="detected = false"
                                     class="app-select h-12"
                                     :class="flag ? 'pl-11' : ''"
-                                    @error('country_code') aria-invalid="true" @enderror
+                                    @error('country_code') aria-invalid="true" aria-describedby="vat-country-error" @enderror
                                 >
                                     <option value="">{{ __('ui.vies_page.select_country') }}</option>
                                     @foreach($this->countries as $option)
@@ -147,10 +148,10 @@
                     </div>
 
                     @error('vat_number')
-                        <p class="mt-3 flex items-center gap-2 text-sm font-medium text-danger" role="alert"><x-ui.icon name="alert-triangle" class="size-4" />{{ $message }}</p>
+                        <p id="vat-number-error" class="mt-3 flex items-center gap-2 text-sm font-medium text-danger" role="alert"><x-ui.icon name="alert-triangle" class="size-4" />{{ $message }}</p>
                     @enderror
                     @error('country_code')
-                        <p class="mt-3 flex items-center gap-2 text-sm font-medium text-danger" role="alert"><x-ui.icon name="alert-triangle" class="size-4" />{{ $message }}</p>
+                        <p id="vat-country-error" class="mt-3 flex items-center gap-2 text-sm font-medium text-danger" role="alert"><x-ui.icon name="alert-triangle" class="size-4" />{{ $message }}</p>
                     @enderror
 
                     <p id="vat-number-format-hint" class="mt-3 flex items-start gap-2 text-sm font-medium text-warning" x-cloak x-show="mismatch" role="status">
@@ -163,8 +164,13 @@
                     </p>
                 </form>
 
-                <div aria-live="polite" wire:loading.class="opacity-60" wire:target="validateVat,prefillExample" class="transition-opacity">
-                    <p wire:loading wire:target="validateVat,prefillExample" class="sr-only">{{ __('ui.vies_page.validating') }}</p>
+                <div wire:loading.class="opacity-60" wire:target="validateVat,prefillExample" class="transition-opacity">
+                    <p class="sr-only" role="status">
+                        <span wire:loading wire:target="validateVat,prefillExample">{{ __('ui.vies_page.validating') }}</span>
+                        @if(! $error && $result)
+                            <span wire:loading.remove wire:target="validateVat,prefillExample">{{ $result['valid'] ? __('ui.vies_page.result_valid') : __('ui.vies_page.result_invalid') }}: {{ $result['prefix'].$result['vat_number'] }}</span>
+                        @endif
+                    </p>
 
                     @if($error)
                         <div class="flex items-start gap-3 border-t border-line bg-danger-soft px-5 py-4 text-sm text-ink sm:px-7" role="alert">
@@ -285,7 +291,7 @@
                         <a class="app-link mt-4 inline-flex items-center gap-1 text-sm font-semibold" href="{{ $format['source_url'] }}" target="_blank" rel="noopener noreferrer">
                             {{ __('ui.vies_page.format_source') }}
                             <x-ui.icon name="arrow-up-right" class="size-3.5" />
-                        </a>
+                        <x-ui.new-tab /></a>
                     </section>
                 @endif
 
@@ -315,7 +321,7 @@
                             <h2 id="vat-number-formats" class="text-xl font-bold text-ink">{{ __('ui.vies_page.formats_heading') }}</h2>
                             <p class="mt-1 max-w-[72ch] text-sm text-ink-muted">{{ __('ui.vies_page.formats_intro') }}</p>
                         </div>
-                        <div class="relative overflow-x-auto">
+                        <div class="relative overflow-x-auto" tabindex="0" role="group" aria-labelledby="vat-number-formats">
                             <table class="app-table min-w-[30rem]">
                                 <thead>
                                     <tr>
@@ -397,9 +403,10 @@
                                     </button>
                                 </div>
                                 <pre tabindex="0" class="overflow-x-auto p-4 font-mono text-xs leading-5 text-syntax-literal" x-text="body"></pre>
-                                <div class="border-t border-white/10" aria-live="polite">
+                                <div class="border-t border-white/10">
+                                    <p class="sr-only" role="status" x-text="status === null ? '' : (status === 0 ? @js(__('ui.mcp_page.network_error')) : 'HTTP ' + status + (elapsed !== null ? ', ' + elapsed + ' ms' : ''))"></p>
                                     <div x-show="status !== null" x-cloak class="flex items-center justify-between px-4 pt-3 font-mono text-xs">
-                                        <span :class="ok ? 'text-syntax-ok' : 'text-syntax-error'" x-text="status === 0 ? 'Network error' : 'HTTP ' + status"></span>
+                                        <span :class="ok ? 'text-syntax-ok' : 'text-syntax-error'" x-text="status === 0 ? @js(__('ui.mcp_page.network_error')) : 'HTTP ' + status"></span>
                                         <span class="text-syntax-comment" x-text="elapsed !== null ? elapsed + ' ms' : ''"></span>
                                     </div>
                                     <pre tabindex="0" x-show="response" x-cloak class="max-h-80 overflow-auto p-4 font-mono text-xs leading-5" :class="ok ? 'text-syntax-string' : 'text-syntax-error'" x-text="response"></pre>
@@ -432,7 +439,7 @@
                 >
                     <div class="flex items-center justify-between gap-2">
                         <h2 id="recent-lookups" class="text-base font-bold text-ink">{{ __('ui.vies_page.recent_heading') }}</h2>
-                        <button type="button" x-on:click="clear()" class="rounded-control px-2 py-1 text-xs font-semibold text-ink-muted hover:bg-surface-muted hover:text-ink">{{ __('ui.calculator.clear_all') }}</button>
+                        <button type="button" x-on:click="clear()" class="min-h-11 rounded-control px-2 py-1 text-xs font-semibold text-ink-muted hover:bg-surface-muted hover:text-ink">{{ __('ui.calculator.clear_all') }}</button>
                     </div>
                     <ul class="mt-3 space-y-1.5">
                         <template x-for="item in items" :key="item.cc + item.vn">

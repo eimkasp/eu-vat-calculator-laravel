@@ -2,8 +2,8 @@
 <html ⚡ lang="en">
 <head>
     <meta charset="utf-8">
-    <title>{{ $country->name }} VAT Rate {{ date('Y') }} — {{ $country->standard_rate }}% Standard | EU VAT Info</title>
-    <meta name="description" content="{{ $country->name }} VAT rates {{ date('Y') }}: Standard rate {{ $country->standard_rate }}%{{ $country->reduced_rate ? ', reduced rate '.$country->reduced_rate.'%' : '' }}. Currency: {{ $country->currency_code ?? 'EUR' }}. Find all {{ $country->name }} VAT rates and calculate VAT.">
+    <title>{{ $country->name }} VAT Rate {{ date('Y') }} — {{ \App\Models\Country::formatRate($country->standard_rate) }}% Standard | EU VAT Info</title>
+    <meta name="description" content="{{ $country->name }} VAT rates {{ date('Y') }}: Standard rate {{ \App\Models\Country::formatRate($country->standard_rate) }}%{{ $country->reduced_rate ? ', reduced rate '.\App\Models\Country::formatRate($country->reduced_rate).'%' : '' }}. Currency: {{ $country->currency_code ?? 'EUR' }}. Find all {{ $country->name }} VAT rates and calculate VAT.">
     <link rel="canonical" href="{{ url('/vat-calculator/' . $country->slug) }}">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <script async src="https://cdn.ampproject.org/v0.js"></script>
@@ -14,7 +14,7 @@
         "@@context": "https://schema.org",
         "@type": "WebPage",
         "name": "{{ $country->name }} VAT Rate {{ date('Y') }}",
-        "description": "Current VAT rates for {{ $country->name }}: standard {{ $country->standard_rate }}%{{ $country->reduced_rate ? ', reduced '.$country->reduced_rate.'%' : '' }}",
+        "description": "Current VAT rates for {{ $country->name }}: standard {{ \App\Models\Country::formatRate($country->standard_rate) }}%{{ $country->reduced_rate ? ', reduced '.\App\Models\Country::formatRate($country->reduced_rate).'%' : '' }}",
         "url": "{{ url('/amp/vat-calculator/' . $country->slug) }}",
         "isPartOf": {
             "@type": "WebSite",
@@ -115,35 +115,35 @@
         <div class="hero">
             <div class="hero-flag">{{ $country->flag }}</div>
             <h1>{{ $country->name }} VAT Rate {{ date('Y') }}</h1>
-            <p class="hero-sub">Current VAT rates for {{ $country->name }}. Standard rate: <strong>{{ $country->standard_rate }}%</strong>. Currency: {{ $country->currency ?? 'Euro' }} ({{ $country->currency_code ?? 'EUR' }}).</p>
+            <p class="hero-sub">Current VAT rates for {{ $country->name }}. Standard rate: <strong>{{ \App\Models\Country::formatRate($country->standard_rate) }}%</strong>. Currency: {{ $country->currency ?? 'Euro' }} ({{ $country->currency_code ?? 'EUR' }}).</p>
 
             <div class="rates-grid">
                 <div class="rate-card highlight">
                     <div class="rate-label">Standard Rate</div>
-                    <div class="rate-value">{{ $country->standard_rate }}%</div>
+                    <div class="rate-value">{{ \App\Models\Country::formatRate($country->standard_rate) }}%</div>
                 </div>
                 @if($country->reduced_rate)
                 <div class="rate-card">
                     <div class="rate-label">Reduced Rate</div>
-                    <div class="rate-value">{{ $country->reduced_rate }}%</div>
+                    <div class="rate-value">{{ \App\Models\Country::formatRate($country->reduced_rate) }}%</div>
                 </div>
                 @endif
                 @if($country->super_reduced_rate)
                 <div class="rate-card">
                     <div class="rate-label">Super-Reduced</div>
-                    <div class="rate-value">{{ $country->super_reduced_rate }}%</div>
+                    <div class="rate-value">{{ \App\Models\Country::formatRate($country->super_reduced_rate) }}%</div>
                 </div>
                 @endif
                 @if($country->zero_rate !== null)
                 <div class="rate-card">
                     <div class="rate-label">Zero Rate</div>
-                    <div class="rate-value">{{ $country->zero_rate }}%</div>
+                    <div class="rate-value">{{ \App\Models\Country::formatRate($country->zero_rate) }}%</div>
                 </div>
                 @endif
                 @if($country->parking_rate)
                 <div class="rate-card">
                     <div class="rate-label">Parking Rate</div>
-                    <div class="rate-value">{{ $country->parking_rate }}%</div>
+                    <div class="rate-value">{{ \App\Models\Country::formatRate($country->parking_rate) }}%</div>
                 </div>
                 @endif
             </div>
@@ -180,7 +180,7 @@
                     @foreach($vatRates->take(20) as $rate)
                     <tr>
                         <td>{{ ucfirst(str_replace('_', ' ', $rate->type)) }}</td>
-                        <td class="rate">{{ $rate->rate }}%</td>
+                        <td class="rate">{{ \App\Models\Country::formatRate($rate->rate) }}%</td>
                         <td>{{ $rate->effective_from ? $rate->effective_from->format('Y-m-d') : '—' }}</td>
                         <td>{{ $rate->effective_to ? $rate->effective_to->format('Y-m-d') : 'Present' }}</td>
                     </tr>
