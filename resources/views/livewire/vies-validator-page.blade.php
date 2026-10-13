@@ -104,7 +104,7 @@
                                 spellcheck="false"
                                 maxlength="40"
                                 enterkeyhint="search"
-                                placeholder="{{ __('ui.vies_page.vat_placeholder') }}"
+                                placeholder="{{ $format['masks'][0] ?? __('ui.vies_page.vat_placeholder') }}"
                                 class="app-field h-12 font-mono text-base tracking-wide uppercase placeholder:font-sans placeholder:normal-case placeholder:tracking-normal"
                                 aria-required="true"
                                 aria-describedby="{{ $errors->has('vat_number') ? 'vat-number-error ' : '' }}vat-number-hint vat-number-format-hint"
@@ -160,7 +160,9 @@
                     </p>
                     <p id="vat-number-hint" class="mt-3 text-sm text-ink-muted">
                         {{ __('ui.vies_page.auto_detect_hint') }}
-                        <button type="button" wire:click="prefillExample" class="app-link font-semibold">{{ __('ui.vies_page.try_example') }}</button>
+                        @unless($pageCountry)
+                            <button type="button" wire:click="prefillExample" class="app-link font-semibold">{{ __('ui.vies_page.try_example') }}</button>
+                        @endunless
                     </p>
                 </form>
 
@@ -250,11 +252,23 @@
                                 @endif
                             </dl>
 
-                            @if($result['lookups'] > 1)
-                                <p class="px-5 pb-4 pt-1 text-xs text-ink-muted sm:px-7">{{ __('ui.vies_page.lookup_count', ['count' => number_format($result['lookups'])]) }}</p>
-                            @else
-                                <div class="pb-2"></div>
-                            @endif
+                            <div class="flex flex-wrap items-center justify-between gap-3 px-5 pb-4 pt-2 sm:px-7">
+                                <p class="text-xs text-ink-muted">
+                                    @php($checked = \Illuminate\Support\Carbon::parse($result['checked']))
+                                    {!! __('ui.vies_page.checked_on', ['date' => '<time datetime="'.e($checked->toDateString()).'">'.e($checked->locale(app()->getLocale())->translatedFormat('j M Y')).'</time>']) !!}
+                                </p>
+                                @if($result['valid'] && $resultCountry)
+                                    <div class="flex flex-wrap gap-2">
+                                        <a href="{{ locale_path('/vat-calculator/'.$resultCountry['slug']) }}" class="app-button-secondary h-9 min-h-9 px-3 text-sm">
+                                            <x-ui.icon name="calculator" class="size-4" />
+                                            {{ __('ui.vies_page.country_calculator_link', ['country' => $resultCountry['name']]) }}
+                                        </a>
+                                        @if($guide = config('vat-scenarios.b2b-services'))
+                                            <a href="{{ locale_path('/vat-guides/b2b-services') }}" lang="en" class="app-button-ghost h-9 min-h-9 px-3 text-sm">{{ $guide['title'] }}</a>
+                                        @endif
+                                    </div>
+                                @endif
+                            </div>
                         </div>
                     @endif
                 </div>
@@ -334,13 +348,13 @@
                                         @php($countryFormat = config('vat-number-formats.'.$option['iso']))
                                         @continue(! $countryFormat)
                                         <tr>
-                                            <th scope="row" class="pl-5 font-normal sm:pl-6">
-                                                <a href="{{ locale_path('/vat-number-validator/'.$option['slug']) }}" class="flex min-h-10 items-center gap-3 font-semibold text-ink hover:text-action">
+                                            <th scope="row" class="py-1 pl-5 font-normal sm:pl-6">
+                                                <a href="{{ locale_path('/vat-number-validator/'.$option['slug']) }}" class="flex min-h-11 items-center gap-3 font-semibold text-ink hover:text-action">
                                                     <x-ui.flag :iso="$option['iso']" />
                                                     {{ $option['name'] }}
                                                 </a>
                                             </th>
-                                            <td class="pr-5 font-mono text-sm font-semibold break-all text-ink sm:pr-6">{{ VatNumberFormat::describe($countryFormat) }}</td>
+                                            <td class="py-1 pr-5 font-mono text-sm font-semibold break-all text-ink sm:pr-6">{{ VatNumberFormat::describe($countryFormat) }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -489,10 +503,10 @@
                     <h2 id="related-tools" class="text-base font-bold text-ink">{{ __('ui.vies_page.related_tools') }}</h2>
                     <ul class="mt-3 space-y-1">
                         <li>
-                            <a href="{{ locale_path('/vat-calculator') }}" class="-mx-2 flex items-start gap-3 rounded-control p-2 transition-colors hover:bg-surface-subtle">
+                            <a href="{{ locale_path('/vat-calculator'.($pageCountry ? '/'.$pageCountry->slug : '')) }}" class="-mx-2 flex items-start gap-3 rounded-control p-2 transition-colors hover:bg-surface-subtle">
                                 <span class="flex size-8 shrink-0 items-center justify-center rounded-control bg-action-soft text-action"><x-ui.icon name="calculator" class="size-4" /></span>
                                 <span class="min-w-0">
-                                    <span class="block text-sm font-semibold text-ink">{{ __('ui.nav.vat_calculator') }}</span>
+                                    <span class="block text-sm font-semibold text-ink">{{ $pageCountry ? __('ui.vies_page.country_calculator_link', ['country' => $pageCountry->name]) : __('ui.nav.vat_calculator') }}</span>
                                     <span class="block text-xs leading-5 text-ink-muted">{{ __('ui.palette.calculator_subtitle') }}</span>
                                 </span>
                             </a>

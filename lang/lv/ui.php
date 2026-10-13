@@ -72,7 +72,7 @@ return array (
     'older_version' => 'Vecāka versija',
     'developers' => 'Izstrādātājiem',
     'mcp_server' => 'MCP serveris',
-    'data_source_note' => 'Likmes iegūtas no Eiropas Komisijas un tiek pārbaudītas katru dienu',
+    'data_source_note' => 'Likmes iegūtas no Eiropas Komisijas un tiek pārbaudītas katru nedēļu',
   ),
   'home_page' => 
   array (
@@ -89,7 +89,7 @@ return array (
     'view_full' => 'Skatīt pilnu kalkulatoru un vēsturi',
     'rates_heading' => 'ES PVN likmes pa valstīm',
     'rates_year' => ':year. gada likmes',
-    'hero_badge' => ':year. gada likmes · :count dalībvalstis · atjaunināts katru dienu',
+    'hero_badge' => ':year. gada likmes · :count dalībvalstis',
     'rates_intro' => 'Pašlaik spēkā esošās standarta un samazinātās likmes, sākot ar zemāko standarta likmi.',
     'stat_lowest' => 'Zemākā',
     'stat_average' => 'ES vidējā',
@@ -268,7 +268,7 @@ return array (
   array (
     'title' => 'PVN likmju izmaiņu vēsture',
     'meta_title' => 'PVN likmju izmaiņu vēsture - ES valstis | ES PVN informācija',
-    'meta_desc' => 'Visas reģistrētās PVN likmju izmaiņas ES: standarta, samazinātās un pārejas likmes ar datumiem, veco un jauno likmi, gaidāmajām izmaiņām un avotiem.',
+    'meta_desc' => 'Visas reģistrētās ES PVN likmju izmaiņas ar datumiem, vecajām un jaunajām likmēm, gaidāmajām izmaiņām un oficiāliem avotiem.',
     'subtitle' => 'Sekojiet visām PVN likmju izmaiņām ES valstīs pēdējā desmitgadē',
     'stability_title' => 'Valstu stabilitātes rādītāji',
     'stability_desc' => 'Valstis ar mazāk PVN likmju izmaiņām norāda uz stabilāku nodokļu vidi',
@@ -534,6 +534,7 @@ return array (
     'source_recent' => 'Nesens rezultāts, pārbaudīts pēdējo 7 dienu laikā',
     'source_fallback' => 'Pēdējais saglabātais rezultāts, VIES pašlaik nav pieejams',
     'lookup_count' => 'Pārbaužu skaits vietnē ES PVN informācija: :count',
+    'checked_on' => 'Pārbaudīts VIES: :date',
     'not_provided' => 'Dalībvalsts šo informāciju nesniedz',
     'copy_number' => 'Kopēt PVN numuru',
     'invalid_format' => 'Ievadiet PVN numuru, izmantojot tikai burtus un ciparus, piemēram, LT100019070512.',
@@ -718,6 +719,7 @@ return array (
   'tools' => 
   array (
     'seo_title' => 'ES PVN rīki: kalkulators, pārbaude, karte un ceļveži',
+    'guides_heading' => 'ES PVN ceļveži',
     'seo_description' => 'Bezmaksas ES PVN rīki: kalkulators katrai valstij, PVN numuru pārbaude VIES, likmju karte, likmju vēsture un ceļveži visām 27 dalībvalstīm.',
     'heading' => 'ES PVN informācijas rīki un resursi',
     'intro_text' => 'Šeit ir daži EU-vat.info komandas rīki un resursi, kas palīdzēs jums orientēties sarežģītajā Eiropas Savienības PVN pasaulē.',

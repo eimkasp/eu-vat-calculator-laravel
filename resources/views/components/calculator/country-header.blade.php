@@ -20,7 +20,7 @@
             <x-ui.flag :iso="$country->iso_code" size="xl" :lazy="false" :alt="$country->name" class="mt-1 shrink-0 shadow-none ring-1 ring-white/25 sm:hidden" />
         </div>
 
-        <dl class="app-brand-panel grid shrink-0 grid-cols-3 divide-x divide-white/15 overflow-hidden text-center">
+        <dl class="app-brand-panel hidden shrink-0 grid-cols-3 divide-x divide-white/15 overflow-hidden text-center sm:grid">
             <div class="flex flex-col justify-center px-4 py-3 sm:px-5">
                 <dt class="text-[0.6875rem] font-semibold tracking-[0.08em] text-white/70 uppercase">{{ __('ui.rate_type.standard') }}</dt>
                 <dd class="tabular mt-1 text-2xl font-bold text-white">{{ Country::formatRate($country->standard_rate) }}%</dd>

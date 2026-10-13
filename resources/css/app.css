@@ -355,7 +355,7 @@
 
     .app-deferred {
         content-visibility: auto;
-        contain-intrinsic-size: auto 40rem;
+        contain-intrinsic-size: auto var(--deferred-size, 40rem);
     }
 
     .app-eyebrow {

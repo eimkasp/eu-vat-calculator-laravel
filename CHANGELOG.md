@@ -4,6 +4,26 @@ All notable changes to EU VAT Info are documented here.
 
 ---
 
+## [5.4.0] — 2026-10-13 — Quicker to answer, easier to find your way
+
+### Improved
+- **The calculator is ready sooner** — the country list is part of the page instead of being built in the browser, and the rates table filters with one check instead of one per row, so the calculator and the home page react about a third sooner on a mid-range phone (blocking time 448 → 310 ms on a country calculator, 497 → about 360 ms on the home page).
+- **The total on a phone's first screen** — on phones the calculator shows the total right under the amount, so you see the answer without scrolling.
+- **Search finds more** — the search dialog matches every word you type, finds countries by their name in your language, opens each country's validator and rate history, and checks a VAT number when you type one, such as DE123456789.
+- **Clearer navigation** — the header links to the VAT history, the Tools menu holds updates, the MCP server and popular calculations, and the tools page lists the VAT guides.
+- **For developers** — the API page documents the rates and calculator API with sample responses, and the dataset page links the REST API and the MCP server.
+- **A validator result you can act on** — a valid number shows the date VIES checked it, with links to that country's calculator and the B2B services guide; each country's validator shows its own number format as the example.
+- **Calmer pages** — one main button per page, tighter rows in the rates and format tables, tables that fit a phone on comparisons and shared calculations, the rate change filter only offers rate types that have changes, and the date line above the map, the comparison and the popular calculations no longer touches the card below it.
+- **Numbers in your language** — rates and multipliers in the country questions are written the way each language writes them (5,5 % in French).
+- **Honest freshness** — the home page and the footer say the rates are checked every week, which is how often the dataset is synced.
+
+### Fixed
+- The rate change pages lead back to the VAT history in their breadcrumbs, and the comparison breadcrumbs no longer link to the home page twice.
+- The footer no longer lists the PDF tools link twice.
+- Pages send their stylesheet and script as preload hints, so a CDN with Early Hints can start fetching them before the page arrives.
+
+---
+
 ## [5.3.0] — 2026-10-12 — Faster, steadier and easier to use with a keyboard
 
 ### Improved

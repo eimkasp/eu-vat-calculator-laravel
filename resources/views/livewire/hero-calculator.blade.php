@@ -57,7 +57,7 @@
                             </button>
                         @endforeach
                     </div>
-                    <span class="inline-flex items-center gap-1.5 text-xs font-medium text-ink-muted">
+                    <span class="hidden items-center gap-1.5 text-xs font-medium text-ink-muted sm:inline-flex">
                         <span class="size-1.5 rounded-full bg-success" aria-hidden="true"></span>
                         {{ $country->is_eu_member ? __('ui.calculator.official_eu_data') : __('ui.calculator.maintained_rate_data') }}
                     </span>
@@ -108,29 +108,25 @@
                                     aria-expanded="true"
                                     aria-controls="country-list-{{ $id }}"
                                     aria-autocomplete="list"
-                                    :aria-activedescendant="filteredCountries.length ? '{{ $id }}-country-' + countryActive : null"
+                                    :aria-activedescendant="filteredCountries[countryActive] ? '{{ $id }}-country-' + filteredCountries[countryActive].slug : null"
                                 >
                             </div>
-                            <ul id="country-list-{{ $id }}" x-ref="countryList" role="listbox" aria-labelledby="country-label-{{ $id }}" class="max-h-64 overflow-y-auto overscroll-contain py-1">
-                                <template x-for="(item, index) in filteredCountries" :key="item.slug">
+                            <ul id="country-list-{{ $id }}" x-ref="countryList" wire:ignore x-effect="syncCountryList()" @click="pickCountry($event)" @mousemove="hoverCountry($event)" role="listbox" aria-labelledby="country-label-{{ $id }}" class="max-h-64 overflow-y-auto overscroll-contain py-1">
+                                @foreach($this->countries as $item)
+                                    @php($selected = $item['slug'] === $country->slug)
                                     <li
-                                        :id="'{{ $id }}-country-' + index"
-                                        :data-index="index"
+                                        id="{{ $id }}-country-{{ $item['slug'] }}"
+                                        data-slug="{{ $item['slug'] }}"
                                         role="option"
-                                        :aria-selected="(item.slug === $wire.selectedCountrySlug).toString()"
-                                        @click="selectCountry(item.slug)"
-                                        @mousemove="countryActive = index"
+                                        aria-selected="{{ $selected ? 'true' : 'false' }}"
                                         class="flex min-h-10 cursor-pointer items-center gap-2.5 px-3 text-sm"
-                                        :class="index === countryActive ? 'bg-action-soft' : ''"
                                     >
-                                        <template x-if="index === 0 || filteredCountries[index - 1].group !== item.group">
-                                            <span class="sr-only" x-text="@js($groups)[item.group]"></span>
-                                        </template>
-                                        <img :src="'{{ asset('images/flags') }}/' + item.iso + '.svg'" alt="" width="22" height="16" class="app-flag h-4 w-[1.375rem]" loading="lazy">
-                                        <span class="min-w-0 flex-1 truncate" :class="item.slug === $wire.selectedCountrySlug ? 'font-semibold text-action-deep' : 'text-ink'" x-text="item.name"></span>
-                                        <span class="tabular text-xs font-semibold text-ink-muted" x-text="percent(item.rate)"></span>
+                                        <span data-group-label @class(['sr-only', 'hidden' => ! $loop->first && $this->countries[$loop->index - 1]['group'] === $item['group']])>{{ $groups[$item['group']] ?? '' }}</span>
+                                        <img src="{{ asset('images/flags/'.$item['iso'].'.svg') }}" alt="" width="22" height="16" class="app-flag h-4 w-[1.375rem]" loading="lazy">
+                                        <span data-name @class(['min-w-0 flex-1 truncate', 'font-semibold text-action-deep' => $selected, 'text-ink' => ! $selected])>{{ $item['name'] }}</span>
+                                        <span class="tabular text-xs font-semibold text-ink-muted">{{ \App\Models\Country::formatNumber($item['rate']) }}%</span>
                                     </li>
-                                </template>
+                                @endforeach
                                 <li x-show="filteredCountries.length === 0" class="px-3 py-6 text-center text-sm text-ink-muted" role="presentation">{{ __('ui.calculator.no_countries_found') }}</li>
                             </ul>
                         </div>
@@ -160,6 +156,13 @@
                             >
                         </div>
                         <p id="amount-error-{{ $id }}" role="alert" class="mt-1.5 text-xs font-medium text-danger empty:hidden" x-text="invalid ? @js(__('ui.calculator.invalid_amount')) : ''"></p>
+                        @unless($compact)
+                            {{-- The full result sits below the inputs on phones; this keeps the answer next to the field. --}}
+                            <p x-show="!invalid" class="mt-2 flex items-baseline justify-between gap-3 rounded-control bg-action-soft px-3 py-2 md:hidden" aria-hidden="true">
+                                <span class="text-[0.8125rem] font-semibold text-action-deep" x-text="mode === 'include' ? @js(__('ui.calculator.net_amount')) : @js(__('ui.calculator.total_incl_vat'))">{{ $mode === 'include' ? __('ui.calculator.net_amount') : __('ui.calculator.total_incl_vat') }}</span>
+                                <span class="tabular text-lg font-bold text-ink" x-text="money(mode === 'include' ? result.net : result.gross)">{{ $money($mode === 'include' ? $calculation->net : $calculation->gross) }}</span>
+                            </p>
+                        @endunless
                     </div>
                 </div>
 

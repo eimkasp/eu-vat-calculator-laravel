@@ -72,7 +72,7 @@ return array (
     'older_version' => 'Starsza wersja',
     'developers' => 'Dla programistów',
     'mcp_server' => 'Serwer MCP',
-    'data_source_note' => 'Stawki pochodzą od Komisji Europejskiej i są codziennie weryfikowane',
+    'data_source_note' => 'Stawki pochodzą od Komisji Europejskiej i są weryfikowane co tydzień',
   ),
   'home_page' => 
   array (
@@ -89,7 +89,7 @@ return array (
     'view_full' => 'Zobacz pełny kalkulator i historię',
     'rates_heading' => 'Stawki VAT w UE według krajów',
     'rates_year' => 'Stawki na :year',
-    'hero_badge' => 'Stawki na :year · :count państw członkowskich · aktualizowane codziennie',
+    'hero_badge' => 'Stawki na :year · :count państw członkowskich',
     'rates_intro' => 'Obecnie obowiązujące stawki standardowe i obniżone, od najniższej stawki standardowej.',
     'stat_lowest' => 'Najniższa',
     'stat_average' => 'Średnia UE',
@@ -268,7 +268,7 @@ return array (
   array (
     'title' => 'Historia zmian stawek VAT',
     'meta_title' => 'Historia zmian stawek VAT - Kraje UE | EU VAT Info',
-    'meta_desc' => 'Wszystkie odnotowane zmiany stawek VAT w UE: stawki podstawowe, obniżone i parkingowe z datami, starą i nową stawką, planowanymi zmianami i źródłami.',
+    'meta_desc' => 'Wszystkie odnotowane zmiany stawek VAT w UE z datami, poprzednimi i nowymi stawkami, nadchodzącymi zmianami i oficjalnymi źródłami.',
     'subtitle' => 'Śledź wszystkie zmiany stawek VAT w krajach UE na przestrzeni ostatniej dekady',
     'stability_title' => 'Wskaźniki stabilności krajów',
     'stability_desc' => 'Kraje z mniejszą liczbą zmian stawek VAT wskazują na bardziej stabilne środowisko podatkowe',
@@ -534,6 +534,7 @@ return array (
     'source_recent' => 'Niedawny wynik, sprawdzony w ciągu ostatnich 7 dni',
     'source_fallback' => 'Ostatni zapisany wynik – VIES jest obecnie niedostępny',
     'lookup_count' => 'Liczba sprawdzeń w EU VAT Info: :count',
+    'checked_on' => 'Sprawdzono w VIES: :date',
     'not_provided' => 'Nieudostępnione przez państwo członkowskie',
     'copy_number' => 'Kopiuj numer VAT',
     'invalid_format' => 'Wpisz numer VAT, używając wyłącznie liter i cyfr, np. LT100019070512.',
@@ -718,6 +719,7 @@ return array (
   'tools' => 
   array (
     'seo_title' => 'Narzędzia VAT UE: kalkulator, weryfikacja, mapa i poradniki',
+    'guides_heading' => 'Przewodniki po VAT w UE',
     'seo_description' => 'Bezpłatne narzędzia VAT UE: kalkulator dla każdego kraju, weryfikacja numerów VAT w VIES, mapa stawek, historia stawek i poradniki dla 27 państw.',
     'heading' => 'Narzędzia i zasoby EU VAT Info',
     'intro_text' => 'Oto narzędzia i zasoby przygotowane przez zespół EU-vat.info, które pomogą poruszać się po złożonym świecie VAT w Unii Europejskiej.',

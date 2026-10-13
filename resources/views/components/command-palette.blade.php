@@ -3,7 +3,7 @@
 @endphp
 
 <div
-    x-data="commandPalette({ source: @js(route('search-index', ['locale' => app()->getLocale()])) })"
+    x-data="commandPalette({ source: @js(route('search-index', ['locale' => app()->getLocale()])), validator: @js(['title' => __('ui.vies_page.validate_btn'), 'url' => locale_path('/vat-number-validator')]) })"
     x-show="$store.palette.open"
     x-trap.noscroll="$store.palette.open"
     x-cloak

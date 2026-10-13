@@ -72,7 +72,7 @@ return array (
     'older_version' => 'Starejša različica',
     'developers' => 'Za razvijalce',
     'mcp_server' => 'Strežnik MCP',
-    'data_source_note' => 'Stopnje so pridobljene od Evropske komisije in se dnevno preverjajo',
+    'data_source_note' => 'Stopnje so pridobljene od Evropske komisije in se preverjajo vsak teden',
   ),
   'home_page' => 
   array (
@@ -89,7 +89,7 @@ return array (
     'view_full' => 'Ogled celotnega kalkulatorja in zgodovine',
     'rates_heading' => 'Stopnje DDV v EU po državah',
     'rates_year' => 'Stopnje :year',
-    'hero_badge' => 'Stopnje :year · :count držav članic · posodobljeno dnevno',
+    'hero_badge' => 'Stopnje :year · :count držav članic',
     'rates_intro' => 'Trenutno veljavne splošne in znižane stopnje, razvrščene od najnižje splošne stopnje.',
     'stat_lowest' => 'Najnižja',
     'stat_average' => 'Povprečje EU',
@@ -268,7 +268,7 @@ return array (
   array (
     'title' => 'Zgodovina sprememb stopenj DDV',
     'meta_title' => 'Zgodovina sprememb stopenj DDV – Države EU | DDV v EU',
-    'meta_desc' => 'Vse zabeležene spremembe stopenj DDV v EU: splošne, znižane in prehodne stopnje z datumi, staro in novo stopnjo, prihajajočimi spremembami in viri.',
+    'meta_desc' => 'Vse zabeležene spremembe stopenj DDV v EU z datumi, starimi in novimi stopnjami, prihajajočimi spremembami in uradnimi viri.',
     'subtitle' => 'Spremljajte vse spremembe stopenj DDV v državah EU v zadnjem desetletju',
     'stability_title' => 'Kazalniki stabilnosti držav',
     'stability_desc' => 'Države z manj spremembami stopenj DDV nakazujejo stabilnejše davčno okolje',
@@ -534,6 +534,7 @@ return array (
     'source_recent' => 'Nedaven rezultat, preverjen v zadnjih 7 dneh',
     'source_fallback' => 'Zadnji shranjeni rezultat, VIES trenutno ni na voljo',
     'lookup_count' => 'Število preverjanj na spletnem mestu „DDV v EU“: :count',
+    'checked_on' => 'Preverjeno v VIES: :date',
     'not_provided' => 'Država članica tega podatka ne posreduje',
     'copy_number' => 'Kopiraj številko DDV',
     'invalid_format' => 'Vnesite številko DDV samo s črkami in števkami, na primer LT100019070512.',
@@ -718,6 +719,7 @@ return array (
   'tools' => 
   array (
     'seo_title' => 'Orodja za DDV v EU: kalkulator, preverjanje, zemljevid',
+    'guides_heading' => 'Vodniki po DDV v EU',
     'seo_description' => 'Brezplačna orodja za DDV v EU: kalkulator za vsako državo, preverjanje številk za DDV v VIES, zemljevid in zgodovina stopenj ter vodniki za 27 držav.',
     'heading' => 'DDV v EU: orodja in viri',
     'intro_text' => 'Tukaj so orodja in viri ekipe EU-vat.info, ki vam bodo pomagali pri krmarjenju po zapletenem svetu DDV v Evropski uniji.',

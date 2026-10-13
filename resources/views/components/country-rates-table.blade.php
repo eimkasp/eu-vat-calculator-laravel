@@ -54,7 +54,7 @@
         </div>
     </div>
 
-    <div class="relative overflow-x-auto" tabindex="0" role="group" aria-labelledby="rates-heading">
+    <div class="relative overflow-x-auto app-deferred [--deferred-size:136rem] sm:[--deferred-size:92rem]" tabindex="0" role="group" aria-labelledby="rates-heading">
         <table class="app-table sm:min-w-[34rem]">
             <thead>
                 <tr>
@@ -64,7 +64,7 @@
                     <th scope="col" class="pr-5 text-right sm:pr-6"><span class="sr-only">{{ __('ui.home_page.th_actions') }}</span></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody x-effect="const value = needle; $el.querySelectorAll('tr').forEach((row) => (row.style.display = !value || row.dataset.search.includes(value) ? '' : 'none'))">
                 @foreach($countries as $country)
                     @php
                         $haystack = \Illuminate\Support\Str::lower(\Illuminate\Support\Str::ascii($country->name.' '.$country->native_name.' '.$country->iso_code));
@@ -73,11 +73,10 @@
                     <tr
                         wire:key="rate-row-{{ $country->id }}"
                         data-search="{{ $haystack }}"
-                        x-show="!needle || $el.dataset.search.includes(needle)"
                         @unless($matchesInitial) style="display: none" @endunless
                         class="group transition-colors hover:bg-surface-subtle"
                     >
-                        <td class="pl-5 sm:pl-6">
+                        <td class="py-1.5 pl-5 sm:pl-6">
                             <a href="{{ locale_path('/vat-calculator/'.$country->slug) }}" class="flex min-h-10 items-center gap-3 font-semibold text-ink group-hover:text-action">
                                 <x-ui.flag :iso="$country->iso_code" size="md" />
                                 <span class="truncate">{{ $country->name }}</span>
@@ -94,7 +93,7 @@
                                 @endif
                             </div>
                         </td>
-                        <td>
+                        <td class="py-1.5">
                             <div class="flex items-center gap-3">
                                 <span class="tabular w-12 text-base font-bold text-ink">{{ Country::formatRate($country->standard_rate) }}%</span>
                                 <span class="hidden h-1.5 w-20 overflow-hidden rounded-xs bg-action/15 sm:block" aria-hidden="true">
@@ -102,7 +101,7 @@
                                 </span>
                             </div>
                         </td>
-                        <td class="hidden sm:table-cell">
+                        <td class="hidden py-1.5 sm:table-cell">
                             <div class="flex flex-wrap items-center gap-1.5">
                                 @forelse($country->reducedRates() as $rate)
                                     <span class="tabular rounded-control bg-surface-muted px-2 py-0.5 text-xs font-semibold text-ink-muted">{{ Country::formatRate($rate) }}%</span>
@@ -114,7 +113,7 @@
                                 @endif
                             </div>
                         </td>
-                        <td class="pr-5 text-right sm:pr-6">
+                        <td class="py-1.5 pr-5 text-right sm:pr-6">
                             <a href="{{ locale_path('/vat-calculator/'.$country->slug) }}" class="inline-flex size-9 items-center justify-center rounded-control text-ink-quiet transition-colors hover:bg-action-soft hover:text-action" aria-label="{{ __('ui.home_page.calculate_for', ['country' => $country->name]) }}">
                                 <x-ui.icon name="arrow-right" class="size-4" />
                             </a>

@@ -84,8 +84,8 @@
                         </p>
                     </div>
 
-                    <div role="group" aria-label="{{ __('ui.history.filters_label') }}" class="mt-4 grid gap-3 sm:grid-cols-[repeat(3,minmax(0,1fr))_auto] sm:items-end">
-                        <div>
+                    <div role="group" aria-label="{{ __('ui.history.filters_label') }}" @class(['mt-4 grid grid-cols-2 gap-3 sm:items-end', 'sm:grid-cols-[repeat(3,minmax(0,1fr))_auto]' => count($this->rateTypes) > 1, 'sm:grid-cols-[repeat(2,minmax(0,1fr))_auto]' => count($this->rateTypes) <= 1])>
+                        <div class="col-span-2 sm:col-span-1">
                             <label for="filter-country" class="mb-1 block text-xs font-semibold text-ink-muted">{{ __('ui.country') }}</label>
                             <select id="filter-country" wire:model.live="selectedCountry" class="{{ $selectClass }}">
                                 <option value="">{{ __('ui.history.all_countries') }}</option>
@@ -94,15 +94,17 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div>
-                            <label for="filter-type" class="mb-1 block text-xs font-semibold text-ink-muted">{{ __('ui.history.rate_type') }}</label>
-                            <select id="filter-type" wire:model.live="selectedType" class="{{ $selectClass }}">
-                                <option value="">{{ __('ui.history.all_types') }}</option>
-                                @foreach(\App\Livewire\VatChangesHistory::RATE_TYPES as $type)
-                                    <option value="{{ $type }}">{{ __('ui.rate_type.'.$type) }}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                        @if(count($this->rateTypes) > 1)
+                            <div>
+                                <label for="filter-type" class="mb-1 block text-xs font-semibold text-ink-muted">{{ __('ui.history.rate_type') }}</label>
+                                <select id="filter-type" wire:model.live="selectedType" class="{{ $selectClass }}">
+                                    <option value="">{{ __('ui.history.all_types') }}</option>
+                                    @foreach($this->rateTypes as $type)
+                                        <option value="{{ $type }}">{{ __('ui.rate_type.'.$type) }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        @endif
                         <div>
                             <label for="filter-direction" class="mb-1 block text-xs font-semibold text-ink-muted">{{ __('ui.history.direction') }}</label>
                             <select id="filter-direction" wire:model.live="selectedDirection" class="{{ $selectClass }}">
@@ -138,7 +140,9 @@
                                         <div class="min-w-0">
                                             <p class="flex flex-wrap items-center gap-2">
                                                 <span class="truncate font-semibold text-ink">{{ $change->country?->name }}</span>
-                                                <span class="rounded-control bg-surface-muted px-1.5 py-0.5 text-[0.6875rem] font-semibold text-ink-muted">{{ __('ui.rate_type.'.$change->rate_type) }}</span>
+                                                @if($change->rate_type !== 'standard')
+                                                    <span class="rounded-control bg-surface-muted px-1.5 py-0.5 text-[0.6875rem] font-semibold text-ink-muted">{{ __('ui.rate_type.'.$change->rate_type) }}</span>
+                                                @endif
                                                 @if($upcoming)
                                                     <span class="inline-flex items-center gap-1 rounded-control bg-warning-soft px-1.5 py-0.5 text-[0.6875rem] font-semibold text-warning">
                                                         <x-ui.icon name="clock" class="size-3" />

@@ -72,7 +72,7 @@ return array (
     'older_version' => 'Vanem versioon',
     'developers' => 'Arendajatele',
     'mcp_server' => 'MCP server',
-    'data_source_note' => 'Määrad pärinevad Euroopa Komisjonilt ja neid kontrollitakse iga päev',
+    'data_source_note' => 'Määrad pärinevad Euroopa Komisjonilt ja neid kontrollitakse iga nädal',
   ),
   'home_page' => 
   array (
@@ -89,7 +89,7 @@ return array (
     'view_full' => 'Vaata täielikku kalkulaatorit ja ajalugu',
     'rates_heading' => 'EL-i käibemaksumäärad riikide kaupa',
     'rates_year' => ':year. aasta määrad',
-    'hero_badge' => ':year. aasta määrad · :count liikmesriiki · uuendatakse iga päev',
+    'hero_badge' => ':year. aasta määrad · :count liikmesriiki',
     'rates_intro' => 'Kehtivad tava- ja vähendatud määrad, madalaim tavamäär eespool.',
     'stat_lowest' => 'Madalaim',
     'stat_average' => 'EL-i keskmine',
@@ -268,7 +268,7 @@ return array (
   array (
     'title' => 'Käibemaksumäärade muutuste ajalugu',
     'meta_title' => 'Käibemaksumäärade muutuste ajalugu - EL riigid | EL käibemaks',
-    'meta_desc' => 'Kõik registreeritud käibemaksumäärade muutused ELis: üld-, vähendatud ja parkimismäärad kuupäevade, vana ja uue määra, tulevaste muutuste ja allikatega.',
+    'meta_desc' => 'Kõik registreeritud käibemaksumäärade muudatused ELis kuupäevade, vanade ja uute määrade, eelseisvate muudatuste ja ametlike allikatega.',
     'subtitle' => 'Jälgige kõiki käibemaksumäärade muutusi EL riikides viimase kümnendi jooksul',
     'stability_title' => 'Riikide stabiilsusnäitajad',
     'stability_desc' => 'Vähemate käibemaksumäärade muutustega riikides on stabiilsem maksukeskkond',
@@ -534,6 +534,7 @@ return array (
     'source_recent' => 'Hiljutine tulemus, kontrollitud viimase 7 päeva jooksul',
     'source_fallback' => 'Viimati salvestatud tulemus, VIES ei ole praegu saadaval',
     'lookup_count' => 'Päringuid saidil EL käibemaks: :count',
+    'checked_on' => 'Kontrollitud VIES-is: :date',
     'not_provided' => 'Liikmesriik ei jaga seda teavet',
     'copy_number' => 'Kopeeri käibemaksunumber',
     'invalid_format' => 'Sisestage käibemaksunumber ainult tähtede ja numbritega, näiteks LT100019070512.',
@@ -718,6 +719,7 @@ return array (
   'tools' => 
   array (
     'seo_title' => 'ELi käibemaksu tööriistad: kalkulaator, kontroll ja kaart',
+    'guides_heading' => 'ELi käibemaksu juhendid',
     'seo_description' => 'Tasuta ELi käibemaksu tööriistad: kalkulaator igale riigile, KMKR-numbrite kontroll VIES-is, määrade kaart, määrade ajalugu ja juhendid 27 riigile.',
     'heading' => 'EL käibemaks – tööriistad ja ressursid',
     'intro_text' => 'Siin on mõned EU-vat.info meeskonna tööriistad ja ressursid, mis aitavad teil orienteeruda Euroopa Liidu keerulises käibemaksumaailmas.',

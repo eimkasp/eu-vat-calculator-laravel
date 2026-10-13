@@ -72,7 +72,7 @@ return array (
     'older_version' => 'Versão mais antiga',
     'developers' => 'Programadores',
     'mcp_server' => 'Servidor MCP',
-    'data_source_note' => 'Taxas provenientes da Comissão Europeia e verificadas diariamente',
+    'data_source_note' => 'Taxas provenientes da Comissão Europeia e verificadas semanalmente',
   ),
   'home_page' => 
   array (
@@ -89,7 +89,7 @@ return array (
     'view_full' => 'Ver calculadora completa e histórico',
     'rates_heading' => 'Taxas de IVA na UE por país',
     'rates_year' => 'Taxas de :year',
-    'hero_badge' => 'Taxas de :year · :count Estados-Membros · atualizadas diariamente',
+    'hero_badge' => 'Taxas de :year · :count Estados-Membros',
     'rates_intro' => 'Taxas normais e reduzidas atualmente em vigor, ordenadas da taxa normal mais baixa para a mais alta.',
     'stat_lowest' => 'Mais baixa',
     'stat_average' => 'Média da UE',
@@ -268,7 +268,7 @@ return array (
   array (
     'title' => 'Histórico de Alterações de Taxas de IVA',
     'meta_title' => 'Histórico de Alterações de Taxas de IVA - Países da UE | IVA na UE',
-    'meta_desc' => 'Todas as alterações de taxas de IVA registadas na UE: taxas normais, reduzidas e intermédias, com datas, taxa antiga e nova, alterações previstas e fontes.',
+    'meta_desc' => 'Todas as alterações registadas das taxas de IVA na UE, com datas, taxas antigas e novas, alterações previstas e fontes oficiais.',
     'subtitle' => 'Acompanhe todas as alterações das taxas de IVA nos países da UE na última década',
     'stability_title' => 'Indicadores de Estabilidade dos Países',
     'stability_desc' => 'Países com menos alterações nas taxas de IVA indicam um ambiente fiscal mais estável',
@@ -534,6 +534,7 @@ return array (
     'source_recent' => 'Resultado recente, verificado nos últimos 7 dias',
     'source_fallback' => 'Último resultado guardado; o VIES está atualmente indisponível',
     'lookup_count' => 'Consultas no IVA na UE: :count',
+    'checked_on' => 'Verificado no VIES: :date',
     'not_provided' => 'Não disponibilizado pelo Estado-Membro',
     'copy_number' => 'Copiar número de IVA',
     'invalid_format' => 'Introduza o número de IVA apenas com letras e dígitos, por exemplo LT100019070512.',
@@ -718,6 +719,7 @@ return array (
   'tools' => 
   array (
     'seo_title' => 'Ferramentas de IVA da UE: calculadora, validador e mapa',
+    'guides_heading' => 'Guias do IVA na UE',
     'seo_description' => 'Ferramentas de IVA da UE grátis: uma calculadora para cada país, validação VIES de números de IVA, mapa e histórico de taxas e guias para os 27 Estados.',
     'heading' => 'Ferramentas e recursos do IVA na UE',
     'intro_text' => 'Aqui encontra ferramentas e recursos da equipa do EU-vat.info para o ajudar a orientar-se no complexo mundo do IVA na União Europeia.',

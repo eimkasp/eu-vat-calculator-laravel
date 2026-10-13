@@ -249,6 +249,72 @@
                     </article>
                 </section>
 
+                <section id="rates-api" class="scroll-mt-24 space-y-4" aria-labelledby="rates-api-heading">
+                    <h2 id="rates-api-heading" class="text-xl font-bold text-ink">VAT rates and calculator API</h2>
+                    <p class="max-w-[72ch] text-sm leading-6 text-ink-muted">Every EU VAT rate and a calculator as JSON, with no API key. Rates follow the European Commission's data and the open dataset is synced every week; each country carries its <code class="rounded-xs bg-surface-muted px-1 font-mono">last_updated</code> time.</p>
+                    <div class="app-surface relative overflow-x-auto" tabindex="0" role="group" aria-labelledby="rates-api-heading">
+                        <table class="app-table min-w-[34rem]">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="pl-5">Endpoint</th>
+                                    <th scope="col" class="pr-5">Returns</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm">
+                                @foreach([
+                                    ['/api/v1/countries', 'Every country with all rate types, currency and VAT number format.'],
+                                    ['/api/v1/countries/{slug-or-iso}', 'One country, for example /api/v1/countries/germany or /api/v1/countries/DE.'],
+                                    ['/api/v1/calculate?amount=100&country=DE&rate_type=standard&mode=add', 'Net, VAT and gross for an amount. mode=remove takes VAT out of a gross amount.'],
+                                    ['/api/v1/openapi.json', 'The OpenAPI 3.1 description, for code generators and AI agents.'],
+                                ] as [$path, $returns])
+                                    <tr>
+                                        <td class="pl-5 font-mono text-xs break-all text-ink"><span class="app-badge mr-2 bg-success-soft font-mono text-success">GET</span>{{ $path }}</td>
+                                        <td class="pr-5 leading-5 text-ink-muted">{{ $returns }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="grid gap-4 lg:grid-cols-2">
+                        <div class="min-w-0">
+                            <h3 class="app-eyebrow break-all">GET /api/v1/countries/germany</h3>
+                            <pre tabindex="0" class="app-code mt-2 overflow-x-auto p-4 font-mono text-xs leading-5 text-syntax-string">{
+  "data": {
+    "name": "Germany",
+    "iso_code": "DE",
+    "slug": "germany",
+    "currency": "EUR",
+    "rates": {
+      "standard": 19,
+      "reduced": 7,
+      "reduced_rates": [7],
+      "super_reduced": null,
+      "parking": null
+    },
+    "vat_number": { "prefix": "DE", "format": "DE999999999" },
+    "last_updated": "2026-10-12T19:39:01+00:00"
+  }
+}</pre>
+                        </div>
+                        <div class="min-w-0">
+                            <h3 class="app-eyebrow break-all">GET /api/v1/calculate?amount=100&amp;country=DE</h3>
+                            <pre tabindex="0" class="app-code mt-2 overflow-x-auto p-4 font-mono text-xs leading-5 text-syntax-string">{
+  "data": {
+    "country": "Germany",
+    "rate_type": "standard",
+    "rate": 19,
+    "mode": "add",
+    "amount": 100,
+    "net": 100,
+    "vat": 19,
+    "gross": 119,
+    "currency": "EUR"
+  }
+}</pre>
+                        </div>
+                    </div>
+                </section>
+
                 <section id="playground" class="scroll-mt-24" aria-labelledby="playground-heading">
                     <h2 id="playground-heading" class="text-xl font-bold text-ink">Interactive playground</h2>
                     <div class="app-surface mt-4 space-y-4 p-5">
@@ -429,7 +495,7 @@
                 <nav class="app-surface p-5" aria-labelledby="docs-toc">
                     <h2 id="docs-toc" class="text-sm font-bold text-ink">On this page</h2>
                     <ul class="-mx-2 mt-2 space-y-0.5 text-sm">
-                        @foreach(['base-url' => 'Base URL', 'endpoints' => 'Endpoints', 'playground' => 'Interactive playground', 'response-fields' => 'Response fields', 'errors' => 'Error responses', 'examples' => 'Code examples'] as $anchor => $label)
+                        @foreach(['base-url' => 'Base URL', 'endpoints' => 'Endpoints', 'rates-api' => 'VAT rates and calculator API', 'playground' => 'Interactive playground', 'response-fields' => 'Response fields', 'errors' => 'Error responses', 'examples' => 'Code examples'] as $anchor => $label)
                             <li>
                                 <a href="#{{ $anchor }}" class="flex min-h-9 items-center gap-2 rounded-control px-2 text-ink-muted transition-colors hover:bg-surface-subtle hover:text-ink">
                                     <x-ui.icon name="chevron-right" class="size-3.5 text-ink-quiet" />

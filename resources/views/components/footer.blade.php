@@ -76,8 +76,6 @@
         <div class="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-white/60 md:flex-row md:items-center md:justify-between">
             <p class="flex flex-wrap items-center gap-x-3 gap-y-1">
                 <span>&copy; {{ date('Y') }} {{ __('ui.site_name') }}. {{ __('ui.all_rights_reserved') }}</span>
-                <span class="hidden text-white/40 sm:inline" aria-hidden="true">·</span>
-                <a href="https://pdfcheck.online/" target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-white">{{ __('ui.footer.pdf_tools') }}<x-ui.new-tab /></a>
             </p>
             <p class="flex items-start gap-2">
                 <x-ui.icon name="shield-check" class="mt-0.5 size-4 shrink-0 text-gold" />

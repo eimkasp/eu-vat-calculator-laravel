@@ -72,7 +72,7 @@ return array (
     'older_version' => 'Vanhempi versio',
     'developers' => 'Kehittäjille',
     'mcp_server' => 'MCP-palvelin',
-    'data_source_note' => 'Verokannat perustuvat Euroopan komission tietoihin, ja ne tarkistetaan päivittäin',
+    'data_source_note' => 'Verokannat perustuvat Euroopan komission tietoihin, ja ne tarkistetaan viikoittain',
   ),
   'home_page' => 
   array (
@@ -89,7 +89,7 @@ return array (
     'view_full' => 'Näytä laskuri ja historia',
     'rates_heading' => 'ALV-kannat EU-maittain',
     'rates_year' => 'Verokannat :year',
-    'hero_badge' => 'Verokannat :year · :count jäsenvaltiota · päivitetään päivittäin',
+    'hero_badge' => 'Verokannat :year · :count jäsenvaltiota',
     'rates_intro' => 'Voimassa olevat yleiset ja alennetut verokannat, alhaisin yleinen verokanta ensin.',
     'stat_lowest' => 'Alhaisin',
     'stat_average' => 'EU-keskiarvo',
@@ -268,7 +268,7 @@ return array (
   array (
     'title' => 'ALV-kantojen muutoshistoria',
     'meta_title' => 'ALV-kantojen muutoshistoria - EU-maat | EU ALV-tiedot',
-    'meta_desc' => 'Kaikki kirjatut ALV-kantojen muutokset EU:ssa: yleiset, alennetut ja väliaikaiset kannat päivämäärineen, vanhoine ja uusine kantoineen ja lähteineen.',
+    'meta_desc' => 'Kaikki kirjatut EU:n arvonlisäverokantojen muutokset päivämäärineen, vanhat ja uudet kannat, tulevat muutokset ja viralliset lähteet.',
     'subtitle' => 'Seuraa kaikkia ALV-kantojen muutoksia EU-maissa viimeisen vuosikymmenen ajalta',
     'stability_title' => 'Maiden vakausmittarit',
     'stability_desc' => 'Maat, joissa ALV-kannat muuttuvat harvemmin, osoittavat vakaampaa veroympäristöä',
@@ -534,6 +534,7 @@ return array (
     'source_recent' => 'Tuore tulos, tarkistettu viimeisen 7 päivän aikana',
     'source_fallback' => 'Viimeisin tallennettu tulos, VIES ei ole tällä hetkellä käytettävissä',
     'lookup_count' => 'Hakuja EU ALV-tiedot -palvelussa: :count',
+    'checked_on' => 'Tarkistettu VIES-järjestelmästä: :date',
     'not_provided' => 'Jäsenvaltio ei ole ilmoittanut',
     'copy_number' => 'Kopioi ALV-numero',
     'invalid_format' => 'Syötä ALV-numero pelkillä kirjaimilla ja numeroilla, esimerkiksi LT100019070512.',
@@ -718,6 +719,7 @@ return array (
   'tools' => 
   array (
     'seo_title' => 'EU:n ALV-työkalut: laskuri, tarkistus, kartta, oppaat',
+    'guides_heading' => 'EU:n arvonlisäveron oppaat',
     'seo_description' => 'Maksuttomat EU:n ALV-työkalut: laskuri jokaiselle maalle, ALV-numeroiden VIES-tarkistus, kantojen kartta, kantahistoria ja oppaat 27 jäsenvaltioon.',
     'heading' => 'EU ALV-tiedot -palvelun työkalut ja resurssit',
     'intro_text' => 'Tässä on EU-vat.info-tiimin työkaluja ja resursseja, jotka auttavat sinua selviytymään Euroopan unionin monimutkaisesta arvonlisäverotuksesta.',

@@ -72,7 +72,7 @@ return array (
     'older_version' => 'Régebbi verzió',
     'developers' => 'Fejlesztőknek',
     'mcp_server' => 'MCP szerver',
-    'data_source_note' => 'A kulcsok az Európai Bizottságtól származnak, és naponta ellenőrizzük őket',
+    'data_source_note' => 'A kulcsok az Európai Bizottságtól származnak, és hetente ellenőrizzük őket',
   ),
   'home_page' => 
   array (
@@ -89,7 +89,7 @@ return array (
     'view_full' => 'Teljes kalkulátor és történet megtekintése',
     'rates_heading' => 'Uniós ÁFA-kulcsok országonként',
     'rates_year' => ':year. évi kulcsok',
-    'hero_badge' => ':year. évi kulcsok · :count tagállam · naponta frissítve',
+    'hero_badge' => ':year. évi kulcsok · :count tagállam',
     'rates_intro' => 'A jelenleg hatályos általános és kedvezményes kulcsok, a legalacsonyabb általános kulccsal kezdve.',
     'stat_lowest' => 'Legalacsonyabb',
     'stat_average' => 'EU-átlag',
@@ -268,7 +268,7 @@ return array (
   array (
     'title' => 'ÁFA-kulcsok változásainak története',
     'meta_title' => 'ÁFA-kulcsok változásainak története - EU-országok | EU ÁFA Infó',
-    'meta_desc' => 'Az összes rögzített uniós áfakulcs-változás: általános, kedvezményes és átmeneti kulcsok dátummal, régi és új kulccsal, várható változásokkal és forrásokkal.',
+    'meta_desc' => 'Az EU összes rögzített áfakulcs-változása dátumokkal, régi és új kulcsokkal, közelgő változásokkal és hivatalos forrásokkal.',
     'subtitle' => 'Kövesse az összes áfakulcs-változást az EU-országokban az elmúlt évtizedben',
     'stability_title' => 'Országok stabilitási mutatói',
     'stability_desc' => 'A kevesebb áfakulcs-változással rendelkező országok stabilabb adókörnyezetet jeleznek',
@@ -534,6 +534,7 @@ return array (
     'source_recent' => 'Friss eredmény, az elmúlt 7 napban ellenőrizve',
     'source_fallback' => 'Utolsó tárolt eredmény, a VIES jelenleg nem érhető el',
     'lookup_count' => 'Lekérdezések száma az EU ÁFA Infón: :count',
+    'checked_on' => 'Ellenőrizve a VIES-ben: :date',
     'not_provided' => 'A tagállam nem osztja meg',
     'copy_number' => 'ÁFA-szám másolása',
     'invalid_format' => 'Az ÁFA-számot csak betűkkel és számjegyekkel adja meg, például: LT100019070512.',
@@ -718,6 +719,7 @@ return array (
   'tools' => 
   array (
     'seo_title' => 'Uniós áfaeszközök: kalkulátor, ellenőrzés, térkép',
+    'guides_heading' => 'Uniós áfa-útmutatók',
     'seo_description' => 'Ingyenes uniós áfaeszközök: kalkulátor minden országra, adószám-ellenőrzés a VIES-ben, áfatérkép, kulcstörténet és útmutatók mind a 27 tagállamhoz.',
     'heading' => 'Az EU ÁFA Infó eszközei és forrásai',
     'intro_text' => 'Íme néhány eszköz és forrás az EU-vat.info csapatától, amelyek segítenek eligazodni az Európai Unió összetett ÁFA-világában.',

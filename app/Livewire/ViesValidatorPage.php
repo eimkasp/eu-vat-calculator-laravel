@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Country;
 use App\Models\VatValidationLog;
 use App\Services\ViesValidationService;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Validation\Rule;
@@ -148,10 +149,7 @@ class ViesValidatorPage extends Component
                 'database_fallback' => 'fallback',
                 default => 'recent',
             },
-            'lookups' => VatValidationLog::query()
-                ->where('country_code', $this->country_code)
-                ->where('vat_number', $this->vat_number)
-                ->count(),
+            'checked' => rescue(fn () => Carbon::parse($data['request_date'] ?? $data['last_checked_at'] ?? now())->toDateString(), now()->toDateString(), false),
         ];
 
         $this->dispatch('validation-complete',

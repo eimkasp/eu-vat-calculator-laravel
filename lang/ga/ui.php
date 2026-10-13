@@ -72,7 +72,7 @@ return array (
     'older_version' => 'Leagan níos sine',
     'developers' => 'Forbróirí',
     'mcp_server' => 'Freastalaí MCP',
-    'data_source_note' => 'Rátaí ón gCoimisiún Eorpach, fíoraithe go laethúil',
+    'data_source_note' => 'Rátaí ón gCoimisiún Eorpach, fíoraithe gach seachtain',
   ),
   'home_page' => 
   array (
@@ -89,7 +89,7 @@ return array (
     'view_full' => 'Féach ar an áireamhán iomlán agus stair',
     'rates_heading' => 'Rátaí CBL an AE de réir tíre',
     'rates_year' => 'Rátaí :year',
-    'hero_badge' => 'Rátaí :year · :count ballstát · nuashonraithe go laethúil',
+    'hero_badge' => 'Rátaí :year · :count ballstát',
     'rates_intro' => 'Na rátaí caighdeánacha agus laghdaithe atá i bhfeidhm faoi láthair, agus an ráta caighdeánach is ísle ar dtús.',
     'stat_lowest' => 'Is ísle',
     'stat_average' => 'Meán an AE',
@@ -268,7 +268,7 @@ return array (
   array (
     'title' => 'Stair Athruithe Rátaí CBL',
     'meta_title' => 'Stair Athruithe Rátaí CBL - Tíortha an AE | Eolas CBL an AE',
-    'meta_desc' => 'Gach athrú taifeadta ar rátaí CBL san AE: rátaí caighdeánacha, laghdaithe agus páirceála, le dátaí, seanrátaí agus rátaí nua, athruithe le teacht agus foinsí.',
+    'meta_desc' => 'Gach athrú taifeadta ar rátaí CBL san AE, le dátaí, seanrátaí agus rátaí nua, athruithe atá le teacht agus foinsí oifigiúla.',
     'subtitle' => 'Lean gach athrú ar rátaí CBL ar fud tíortha an AE le deich mbliana anuas',
     'stability_title' => 'Táscairí Cobhsaíochta Tíortha',
     'stability_desc' => 'Léiríonn tíortha le níos lú athruithe ar rátaí CBL timpeallacht chánach níos cobhsaí',
@@ -534,6 +534,7 @@ return array (
     'source_recent' => 'Toradh le déanaí, seiceáilte le 7 lá anuas',
     'source_fallback' => 'An toradh deireanach a stóráladh, níl VIES ar fáil faoi láthair',
     'lookup_count' => 'Cuardaigh ar Eolas CBL an AE: :count',
+    'checked_on' => 'Seiceáilte i VIES: :date',
     'not_provided' => 'Níor roinn an ballstát é',
     'copy_number' => 'Cóipeáil an uimhir CBL',
     'invalid_format' => 'Cuir isteach an uimhir CBL le litreacha agus digití amháin, mar shampla LT100019070512.',
@@ -718,6 +719,7 @@ return array (
   'tools' => 
   array (
     'seo_title' => 'Uirlisí CBL AE: áireamhán, seiceáil, léarscáil, treoracha',
+    'guides_heading' => 'Treoracha CBL an AE',
     'seo_description' => 'Uirlisí CBL AE saor in aisce: áireamhán do gach tír, seiceáil uimhreacha CBL in VIES, léarscáil rátaí, stair na rátaí agus treoracha do 27 ballstát.',
     'heading' => 'Uirlisí agus acmhainní Eolas CBL an AE',
     'intro_text' => 'Seo roinnt uirlisí agus acmhainní ó fhoireann EU-vat.info chun cabhrú leat do bhealach a dhéanamh trí shaol casta CBL san Aontas Eorpach.',

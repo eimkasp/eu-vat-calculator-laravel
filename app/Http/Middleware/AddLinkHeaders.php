@@ -21,7 +21,7 @@ class AddLinkHeaders
                 '</sitemap.xml>; rel="describedby"; type="application/xml"',
             ];
 
-            $response->headers->set('Link', implode(', ', $links));
+            $response->headers->set('Link', implode(', ', $links), false);
         }
 
         return $response;

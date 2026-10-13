@@ -79,7 +79,7 @@
                         {{ __('ui.rate_type_desc.'.$this->rateType['type']) }}
                     </p>
 
-                    <div class="mt-auto flex flex-wrap gap-2.5">
+                    <div class="mt-2 flex flex-wrap gap-2.5">
                         @if($calculatorAvailable)
                             <a href="{{ $calculatorUrl }}" class="app-button-primary flex-1 whitespace-nowrap">
                                 <x-ui.icon name="calculator" class="size-4" />
@@ -148,7 +148,7 @@
                 <section class="app-surface overflow-hidden" aria-labelledby="other-amounts">
                     <h2 id="other-amounts" class="border-b border-line px-5 py-4 text-lg font-bold text-ink sm:px-6">{{ __('ui.shared_calc.same_country_other_amounts', ['country' => $countryModel->name]) }}</h2>
                     <div class="relative overflow-x-auto" tabindex="0" role="group" aria-labelledby="other-amounts">
-                        <table class="app-table min-w-[28rem]">
+                        <table class="app-table sm:min-w-[28rem]">
                             <thead>
                                 <tr>
                                     <th scope="col" class="pl-5 sm:pl-6">{{ $adding ? __('ui.shared_calc.net_amount') : __('ui.shared_calc.gross_amount') }}</th>

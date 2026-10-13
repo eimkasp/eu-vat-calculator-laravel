@@ -72,7 +72,7 @@ return array (
     'older_version' => 'Starší verze',
     'developers' => 'Pro vývojáře',
     'mcp_server' => 'MCP server',
-    'data_source_note' => 'Sazby pocházejí od Evropské komise a jsou denně ověřovány',
+    'data_source_note' => 'Sazby pocházejí od Evropské komise a jsou ověřovány každý týden',
   ),
   'home_page' => 
   array (
@@ -89,7 +89,7 @@ return array (
     'view_full' => 'Zobrazit kalkulačku a historii',
     'rates_heading' => 'Sazby DPH v EU podle zemí',
     'rates_year' => 'Sazby :year',
-    'hero_badge' => 'Sazby :year · :count členských států · aktualizováno denně',
+    'hero_badge' => 'Sazby :year · :count členských států',
     'rates_intro' => 'Aktuálně platné standardní a snížené sazby, seřazené od nejnižší standardní sazby.',
     'stat_lowest' => 'Nejnižší',
     'stat_average' => 'Průměr EU',
@@ -268,7 +268,7 @@ return array (
   array (
     'title' => 'Historie změn sazeb DPH',
     'meta_title' => 'Historie změn sazeb DPH - Země EU | DPH v EU',
-    'meta_desc' => 'Všechny zaznamenané změny sazeb DPH v EU: základní, snížené a parkovací sazby s daty, původní a novou sazbou, plánovanými změnami a zdroji.',
+    'meta_desc' => 'Všechny zaznamenané změny sazeb DPH v EU s daty, starými a novými sazbami, chystanými změnami a oficiálními zdroji.',
     'subtitle' => 'Sledujte všechny změny sazeb DPH v zemích EU za poslední desetiletí',
     'stability_title' => 'Ukazatele stability zemí',
     'stability_desc' => 'Země s méně změnami sazeb DPH naznačují stabilnější daňové prostředí',
@@ -534,6 +534,7 @@ return array (
     'source_recent' => 'Nedávný výsledek, ověřený během posledních 7 dnů',
     'source_fallback' => 'Poslední uložený výsledek, VIES je momentálně nedostupný',
     'lookup_count' => 'Počet ověření na webu „DPH v EU“: :count',
+    'checked_on' => 'Ověřeno ve VIES: :date',
     'not_provided' => 'Členský stát tento údaj neposkytuje',
     'copy_number' => 'Kopírovat DIČ',
     'invalid_format' => 'Zadejte DIČ pouze pomocí písmen a číslic, například LT100019070512.',
@@ -718,6 +719,7 @@ return array (
   'tools' => 
   array (
     'seo_title' => 'Nástroje pro DPH v EU: kalkulačka, ověření, mapa, průvodci',
+    'guides_heading' => 'Průvodce DPH v EU',
     'seo_description' => 'Bezplatné nástroje pro DPH v EU: kalkulačka pro každou zemi, ověření DIČ ve VIES, mapa a historie sazeb a průvodci pro všech 27 členských států.',
     'heading' => 'DPH v EU: nástroje a zdroje',
     'intro_text' => 'Zde najdete nástroje a zdroje od týmu EU-vat.info, které vám pomohou zorientovat se ve složitém světě DPH v Evropské unii.',

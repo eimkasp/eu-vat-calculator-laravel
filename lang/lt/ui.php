@@ -72,7 +72,7 @@ return array (
     'older_version' => 'Senesnė versija',
     'developers' => 'Kūrėjams',
     'mcp_server' => 'MCP serveris',
-    'data_source_note' => 'Tarifai gaunami iš Europos Komisijos ir tikrinami kasdien',
+    'data_source_note' => 'Tarifai gaunami iš Europos Komisijos ir tikrinami kas savaitę',
   ),
   'home_page' => 
   array (
@@ -89,7 +89,7 @@ return array (
     'view_full' => 'Žiūrėti visą skaičiuoklę ir istoriją',
     'rates_heading' => 'ES PVM tarifai pagal šalis',
     'rates_year' => ':year m. tarifai',
-    'hero_badge' => ':year m. tarifai · :count valstybės narės · atnaujinama kasdien',
+    'hero_badge' => ':year m. tarifai · :count valstybės narės',
     'rates_intro' => 'Šiuo metu galiojantys standartiniai ir sumažinti tarifai, pradedant mažiausiu standartiniu tarifu.',
     'stat_lowest' => 'Mažiausias',
     'stat_average' => 'ES vidurkis',
@@ -268,7 +268,7 @@ return array (
   array (
     'title' => 'PVM tarifų pokyčių istorija',
     'meta_title' => 'PVM tarifų pokyčių istorija - ES šalys | ES PVM informacija',
-    'meta_desc' => 'Visi užfiksuoti PVM tarifų pokyčiai ES: standartiniai, lengvatiniai ir laikinieji tarifai su datomis, senu ir nauju tarifu, būsimais pokyčiais ir šaltiniais.',
+    'meta_desc' => 'Visi užregistruoti ES PVM tarifų pokyčiai su datomis, senais ir naujais tarifais, būsimais pokyčiais ir oficialiais šaltiniais.',
     'subtitle' => 'Sekite visus PVM tarifų pokyčius ES šalyse per pastarąjį dešimtmetį',
     'stability_title' => 'Šalių stabilumo rodikliai',
     'stability_desc' => 'Šalys su mažiau PVM tarifų pakeitimų rodo stabilesnę mokesčių aplinką',
@@ -534,6 +534,7 @@ return array (
     'source_recent' => 'Neseniai gautas rezultatas, patikrintas per pastarąsias 7 dienas',
     'source_fallback' => 'Paskutinis išsaugotas rezultatas, VIES sistema šiuo metu nepasiekiama',
     'lookup_count' => 'Patikrinimų svetainėje „ES PVM informacija“: :count',
+    'checked_on' => 'Patikrinta VIES: :date',
     'not_provided' => 'Valstybė narė šių duomenų nepateikia',
     'copy_number' => 'Kopijuoti PVM numerį',
     'invalid_format' => 'Įveskite PVM numerį naudodami tik raides ir skaitmenis, pavyzdžiui, LT100019070512.',
@@ -718,6 +719,7 @@ return array (
   'tools' => 
   array (
     'seo_title' => 'ES PVM įrankiai: skaičiuoklė, patikra, žemėlapis',
+    'guides_heading' => 'ES PVM vadovai',
     'seo_description' => 'Nemokami ES PVM įrankiai: skaičiuoklė kiekvienai šaliai, PVM kodų patikra VIES, tarifų žemėlapis, tarifų istorija ir vadovai visoms 27 valstybėms narėms.',
     'heading' => 'ES PVM informacija: įrankiai ir ištekliai',
     'intro_text' => 'Čia rasite EU-vat.info komandos įrankius ir išteklius, kurie padės orientuotis sudėtingame Europos Sąjungos PVM pasaulyje.',

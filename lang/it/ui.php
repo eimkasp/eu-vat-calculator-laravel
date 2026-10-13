@@ -72,7 +72,7 @@ return array (
     'older_version' => 'Versione più vecchia',
     'developers' => 'Sviluppatori',
     'mcp_server' => 'Server MCP',
-    'data_source_note' => 'Aliquote provenienti dalla Commissione Europea e verificate ogni giorno',
+    'data_source_note' => 'Aliquote provenienti dalla Commissione Europea e verificate ogni settimana',
   ),
   'home_page' => 
   array (
@@ -89,7 +89,7 @@ return array (
     'view_full' => 'Visualizza calcolatore completo e storico',
     'rates_heading' => 'Aliquote IVA UE per paese',
     'rates_year' => 'Aliquote :year',
-    'hero_badge' => 'Aliquote :year · :count Stati membri · aggiornate ogni giorno',
+    'hero_badge' => 'Aliquote :year · :count Stati membri',
     'rates_intro' => 'Aliquote standard e ridotte attualmente in vigore, in ordine crescente di aliquota standard.',
     'stat_lowest' => 'Più bassa',
     'stat_average' => 'Media UE',
@@ -268,7 +268,7 @@ return array (
   array (
     'title' => 'Storico delle variazioni delle aliquote IVA',
     'meta_title' => 'Storico delle variazioni delle aliquote IVA - Paesi UE | EU VAT Info',
-    'meta_desc' => 'Tutte le variazioni delle aliquote IVA registrate nell\'UE: aliquote ordinarie, ridotte e parking, con date, aliquota precedente e nuova, novità e fonti.',
+    'meta_desc' => 'Tutte le variazioni registrate delle aliquote IVA nell’UE, con date, aliquote precedenti e nuove, variazioni in arrivo e fonti ufficiali.',
     'subtitle' => 'Monitora tutte le modifiche delle aliquote IVA nei paesi UE nell\'ultimo decennio',
     'stability_title' => 'Indicatori di stabilità per paese',
     'stability_desc' => 'I paesi con meno variazioni delle aliquote IVA indicano ambienti fiscali più stabili',
@@ -534,6 +534,7 @@ return array (
     'source_recent' => 'Risultato recente, verificato negli ultimi 7 giorni',
     'source_fallback' => 'Ultimo risultato salvato, poiché VIES al momento non è disponibile',
     'lookup_count' => 'Verifiche su EU VAT Info: :count',
+    'checked_on' => 'Verificato in VIES: :date',
     'not_provided' => 'Non comunicato dallo Stato membro',
     'copy_number' => 'Copia la partita IVA',
     'invalid_format' => 'Inserire la partita IVA utilizzando solo lettere e cifre, ad esempio LT100019070512.',
@@ -718,6 +719,7 @@ return array (
   'tools' => 
   array (
     'seo_title' => 'Strumenti IVA UE: calcolatore, verifica, mappa e guide',
+    'guides_heading' => 'Guide all’IVA nell’UE',
     'seo_description' => 'Strumenti IVA UE gratuiti: un calcolatore per ogni paese, la verifica delle partite IVA su VIES, la mappa e lo storico delle aliquote e guide per i 27 Stati.',
     'heading' => 'Strumenti e risorse di EU VAT Info',
     'intro_text' => 'Ecco alcuni strumenti e risorse del team di EU-vat.info per orientarsi nel complesso mondo dell\'IVA nell\'Unione Europea.',
