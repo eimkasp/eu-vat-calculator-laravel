@@ -37,6 +37,11 @@
             [__('ui.footer.eu_vat_guide'), 'https://europa.eu/youreurope/business/taxation/vat/'],
         ],
     ];
+
+    // Four link columns; the partner links sit in the bottom bar.
+    $partnerHeading = __('ui.footer.partner_tools');
+    $partners = $columns[$partnerHeading];
+    unset($columns[$partnerHeading]);
 @endphp
 
 <footer class="mobile-nav-safe app-deferred border-t border-line bg-surface-subtle text-ink">
@@ -60,7 +65,7 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 xl:grid-cols-5">
+            <div class="grid grid-cols-2 gap-8 sm:grid-cols-4">
                 @foreach($columns as $heading => $links)
                     <div>
                         <h2 class="font-display text-sm font-medium tracking-normal text-ink">{{ $heading }}</h2>
@@ -78,9 +83,15 @@
         </div>
 
         <div class="mt-12 flex flex-col gap-4 border-t border-line pt-6 text-sm text-ink-muted md:flex-row md:items-center md:justify-between">
-            <p class="flex flex-wrap items-center gap-x-3 gap-y-1">
-                <span>&copy; {{ date('Y') }} {{ __('ui.site_name') }}. {{ __('ui.all_rights_reserved') }}</span>
-            </p>
+            <div class="flex flex-col gap-2">
+                <p>&copy; {{ date('Y') }} {{ __('ui.site_name') }}. {{ __('ui.all_rights_reserved') }}</p>
+                <nav aria-labelledby="footer-partners" class="flex flex-wrap items-center gap-x-4">
+                    <h2 id="footer-partners" class="font-display font-medium text-ink">{{ $partnerHeading }}</h2>
+                    @foreach($partners as [$label, $url])
+                        <a href="{{ $url }}" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 underline decoration-transparent underline-offset-4 transition-colors hover:text-ink hover:decoration-action">{{ $label }}<x-ui.icon name="arrow-up-right" class="size-3 text-ink-quiet" /><x-ui.new-tab /></a>
+                    @endforeach
+                </nav>
+            </div>
             <p class="flex items-start gap-2">
                 <x-ui.icon name="shield-check" class="mt-0.5 size-4 shrink-0 text-action" />
                 {{ __('ui.footer.data_source_note') }}

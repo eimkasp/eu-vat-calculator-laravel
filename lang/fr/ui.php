@@ -828,6 +828,7 @@ return array (
     'more' => 'Autres comparaisons',
     'countries' => 'Pays',
     'difference' => 'Écart',
+    'higher' => ':country : :points pp de plus',
   ),
   'compare' => 
   array (

@@ -828,6 +828,7 @@ return array (
     'more' => 'Więcej porównań',
     'countries' => 'Kraje',
     'difference' => 'Różnica',
+    'higher' => ':country: wyższa o :points pkt proc.',
   ),
   'compare' => 
   array (

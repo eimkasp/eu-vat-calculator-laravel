@@ -862,6 +862,7 @@ return [
         'more' => 'More comparisons',
         'countries' => 'Countries',
         'difference' => 'Difference',
+        'higher' => ':country is :points pp higher',
     ],
 
     'compare' => [

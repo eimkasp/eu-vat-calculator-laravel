@@ -828,10 +828,11 @@ return array (
     'more' => 'Več primerjav',
     'countries' => 'Države',
     'difference' => 'Razlika',
+    'higher' => ':country: višja za :points o. t.',
   ),
   'compare' => 
   array (
-    'pair' => ':left vs :right',
+    'pair' => ':left in :right',
     'eyebrow' => 'Primerjava držav',
     'title' => 'Stopnje DDV: :left in :right',
     'meta_title' => 'DDV :left in :right: primerjava stopenj',

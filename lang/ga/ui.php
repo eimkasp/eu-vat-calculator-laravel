@@ -828,6 +828,7 @@ return array (
     'more' => 'Tuilleadh comparáidí',
     'countries' => 'Tíortha',
     'difference' => 'Difríocht',
+    'higher' => ':country: :points pointe céatadáin níos airde',
   ),
   'compare' => 
   array (

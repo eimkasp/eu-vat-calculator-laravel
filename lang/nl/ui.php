@@ -828,6 +828,7 @@ return array (
     'more' => 'Meer vergelijkingen',
     'countries' => 'Landen',
     'difference' => 'Verschil',
+    'higher' => ':country: :points procentpunt hoger',
   ),
   'compare' => 
   array (

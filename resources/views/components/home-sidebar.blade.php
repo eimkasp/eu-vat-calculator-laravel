@@ -8,9 +8,9 @@
     @php($comparisons = collect(\App\Support\SiteNavigation::comparisons())->take(5))
     @if($comparisons->isNotEmpty())
         <section class="app-surface p-5" aria-labelledby="compare-card-heading">
-            <div class="flex items-baseline justify-between gap-3">
+            <div class="flex items-center justify-between gap-3">
                 <h2 id="compare-card-heading" class="text-base font-semibold text-ink">{{ __('ui.compare_index.popular') }}</h2>
-                <a href="{{ locale_path('/compare') }}" class="app-link text-sm">{{ __('ui.compare_index.all') }}</a>
+                <a href="{{ locale_path('/compare') }}" class="app-link inline-flex min-h-11 items-center text-sm">{{ __('ui.compare_index.all') }}</a>
             </div>
             <ul class="mt-3 divide-y divide-line">
                 @foreach($comparisons as $comparison)
@@ -20,7 +20,7 @@
                                 <x-ui.flag :iso="$comparison['left']->iso_code" size="xs" />
                                 <x-ui.flag :iso="$comparison['right']->iso_code" size="xs" />
                             </span>
-                            <span class="min-w-0 flex-1 truncate text-sm font-medium text-ink underline decoration-transparent underline-offset-4 transition-colors group-hover:decoration-action">{{ $comparison['label'] }}</span>
+                            <span class="min-w-0 flex-1 text-sm font-medium text-ink underline decoration-transparent underline-offset-4 transition-colors group-hover:decoration-action">{{ $comparison['label'] }}</span>
                             <span class="tabular shrink-0 text-xs text-ink-muted">{{ \App\Models\Country::formatRate($comparison['left']->standard_rate) }}% / {{ \App\Models\Country::formatRate($comparison['right']->standard_rate) }}%</span>
                         </a>
                     </li>

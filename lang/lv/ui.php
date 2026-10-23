@@ -828,10 +828,11 @@ return array (
     'more' => 'Vairāk salīdzinājumu',
     'countries' => 'Valstis',
     'difference' => 'Atšķirība',
+    'higher' => ':country: par :points pp augstāka',
   ),
   'compare' => 
   array (
-    'pair' => ':left vs :right',
+    'pair' => ':left pret :right',
     'eyebrow' => 'Valstu salīdzinājums',
     'title' => ':left pret :right – PVN likmes',
     'meta_title' => 'PVN :left un :right: likmju salīdzinājums',

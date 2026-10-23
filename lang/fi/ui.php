@@ -828,10 +828,11 @@ return array (
     'more' => 'Lisää vertailuja',
     'countries' => 'Maat',
     'difference' => 'Ero',
+    'higher' => ':country: :points %-yks. korkeampi',
   ),
   'compare' => 
   array (
-    'pair' => ':left vs :right',
+    'pair' => ':left vs. :right',
     'eyebrow' => 'Maavertailu',
     'title' => ':left vs. :right – ALV-kannat',
     'meta_title' => 'ALV: :left ja :right vertailussa',

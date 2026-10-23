@@ -126,7 +126,7 @@ final class SiteNavigation
     {
         $locale = app()->getLocale();
 
-        return Cache::remember("site_palette_items_v4_{$locale}", 600, function () {
+        return Cache::remember("site_palette_items_v5_{$locale}", 600, function () {
             $countries = Country::calculatorAvailable()
                 ->orderByDesc('is_eu_member')
                 ->orderBy('name')

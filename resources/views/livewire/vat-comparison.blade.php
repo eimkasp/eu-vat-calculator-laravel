@@ -160,10 +160,10 @@
 
         @php($others = collect(\App\Support\SiteNavigation::comparisons())->reject(fn (array $comparison) => $comparison['left']->is($leftCountry) && $comparison['right']->is($rightCountry)))
         @if($others->isNotEmpty())
-            <section aria-labelledby="more-comparisons" class="app-deferred [--deferred-size:14rem]">
+            <section aria-labelledby="more-comparisons">
                 <div class="flex flex-wrap items-baseline justify-between gap-2">
                     <h2 id="more-comparisons" class="text-lg font-semibold text-ink">{{ __('ui.compare_index.more') }}</h2>
-                    <a href="{{ locale_path('/compare') }}" class="app-link text-sm">{{ __('ui.compare_index.all') }}</a>
+                    <a href="{{ locale_path('/compare') }}" class="app-link inline-flex min-h-11 items-center text-sm">{{ __('ui.compare_index.all') }}</a>
                 </div>
                 <ul class="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
                     @foreach($others as $comparison)

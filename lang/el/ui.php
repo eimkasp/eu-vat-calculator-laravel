@@ -828,10 +828,11 @@ return array (
     'more' => 'Περισσότερες συγκρίσεις',
     'countries' => 'Χώρες',
     'difference' => 'Διαφορά',
+    'higher' => ':country: υψηλότερος κατά :points π.μ.',
   ),
   'compare' => 
   array (
-    'pair' => ':left vs :right',
+    'pair' => ':left έναντι :right',
     'eyebrow' => 'Σύγκριση χωρών',
     'title' => 'Συντελεστές ΦΠΑ :left έναντι :right',
     'meta_title' => 'ΦΠΑ :left και :right: σύγκριση συντελεστών',

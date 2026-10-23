@@ -828,10 +828,11 @@ return array (
     'more' => 'Další porovnání',
     'countries' => 'Země',
     'difference' => 'Rozdíl',
+    'higher' => ':country: vyšší o :points p. b.',
   ),
   'compare' => 
   array (
-    'pair' => ':left vs :right',
+    'pair' => ':left vs. :right',
     'eyebrow' => 'Srovnání zemí',
     'title' => 'Sazby DPH: :left vs. :right',
     'meta_title' => 'DPH :left a :right: srovnání sazeb',
