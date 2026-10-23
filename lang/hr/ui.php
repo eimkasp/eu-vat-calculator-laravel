@@ -828,10 +828,11 @@ return array (
     'more' => 'Još usporedbi',
     'countries' => 'Države',
     'difference' => 'Razlika',
+    'higher' => ':country: viša za :points p. b.',
   ),
   'compare' => 
   array (
-    'pair' => ':left vs :right',
+    'pair' => ':left naspram :right',
     'eyebrow' => 'Usporedba država',
     'title' => 'Stope PDV-a: :left naspram :right',
     'meta_title' => 'PDV :left i :right: usporedba stopa',

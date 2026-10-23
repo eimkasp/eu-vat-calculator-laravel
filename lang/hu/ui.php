@@ -828,10 +828,11 @@ return array (
     'more' => 'További összehasonlítások',
     'countries' => 'Országok',
     'difference' => 'Különbség',
+    'higher' => ':country: :points százalékponttal magasabb',
   ),
   'compare' => 
   array (
-    'pair' => ':left vs :right',
+    'pair' => ':left vs. :right',
     'eyebrow' => 'Országok összehasonlítása',
     'title' => ':left vs. :right – ÁFA-kulcsok',
     'meta_title' => 'ÁFA: :left és :right összehasonlítva',

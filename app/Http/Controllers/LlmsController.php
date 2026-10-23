@@ -22,7 +22,7 @@ class LlmsController extends Controller
     {
         [$countries, $updatedAt] = $this->countries();
 
-        $text = Cache::remember('llms_txt:v5:'.$updatedAt->timestamp, 3600, function () use ($countries, $updatedAt, $vatCategories) {
+        $text = Cache::remember('llms_txt:v6:'.$updatedAt->timestamp, 3600, function () use ($countries, $updatedAt, $vatCategories) {
             $base = $this->baseUrl();
             $mcp = VatMcpServer::endpoint();
 
@@ -47,7 +47,7 @@ class LlmsController extends Controller
             }
 
             $text .= "\n## Comparisons\n\n";
-            $text .= "- [All VAT comparisons]({$base}/compare): Every country pair side by side, with the difference in standard rates.\n";
+            $text .= "- [All VAT comparisons]({$base}/compare): The approved EU country pairs side by side, with the difference in standard rates.\n";
             $bySlug = $countries->keyBy('slug');
 
             foreach (config('seo.comparisons', []) as [$first, $second]) {

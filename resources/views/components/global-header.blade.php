@@ -2,7 +2,7 @@
 
 @php
     $tools = SiteNavigation::tools();
-    $toolsActive = SiteNavigation::isActive('tools', 'vat-map', 'widget.*', 'vat-validation-api', 'vat-dataset', 'blog.*');
+    $toolsActive = SiteNavigation::isActive('tools', 'vat-map', 'widget.*', 'vat-validation-api', 'vat-dataset', 'blog.*', 'vat-comparison*');
     $historyActive = SiteNavigation::isActive('vat-changes*', 'vat-rates.country-history');
     $primary = [
         ['label' => __('ui.nav.all_countries'), 'url' => locale_path('/'), 'active' => SiteNavigation::isActive('home')],

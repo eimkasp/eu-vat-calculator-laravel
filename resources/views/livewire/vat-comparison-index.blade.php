@@ -54,7 +54,7 @@
                             @endphp
                             <tr class="group">
                                 <th scope="row" class="pl-5 sm:pl-6">
-                                    <a href="{{ $comparison['url'] }}" class="flex items-center gap-3 font-display text-base font-medium text-ink underline decoration-transparent underline-offset-4 transition-colors group-hover:decoration-action">
+                                    <a href="{{ $comparison['url'] }}" class="flex min-h-11 items-center gap-3 font-display text-base font-medium text-ink underline decoration-transparent underline-offset-4 transition-colors group-hover:decoration-action">
                                         <span class="flex shrink-0 -space-x-1.5" aria-hidden="true">
                                             <x-ui.flag :iso="$comparison['left']->iso_code" size="sm" />
                                             <x-ui.flag :iso="$comparison['right']->iso_code" size="sm" />
@@ -71,7 +71,7 @@
                                     @if($higher)
                                         <span class="inline-flex items-center gap-2">
                                             <x-ui.flag :iso="$higher->iso_code" size="xs" />
-                                            {{ __('ui.compare.higher_by', ['points' => Country::formatRate(abs($difference))]) }}
+                                            {{ __('ui.compare_index.higher', ['country' => $higher->name, 'points' => Country::formatRate(abs($difference))]) }}
                                         </span>
                                     @else
                                         {{ __('ui.compare.same_rate') }}

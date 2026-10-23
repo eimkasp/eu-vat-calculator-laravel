@@ -94,7 +94,7 @@ it('lists the approved comparisons on one hub and links it across the site', fun
         ->assertSee('href="/compare/germany-vs-france-vat"', false)
         ->assertSee('href="/compare/spain-vs-portugal-vat"', false)
         ->assertSee('Germany vs France')
-        ->assertSee('1 pp higher')
+        ->assertSee('France is 1 pp higher')
         ->assertSee('"@type":"ItemList"', false)
         ->assertDontSee('/compare/germany-vs-netherlands-vat');
 
@@ -111,5 +111,7 @@ it('lists the approved comparisons on one hub and links it across the site', fun
         ->assertSee('href="/compare"', false);
 
     $this->get('/sitemap')->assertOk()->assertSee('href="/compare/spain-vs-portugal-vat"', false);
+    $this->get('/de/compare')->assertOk()->assertSee('Germany vs. France')->assertSee('France: 1 Pp. höher');
+    $this->get('/llms.txt')->assertOk()->assertSee('/compare): The approved EU country pairs', false);
     $this->getJson('/search-index.json')->assertOk()->assertJsonFragment(['url' => '/compare/germany-vs-france-vat']);
 });
