@@ -22,6 +22,8 @@ return array (
   'back_to_home' => 'Powrót do strony głównej',
   'nav' => 
   array (
+    'compare' => 'Porównaj kraje',
+    'compare_desc' => 'Stawki VAT dwóch krajów obok siebie',
     'all_countries' => 'Wszystkie kraje',
     'vat_calculator' => 'Kalkulator VAT',
     'vat_widget' => 'Widget VAT',
@@ -815,8 +817,21 @@ return array (
     'unsubscribed_desc' => 'Adres :email nie będzie już otrzymywać alertów o zmianach VAT od EU VAT Info.',
     'view_changes' => 'Zobacz zmiany VAT',
   ),
+  'compare_index' => 
+  array (
+    'title' => 'Porównaj stawki VAT w krajach UE',
+    'meta_title' => 'Stawki VAT w UE porównane według kraju',
+    'meta_description' => 'Porównaj stawki VAT krajów UE: Niemcy i Francja, Hiszpania i Portugalia oraz inne, ze stawkami obniżonymi i VAT od tej samej kwoty.',
+    'intro' => 'Podstawowe i obniżone stawki VAT dwóch krajów obok siebie, z VAT naliczonym od tej samej kwoty.',
+    'all' => 'Wszystkie porównania',
+    'popular' => 'Popularne porównania',
+    'more' => 'Więcej porównań',
+    'countries' => 'Kraje',
+    'difference' => 'Różnica',
+  ),
   'compare' => 
   array (
+    'pair' => ':left vs :right',
     'eyebrow' => 'Porównanie krajów',
     'title' => 'Stawki VAT: :left vs :right',
     'meta_title' => 'VAT :left i :right: porównanie stawek',

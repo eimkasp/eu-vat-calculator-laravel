@@ -22,6 +22,8 @@ return array (
   'back_to_home' => 'Terug naar home',
   'nav' => 
   array (
+    'compare' => 'Landen vergelijken',
+    'compare_desc' => 'Btw-tarieven van twee landen naast elkaar',
     'all_countries' => 'Alle landen',
     'vat_calculator' => 'BTW-calculator',
     'vat_widget' => 'BTW-widget',
@@ -815,8 +817,21 @@ return array (
     'unsubscribed_desc' => ':email ontvangt geen meldingen over BTW-wijzigingen meer van EU VAT Info.',
     'view_changes' => 'BTW-wijzigingen bekijken',
   ),
+  'compare_index' => 
+  array (
+    'title' => 'Btw-tarieven van EU-landen vergelijken',
+    'meta_title' => 'EU-btw-tarieven per land vergeleken',
+    'meta_description' => 'Vergelijk de btw-tarieven van EU-landen: Duitsland en Frankrijk, Spanje en Portugal en meer, met verlaagde tarieven en btw op hetzelfde bedrag.',
+    'intro' => 'Standaard- en verlaagde btw-tarieven van twee landen naast elkaar, met de btw die elk land op hetzelfde bedrag heft.',
+    'all' => 'Alle vergelijkingen',
+    'popular' => 'Populaire vergelijkingen',
+    'more' => 'Meer vergelijkingen',
+    'countries' => 'Landen',
+    'difference' => 'Verschil',
+  ),
   'compare' => 
   array (
+    'pair' => ':left vs :right',
     'eyebrow' => 'Landenvergelijking',
     'title' => 'BTW-tarieven :left vs :right',
     'meta_title' => 'Btw in :left en :right: tarieven vergeleken',

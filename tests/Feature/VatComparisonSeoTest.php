@@ -80,3 +80,36 @@ it('does not link to a country history without stored historical data', function
         ->assertOk()
         ->assertDontSee('/vat-rates/germany/history');
 });
+
+it('lists the approved comparisons on one hub and links it across the site', function () {
+    comparisonCountry('Germany', 'germany', 'DE', 19);
+    comparisonCountry('France', 'france', 'FR', 20);
+    comparisonCountry('Spain', 'spain', 'ES', 21);
+    comparisonCountry('Portugal', 'portugal', 'PT', 23);
+
+    $this->get('/compare')
+        ->assertOk()
+        ->assertSee('<link rel="canonical" href="https://vat.businesspress.io/compare">', false)
+        ->assertSee('Compare VAT rates between EU countries')
+        ->assertSee('href="/compare/germany-vs-france-vat"', false)
+        ->assertSee('href="/compare/spain-vs-portugal-vat"', false)
+        ->assertSee('Germany vs France')
+        ->assertSee('1 pp higher')
+        ->assertSee('"@type":"ItemList"', false)
+        ->assertDontSee('/compare/germany-vs-netherlands-vat');
+
+    $this->get('/compare/germany-vs-france-vat')
+        ->assertOk()
+        ->assertSee('More comparisons')
+        ->assertSee('href="/compare/spain-vs-portugal-vat"', false)
+        ->assertSee('href="/compare"', false);
+
+    $this->get('/')
+        ->assertOk()
+        ->assertSee('Popular comparisons')
+        ->assertSee('href="/compare/germany-vs-france-vat"', false)
+        ->assertSee('href="/compare"', false);
+
+    $this->get('/sitemap')->assertOk()->assertSee('href="/compare/spain-vs-portugal-vat"', false);
+    $this->getJson('/search-index.json')->assertOk()->assertJsonFragment(['url' => '/compare/germany-vs-france-vat']);
+});

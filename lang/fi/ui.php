@@ -22,6 +22,8 @@ return array (
   'back_to_home' => 'Takaisin etusivulle',
   'nav' => 
   array (
+    'compare' => 'Vertaa maita',
+    'compare_desc' => 'Kahden maan arvonlisäverokannat rinnakkain',
     'all_countries' => 'Kaikki maat',
     'vat_calculator' => 'ALV-laskuri',
     'vat_widget' => 'ALV-widget',
@@ -815,8 +817,21 @@ return array (
     'unsubscribed_desc' => 'Osoitteeseen :email ei enää lähetetä ALV-muutosilmoituksia EU ALV-tiedot -palvelusta.',
     'view_changes' => 'Näytä ALV-muutokset',
   ),
+  'compare_index' => 
+  array (
+    'title' => 'Vertaa arvonlisäverokantoja EU-maiden välillä',
+    'meta_title' => 'EU:n arvonlisäverokannat maittain vertailtuna',
+    'meta_description' => 'Vertaa EU-maiden arvonlisäverokantoja: Saksa ja Ranska, Espanja ja Portugali ja muut, alennetut kannat ja saman summan vero mukana.',
+    'intro' => 'Kahden maan yleiset ja alennetut arvonlisäverokannat rinnakkain sekä kummankin vero samasta summasta.',
+    'all' => 'Kaikki vertailut',
+    'popular' => 'Suositut vertailut',
+    'more' => 'Lisää vertailuja',
+    'countries' => 'Maat',
+    'difference' => 'Ero',
+  ),
   'compare' => 
   array (
+    'pair' => ':left vs :right',
     'eyebrow' => 'Maavertailu',
     'title' => ':left vs. :right – ALV-kannat',
     'meta_title' => 'ALV: :left ja :right vertailussa',

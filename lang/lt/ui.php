@@ -22,6 +22,8 @@ return array (
   'back_to_home' => 'Grįžti į pradžią',
   'nav' => 
   array (
+    'compare' => 'Palyginti šalis',
+    'compare_desc' => 'Dviejų šalių PVM tarifai šalia vienas kito',
     'all_countries' => 'Visos šalys',
     'vat_calculator' => 'PVM skaičiuoklė',
     'vat_widget' => 'PVM valdiklis',
@@ -815,8 +817,21 @@ return array (
     'unsubscribed_desc' => '„ES PVM informacija“ nebesiųs pranešimų apie PVM pokyčius adresu :email.',
     'view_changes' => 'Peržiūrėti PVM pokyčius',
   ),
+  'compare_index' => 
+  array (
+    'title' => 'Palyginkite PVM tarifus ES šalyse',
+    'meta_title' => 'ES PVM tarifai, palyginti pagal šalis',
+    'meta_description' => 'Palyginkite ES šalių PVM tarifus: Vokietija ir Prancūzija, Ispanija ir Portugalija ir kitos, su lengvatiniais tarifais ir PVM nuo tos pačios sumos.',
+    'intro' => 'Dviejų šalių standartiniai ir lengvatiniai PVM tarifai šalia vienas kito, su PVM nuo tos pačios sumos.',
+    'all' => 'Visi palyginimai',
+    'popular' => 'Populiarūs palyginimai',
+    'more' => 'Daugiau palyginimų',
+    'countries' => 'Šalys',
+    'difference' => 'Skirtumas',
+  ),
   'compare' => 
   array (
+    'pair' => ':left vs :right',
     'eyebrow' => 'Šalių palyginimas',
     'title' => 'PVM tarifai: :left ir :right',
     'meta_title' => 'PVM :left ir :right: tarifų palyginimas',

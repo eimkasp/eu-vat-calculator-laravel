@@ -22,6 +22,8 @@ return array (
   'back_to_home' => 'Vissza a kezdőlapra',
   'nav' => 
   array (
+    'compare' => 'Országok összehasonlítása',
+    'compare_desc' => 'Két ország áfakulcsai egymás mellett',
     'all_countries' => 'Összes ország',
     'vat_calculator' => 'ÁFA-kalkulátor',
     'vat_widget' => 'ÁFA widget',
@@ -815,8 +817,21 @@ return array (
     'unsubscribed_desc' => 'Az EU ÁFA Infó a továbbiakban nem küld ÁFA-változási értesítéseket a következő címre: :email.',
     'view_changes' => 'ÁFA-változások megtekintése',
   ),
+  'compare_index' => 
+  array (
+    'title' => 'Áfakulcsok összehasonlítása az uniós országokban',
+    'meta_title' => 'Uniós áfakulcsok országonként összehasonlítva',
+    'meta_description' => 'Hasonlítsa össze az uniós országok áfakulcsait: Németország és Franciaország, Spanyolország és Portugália és mások, azonos összeg áfájával.',
+    'intro' => 'Két ország általános és kedvezményes áfakulcsai egymás mellett, az azonos összegre számított áfával.',
+    'all' => 'Összes összehasonlítás',
+    'popular' => 'Népszerű összehasonlítások',
+    'more' => 'További összehasonlítások',
+    'countries' => 'Országok',
+    'difference' => 'Különbség',
+  ),
   'compare' => 
   array (
+    'pair' => ':left vs :right',
     'eyebrow' => 'Országok összehasonlítása',
     'title' => ':left vs. :right – ÁFA-kulcsok',
     'meta_title' => 'ÁFA: :left és :right összehasonlítva',

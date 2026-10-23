@@ -22,6 +22,8 @@ return array (
   'back_to_home' => 'Atpakaļ uz sākumu',
   'nav' => 
   array (
+    'compare' => 'Salīdzināt valstis',
+    'compare_desc' => 'Divu valstu PVN likmes blakus',
     'all_countries' => 'Visas valstis',
     'vat_calculator' => 'PVN kalkulators',
     'vat_widget' => 'PVN logrīks',
@@ -815,8 +817,21 @@ return array (
     'unsubscribed_desc' => 'Uz :email vairs netiks sūtīti paziņojumi par PVN izmaiņām no vietnes ES PVN informācija.',
     'view_changes' => 'Skatīt PVN izmaiņas',
   ),
+  'compare_index' => 
+  array (
+    'title' => 'Salīdzināt PVN likmes ES valstīs',
+    'meta_title' => 'ES PVN likmes salīdzinātas pa valstīm',
+    'meta_description' => 'Salīdziniet ES valstu PVN likmes: Vācija un Francija, Spānija un Portugāle un citas, ar samazinātajām likmēm un PVN no vienas summas.',
+    'intro' => 'Divu valstu standarta un samazinātās PVN likmes blakus ar PVN, ko katra piemēro vienai summai.',
+    'all' => 'Visi salīdzinājumi',
+    'popular' => 'Populārākie salīdzinājumi',
+    'more' => 'Vairāk salīdzinājumu',
+    'countries' => 'Valstis',
+    'difference' => 'Atšķirība',
+  ),
   'compare' => 
   array (
+    'pair' => ':left vs :right',
     'eyebrow' => 'Valstu salīdzinājums',
     'title' => ':left pret :right – PVN likmes',
     'meta_title' => 'PVN :left un :right: likmju salīdzinājums',

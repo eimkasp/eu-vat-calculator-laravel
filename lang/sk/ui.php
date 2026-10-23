@@ -22,6 +22,8 @@ return array (
   'back_to_home' => 'Späť na úvodnú stránku',
   'nav' => 
   array (
+    'compare' => 'Porovnať krajiny',
+    'compare_desc' => 'Sadzby DPH dvoch krajín vedľa seba',
     'all_countries' => 'Všetky krajiny',
     'vat_calculator' => 'Kalkulačka DPH',
     'vat_widget' => 'DPH widget',
@@ -815,8 +817,21 @@ return array (
     'unsubscribed_desc' => 'Adresa :email už nebude dostávať upozornenia na zmeny DPH z webu „DPH v EÚ“.',
     'view_changes' => 'Zobraziť zmeny DPH',
   ),
+  'compare_index' => 
+  array (
+    'title' => 'Porovnanie sadzieb DPH medzi krajinami EÚ',
+    'meta_title' => 'Sadzby DPH v EÚ porovnané podľa krajín',
+    'meta_description' => 'Porovnajte sadzby DPH krajín EÚ: Nemecko a Francúzsko, Španielsko a Portugalsko a ďalšie, so zníženými sadzbami a DPH z rovnakej sumy.',
+    'intro' => 'Základné a znížené sadzby DPH dvoch krajín vedľa seba, s DPH, ktorú každá uplatní na rovnakú sumu.',
+    'all' => 'Všetky porovnania',
+    'popular' => 'Obľúbené porovnania',
+    'more' => 'Ďalšie porovnania',
+    'countries' => 'Krajiny',
+    'difference' => 'Rozdiel',
+  ),
   'compare' => 
   array (
+    'pair' => ':left vs :right',
     'eyebrow' => 'Porovnanie krajín',
     'title' => 'Sadzby DPH: :left vs. :right',
     'meta_title' => 'DPH :left a :right: porovnanie sadzieb',

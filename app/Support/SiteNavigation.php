@@ -33,6 +33,13 @@ final class SiteNavigation
                 'active' => self::isActive('vies-validator*'),
             ],
             [
+                'label' => __('ui.nav.compare'),
+                'description' => __('ui.nav.compare_desc'),
+                'url' => locale_path('/compare'),
+                'icon' => 'arrow-left-right',
+                'active' => self::isActive('vat-comparison*'),
+            ],
+            [
                 'label' => __('ui.nav.vat_map'),
                 'description' => __('ui.nav.map_desc'),
                 'url' => locale_path('/vat-map'),
@@ -85,6 +92,32 @@ final class SiteNavigation
     }
 
     /**
+     * The approved country comparisons (config/seo.php) whose two member states are both available, in config order.
+     *
+     * @return list<array{url: string, label: string, left: Country, right: Country}>
+     */
+    public static function comparisons(): array
+    {
+        $pairs = config('seo.comparisons', []);
+        $countries = Cache::remember('site_comparison_countries_v1', 600, fn () => Country::query()
+            ->where('is_eu_member', true)
+            ->whereIn('slug', collect($pairs)->flatten()->unique()->all())
+            ->get(['id', 'name', 'native_name', 'slug', 'iso_code', 'standard_rate', 'updated_at'])
+            ->keyBy('slug'));
+
+        return collect($pairs)
+            ->filter(fn (array $pair) => $countries->has($pair[0]) && $countries->has($pair[1]))
+            ->map(fn (array $pair) => [
+                'url' => locale_path('/compare/'.implode('-vs-', $pair).'-vat'),
+                'label' => __('ui.compare.pair', ['left' => $countries[$pair[0]]->name, 'right' => $countries[$pair[1]]->name]),
+                'left' => $countries[$pair[0]],
+                'right' => $countries[$pair[1]],
+            ])
+            ->values()
+            ->all();
+    }
+
+    /**
      * Items for the ⌘K command palette: every calculator country plus the main tools.
      *
      * @return list<array{type: string, title: string, subtitle: string, keywords: string, url: string, flag: ?string, meta: ?string}>
@@ -93,7 +126,7 @@ final class SiteNavigation
     {
         $locale = app()->getLocale();
 
-        return Cache::remember("site_palette_items_v3_{$locale}", 600, function () {
+        return Cache::remember("site_palette_items_v4_{$locale}", 600, function () {
             $countries = Country::calculatorAvailable()
                 ->orderByDesc('is_eu_member')
                 ->orderBy('name')
@@ -175,6 +208,18 @@ final class SiteNavigation
                     'flag' => null,
                     'icon' => $page['icon'],
                     'meta' => null,
+                ];
+            }
+
+            foreach (self::comparisons() as $comparison) {
+                $related[] = [
+                    'type' => 'country-page',
+                    'title' => $comparison['label'],
+                    'subtitle' => __('ui.nav.compare_desc'),
+                    'keywords' => self::countryKeywords($comparison['left']).' '.self::countryKeywords($comparison['right']).' vs compare '.__('ui.nav.compare'),
+                    'url' => $comparison['url'],
+                    'flag' => strtolower((string) $comparison['left']->iso_code),
+                    'meta' => Country::formatRate($comparison['left']->standard_rate).'% / '.Country::formatRate($comparison['right']->standard_rate).'%',
                 ];
             }
 

@@ -22,6 +22,8 @@ return array (
   'back_to_home' => 'Natrag na početnu stranicu',
   'nav' => 
   array (
+    'compare' => 'Usporedi države',
+    'compare_desc' => 'Stope PDV-a dviju država jedna uz drugu',
     'all_countries' => 'Sve države',
     'vat_calculator' => 'Kalkulator PDV-a',
     'vat_widget' => 'PDV widget',
@@ -815,8 +817,21 @@ return array (
     'unsubscribed_desc' => 'Na adresu :email više se neće slati obavijesti o promjenama PDV-a sa stranice PDV u EU.',
     'view_changes' => 'Pogledaj promjene PDV-a',
   ),
+  'compare_index' => 
+  array (
+    'title' => 'Usporedba stopa PDV-a među državama EU-a',
+    'meta_title' => 'Stope PDV-a u EU-u uspoređene po državama',
+    'meta_description' => 'Usporedite stope PDV-a država EU-a: Njemačka i Francuska, Španjolska i Portugal i druge, sa sniženim stopama i PDV-om na isti iznos.',
+    'intro' => 'Opće i snižene stope PDV-a dviju država jedna uz drugu, s PDV-om koji svaka obračunava na isti iznos.',
+    'all' => 'Sve usporedbe',
+    'popular' => 'Popularne usporedbe',
+    'more' => 'Još usporedbi',
+    'countries' => 'Države',
+    'difference' => 'Razlika',
+  ),
   'compare' => 
   array (
+    'pair' => ':left vs :right',
     'eyebrow' => 'Usporedba država',
     'title' => 'Stope PDV-a: :left naspram :right',
     'meta_title' => 'PDV :left i :right: usporedba stopa',
