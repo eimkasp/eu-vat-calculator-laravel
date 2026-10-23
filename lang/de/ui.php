@@ -22,6 +22,8 @@ return array (
   'back_to_home' => 'Zurück zur Startseite',
   'nav' => 
   array (
+    'compare' => 'Länder vergleichen',
+    'compare_desc' => 'Mehrwertsteuersätze zweier Länder im Vergleich',
     'all_countries' => 'Alle Länder',
     'vat_calculator' => 'MwSt.-Rechner',
     'vat_widget' => 'MwSt.-Widget',
@@ -815,8 +817,21 @@ return array (
     'unsubscribed_desc' => ':email erhält keine Benachrichtigungen zu MwSt.-Änderungen von EU MwSt. Info mehr.',
     'view_changes' => 'MwSt.-Änderungen ansehen',
   ),
+  'compare_index' => 
+  array (
+    'title' => 'Mehrwertsteuersätze der EU-Länder vergleichen',
+    'meta_title' => 'EU-Mehrwertsteuersätze im Ländervergleich',
+    'meta_description' => 'Vergleichen Sie die Mehrwertsteuersätze von EU-Ländern: Deutschland und Frankreich, Spanien und Portugal und mehr, mit ermäßigten Sätzen und Beispielbetrag.',
+    'intro' => 'Normal- und ermäßigte Mehrwertsteuersätze zweier Länder nebeneinander, mit der Steuer auf denselben Betrag.',
+    'all' => 'Alle Vergleiche',
+    'popular' => 'Beliebte Vergleiche',
+    'more' => 'Weitere Vergleiche',
+    'countries' => 'Länder',
+    'difference' => 'Unterschied',
+  ),
   'compare' => 
   array (
+    'pair' => ':left vs :right',
     'eyebrow' => 'Ländervergleich',
     'title' => 'MwSt.-Sätze: :left vs. :right',
     'meta_title' => 'MwSt.-Sätze :left und :right im Vergleich',

@@ -8,6 +8,10 @@
             [__('ui.footer.embed_widget'), route('widget.embed')],
             [__('ui.footer.chrome_extension'), locale_path('/chrome-extension')],
         ],
+        __('ui.nav.compare') => [
+            ...collect(\App\Support\SiteNavigation::comparisons())->take(6)->map(fn (array $comparison) => [$comparison['label'], $comparison['url']])->all(),
+            [__('ui.compare_index.all'), locale_path('/compare')],
+        ],
         __('ui.footer.resources') => [
             [__('ui.nav.updates'), locale_path('/blog')],
             [__('ui.changelog.nav_label'), locale_path('/changelog')],
@@ -56,7 +60,7 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-8 sm:grid-cols-4">
+            <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 xl:grid-cols-5">
                 @foreach($columns as $heading => $links)
                     <div>
                         <h2 class="font-display text-sm font-medium tracking-normal text-ink">{{ $heading }}</h2>

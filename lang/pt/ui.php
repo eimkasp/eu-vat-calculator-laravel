@@ -22,6 +22,8 @@ return array (
   'back_to_home' => 'Voltar ao início',
   'nav' => 
   array (
+    'compare' => 'Comparar países',
+    'compare_desc' => 'As taxas de IVA de dois países lado a lado',
     'all_countries' => 'Todos os Países',
     'vat_calculator' => 'Calculadora de IVA',
     'vat_widget' => 'Widget de IVA',
@@ -815,8 +817,21 @@ return array (
     'unsubscribed_desc' => ':email deixará de receber os alertas do IVA na UE sobre alterações do IVA.',
     'view_changes' => 'Ver alterações do IVA',
   ),
+  'compare_index' => 
+  array (
+    'title' => 'Comparar taxas de IVA entre países da UE',
+    'meta_title' => 'Taxas de IVA da UE comparadas por país',
+    'meta_description' => 'Compare as taxas de IVA dos países da UE: Alemanha e França, Espanha e Portugal e mais, com taxas reduzidas e IVA sobre o mesmo montante.',
+    'intro' => 'Taxas de IVA normal e reduzidas de dois países lado a lado, com o IVA que cada um cobra sobre o mesmo montante.',
+    'all' => 'Todas as comparações',
+    'popular' => 'Comparações populares',
+    'more' => 'Mais comparações',
+    'countries' => 'Países',
+    'difference' => 'Diferença',
+  ),
   'compare' => 
   array (
+    'pair' => ':left vs :right',
     'eyebrow' => 'Comparação de países',
     'title' => 'Taxas de IVA: :left vs :right',
     'meta_title' => 'IVA de :left e :right: taxas comparadas',

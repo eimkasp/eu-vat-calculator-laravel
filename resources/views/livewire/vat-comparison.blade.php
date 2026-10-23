@@ -40,7 +40,7 @@
 @endsection
 
 <div>
-    <x-page-header :title="$title" :description="__('ui.compare.intro')" :eyebrow="__('ui.compare.eyebrow')" :breadcrumbs="[$title => '']" />
+    <x-page-header :title="$title" :description="__('ui.compare.intro')" :breadcrumbs="[__('ui.nav.compare') => locale_path('/compare'), $title => '']" />
 
     <div class="app-container space-y-8 py-8 sm:py-10">
         <x-rate-freshness :updated="collect([$leftCountry->updated_at, $rightCountry->updated_at])->filter()->max()" class="mb-4" />
@@ -54,7 +54,7 @@
                         <p class="text-sm text-ink-muted">{{ __('ui.compare.standard_rate') }}</p>
                     </div>
                     <div class="text-right">
-                        <p class="text-4xl font-bold tracking-[-0.03em] text-ink">{{ Country::formatRate($country->standard_rate) }}%</p>
+                        <p class="tabular font-display text-4xl font-semibold tracking-[-0.03em] text-ink">{{ Country::formatRate($country->standard_rate) }}%</p>
                         @if($higher === null)
                             <p class="mt-1 text-xs font-semibold text-ink-muted">{{ __('ui.compare.same_rate') }}</p>
                         @elseif($isHigher)
@@ -157,6 +157,31 @@
                 @endforeach
             </div>
         </section>
+
+        @php($others = collect(\App\Support\SiteNavigation::comparisons())->reject(fn (array $comparison) => $comparison['left']->is($leftCountry) && $comparison['right']->is($rightCountry)))
+        @if($others->isNotEmpty())
+            <section aria-labelledby="more-comparisons" class="app-deferred [--deferred-size:14rem]">
+                <div class="flex flex-wrap items-baseline justify-between gap-2">
+                    <h2 id="more-comparisons" class="text-lg font-semibold text-ink">{{ __('ui.compare_index.more') }}</h2>
+                    <a href="{{ locale_path('/compare') }}" class="app-link text-sm">{{ __('ui.compare_index.all') }}</a>
+                </div>
+                <ul class="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                    @foreach($others as $comparison)
+                        @php($shares = $comparison['left']->is($leftCountry) || $comparison['left']->is($rightCountry) || $comparison['right']->is($leftCountry) || $comparison['right']->is($rightCountry))
+                        <li>
+                            <a href="{{ $comparison['url'] }}" @class(['pressable flex min-h-12 items-center gap-3 rounded-control border bg-surface px-3.5 py-2.5 hover:border-ink-quiet', 'border-action/40' => $shares, 'border-line' => ! $shares])>
+                                <span class="flex shrink-0 -space-x-1.5" aria-hidden="true">
+                                    <x-ui.flag :iso="$comparison['left']->iso_code" size="sm" />
+                                    <x-ui.flag :iso="$comparison['right']->iso_code" size="sm" />
+                                </span>
+                                <span class="min-w-0 flex-1 font-display text-sm font-medium text-ink">{{ $comparison['label'] }}</span>
+                                <span class="tabular shrink-0 text-xs text-ink-muted">{{ Country::formatRate($comparison['left']->standard_rate) }}% / {{ Country::formatRate($comparison['right']->standard_rate) }}%</span>
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </section>
+        @endif
 
         <p class="max-w-[72ch] text-sm leading-6 text-ink-muted">{{ __('ui.compare.disclaimer') }}</p>
     </div>

@@ -22,6 +22,8 @@ return array (
   'back_to_home' => 'Lura lejn il-paġna ewlenija',
   'nav' => 
   array (
+    'compare' => 'Qabbel il-pajjiżi',
+    'compare_desc' => 'Ir-rati tal-VAT ta\' żewġ pajjiżi ħdejn xulxin',
     'all_countries' => 'Il-Pajjiżi Kollha',
     'vat_calculator' => 'Kalkulatur tal-VAT',
     'vat_widget' => 'Widget tal-VAT',
@@ -815,8 +817,21 @@ return array (
     'unsubscribed_desc' => 'L-indirizz :email mhux se jibqa\' jirċievi avviżi dwar bidliet fil-VAT minn Informazzjoni dwar il-VAT fl-UE.',
     'view_changes' => 'Ara l-bidliet fil-VAT',
   ),
+  'compare_index' => 
+  array (
+    'title' => 'Qabbel ir-rati tal-VAT bejn il-pajjiżi tal-UE',
+    'meta_title' => 'Ir-rati tal-VAT tal-UE mqabbla skont il-pajjiż',
+    'meta_description' => 'Qabbel ir-rati tal-VAT tal-UE: il-Ġermanja u Franza, Spanja u l-Portugall u oħrajn, b\'rati mnaqqsa u VAT fuq l-istess ammont.',
+    'intro' => 'Ir-rati tal-VAT standard u mnaqqsa ta\' żewġ pajjiżi ħdejn xulxin, bil-VAT fuq l-istess ammont.',
+    'all' => 'Il-paragunijiet kollha',
+    'popular' => 'Paragunijiet popolari',
+    'more' => 'Aktar paragunijiet',
+    'countries' => 'Pajjiżi',
+    'difference' => 'Differenza',
+  ),
   'compare' => 
   array (
+    'pair' => ':left vs :right',
     'eyebrow' => 'Tqabbil bejn pajjiżi',
     'title' => 'Rati tal-VAT ta\' :left kontra :right',
     'meta_title' => 'VAT ta\' :left u :right: rati mqabbla',

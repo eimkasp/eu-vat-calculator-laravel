@@ -5,6 +5,7 @@
         'alert-circle' => '<circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/>',
         'alert-triangle' => '<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/>',
         'arrow-down-right' => '<path d="m7 7 10 10"/><path d="M17 8v9H8"/>',
+        'arrow-left-right' => '<path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/>',
         'arrow-right' => '<path d="M5 12h14"/><path d="m13 5 7 7-7 7"/>',
         'arrow-up-right' => '<path d="M7 17 17 7"/><path d="M8 7h9v9"/>',
         'book' => '<path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/>',
