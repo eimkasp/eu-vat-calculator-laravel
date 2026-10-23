@@ -15,7 +15,7 @@
 
 <figure {{ $attributes->merge(['class' => 'app-surface flex flex-col overflow-hidden']) }} x-data>
     <figcaption class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-line px-5 py-3">
-        <h3 class="text-sm font-bold text-ink">{{ $title }}</h3>
+        <h3 class="font-display text-[0.9375rem] font-semibold text-ink">{{ $title }}</h3>
         @if($description)
             <p class="text-xs leading-5 text-ink-muted">{{ $description }}</p>
         @endif
@@ -30,7 +30,7 @@
     @endif
 
     <details class="group border-line {{ $preview ? 'border-t' : 'flex-1' }}" @unless($preview) open @endunless>
-        <summary class="flex min-h-10 cursor-pointer list-none items-center justify-between gap-3 px-5 text-xs font-semibold text-ink-muted transition-colors hover:text-ink [&::-webkit-details-marker]:hidden">
+        <summary class="flex min-h-10 cursor-pointer list-none items-center justify-between gap-3 px-5 font-display text-xs font-medium text-ink-muted transition-colors hover:text-ink [&::-webkit-details-marker]:hidden">
             <span class="inline-flex items-center gap-1.5">
                 <x-ui.icon name="code" class="size-3.5" />
                 {{ $language }}
@@ -39,7 +39,7 @@
         </summary>
         <div class="bg-code">
             <div class="flex h-9 items-center justify-end border-b border-white/10 px-2">
-                <button type="button" class="pressable inline-flex h-7 items-center gap-1.5 rounded-control px-2.5 text-xs font-semibold text-white/80 hover:bg-white/10 hover:text-white" x-on:click="$copy($refs.code.textContent, 'Code copied')">
+                <button type="button" class="pressable inline-flex h-7 items-center gap-1.5 rounded-control px-2.5 font-display text-xs font-medium text-white/80 hover:bg-white/10 hover:text-white" x-on:click="$copy($refs.code.textContent, 'Code copied')">
                     <x-ui.icon name="copy" class="size-3.5" />
                     Copy
                 </button>

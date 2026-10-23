@@ -1,19 +1,5 @@
-@props(['opacity' => 'opacity-20'])
+{{-- The hero ground: an ASCII field drawn from the 27 standard rates (rateField in resources/js/app.js). --}}
+@props(['opacity' => null])
+@php($rates = cache()->remember('hero_field_rates', 3600, fn () => \App\Models\Country::query()->where('is_eu_member', true)->pluck('standard_rate')->map(fn ($rate) => (float) $rate)->values()->all()))
 
-@once
-    @push('head')
-        <link rel="preload" as="image" type="image/webp" href="{{ asset('images/hero-texture-sm.webp') }}" media="(max-width: 639px)" fetchpriority="high">
-        <link rel="preload" as="image" type="image/webp" href="{{ asset('images/hero-texture-md.webp') }}" media="(min-width: 640px) and (max-width: 1023px)" fetchpriority="high">
-        <link rel="preload" as="image" type="image/webp" href="{{ asset('images/hero-texture-lg.webp') }}" media="(min-width: 1024px)" fetchpriority="high">
-    @endpush
-@endonce
-
-<div data-atmosphere-media class="pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
-    <picture>
-        <source media="(min-width: 1024px)" type="image/webp" srcset="{{ asset('images/hero-texture-lg.webp') }}">
-        <source media="(min-width: 640px)" type="image/webp" srcset="{{ asset('images/hero-texture-md.webp') }}">
-        <source type="image/webp" srcset="{{ asset('images/hero-texture-sm.webp') }}">
-        <img src="{{ asset('images/eu-vat-calculator-background-sm.jpg') }}" alt="" width="1600" height="893" fetchpriority="high" decoding="async" class="hero-photo {{ $opacity }}">
-    </picture>
-    <div class="hero-scrim"></div>
-</div>
+<div class="hero-ground" aria-hidden="true" x-data="rateField(@js($rates))"></div>

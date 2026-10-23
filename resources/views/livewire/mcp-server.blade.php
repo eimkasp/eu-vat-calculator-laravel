@@ -52,18 +52,21 @@
 @endsection
 
 <div>
-    <section class="hero-canvas" aria-labelledby="mcp-heading">
+    <section class="hero-field" aria-labelledby="mcp-heading">
         <x-hero-backdrop />
-        <div class="app-container relative pb-12 pt-6 sm:pb-16 sm:pt-8">
-            <x-site-breadcrumbs variant="dark" :items="[__('ui.sitemap.mcp_server') => '']" />
+        <div class="app-container relative pb-10 pt-6 sm:pb-14 sm:pt-8">
+            <x-site-breadcrumbs :items="[__('ui.sitemap.mcp_server') => '']" />
 
-            <div class="mx-auto mb-8 mt-6 max-w-3xl text-center">
-                <p class="app-kicker">{{ __('ui.mcp_page.kicker') }}</p>
-                <h1 id="mcp-heading" class="mt-3 text-3xl font-bold tracking-[-0.03em] text-white sm:text-5xl sm:leading-[1.08]">{{ __('ui.mcp_page.title') }}</h1>
-                <p class="mx-auto mt-4 max-w-2xl text-base leading-7 text-white/80 sm:text-lg">{{ __('ui.mcp_page.lede') }}</p>
+            <div class="mb-8 mt-6 max-w-2xl">
+                <h1 id="mcp-heading" class="text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-5xl sm:leading-[1.04]">{{ __('ui.mcp_page.title') }}</h1>
+                <p class="mt-4 max-w-[54ch] text-base leading-7 text-ink-muted sm:text-lg">{{ __('ui.mcp_page.lede') }}</p>
+                <p class="mt-3 inline-flex items-center gap-1.5 font-display text-[0.8125rem] font-medium text-ink-muted">
+                    <x-ui.icon name="puzzle" class="size-3.5 text-action" />
+                    {{ __('ui.mcp_page.kicker') }}
+                </p>
             </div>
 
-            <div class="app-surface-raised mx-auto max-w-4xl overflow-hidden text-ink" x-data="{
+            <div class="app-surface-raised max-w-4xl overflow-hidden text-ink" x-data="{
                 client: 'claude',
                 clients: @js(array_keys($clients)),
                 move(step) {
@@ -72,7 +75,7 @@
                 },
             }">
                 <div class="border-b border-line p-5 sm:p-7">
-                    <p id="mcp-endpoint-label" class="mb-1.5 block text-[0.8125rem] font-semibold text-ink-muted">{{ __('ui.mcp_page.endpoint_label') }}</p>
+                    <p id="mcp-endpoint-label" class="mb-1.5 block font-display text-[0.8125rem] font-medium text-ink-muted">{{ __('ui.mcp_page.endpoint_label') }}</p>
                     <div class="flex flex-col gap-2 sm:flex-row">
                         <code id="mcp-endpoint" class="app-field flex min-w-0 flex-1 select-all items-center font-mono text-[0.8125rem] break-all sm:text-sm">{{ $endpoint }}</code>
                         <button type="button" class="app-button-primary shrink-0" x-on:click="$copy(@js($endpoint), @js(__('ui.mcp_page.copied')))">
@@ -88,7 +91,7 @@
                 </div>
 
                 <div class="bg-surface-subtle p-5 sm:p-7">
-                    <h2 class="text-lg font-bold text-ink">{{ __('ui.mcp_page.connect_heading') }}</h2>
+                    <h2 class="text-lg font-semibold text-ink">{{ __('ui.mcp_page.connect_heading') }}</h2>
                     <p class="mt-1 text-sm leading-6 text-ink-muted">{{ __('ui.mcp_page.connect_desc') }}</p>
 
                     <div role="tablist" aria-label="{{ __('ui.mcp_page.clients_label') }}" class="mt-4 flex flex-wrap gap-2" x-on:keydown.arrow-right.prevent="move(1)" x-on:keydown.arrow-left.prevent="move(-1)">
@@ -114,7 +117,7 @@
                             <ol class="space-y-3">
                                 @foreach($client['steps'] as $index => $step)
                                     <li class="flex gap-3">
-                                        <span class="flex size-7 shrink-0 items-center justify-center rounded-full bg-action-soft text-xs font-bold text-action-deep">{{ $index + 1 }}</span>
+                                        <span class="flex size-7 shrink-0 items-center justify-center rounded-full bg-action-soft font-display text-xs font-semibold text-action-deep">{{ $index + 1 }}</span>
                                         <div class="min-w-0 flex-1 pt-0.5">
                                             <p class="text-sm leading-6 text-ink">{{ $step }}</p>
                                             @if($index === 0 && isset($client['code']))
@@ -143,7 +146,7 @@
     <div class="app-container space-y-12 py-10 sm:py-12">
         <section aria-labelledby="mcp-tools">
             <div class="max-w-3xl">
-                <h2 id="mcp-tools" class="text-2xl font-bold tracking-[-0.02em] text-ink">{{ __('ui.mcp_page.tools_heading') }}</h2>
+                <h2 id="mcp-tools" class="text-2xl font-semibold tracking-[-0.02em] text-ink">{{ __('ui.mcp_page.tools_heading') }}</h2>
                 <p class="mt-2 text-base leading-7 text-ink-muted">{{ __('ui.mcp_page.tools_desc') }}</p>
             </div>
 
@@ -159,7 +162,7 @@
                                 <x-ui.icon :name="$icons[$tool['name']] ?? 'zap'" class="size-5" />
                             </span>
                             <div class="min-w-0 flex-1">
-                                <h3 class="font-bold text-ink">{{ __('ui.mcp_page.tools.'.$tool['name'].'.title') }}</h3>
+                                <h3 class="font-semibold text-ink">{{ __('ui.mcp_page.tools.'.$tool['name'].'.title') }}</h3>
                                 <p class="font-mono text-xs break-all text-ink-muted">{{ $tool['name'] }}</p>
                             </div>
                             @if($tool['annotations']['openWorldHint'])
@@ -169,7 +172,7 @@
 
                         <p class="mt-3 text-sm leading-6 text-ink-muted">{{ __('ui.mcp_page.tools.'.$tool['name'].'.desc') }}</p>
 
-                        <p class="mt-4 text-xs font-semibold tracking-[0.06em] text-ink-muted uppercase">{{ __('ui.mcp_page.parameters') }}</p>
+                        <p class="mt-4 font-display text-[0.8125rem] font-medium text-ink-muted">{{ __('ui.mcp_page.parameters') }}</p>
                         @if($properties === [])
                             <p class="mt-1.5 text-sm text-ink-quiet">{{ __('ui.mcp_page.no_parameters') }}</p>
                         @else
@@ -177,7 +180,8 @@
                                 @foreach($properties as $name => $schema)
                                     <li class="app-badge bg-surface-muted font-medium text-ink">
                                         <span class="font-mono">{{ $name }}</span>
-                                        <span class="text-ink-quiet">{{ $schema['type'] }} · {{ in_array($name, $required, true) ? __('ui.mcp_page.required') : __('ui.mcp_page.optional') }}</span>
+                                        <span class="font-mono text-ink-quiet">{{ $schema['type'] }}</span>
+                                        <span class="text-ink-quiet">{{ in_array($name, $required, true) ? __('ui.mcp_page.required') : __('ui.mcp_page.optional') }}</span>
                                     </li>
                                 @endforeach
                             </ul>
@@ -196,7 +200,7 @@
 
         <div class="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)]">
             <section class="app-surface p-5 sm:p-6" aria-labelledby="mcp-try" x-data="mcpPlayground({ endpoint: @js(route('api.mcp', absolute: false)), examples: @js($examples) })">
-                <h2 id="mcp-try" class="text-lg font-bold text-ink">{{ __('ui.mcp_page.try_heading') }}</h2>
+                <h2 id="mcp-try" class="text-lg font-semibold text-ink">{{ __('ui.mcp_page.try_heading') }}</h2>
                 <p class="mt-1 text-sm leading-6 text-ink-muted">{{ __('ui.mcp_page.try_desc') }}</p>
 
                 <div role="radiogroup" aria-label="{{ __('ui.mcp_page.examples_label') }}" @keydown.arrow-right.prevent="$rove($event)" @keydown.arrow-down.prevent="$rove($event)" @keydown.arrow-left.prevent="$rove($event)" @keydown.arrow-up.prevent="$rove($event)" class="mt-4 flex flex-wrap gap-2">
@@ -250,7 +254,7 @@
             </section>
 
             <section class="app-surface p-5 sm:p-6" aria-labelledby="mcp-details">
-                <h2 id="mcp-details" class="text-lg font-bold text-ink">{{ __('ui.mcp_page.details_heading') }}</h2>
+                <h2 id="mcp-details" class="text-lg font-semibold text-ink">{{ __('ui.mcp_page.details_heading') }}</h2>
                 <dl class="mt-3 divide-y divide-line text-sm">
                     @foreach([
                         [__('ui.mcp_page.detail_endpoint'), $endpoint, true],
@@ -262,12 +266,12 @@
                         [__('ui.mcp_page.detail_data'), __('ui.mcp_page.data_value'), false],
                     ] as [$label, $value, $mono])
                         <div class="grid gap-1 py-3 sm:grid-cols-[8.5rem_minmax(0,1fr)] sm:gap-4">
-                            <dt class="font-semibold text-ink-muted">{{ $label }}</dt>
+                            <dt class="font-display text-[0.8125rem] font-medium text-ink-muted">{{ $label }}</dt>
                             <dd @class(['text-ink', 'font-mono text-xs leading-6 break-all' => $mono])>{{ $value }}</dd>
                         </div>
                     @endforeach
                     <div class="grid gap-1 py-3 sm:grid-cols-[8.5rem_minmax(0,1fr)] sm:gap-4">
-                        <dt class="font-semibold text-ink-muted">{{ __('ui.mcp_page.detail_discovery') }}</dt>
+                        <dt class="font-display text-[0.8125rem] font-medium text-ink-muted">{{ __('ui.mcp_page.detail_discovery') }}</dt>
                         <dd>
                             <ul class="space-y-1">
                                 <li><a href="/.well-known/mcp/server-card.json" class="app-link">{{ __('ui.mcp_page.server_card') }}</a></li>
@@ -281,7 +285,7 @@
         </div>
 
         <section aria-labelledby="mcp-faq" class="max-w-3xl">
-            <h2 id="mcp-faq" class="text-2xl font-bold tracking-[-0.02em] text-ink">{{ __('ui.mcp_page.faq_heading') }}</h2>
+            <h2 id="mcp-faq" class="text-2xl font-semibold tracking-[-0.02em] text-ink">{{ __('ui.mcp_page.faq_heading') }}</h2>
             <div class="app-surface mt-5 divide-y divide-line">
                 @foreach($faqs as $faq)
                     <details class="group px-5 sm:px-6" @if($loop->first) open @endif>

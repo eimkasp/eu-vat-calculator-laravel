@@ -42,7 +42,7 @@
 @endsection
 
 <div>
-    <x-page-header :title="__('ui.history.title')" :description="__('ui.history.subtitle')" :eyebrow="__('ui.nav.vat_tools')" :breadcrumbs="[__('ui.breadcrumbs.vat_changelog') => '']">
+    <x-page-header :title="__('ui.history.title')" :description="__('ui.history.subtitle')" :breadcrumbs="[__('ui.breadcrumbs.vat_changelog') => '']">
         @if($summary['latest'])
             <x-slot:actions>
                 <span class="inline-flex items-center gap-2 rounded-control border border-line bg-surface-subtle px-3 py-1.5 text-sm text-ink-muted">
@@ -66,8 +66,8 @@
                         <x-ui.icon :name="$icon" class="size-4" />
                     </span>
                     <dl>
-                        <dt class="text-xs font-semibold text-ink-muted">{{ $label }}</dt>
-                        <dd class="tabular mt-0.5 text-2xl font-bold text-ink">{{ number_format($value) }}</dd>
+                        <dt class="font-display text-[0.8125rem] font-medium text-ink-muted">{{ $label }}</dt>
+                        <dd class="tabular mt-0.5 font-display text-2xl font-semibold text-ink">{{ number_format($value) }}</dd>
                     </dl>
                 </div>
             @endforeach
@@ -77,7 +77,7 @@
             <section class="app-surface min-w-0 overflow-clip" aria-labelledby="changes-heading">
                 <div class="border-b border-line p-4 sm:px-6">
                     <div class="flex flex-wrap items-center justify-between gap-3">
-                        <h2 id="changes-heading" class="text-lg font-bold text-ink">{{ __('ui.history.all_changes') }}</h2>
+                        <h2 id="changes-heading" class="text-lg font-semibold text-ink">{{ __('ui.history.all_changes') }}</h2>
                         <p class="flex items-center gap-2 text-sm text-ink-muted" aria-live="polite">
                             <span wire:loading class="size-3.5 animate-spin rounded-full border-2 border-action/30 border-t-action" aria-hidden="true"></span>
                             {{ trans_choice('ui.history.results_count', $changes->total(), ['count' => number_format($changes->total())]) }}
@@ -86,7 +86,7 @@
 
                     <div role="group" aria-label="{{ __('ui.history.filters_label') }}" @class(['mt-4 grid grid-cols-2 gap-3 sm:items-end', 'sm:grid-cols-[repeat(3,minmax(0,1fr))_auto]' => count($this->rateTypes) > 1, 'sm:grid-cols-[repeat(2,minmax(0,1fr))_auto]' => count($this->rateTypes) <= 1])>
                         <div class="col-span-2 sm:col-span-1">
-                            <label for="filter-country" class="mb-1 block text-xs font-semibold text-ink-muted">{{ __('ui.country') }}</label>
+                            <label for="filter-country" class="mb-1.5 block font-display text-[0.8125rem] font-medium text-ink-muted">{{ __('ui.country') }}</label>
                             <select id="filter-country" wire:model.live="selectedCountry" class="{{ $selectClass }}">
                                 <option value="">{{ __('ui.history.all_countries') }}</option>
                                 @foreach($this->countries as $option)
@@ -96,7 +96,7 @@
                         </div>
                         @if(count($this->rateTypes) > 1)
                             <div>
-                                <label for="filter-type" class="mb-1 block text-xs font-semibold text-ink-muted">{{ __('ui.history.rate_type') }}</label>
+                                <label for="filter-type" class="mb-1.5 block font-display text-[0.8125rem] font-medium text-ink-muted">{{ __('ui.history.rate_type') }}</label>
                                 <select id="filter-type" wire:model.live="selectedType" class="{{ $selectClass }}">
                                     <option value="">{{ __('ui.history.all_types') }}</option>
                                     @foreach($this->rateTypes as $type)
@@ -106,7 +106,7 @@
                             </div>
                         @endif
                         <div>
-                            <label for="filter-direction" class="mb-1 block text-xs font-semibold text-ink-muted">{{ __('ui.history.direction') }}</label>
+                            <label for="filter-direction" class="mb-1.5 block font-display text-[0.8125rem] font-medium text-ink-muted">{{ __('ui.history.direction') }}</label>
                             <select id="filter-direction" wire:model.live="selectedDirection" class="{{ $selectClass }}">
                                 <option value="">{{ __('ui.history.all_directions') }}</option>
                                 <option value="increase">{{ __('ui.history.increases') }}</option>
@@ -124,7 +124,7 @@
 
                 <div wire:loading.class="opacity-60" class="transition-opacity">
                     @forelse($changes->groupBy(fn ($change) => $change->change_date?->year) as $year => $yearChanges)
-                        <h3 class="app-sticky-bar tabular px-4 py-2 text-xs font-bold tracking-[0.08em] text-ink-muted sm:px-6"><a href="{{ locale_path('/vat-changes/year/'.$year) }}" class="inline-flex min-h-6 items-center hover:text-action">{{ $year }}</a></h3>
+                        <h3 class="app-sticky-bar tabular px-4 py-2 font-display text-[0.8125rem] font-semibold text-ink-muted sm:px-6"><a href="{{ locale_path('/vat-changes/year/'.$year) }}" class="inline-flex min-h-6 items-center hover:text-action">{{ $year }}</a></h3>
                         <ol class="divide-y divide-line">
                             @foreach($yearChanges as $change)
                                 @php
@@ -141,10 +141,10 @@
                                             <p class="flex flex-wrap items-center gap-2">
                                                 <span class="truncate font-semibold text-ink">{{ $change->country?->name }}</span>
                                                 @if($change->rate_type !== 'standard')
-                                                    <span class="rounded-control bg-surface-muted px-1.5 py-0.5 text-[0.6875rem] font-semibold text-ink-muted">{{ __('ui.rate_type.'.$change->rate_type) }}</span>
+                                                    <span class="app-badge bg-surface-muted text-ink-muted">{{ __('ui.rate_type.'.$change->rate_type) }}</span>
                                                 @endif
                                                 @if($upcoming)
-                                                    <span class="inline-flex items-center gap-1 rounded-control bg-warning-soft px-1.5 py-0.5 text-[0.6875rem] font-semibold text-warning">
+                                                    <span class="app-badge bg-warning-soft text-warning">
                                                         <x-ui.icon name="clock" class="size-3" />
                                                         {{ __('ui.history.upcoming_badge') }}
                                                     </span>
@@ -160,7 +160,7 @@
                                         <span class="tabular text-sm text-ink-muted">
                                             {{ Country::formatRate($change->old_rate) }}%
                                             <x-ui.icon name="arrow-right" class="inline size-3.5 align-[-2px] text-ink-quiet" />
-                                            <span class="font-bold text-ink">{{ Country::formatRate($change->new_rate) }}%</span>
+                                            <span class="font-semibold text-ink">{{ Country::formatRate($change->new_rate) }}%</span>
                                         </span>
                                         @if($delta != 0)
                                             <span @class(['tabular inline-flex min-w-16 items-center justify-end gap-0.5 text-xs font-semibold', 'text-danger' => $up, 'text-success' => ! $up])>
@@ -180,7 +180,7 @@
                         </ol>
                     @empty
                         <div class="px-6 py-14 text-center">
-                            <span class="mx-auto flex size-12 items-center justify-center rounded-full bg-surface-muted text-ink-quiet" aria-hidden="true">
+                            <span class="mx-auto flex size-12 items-center justify-center rounded-control bg-surface-muted text-ink-quiet" aria-hidden="true">
                                 <x-ui.icon name="search" class="size-5" />
                             </span>
                             <p class="mt-4 text-sm text-ink-muted">{{ __('ui.history.no_changes') }}</p>
@@ -202,9 +202,9 @@
                 @livewire('vat-change-signup', ['source' => 'vat-changes', 'compact' => true])
 
                 <section class="app-surface p-5" aria-labelledby="stability-heading">
-                    <h2 id="stability-heading" class="text-base font-bold text-ink">{{ __('ui.history.stability_title') }}</h2>
+                    <h2 id="stability-heading" class="text-base font-semibold text-ink">{{ __('ui.history.stability_title') }}</h2>
                     <p class="mt-1 text-sm leading-6 text-ink-muted">{{ __('ui.history.stability_desc') }}</p>
-                    <div class="mt-4 flex items-center justify-between border-b border-line pb-2 text-xs font-semibold text-ink-muted">
+                    <div class="mt-4 flex items-center justify-between border-b border-line pb-2 font-display text-[0.8125rem] font-medium text-ink-muted">
                         <span>{{ __('ui.history.col_country') }}</span>
                         <span>{{ __('ui.history.col_changes') }}</span>
                     </div>

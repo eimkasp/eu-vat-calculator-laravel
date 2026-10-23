@@ -4,7 +4,7 @@ import { exampleParameters, renderExample } from '../../render.js';
 export default {
     title: "Components/Data display",
     tags: ['autodocs'],
-    parameters: { docs: { description: { component: "Numbers are the hero. Tables right-align figures in tabular type, breakdowns use definition lists, and bars run on an action track with square ends." } } },
+    parameters: { docs: { description: { component: "Numbers are the hero. Tables right-align figures in tabular type, breakdowns use definition lists, the calculator total sits over the fifty-cell meter, and bars run on an action track with square ends." } } },
 };
 
 export const DataTable = {
@@ -20,7 +20,13 @@ export const DataBreakdown = {
 };
 
 export const DataMeter = {
-    name: "Meter and map legend",
+    name: "Meter",
     render: () => renderExample("data-meter"),
     parameters: exampleParameters("data-meter"),
+};
+
+export const DataBars = {
+    name: "Bars and map legend",
+    render: () => renderExample("data-bars"),
+    parameters: exampleParameters("data-bars"),
 };

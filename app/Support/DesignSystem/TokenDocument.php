@@ -141,7 +141,7 @@ final class TokenDocument
 
         return array_filter([
             '$value' => [
-                'fontFamily' => '{font.sans}',
+                'fontFamily' => '{font.'.($style['family'] ?? 'sans').'}',
                 'fontSize' => $size,
                 'fontWeight' => (int) ($style['weight'] ?? 400),
                 'letterSpacing' => ['value' => round($tracking * $size['value'], 4), 'unit' => $size['unit']],

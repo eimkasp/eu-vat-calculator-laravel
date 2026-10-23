@@ -4,7 +4,7 @@ import { exampleParameters, renderExample } from '../../render.js';
 export default {
     title: "Components/Selection controls",
     tags: ['autodocs'],
-    parameters: { docs: { description: { component: "A segmented control for two equal modes, chips for choosing among values, and chip tabs for switching panels." } } },
+    parameters: { docs: { description: { component: "A segmented control for two equal modes on a sunken tray, chips for choosing among values, and chip tabs for switching panels. Chips are small keys that press in when chosen." } } },
 };
 
 export const Segmented = {

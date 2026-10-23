@@ -42,7 +42,10 @@
                     <a href="{{ locale_path('/vat-rates/categories/'.$category['slug']) }}" class="group flex items-center gap-4 px-5 py-4 transition-colors hover:bg-surface-subtle sm:px-6">
                         <span class="min-w-0 flex-1">
                             <span class="block font-semibold text-ink group-hover:text-action">{{ $category['name'] }}</span>
-                            <span class="tabular mt-0.5 block text-sm text-ink-muted">{{ $category['country_count'] }} EU countries · {{ \App\Models\Country::formatRate($category['minimum_rate']) }}–{{ \App\Models\Country::formatRate($category['maximum_rate']) }}%</span>
+                            <span class="tabular mt-0.5 flex flex-wrap gap-x-3 text-sm text-ink-muted">
+                                <span>{{ $category['country_count'] }} EU countries</span>
+                                <span>{{ \App\Models\Country::formatRate($category['minimum_rate']) }}–{{ \App\Models\Country::formatRate($category['maximum_rate']) }}%</span>
+                            </span>
                         </span>
                         <span class="hidden text-sm font-semibold text-action sm:inline">Compare rates</span>
                         <x-ui.icon name="chevron-right" class="size-4 text-ink-quiet group-hover:text-action" />

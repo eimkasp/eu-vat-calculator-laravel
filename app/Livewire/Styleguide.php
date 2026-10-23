@@ -61,8 +61,8 @@ class Styleguide extends Component
         ['Warning', 'warning', 'warning-soft'],
         ['Danger', 'danger', 'danger-soft'],
         ['Button label', 'white', 'button'],
-        ['Text on navy', 'white', 'brand'],
-        ['Gold on navy', 'gold', 'brand'],
+        ['Text on graphite', 'white', 'brand'],
+        ['Cobalt on paper', 'action', 'workspace'],
     ];
 
     public function render()

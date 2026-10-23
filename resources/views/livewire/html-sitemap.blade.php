@@ -67,7 +67,7 @@
                 <div class="space-y-6">
                     @foreach($column as $key => $section)
                         <section class="app-surface p-5 sm:p-6" aria-labelledby="sitemap-{{ $key }}">
-                            <h2 id="sitemap-{{ $key }}" class="flex items-center gap-2 text-lg font-bold text-ink">
+                            <h2 id="sitemap-{{ $key }}" class="flex items-center gap-2 text-lg font-semibold text-ink">
                                 <x-ui.icon :name="$section['icon']" class="size-5 text-action" />
                                 {{ $section['title'] }}
                             </h2>
@@ -88,20 +88,20 @@
 
         <section aria-labelledby="sitemap-countries">
             <div class="max-w-3xl">
-                <h2 id="sitemap-countries" class="text-2xl font-bold tracking-[-0.02em] text-ink">{{ __('ui.sitemap.all_country_pages') }}</h2>
+                <h2 id="sitemap-countries" class="text-2xl font-semibold tracking-[-0.02em] text-ink">{{ __('ui.sitemap.all_country_pages') }}</h2>
                 <p class="mt-2 text-base leading-7 text-ink-muted">{{ __('ui.sitemap.country_pages_desc') }}</p>
             </div>
 
             @foreach($groups as $group => $countries)
                 @continue($countries->isEmpty())
-                <h3 class="app-eyebrow mt-8">{{ __('ui.calculator.groups.'.$group) }}</h3>
+                <h3 class="mt-8 text-lg font-semibold text-ink">{{ __('ui.calculator.groups.'.$group) }}</h3>
                 <ul class="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
                     @foreach($countries as $country)
                         <li class="app-surface p-5">
                             <div class="flex items-center gap-3 border-b border-line pb-3">
                                 <x-ui.flag :iso="$country->iso_code" size="lg" />
                                 <div class="min-w-0">
-                                    <h4 class="font-bold text-ink">{{ $country->name }}</h4>
+                                    <h4 class="font-display text-base font-medium text-ink">{{ $country->name }}</h4>
                                     <p class="text-sm text-ink-muted">{{ __('ui.sitemap.standard_rate_label') }} <span class="tabular font-semibold text-ink">{{ \App\Support\Vat\Money::percent($country->standard_rate) }}</span></p>
                                 </div>
                             </div>
@@ -136,7 +136,7 @@
         </section>
 
         <section class="app-surface p-5 sm:p-8" aria-labelledby="sitemap-about">
-            <h2 id="sitemap-about" class="text-xl font-bold text-ink">{{ __('ui.sitemap.about_title') }}</h2>
+            <h2 id="sitemap-about" class="text-xl font-semibold text-ink">{{ __('ui.sitemap.about_title') }}</h2>
             <div class="app-prose mt-3 max-w-none">
                 <p>
                     {!! __('ui.sitemap.about_p1', [

@@ -14,7 +14,7 @@
 @if($rate > 0)
     <section data-common-amounts aria-labelledby="common-amounts-title" class="app-surface app-deferred overflow-hidden">
         <div class="border-b border-line px-5 py-4 sm:px-6">
-            <h2 id="common-amounts-title" class="text-xl font-bold text-ink">{{ __('ui.calculator.common_amounts_heading', ['country' => $country->name]) }}</h2>
+            <h2 id="common-amounts-title" class="text-xl font-semibold text-ink">{{ __('ui.calculator.common_amounts_heading', ['country' => $country->name]) }}</h2>
             <p class="mt-1 max-w-[72ch] text-sm text-ink-muted">{{ __('ui.calculator.common_amounts_intro', ['rate' => Country::formatRate($rate)]) }}</p>
         </div>
         <div>

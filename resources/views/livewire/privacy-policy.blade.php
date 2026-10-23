@@ -6,7 +6,7 @@
 @endsection
 
 <div>
-    <x-page-header title="Privacy policy" description="How EU VAT Info collects, uses and protects information when you use the website and apps." eyebrow="Legal" :breadcrumbs="['Privacy policy' => '']">
+    <x-page-header title="Privacy policy" description="How EU VAT Info collects, uses and protects information when you use the website and apps." :breadcrumbs="['Privacy policy' => '']">
         <x-slot:actions>
             <span class="inline-flex items-center gap-2 rounded-control border border-line bg-surface-subtle px-3 py-1.5 text-sm text-ink-muted">
                 <x-ui.icon name="clock" class="size-4" />

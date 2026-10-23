@@ -4,11 +4,11 @@ import { exampleParameters, renderExample } from '../../render.js';
 export default {
     title: "Patterns/Calls to action",
     tags: ['autodocs'],
-    parameters: { docs: { description: { component: "A flat navy block with white and outlined buttons. Use one per page, after the content it follows from." } } },
+    parameters: { docs: { description: { component: "A flat graphite band with a white key and an outlined one, the only place white text appears outside code. Use one per page, after the content it follows from." } } },
 };
 
 export const PatternCta = {
-    name: "Navy call to action",
+    name: "Graphite call to action",
     render: () => renderExample("pattern-cta"),
     parameters: exampleParameters("pattern-cta"),
 };

@@ -30,7 +30,6 @@
     <x-page-header
         :title="$headline"
         :description="$change->editorialDescription()"
-        :eyebrow="($upcoming ? 'Takes effect ' : 'Effective ').$change->change_date->format('j F Y')"
         :breadcrumbs="['VAT rate changes' => locale_path('/vat-changes'), $country->name => locale_path('/vat-rates/'.$country->slug.'/history'), $change->change_date->format('j M Y') => '']"
     />
 
@@ -40,22 +39,23 @@
                 <section class="app-surface overflow-hidden" aria-label="Rate change">
                     <div class="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-4 p-5 text-center sm:p-8">
                         <div>
-                            <p class="text-[0.8125rem] font-semibold text-ink-muted">Previous rate</p>
-                            <p class="tabular mt-1 text-3xl font-bold tracking-[-0.02em] text-ink-muted sm:text-4xl">{{ Country::formatRate($change->old_rate) }}%</p>
+                            <p class="font-display text-[0.8125rem] font-medium text-ink-muted">Previous rate</p>
+                            <p class="tabular mt-1 font-display text-3xl font-semibold tracking-[-0.02em] text-ink-muted sm:text-4xl">{{ Country::formatRate($change->old_rate) }}%</p>
                         </div>
-                        <span class="flex size-10 items-center justify-center rounded-full bg-surface-muted text-ink-quiet" aria-hidden="true">
+                        <span class="flex size-10 items-center justify-center rounded-control bg-surface-muted text-ink-quiet" aria-hidden="true">
                             <x-ui.icon name="arrow-right" class="size-5" />
                         </span>
                         <div>
-                            <p class="text-[0.8125rem] font-semibold text-ink-muted">New rate</p>
-                            <p class="tabular mt-1 text-3xl font-bold tracking-[-0.02em] text-ink sm:text-4xl">{{ Country::formatRate($change->new_rate) }}%</p>
+                            <p class="font-display text-[0.8125rem] font-medium text-ink-muted">New rate</p>
+                            <p class="tabular mt-1 font-display text-3xl font-semibold tracking-[-0.02em] text-ink sm:text-4xl">{{ Country::formatRate($change->new_rate) }}%</p>
                         </div>
                     </div>
                     <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-line bg-surface-subtle px-5 py-3 text-sm">
                         <span class="inline-flex items-center gap-2 text-ink-muted">
                             <x-ui.flag :iso="$country->iso_code" size="sm" />
-                            {{ $country->name }} · {{ ucfirst($typeLabel) }} rate
+                            {{ $country->name }}
                         </span>
+                        <span class="text-ink-muted">{{ ucfirst($typeLabel) }} rate</span>
                         @if($delta != 0)
                             <span @class(['tabular inline-flex items-center gap-1 font-semibold', 'text-danger' => $up, 'text-success' => ! $up])>
                                 <x-ui.icon :name="$up ? 'trending-up' : 'trending-down'" class="size-4" />
@@ -67,13 +67,13 @@
 
                 @if($change->change_reason)
                     <section class="app-surface p-5 sm:p-6" aria-labelledby="change-reason">
-                        <h2 id="change-reason" class="text-lg font-bold text-ink">Reason for the change</h2>
+                        <h2 id="change-reason" class="text-lg font-semibold text-ink">Reason for the change</h2>
                         <p class="mt-2 max-w-[68ch] text-base leading-7 text-ink-muted">{{ $change->change_reason }}</p>
                     </section>
                 @endif
 
                 <section class="app-surface overflow-hidden" aria-labelledby="change-scope">
-                    <h2 id="change-scope" class="border-b border-line px-5 py-4 text-lg font-bold text-ink sm:px-6">Dates and scope</h2>
+                    <h2 id="change-scope" class="border-b border-line px-5 py-4 text-lg font-semibold text-ink sm:px-6">Dates and scope</h2>
                     <dl class="divide-y divide-line text-sm">
                         <div class="flex justify-between gap-4 px-5 py-3 sm:px-6">
                             <dt class="text-ink-muted">Country</dt>

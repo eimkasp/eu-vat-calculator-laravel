@@ -3,8 +3,8 @@
     "short_name": "EU VAT",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#3b82f6",
+    "background_color": "#f8fbfe",
+    "theme_color": "#f8fbfe",
     "icons": [
         {
             "src": "/icon-192x192.png",

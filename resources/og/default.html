@@ -1,32 +1,40 @@
 <!doctype html><html><head><meta charset="utf-8"><style>
-@font-face{font-family:Inter;src:url(../../node_modules/@fontsource-variable/inter/files/inter-latin-opsz-normal.woff2) format('woff2-variations');font-weight:100 900}
+@font-face{font-family:Familjen;src:url(../../node_modules/@fontsource-variable/familjen-grotesk/files/familjen-grotesk-latin-wght-normal.woff2) format('woff2-variations');font-weight:400 700}
+@font-face{font-family:Plex;src:url(../../node_modules/@fontsource-variable/ibm-plex-sans/files/ibm-plex-sans-latin-wght-normal.woff2) format('woff2-variations');font-weight:100 700}
+@font-face{font-family:JBMono;src:url(../../node_modules/@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2) format('woff2-variations');font-weight:100 800}
+:root{--paper:#f8fbfe;--surface:#fdfeff;--line:#dadee4;--ink:#111825;--ink-muted:#3c434e;--cobalt:#0462d3;--glyph:#b9cbe6}
 *{box-sizing:border-box;margin:0}
-body{width:1200px;height:630px;background:#0B1E44;font-family:Inter;color:#fff;font-feature-settings:'cv11','ss03';position:relative;overflow:hidden}
-.bar{position:absolute;inset:0 0 auto 0;height:8px;background:#FFCC00}
-.wrap{position:absolute;inset:8px 0 0 0;padding:72px 80px 64px;display:grid;grid-template-columns:1fr 330px;gap:48px}
-.brand{display:flex;align-items:center;gap:22px;font-size:40px;font-weight:700;letter-spacing:-.02em}
-.brand svg{width:72px;height:72px}
-h1{margin-top:52px;font-size:60px;line-height:1.06;font-weight:700;letter-spacing:-.035em}
-p.sub{margin-top:24px;font-size:28px;line-height:1.35;color:rgba(255,255,255,.78);max-width:640px}
-.host{position:absolute;left:80px;bottom:60px;display:flex;align-items:center;gap:14px;font-size:24px;font-weight:600;color:rgba(255,255,255,.72)}
-.host i{width:12px;height:12px;background:#FFCC00;display:block}
-.tiles{display:grid;gap:14px;align-content:center}
-.tile{background:#132B5A;border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:20px 24px}
-.tile b{display:block;font-size:44px;font-weight:700;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
-.tile span{display:block;margin-top:2px;font-size:20px;color:rgba(255,255,255,.72)}
+body{width:1200px;height:630px;background:var(--paper);font-family:Plex;color:var(--ink);position:relative;overflow:hidden}
+.field{position:absolute;right:0;top:0;width:500px;height:630px;font:500 14px/18px JBMono;color:var(--glyph);white-space:pre;letter-spacing:0;overflow:hidden}
+.field b{color:var(--cobalt);font-weight:500}
+.wrap{position:absolute;inset:0;padding:72px 80px 64px}
+.brand{display:flex;align-items:center;gap:20px;font:600 38px Familjen;letter-spacing:-.02em}
+.brand svg{width:68px;height:68px}
+h1{margin-top:64px;font:600 64px/1.04 Familjen;letter-spacing:-.03em;max-width:600px}
+p.sub{margin-top:24px;font-size:28px;line-height:1.38;color:var(--ink-muted);max-width:600px}
+.host{position:absolute;left:80px;bottom:60px;font:500 24px JBMono;color:var(--ink-muted)}
+.facts{position:absolute;right:80px;bottom:60px;display:grid;grid-template-columns:repeat(3,auto);background:var(--surface);border:1px solid var(--line);border-radius:16px 4px 16px 4px}
+.facts div{padding:18px 26px;border-left:1px solid var(--line)}.facts div:first-child{border-left:0}
+.facts b{display:block;font:600 40px Familjen;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.facts span{display:block;margin-top:2px;font:500 18px Familjen;color:var(--ink-muted)}
 </style></head><body>
-<div class="bar"></div>
+<div class="field" id="field"></div>
 <div class="wrap">
- <div>
-  <div class="brand"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#fff"/><path d="M10.5 21.5 21.5 10.5" stroke="#0a2a7a" stroke-width="2.75" stroke-linecap="round"/><circle cx="11.25" cy="11.25" r="3.25" fill="#0a2a7a"/><circle cx="20.75" cy="20.75" r="3.25" fill="#ffcc00"/></svg>EU VAT Info</div>
-  <h1>EU VAT rates, calculators<br>and VIES checks</h1>
-  <p class="sub">Every member state's rates from European Commission data, dated and sourced.</p>
- </div>
- <div class="tiles">
-  <div class="tile"><b>27</b><span>EU member states</span></div>
-  <div class="tile"><b>24</b><span>EU languages</span></div>
-  <div class="tile"><b>Free</b><span>API, dataset and MCP server</span></div>
- </div>
+ <div class="brand"><svg viewBox="0 0 32 32"><path fill="#111825" d="M8 0h18l6 6v18a8 8 0 0 1-8 8H6l-6-6V8a8 8 0 0 1 8-8Z"/><path d="M10.5 21.5 21.5 10.5" stroke="#f8fbfe" stroke-width="2.75" stroke-linecap="round"/><circle cx="11.25" cy="11.25" r="3.25" fill="#f8fbfe"/><circle cx="20.75" cy="20.75" r="3.25" fill="#0462d3"/></svg>EU VAT Info</div>
+ <h1>EU VAT rates, calculators and VIES checks</h1>
+ <p class="sub">Every member state's rates from European Commission data, dated and sourced.</p>
 </div>
-<div class="host"><i></i>vat.businesspress.io</div>
+<div class="facts"><div><b>27</b><span>member states</span></div><div><b>24</b><span>languages</span></div><div><b>Free</b><span>API and dataset</span></div></div>
+<div class="host">vat.businesspress.io</div>
+<script>
+// The rate field: one column per member state, as tall as its standard rate (2026 rates).
+const rates=[17,18,19,19,20,20,20,21,21,21,21,21,22,22,22,23,23,23,23,24,24,25,25,25,25.5,27,27];
+const cols=54,rows=35,ramp=' .:-=+*#%@',start=12,width=(cols-start)/rates.length;let out='';
+for(let r=0;r<rows;r++){for(let c=0;c<cols;c++){
+let v=((Math.sin(c*.37)*Math.cos(r*.53)+Math.sin((c+r)*.11))*.22+.42)*Math.min(1,c/start)*.6;
+if(c>=start){const i=Math.min(rates.length-1,Math.floor((c-start)/width));const top=(rows-2)*(1-(.3+(rates[i]-17)/10*.55));
+if((c-start)%width<width-1&&r>=top&&r<rows-2)v=Math.max(v,.95-(r-top)/(rows-2-top)*.5);}
+v=Math.min(1,Math.max(0,v));const ch=v<.14?' ':ramp[Math.round(v*(ramp.length-1))];out+=v>.9?'<b>'+ch+'</b>':ch}out+='\n'}
+document.getElementById('field').innerHTML=out;
+</script>
 </body></html>

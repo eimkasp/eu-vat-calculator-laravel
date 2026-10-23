@@ -9,8 +9,8 @@ it('shows the mark, the token colours, the type and the voice', function () {
         ->assertOk()
         ->assertSee('The EU VAT Info brand')
         ->assertSee(strtoupper($tokens['semantic']['brand']['$value']['hex']))
-        ->assertSee(strtoupper($tokens['fixed']['gold']['$value']['hex']))
-        ->assertSee('Inter Variable')
+        ->assertSee(strtoupper($tokens['semantic']['action']['$value']['hex']))
+        ->assertSee('Familjen Grotesk')
         ->assertSee('Rates updated 11 Oct 2026, from the European Commission')
         ->assertSee('CC BY 4.0')
         ->assertSee('href="'.url('/brand/eu-vat-info-mark.svg').'" download="eu-vat-info-mark.svg"', false)
@@ -36,7 +36,7 @@ it('serves the mark as a standalone SVG drawn by the logo component', function (
     expect($svg)->toStartWith('<?xml')
         ->toContain('xmlns="http://www.w3.org/2000/svg"')
         ->toContain('width="512" height="512"')
-        ->toContain('fill="#ffcc00"')
+        ->toContain('fill="#0462d3"')
         ->not->toContain('class=')
         ->not->toContain('aria-hidden');
 });

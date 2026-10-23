@@ -1,5 +1,5 @@
 {
-    "$description": "EU VAT Info design tokens, generated from resources/css/app.css. Light values are the defaults; dark values are under $extensions.io.businesspress.vat.dark. Documentation: http://127.0.0.1:8123/styleguide",
+    "$description": "EU VAT Info design tokens, generated from resources/css/app.css. Light values are the defaults; dark values are under $extensions.io.businesspress.vat.dark. Documentation: http://127.0.0.1:8000/styleguide",
     "color": {
         "$type": "color",
         "semantic": {
@@ -7,14 +7,14 @@
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        0.972,
+                        0.986,
                         0.005,
-                        258.0
+                        250.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#f4f6f9"
+                    "hex": "#f8fbfe"
                 },
-                "$description": "Page canvas behind cards",
+                "$description": "Paper: page canvas, header, heroes",
                 "$extensions": {
                     "io.businesspress.vat": {
                         "cssVariable": "--ui-workspace",
@@ -23,12 +23,12 @@
                         "dark": {
                             "colorSpace": "oklch",
                             "components": [
-                                0.16,
-                                0.016,
+                                0.165,
+                                0.02,
                                 262.0
                             ],
                             "alpha": 1.0,
-                            "hex": "#090d14"
+                            "hex": "#0a0e17"
                         }
                     }
                 }
@@ -37,12 +37,12 @@
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        1.0,
-                        0.0,
-                        0.0
+                        0.997,
+                        0.002,
+                        250.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#ffffff"
+                    "hex": "#fdfeff"
                 },
                 "$description": "Cards, fields, tables, menus",
                 "$extensions": {
@@ -53,12 +53,12 @@
                         "dark": {
                             "colorSpace": "oklch",
                             "components": [
-                                0.2,
-                                0.02,
+                                0.205,
+                                0.024,
                                 262.0
                             ],
                             "alpha": 1.0,
-                            "hex": "#11161f"
+                            "hex": "#111722"
                         }
                     }
                 }
@@ -67,14 +67,14 @@
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        0.982,
-                        0.004,
-                        258.0
+                        0.972,
+                        0.006,
+                        252.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#f7f9fc"
+                    "hex": "#f3f6fa"
                 },
-                "$description": "Table heads, result panes, sticky bars inside cards",
+                "$description": "Table heads, result panes, the footer",
                 "$extensions": {
                     "io.businesspress.vat": {
                         "cssVariable": "--ui-surface-subtle",
@@ -83,12 +83,12 @@
                         "dark": {
                             "colorSpace": "oklch",
                             "components": [
-                                0.222,
-                                0.022,
+                                0.225,
+                                0.025,
                                 262.0
                             ],
                             "alpha": 1.0,
-                            "hex": "#151b25"
+                            "hex": "#151c28"
                         }
                     }
                 }
@@ -97,14 +97,14 @@
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        0.955,
-                        0.007,
-                        258.0
+                        0.945,
+                        0.01,
+                        252.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#edf0f5"
+                    "hex": "#e8edf3"
                 },
-                "$description": "Notes, tracks, hover fills, placeholders",
+                "$description": "Sunken trays, hover fills, placeholders",
                 "$extensions": {
                     "io.businesspress.vat": {
                         "cssVariable": "--ui-surface-muted",
@@ -113,12 +113,12 @@
                         "dark": {
                             "colorSpace": "oklch",
                             "components": [
-                                0.255,
-                                0.024,
+                                0.26,
+                                0.026,
                                 262.0
                             ],
                             "alpha": 1.0,
-                            "hex": "#1c232f"
+                            "hex": "#1d2431"
                         }
                     }
                 }
@@ -127,12 +127,12 @@
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        0.91,
-                        0.01,
-                        258.0
+                        0.9,
+                        0.009,
+                        252.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#dde2e8"
+                    "hex": "#dadee4"
                 },
                 "$description": "Hairlines between rows and around cards",
                 "$extensions": {
@@ -144,11 +144,11 @@
                             "colorSpace": "oklch",
                             "components": [
                                 0.3,
-                                0.024,
+                                0.026,
                                 262.0
                             ],
                             "alpha": 1.0,
-                            "hex": "#272e3a"
+                            "hex": "#272e3b"
                         }
                     }
                 }
@@ -157,14 +157,14 @@
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        0.84,
-                        0.014,
-                        258.0
+                        0.83,
+                        0.012,
+                        252.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#c5cbd4"
+                    "hex": "#c2c8cf"
                 },
-                "$description": "Field and control outlines, popover edges",
+                "$description": "Key outlines, popover edges",
                 "$extensions": {
                     "io.businesspress.vat": {
                         "cssVariable": "--ui-line-strong",
@@ -173,12 +173,12 @@
                         "dark": {
                             "colorSpace": "oklch",
                             "components": [
-                                0.38,
-                                0.028,
-                                262.0
+                                0.4,
+                                0.03,
+                                260.0
                             ],
                             "alpha": 1.0,
-                            "hex": "#3a4352"
+                            "hex": "#3e4858"
                         }
                     }
                 }
@@ -188,11 +188,11 @@
                     "colorSpace": "oklch",
                     "components": [
                         0.21,
-                        0.035,
+                        0.028,
                         262.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#0f1828"
+                    "hex": "#111825"
                 },
                 "$description": "Headings, values, primary text",
                 "$extensions": {
@@ -203,12 +203,12 @@
                         "dark": {
                             "colorSpace": "oklch",
                             "components": [
-                                0.965,
-                                0.006,
-                                258.0
+                                0.95,
+                                0.008,
+                                250.0
                             ],
                             "alpha": 1.0,
-                            "hex": "#f1f4f8"
+                            "hex": "#ebeff4"
                         }
                     }
                 }
@@ -217,12 +217,12 @@
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        0.44,
-                        0.03,
-                        262.0
+                        0.38,
+                        0.022,
+                        260.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#4a5364"
+                    "hex": "#3c434e"
                 },
                 "$description": "Supporting text and labels (AA on every surface)",
                 "$extensions": {
@@ -235,7 +235,7 @@
                             "components": [
                                 0.8,
                                 0.016,
-                                258.0
+                                254.0
                             ],
                             "alpha": 1.0,
                             "hex": "#b7bec8"
@@ -247,14 +247,14 @@
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        0.53,
-                        0.026,
-                        262.0
+                        0.5,
+                        0.018,
+                        258.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#646c7b"
+                    "hex": "#5d646e"
                 },
-                "$description": "Placeholders, disabled text, meta",
+                "$description": "Placeholders, meta, field edges (3:1 or better)",
                 "$extensions": {
                     "io.businesspress.vat": {
                         "cssVariable": "--ui-ink-quiet",
@@ -264,11 +264,11 @@
                             "colorSpace": "oklch",
                             "components": [
                                 0.69,
-                                0.02,
-                                258.0
+                                0.022,
+                                256.0
                             ],
                             "alpha": 1.0,
-                            "hex": "#949ca8"
+                            "hex": "#939ca9"
                         }
                     }
                 }
@@ -277,14 +277,14 @@
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        0.3,
-                        0.09,
+                        0.21,
+                        0.024,
                         262.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#132b5a"
+                    "hex": "#121823"
                 },
-                "$description": "EU navy: heroes, navy cards and panels",
+                "$description": "Graphite: the hero-canvas band for code and calls to action",
                 "$extensions": {
                     "io.businesspress.vat": {
                         "cssVariable": "--ui-brand",
@@ -293,12 +293,12 @@
                         "dark": {
                             "colorSpace": "oklch",
                             "components": [
-                                0.235,
-                                0.06,
+                                0.135,
+                                0.018,
                                 262.0
                             ],
                             "alpha": 1.0,
-                            "hex": "#0e1d3a"
+                            "hex": "#05080f"
                         }
                     }
                 }
@@ -307,14 +307,14 @@
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        0.245,
-                        0.075,
+                        0.185,
+                        0.022,
                         262.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#0b1e44"
+                    "hex": "#0d131d"
                 },
-                "$description": "Header, footer, text on white buttons",
+                "$description": "Text on white keys inside graphite",
                 "$extensions": {
                     "io.businesspress.vat": {
                         "cssVariable": "--ui-brand-deep",
@@ -323,12 +323,12 @@
                         "dark": {
                             "colorSpace": "oklch",
                             "components": [
-                                0.195,
-                                0.045,
+                                0.12,
+                                0.016,
                                 262.0
                             ],
                             "alpha": 1.0,
-                            "hex": "#091429"
+                            "hex": "#03060b"
                         }
                     }
                 }
@@ -337,14 +337,14 @@
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        0.962,
-                        0.016,
-                        258.0
+                        0.95,
+                        0.028,
+                        256.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#ecf3fe"
+                    "hex": "#e3f0ff"
                 },
-                "$description": "Brand-tinted panels on light surfaces",
+                "$description": "Cobalt wash panels on paper",
                 "$extensions": {
                     "io.businesspress.vat": {
                         "cssVariable": "--ui-brand-soft",
@@ -353,12 +353,12 @@
                         "dark": {
                             "colorSpace": "oklch",
                             "components": [
-                                0.28,
+                                0.27,
                                 0.05,
-                                262.0
+                                260.0
                             ],
                             "alpha": 1.0,
-                            "hex": "#1b2942"
+                            "hex": "#18263f"
                         }
                     }
                 }
@@ -367,12 +367,12 @@
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        0.49,
-                        0.17,
-                        261.0
+                        0.52,
+                        0.19,
+                        258.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#2159bf"
+                    "hex": "#0462d3"
                 },
                 "$description": "Links, selection, focus, data bars (never behind white text)",
                 "$extensions": {
@@ -384,11 +384,11 @@
                             "colorSpace": "oklch",
                             "components": [
                                 0.76,
-                                0.11,
-                                255.0
+                                0.13,
+                                254.0
                             ],
                             "alpha": 1.0,
-                            "hex": "#81b4f6"
+                            "hex": "#75b4ff"
                         }
                     }
                 }
@@ -397,12 +397,12 @@
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        0.42,
-                        0.15,
-                        261.0
+                        0.43,
+                        0.2,
+                        262.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#16479d"
+                    "hex": "#0040bb"
                 },
                 "$description": "Text on action-soft, hovered links",
                 "$extensions": {
@@ -413,12 +413,12 @@
                         "dark": {
                             "colorSpace": "oklch",
                             "components": [
-                                0.84,
+                                0.85,
                                 0.08,
                                 252.0
                             ],
                             "alpha": 1.0,
-                            "hex": "#a5cffe"
+                            "hex": "#a8d2ff"
                         }
                     }
                 }
@@ -427,14 +427,14 @@
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        0.958,
-                        0.018,
-                        258.0
+                        0.95,
+                        0.028,
+                        256.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#eaf2fe"
+                    "hex": "#e3f0ff"
                 },
-                "$description": "Selected chips, active rows, icon wells",
+                "$description": "Pressed chips, active rows, the one highlighted table row",
                 "$extensions": {
                     "io.businesspress.vat": {
                         "cssVariable": "--ui-action-soft",
@@ -444,11 +444,11 @@
                             "colorSpace": "oklch",
                             "components": [
                                 0.29,
-                                0.055,
-                                262.0
+                                0.06,
+                                260.0
                             ],
                             "alpha": 1.0,
-                            "hex": "#1c2b47"
+                            "hex": "#192b49"
                         }
                     }
                 }
@@ -457,14 +457,14 @@
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        0.49,
-                        0.17,
-                        261.0
+                        0.52,
+                        0.19,
+                        258.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#2159bf"
+                    "hex": "#0462d3"
                 },
-                "$description": "Fills that carry white text (stays saturated in dark)",
+                "$description": "The primary key face, which carries white text (stays saturated in dark)",
                 "$extensions": {
                     "io.businesspress.vat": {
                         "cssVariable": "--ui-button",
@@ -473,12 +473,12 @@
                         "dark": {
                             "colorSpace": "oklch",
                             "components": [
-                                0.5,
-                                0.16,
-                                261.0
+                                0.52,
+                                0.19,
+                                258.0
                             ],
                             "alpha": 1.0,
-                            "hex": "#295ebd"
+                            "hex": "#0462d3"
                         }
                     }
                 }
@@ -487,14 +487,14 @@
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        0.42,
-                        0.15,
-                        261.0
+                        0.47,
+                        0.2,
+                        260.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#16479d"
+                    "hex": "#004fc8"
                 },
-                "$description": "Hover for button fills",
+                "$description": "Hover for button faces",
                 "$extensions": {
                     "io.businesspress.vat": {
                         "cssVariable": "--ui-button-hover",
@@ -503,12 +503,12 @@
                         "dark": {
                             "colorSpace": "oklch",
                             "components": [
-                                0.56,
-                                0.16,
-                                261.0
+                                0.57,
+                                0.18,
+                                258.0
                             ],
                             "alpha": 1.0,
-                            "hex": "#3a70d1"
+                            "hex": "#2673df"
                         }
                     }
                 }
@@ -695,37 +695,18 @@
             }
         },
         "fixed": {
-            "gold": {
-                "$value": {
-                    "colorSpace": "srgb",
-                    "components": [
-                        1.0,
-                        0.8,
-                        0.0
-                    ],
-                    "alpha": 1.0,
-                    "hex": "#ffcc00"
-                },
-                "$description": "EU gold signature, only on navy: active nav underline, kicker square, logo dot, accent icons, focus ring. Never on white, never for body text.",
-                "$extensions": {
-                    "io.businesspress.vat": {
-                        "cssVariable": "--color-gold",
-                        "utility": "bg-gold"
-                    }
-                }
-            },
             "code": {
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        0.17,
-                        0.025,
-                        264.0
+                        0.21,
+                        0.024,
+                        262.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#0a0f1a"
+                    "hex": "#121823"
                 },
-                "$description": "Code blocks, which stay dark in both themes",
+                "$description": "Code blocks, which stay graphite in both themes",
                 "$extensions": {
                     "io.businesspress.vat": {
                         "cssVariable": "--color-code",
@@ -737,14 +718,14 @@
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        0.225,
-                        0.027,
-                        264.0
+                        0.265,
+                        0.026,
+                        262.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#151c29"
+                    "hex": "#1e2532"
                 },
-                "$description": "Code blocks, which stay dark in both themes",
+                "$description": "Code blocks, which stay graphite in both themes",
                 "$extensions": {
                     "io.businesspress.vat": {
                         "cssVariable": "--color-code-raised",
@@ -756,14 +737,14 @@
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        0.3,
-                        0.027,
-                        264.0
+                        0.34,
+                        0.03,
+                        262.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#272e3c"
+                    "hex": "#2f3848"
                 },
-                "$description": "Code blocks, which stay dark in both themes",
+                "$description": "Code blocks, which stay graphite in both themes",
                 "$extensions": {
                     "io.businesspress.vat": {
                         "cssVariable": "--color-code-muted",
@@ -777,14 +758,14 @@
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        0.83,
-                        0.1,
-                        232.0
+                        0.76,
+                        0.13,
+                        254.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#81d3fd"
+                    "hex": "#75b4ff"
                 },
-                "$description": "Keywords, variables, spinner on code",
+                "$description": "Keywords, variables, spinner on code (cobalt)",
                 "$extensions": {
                     "io.businesspress.vat": {
                         "cssVariable": "--color-syntax-keyword",
@@ -796,12 +777,12 @@
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        0.9,
-                        0.15,
-                        100.0
+                        0.93,
+                        0.01,
+                        250.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#f5e05d"
+                    "hex": "#e3e8ee"
                 },
                 "$description": "Function and property names",
                 "$extensions": {
@@ -815,12 +796,12 @@
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        0.87,
-                        0.14,
-                        154.0
+                        0.84,
+                        0.07,
+                        236.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#84efaa"
+                    "hex": "#9fd2f2"
                 },
                 "$description": "Strings, JSON responses",
                 "$extensions": {
@@ -834,12 +815,12 @@
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        0.85,
-                        0.13,
-                        72.0
+                        0.82,
+                        0.09,
+                        266.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#ffbf67"
+                    "hex": "#a9c3ff"
                 },
                 "$description": "Request bodies, literals",
                 "$extensions": {
@@ -853,12 +834,12 @@
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        0.72,
-                        0.03,
-                        260.0
+                        0.69,
+                        0.022,
+                        256.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#9aa5b8"
+                    "hex": "#939ca9"
                 },
                 "$description": "Comments, meta, placeholders on code",
                 "$extensions": {
@@ -872,12 +853,12 @@
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        0.78,
-                        0.15,
-                        163.0
+                        0.8,
+                        0.13,
+                        158.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#3fd59b"
+                    "hex": "#6cd79d"
                 },
                 "$description": "HTTP methods, 2xx status",
                 "$extensions": {
@@ -891,12 +872,12 @@
                 "$value": {
                     "colorSpace": "oklch",
                     "components": [
-                        0.74,
-                        0.15,
-                        18.0
+                        0.76,
+                        0.14,
+                        25.0
                     ],
                     "alpha": 1.0,
-                    "hex": "#fb8087"
+                    "hex": "#fe8b83"
                 },
                 "$description": "Errors, 4xx/5xx status",
                 "$extensions": {
@@ -1054,9 +1035,8 @@
         "$type": "fontFamily",
         "sans": {
             "$value": [
-                "Inter Variable",
-                "Inter Fallback",
-                "Inter Fallback Roboto",
+                "IBM Plex Sans Variable",
+                "Plex Fallback",
                 "ui-sans-serif",
                 "system-ui",
                 "-apple-system",
@@ -1067,12 +1047,22 @@
                 "Segoe UI Emoji"
             ]
         },
+        "display": {
+            "$value": [
+                "Familjen Grotesk Variable",
+                "Familjen Fallback",
+                "IBM Plex Sans Variable",
+                "ui-sans-serif",
+                "system-ui",
+                "sans-serif"
+            ]
+        },
         "mono": {
             "$value": [
+                "JetBrains Mono Variable",
                 "ui-monospace",
                 "SF Mono",
                 "Cascadia Code",
-                "JetBrains Mono",
                 "Menlo",
                 "Consolas",
                 "monospace"
@@ -1083,42 +1073,42 @@
         "$type": "typography",
         "display": {
             "$value": {
-                "fontFamily": "{font.sans}",
+                "fontFamily": "{font.display}",
                 "fontSize": {
                     "value": 3.0,
                     "unit": "rem"
                 },
-                "fontWeight": 700,
+                "fontWeight": 600,
                 "letterSpacing": {
                     "value": -0.09,
+                    "unit": "rem"
+                },
+                "lineHeight": 1.04
+            }
+        },
+        "headline": {
+            "$value": {
+                "fontFamily": "{font.display}",
+                "fontSize": {
+                    "value": 2.5,
+                    "unit": "rem"
+                },
+                "fontWeight": 600,
+                "letterSpacing": {
+                    "value": -0.075,
                     "unit": "rem"
                 },
                 "lineHeight": 1.08
             }
         },
-        "headline": {
-            "$value": {
-                "fontFamily": "{font.sans}",
-                "fontSize": {
-                    "value": 2.5,
-                    "unit": "rem"
-                },
-                "fontWeight": 700,
-                "letterSpacing": {
-                    "value": -0.0875,
-                    "unit": "rem"
-                },
-                "lineHeight": 1.1
-            }
-        },
         "title": {
             "$value": {
-                "fontFamily": "{font.sans}",
+                "fontFamily": "{font.display}",
                 "fontSize": {
                     "value": 1.125,
                     "unit": "rem"
                 },
-                "fontWeight": 700,
+                "fontWeight": 600,
                 "letterSpacing": {
                     "value": 0.0,
                     "unit": "rem"
@@ -1143,12 +1133,12 @@
         },
         "label": {
             "$value": {
-                "fontFamily": "{font.sans}",
+                "fontFamily": "{font.display}",
                 "fontSize": {
                     "value": 0.8125,
                     "unit": "rem"
                 },
-                "fontWeight": 600,
+                "fontWeight": 500,
                 "letterSpacing": {
                     "value": 0.0,
                     "unit": "rem"
@@ -1156,24 +1146,19 @@
                 "lineHeight": 1.35
             }
         },
-        "kicker": {
+        "mono": {
             "$value": {
-                "fontFamily": "{font.sans}",
+                "fontFamily": "{font.mono}",
                 "fontSize": {
-                    "value": 0.75,
+                    "value": 0.875,
                     "unit": "rem"
                 },
-                "fontWeight": 600,
+                "fontWeight": 500,
                 "letterSpacing": {
-                    "value": 0.06,
+                    "value": 0.0,
                     "unit": "rem"
                 },
-                "lineHeight": 1.67
-            },
-            "$extensions": {
-                "io.businesspress.vat": {
-                    "textTransform": "uppercase"
-                }
+                "lineHeight": 1.4
             }
         }
     },
@@ -1181,7 +1166,7 @@
         "$type": "dimension",
         "control": {
             "$value": {
-                "value": 0.25,
+                "value": 0.375,
                 "unit": "rem"
             },
             "$extensions": {
@@ -1193,7 +1178,7 @@
         },
         "card": {
             "$value": {
-                "value": 0.375,
+                "value": 0.5,
                 "unit": "rem"
             },
             "$extensions": {
@@ -1224,12 +1209,12 @@
                     "color": {
                         "colorSpace": "oklch",
                         "components": [
-                            0.2,
-                            0.03,
+                            0.21,
+                            0.028,
                             262.0
                         ],
                         "alpha": 0.06,
-                        "hex": "#0e1624"
+                        "hex": "#111825"
                     },
                     "offsetX": {
                         "value": 0.0,
@@ -1262,12 +1247,12 @@
                     "color": {
                         "colorSpace": "oklch",
                         "components": [
-                            0.2,
-                            0.04,
+                            0.21,
+                            0.028,
                             262.0
                         ],
-                        "alpha": 0.1,
-                        "hex": "#0c1628"
+                        "alpha": 0.08,
+                        "hex": "#111825"
                     },
                     "offsetX": {
                         "value": 0.0,
@@ -1290,19 +1275,19 @@
                     "color": {
                         "colorSpace": "oklch",
                         "components": [
-                            0.15,
-                            0.06,
+                            0.21,
+                            0.028,
                             262.0
                         ],
-                        "alpha": 0.45,
-                        "hex": "#010924"
+                        "alpha": 0.35,
+                        "hex": "#111825"
                     },
                     "offsetX": {
                         "value": 0.0,
                         "unit": "px"
                     },
                     "offsetY": {
-                        "value": 12.0,
+                        "value": 16.0,
                         "unit": "px"
                     },
                     "blur": {
@@ -1310,7 +1295,7 @@
                         "unit": "px"
                     },
                     "spread": {
-                        "value": -12.0,
+                        "value": -20.0,
                         "unit": "px"
                     }
                 }
@@ -1328,12 +1313,12 @@
                     "color": {
                         "colorSpace": "oklch",
                         "components": [
-                            0.2,
-                            0.03,
+                            0.21,
+                            0.028,
                             262.0
                         ],
                         "alpha": 0.08,
-                        "hex": "#0e1624"
+                        "hex": "#111825"
                     },
                     "offsetX": {
                         "value": 0.0,
@@ -1356,12 +1341,12 @@
                     "color": {
                         "colorSpace": "oklch",
                         "components": [
-                            0.2,
-                            0.04,
+                            0.21,
+                            0.028,
                             262.0
                         ],
                         "alpha": 0.22,
-                        "hex": "#0c1628"
+                        "hex": "#111825"
                     },
                     "offsetX": {
                         "value": 0.0,
@@ -1410,7 +1395,7 @@
         "$type": "duration",
         "colour": {
             "$value": {
-                "value": 150,
+                "value": 120,
                 "unit": "ms"
             }
         },

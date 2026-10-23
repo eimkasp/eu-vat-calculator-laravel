@@ -20,8 +20,8 @@ final class DesignTokens
         $this->scopes = [
             'theme' => $this->declarations('/^@theme\s*\{/m'),
             'inline' => $this->declarations('/^@theme inline\s*\{/m'),
-            'light' => $this->declarations('/^:root(?:,\s*\.theme-light)?\s*\{/m'),
-            'dark' => $this->declarations('/^\.dark\s*\{/m'),
+            'light' => $this->declarations('/^:root(?:,\s*\[data-theme=\'light\'\])?\s*\{/m'),
+            'dark' => $this->declarations('/^\[data-theme=\'dark\'\]\s*\{/m'),
         ];
     }
 
@@ -149,6 +149,7 @@ final class DesignTokens
     public function fonts(): array
     {
         return collect($this->themeValues('font-'))
+            ->reject(fn (string $value, string $name) => str_starts_with($name, 'weight-'))
             ->map(fn (string $value) => array_map(fn (string $family) => trim($family, " '\""), explode(',', $value)))
             ->all();
     }

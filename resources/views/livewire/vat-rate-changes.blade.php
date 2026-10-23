@@ -8,7 +8,7 @@
 
     @foreach([['upcoming', $upcoming, __('ui.rate_changes.upcoming')], ['recent', $recent, __('ui.rate_changes.recent')]] as [$key, $changes, $label])
         @if($changes->isNotEmpty())
-            <h3 class="mt-4 text-xs font-semibold text-ink-muted">{{ $label }}</h3>
+            <h3 class="mt-4 font-display text-[0.8125rem] font-medium text-ink-muted">{{ $label }}</h3>
             <ol class="mt-2 space-y-1">
                 @foreach($changes as $change)
                     @php($up = (float) $change->new_rate > (float) $change->old_rate)
@@ -17,7 +17,10 @@
                             <x-ui.flag :iso="$change->country?->iso_code" size="lg" class="h-5 w-[1.625rem]" />
                             <span class="min-w-0 flex-1">
                                 <span class="block truncate text-sm font-semibold text-ink">{{ $change->country?->name }}</span>
-                                <span class="block text-xs text-ink-muted">{{ __('ui.rate_type.'.$change->rate_type) }} · {{ $change->change_date?->translatedFormat('M Y') }}</span>
+                                <span class="flex flex-wrap gap-x-2 text-xs text-ink-muted">
+                                    <span>{{ __('ui.rate_type.'.$change->rate_type) }}</span>
+                                    <span class="tabular">{{ $change->change_date?->translatedFormat('M Y') }}</span>
+                                </span>
                             </span>
                             <span class="text-right">
                                 <span class="tabular block text-sm font-bold text-ink">{{ Country::formatRate($change->new_rate) }}%</span>

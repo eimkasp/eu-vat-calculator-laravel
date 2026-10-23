@@ -1,8 +1,8 @@
 <div class="grid max-w-3xl grid-cols-1 overflow-hidden rounded-card border border-line bg-surface md:grid-cols-2">
     <div class="p-5">
-        <p class="text-[0.8125rem] font-semibold text-ink-muted">Total (incl. VAT)</p>
+        <p class="font-display text-[0.8125rem] font-medium text-ink-muted">Total (incl. VAT)</p>
         <div class="mt-1 flex items-end justify-between gap-3">
-            <p class="tabular text-4xl font-bold tracking-[-0.035em] text-ink">€1,487.50</p>
+            <p class="tabular font-display text-4xl font-semibold tracking-[-0.03em] text-ink">€1,487.50</p>
             <button type="button" class="app-button-secondary h-9 min-h-9 px-3 text-xs" aria-label="Copy the calculation">
                 <x-ui.icon name="copy" class="size-3.5" />
                 Copy

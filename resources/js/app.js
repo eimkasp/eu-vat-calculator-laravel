@@ -32,8 +32,8 @@ const systemPrefersDark = () => window.matchMedia('(prefers-color-scheme: dark)'
 
 function applyTheme(mode) {
     const dark = mode === 'dark' || (mode !== 'light' && systemPrefersDark());
-    document.documentElement.classList.toggle('dark', dark);
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#0b1220' : '#0a2a7a');
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#151b26' : '#f9fafc');
 }
 
 async function copyText(text) {
@@ -349,6 +349,12 @@ document.addEventListener('alpine:init', () => {
         },
         get netShare() {
             return this.result.gross > 0 ? Math.round((this.result.net / this.result.gross) * 1000) / 10 : 100;
+        },
+        // The meter under the result: fifty cells, the VAT share filled and the net share ruled.
+        get meterCells() {
+            const vat = Math.min(50, Math.max(0, Math.round((100 - this.netShare) / 2)));
+
+            return { net: '░'.repeat(50 - vat), vat: '█'.repeat(vat) };
         },
         get filteredCountries() {
             const query = normalizeSearch(this.countryQuery);
@@ -706,6 +712,137 @@ document.addEventListener('alpine:init', () => {
                 this.elapsed = Math.round(performance.now() - started);
                 this.loading = false;
             }
+        },
+    }));
+
+    // The hero ground: an ASCII field on an 8 × 16 cell. Raw, drifting cells on the left resolve into one column per
+    // member state on the right, each as tall as its standard rate. Paused off screen, one still under reduced motion.
+    Alpine.data('rateField', (rates = []) => ({
+        init() {
+            const ground = this.$el;
+            const host = ground.parentElement;
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            const ramp = ' .:-=+*#%@';
+            const sorted = [...rates].map(Number).filter((rate) => rate > 0).sort((a, b) => a - b);
+            const low = sorted[0] ?? 0;
+            const high = sorted[sorted.length - 1] ?? 1;
+            const still = prefersReducedMotion();
+            let columns = 0;
+            let rows = 0;
+            let colors = [];
+            let time = 0;
+            let frame = 0;
+            let last = 0;
+            let visible = true;
+            let pointer = null;
+
+            const readColors = () => {
+                const style = getComputedStyle(ground);
+                colors = ['--ui-glyph-1', '--ui-glyph-2', '--ui-glyph-3', '--ui-glyph-4', '--ui-action-deep'].map((name) => style.getPropertyValue(name).trim());
+            };
+
+            const resize = () => {
+                const ratio = Math.min(window.devicePixelRatio || 1, 2);
+                canvas.width = ground.clientWidth * ratio;
+                canvas.height = ground.clientHeight * ratio;
+                columns = Math.ceil(ground.clientWidth / 8);
+                rows = Math.ceil(ground.clientHeight / 16);
+                context.setTransform(ratio, 0, 0, ratio, 0, 0);
+                context.font = '500 12px "JetBrains Mono Variable", ui-monospace, monospace';
+                context.textBaseline = 'top';
+            };
+
+            const density = (column, row) => {
+                const x = column / columns;
+                const start = Math.floor(columns * 0.55);
+                let value = (Math.sin(column * 0.37 + time * 0.9) * Math.cos(row * 0.53 - time * 0.6) + Math.sin((column + row) * 0.11 + time * 0.4)) * 0.22 + 0.42;
+                value *= Math.min(1, Math.max(0, (x - 0.3) / 0.4)) * Math.min(1, (rows - row) / (rows * 0.2)) * 0.6;
+
+                if (sorted.length && column >= start) {
+                    const width = (columns - start) / sorted.length;
+                    const index = Math.min(sorted.length - 1, Math.floor((column - start) / width));
+                    const height = 0.3 + ((sorted[index] - low) / (high - low || 1)) * 0.55;
+                    const floor = rows - 4;
+                    const top = floor * (1 - height);
+
+                    if ((column - start) % width < width - 1 && row >= top && row < floor) {
+                        value = Math.max(value, 0.95 - ((row - top) / (floor - top)) * 0.5);
+                    }
+                }
+
+                if (pointer) {
+                    const distance = Math.hypot(column - pointer.column, (row - pointer.row) * 2);
+                    value += distance < 9 ? (1 - distance / 9) * 0.3 : 0;
+                }
+
+                return Math.min(1, value);
+            };
+
+            const draw = () => {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+                for (let column = 0; column < columns; column++) {
+                    for (let row = 0; row < rows; row++) {
+                        const value = density(column, row);
+
+                        if (value < 0.14) {
+                            continue;
+                        }
+
+                        context.fillStyle = value > 0.9 ? colors[4] : colors[Math.min(3, Math.floor(value * 4))];
+                        context.fillText(ramp[Math.round(value * (ramp.length - 1))], column * 8, row * 16);
+                    }
+                }
+            };
+
+            const tick = (now) => {
+                frame = 0;
+
+                if (!visible || document.hidden) {
+                    return;
+                }
+
+                if (now - last > 33) {
+                    last = now;
+                    time += 0.035;
+                    draw();
+                }
+
+                frame = requestAnimationFrame(tick);
+            };
+
+            const play = () => {
+                if (!still && !frame) {
+                    frame = requestAnimationFrame(tick);
+                }
+            };
+
+            ground.append(canvas);
+            readColors();
+            resize();
+            draw();
+            ground.dataset.ready = '';
+
+            new ResizeObserver(() => { resize(); draw(); }).observe(ground);
+            new MutationObserver(() => { readColors(); draw(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+            document.fonts?.ready.then(draw);
+
+            if (still) {
+                return;
+            }
+
+            new IntersectionObserver(([entry]) => {
+                visible = entry.isIntersecting;
+                visible ? play() : cancelAnimationFrame(frame);
+            }).observe(ground);
+            document.addEventListener('visibilitychange', play);
+            host.addEventListener('pointermove', (event) => {
+                const box = ground.getBoundingClientRect();
+                pointer = { column: (event.clientX - box.left) / 8, row: (event.clientY - box.top) / 16 };
+            });
+            host.addEventListener('pointerleave', () => { pointer = null; });
+            play();
         },
     }));
 

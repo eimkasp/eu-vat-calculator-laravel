@@ -163,7 +163,7 @@ it('exports valid Design Tokens Community Group JSON', function () {
     $aliases = [];
     $paths = assertDtcgGroup($document, aliases: $aliases);
 
-    expect($paths)->toContain('color.semantic.surface', 'color.fixed.gold', 'font.sans', 'typography.display', 'radius.control', 'shadow.card', 'easing.out-quint', 'duration.colour', 'size.container');
+    expect($paths)->toContain('color.semantic.surface', 'color.fixed.code', 'font.sans', 'typography.display', 'radius.control', 'shadow.card', 'easing.out-quint', 'duration.colour', 'size.container');
 
     foreach (array_unique($aliases) as $alias) {
         expect($alias)->toMatch('/^\{[a-z0-9.-]+\}$/')
@@ -203,16 +203,16 @@ it('generates the tokens from the stylesheet and agrees with DESIGN.md', functio
 
     expect($document['typography'])->toHaveKeys(array_keys($guide->typeScale()))
         ->and($document['typography']['display']['$value'])->toMatchArray([
-            'fontFamily' => '{font.sans}',
+            'fontFamily' => '{font.display}',
             'fontSize' => ['value' => 3.0, 'unit' => 'rem'],
-            'fontWeight' => 700,
-            'lineHeight' => 1.08,
+            'fontWeight' => 600,
+            'lineHeight' => 1.04,
         ])
-        ->and($document['font']['sans']['$value'][0])->toBe('Inter Variable')
+        ->and($document['font']['sans']['$value'][0])->toBe('IBM Plex Sans Variable')
         ->and($document['easing']['out-quint']['$value'])->toBe([0.22, 1.0, 0.36, 1.0])
         ->and($document['duration'])->toBe([
             '$type' => 'duration',
-            'colour' => ['$value' => ['value' => 150, 'unit' => 'ms']],
+            'colour' => ['$value' => ['value' => 120, 'unit' => 'ms']],
             'position' => ['$value' => ['value' => 200, 'unit' => 'ms']],
         ])
         ->and($document['size']['container']['$value'])->toBe(['value' => 80.0, 'unit' => 'rem'])

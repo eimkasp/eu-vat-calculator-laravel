@@ -4,7 +4,13 @@ import { exampleParameters, renderExample } from '../../render.js';
 export default {
     title: "Components/Surfaces",
     tags: ['autodocs'],
-    parameters: { docs: { description: { component: "Opaque white paper with hairline borders. Cards hold content, the raised card holds the primary task, popovers float, and brand panels sit on navy." } } },
+    parameters: { docs: { description: { component: "Opaque paper with hairline borders. Cards hold content, the cut raised card holds the primary task, popovers float, the tool hero is paper over the rate field, and brand panels sit only inside a graphite band." } } },
+};
+
+export const SurfaceHeroField = {
+    name: "Tool hero and the rate field",
+    render: () => renderExample("surface-hero-field"),
+    parameters: exampleParameters("surface-hero-field"),
 };
 
 export const SurfaceCard = {
@@ -29,6 +35,12 @@ export const SurfaceBrandPanel = {
     name: "Brand panel",
     render: () => renderExample("surface-brand-panel"),
     parameters: exampleParameters("surface-brand-panel"),
+};
+
+export const SurfaceCuts = {
+    name: "Cut corners",
+    render: () => renderExample("surface-cuts"),
+    parameters: exampleParameters("surface-cuts"),
 };
 
 export const SurfaceNote = {

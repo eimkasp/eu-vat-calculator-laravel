@@ -79,20 +79,23 @@
         return this.tab === 'single' ? '/api/vat/validation/validate' : '/api/vat/validation/batch';
     }
 }">
-    <section class="hero-canvas">
+    <section class="hero-field">
         <x-hero-backdrop />
-        <div class="app-container relative pb-12 pt-6 sm:pb-16 sm:pt-8">
-            <x-site-breadcrumbs :items="[__('ui.vies_page.nav_title') => locale_path('/vat-number-validator'), 'API documentation' => '']" variant="dark" />
-            <div class="mt-6 max-w-3xl">
-                <p class="app-kicker">REST API · No auth required · Free</p>
-                <h1 class="mt-3 text-4xl font-bold tracking-[-0.03em] text-white sm:text-5xl sm:leading-[1.08]">EU VAT validation API</h1>
-                <p class="mt-4 max-w-2xl text-base leading-7 text-white/85 sm:text-lg">Validate EU VAT numbers programmatically against the official VIES database. Free to use, no API key and CORS enabled.</p>
+        <div class="app-container relative pb-10 pt-6 sm:pb-14 sm:pt-8">
+            <x-site-breadcrumbs :items="[__('ui.vies_page.nav_title') => locale_path('/vat-number-validator'), 'API documentation' => '']" />
+            <div class="mt-6 max-w-2xl">
+                <h1 class="text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-5xl sm:leading-[1.04]">EU VAT validation API</h1>
+                <p class="mt-4 max-w-[54ch] text-base leading-7 text-ink-muted sm:text-lg">Validate EU VAT numbers programmatically against the official VIES database. Free to use, no API key and CORS enabled.</p>
+                <ul class="mt-3 flex flex-wrap gap-x-5 gap-y-1.5 font-display text-[0.8125rem] font-medium text-ink-muted">
+                    <li class="inline-flex items-center gap-1.5"><x-ui.icon name="code" class="size-3.5 text-action" />REST API</li>
+                    <li class="inline-flex items-center gap-1.5"><x-ui.icon name="lock" class="size-3.5 text-action" />No auth required</li>
+                </ul>
             </div>
-            <dl class="mt-8 grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3">
+            <dl class="mt-8 grid max-w-3xl grid-cols-1 divide-y divide-line overflow-hidden rounded-card border border-line bg-surface sm:grid-cols-3 sm:divide-x sm:divide-y-0">
                 @foreach([['Free', 'No API key or account needed'], ['10 per batch', 'Validate up to 10 numbers at once'], ['27 countries', 'Every EU member state']] as [$value, $label])
-                    <div class="app-brand-panel flex flex-col-reverse p-4">
-                        <dt class="mt-1 text-sm text-white/70">{{ $label }}</dt>
-                        <dd class="tabular text-2xl font-bold text-white">{{ $value }}</dd>
+                    <div class="flex flex-col-reverse px-5 py-4">
+                        <dt class="mt-1 text-sm text-ink-muted">{{ $label }}</dt>
+                        <dd class="tabular font-display text-2xl font-semibold tracking-[-0.02em] text-ink">{{ $value }}</dd>
                     </div>
                 @endforeach
             </dl>
@@ -103,7 +106,7 @@
         <div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-[minmax(0,1fr)_20rem]">
             <div class="min-w-0 space-y-10">
                 <section id="base-url" class="scroll-mt-24" aria-labelledby="base-url-heading">
-                    <h2 id="base-url-heading" class="text-xl font-bold text-ink">Base URL</h2>
+                    <h2 id="base-url-heading" class="text-xl font-semibold text-ink">Base URL</h2>
                     <div class="app-code mt-4 flex items-center gap-3 py-1.5 pl-4 pr-1.5">
                         <code class="min-w-0 flex-1 truncate font-mono text-sm text-syntax-ok">{{ $baseUrl }}</code>
                         <button type="button" class="pressable inline-flex h-8 shrink-0 items-center gap-1.5 rounded-control px-2.5 text-xs font-semibold text-white/80 hover:bg-white/10 hover:text-white" x-on:click="$copy(@js($baseUrl), 'Base URL copied')">
@@ -115,7 +118,7 @@
                 </section>
 
                 <section id="endpoints" class="scroll-mt-24 space-y-4" aria-labelledby="endpoints-heading">
-                    <h2 id="endpoints-heading" class="text-xl font-bold text-ink">Endpoints</h2>
+                    <h2 id="endpoints-heading" class="text-xl font-semibold text-ink">Endpoints</h2>
 
                     <article class="app-surface overflow-hidden" aria-labelledby="endpoint-validate">
                         <header class="flex flex-wrap items-center gap-3 border-b border-line bg-surface-subtle px-5 py-3.5">
@@ -250,7 +253,7 @@
                 </section>
 
                 <section id="rates-api" class="scroll-mt-24 space-y-4" aria-labelledby="rates-api-heading">
-                    <h2 id="rates-api-heading" class="text-xl font-bold text-ink">VAT rates and calculator API</h2>
+                    <h2 id="rates-api-heading" class="text-xl font-semibold text-ink">VAT rates and calculator API</h2>
                     <p class="max-w-[72ch] text-sm leading-6 text-ink-muted">Every EU VAT rate and a calculator as JSON, with no API key. Rates follow the European Commission's data and the open dataset is synced every week; each country carries its <code class="rounded-xs bg-surface-muted px-1 font-mono">last_updated</code> time.</p>
                     <div class="app-surface relative overflow-x-auto" tabindex="0" role="group" aria-labelledby="rates-api-heading">
                         <table class="app-table min-w-[34rem]">
@@ -277,7 +280,7 @@
                     </div>
                     <div class="grid gap-4 lg:grid-cols-2">
                         <div class="min-w-0">
-                            <h3 class="app-eyebrow break-all">GET /api/v1/countries/germany</h3>
+                            <h3 class="break-all font-mono text-xs font-medium text-ink-muted">GET /api/v1/countries/germany</h3>
                             <pre tabindex="0" class="app-code mt-2 overflow-x-auto p-4 font-mono text-xs leading-5 text-syntax-string">{
   "data": {
     "name": "Germany",
@@ -297,7 +300,7 @@
 }</pre>
                         </div>
                         <div class="min-w-0">
-                            <h3 class="app-eyebrow break-all">GET /api/v1/calculate?amount=100&amp;country=DE</h3>
+                            <h3 class="break-all font-mono text-xs font-medium text-ink-muted">GET /api/v1/calculate?amount=100&amp;country=DE</h3>
                             <pre tabindex="0" class="app-code mt-2 overflow-x-auto p-4 font-mono text-xs leading-5 text-syntax-string">{
   "data": {
     "country": "Germany",
@@ -316,7 +319,7 @@
                 </section>
 
                 <section id="playground" class="scroll-mt-24" aria-labelledby="playground-heading">
-                    <h2 id="playground-heading" class="text-xl font-bold text-ink">Interactive playground</h2>
+                    <h2 id="playground-heading" class="text-xl font-semibold text-ink">Interactive playground</h2>
                     <div class="app-surface mt-4 space-y-4 p-5">
                         <div class="flex flex-wrap gap-2" role="group" aria-label="Request type">
                             <button type="button" class="app-chip" :class="tab === 'single' && 'app-chip-active'" :aria-pressed="(tab === 'single').toString()" aria-pressed="true" x-on:click="tab = 'single'; response = null; error = null">Single validation</button>
@@ -374,7 +377,7 @@
                 </section>
 
                 <section id="response-fields" class="scroll-mt-24" aria-labelledby="response-fields-heading">
-                    <h2 id="response-fields-heading" class="text-xl font-bold text-ink">Response fields</h2>
+                    <h2 id="response-fields-heading" class="text-xl font-semibold text-ink">Response fields</h2>
                     <div class="app-surface relative mt-4 overflow-x-auto" tabindex="0" role="group" aria-labelledby="response-fields-heading">
                         <table class="app-table min-w-[34rem]">
                             <thead>
@@ -407,7 +410,7 @@
                 </section>
 
                 <section id="errors" class="scroll-mt-24" aria-labelledby="errors-heading">
-                    <h2 id="errors-heading" class="text-xl font-bold text-ink">Error responses</h2>
+                    <h2 id="errors-heading" class="text-xl font-semibold text-ink">Error responses</h2>
                     <div class="app-surface relative mt-4 overflow-x-auto" tabindex="0" role="group" aria-labelledby="errors-heading">
                         <table class="app-table min-w-[28rem]">
                             <thead>
@@ -433,7 +436,7 @@
                 </section>
 
                 <section id="examples" class="scroll-mt-24" x-data="{ lang: 'curl' }" aria-labelledby="examples-heading">
-                    <h2 id="examples-heading" class="text-xl font-bold text-ink">Code examples</h2>
+                    <h2 id="examples-heading" class="text-xl font-semibold text-ink">Code examples</h2>
                     <div class="mt-4 flex flex-wrap gap-2" role="group" aria-label="Language">
                         @foreach(['curl' => 'cURL', 'javascript' => 'JavaScript', 'php' => 'PHP', 'python' => 'Python'] as $lang => $label)
                             <button type="button" @class(['app-chip', 'app-chip-active' => $loop->first]) :class="{ 'app-chip-active': lang === @js($lang) }" aria-pressed="{{ $loop->first ? 'true' : 'false' }}" :aria-pressed="(lang === @js($lang)).toString()" x-on:click="lang = @js($lang)">{{ $label }}</button>
@@ -493,7 +496,7 @@
 
             <aside class="space-y-4 lg:sticky lg:top-24">
                 <nav class="app-surface p-5" aria-labelledby="docs-toc">
-                    <h2 id="docs-toc" class="text-sm font-bold text-ink">On this page</h2>
+                    <h2 id="docs-toc" class="text-sm font-semibold text-ink">On this page</h2>
                     <ul class="-mx-2 mt-2 space-y-0.5 text-sm">
                         @foreach(['base-url' => 'Base URL', 'endpoints' => 'Endpoints', 'rates-api' => 'VAT rates and calculator API', 'playground' => 'Interactive playground', 'response-fields' => 'Response fields', 'errors' => 'Error responses', 'examples' => 'Code examples'] as $anchor => $label)
                             <li>
@@ -507,7 +510,7 @@
                 </nav>
 
                 <section class="app-surface p-5" aria-labelledby="docs-reference">
-                    <h2 id="docs-reference" class="text-sm font-bold text-ink">Quick reference</h2>
+                    <h2 id="docs-reference" class="text-sm font-semibold text-ink">Quick reference</h2>
                     <ul class="mt-3 space-y-2">
                         @foreach([['POST', '/api/vat/validation/validate'], ['POST', '/api/vat/validation/batch'], ['GET', '/api/vat/validation/health']] as [$method, $path])
                             <li class="flex items-center gap-2">
@@ -519,7 +522,7 @@
                 </section>
 
                 <section class="app-surface p-5" aria-labelledby="docs-rates">
-                    <h2 id="docs-rates" class="text-sm font-bold text-ink">VAT rates API</h2>
+                    <h2 id="docs-rates" class="text-sm font-semibold text-ink">VAT rates API</h2>
                     <p class="mt-1.5 text-xs leading-5 text-ink-muted">Need rates rather than validation? The v1 API returns every rate type, and its OpenAPI description works with code generators.</p>
                     <ul class="mt-3 space-y-2">
                         <li class="flex items-center gap-2">
@@ -534,7 +537,7 @@
                 </section>
 
                 <nav class="app-surface p-5" aria-labelledby="docs-related">
-                    <h2 id="docs-related" class="text-sm font-bold text-ink">Related</h2>
+                    <h2 id="docs-related" class="text-sm font-semibold text-ink">Related</h2>
                     <ul class="-mx-2 mt-2 space-y-0.5 text-sm">
                         @foreach([
                             ['shield-check', __('ui.nav.vat_number_validator'), locale_path('/vat-number-validator')],

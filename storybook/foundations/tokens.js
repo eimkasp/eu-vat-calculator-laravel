@@ -52,13 +52,13 @@ export function colours(groupName, intro) {
 }
 
 export function typography() {
-    const root = page('Type scale', 'Inter Variable with the optical-size axis. Headings stay one colour, and every figure that can change is set in tabular numbers.');
+    const root = page('Type scale', 'Familjen Grotesk at weight 600 for headings and figures, IBM Plex Sans for reading and JetBrains Mono for machine values. Headings stay one colour, labels stay in sentence case, and every figure that can change is set in tabular numbers.');
     const list = element('div', 'mt-6 app-surface divide-y divide-line');
 
     for (const [name, token] of entries(tokens.typography)) {
         const value = token.$value;
         const row = element('div', 'grid gap-2 p-4 sm:grid-cols-[10rem_minmax(0,1fr)] sm:items-baseline');
-        const sample = element('p', 'min-w-0 text-ink', name === 'kicker' ? 'EU MEMBER' : 'Germany VAT calculator 19%');
+        const sample = element('p', 'min-w-0 text-ink', name === 'label' ? 'Amount (excl. VAT)' : 'Germany VAT calculator 19%');
 
         sample.style.fontSize = dimension(value.fontSize);
         sample.style.fontWeight = value.fontWeight;
@@ -74,7 +74,7 @@ export function typography() {
 }
 
 export function shape() {
-    const root = page('Radius and elevation', 'Three radius tokens keep corners square and precise; depth comes from hairline borders first and three shadows.');
+    const root = page('Radius and elevation', 'Three radius tokens: 6px for keys, fields and chips, 8px for cards and panels; the cut and cut-sm utilities bevel two opposite corners. Depth comes from hairlines first, then three shadows; keys add a 2px bottom edge.');
     const grid = element('div', 'mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3');
 
     for (const [name, token] of entries(tokens.radius)) {

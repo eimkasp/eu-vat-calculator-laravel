@@ -1,66 +1,38 @@
+/* Hallmark · shape: app screen · genre: modern-minimal · theme: Cobalt (deal 1/3, seed vat-rates-reference-desk-ae84·8d8ac6ef·2026-10-23·r0) · redesign: full · job: calculate
+ * hero: Workbench (the head on the left, the working calculator below it, on the rate field) · nav: edge-aligned paper bar, wordmark, five destinations and a search key · footer: paper mast, the wordmark over four link columns · imagery: the product (a field drawn from the 27 standard rates) · signature: the VAT total over a fifty-cell meter
+ * axes: light/grotesk-sans/cool · posture: restrained · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E5 S4 R5 V4 · weakest: H, the hero is the calculator people already come for; kept it as the first object and drew the field behind it from the real rates instead of adding a picture */
+/* Hallmark · waive 37 · the fourth "family" is the --font-weight-* scale Tailwind reads from @theme; three faces are declared: Familjen Grotesk, IBM Plex Sans, JetBrains Mono */
+/* Hallmark · waive 49b · footer link labels wrap at 320px in the two-column link grid; one column would double the footer on phones */
+/* Hallmark · waive 39b · the 24px control is the sr-only skip link, which only appears on focus at 44px */
+/* Hallmark · kept-check note · the 8 "missing" fields are the same inputs under new Livewire component ids (#amount-…, #country-search-…, #custom-rate-…, #vat-change-email-…), which change on every request; names and wiring are unchanged */
+/* Hallmark · dropped eu-vat-calculator-background-sm.jpg (the mountain hero photo) · Cobalt draws the ground from the product's own rates; the file stays in resources/images for the v1/v2 archives */
+/* Hallmark · dropped "country_page.eu_guidance" eyebrow above the country guide heading · 54 names it; the heading already says it is the country's VAT guide */
+/* Hallmark · dropped "home_page.hero_badge" (2026 rates · 27 member states) · 54 and 63 name it; the year and the source sit in the freshness line under the calculator */
 @import 'tailwindcss' source(none);
-@import '@fontsource-variable/inter/opsz.css';
+@import '@fontsource-variable/familjen-grotesk/wght.css';
+@import '@fontsource-variable/ibm-plex-sans/wght.css';
+@import '@fontsource-variable/jetbrains-mono/wght.css';
 
-/* Local fonts sized to Inter's metrics, shown until Inter loads so the swap does not reflow text (Arial and its
-   metric twins on desktop and iOS, Roboto on Android). Regular, medium and bold text differ in width, so each weight
-   range has its own face; the sizes were tuned on the benchmark pages in English, German and Maltese. */
+/* Local faces sized to the web fonts' metrics, shown until they load so the swap does not reflow text (Arial and its
+   metric twins on desktop and iOS, Roboto on Android). IBM Plex Sans sets wider than Arial; Familjen Grotesk narrower. */
 @font-face {
-    font-family: 'Inter Fallback';
-    src: local('Arial'), local('ArialMT'), local('Liberation Sans'), local('Arimo');
-    font-weight: 100 449;
-    size-adjust: 104.5%;
-    ascent-override: 92.70%;
-    descent-override: 23.10%;
-    line-gap-override: 0%;
-}
-
-@font-face {
-    font-family: 'Inter Fallback';
-    src: local('Arial'), local('ArialMT'), local('Liberation Sans'), local('Arimo');
-    font-weight: 450 549;
-    size-adjust: 107%;
-    ascent-override: 90.54%;
-    descent-override: 22.56%;
-    line-gap-override: 0%;
-}
-
-@font-face {
-    font-family: 'Inter Fallback';
-    src: local('Arial Bold'), local('Arial-BoldMT'), local('Liberation Sans Bold'), local('LiberationSans-Bold'), local('Arimo Bold');
-    font-weight: 550 900;
-    size-adjust: 99%;
-    ascent-override: 97.85%;
-    descent-override: 24.38%;
-    line-gap-override: 0%;
-}
-
-@font-face {
-    font-family: 'Inter Fallback Roboto';
-    src: local('Roboto'), local('Roboto-Regular');
-    font-weight: 100 449;
+    font-family: 'Plex Fallback';
+    src: local('Arial'), local('ArialMT'), local('Liberation Sans'), local('Arimo'), local('Roboto');
+    font-weight: 100 900;
     size-adjust: 106%;
-    ascent-override: 91.39%;
-    descent-override: 22.77%;
+    ascent-override: 96.7%;
+    descent-override: 25.9%;
     line-gap-override: 0%;
 }
 
 @font-face {
-    font-family: 'Inter Fallback Roboto';
-    src: local('Roboto Medium'), local('Roboto-Medium');
-    font-weight: 450 549;
-    size-adjust: 106%;
-    ascent-override: 91.39%;
-    descent-override: 22.77%;
-    line-gap-override: 0%;
-}
-
-@font-face {
-    font-family: 'Inter Fallback Roboto';
-    src: local('Roboto Bold'), local('Roboto-Bold');
-    font-weight: 550 900;
-    size-adjust: 104%;
-    ascent-override: 93.15%;
-    descent-override: 23.21%;
+    font-family: 'Familjen Fallback';
+    src: local('Arial'), local('ArialMT'), local('Liberation Sans'), local('Arimo'), local('Roboto');
+    font-weight: 100 900;
+    size-adjust: 97%;
+    ascent-override: 97.9%;
+    descent-override: 28.9%;
     line-gap-override: 0%;
 }
 
@@ -69,33 +41,37 @@
 @source '../../vendor/livewire/livewire/src/Features/SupportPagination/views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views';
 
-@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
 @theme {
-    --font-sans: 'Inter Variable', 'Inter Fallback', 'Inter Fallback Roboto', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
-    --font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Menlo, Consolas, monospace;
+    --font-sans: 'IBM Plex Sans Variable', 'Plex Fallback', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+    --font-display: 'Familjen Grotesk Variable', 'Familjen Fallback', 'IBM Plex Sans Variable', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, Consolas, monospace;
 
-    --color-gold: #ffcc00;
+    /* Three weights in running use: 400 for reading, 500 for labels and titles, 600 for heads and figures. */
+    --font-weight-semibold: 600;
+    --font-weight-bold: 600;
+    --font-weight-extrabold: 600;
 
-    --color-code: oklch(0.17 0.025 264);
-    --color-code-raised: oklch(0.225 0.027 264);
-    --color-code-muted: oklch(0.3 0.027 264);
+    --color-code: oklch(0.21 0.024 262);
+    --color-code-raised: oklch(0.265 0.026 262);
+    --color-code-muted: oklch(0.34 0.03 262);
 
-    --color-syntax-keyword: oklch(0.83 0.1 232);
-    --color-syntax-function: oklch(0.9 0.15 100);
-    --color-syntax-string: oklch(0.87 0.14 154);
-    --color-syntax-literal: oklch(0.85 0.13 72);
-    --color-syntax-comment: oklch(0.72 0.03 260);
-    --color-syntax-ok: oklch(0.78 0.15 163);
-    --color-syntax-error: oklch(0.74 0.15 18);
+    --color-syntax-keyword: oklch(0.76 0.13 254);
+    --color-syntax-function: oklch(0.93 0.01 250);
+    --color-syntax-string: oklch(0.84 0.07 236);
+    --color-syntax-literal: oklch(0.82 0.09 266);
+    --color-syntax-comment: oklch(0.69 0.022 256);
+    --color-syntax-ok: oklch(0.8 0.13 158);
+    --color-syntax-error: oklch(0.76 0.14 25);
 
-    --radius-control: 0.25rem;
-    --radius-card: 0.375rem;
+    --radius-control: 0.375rem;
+    --radius-card: 0.5rem;
     --radius-panel: 0.5rem;
 
-    --shadow-card: 0 1px 2px oklch(0.2 0.03 262 / 0.06);
-    --shadow-workflow: 0 1px 2px oklch(0.2 0.04 262 / 0.1), 0 12px 32px -12px oklch(0.15 0.06 262 / 0.45);
-    --shadow-floating: 0 2px 6px oklch(0.2 0.03 262 / 0.08), 0 14px 32px -8px oklch(0.2 0.04 262 / 0.22);
+    --shadow-card: 0 1px 2px oklch(0.21 0.028 262 / 0.06);
+    --shadow-workflow: 0 1px 2px oklch(0.21 0.028 262 / 0.08), 0 16px 32px -20px oklch(0.21 0.028 262 / 0.35);
+    --shadow-floating: 0 2px 6px oklch(0.21 0.028 262 / 0.08), 0 14px 32px -8px oklch(0.21 0.028 262 / 0.22);
 
     --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
 
@@ -140,35 +116,53 @@
     --color-warning-soft: var(--ui-warning-soft);
     --color-danger: var(--ui-danger);
     --color-danger-soft: var(--ui-danger-soft);
+    --color-button-edge: var(--ui-button-edge);
+    --color-key-face: var(--ui-key-face);
+
+    /* Keys stand on a real bottom edge and sink when pressed. */
+    --shadow-key: 0 2px 0 0 var(--ui-key-edge), 0 4px 8px -4px oklch(0.21 0.028 262 / 0.22);
+    --shadow-key-accent: 0 2px 0 0 var(--ui-button-edge), 0 4px 8px -4px oklch(0.3 0.12 260 / 0.4);
+    --shadow-key-press: inset 0 1px 2px oklch(0.21 0.028 262 / 0.16);
 }
 
 :root,
-.theme-light {
+[data-theme='light'] {
     color-scheme: light;
 
-    --ui-workspace: oklch(0.972 0.005 258);
-    --ui-surface: oklch(1 0 0);
-    --ui-surface-subtle: oklch(0.982 0.004 258);
-    --ui-surface-muted: oklch(0.955 0.007 258);
-    --ui-line: oklch(0.91 0.01 258);
-    --ui-line-strong: oklch(0.84 0.014 258);
-    --ui-ink: oklch(0.21 0.035 262);
-    --ui-ink-muted: oklch(0.44 0.03 262);
-    --ui-ink-quiet: oklch(0.53 0.026 262);
-    --ui-brand: oklch(0.3 0.09 262);
-    --ui-brand-deep: oklch(0.245 0.075 262);
-    --ui-brand-soft: oklch(0.962 0.016 258);
-    --ui-action: oklch(0.49 0.17 261);
-    --ui-action-deep: oklch(0.42 0.15 261);
-    --ui-action-soft: oklch(0.958 0.018 258);
-    --ui-button: oklch(0.49 0.17 261);
-    --ui-button-hover: oklch(0.42 0.15 261);
+    --ui-workspace: oklch(0.986 0.005 250);
+    --ui-surface: oklch(0.997 0.002 250);
+    --ui-surface-subtle: oklch(0.972 0.006 252);
+    --ui-surface-muted: oklch(0.945 0.01 252);
+    --ui-line: oklch(0.9 0.009 252);
+    --ui-line-strong: oklch(0.83 0.012 252);
+    --ui-ink: oklch(0.21 0.028 262);
+    --ui-ink-muted: oklch(0.38 0.022 260);
+    --ui-ink-quiet: oklch(0.5 0.018 258);
+    --ui-brand: oklch(0.21 0.024 262);
+    --ui-brand-deep: oklch(0.185 0.022 262);
+    --ui-brand-soft: oklch(0.95 0.028 256);
+    --ui-action: oklch(0.52 0.19 258);
+    --ui-action-deep: oklch(0.43 0.2 262);
+    --ui-action-soft: oklch(0.95 0.028 256);
+    --ui-button: oklch(0.52 0.19 258);
+    --ui-button-hover: oklch(0.47 0.2 260);
+    --ui-button-edge: oklch(0.39 0.16 260);
+    --ui-key-face: oklch(0.997 0.002 250);
+    --ui-key-edge: oklch(0.8 0.016 254);
     --ui-success: oklch(0.5 0.12 158);
     --ui-success-soft: oklch(0.962 0.035 158);
     --ui-warning: oklch(0.53 0.15 48);
     --ui-warning-soft: oklch(0.968 0.04 78);
     --ui-danger: oklch(0.52 0.19 27);
     --ui-danger-soft: oklch(0.965 0.02 20);
+    --ui-glyph-1: oklch(0.89 0.025 254);
+    --ui-glyph-2: oklch(0.81 0.045 255);
+    --ui-glyph-3: oklch(0.7 0.085 256);
+    --ui-glyph-4: oklch(0.6 0.13 257);
+    --ui-graphite-glyph-1: oklch(0.27 0.03 262);
+    --ui-graphite-glyph-2: oklch(0.34 0.05 260);
+    --ui-graphite-glyph-3: oklch(0.45 0.09 258);
+    --ui-graphite-glyph-4: oklch(0.57 0.13 257);
     --ui-focus: var(--ui-action);
 
     /* Ordinal single-hue ramp for the VAT map (validated: monotone lightness, ΔL ≥ 0.06, light end ≥ 2:1 on white). */
@@ -179,32 +173,39 @@
     --map-4: #104281;
 }
 
-.dark {
+[data-theme='dark'] {
     color-scheme: dark;
 
-    --ui-workspace: oklch(0.16 0.016 262);
-    --ui-surface: oklch(0.2 0.02 262);
-    --ui-surface-subtle: oklch(0.222 0.022 262);
-    --ui-surface-muted: oklch(0.255 0.024 262);
-    --ui-line: oklch(0.3 0.024 262);
-    --ui-line-strong: oklch(0.38 0.028 262);
-    --ui-ink: oklch(0.965 0.006 258);
-    --ui-ink-muted: oklch(0.8 0.016 258);
-    --ui-ink-quiet: oklch(0.69 0.02 258);
-    --ui-brand: oklch(0.235 0.06 262);
-    --ui-brand-deep: oklch(0.195 0.045 262);
-    --ui-brand-soft: oklch(0.28 0.05 262);
-    --ui-action: oklch(0.76 0.11 255);
-    --ui-action-deep: oklch(0.84 0.08 252);
-    --ui-action-soft: oklch(0.29 0.055 262);
-    --ui-button: oklch(0.5 0.16 261);
-    --ui-button-hover: oklch(0.56 0.16 261);
+    --ui-workspace: oklch(0.165 0.02 262);
+    --ui-surface: oklch(0.205 0.024 262);
+    --ui-surface-subtle: oklch(0.225 0.025 262);
+    --ui-surface-muted: oklch(0.26 0.026 262);
+    --ui-line: oklch(0.3 0.026 262);
+    --ui-line-strong: oklch(0.4 0.03 260);
+    --ui-ink: oklch(0.95 0.008 250);
+    --ui-ink-muted: oklch(0.8 0.016 254);
+    --ui-ink-quiet: oklch(0.69 0.022 256);
+    --ui-brand: oklch(0.135 0.018 262);
+    --ui-brand-deep: oklch(0.12 0.016 262);
+    --ui-brand-soft: oklch(0.27 0.05 260);
+    --ui-action: oklch(0.76 0.13 254);
+    --ui-action-deep: oklch(0.85 0.08 252);
+    --ui-action-soft: oklch(0.29 0.06 260);
+    --ui-button: oklch(0.52 0.19 258);
+    --ui-button-hover: oklch(0.57 0.18 258);
+    --ui-button-edge: oklch(0.36 0.15 260);
+    --ui-key-face: oklch(0.255 0.026 262);
+    --ui-key-edge: oklch(0.12 0.016 262);
     --ui-success: oklch(0.8 0.14 158);
     --ui-success-soft: oklch(0.29 0.05 162);
     --ui-warning: oklch(0.83 0.13 75);
     --ui-warning-soft: oklch(0.3 0.055 60);
     --ui-danger: oklch(0.76 0.14 25);
     --ui-danger-soft: oklch(0.3 0.07 25);
+    --ui-glyph-1: oklch(0.27 0.03 262);
+    --ui-glyph-2: oklch(0.34 0.05 260);
+    --ui-glyph-3: oklch(0.45 0.09 258);
+    --ui-glyph-4: oklch(0.57 0.13 257);
 
     /* The ramp flips in dark mode so higher rates gain contrast against the dark surface. */
     --map-0: #184f95;
@@ -231,6 +232,11 @@
         border-color: var(--ui-line);
     }
 
+    html,
+    body {
+        overflow-x: clip;
+    }
+
     html {
         background-color: var(--ui-workspace);
         color: var(--ui-ink);
@@ -238,13 +244,14 @@
         -webkit-text-size-adjust: 100%;
         text-rendering: optimizeLegibility;
         scroll-padding-top: 5rem;
+        scrollbar-color: var(--ui-ink-quiet) var(--ui-workspace);
     }
 
     body {
         min-height: 100dvh;
         background-color: var(--ui-workspace);
         color: var(--ui-ink);
-        font-feature-settings: 'cv11' 1, 'ss03' 1;
+        caret-color: var(--ui-action);
     }
 
     h1,
@@ -253,10 +260,14 @@
     h4,
     h5,
     h6 {
-        font-weight: 700;
-        line-height: 1.2;
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-synthesis: none;
+        line-height: 1.15;
         letter-spacing: -0.02em;
         text-wrap: balance;
+        overflow-wrap: break-word;
+        min-width: 0;
     }
 
     p {
@@ -289,11 +300,11 @@
 }
 
 @utility on-brand {
-    --ui-focus: var(--color-gold);
+    --ui-focus: var(--ui-action);
 }
 
 @utility scrim {
-    background-color: color-mix(in oklab, var(--ui-brand-deep) 60%, transparent);
+    background-color: color-mix(in oklab, var(--ui-brand-deep) 55%, transparent);
 }
 
 @utility app-container {
@@ -313,13 +324,34 @@
 
 @utility tabular {
     font-variant-numeric: tabular-nums;
-    font-feature-settings: 'tnum' 1, 'cv11' 1;
 }
 
 @utility pressable {
-    transition-property: background-color, border-color, color, box-shadow, opacity;
-    transition-duration: 150ms;
+    transition-property: background-color, border-color, color, box-shadow, opacity, transform;
+    transition-duration: 120ms;
     transition-timing-function: var(--ease-out-quint);
+}
+
+/* Panels, chips and fields are cut on two opposite corners where the browser can draw it; elsewhere they keep the
+   plain radius. */
+@utility cut {
+    @supports (corner-shape: bevel) {
+        border-start-start-radius: 1rem;
+        border-end-end-radius: 1rem;
+        border-start-end-radius: 0.25rem;
+        border-end-start-radius: 0.25rem;
+        corner-shape: bevel round bevel round;
+    }
+}
+
+@utility cut-sm {
+    @supports (corner-shape: bevel) {
+        border-start-start-radius: 0.5rem;
+        border-end-end-radius: 0.5rem;
+        border-start-end-radius: 0.1875rem;
+        border-end-start-radius: 0.1875rem;
+        corner-shape: bevel round bevel round;
+    }
 }
 
 @layer components {
@@ -332,7 +364,7 @@
     }
 
     .app-surface-raised {
-        @apply rounded-panel border border-line bg-surface shadow-workflow;
+        @apply cut rounded-panel border border-line bg-surface shadow-workflow;
     }
 
     .app-popover {
@@ -358,71 +390,87 @@
         contain-intrinsic-size: auto var(--deferred-size, 40rem);
     }
 
+    /* A short context label, never above a heading on its own and never in tracked capitals. */
     .app-eyebrow {
-        @apply text-xs font-semibold tracking-[0.08em] text-action uppercase;
+        @apply font-display text-[0.8125rem] font-medium text-ink-muted;
     }
 
     .app-kicker {
-        @apply text-xs leading-5 font-semibold tracking-[0.08em] text-balance text-white/80 uppercase;
-    }
-
-    .app-kicker::before {
-        @apply me-2 inline-block size-2 bg-gold align-[0.0625em];
-        content: '';
+        @apply font-display text-[0.8125rem] leading-5 font-medium text-balance text-ink-muted;
     }
 
     .app-field,
     .app-select {
-        @apply min-h-11 w-full rounded-control border border-line-strong bg-surface px-3.5 text-ink transition-[border-color,box-shadow] duration-150 placeholder:text-ink-quiet hover:border-ink-quiet focus:border-action focus:ring-3 focus:ring-action/20 focus:outline-none disabled:cursor-not-allowed disabled:opacity-60;
+        @apply cut-sm min-h-11 w-full rounded-control border border-ink-quiet bg-surface px-3.5 text-ink transition-[border-color,box-shadow] duration-150 placeholder:text-ink-quiet hover:border-ink-muted focus:border-action focus:ring-3 focus:ring-action/20 focus:outline-none disabled:cursor-not-allowed disabled:opacity-60;
     }
 
     .app-select {
         @apply appearance-none bg-[length:1rem] bg-[right_0.875rem_center] bg-no-repeat pr-10;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23697386' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    }
+
+    /* Buttons are keys: a face on a 2px bottom edge that lifts 1px on hover and sinks on press. */
+    .app-button-primary,
+    .app-button-secondary,
+    .app-button-inverse {
+        @apply pressable inline-flex min-h-11 items-center justify-center gap-2 rounded-control border px-5 font-display text-sm font-medium hover:-translate-y-px disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0;
     }
 
     .app-button-primary {
-        @apply pressable inline-flex min-h-11 items-center justify-center gap-2 rounded-control bg-button px-5 text-sm font-semibold text-white hover:bg-button-hover disabled:cursor-not-allowed disabled:opacity-60;
+        @apply border-button-edge bg-button text-white shadow-key-accent hover:bg-button-hover;
     }
 
     .app-button-secondary {
-        @apply pressable inline-flex min-h-11 items-center justify-center gap-2 rounded-control border border-line-strong bg-surface px-5 text-sm font-semibold text-ink shadow-card hover:border-ink-quiet hover:bg-surface-subtle;
+        @apply border-line-strong bg-key-face text-ink shadow-key hover:border-ink-quiet;
+    }
+
+    .app-button-primary:active,
+    .app-button-secondary:active,
+    .app-button-inverse:active,
+    .app-chip:active {
+        transform: translateY(2px);
+        box-shadow: var(--shadow-key-press);
+    }
+
+    .app-button-secondary:active {
+        background-color: var(--ui-surface-muted);
     }
 
     .app-button-ghost {
-        @apply pressable inline-flex min-h-11 items-center justify-center gap-2 rounded-control px-3.5 text-sm font-semibold text-ink-muted hover:bg-surface-muted hover:text-ink;
+        @apply pressable inline-flex min-h-11 items-center justify-center gap-2 rounded-control px-3.5 font-display text-sm font-medium text-ink-muted hover:bg-surface-muted hover:text-ink active:bg-line;
     }
 
     .app-button-inverse {
-        @apply pressable inline-flex min-h-11 items-center justify-center gap-2 rounded-control bg-white px-5 text-sm font-semibold text-brand-deep hover:bg-white/90;
+        @apply border-white bg-white text-brand-deep shadow-[0_2px_0_0_var(--ui-key-edge)] hover:bg-white/90;
     }
 
     .app-button-on-brand {
-        @apply pressable inline-flex min-h-11 items-center justify-center gap-2 rounded-control border border-white/30 px-5 text-sm font-semibold text-white hover:border-white/60 hover:bg-white/10;
+        @apply pressable inline-flex min-h-11 items-center justify-center gap-2 rounded-control border border-white/30 px-5 font-display text-sm font-medium text-white hover:border-white/60 hover:bg-white/10 active:bg-white/15;
     }
 
     .app-chip {
-        @apply pressable inline-flex min-h-9 items-center gap-1.5 rounded-control border border-line-strong bg-surface px-3 text-[0.8125rem] font-semibold text-ink-muted hover:border-ink-quiet hover:text-ink;
+        @apply pressable cut-sm inline-flex min-h-9 items-center gap-1.5 rounded-control border border-line-strong bg-key-face px-3 font-display text-[0.8125rem] font-medium text-ink-muted shadow-key hover:-translate-y-px hover:border-ink-quiet hover:text-ink;
     }
 
     .app-chip-active {
-        @apply border-action bg-action-soft text-action-deep ring-1 ring-action ring-inset hover:border-action hover:text-action-deep;
+        @apply translate-y-0.5 border-action bg-action-soft text-action-deep shadow-key-press hover:translate-y-0.5 hover:border-action hover:text-action-deep;
     }
 
     .app-badge {
-        @apply inline-flex items-center gap-1 rounded-xs px-1.5 py-0.5 text-xs font-semibold whitespace-nowrap;
+        @apply inline-flex items-center gap-1 rounded-xs px-1.5 py-0.5 font-display text-xs font-medium whitespace-nowrap;
     }
 
     .app-note {
-        @apply flex gap-2.5 rounded-control bg-surface-muted px-3.5 py-3 text-sm leading-6 text-ink-muted;
+        @apply flex gap-2.5 rounded-control border border-line bg-surface-subtle px-3.5 py-3 text-sm leading-6 text-ink-muted;
     }
 
+    /* Two options as keys on a sunken tray; the chosen one is pressed in. */
     .app-segmented {
-        @apply relative inline-grid grid-cols-2 rounded-control border border-line-strong bg-surface-muted p-0.5;
+        @apply relative inline-grid grid-cols-2 rounded-control border border-line bg-surface-muted p-1 shadow-key-press;
     }
 
     .app-segmented-thumb {
-        @apply pointer-events-none absolute inset-y-0.5 left-0.5 w-[calc(50%-0.125rem)] rounded-xs bg-surface shadow-card ring-1 ring-line-strong;
+        @apply pointer-events-none absolute inset-y-1 left-1 w-[calc(50%-0.25rem)] rounded-xs border border-line-strong bg-key-face shadow-key;
         transition: transform 200ms var(--ease-out-quint);
     }
 
@@ -431,32 +479,32 @@
     }
 
     .app-segment {
-        @apply relative z-10 inline-flex h-9 items-center justify-center gap-1.5 px-4 text-sm font-semibold whitespace-nowrap text-ink-muted transition-colors duration-150 hover:text-ink aria-checked:text-ink;
+        @apply relative z-10 inline-flex h-9 items-center justify-center gap-1.5 px-4 font-display text-sm font-medium whitespace-nowrap text-ink-muted transition-colors duration-150 hover:text-ink aria-checked:text-ink;
     }
 
     .app-nav-link {
-        @apply relative inline-flex h-16 items-center gap-1 px-3 text-sm font-medium whitespace-nowrap text-white/80 transition-colors duration-150 hover:text-white;
+        @apply relative inline-flex h-16 items-center gap-1 px-3 font-display text-[0.9375rem] font-medium whitespace-nowrap text-ink-muted transition-colors duration-150 hover:text-ink;
     }
 
     .app-nav-link::after {
-        @apply absolute inset-x-3 bottom-0 h-[3px] bg-transparent transition-colors duration-150;
+        @apply absolute inset-x-3 bottom-0 h-0.5 bg-transparent transition-colors duration-150;
         content: '';
     }
 
     .app-nav-link-active {
-        @apply text-white;
+        @apply text-ink;
     }
 
     .app-nav-link-active::after {
-        @apply bg-gold;
+        @apply bg-action;
     }
 
     .app-tab {
-        @apply relative flex min-w-0 flex-col items-center justify-center gap-1 px-1 text-[0.6875rem] font-semibold text-ink-muted transition-colors duration-150 hover:text-ink;
+        @apply relative flex min-w-0 flex-col items-center justify-center gap-1 px-1 font-display text-xs font-medium text-ink-muted transition-colors duration-150 hover:text-ink;
     }
 
     .app-tab[aria-current='page'] {
-        @apply text-action;
+        @apply text-action-deep;
     }
 
     .app-tab[aria-current='page']::before {
@@ -465,19 +513,19 @@
     }
 
     .app-link {
-        @apply font-semibold text-action underline decoration-action/30 underline-offset-4 transition-colors hover:text-action-deep hover:decoration-current;
+        @apply font-medium text-action underline decoration-action/30 underline-offset-4 transition-colors hover:text-action-deep hover:decoration-current;
     }
 
     .app-kbd {
-        @apply inline-flex h-5 min-w-5 items-center justify-center rounded-xs border border-line-strong bg-surface-subtle px-1 font-sans text-[0.6875rem] font-semibold text-ink-muted;
+        @apply inline-flex h-5 min-w-5 items-center justify-center rounded-xs border border-line-strong bg-key-face px-1 font-mono text-[0.6875rem] font-medium text-ink-muted shadow-[0_1px_0_0_var(--ui-key-edge)];
     }
 
     .app-code {
-        @apply overflow-hidden rounded-card border border-white/10 bg-code text-white/90;
+        @apply overflow-hidden rounded-card border border-white/10 bg-code font-mono text-white/90;
     }
 
     .app-flag {
-        @apply inline-block shrink-0 overflow-hidden rounded-xs object-cover shadow-[0_0_0_1px_oklch(0.21_0.03_264/0.12)];
+        @apply inline-block shrink-0 overflow-hidden rounded-xs object-cover outline outline-1 -outline-offset-1 outline-ink/10;
     }
 
     .app-table {
@@ -485,7 +533,7 @@
 
         & thead th,
         & thead td {
-            @apply bg-surface-subtle px-4 py-2.5 text-xs font-semibold tracking-[0.06em] text-ink-muted uppercase;
+            @apply bg-surface-subtle px-4 py-2.5 font-display text-[0.8125rem] font-medium text-ink-muted;
         }
 
         & tbody th,
@@ -499,7 +547,7 @@
     }
 
     .app-page-header {
-        @apply border-b border-line bg-surface;
+        @apply border-b border-line bg-workspace;
     }
 
     .mobile-nav-safe {
@@ -510,16 +558,45 @@
         }
     }
 
+    /* A graphite band: code, a call to action. White text and white utilities are allowed inside it. */
     .hero-canvas {
-        @apply on-brand relative isolate overflow-hidden bg-brand text-white;
+        @apply on-brand relative isolate overflow-clip bg-brand text-white;
+        --ui-glyph-1: var(--ui-graphite-glyph-1);
+        --ui-glyph-2: var(--ui-graphite-glyph-2);
+        --ui-glyph-3: var(--ui-graphite-glyph-3);
+        --ui-glyph-4: var(--ui-graphite-glyph-4);
     }
 
-    .hero-photo {
-        @apply size-full object-cover object-center mix-blend-luminosity;
+    /* The tool hero: paper ground with the rate field behind the heading and the task card. */
+    .hero-field {
+        @apply relative isolate overflow-clip border-b border-line bg-workspace text-ink;
     }
 
-    .hero-scrim {
-        @apply absolute inset-0 bg-linear-to-b from-brand/40 via-brand/85 to-brand;
+    /* Drawn by the rateField component; until it runs, a dot on every 8 × 16 cell stands in. */
+    .hero-ground {
+        @apply pointer-events-none absolute inset-0 -z-10;
+        background-image: radial-gradient(circle at 1px 1px, var(--ui-glyph-1) 1px, transparent 1.5px);
+        background-size: 8px 16px;
+        mask-image: linear-gradient(to right, transparent, black 40%);
+    }
+
+    .hero-ground canvas {
+        @apply absolute inset-0 size-full;
+    }
+
+    .hero-ground[data-ready] {
+        background-image: none;
+        mask-image: none;
+    }
+
+    /* Fifty mono cells under a result: the VAT share filled, the net share ruled. */
+    .app-meter {
+        container-type: inline-size;
+    }
+
+    .app-meter-cells {
+        @apply font-mono leading-none tracking-normal whitespace-nowrap select-none;
+        font-size: min(1.25rem, 3.3cqi);
     }
 
     .app-prose {
@@ -592,7 +669,7 @@
         }
 
         & th {
-            @apply bg-surface-subtle font-semibold text-ink;
+            @apply bg-surface-subtle font-display font-medium text-ink;
         }
 
         & blockquote {
@@ -622,14 +699,19 @@
 
     .eu-map-region {
         cursor: pointer;
-        outline: none;
     }
 
     .eu-map-region:hover,
-    .eu-map-region.is-hovered,
-    .eu-map-region:focus-visible {
+    .eu-map-region.is-hovered {
         stroke: var(--ui-ink);
         stroke-width: 1.5;
+    }
+
+    .eu-map-region:focus-visible {
+        outline: 2px solid var(--ui-focus);
+        outline-offset: 2px;
+        stroke: var(--ui-focus);
+        stroke-width: 2.5;
     }
 
     .eu-map-region.is-selected {

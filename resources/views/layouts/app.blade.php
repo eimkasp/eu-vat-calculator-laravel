@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
-    <meta name="theme-color" content="#0a2a7a">
+    <meta name="theme-color" content="#f9fafc">
     <script data-cfasync="false">
         (() => {
             let mode = 'system';
             try { mode = localStorage.getItem('theme') || 'system'; } catch (error) {}
             const dark = mode === 'dark' || (mode !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-            document.documentElement.classList.toggle('dark', dark);
-            if (dark) document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0b1220');
+            document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+            if (dark) document.querySelector('meta[name="theme-color"]').setAttribute('content', '#151b26');
         })();
     </script>
     <link rel="manifest" href="/manifest.json">
