@@ -18,28 +18,28 @@
     <div class="border-b border-line p-5 sm:p-6">
         <div class="flex flex-wrap items-start justify-between gap-3">
             <div>
-                <h2 id="rates-heading" class="text-xl font-bold text-ink">{{ __('ui.home_page.rates_heading') }}</h2>
+                <h2 id="rates-heading" class="text-xl font-semibold text-ink">{{ __('ui.home_page.rates_heading') }}</h2>
                 <p class="mt-1 text-sm text-ink-muted">{{ __('ui.home_page.rates_intro') }}</p>
             </div>
             <span class="app-badge bg-action-soft text-action-deep">{{ __('ui.home_page.rates_year', ['year' => date('Y')]) }}</span>
         </div>
 
         @if($stats)
-            <dl class="mt-5 grid grid-cols-3 divide-x divide-line rounded-card border border-line bg-surface-subtle">
+            <dl class="mt-5 grid grid-cols-3 divide-x divide-line rounded-control border border-line bg-surface-subtle">
                 <div class="px-3 py-3 sm:px-4">
-                    <dt class="text-xs font-medium text-ink-muted">{{ __('ui.home_page.stat_lowest') }}</dt>
-                    <dd class="mt-1 flex items-center gap-1.5 text-lg font-bold text-ink">
+                    <dt class="font-display text-[0.8125rem] font-medium text-ink-muted">{{ __('ui.home_page.stat_lowest') }}</dt>
+                    <dd class="tabular mt-1 flex items-center gap-1.5 font-display text-lg font-semibold text-ink">
                         {{ Country::formatRate($stats['lowest']->standard_rate) }}%
                         <x-ui.flag :iso="$stats['lowest']->iso_code" size="xs" :alt="$stats['lowest']->name" />
                     </dd>
                 </div>
                 <div class="px-3 py-3 sm:px-4">
-                    <dt class="text-xs font-medium text-ink-muted">{{ __('ui.home_page.stat_average') }}</dt>
-                    <dd class="mt-1 text-lg font-bold text-ink">{{ Country::formatRate($stats['average']) }}%</dd>
+                    <dt class="font-display text-[0.8125rem] font-medium text-ink-muted">{{ __('ui.home_page.stat_average') }}</dt>
+                    <dd class="tabular mt-1 font-display text-lg font-semibold text-ink">{{ Country::formatRate($stats['average']) }}%</dd>
                 </div>
                 <div class="px-3 py-3 sm:px-4">
-                    <dt class="text-xs font-medium text-ink-muted">{{ __('ui.home_page.stat_highest') }}</dt>
-                    <dd class="mt-1 flex items-center gap-1.5 text-lg font-bold text-ink">
+                    <dt class="font-display text-[0.8125rem] font-medium text-ink-muted">{{ __('ui.home_page.stat_highest') }}</dt>
+                    <dd class="tabular mt-1 flex items-center gap-1.5 font-display text-lg font-semibold text-ink">
                         {{ Country::formatRate($stats['highest']->standard_rate) }}%
                         <x-ui.flag :iso="$stats['highest']->iso_code" size="xs" :alt="$stats['highest']->name" />
                     </dd>
@@ -95,7 +95,7 @@
                         </td>
                         <td class="py-1.5">
                             <div class="flex items-center gap-3">
-                                <span class="tabular w-12 text-base font-bold text-ink">{{ Country::formatRate($country->standard_rate) }}%</span>
+                                <span class="tabular w-12 font-display text-base font-semibold text-ink">{{ Country::formatRate($country->standard_rate) }}%</span>
                                 <span class="hidden h-1.5 w-20 overflow-hidden rounded-xs bg-action/15 sm:block" aria-hidden="true">
                                     <span class="block h-full bg-action" style="width: {{ round((float) $country->standard_rate / $maxRate * 100, 1) }}%"></span>
                                 </span>

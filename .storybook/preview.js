@@ -1,4 +1,4 @@
-import { withThemeByClassName } from '@storybook/addon-themes';
+import { withThemeByDataAttribute } from '@storybook/addon-themes';
 import Alpine from 'alpinejs';
 import '../storybook/storybook.css';
 import '../resources/js/app.js';
@@ -11,10 +11,11 @@ Alpine.start();
 /** @type {import('@storybook/html-vite').Preview} */
 export default {
     decorators: [
-        withThemeByClassName({
-            themes: { light: '', dark: 'dark' },
+        withThemeByDataAttribute({
+            themes: { light: 'light', dark: 'dark' },
             defaultTheme: 'light',
             parentSelector: 'html',
+            attributeName: 'data-theme',
         }),
     ],
     parameters: {

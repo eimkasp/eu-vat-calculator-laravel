@@ -13,12 +13,12 @@ export default {
 
 export const SemanticColours = {
     name: 'Semantic colours',
-    render: () => colours('semantic', 'Semantic tokens carry meaning, not hue. Each has a light and a dark value; the .dark class on the html element swaps them.'),
+    render: () => colours('semantic', 'Semantic tokens carry meaning, not hue. Each has a light and a dark value; the data-theme attribute on the html element swaps them.'),
 };
 
 export const FixedColours = {
     name: 'Fixed colours',
-    render: () => colours('fixed', 'Gold and the code surfaces keep one value in both themes. Gold appears only on navy.'),
+    render: () => colours('fixed', 'The code surfaces keep one value in both themes: they stay graphite in light and dark.'),
 };
 
 export const Typography = {

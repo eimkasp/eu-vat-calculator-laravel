@@ -4,6 +4,24 @@ All notable changes to EU VAT Info are documented here.
 
 ---
 
+## [6.0.0] — 2026-10-23 — A new look, built around the numbers
+
+### Improved
+- **A new look across the whole site** — cool paper, blue-grey ink and fine rules replace the navy and gold, with one cobalt colour for everything you can press. Headings are set in Familjen Grotesk, text in IBM Plex Sans and VAT numbers, codes and API paths in JetBrains Mono, all served from this site.
+- **Pages open on the rates themselves** — behind the calculator and validator headings, a field of characters rises into one column per member state, each as tall as its standard rate. It replaces the mountain photograph, stays still if you prefer reduced motion and pauses when you scroll past it.
+- **The answer reads at a glance** — the calculator's total is set larger, with a strip of fifty cells under it showing how much of the total is VAT.
+- **Buttons that feel like keys** — buttons and options press in when you choose them, and the chosen rate or amount stays pressed.
+- **Calmer headings** — headings and their introductions line up on the left, the small capital labels above headings are gone, and details that were run together with dots now sit on their own.
+- **Easier to see where you are** — the current section has a cobalt underline, the keyboard focus ring is cobalt everywhere, and the edges of input fields are darker so they stand out from the page.
+- **Dark mode to match** — every page has a graphite dark theme built from the same colours.
+- **Design system** — the style guide, the brand page, Storybook and the social preview image show the new system, and `DESIGN.md` documents it.
+
+### Fixed
+- The VAT map now shows a focus ring on the country you reach with the keyboard.
+- Long button labels on country pages no longer wrap onto two lines on small phones.
+
+---
+
 ## [5.4.0] — 2026-10-13 — Quicker to answer, easier to find your way
 
 ### Improved

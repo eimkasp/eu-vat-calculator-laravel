@@ -47,20 +47,20 @@
 @endsection
 
 <div>
-    <x-page-header :title="__('ui.tools.heading')" :description="__('ui.tools.intro_text')" :eyebrow="__('ui.tools.eyebrow')" :breadcrumbs="[__('ui.breadcrumbs.tools') => '']" />
+    <x-page-header :title="__('ui.tools.heading')" :description="__('ui.tools.intro_text')" :breadcrumbs="[__('ui.breadcrumbs.tools') => '']" />
 
     <div class="app-container space-y-12 py-10 sm:py-12">
         <section aria-labelledby="core-tools">
-            <h2 id="core-tools" class="app-eyebrow">{{ __('ui.tools.core_heading') }}</h2>
+            <h2 id="core-tools" class="text-xl font-semibold text-ink">{{ __('ui.tools.core_heading') }}</h2>
             <div class="mt-4 grid gap-5 md:grid-cols-2">
                 @foreach($featured as $tool)
                     <a href="{{ $tool['url'] }}" class="group app-surface flex flex-col p-6 transition-[border-color,box-shadow] duration-200 hover:border-action/40 hover:shadow-workflow sm:p-7">
                         <div class="flex items-start gap-4">
-                            <span class="flex size-12 shrink-0 items-center justify-center rounded-card bg-action-soft text-action" aria-hidden="true">
+                            <span class="flex size-12 shrink-0 items-center justify-center rounded-control bg-action-soft text-action" aria-hidden="true">
                                 <x-ui.icon :name="$tool['icon']" class="size-6" />
                             </span>
                             <div class="min-w-0">
-                                <h3 class="text-xl font-bold text-ink group-hover:text-action">{{ $tool['title'] }}</h3>
+                                <h3 class="text-xl font-semibold text-ink group-hover:text-action">{{ $tool['title'] }}</h3>
                                 <span class="app-badge mt-1 bg-surface-muted text-ink-muted">{{ $tool['badge'] }}</span>
                             </div>
                         </div>
@@ -80,11 +80,11 @@
         </section>
 
         <section aria-labelledby="more-tools">
-            <h2 id="more-tools" class="app-eyebrow">{{ __('ui.tools.more_heading') }}</h2>
+            <h2 id="more-tools" class="text-xl font-semibold text-ink">{{ __('ui.tools.more_heading') }}</h2>
             <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 @foreach($more as $tool)
                     <a href="{{ $tool['url'] }}" class="group app-surface flex h-full gap-4 p-5 transition-[border-color,box-shadow] duration-200 hover:border-action/40 hover:shadow-workflow">
-                        <span class="flex size-10 shrink-0 items-center justify-center rounded-card bg-surface-muted text-ink-muted transition-colors group-hover:bg-action-soft group-hover:text-action" aria-hidden="true">
+                        <span class="flex size-10 shrink-0 items-center justify-center rounded-control bg-surface-muted text-ink-muted transition-colors group-hover:bg-action-soft group-hover:text-action" aria-hidden="true">
                             <x-ui.icon :name="$tool['icon']" class="size-5" />
                         </span>
                         <span class="min-w-0">
@@ -100,7 +100,7 @@
         </section>
 
         <section aria-labelledby="vat-guides">
-            <h2 id="vat-guides" class="app-eyebrow">{{ __('ui.tools.guides_heading') }}</h2>
+            <h2 id="vat-guides" class="text-xl font-semibold text-ink">{{ __('ui.tools.guides_heading') }}</h2>
             <ul class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" lang="en">
                 @foreach(config('vat-scenarios', []) as $slug => $guide)
                     <li>
@@ -116,7 +116,7 @@
         <section class="hero-canvas rounded-panel" aria-labelledby="api-cta">
             <div class="relative flex flex-col gap-5 p-6 sm:p-8 md:flex-row md:items-center md:justify-between">
                 <div>
-                    <h2 id="api-cta" class="text-xl font-bold text-white">{{ __('ui.tools.cta_title') }}</h2>
+                    <h2 id="api-cta" class="text-xl font-semibold text-white">{{ __('ui.tools.cta_title') }}</h2>
                     <p class="mt-1.5 max-w-xl text-sm leading-6 text-white/80">{{ __('ui.tools.cta_desc') }}</p>
                 </div>
                 <div class="flex shrink-0 flex-wrap gap-3">

@@ -29,7 +29,6 @@
         'warning-soft' => 'bg-warning-soft',
         'danger' => 'bg-danger',
         'danger-soft' => 'bg-danger-soft',
-        'gold' => 'bg-gold',
         'code' => 'bg-code',
         'code-raised' => 'bg-code-raised',
         'code-muted' => 'bg-code-muted',
@@ -49,7 +48,7 @@
     $rating = fn (float $ratio) => match (true) {
         $ratio >= 7 => ['AAA', 'bg-success-soft text-success'],
         $ratio >= 4.5 => ['AA', 'bg-success-soft text-success'],
-        $ratio >= 3 => ['AA large · UI', 'bg-warning-soft text-warning'],
+        $ratio >= 3 => ['Large text and UI', 'bg-warning-soft text-warning'],
         default => ['Decorative only', 'bg-danger-soft text-danger'],
     };
     $markdown = fn (string $text) => Str::inlineMarkdown($text, ['html_input' => 'escape', 'allow_unsafe_links' => false]);
@@ -59,7 +58,13 @@
     $rules = collect($guide->numberedList('Enforcement'))->map(fn (string $rule) => rtrim(str_replace('this file', 'DESIGN.md', $rule), ';.'));
     $templateRules = $rules->reject(fn (string $rule) => str_starts_with($rule, 'or when '));
     $documentationRules = $rules->filter(fn (string $rule) => str_starts_with($rule, 'or when '))->map(fn (string $rule) => Str::after($rule, 'or when '));
-    $breadcrumbCode = sprintf('<%s :items="[__(\'ui.nav.vat_calculator\') => locale_path(\'/vat-calculator\'), $country->name => \'\']" variant="dark" />', 'x-site-breadcrumbs');
+    $breadcrumbCode = sprintf('<%s :items="[__(\'ui.nav.vat_calculator\') => locale_path(\'/vat-calculator\'), $country->name => \'\']" />', 'x-site-breadcrumbs');
+    $keyTokens = [
+        'button-edge' => 'bg-button-edge',
+        'key-face' => 'bg-key-face',
+        'key-edge' => 'bg-(--ui-key-edge)',
+    ];
+    $glyphs = ['bg-(--ui-glyph-1)', 'bg-(--ui-glyph-2)', 'bg-(--ui-glyph-3)', 'bg-(--ui-glyph-4)', 'bg-action-deep'];
 @endphp
 
 @section('seo')
@@ -98,51 +103,50 @@
 @endpush
 
 <div>
-    <section class="hero-canvas">
+    <section class="hero-field">
         <x-hero-backdrop />
-        <div class="app-container relative pb-12 pt-6 sm:pb-16 sm:pt-8">
-            <x-site-breadcrumbs :items="[__('ui.styleguide.nav_label') => '']" variant="dark" />
+        <div class="app-container relative pb-10 pt-6 sm:pb-14 sm:pt-8">
+            <x-site-breadcrumbs :items="[__('ui.styleguide.nav_label') => '']" />
 
             <div class="mt-6 max-w-3xl" lang="en">
-                <p class="app-kicker">Design system · Version {{ $guide->version() }}</p>
-                <h1 class="mt-3 text-4xl font-bold tracking-[-0.03em] text-white sm:text-5xl sm:leading-[1.08]">The EU VAT Info design system</h1>
-                <p class="mt-4 max-w-2xl text-base leading-7 text-white/85 sm:text-lg">Tokens, components and page patterns behind EU VAT Info. Every example renders with the production stylesheet, so what you see here is what ships.</p>
+                <h1 class="max-w-2xl text-4xl font-semibold tracking-[-0.03em] text-ink sm:text-5xl sm:leading-[1.04]">The EU VAT Info design system</h1>
+                <p class="mt-4 max-w-[54ch] text-base leading-7 text-ink-muted sm:text-lg">Tokens, components and page patterns behind EU VAT Info. Every example renders with the production stylesheet, so what you see here is what ships.</p>
                 <div class="mt-8 flex flex-wrap gap-3">
-                    <a href="{{ $tokensUrl }}" download="eu-vat-info.tokens.json" class="app-button-inverse">
+                    <a href="{{ $tokensUrl }}" download="eu-vat-info.tokens.json" class="app-button-primary">
                         <x-ui.icon name="download" class="size-4" />
                         Download tokens
                     </a>
-                    <a href="{{ $markdownUrl }}" class="app-button-on-brand">
+                    <a href="{{ $markdownUrl }}" class="app-button-secondary">
                         <x-ui.icon name="file-text" class="size-4" />
                         Read DESIGN.md
                     </a>
-                    <a href="{{ url('/storybook/') }}" class="app-button-on-brand">
+                    <a href="{{ url('/storybook/') }}" class="app-button-secondary">
                         <x-ui.icon name="puzzle" class="size-4" />
                         Browse Storybook
                     </a>
-                    <a href="{{ locale_path('/brand') }}" class="app-button-on-brand">
+                    <a href="{{ locale_path('/brand') }}" class="app-button-secondary">
                         <x-ui.icon name="flag" class="size-4" />
                         Brand guidelines
                     </a>
                 </div>
             </div>
 
-            <dl class="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-6" lang="en">
+            <dl class="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-card border border-line bg-line sm:grid-cols-3 xl:grid-cols-6" lang="en">
                 @foreach($stats as $stat)
-                    <div class="app-brand-panel flex flex-col-reverse p-4">
-                        <dt class="mt-1 text-sm text-white/70">{{ $stat['label'] }}</dt>
-                        <dd class="tabular text-3xl font-bold tracking-[-0.02em] text-white">{{ $stat['value'] }}</dd>
+                    <div class="flex flex-col-reverse bg-surface px-4 py-3.5">
+                        <dt class="mt-1 font-display text-[0.8125rem] font-medium text-ink-muted">{{ $stat['label'] }}</dt>
+                        <dd class="tabular font-display text-3xl font-semibold tracking-[-0.02em] text-ink">{{ $stat['value'] }}</dd>
                     </div>
                 @endforeach
             </dl>
 
-            <p class="mt-6" lang="en">
-                <a href="{{ Styleguide::BUSINESSPRESS_URL }}" target="_blank" rel="noopener" class="group inline-flex items-center gap-2 rounded-control text-sm font-semibold text-white/85 transition-colors hover:text-white">
-                    <span class="size-2 shrink-0 bg-gold" aria-hidden="true"></span>
-                    <span class="underline decoration-white/30 underline-offset-4 group-hover:decoration-white">Get a design system like this for your business on BusinessPress</span>
-                    <x-ui.icon name="arrow-up-right" class="size-4" />
+            <div class="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2" lang="en">
+                <p class="tabular font-display text-sm font-medium text-ink-muted">DESIGN.md version {{ $guide->version() }}</p>
+                <a href="{{ Styleguide::BUSINESSPRESS_URL }}" target="_blank" rel="noopener" class="group inline-flex items-center gap-2 rounded-control font-display text-sm font-medium text-ink-muted transition-colors hover:text-ink">
+                    <span class="underline decoration-action/30 underline-offset-4 group-hover:decoration-current">Get a design system like this for your business on BusinessPress</span>
+                    <x-ui.icon name="arrow-up-right" class="size-4 text-action" />
                 <x-ui.new-tab /></a>
-            </p>
+            </div>
         </div>
     </section>
 
@@ -200,9 +204,8 @@
                 {{-- Foundations --}}
                 <x-styleguide.section id="principles" title="Principles" lead="Seven decisions every page follows. They explain the rules further down and settle anything the rules do not cover.">
                     @if($northStar)
-                        <figure class="border-l-2 border-action bg-action-soft px-5 py-4 sm:px-6 sm:py-5">
-                            <figcaption class="app-eyebrow text-action-deep">North star</figcaption>
-                            <p class="mt-1.5 text-xl font-bold tracking-[-0.01em] text-ink first-letter:uppercase">{{ $northStar['title'] }}</p>
+                        <figure class="cut rounded-panel border-l-2 border-action bg-action-soft px-5 py-4 sm:px-6 sm:py-5">
+                            <figcaption class="font-display text-xl font-semibold tracking-[-0.02em] text-ink">North star: {{ $northStar['title'] }}</figcaption>
                             <blockquote class="mt-2 max-w-[72ch] text-base leading-7 text-ink-muted">{!! $markdown($northStar['body']) !!}</blockquote>
                         </figure>
                     @endif
@@ -210,9 +213,9 @@
                         @foreach($guide->numberedList('Principles') as $principle)
                             @php([$heading, $body] = preg_match('/^\*\*(.+?)\*\*\s*(.*)$/', $principle, $parts) ? [rtrim($parts[1], '.'), $parts[2]] : ['', $principle])
                             <li class="app-surface flex gap-4 p-5">
-                                <span class="tabular flex size-8 shrink-0 items-center justify-center rounded-full bg-action-soft text-sm font-bold text-action-deep" aria-hidden="true">{{ $loop->iteration }}</span>
+                                <span class="tabular flex size-8 shrink-0 items-center justify-center rounded-full bg-action-soft text-sm font-semibold text-action-deep" aria-hidden="true">{{ $loop->iteration }}</span>
                                 <div>
-                                    <h3 class="font-bold text-ink">{{ $heading }}</h3>
+                                    <h3 class="font-semibold text-ink">{{ $heading }}</h3>
                                     <p class="mt-1 text-sm leading-6 text-ink-muted">{!! $markdown($body) !!}</p>
                                 </div>
                             </li>
@@ -220,18 +223,18 @@
                     </ol>
                 </x-styleguide.section>
 
-                <x-styleguide.section id="colour" title="Colour" lead="Semantic tokens carry meaning, not hue. Each one has a light and a dark value, and the .dark class on the html element swaps them, so templates never need dark: variants.">
+                <x-styleguide.section id="colour" title="Colour" lead="Semantic tokens carry meaning, not hue. Each one has a light and a dark value, and the data-theme attribute on the html element swaps them, so templates never need dark: variants.">
                     @foreach(DesignTokens::SEMANTIC_GROUPS as $group => $names)
                         <div>
-                            <h3 class="text-lg font-bold text-ink">{{ $group }}</h3>
+                            <h3 class="text-lg font-semibold text-ink">{{ $group }}</h3>
                             <ul class="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
                                 @foreach($names as $name)
                                     @continue(! isset($colors[$name]))
                                     @php($token = $colors[$name])
                                     <li class="app-surface overflow-hidden">
                                         <div class="grid h-16 grid-cols-2 border-b border-line" aria-hidden="true">
-                                            <span class="theme-light {{ $swatches[$name] }}"></span>
-                                            <span class="dark {{ $swatches[$name] }}"></span>
+                                            <span data-theme="light" class="{{ $swatches[$name] }}"></span>
+                                            <span data-theme="dark" class="{{ $swatches[$name] }}"></span>
                                         </div>
                                         <div class="p-3.5">
                                             <p class="flex items-center justify-between gap-2">
@@ -244,11 +247,11 @@
                                             <dl class="mt-2 grid grid-cols-2 gap-2 text-xs">
                                                 <div>
                                                     <dt class="text-ink-quiet">Light</dt>
-                                                    <dd class="font-mono text-ink uppercase">{{ $token['light']->hex() }}</dd>
+                                                    <dd class="font-mono text-ink">{{ strtoupper($token['light']->hex()) }}</dd>
                                                 </div>
                                                 <div>
                                                     <dt class="text-ink-quiet">Dark</dt>
-                                                    <dd class="font-mono text-ink uppercase">{{ $token['dark']->hex() }}</dd>
+                                                    <dd class="font-mono text-ink">{{ strtoupper($token['dark']->hex()) }}</dd>
                                                 </div>
                                             </dl>
                                             @if($uses[$name]['Use'] ?? null)
@@ -263,40 +266,77 @@
 
                     <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
                         <div>
-                            <h3 class="text-lg font-bold text-ink">Fixed colours</h3>
-                            <p class="mt-1 text-sm leading-6 text-ink-muted">The same in both themes: EU gold for small accents on navy, and the code surfaces, which stay dark.</p>
+                            <h3 class="text-lg font-semibold text-ink">Fixed colours</h3>
+                            <p class="mt-1 text-sm leading-6 text-ink-muted">The same in both themes: the code surfaces, which stay graphite in light and dark.</p>
                             <ul class="mt-3 grid grid-cols-2 gap-3">
                                 @foreach($tokens->fixedColors() as $name => $token)
                                     <li class="app-surface overflow-hidden">
                                         <span class="block h-12 border-b border-line {{ $swatches[$name] ?? '' }}" aria-hidden="true"></span>
                                         <p class="flex flex-wrap items-center justify-between gap-x-2 gap-y-0.5 p-3">
                                             <code class="font-mono text-sm font-semibold text-ink">{{ $name }}</code>
-                                            <span class="font-mono text-xs text-ink-muted uppercase">{{ $token['color']->hex() }}</span>
+                                            <span class="font-mono text-xs text-ink-muted">{{ strtoupper($token['color']->hex()) }}</span>
                                         </p>
                                     </li>
                                 @endforeach
                             </ul>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold text-ink">Syntax colours</h3>
-                            <p class="mt-1 text-sm leading-6 text-ink-muted">For code samples on the dark code surface, in both themes.</p>
+                            <h3 class="text-lg font-semibold text-ink">Syntax colours</h3>
+                            <p class="mt-1 text-sm leading-6 text-ink-muted">For code samples on the graphite code surface, in both themes. Syntax stays in the cobalt family; only status codes take green and red.</p>
                             <ul class="app-code mt-3 grid grid-cols-2 gap-x-4 gap-y-2.5 p-4 font-mono text-sm">
                                 @foreach($tokens->syntaxColors() as $name => $token)
                                     <li class="flex items-center justify-between gap-3">
                                         <span class="{{ $syntaxText[$name] ?? '' }}">{{ $name }}</span>
-                                        <span class="text-xs text-white/60 uppercase">{{ $token['color']->hex() }}</span>
+                                        <span class="text-xs text-white/60">{{ strtoupper($token['color']->hex()) }}</span>
                                     </li>
                                 @endforeach
                             </ul>
                         </div>
                     </div>
 
+                    <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
+                        <div>
+                            <h3 class="text-lg font-semibold text-ink">Keys</h3>
+                            <p class="mt-1 text-sm leading-6 text-ink-muted">The faces and bottom edges of keys and chips. They reach templates through the app-button and app-chip classes and the shadow-key utilities.</p>
+                            <ul class="mt-3 space-y-3">
+                                @foreach($keyTokens as $name => $class)
+                                    <li class="app-surface flex items-center gap-4 overflow-hidden pr-3.5">
+                                        <span class="grid h-16 w-24 shrink-0 grid-cols-2 border-r border-line" aria-hidden="true">
+                                            <span data-theme="light" class="{{ $class }}"></span>
+                                            <span data-theme="dark" class="{{ $class }}"></span>
+                                        </span>
+                                        <span class="min-w-0 py-2.5">
+                                            <code class="block font-mono text-sm font-semibold text-ink">{{ $name }}</code>
+                                            <span class="block text-xs leading-5 text-ink-muted">{!! $markdown($uses[$name]['Use'] ?? '') !!}</span>
+                                        </span>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-ink">Rate field tints</h3>
+                            <p class="mt-1 text-sm leading-6 text-ink-muted">glyph-1 to glyph-4, lightest to densest, with action-deep for the densest cells. The rateField component reads them, and a graphite band swaps in its own set.</p>
+                            <div class="app-surface mt-3 divide-y divide-line overflow-hidden">
+                                @foreach(['light' => 'Light', 'dark' => 'Dark', 'graphite' => 'Graphite'] as $scope => $label)
+                                    <div @if($scope !== 'graphite') data-theme="{{ $scope }}" @endif @class(['flex items-center gap-4 px-4 py-3', 'bg-workspace text-ink-muted' => $scope !== 'graphite', 'hero-canvas text-white/75' => $scope === 'graphite'])>
+                                        <span class="w-16 shrink-0 font-display text-xs font-medium">{{ $label }}</span>
+                                        <span class="grid flex-1 grid-cols-5 gap-1" aria-hidden="true">
+                                            @foreach($glyphs as $glyph)
+                                                <span class="h-8 w-full rounded-xs {{ $glyph }}"></span>
+                                            @endforeach
+                                        </span>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+
                     <div>
-                        <h3 class="text-lg font-bold text-ink">VAT map ramp</h3>
+                        <h3 class="text-lg font-semibold text-ink">VAT map ramp</h3>
                         <p class="mt-1 max-w-[68ch] text-sm leading-6 text-ink-muted">A single-hue ordinal ramp, checked for colour-vision deficiency. It flips in dark mode so higher rates gain contrast against the dark surface, and every region is also listed as text.</p>
                         <div class="app-surface mt-3 divide-y divide-line overflow-hidden">
-                            @foreach(['theme-light' => 'Light', 'dark' => 'Dark'] as $scope => $label)
-                                <div class="{{ $scope }} flex items-center gap-4 bg-surface px-4 py-3">
+                            @foreach(['light' => 'Light', 'dark' => 'Dark'] as $scope => $label)
+                                <div data-theme="{{ $scope }}" class="flex items-center gap-4 bg-surface px-4 py-3">
                                     <span class="w-10 shrink-0 text-xs font-semibold text-ink-muted">{{ $label }}</span>
                                     <span class="grid flex-1 grid-cols-5 gap-1" aria-hidden="true">
                                         @foreach($tokens->mapRamp() as $step => $token)
@@ -309,7 +349,7 @@
                     </div>
 
                     <div>
-                        <h3 class="text-lg font-bold text-ink">Contrast pairs</h3>
+                        <h3 class="text-lg font-semibold text-ink">Contrast pairs</h3>
                         <p class="mt-1 max-w-[68ch] text-sm leading-6 text-ink-muted">WCAG 2.2 contrast ratios computed from the tokens above. Body text needs 4.5:1; large text, icons and borders need 3:1.</p>
                         <div class="app-surface mt-3 overflow-hidden">
                             <table class="app-table">
@@ -346,38 +386,43 @@
                     </div>
                 </x-styleguide.section>
 
-                <x-styleguide.section id="typography" title="Typography" lead="Inter Variable, self-hosted with the optical-size axis, so large text uses Inter's display cut. Headings stay one colour, and every figure that can change or be compared is set in tabular numbers.">
+                <x-styleguide.section id="typography" title="Typography" lead="Familjen Grotesk at weight 600 for headings and figures, IBM Plex Sans for reading and JetBrains Mono for machine values, all three self-hosted. Headings stay one colour, labels stay in sentence case, and every figure that can change or be compared is set in tabular numbers.">
                     <div class="app-surface divide-y divide-line">
                         @foreach([
-                            ['Display', 'text-4xl sm:text-5xl font-bold tracking-[-0.03em]', 'display', 'Hero headings and hero results'],
-                            ['Headline', 'text-3xl sm:text-[2.5rem] font-bold tracking-[-0.035em]', 'headline', 'Page header titles'],
-                            ['Section', 'text-xl font-bold', null, 'Section headings inside a page'],
-                            ['Title', 'text-lg font-bold', 'title', 'Card titles'],
+                            ['Display', 'text-4xl sm:text-5xl font-semibold tracking-[-0.03em] sm:leading-[1.04]', 'display', 'Hero headings, and hero results with font-display on the figure'],
+                            ['Headline', 'text-3xl sm:text-[2.5rem] font-semibold tracking-[-0.03em]', 'headline', 'Page header titles'],
+                            ['Section', 'text-xl font-semibold text-ink', null, 'Section headings inside a page'],
+                            ['Title', 'text-lg font-semibold text-ink', 'title', 'Card titles'],
                             ['Body', 'text-base leading-7 text-ink-muted', 'body', 'Paragraphs, capped at 68–72 characters'],
                             ['Small', 'text-sm text-ink-muted', null, 'Helper text and table cells'],
-                            ['Label', 'text-[0.8125rem] font-semibold text-ink-muted', 'label', 'Field and data labels, in sentence case'],
+                            ['Label', 'font-display text-[0.8125rem] font-medium text-ink-muted', 'label', 'Field labels, data labels and table heads, in sentence case and untracked'],
+                            ['Mono', 'font-mono', null, 'VAT numbers, API paths, code, the meter and the rate field; never a label or heading'],
                         ] as [$role, $classes, $scale, $use])
                             <div class="grid grid-cols-1 gap-3 p-5 md:grid-cols-[12rem_minmax(0,1fr)] md:gap-6">
                                 <div>
                                     <p class="font-semibold text-ink">{{ $role }}</p>
                                     <p class="mt-0.5 text-xs leading-5 text-ink-muted">{{ $use }}</p>
                                     @if($scale && ($style = $guide->typeScale()[$scale] ?? null))
-                                        <p class="tabular mt-1.5 font-mono text-[0.6875rem] text-ink-quiet">{{ $style['size'] ?? '' }} · {{ $style['weight'] ?? '' }}@isset($style['lineHeight']) · {{ $style['lineHeight'] }}@endisset</p>
+                                        <p class="tabular mt-1.5 flex flex-wrap gap-x-3 font-mono text-[0.6875rem] text-ink-quiet">
+                                            @foreach(array_filter([$style['size'] ?? null, $style['weight'] ?? null, $style['lineHeight'] ?? null]) as $fact)
+                                                <span>{{ $fact }}</span>
+                                            @endforeach
+                                        </p>
                                     @endif
                                 </div>
                                 <div class="min-w-0">
                                     @switch($role)
                                         @case('Display')
-                                            <p class="text-4xl font-bold tracking-[-0.03em] text-ink sm:text-5xl sm:leading-[1.08]">€1,487.50</p>
+                                            <p class="tabular font-display text-4xl font-semibold tracking-[-0.03em] text-ink sm:text-5xl sm:leading-[1.04]">€1,487.50</p>
                                             @break
                                         @case('Headline')
-                                            <p class="text-3xl font-bold tracking-[-0.035em] text-ink sm:text-[2.5rem] sm:leading-[1.1]">VAT rate change history</p>
+                                            <p class="font-display text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-[2.5rem] sm:leading-[1.1]">VAT rate change history</p>
                                             @break
                                         @case('Section')
-                                            <p class="text-xl font-bold text-ink">Recorded changes</p>
+                                            <p class="font-display text-xl font-semibold tracking-[-0.02em] text-ink">Recorded changes</p>
                                             @break
                                         @case('Title')
-                                            <p class="text-lg font-bold text-ink">Germany VAT rates and formulas</p>
+                                            <p class="font-display text-lg font-semibold tracking-[-0.02em] text-ink">Germany VAT rates and formulas</p>
                                             @break
                                         @case('Body')
                                             <p class="max-w-[68ch] text-base leading-7 text-ink-muted">VIES forwards your query to the national VAT database of the member state that issued the number and returns its registration status.</p>
@@ -385,8 +430,11 @@
                                         @case('Small')
                                             <p class="text-sm text-ink-muted">The country is detected from the VAT number prefix.</p>
                                             @break
+                                        @case('Mono')
+                                            <p class="font-mono text-sm text-ink">DE123456789</p>
+                                            @break
                                         @default
-                                            <p class="text-[0.8125rem] font-semibold text-ink-muted">Amount (excl. VAT)</p>
+                                            <p class="font-display text-[0.8125rem] font-medium text-ink-muted">Amount (excl. VAT)</p>
                                     @endswitch
                                     <code class="mt-2 block break-words font-mono text-xs text-action-deep">{{ $classes }}</code>
                                 </div>
@@ -394,13 +442,13 @@
                         @endforeach
                         <div class="grid grid-cols-1 gap-3 p-5 md:grid-cols-[12rem_minmax(0,1fr)] md:gap-6">
                             <div>
-                                <p class="font-semibold text-ink">Eyebrow and kicker</p>
-                                <p class="mt-0.5 text-xs leading-5 text-ink-muted">One short uppercase label above a heading: eyebrow on light surfaces, kicker with the gold square on navy</p>
+                                <p class="font-semibold text-ink">Context label and kicker</p>
+                                <p class="mt-0.5 text-xs leading-5 text-ink-muted">A short label that never stands above a heading: a group name or a source line, and the flag line in a country heading. Sentence case, never tracked capitals</p>
                             </div>
                             <div class="flex flex-wrap items-center gap-4">
-                                <p class="app-eyebrow">Key information</p>
-                                <p class="hero-canvas rounded-control px-3 py-2"><span class="app-kicker">2026 rates · 27 member states</span></p>
-                                <code class="block w-full font-mono text-xs text-action-deep">app-eyebrow · app-kicker</code>
+                                <p class="app-eyebrow">Source: European Commission</p>
+                                <p class="app-kicker">EU member state</p>
+                                <code class="block w-full font-mono text-xs text-action-deep">app-eyebrow, app-kicker</code>
                             </div>
                         </div>
                         <div class="grid grid-cols-1 gap-3 p-5 md:grid-cols-[12rem_minmax(0,1fr)] md:gap-6">
@@ -408,14 +456,14 @@
                                 <p class="font-semibold text-ink">Tabular figures</p>
                                 <p class="mt-0.5 text-xs leading-5 text-ink-muted">Digits share one width, so columns of money and rates line up</p>
                             </div>
-                            <div class="grid max-w-md grid-cols-2 gap-4 text-lg font-semibold text-ink">
+                            <div class="grid max-w-md grid-cols-2 gap-4 font-display text-lg font-semibold text-ink">
                                 <div>
-                                    <p class="text-xs font-semibold text-ink-quiet">Default</p>
+                                    <p class="text-xs font-medium text-ink-quiet">Default</p>
                                     <p>€1,111.11</p>
                                     <p>€9,090.00</p>
                                 </div>
                                 <div>
-                                    <p class="text-xs font-semibold text-ink-quiet">With <code class="font-mono">tabular</code></p>
+                                    <p class="text-xs font-medium text-ink-quiet">With <code class="font-mono">tabular</code></p>
                                     <p class="tabular">€1,111.11</p>
                                     <p class="tabular">€9,090.00</p>
                                 </div>
@@ -424,24 +472,35 @@
                         <div class="grid grid-cols-1 gap-3 p-5 md:grid-cols-[12rem_minmax(0,1fr)] md:gap-6">
                             <div>
                                 <p class="font-semibold text-ink">Families</p>
-                                <p class="mt-0.5 text-xs leading-5 text-ink-muted">From the --font-sans and --font-mono tokens</p>
+                                <p class="mt-0.5 text-xs leading-5 text-ink-muted">From the --font-display, --font-sans and --font-mono tokens. Three weights are in use: 400, 500 and 600, which font-bold also resolves to</p>
                             </div>
-                            <div class="space-y-3">
-                                <p class="flex flex-wrap items-baseline gap-x-5 gap-y-1 text-2xl text-ink">
-                                    <span class="font-normal">Aa 400</span>
-                                    <span class="font-medium">Aa 500</span>
-                                    <span class="font-semibold">Aa 600</span>
-                                    <span class="font-bold">Aa 700</span>
-                                </p>
-                                <p class="text-xs text-ink-muted">{{ implode(', ', $tokens->fonts()['sans'] ?? []) }}</p>
-                                <p class="font-mono text-sm text-ink">LT100019070512 · country_code</p>
-                                <p class="text-xs text-ink-muted">{{ implode(', ', $tokens->fonts()['mono'] ?? []) }}</p>
+                            <div class="space-y-5">
+                                <div>
+                                    <p class="font-display text-3xl font-semibold tracking-[-0.03em] text-ink">Familjen Grotesk 19%</p>
+                                    <p class="mt-1 text-xs text-ink-muted">{{ implode(', ', $tokens->fonts()['display'] ?? []) }}</p>
+                                </div>
+                                <div>
+                                    <p class="flex flex-wrap items-baseline gap-x-5 gap-y-1 text-2xl text-ink">
+                                        <span class="font-normal">Plex 400</span>
+                                        <span class="font-medium">Plex 500</span>
+                                        <span class="font-semibold">Plex 600</span>
+                                    </p>
+                                    <p class="mt-1 text-xs text-ink-muted">{{ implode(', ', $tokens->fonts()['sans'] ?? []) }}</p>
+                                </div>
+                                <div>
+                                    <p class="flex flex-wrap gap-x-5 gap-y-1 font-mono text-sm text-ink">
+                                        <span>LT100019070512</span>
+                                        <span>country_code</span>
+                                        <span>░░░░████</span>
+                                    </p>
+                                    <p class="mt-1 text-xs text-ink-muted">{{ implode(', ', $tokens->fonts()['mono'] ?? []) }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </x-styleguide.section>
 
-                <x-styleguide.section id="shape" title="Shape" lead="Three radius tokens keep every corner square and precise. Pills read as playful, so rounded-full is kept for dots, spinners, avatars and numbered steps.">
+                <x-styleguide.section id="shape" title="Shape" lead="Three radius tokens and two cuts. Keys, fields and chips take 6px and cards 8px; the primary task card is cut on two opposite corners, and fields and chips take the smaller cut. Pills are not part of the system: rounded-full is kept for spinners, avatars and numbered steps.">
                     <ul class="grid grid-cols-2 gap-3 md:grid-cols-3">
                         @foreach($tokens->radii() as $name => $value)
                             <li class="app-surface p-4">
@@ -453,9 +512,9 @@
                                 <p class="mt-1 text-xs leading-5 text-ink-muted">{!! $markdown($guide->tokenRows('Shape')['radius-'.$name]['Use'] ?? '') !!}</p>
                             </li>
                         @endforeach
-                        @foreach([['rounded-xs', '2px', 'Flags, badges and bar ends'], ['rounded-full', '50%', 'Dots, spinners, avatars and numbered steps']] as [$class, $size, $use])
+                        @foreach([['cut', '16px bevel', 'Two opposite corners bevelled on a panel where corner-shape is supported'], ['cut-sm', '8px bevel', 'The same on fields and chips'], ['rounded-xs', '2px', 'Flags, badges, keyboard hints and bar ends'], ['rounded-full', '50%', 'Spinners, avatars and numbered step markers only']] as [$class, $size, $use])
                             <li class="app-surface p-4">
-                                <span @class(['block h-16 border-2 border-line-strong bg-surface-muted', 'rounded-xs' => $class === 'rounded-xs', 'mx-auto w-16 rounded-full' => $class === 'rounded-full']) aria-hidden="true"></span>
+                                <span @class(['block h-16 border-2', 'border-action bg-action-soft' => str_starts_with($class, 'cut'), 'border-line-strong bg-surface-muted' => ! str_starts_with($class, 'cut'), 'cut rounded-panel' => $class === 'cut', 'cut-sm rounded-control' => $class === 'cut-sm', 'rounded-xs' => $class === 'rounded-xs', 'mx-auto w-16 rounded-full' => $class === 'rounded-full']) aria-hidden="true"></span>
                                 <p class="mt-3 flex flex-wrap items-baseline justify-between gap-x-2">
                                     <code class="font-mono text-sm font-semibold text-ink">{{ $class }}</code>
                                     <span class="tabular font-mono text-xs text-ink-muted">{{ $size }}</span>
@@ -466,7 +525,7 @@
                     </ul>
                 </x-styleguide.section>
 
-                <x-styleguide.section id="elevation" title="Elevation" lead="Depth comes from hairline borders first. Three shadows remain: resting cards, the one primary task card on a hero, and things that float above the page.">
+                <x-styleguide.section id="elevation" title="Elevation" lead="Depth is a hairline first, then a paper step. Three shadows lift resting cards, the one primary task card and things that float; keys stand on a real 2px bottom edge and sink onto an inset shadow when pressed.">
                     <ul class="grid grid-cols-1 gap-5 rounded-panel bg-workspace p-5 sm:p-8 md:grid-cols-3">
                         @foreach($tokens->shadows() as $name => $value)
                             <li class="rounded-card border border-line bg-surface p-5 {{ $shadowClass[$name] ?? '' }}">
@@ -475,10 +534,21 @@
                                 <p class="tabular mt-3 text-[0.6875rem] text-ink-quiet">{{ count(DesignTokens::shadowLayers($value)) }} {{ Str::plural('layer', count(DesignTokens::shadowLayers($value))) }}</p>
                             </li>
                         @endforeach
+                        @foreach([
+                            'shadow-key' => 'cut-sm rounded-control border border-line-strong bg-key-face shadow-key',
+                            'shadow-key-accent' => 'cut-sm rounded-control border border-button-edge bg-button shadow-key-accent',
+                            'shadow-key-press' => 'cut-sm translate-y-0.5 rounded-control border border-action bg-action-soft shadow-key-press',
+                        ] as $name => $key)
+                            <li class="rounded-card border border-line bg-surface p-5">
+                                <span class="block h-11 w-28 {{ $key }}" aria-hidden="true"></span>
+                                <code class="mt-4 block font-mono text-sm font-semibold text-ink">{{ $name }}</code>
+                                <p class="mt-1 text-xs leading-5 text-ink-muted">{!! $markdown($guide->tokenRows('Elevation')[$name]['Use'] ?? '') !!}</p>
+                            </li>
+                        @endforeach
                     </ul>
                 </x-styleguide.section>
 
-                <x-styleguide.section id="motion" title="Motion" lead="Quiet and quick. Colour changes take the short duration, position changes the longer one, both on the out-quint curve. Nothing scales, springs or loops, and reduced-motion settings collapse every duration.">
+                <x-styleguide.section id="motion" title="Motion" lead="Quiet and quick, all on the out-quint curve. Keys travel 1–2px and change colour in the short duration, thumbs and menus move in the longer one, and the rate field drifts at 30 fps and pauses off screen. Nothing scales or springs, and reduced-motion settings collapse every duration and still the field.">
                     <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
                         @foreach($tokens->easings() as $name => $curve)
                             <div class="app-surface p-5">
@@ -490,8 +560,8 @@
                         @foreach($tokens->durations() as $name => $milliseconds)
                             <div class="app-surface p-5">
                                 <p class="text-xs font-semibold text-ink-muted">{{ ucfirst($name) }} changes</p>
-                                <p class="tabular mt-1 text-2xl font-bold text-ink">{{ $milliseconds }}ms</p>
-                                <p class="mt-1 text-xs text-ink-muted">{{ $name === 'colour' ? 'Pressable feedback on colour, borders and shadows' : 'Sliding thumbs and menus that drop 4px' }}</p>
+                                <p class="tabular mt-1 text-2xl font-semibold text-ink">{{ $milliseconds }}ms</p>
+                                <p class="mt-1 text-xs text-ink-muted">{{ $name === 'colour' ? 'Key travel and pressable feedback on colour, borders and shadows' : 'Sliding thumbs and menus that drop 4px' }}</p>
                             </div>
                         @endforeach
                     </div>
@@ -503,8 +573,8 @@
                                 Replay
                             </button>
                         </div>
-                        <div class="relative mt-4 h-10 rounded-control border border-line bg-surface-muted p-1">
-                            <span class="block h-full w-1/4 rounded-xs bg-surface shadow-card ring-1 ring-line-strong transition-transform duration-200 ease-out-quint" :class="moved && 'translate-x-[300%]'" aria-hidden="true"></span>
+                        <div class="relative mt-4 h-10 rounded-control border border-line bg-surface-muted p-1 shadow-key-press">
+                            <span class="block h-full w-1/4 rounded-xs border border-line-strong bg-key-face shadow-key transition-transform duration-200 ease-out-quint" :class="moved && 'translate-x-[300%]'" aria-hidden="true"></span>
                         </div>
                     </div>
                 </x-styleguide.section>
@@ -515,7 +585,7 @@
                         <p class="text-sm font-semibold text-ink">app-container</p>
                         <div class="mt-3 flex h-14 items-stretch overflow-hidden rounded-control border border-dashed border-line-strong text-[0.6875rem] font-semibold text-ink-muted" aria-hidden="true">
                             <span class="flex w-8 items-center justify-center bg-action/15 sm:w-12">↔</span>
-                            <span class="flex flex-1 items-center justify-center bg-action-soft text-action-deep">max {{ $container['max'] }} · {{ $rem($container['max']) }}</span>
+                            <span class="flex flex-1 items-center justify-center bg-action-soft text-action-deep">max {{ $container['max'] }} ({{ $rem($container['max']) }})</span>
                             <span class="flex w-8 items-center justify-center bg-action/15 sm:w-12">↔</span>
                         </div>
                         <dl class="mt-4 grid grid-cols-3 gap-3 text-sm">
@@ -548,7 +618,7 @@
                                     <tr><th scope="col" class="pl-5">Where</th><th scope="col" class="pr-5 text-right">Classes</th></tr>
                                 </thead>
                                 <tbody>
-                                    @foreach(['Between sections' => 'py-8 sm:py-10', 'Hero bottom' => 'pb-12 sm:pb-16', 'Card padding' => 'p-5 sm:p-6', 'Card grids' => 'gap-4 or gap-6', 'Reading width' => 'max-w-[68ch]'] as $where => $classes)
+                                    @foreach(['Between sections' => 'py-8 sm:py-10', 'Hero bottom' => 'pb-10 sm:pb-14', 'Card padding' => 'p-5 sm:p-6', 'Card grids' => 'gap-4 or gap-6', 'Reading width' => 'max-w-[68ch]'] as $where => $classes)
                                         <tr><td class="pl-5 text-ink">{{ $where }}</td><td class="pr-5 text-right font-mono text-xs text-action-deep">{{ $classes }}</td></tr>
                                     @endforeach
                                 </tbody>
@@ -558,14 +628,15 @@
                 </x-styleguide.section>
 
                 {{-- Components --}}
-                <x-styleguide.section id="buttons" title="Buttons" lead="44px rectangles with pressable feedback. Use one primary button per view, secondary or ghost for the rest, and the inverse and on-brand pair on navy.">
+                <x-styleguide.section id="buttons" title="Buttons" lead="44px keys that lift 1px on hover and sink 2px on press. One cobalt primary key per view, paper secondary keys or ghost buttons for the rest, and the white and outlined pair only inside a graphite band.">
                     <x-styleguide.specimen example="buttons-variants" />
+                    <x-styleguide.specimen example="buttons-keys" />
                     <x-styleguide.specimen example="buttons-on-brand" />
                     <x-styleguide.specimen example="buttons-sizes" />
                     <x-styleguide.specimen example="buttons-states" />
                 </x-styleguide.section>
 
-                <x-styleguide.section id="fields" title="Form fields" lead="Labels sit above the field, help and errors below, linked with aria-describedby. Validate on the client for instant feedback and again on the server.">
+                <x-styleguide.section id="fields" title="Form fields" lead="Fields are cut on two corners and edged in ink-quiet, so the edge holds 3:1 against paper. Labels sit above, help and errors below, linked with aria-describedby. Validate on the client for instant feedback and again on the server.">
                     <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
                         <x-styleguide.specimen example="field-text" />
                         <x-styleguide.specimen example="field-error" />
@@ -575,19 +646,21 @@
                     </div>
                 </x-styleguide.section>
 
-                <x-styleguide.section id="selection" title="Selection controls" lead="A segmented control for two equal modes, chips for choosing among values, and chip tabs for switching panels.">
+                <x-styleguide.section id="selection" title="Selection controls" lead="A segmented control for two equal modes on a sunken tray, chips for choosing among values, and chip tabs for switching panels. Chips are small keys that press in when chosen.">
                     <x-styleguide.specimen example="segmented" />
                     <x-styleguide.specimen example="chips" />
                     <x-styleguide.specimen example="tabs" />
                 </x-styleguide.section>
 
-                <x-styleguide.section id="surfaces" title="Surfaces" lead="Opaque white paper with hairline borders. Cards hold content, the raised card holds the primary task, popovers float, and brand panels sit on navy.">
+                <x-styleguide.section id="surfaces" title="Surfaces" lead="Opaque paper with hairline borders. Cards hold content, the cut raised card holds the primary task, popovers float, the tool hero is paper over the rate field, and brand panels sit only inside a graphite band.">
+                    <x-styleguide.specimen example="surface-hero-field" />
                     <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
                         <x-styleguide.specimen example="surface-card" />
                         <x-styleguide.specimen example="surface-raised" />
                         <x-styleguide.specimen example="surface-popover" />
                         <x-styleguide.specimen example="surface-brand-panel" />
                     </div>
+                    <x-styleguide.specimen example="surface-cuts" />
                     <x-styleguide.specimen example="surface-note" />
                 </x-styleguide.section>
 
@@ -600,15 +673,16 @@
                     <x-styleguide.specimen example="content-faq" />
                 </x-styleguide.section>
 
-                <x-styleguide.section id="data" title="Data display" lead="Numbers are the hero. Tables right-align figures in tabular type, breakdowns use definition lists, and bars run on an action track with square ends.">
+                <x-styleguide.section id="data" title="Data display" lead="Numbers are the hero. Tables right-align figures in tabular type, breakdowns use definition lists, the calculator total sits over the fifty-cell meter, and bars run on an action track with square ends.">
                     <x-styleguide.specimen example="data-table" />
                     <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
                         <x-styleguide.specimen example="data-breakdown" />
                         <x-styleguide.specimen example="data-meter" />
                     </div>
+                    <x-styleguide.specimen example="data-bars" />
                 </x-styleguide.section>
 
-                <x-styleguide.section id="navigation" title="Navigation" lead="Navy frames the page: the header marks the current section with the gold underline, the mobile tab bar with an action-blue rule, and breadcrumbs lead every page.">
+                <x-styleguide.section id="navigation" title="Navigation" lead="A paper header with a hairline marks the current section with a 2px cobalt underline, the mobile tab bar marks it with a cobalt top rule, and breadcrumbs lead every page.">
                     <x-styleguide.specimen example="nav-header" />
                     <x-styleguide.specimen
                         title="Breadcrumbs"
@@ -651,7 +725,7 @@
                     </div>
                 </x-styleguide.section>
 
-                <x-styleguide.section id="identity" title="Flags and logo" lead="The mark is a white tile with a navy slash and a gold dot. Flags are local SVGs with a hairline edge, in five sizes; Greece also accepts EL.">
+                <x-styleguide.section id="identity" title="Flags and logo" lead="The mark is an ink tile cut on two corners, with a paper slash and dot and a cobalt dot; it inverts with the theme. Flags are local SVGs with a hairline edge, in five sizes; Greece also accepts EL.">
                     <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
                         <x-styleguide.specimen example="identity-logo" />
                         <x-styleguide.specimen example="identity-flags" description="{{ $flagCount }} countries, sizes xs to xl" />
@@ -659,7 +733,7 @@
                 </x-styleguide.section>
 
                 {{-- Patterns --}}
-                <x-styleguide.section id="skeletons" title="Page skeletons" lead="Two page shapes. A tool page opens with a navy hero holding one raised task card; a reference page opens with the white page header band.">
+                <x-styleguide.section id="skeletons" title="Page skeletons" lead="Two page shapes. A tool page opens with a paper hero over the rate field, holding one raised task card; a reference page opens with the paper page header band.">
                     <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
                         <x-styleguide.specimen title="Tool page" description="Calculator, validator, shared result" preview="styleguide.wireframes.tool-page" canvas="subtle" :code="$guide->codeBlocks('Page skeletons')[0] ?? ''" />
                         <x-styleguide.specimen title="Reference page" description="Tables, lists and guides" preview="styleguide.wireframes.reference-page" canvas="subtle" :code="$guide->codeBlocks('Page skeletons')[1] ?? ''" />
@@ -691,21 +765,21 @@
                     <x-styleguide.specimen example="pattern-alerts" />
                 </x-styleguide.section>
 
-                <x-styleguide.section id="calls-to-action" title="Calls to action" lead="A flat navy block with white and outlined buttons. Use one per page, after the content it follows from.">
+                <x-styleguide.section id="calls-to-action" title="Calls to action" lead="A flat graphite band with a white key and an outlined one, the only place white text appears outside code. Use one per page, after the content it follows from.">
                     <x-styleguide.specimen example="pattern-cta" />
                 </x-styleguide.section>
 
                 {{-- Resources --}}
                 <x-styleguide.section id="storybook" title="Storybook" lead="Every example on this page is also a Storybook story, rendered from the same Blade file, so designers and developers can browse, theme-switch and audit components in isolation without the two ever drifting apart.">
                     <p>
-                        <a href="{{ url('/storybook/') }}" class="app-button-primary">
+                        <a href="{{ url('/storybook/') }}" class="app-button-secondary">
                             <x-ui.icon name="puzzle" class="size-4" />
                             Open Storybook
                         </a>
                     </p>
                     <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
                         <div class="app-surface p-5 sm:p-6">
-                            <h3 class="text-lg font-bold text-ink">How the stories are made</h3>
+                            <h3 class="text-lg font-semibold text-ink">How the stories are made</h3>
                             <ol class="mt-4 space-y-3">
                                 @foreach([
                                     'Each example in <code>resources/views/styleguide/examples</code> is described once in <code>ComponentCatalog</code>: its section, title, description and canvas.',
@@ -714,7 +788,7 @@
                                     'The test suite fails while the generated stories are out of date, so a change to an example, a component or the stylesheet always reaches Storybook.',
                                 ] as $step)
                                     <li class="flex gap-3 text-sm leading-6 text-ink-muted">
-                                        <span class="tabular flex size-6 shrink-0 items-center justify-center rounded-full bg-action-soft text-xs font-bold text-action-deep" aria-hidden="true">{{ $loop->iteration }}</span>
+                                        <span class="tabular flex size-6 shrink-0 items-center justify-center rounded-full bg-action-soft text-xs font-semibold text-action-deep" aria-hidden="true">{{ $loop->iteration }}</span>
                                         <span class="{{ $inlineCode }}">{!! $step !!}</span>
                                     </li>
                                 @endforeach
@@ -734,7 +808,7 @@
                         <div class="app-surface flex flex-col p-5">
                             <p class="flex items-center gap-2">
                                 <span class="flex size-9 items-center justify-center rounded-control bg-action-soft text-action" aria-hidden="true"><x-ui.icon name="braces" class="size-4" /></span>
-                                <span class="font-bold text-ink">Design tokens</span>
+                                <span class="font-semibold text-ink">Design tokens</span>
                             </p>
                             <p class="mt-3 text-sm leading-6 text-ink-muted">Colour, typography, radius, shadow, easing, duration and size tokens in the Design Tokens Community Group format 2025.10, with OKLCH values, hex fallbacks and dark-theme values under <code class="font-mono text-xs text-ink">$extensions</code>.</p>
                             <code class="mt-4 block break-all rounded-control border border-line bg-surface-subtle px-3 py-2 font-mono text-xs text-ink">{{ $tokensUrl }}</code>
@@ -746,7 +820,7 @@
                         <div class="app-surface flex flex-col p-5">
                             <p class="flex items-center gap-2">
                                 <span class="flex size-9 items-center justify-center rounded-control bg-action-soft text-action" aria-hidden="true"><x-ui.icon name="file-text" class="size-4" /></span>
-                                <span class="font-bold text-ink">DESIGN.md</span>
+                                <span class="font-semibold text-ink">DESIGN.md</span>
                             </p>
                             <p class="mt-3 text-sm leading-6 text-ink-muted">The complete guide as Markdown: principles, every token and component recipe, patterns, accessibility rules and the checks the build enforces. Give it to your coding agent before it touches a template.</p>
                             <code class="mt-4 block break-all rounded-control border border-line bg-surface-subtle px-3 py-2 font-mono text-xs text-ink">{{ $markdownUrl }}</code>
@@ -765,11 +839,11 @@
                     />
 
                     <div class="app-surface p-5 sm:p-6">
-                        <h3 class="text-lg font-bold text-ink">Quick start for agents</h3>
+                        <h3 class="text-lg font-semibold text-ink">Quick start for agents</h3>
                         <ol class="mt-4 space-y-3">
                             @foreach($guide->numberedList('Quick start for agents') as $step)
                                 <li class="flex gap-3 text-sm leading-6 text-ink-muted">
-                                    <span class="tabular flex size-6 shrink-0 items-center justify-center rounded-full bg-action-soft text-xs font-bold text-action-deep" aria-hidden="true">{{ $loop->iteration }}</span>
+                                    <span class="tabular flex size-6 shrink-0 items-center justify-center rounded-full bg-action-soft text-xs font-semibold text-action-deep" aria-hidden="true">{{ $loop->iteration }}</span>
                                     <span class="{{ $inlineCode }} [&_strong]:font-semibold [&_strong]:text-ink">{!! $markdown($step) !!}</span>
                                 </li>
                             @endforeach
@@ -779,7 +853,7 @@
 
                 <x-styleguide.section id="rules" title="Rules and checks" lead="The test suite fails the build when a template breaks one of these rules, naming the file, the line and the fix.">
                     <div class="app-surface p-5 sm:p-6">
-                        <h3 class="text-lg font-bold text-ink">The build fails when a template</h3>
+                        <h3 class="text-lg font-semibold text-ink">The build fails when a template</h3>
                         <ol class="mt-4 grid grid-cols-1 gap-x-8 gap-y-2.5 md:grid-cols-2">
                             @foreach($templateRules as $rule)
                                 <li class="flex gap-3 text-sm leading-6 text-ink-muted">
@@ -798,7 +872,7 @@
 
                     <div class="app-surface overflow-hidden">
                         <h3 class="sr-only">Do and don't</h3>
-                        <div class="hidden grid-cols-2 gap-6 bg-surface-subtle px-5 py-2.5 text-xs font-semibold tracking-[0.06em] uppercase sm:grid" aria-hidden="true">
+                        <div class="hidden grid-cols-2 gap-6 bg-surface-subtle px-5 py-2.5 font-display text-[0.8125rem] font-medium sm:grid" aria-hidden="true">
                             <span class="inline-flex items-center gap-1.5 text-success"><x-ui.icon name="check" class="size-3.5" />Do</span>
                             <span class="inline-flex items-center gap-1.5 text-danger"><x-ui.icon name="x" class="size-3.5" />Don't</span>
                         </div>
@@ -825,9 +899,8 @@
             <x-hero-backdrop />
             <div class="relative grid grid-cols-1 gap-8 p-6 sm:p-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
                 <div class="max-w-2xl">
-                    <p class="app-kicker">BusinessPress</p>
-                    <h2 id="businesspress-title" class="mt-3 text-2xl font-bold tracking-[-0.02em] text-white sm:text-3xl">Get a design system like this for your business</h2>
-                    <p class="mt-3 text-base leading-7 text-white/85">Tokens, accessible components and a living styleguide that your team and your AI agents can build with, set up for your brand on the BusinessPress platform.</p>
+                    <h2 id="businesspress-title" class="text-2xl font-semibold tracking-[-0.02em] text-white sm:text-3xl">Get a design system like this for your business</h2>
+                    <p class="mt-3 text-base leading-7 text-white/80">Tokens, accessible components and a living styleguide that your team and your AI agents can build with, set up for your brand on BusinessPress.</p>
                 </div>
                 <a href="{{ Styleguide::BUSINESSPRESS_URL }}" target="_blank" rel="noopener" class="app-button-inverse shrink-0 px-6">
                     Get yours on BusinessPress

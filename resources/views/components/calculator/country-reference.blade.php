@@ -20,8 +20,7 @@
 <section data-country-reference aria-labelledby="country-reference-title" class="app-surface overflow-hidden">
     <div class="flex flex-wrap items-end justify-between gap-x-6 gap-y-3 border-b border-line px-5 py-4 sm:px-6">
         <div>
-            <p class="app-eyebrow">{{ __('ui.country_page.key_information') }}</p>
-            <h2 id="country-reference-title" class="mt-1 text-xl font-bold text-ink">{{ __('ui.calculator.rates_and_formulas', ['country' => $country->name]) }}</h2>
+            <h2 id="country-reference-title" class="text-xl font-semibold text-ink">{{ __('ui.calculator.rates_and_formulas', ['country' => $country->name]) }}</h2>
         </div>
         <x-rate-freshness :updated="$country->updated_at" :eu="$country->is_eu_member" />
     </div>
@@ -43,23 +42,26 @@
                                 </span>
                             @endif
                         </dt>
-                        <dd class="tabular shrink-0 text-xl font-bold text-ink">{{ Country::formatRate($rate['rate']) }}%</dd>
+                        <dd class="tabular shrink-0 font-display text-xl font-semibold text-ink">{{ Country::formatRate($rate['rate']) }}%</dd>
                     </div>
                 @endforeach
             </dl>
 
-            <dl class="mt-4 grid grid-cols-2 gap-x-5 gap-y-4 rounded-card bg-surface-subtle p-4 text-sm">
+            <dl class="mt-4 grid grid-cols-2 gap-x-5 gap-y-4 rounded-control border border-line bg-surface-subtle p-4 text-sm">
                 <div>
-                    <dt class="text-xs font-medium text-ink-muted">{{ __('ui.country_page.currency') }}</dt>
-                    <dd class="mt-1 font-semibold text-ink">{{ $currency }} · {{ $country->currency_display }}</dd>
+                    <dt class="font-display text-[0.8125rem] font-medium text-ink-muted">{{ __('ui.country_page.currency') }}</dt>
+                    <dd class="mt-1 flex flex-wrap items-baseline gap-x-2 font-semibold text-ink">
+                        <span class="font-mono">{{ $currency }}</span>
+                        <span>{{ $country->currency_display }}</span>
+                    </dd>
                 </div>
                 <div>
-                    <dt class="text-xs font-medium text-ink-muted">{{ __('ui.country_page.eu_member') }}</dt>
+                    <dt class="font-display text-[0.8125rem] font-medium text-ink-muted">{{ __('ui.country_page.eu_member') }}</dt>
                     <dd class="mt-1 font-semibold text-ink">{{ $country->is_eu_member ? __('ui.country_page.yes') : __('ui.country_page.no') }}</dd>
                 </div>
                 @if($format)
                     <div class="col-span-2">
-                        <dt class="text-xs font-medium text-ink-muted">{{ __('ui.calculator.vat_number_format') }}</dt>
+                        <dt class="font-display text-[0.8125rem] font-medium text-ink-muted">{{ __('ui.calculator.vat_number_format') }}</dt>
                         <dd class="mt-1 font-mono text-sm font-semibold break-all text-ink">{{ VatNumberFormat::describe($format) }}</dd>
                     </div>
                 @endif
@@ -76,12 +78,12 @@
         <div class="p-5 sm:p-6">
             <h3 class="text-sm font-semibold text-ink">{{ __('ui.calculator.calculation_reference') }}</h3>
             <div class="mt-3 space-y-3">
-                <div class="rounded-card border border-line p-4">
+                <div class="rounded-control border border-line bg-surface p-4">
                     <p class="text-sm font-semibold text-ink">{{ __('ui.country_page.adding_vat', ['rate' => Country::formatRate($standard)]) }}</p>
                     <code class="mt-2 block font-mono text-sm font-semibold text-action-deep">{{ __('ui.calculator.formula_add', ['multiplier' => $multiplier]) }}</code>
                     <p class="tabular mt-2 text-sm text-ink-muted">{{ Money::format($add->net, $currency) }} → <strong class="text-ink">{{ Money::format($add->gross, $currency) }}</strong></p>
                 </div>
-                <div class="rounded-card border border-line p-4">
+                <div class="rounded-control border border-line bg-surface p-4">
                     <p class="text-sm font-semibold text-ink">{{ __('ui.country_page.removing_vat', ['rate' => Country::formatRate($standard)]) }}</p>
                     <code class="mt-2 block font-mono text-sm font-semibold text-action-deep">{{ __('ui.calculator.formula_remove', ['multiplier' => $multiplier]) }}</code>
                     <p class="tabular mt-2 text-sm text-ink-muted">{{ Money::format($remove->gross, $currency) }} → <strong class="text-ink">{{ Money::format($remove->net, $currency) }}</strong></p>

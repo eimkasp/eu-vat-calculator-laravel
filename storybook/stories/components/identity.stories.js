@@ -4,7 +4,7 @@ import { exampleParameters, renderExample } from '../../render.js';
 export default {
     title: "Components/Flags and logo",
     tags: ['autodocs'],
-    parameters: { docs: { description: { component: "The mark is a white tile with a navy slash and a gold dot. Flags are local SVGs with a hairline edge, in five sizes; Greece also accepts EL." } } },
+    parameters: { docs: { description: { component: "The mark is an ink tile cut on two corners, with a paper slash and dot and a cobalt dot; it inverts with the theme. Flags are local SVGs with a hairline edge, in five sizes; Greece also accepts EL." } } },
 };
 
 export const IdentityLogo = {

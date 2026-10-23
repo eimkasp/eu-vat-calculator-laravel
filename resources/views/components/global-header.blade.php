@@ -9,13 +9,13 @@
         ['label' => __('ui.nav.vat_calculator'), 'url' => locale_path('/vat-calculator'), 'active' => SiteNavigation::isActive('vat-calculator*', 'shared-calculation', 'top-calculations*')],
         ['label' => __('ui.nav.validator_short'), 'url' => locale_path('/vat-number-validator'), 'active' => SiteNavigation::isActive('vies-validator*')],
     ];
-    $mobileActive = 'border-gold bg-white/10 text-white';
-    $mobileIdle = 'border-transparent text-white/85 hover:bg-white/10 hover:text-white';
+    $mobileActive = 'border-action bg-action-soft text-action-deep';
+    $mobileIdle = 'border-transparent text-ink-muted hover:bg-surface-muted hover:text-ink';
 @endphp
 
-<header x-data="{ menu: false }" @keydown.escape.window="menu = false" class="on-brand sticky top-0 z-40 border-b border-white/10 bg-brand-deep text-white">
+<header x-data="{ menu: false }" @keydown.escape.window="menu = false" class="sticky top-0 z-40 border-b border-line bg-workspace text-ink">
     <div class="app-container flex h-16 items-center gap-2">
-        <a href="{{ locale_path('/') }}" class="-ml-1 flex min-w-0 items-center gap-2.5 whitespace-nowrap rounded-control px-1 py-1 text-[1.0625rem] font-bold tracking-[-0.02em] text-white">
+        <a href="{{ locale_path('/') }}" class="-ml-1 flex min-w-0 items-center gap-2.5 whitespace-nowrap rounded-control px-1 py-1 font-display text-[1.0625rem] font-semibold tracking-[-0.02em] text-ink">
             <x-ui.logo />
             <span class="truncate">{{ __('ui.site_name') }}</span>
         </a>
@@ -39,7 +39,7 @@
                                     <x-ui.icon :name="$tool['icon']" class="size-4" />
                                 </span>
                                 <span class="min-w-0">
-                                    <span class="block text-sm font-semibold text-ink">{{ $tool['label'] }}</span>
+                                    <span class="block font-display text-sm font-medium text-ink">{{ $tool['label'] }}</span>
                                     <span class="mt-0.5 block text-xs leading-5 text-ink-muted">{{ $tool['description'] }}</span>
                                 </span>
                             </a>
@@ -56,47 +56,47 @@
         </nav>
 
         <div class="@container ml-auto flex min-w-[10.5rem] flex-1 items-center justify-end gap-1">
-            <button type="button" @click="$store.palette.show()" class="app-brand-panel pressable hidden h-10 w-72 items-center gap-2.5 rounded-control px-3 text-left text-sm text-white/80 hover:border-white/30 hover:bg-white/10 hover:text-white @min-[27rem]:flex" aria-label="{{ __('ui.nav.search') }}">
+            <button type="button" @click="$store.palette.show()" class="pressable cut-sm hidden h-10 w-72 items-center gap-2.5 rounded-control border border-line-strong bg-surface px-3 text-left text-sm text-ink-muted hover:border-ink-quiet hover:text-ink @min-[27rem]:flex" aria-label="{{ __('ui.nav.search') }}">
                 <x-ui.icon name="search" class="size-4" />
                 <span class="flex-1 truncate">{{ __('ui.nav.search_placeholder') }}</span>
-                <kbd class="rounded-xs border border-white/25 px-1.5 py-0.5 font-sans text-[0.6875rem] font-semibold text-white/80">⌘K</kbd>
+                <kbd class="app-kbd px-1.5">⌘K</kbd>
             </button>
-            <button type="button" @click="$store.palette.show()" class="inline-flex size-10 items-center justify-center rounded-control text-white/85 transition-colors hover:bg-white/10 hover:text-white @min-[27rem]:hidden" aria-label="{{ __('ui.nav.search') }}">
+            <button type="button" @click="$store.palette.show()" class="inline-flex size-10 items-center justify-center rounded-control text-ink-muted transition-colors hover:bg-surface-muted hover:text-ink @min-[27rem]:hidden" aria-label="{{ __('ui.nav.search') }}">
                 <x-ui.icon name="search" class="size-5" />
             </button>
 
             <x-theme-toggle class="hidden sm:inline-flex" />
             <x-language-switcher class="hidden lg:block" />
 
-            <a href="https://github.com/eimkasp/eu-vat.info" target="_blank" rel="noopener noreferrer" class="hidden size-10 items-center justify-center rounded-control text-white/80 transition-colors hover:bg-white/10 hover:text-white @min-[30rem]:inline-flex" aria-label="{{ __('ui.nav.github') }} ({{ __('ui.opens_new_tab') }})">
+            <a href="https://github.com/eimkasp/eu-vat.info" target="_blank" rel="noopener noreferrer" class="hidden size-10 items-center justify-center rounded-control text-ink-muted transition-colors hover:bg-surface-muted hover:text-ink @min-[30rem]:inline-flex" aria-label="{{ __('ui.nav.github') }} ({{ __('ui.opens_new_tab') }})">
                 <x-ui.icon name="github" class="size-5" />
             </a>
 
-            <button type="button" @click="menu = !menu" class="inline-flex size-10 items-center justify-center rounded-control text-white transition-colors hover:bg-white/10 xl:hidden" aria-controls="mobile-navigation" :aria-expanded="menu.toString()" aria-label="{{ __('ui.nav.toggle_menu') }}">
+            <button type="button" @click="menu = !menu" class="inline-flex size-10 items-center justify-center rounded-control text-ink transition-colors hover:bg-surface-muted xl:hidden" aria-controls="mobile-navigation" :aria-expanded="menu.toString()" aria-label="{{ __('ui.nav.toggle_menu') }}">
                 <x-ui.icon name="menu" class="size-6" x-show="!menu" />
                 <x-ui.icon name="x" class="size-6" x-show="menu" x-cloak />
             </button>
         </div>
     </div>
 
-    <nav id="mobile-navigation" x-cloak x-show="menu" x-transition.opacity.duration.150ms class="max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-white/10 pb-4 xl:hidden" aria-label="{{ __('ui.nav.mobile') }}">
+    <nav id="mobile-navigation" x-cloak x-show="menu" x-transition.opacity.duration.150ms class="max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-line pb-4 xl:hidden" aria-label="{{ __('ui.nav.mobile') }}">
         <div class="app-container grid gap-1 pt-3">
             @foreach($primary as $item)
                 <a href="{{ $item['url'] }}" @class(['flex min-h-11 items-center border-l-2 px-3 text-[0.9375rem] font-medium', $mobileActive => $item['active'], $mobileIdle => ! $item['active']]) @if($item['active']) aria-current="page" @endif>{{ $item['label'] }}</a>
             @endforeach
             <a href="{{ locale_path('/vat-changes') }}" @class(['flex min-h-11 items-center border-l-2 px-3 text-[0.9375rem] font-medium', $mobileActive => $historyActive, $mobileIdle => ! $historyActive]) @if($historyActive) aria-current="page" @endif>{{ __('ui.nav.vat_history') }}</a>
 
-            <p class="mt-4 px-3 text-xs font-semibold tracking-[0.08em] text-white/60 uppercase">{{ __('ui.nav.vat_tools') }}</p>
+            <p class="mt-4 px-3 font-display text-[0.8125rem] font-medium text-ink-quiet">{{ __('ui.nav.vat_tools') }}</p>
             <div class="grid grid-cols-2 gap-1">
                 @foreach($tools as $tool)
                     <a href="{{ $tool['url'] }}" @class(['flex min-h-11 items-center gap-2.5 border-l-2 px-3 text-sm font-medium', $mobileActive => $tool['active'], $mobileIdle => ! $tool['active']]) @if($tool['active']) aria-current="page" @endif>
-                        <x-ui.icon :name="$tool['icon']" class="size-4 text-white/70" />
+                        <x-ui.icon :name="$tool['icon']" class="size-4 text-ink-quiet" />
                         <span class="truncate">{{ $tool['label'] }}</span>
                     </a>
                 @endforeach
             </div>
 
-            <x-language-switcher :mobile="true" class="mt-3 border-t border-white/10 px-1 pt-4">
+            <x-language-switcher :mobile="true" class="mt-3 border-t border-line px-1 pt-4">
                 <x-theme-toggle :with-label="true" />
             </x-language-switcher>
         </div>

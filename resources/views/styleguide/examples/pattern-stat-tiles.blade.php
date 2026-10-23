@@ -10,8 +10,8 @@
                 <x-ui.icon :name="$icon" class="size-4" />
             </span>
             <dl>
-                <dt class="text-xs font-semibold text-ink-muted">{{ $label }}</dt>
-                <dd class="tabular mt-0.5 text-2xl font-bold text-ink">{{ $value }}</dd>
+                <dt class="font-display text-[0.8125rem] font-medium text-ink-muted">{{ $label }}</dt>
+                <dd class="tabular mt-0.5 font-display text-2xl font-semibold text-ink">{{ $value }}</dd>
             </dl>
         </div>
     @endforeach

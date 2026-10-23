@@ -3,17 +3,16 @@
 <section @class(['app-surface relative overflow-hidden p-5', 'sm:p-6' => ! $compact]) aria-labelledby="{{ $inputId }}-title">
     <div @class(['flex flex-col gap-5', 'lg:flex-row lg:items-center lg:justify-between lg:gap-8' => ! $compact])>
         <div class="flex gap-4">
-            <span class="hidden size-11 shrink-0 items-center justify-center rounded-card bg-action-soft text-action sm:flex" aria-hidden="true">
+            <span class="hidden size-11 shrink-0 items-center justify-center rounded-control bg-action-soft text-action sm:flex" aria-hidden="true">
                 <x-ui.icon name="news" class="size-5" />
             </span>
             <div>
-                <p class="app-eyebrow">{{ __('ui.alerts.eyebrow') }}</p>
-                <h2 id="{{ $inputId }}-title" @class(['mt-0.5 font-bold text-ink', 'text-lg' => $compact, 'text-xl' => ! $compact])>{{ __('ui.alerts.title') }}</h2>
+                <h2 id="{{ $inputId }}-title" @class(['font-semibold text-ink', 'text-lg' => $compact, 'text-xl' => ! $compact])>{{ __('ui.alerts.title') }}</h2>
                 <p class="mt-1.5 max-w-[60ch] text-sm leading-6 text-ink-muted">{{ __('ui.alerts.description') }}</p>
             </div>
         </div>
 
-        <form wire:submit="subscribe" @class(['w-full', 'lg:max-w-md' => ! $compact]) novalidate>
+        <form wire:submit="subscribe" @class(['w-full', 'lg:max-w-md' => ! $compact]) aria-label="{{ __('ui.alerts.eyebrow') }}" novalidate>
             <div @class(['flex flex-col gap-2.5', 'sm:flex-row' => ! $compact])>
                 <label for="{{ $inputId }}" class="sr-only">{{ __('ui.alerts.email_label') }}</label>
                 <input

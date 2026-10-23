@@ -21,7 +21,6 @@
     <x-page-header
         title="EU VAT rates dataset"
         :description="'Current VAT rate data for '.$countries->count().' EU member states, available in formats suited to analysis, integrations and research.'"
-        eyebrow="Open VAT data"
         :breadcrumbs="['EU VAT rates dataset' => '']"
     >
         <x-slot:actions>
@@ -36,7 +35,7 @@
         <div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-[minmax(0,1fr)_20rem]">
             <div class="min-w-0 space-y-8">
                 <section class="app-surface overflow-hidden" aria-labelledby="dataset-downloads">
-                    <h2 id="dataset-downloads" class="border-b border-line px-5 py-4 text-lg font-bold text-ink sm:px-6">Get the data</h2>
+                    <h2 id="dataset-downloads" class="border-b border-line px-5 py-4 text-lg font-semibold text-ink sm:px-6">Get the data</h2>
                     <ul class="divide-y divide-line">
                         @foreach([
                             ['CSV', 'Spreadsheet and analysis workflows', '/datasets/eu-vat-rates.csv', 'Download', 'download', 'table'],
@@ -63,7 +62,7 @@
                 </section>
 
                 <section class="app-surface p-5 sm:p-6" aria-labelledby="dataset-contents">
-                    <h2 id="dataset-contents" class="text-lg font-bold text-ink">What is included</h2>
+                    <h2 id="dataset-contents" class="text-lg font-semibold text-ink">What is included</h2>
                     <p class="mt-2 max-w-[68ch] text-base leading-7 text-ink-muted">Each row includes the country, ISO code, standard rate, available reduced-rate fields, currency and record update time. Historical records are published separately through each country’s VAT history.</p>
                     <p class="mt-4 flex flex-wrap gap-2">
                         @foreach(['country', 'iso_code', 'standard_rate', 'reduced_rate', 'super_reduced_rate', 'parking_rate', 'currency_code', 'last_updated'] as $column)
@@ -74,19 +73,19 @@
             </div>
 
             <aside class="app-surface p-5 lg:sticky lg:top-24">
-                <h2 class="text-base font-bold text-ink">Provenance</h2>
+                <h2 class="text-base font-semibold text-ink">Provenance</h2>
                 <p class="mt-2 text-sm leading-6 text-ink-muted">Rates are aggregated from European Commission material and the open VAT Rates dataset, then checked by the project’s data-integrity workflow.</p>
                 <dl class="mt-4 divide-y divide-line border-t border-line text-sm">
                     <div class="flex justify-between gap-4 py-2.5">
-                        <dt class="text-ink-muted">Coverage</dt>
+                        <dt class="font-display text-[0.8125rem] font-medium text-ink-muted">Coverage</dt>
                         <dd class="font-semibold text-ink">European Union</dd>
                     </div>
                     <div class="flex justify-between gap-4 py-2.5">
-                        <dt class="text-ink-muted">Member states</dt>
+                        <dt class="font-display text-[0.8125rem] font-medium text-ink-muted">Member states</dt>
                         <dd class="tabular font-semibold text-ink">{{ $countries->count() }}</dd>
                     </div>
                     <div class="flex justify-between gap-4 py-2.5">
-                        <dt class="text-ink-muted">License</dt>
+                        <dt class="font-display text-[0.8125rem] font-medium text-ink-muted">License</dt>
                         <dd><a class="app-link font-semibold" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></dd>
                     </div>
                 </dl>

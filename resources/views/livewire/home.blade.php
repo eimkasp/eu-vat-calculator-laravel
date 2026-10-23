@@ -39,21 +39,20 @@
 @endif
 
 <div>
-    <section class="hero-canvas" aria-labelledby="home-heading">
+    <section class="hero-field" aria-labelledby="home-heading">
         <x-hero-backdrop />
-        <div class="app-container relative pb-12 pt-10 sm:pb-16 sm:pt-14">
-            <div class="mx-auto mb-8 max-w-3xl text-center sm:mb-10">
-                <p class="app-kicker">{{ __('ui.home_page.hero_badge', ['year' => date('Y'), 'count' => $stats['count'] ?? 27]) }}</p>
-                <h1 id="home-heading" class="mt-4 text-4xl font-bold tracking-[-0.03em] text-white sm:text-5xl sm:leading-[1.08]">
+        <div class="app-container relative pb-10 pt-8 sm:pb-14 sm:pt-12">
+            <div class="mb-7 max-w-2xl sm:mb-9">
+                <h1 id="home-heading" class="text-4xl font-semibold tracking-[-0.03em] text-ink sm:text-5xl sm:leading-[1.04]">
                     {{ __('ui.home_page.heading') }}
                     {{ __('ui.home_page.heading_accent') }}
                 </h1>
-                <p class="mx-auto mt-4 max-w-[62ch] text-base leading-7 text-white/80 sm:text-lg">
+                <p class="mt-4 max-w-[54ch] text-base leading-7 text-ink-muted sm:text-lg">
                     {{ __('ui.home_page.subtitle') }}
                 </p>
             </div>
 
-            <livewire:hero-calculator surface="dark" />
+            <livewire:hero-calculator surface="field" />
         </div>
     </section>
 

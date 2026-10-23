@@ -7,10 +7,8 @@
         @endif
         <div class="mt-6 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div class="max-w-3xl">
-                @if($eyebrow)
-                    <p class="app-eyebrow">{{ $eyebrow }}</p>
-                @endif
-                <h1 @class(['text-3xl font-bold tracking-[-0.035em] text-ink sm:text-[2.5rem] sm:leading-[1.1]', 'mt-1.5' => $eyebrow])>{{ $title }}</h1>
+                {{-- The breadcrumbs carry the section; an eyebrow is never drawn over the heading. --}}
+                <h1 class="text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-[2.5rem] sm:leading-[1.08]">{{ $title }}</h1>
                 @if($description)
                     <p class="mt-3 max-w-[68ch] text-base leading-7 text-ink-muted">{{ $description }}</p>
                 @endif

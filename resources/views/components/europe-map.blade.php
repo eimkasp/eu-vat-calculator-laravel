@@ -10,7 +10,7 @@
         'iso' => strtolower((string) $country->iso_code),
         'name' => $country->name,
         'rate' => Country::formatRate($country->standard_rate).'%',
-        'reduced' => $country->formattedReducedRates(' · '),
+        'reduced' => $country->formattedReducedRates(', '),
         'url' => locale_path('/vat-calculator/'.$country->slug),
         'validator' => $country->vies_available ? locale_path('/vat-number-validator/'.$country->slug) : null,
     ]])->all();
@@ -66,9 +66,9 @@
                     <img :src="'{{ asset('images/flags') }}/' + selected.iso + '.svg'" alt="" width="48" height="36" class="app-flag h-9 w-12 rounded-control">
                     <div class="min-w-0 flex-1">
                         <p class="text-lg font-bold text-ink" x-text="selected.name"></p>
-                        <p class="text-sm text-ink-muted">
-                            {{ __('ui.rate_type.standard') }} <strong class="text-ink" x-text="selected.rate"></strong>
-                            <span x-show="selected.reduced"> · {{ __('ui.rate_type.reduced') }} <strong class="text-ink" x-text="selected.reduced"></strong></span>
+                        <p class="flex flex-wrap gap-x-4 text-sm text-ink-muted">
+                            <span>{{ __('ui.rate_type.standard') }} <strong class="tabular text-ink" x-text="selected.rate"></strong></span>
+                            <span x-show="selected.reduced">{{ __('ui.rate_type.reduced') }} <strong class="tabular text-ink" x-text="selected.reduced"></strong></span>
                         </p>
                     </div>
                     <div class="flex flex-wrap gap-2">

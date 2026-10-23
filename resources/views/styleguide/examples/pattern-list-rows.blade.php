@@ -17,7 +17,7 @@
                 <span class="tabular text-sm text-ink-muted">
                     {{ $old }}%
                     <x-ui.icon name="arrow-right" class="inline size-3.5 align-[-2px] text-ink-quiet" />
-                    <span class="font-bold text-ink">{{ $new }}%</span>
+                    <span class="font-semibold text-ink">{{ $new }}%</span>
                 </span>
                 <span @class(['tabular inline-flex min-w-16 items-center justify-end gap-0.5 text-xs font-semibold', 'text-danger' => $new > $old, 'text-success' => $new < $old])>
                     <x-ui.icon :name="$new > $old ? 'trending-up' : 'trending-down'" class="size-3.5" />

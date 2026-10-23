@@ -1,23 +1,12 @@
-<div class="max-w-md space-y-5">
-    <div>
-        <div class="flex h-1.5 overflow-hidden rounded-xs bg-action/15" aria-hidden="true">
-            <div class="h-full w-[84%] bg-action"></div>
-        </div>
-        <p class="mt-1.5 flex justify-between text-xs text-ink-muted">
+{{-- €1,250.00 plus 19% VAT: the VAT is 16% of the total, so 8 of the 50 cells are filled. --}}
+<div class="max-w-md">
+    <p class="font-display text-[0.8125rem] font-medium text-ink-muted">Total (incl. VAT)</p>
+    <p class="tabular mt-1 font-display text-4xl font-semibold tracking-[-0.03em] text-ink">€1,487.50</p>
+    <div class="app-meter mt-4" aria-hidden="true">
+        <p class="app-meter-cells"><span class="text-ink-quiet">{{ str_repeat('░', 42) }}</span><span class="text-action">{{ str_repeat('█', 8) }}</span></p>
+        <div class="mt-2 flex justify-between font-display text-xs text-ink-muted">
             <span>Net 84%</span>
             <span>VAT 16%</span>
-        </p>
+        </div>
     </div>
-    <ul class="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-ink-muted" aria-label="Map legend">
-        @foreach(['< 20%', '20%', '21–22%', '23–24%', '≥ 25%'] as $step => $label)
-            <li class="inline-flex items-center gap-1.5">
-                <span class="eu-map-swatch eu-map-swatch-{{ $step }}" aria-hidden="true"></span>
-                {{ $label }}
-            </li>
-        @endforeach
-        <li class="inline-flex items-center gap-1.5">
-            <span class="eu-map-swatch eu-map-swatch-none" aria-hidden="true"></span>
-            No data
-        </li>
-    </ul>
 </div>

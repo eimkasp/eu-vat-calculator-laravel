@@ -82,8 +82,8 @@
 
 <div>
     @if($isCountryPage)
-        <section data-country-atmosphere class="hero-canvas">
-            <x-hero-backdrop opacity="opacity-30" />
+        <section data-country-atmosphere class="hero-field">
+            <x-hero-backdrop />
             <div class="app-container relative pb-10 pt-6 sm:pb-14 sm:pt-8">
                 <x-calculator.country-header :country="$country" />
 
@@ -110,21 +110,20 @@
                                 ->keyBy('slug');
                         @endphp
                         <section aria-labelledby="country-guide-title" class="app-surface p-5 sm:p-6">
-                            <p class="app-eyebrow">{{ __('ui.country_page.eu_guidance') }}</p>
-                            <h2 id="country-guide-title" class="mt-1 text-xl font-bold text-ink">{{ __('ui.country_page.vat_guide_heading', ['country' => $country->name]) }}</h2>
-                            <p class="mt-3 max-w-[72ch] text-sm leading-6 text-ink-muted">
+                            <h2 id="country-guide-title" class="text-xl font-semibold text-ink">{{ __('ui.country_page.vat_guide_heading', ['country' => $country->name]) }}</h2>
+                            <p class="mt-3 max-w-[64ch] text-sm leading-6 text-ink-muted">
                                 {{ __('ui.country_page.vat_registration_text', ['country' => $country->name, 'rate' => Country::formatRate($country->standard_rate)]) }}
                             </p>
 
                             <div class="mt-5 flex flex-wrap gap-2.5">
                                 @if($country->vies_available)
-                                    <a href="{{ locale_path('/vat-number-validator/'.$country->slug) }}" class="app-button-secondary">
+                                    <a href="{{ locale_path('/vat-number-validator/'.$country->slug) }}" class="app-button-secondary w-full justify-start gap-1.5 px-3.5 sm:w-auto sm:px-5">
                                         <x-ui.icon name="shield-check" class="size-4" />
                                         {{ __('ui.country_page.validate_vat_cta', ['country' => $country->name]) }}
                                     </a>
                                 @endif
                                 @if($country->hasVatHistory())
-                                    <a href="{{ locale_path('/vat-rates/'.$country->slug.'/history') }}" class="app-button-secondary">
+                                    <a href="{{ locale_path('/vat-rates/'.$country->slug.'/history') }}" class="app-button-secondary w-full justify-start sm:w-auto">
                                         <x-ui.icon name="history" class="size-4" />
                                         {{ __('ui.country_page.rate_history_link') }}
                                     </a>
@@ -171,15 +170,15 @@
             </div>
         </div>
     @else
-        <section class="hero-canvas">
+        <section class="hero-field">
             <x-hero-backdrop />
-            <div class="app-container relative pb-12 pt-6 sm:pb-16 sm:pt-8">
-                <x-site-breadcrumbs variant="dark" :items="[__('ui.calculator.breadcrumb_label') => '']" />
-                <div class="mx-auto mb-8 mt-6 max-w-3xl text-center">
-                    <h1 class="text-3xl font-bold tracking-[-0.03em] text-white sm:text-5xl sm:leading-[1.08]">{{ __('ui.calculator.european_heading') }}</h1>
-                    <p class="mx-auto mt-4 max-w-2xl text-base leading-7 text-white/80 sm:text-lg">{{ __('ui.calculator.generic_subtitle') }}</p>
+            <div class="app-container relative pb-10 pt-6 sm:pb-14 sm:pt-8">
+                <x-site-breadcrumbs :items="[__('ui.calculator.breadcrumb_label') => '']" />
+                <div class="mb-7 mt-6 max-w-2xl sm:mb-9">
+                    <h1 class="text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-5xl sm:leading-[1.04]">{{ __('ui.calculator.european_heading') }}</h1>
+                    <p class="mt-4 max-w-[54ch] text-base leading-7 text-ink-muted sm:text-lg">{{ __('ui.calculator.generic_subtitle') }}</p>
                 </div>
-                <livewire:hero-calculator :key="'hero-calc-default'" :initial-amount="$prefill['amount']" :initial-rate="$prefill['rate']" :initial-mode="$prefill['mode']" surface="dark" />
+                <livewire:hero-calculator :key="'hero-calc-default'" :initial-amount="$prefill['amount']" :initial-rate="$prefill['rate']" :initial-mode="$prefill['mode']" surface="field" />
             </div>
         </section>
 

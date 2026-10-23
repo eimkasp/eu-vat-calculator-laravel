@@ -55,20 +55,24 @@
 @endsection
 
 <div>
-    <section class="hero-canvas">
+    <section class="hero-field">
         <x-hero-backdrop />
-        <div class="app-container relative pb-12 pt-6 sm:pb-16 sm:pt-8">
-            <x-site-breadcrumbs variant="dark" :items="$breadcrumbs" />
+        <div class="app-container relative pb-10 pt-6 sm:pb-14 sm:pt-8">
+            <x-site-breadcrumbs :items="$breadcrumbs" />
 
-            <div class="mx-auto mb-8 mt-6 max-w-3xl text-center">
+            <div class="mb-7 mt-6 max-w-2xl sm:mb-9">
                 @if($pageCountry)
-                    <x-ui.flag :iso="$pageCountry->iso_code" size="lg" :lazy="false" class="mx-auto mb-4" />
+                    <div class="flex items-center gap-4">
+                        <x-ui.flag :iso="$pageCountry->iso_code" size="xl" :lazy="false" class="shrink-0" />
+                        <h1 class="text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-5xl sm:leading-[1.04]">{{ $title }}</h1>
+                    </div>
+                @else
+                    <h1 class="text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-5xl sm:leading-[1.04]">{{ $title }}</h1>
                 @endif
-                <h1 class="text-3xl font-bold tracking-[-0.03em] text-white sm:text-5xl sm:leading-[1.08]">{{ $title }}</h1>
-                <p class="mx-auto mt-4 max-w-2xl text-base leading-7 text-white/80 sm:text-lg">{{ $subtitle }}</p>
+                <p class="mt-4 max-w-[54ch] text-base leading-7 text-ink-muted sm:text-lg">{{ $subtitle }}</p>
             </div>
 
-            <div id="validator" class="app-surface-raised mx-auto max-w-4xl scroll-mt-24 overflow-hidden text-ink" x-data="viesValidator(@js([
+            <div id="validator" class="app-surface-raised max-w-4xl scroll-mt-24 overflow-hidden text-ink" x-data="viesValidator(@js([
                 'prefixes' => $prefixes,
                 'flagBase' => asset('images/flags'),
                 'formats' => VatNumberFormat::forBrowser(),
@@ -92,7 +96,7 @@
                 <form wire:submit="validateVat" class="p-5 sm:p-7" novalidate>
                     <div class="grid grid-cols-1 gap-4 md:grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)_auto] md:items-end">
                         <div>
-                            <label for="vat-number" class="mb-1.5 block text-[0.8125rem] font-semibold text-ink-muted">{{ __('ui.vies_page.vat_number_label') }}</label>
+                            <label for="vat-number" class="mb-1.5 block font-display text-[0.8125rem] font-medium text-ink-muted">{{ __('ui.vies_page.vat_number_label') }}</label>
                             <input
                                 id="vat-number"
                                 wire:model="vat_number"
@@ -105,7 +109,7 @@
                                 maxlength="40"
                                 enterkeyhint="search"
                                 placeholder="{{ $format['masks'][0] ?? __('ui.vies_page.vat_placeholder') }}"
-                                class="app-field h-12 font-mono text-base tracking-wide uppercase placeholder:font-sans placeholder:normal-case placeholder:tracking-normal"
+                                class="app-field h-12 font-mono text-base uppercase placeholder:font-sans placeholder:normal-case"
                                 aria-required="true"
                                 aria-describedby="{{ $errors->has('vat_number') ? 'vat-number-error ' : '' }}vat-number-hint vat-number-format-hint"
                                 @error('vat_number') aria-invalid="true" @enderror
@@ -113,7 +117,7 @@
                         </div>
 
                         <div>
-                            <label for="vat-country" class="mb-1.5 flex items-center justify-between gap-2 text-[0.8125rem] font-semibold text-ink-muted">
+                            <label for="vat-country" class="mb-1.5 flex items-center justify-between gap-2 font-display text-[0.8125rem] font-medium text-ink-muted">
                                 {{ __('ui.vies_page.country_label') }}
                                 <span x-cloak x-show="detected" x-transition.opacity class="inline-flex items-center gap-1 text-xs font-medium text-success">
                                     <x-ui.icon name="check" class="size-3.5" />
@@ -189,7 +193,7 @@
                             <div @class(['flex flex-wrap items-start gap-3 px-5 py-4 sm:px-7', 'bg-success-soft' => $result['valid'], 'bg-danger-soft' => ! $result['valid']])>
                                 <x-ui.icon :name="$result['valid'] ? 'check-circle' : 'x-circle'" :class="$result['valid'] ? 'mt-0.5 size-6 text-success' : 'mt-0.5 size-6 text-danger'" />
                                 <div class="min-w-0 flex-1">
-                                    <h2 class="text-lg font-bold text-ink">{{ $result['valid'] ? __('ui.vies_page.result_valid') : __('ui.vies_page.result_invalid') }}</h2>
+                                    <h2 class="text-lg font-semibold text-ink">{{ $result['valid'] ? __('ui.vies_page.result_valid') : __('ui.vies_page.result_invalid') }}</h2>
                                     <p class="mt-0.5 max-w-[60ch] text-sm leading-6 text-ink-muted">
                                         {{ $result['valid'] ? __('ui.vies_page.result_valid_desc', ['country' => $resultCountry['name'] ?? $result['country_code']]) : __('ui.vies_page.result_invalid_desc') }}
                                     </p>
@@ -202,11 +206,11 @@
 
                             <dl class="grid gap-x-8 px-5 py-2 sm:grid-cols-2 sm:px-7">
                                 <div class="border-b border-line py-3">
-                                    <dt class="text-xs font-semibold text-ink-muted">{{ __('ui.vies_page.vat_number_label') }}</dt>
-                                    <dd class="mt-1 font-mono text-base font-semibold tracking-wide text-ink">{{ $fullNumber }}</dd>
+                                    <dt class="font-display text-[0.8125rem] font-medium text-ink-muted">{{ __('ui.vies_page.vat_number_label') }}</dt>
+                                    <dd class="mt-1 font-mono text-base font-semibold text-ink">{{ $fullNumber }}</dd>
                                 </div>
                                 <div class="border-b border-line py-3">
-                                    <dt class="text-xs font-semibold text-ink-muted">{{ __('ui.vies_page.country_label') }}</dt>
+                                    <dt class="font-display text-[0.8125rem] font-medium text-ink-muted">{{ __('ui.vies_page.country_label') }}</dt>
                                     <dd class="mt-1 font-semibold text-ink">
                                         @if($resultCountry)
                                             <a href="{{ locale_path('/vat-calculator/'.$resultCountry['slug']) }}" class="inline-flex items-center gap-2 hover:text-action">
@@ -219,7 +223,7 @@
                                     </dd>
                                 </div>
                                 <div class="border-b border-line py-3">
-                                    <dt class="text-xs font-semibold text-ink-muted">{{ __('ui.vies_page.field_status') }}</dt>
+                                    <dt class="font-display text-[0.8125rem] font-medium text-ink-muted">{{ __('ui.vies_page.field_status') }}</dt>
                                     <dd class="mt-1">
                                         <span @class(['app-badge', 'bg-success-soft text-success' => $result['valid'], 'bg-danger-soft text-danger' => ! $result['valid']])>
                                             <x-ui.icon :name="$result['valid'] ? 'check' : 'x'" class="size-3.5" />
@@ -228,7 +232,7 @@
                                     </dd>
                                 </div>
                                 <div class="border-b border-line py-3">
-                                    <dt class="text-xs font-semibold text-ink-muted">{{ __('ui.vies_page.field_source') }}</dt>
+                                    <dt class="font-display text-[0.8125rem] font-medium text-ink-muted">{{ __('ui.vies_page.field_source') }}</dt>
                                     <dd class="mt-1 inline-flex items-center gap-1.5 text-sm font-medium {{ $sourceTone }}">
                                         <x-ui.icon :name="$sourceIcon" class="size-4" />
                                         {{ $sourceLabel }}
@@ -236,17 +240,17 @@
                                 </div>
                                 @if($result['valid'])
                                     <div class="border-b border-line py-3">
-                                        <dt class="text-xs font-semibold text-ink-muted">{{ __('ui.vies_page.field_company') }}</dt>
+                                        <dt class="font-display text-[0.8125rem] font-medium text-ink-muted">{{ __('ui.vies_page.field_company') }}</dt>
                                         <dd @class(['mt-1', 'font-semibold text-ink' => $result['name'], 'text-sm text-ink-quiet' => ! $result['name']])>{{ $result['name'] ?? __('ui.vies_page.not_provided') }}</dd>
                                     </div>
                                     <div class="border-b border-line py-3">
-                                        <dt class="text-xs font-semibold text-ink-muted">{{ __('ui.vies_page.field_address') }}</dt>
+                                        <dt class="font-display text-[0.8125rem] font-medium text-ink-muted">{{ __('ui.vies_page.field_address') }}</dt>
                                         <dd @class(['mt-1 whitespace-pre-line', 'text-ink' => $result['address'], 'text-sm text-ink-quiet' => ! $result['address']])>{{ $result['address'] ?? __('ui.vies_page.not_provided') }}</dd>
                                     </div>
                                 @endif
                                 @if($result['request_identifier'])
                                     <div class="border-b border-line py-3 sm:col-span-2">
-                                        <dt class="text-xs font-semibold text-ink-muted">{{ __('ui.vies_page.field_request_id') }}</dt>
+                                        <dt class="font-display text-[0.8125rem] font-medium text-ink-muted">{{ __('ui.vies_page.field_request_id') }}</dt>
                                         <dd class="mt-1 font-mono text-sm text-ink">{{ $result['request_identifier'] }}</dd>
                                     </div>
                                 @endif
@@ -274,10 +278,10 @@
                 </div>
             </div>
 
-            <ul class="mx-auto mt-6 flex max-w-4xl flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-white/80">
-                <li class="inline-flex items-center gap-1.5"><x-ui.icon name="shield-check" class="size-4" />{{ __('ui.vies_page.trust_official') }}</li>
-                <li class="inline-flex items-center gap-1.5"><x-ui.icon name="zap" class="size-4" />{{ __('ui.vies_page.trust_instant') }}</li>
-                <li class="inline-flex items-center gap-1.5"><x-ui.icon name="check" class="size-4" />{{ __('ui.vies_page.trust_free') }}</li>
+            <ul class="mt-5 flex max-w-4xl flex-wrap items-center gap-x-6 gap-y-2 text-sm text-ink-muted">
+                <li class="inline-flex items-center gap-1.5"><x-ui.icon name="shield-check" class="size-4 text-action" />{{ __('ui.vies_page.trust_official') }}</li>
+                <li class="inline-flex items-center gap-1.5"><x-ui.icon name="zap" class="size-4 text-action" />{{ __('ui.vies_page.trust_instant') }}</li>
+                <li class="inline-flex items-center gap-1.5"><x-ui.icon name="check" class="size-4 text-action" />{{ __('ui.vies_page.trust_free') }}</li>
             </ul>
         </div>
     </section>
@@ -287,16 +291,15 @@
             <div class="min-w-0 space-y-8">
                 @if($pageCountry && $format)
                     <section class="app-surface p-5 sm:p-6" aria-labelledby="vat-number-format">
-                        <p class="app-eyebrow">{{ __('ui.country_page.eu_guidance') }}</p>
-                        <h2 id="vat-number-format" class="mt-1 text-xl font-bold text-ink">{{ __('ui.vies_page.format_heading', ['country' => $pageCountry->name]) }}</h2>
+                        <h2 id="vat-number-format" class="text-xl font-semibold text-ink">{{ __('ui.vies_page.format_heading', ['country' => $pageCountry->name]) }}</h2>
                         <dl class="mt-4 grid gap-4 sm:grid-cols-2">
-                            <div class="rounded-card bg-surface-subtle p-4">
-                                <dt class="text-xs font-semibold text-ink-muted">{{ __('ui.vies_page.format_prefix') }}</dt>
-                                <dd class="mt-1 font-mono text-2xl font-bold text-ink">{{ $format['prefix'] }}</dd>
+                            <div class="rounded-control border border-line bg-surface-subtle p-4">
+                                <dt class="font-display text-[0.8125rem] font-medium text-ink-muted">{{ __('ui.vies_page.format_prefix') }}</dt>
+                                <dd class="mt-1 font-mono text-2xl font-semibold text-ink">{{ $format['prefix'] }}</dd>
                             </div>
-                            <div class="rounded-card bg-surface-subtle p-4">
-                                <dt class="text-xs font-semibold text-ink-muted">{{ __('ui.vies_page.format_structure') }}</dt>
-                                <dd class="mt-1 font-mono text-lg font-bold break-all text-ink">{{ VatNumberFormat::describe($format) }}</dd>
+                            <div class="rounded-control border border-line bg-surface-subtle p-4">
+                                <dt class="font-display text-[0.8125rem] font-medium text-ink-muted">{{ __('ui.vies_page.format_structure') }}</dt>
+                                <dd class="mt-1 font-mono text-lg font-semibold break-all text-ink">{{ VatNumberFormat::describe($format) }}</dd>
                             </div>
                         </dl>
                         <p class="mt-3 text-xs leading-5 text-ink-muted">{{ __('ui.vies_page.format_legend') }}</p>
@@ -310,7 +313,7 @@
                 @endif
 
                 <section class="app-surface p-5 sm:p-6" aria-labelledby="about-vies">
-                    <h2 id="about-vies" class="text-xl font-bold text-ink">
+                    <h2 id="about-vies" class="text-xl font-semibold text-ink">
                         {{ $inVies ? __('ui.vies_page.about_vat_country', ['country' => $pageCountry->name]) : __('ui.vies_page.what_is_vies') }}
                     </h2>
                     <div class="app-prose mt-3 max-w-[72ch] text-sm leading-6 text-ink-muted">
@@ -332,7 +335,7 @@
                 @unless($pageCountry)
                     <section class="app-surface app-deferred overflow-hidden" aria-labelledby="vat-number-formats">
                         <div class="border-b border-line px-5 py-4 sm:px-6">
-                            <h2 id="vat-number-formats" class="text-xl font-bold text-ink">{{ __('ui.vies_page.formats_heading') }}</h2>
+                            <h2 id="vat-number-formats" class="text-xl font-semibold text-ink">{{ __('ui.vies_page.formats_heading') }}</h2>
                             <p class="mt-1 max-w-[72ch] text-sm text-ink-muted">{{ __('ui.vies_page.formats_intro') }}</p>
                         </div>
                         <div class="relative overflow-x-auto" tabindex="0" role="group" aria-labelledby="vat-number-formats">
@@ -369,7 +372,7 @@
                 <section class="app-surface app-deferred overflow-hidden" aria-labelledby="vies-api" x-data="apiPlayground(@js(['endpoint' => $endpoint]))">
                     <div class="flex flex-wrap items-start justify-between gap-3 border-b border-line px-5 py-4 sm:px-6">
                         <div>
-                            <h2 id="vies-api" class="flex items-center gap-2 text-lg font-bold text-ink">
+                            <h2 id="vies-api" class="flex items-center gap-2 text-lg font-semibold text-ink">
                                 <x-ui.icon name="code" class="size-5 text-action" />
                                 {{ __('ui.vies_page.api_heading') }}
                             </h2>
@@ -382,10 +385,10 @@
                     </div>
 
                     <div class="space-y-5 p-5 sm:p-6">
-                        <div class="rounded-card border border-line bg-surface-subtle p-4">
-                            <p class="text-xs font-semibold text-ink-muted">{{ __('ui.vies_page.api_endpoint') }}</p>
+                        <div class="rounded-control border border-line bg-surface-subtle p-4">
+                            <p class="font-display text-[0.8125rem] font-medium text-ink-muted">{{ __('ui.vies_page.api_endpoint') }}</p>
                             <div class="mt-2 flex flex-wrap items-center gap-2">
-                                <span class="rounded-control bg-action-soft px-2 py-0.5 font-mono text-xs font-bold text-action-deep">POST</span>
+                                <span class="app-badge bg-action-soft font-mono font-semibold text-action-deep">POST</span>
                                 <code class="min-w-0 flex-1 break-all font-mono text-sm text-ink">{{ $endpoint }}</code>
                                 <button type="button" x-on:click="$copy(@js($endpoint), @js(__('ui.calculator.copied')))" class="app-button-ghost size-9 min-h-9 p-0" aria-label="{{ __('ui.calculator.copy') }}">
                                     <x-ui.icon name="copy" class="size-4" />
@@ -429,7 +432,7 @@
                             </div>
                         </div>
 
-                        <a href="{{ locale_path('/vat-validation-api') }}" class="group flex items-center justify-between gap-4 rounded-card border border-line p-4 transition-colors hover:border-action/40 hover:bg-action-soft">
+                        <a href="{{ locale_path('/vat-validation-api') }}" class="group flex items-center justify-between gap-4 rounded-control border border-line p-4 transition-colors hover:border-action/40 hover:bg-action-soft">
                             <span>
                                 <span class="block text-sm font-semibold text-ink">{{ __('ui.vies_page.api_docs_link') }}</span>
                                 <span class="block text-sm text-ink-muted">{{ __('ui.vies_page.api_docs_desc') }}</span>
@@ -452,7 +455,7 @@
                     aria-labelledby="recent-lookups"
                 >
                     <div class="flex items-center justify-between gap-2">
-                        <h2 id="recent-lookups" class="text-base font-bold text-ink">{{ __('ui.vies_page.recent_heading') }}</h2>
+                        <h2 id="recent-lookups" class="text-base font-semibold text-ink">{{ __('ui.vies_page.recent_heading') }}</h2>
                         <button type="button" x-on:click="clear()" class="min-h-11 rounded-control px-2 py-1 text-xs font-semibold text-ink-muted hover:bg-surface-muted hover:text-ink">{{ __('ui.calculator.clear_all') }}</button>
                     </div>
                     <ul class="mt-3 space-y-1.5">
@@ -464,7 +467,8 @@
                                         <span class="block truncate text-xs text-ink-muted" x-show="item.name" x-text="item.name"></span>
                                     </span>
                                     <span class="inline-flex shrink-0 items-center gap-1 text-xs font-semibold" :class="item.valid ? 'text-success' : 'text-danger'">
-                                        <span class="size-2 rounded-full" :class="item.valid ? 'bg-success' : 'bg-danger'" aria-hidden="true"></span>
+                                        <x-ui.icon name="check-circle" class="size-3.5" x-show="item.valid" />
+                                        <x-ui.icon name="x-circle" class="size-3.5" x-show="!item.valid" />
                                         <span x-text="item.valid ? @js(__('ui.vies_page.status_active')) : @js(__('ui.vies_page.status_inactive'))"></span>
                                     </span>
                                 </button>
@@ -478,7 +482,7 @@
                 </section>
 
                 <nav class="app-surface p-5" aria-labelledby="country-validators">
-                    <h2 id="country-validators" class="text-base font-bold text-ink">{{ __('ui.vies_page.country_validators') }}</h2>
+                    <h2 id="country-validators" class="text-base font-semibold text-ink">{{ __('ui.vies_page.country_validators') }}</h2>
                     <ul class="-mx-2 mt-3 max-h-[26rem] space-y-0.5 overflow-y-auto overscroll-contain">
                         @foreach($this->countries as $option)
                             @php($current = $pageCountry?->slug === $option['slug'])
@@ -500,7 +504,7 @@
                 </nav>
 
                 <nav class="app-surface p-5" aria-labelledby="related-tools">
-                    <h2 id="related-tools" class="text-base font-bold text-ink">{{ __('ui.vies_page.related_tools') }}</h2>
+                    <h2 id="related-tools" class="text-base font-semibold text-ink">{{ __('ui.vies_page.related_tools') }}</h2>
                     <ul class="mt-3 space-y-1">
                         <li>
                             <a href="{{ locale_path('/vat-calculator'.($pageCountry ? '/'.$pageCountry->slug : '')) }}" class="-mx-2 flex items-start gap-3 rounded-control p-2 transition-colors hover:bg-surface-subtle">

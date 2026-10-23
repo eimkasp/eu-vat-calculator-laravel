@@ -1,119 +1,68 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <defs>
-    <!-- Dark navy background gradient -->
-    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#0c1a3a"/>
-      <stop offset="60%" stop-color="#0e2050"/>
-      <stop offset="100%" stop-color="#112660"/>
-    </linearGradient>
-
-    <!-- Top/bottom accent bar gradient -->
-    <linearGradient id="bar" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
-      <stop offset="0%"   stop-color="#1e3a8a"/>
-      <stop offset="50%"  stop-color="#3b82f6"/>
-      <stop offset="100%" stop-color="#1e3a8a"/>
-    </linearGradient>
-
-    <!-- Horizontal divider -->
-    <linearGradient id="divider" x1="240" y1="0" x2="960" y2="0" gradientUnits="userSpaceOnUse">
-      <stop offset="0%"   stop-color="#3b82f6" stop-opacity="0"/>
-      <stop offset="50%"  stop-color="#3b82f6" stop-opacity="0.55"/>
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
-    </linearGradient>
-
-    <!-- Soft radial glow centred behind emblem -->
-    <radialGradient id="glow" cx="600" cy="200" r="210" gradientUnits="userSpaceOnUse">
-      <stop offset="0%"   stop-color="#1d4ed8" stop-opacity="0.28"/>
-      <stop offset="100%" stop-color="#1d4ed8" stop-opacity="0"/>
-    </radialGradient>
-
-    <!--
-      EU star — 5-pointed, pointed up
-      outer radius = 11 px, inner radius = 4.2 px
-      centered at (0,0) so it can be positioned via transform
-    -->
-    <g id="star">
-      <path d="M 0,-11 L 2.47,-3.40 L 10.46,-3.40 L 3.99,1.30
-               L 6.47,8.90 L 0,4.20 L -6.47,8.90 L -3.99,1.30
-               L -10.46,-3.40 L -2.47,-3.40 Z" fill="#FFCC00"/>
-    </g>
-  </defs>
-
-  <!-- ── Background ────────────────────────────── -->
-  <rect width="1200" height="630" fill="url(#bg)"/>
-
-  <!-- Subtle corner ring decorations -->
-  <circle cx="0"    cy="0"   r="260" fill="none" stroke="#1e3a8a" stroke-width="1" opacity="0.14"/>
-  <circle cx="1200" cy="630" r="260" fill="none" stroke="#1e3a8a" stroke-width="1" opacity="0.14"/>
-  <circle cx="0"    cy="0"   r="380" fill="none" stroke="#1e3a8a" stroke-width="1" opacity="0.07"/>
-  <circle cx="1200" cy="630" r="380" fill="none" stroke="#1e3a8a" stroke-width="1" opacity="0.07"/>
-
-  <!-- Decorative rings around emblem -->
-  <circle cx="600" cy="200" r="130" fill="none" stroke="#1e40af" stroke-width="1" opacity="0.18"/>
-  <circle cx="600" cy="200" r="165" fill="none" stroke="#1e40af" stroke-width="1" opacity="0.09"/>
-
-  <!-- Soft glow behind emblem -->
-  <ellipse cx="600" cy="200" rx="210" ry="200" fill="url(#glow)"/>
-
-  <!-- ── Top accent bar ───────────────────────── -->
-  <rect width="1200" height="6" fill="url(#bar)"/>
-
-  <!-- ── EU Emblem (centered at 600, 200) ─────── -->
-  <g transform="translate(600,200)">
-    <!-- EU blue disc -->
-    <circle r="100" fill="#003399"/>
-    <!-- Subtle highlight ring -->
-    <circle r="100" fill="none" stroke="#4b87e0" stroke-width="1.5" opacity="0.40"/>
-
-    <!--
-      12 gold stars at orbit radius 75.
-      Each <use> applies: rotate(N*30°) then translate(0,-75)
-      → star centre ends up at orbit position N.
-    -->
-    <use href="#star" transform="rotate(  0) translate(0,-75)"/>
-    <use href="#star" transform="rotate( 30) translate(0,-75)"/>
-    <use href="#star" transform="rotate( 60) translate(0,-75)"/>
-    <use href="#star" transform="rotate( 90) translate(0,-75)"/>
-    <use href="#star" transform="rotate(120) translate(0,-75)"/>
-    <use href="#star" transform="rotate(150) translate(0,-75)"/>
-    <use href="#star" transform="rotate(180) translate(0,-75)"/>
-    <use href="#star" transform="rotate(210) translate(0,-75)"/>
-    <use href="#star" transform="rotate(240) translate(0,-75)"/>
-    <use href="#star" transform="rotate(270) translate(0,-75)"/>
-    <use href="#star" transform="rotate(300) translate(0,-75)"/>
-    <use href="#star" transform="rotate(330) translate(0,-75)"/>
+  <!-- EU VAT Info default social image, Cobalt system. The field on the right is one column per member state, as tall as its standard rate. Source of truth for the look: resources/og/default.html. -->
+  <rect width="1200" height="630" fill="#f8fbfe"/>
+  <g font-family="JetBrains Mono, SF Mono, Menlo, Consolas, monospace" font-size="14" font-weight="500" fill="#b9cbe6">
+    <text x="700" y="14" xml:space="preserve">    .::::::::::---======--::.    .::::::::.        ::-</text>
+    <text x="700" y="32" xml:space="preserve">    .:::::::::----======--::.     ::::::::         ::-</text>
+    <text x="700" y="50" xml:space="preserve">     :::::---------===----:::.   ..::::::.        .:::</text>
+    <text x="700" y="68" xml:space="preserve">     .:::---------------:::::::::..          ...::::::</text>
+    <text x="700" y="86" xml:space="preserve">      .::--=====----::::::::::::::         .::::::::::</text>
+    <text x="700" y="104" xml:space="preserve">      .::--======--:::.:::::---:::         .::----:<tspan fill="#0462d3">@</tspan>:<tspan fill="#0462d3">@</tspan></text>
+    <text x="700" y="122" xml:space="preserve">       ::--=+===--:::. ..:::---:::         :::-----<tspan fill="#0462d3">%</tspan>:<tspan fill="#0462d3">%</tspan></text>
+    <text x="700" y="140" xml:space="preserve">      .::--=====--:::. ..::::::::.         :::-----<tspan fill="#0462d3">%</tspan>:<tspan fill="#0462d3">%</tspan></text>
+    <text x="700" y="158" xml:space="preserve">      :::---===---::::::::::::::..        .::::----%:%</text>
+    <text x="700" y="176" xml:space="preserve">     .:::---------::::::::...         ....:::<tspan fill="#0462d3">%</tspan>::<tspan fill="#0462d3">%</tspan>::%-%</text>
+    <text x="700" y="194" xml:space="preserve">    .:::::::::::::----::::.        .:::::::::<tspan fill="#0462d3">%</tspan>.:<tspan fill="#0462d3">%</tspan>::%-%</text>
+    <text x="700" y="212" xml:space="preserve">    ::::::::::::::-----:::         :::::::<tspan fill="#0462d3">%</tspan>:.<tspan fill="#0462d3">%</tspan> .<tspan fill="#0462d3">%</tspan>::%-%</text>
+    <text x="700" y="230" xml:space="preserve">    ::::::::::::::-----:::         :::---:<tspan fill="#0462d3">%</tspan>:.% .%::#=#</text>
+    <text x="700" y="248" xml:space="preserve">    .:::::::::::::::--:::.         ::<tspan fill="#0462d3">%</tspan>-<tspan fill="#0462d3">%</tspan>-:%::%::%:-#=#</text>
+    <text x="700" y="266" xml:space="preserve">    .::::::::::::::::::::.        .::<tspan fill="#0462d3">%</tspan>:<tspan fill="#0462d3">%</tspan>::%::%::%--#-#</text>
+    <text x="700" y="284" xml:space="preserve">     .::::::-:::::::..         <tspan fill="#0462d3">%</tspan>..<tspan fill="#0462d3">%</tspan>..%:%::%:-#--#--#-#</text>
+    <text x="700" y="302" xml:space="preserve">       ::::----:::.    <tspan fill="#0462d3">@</tspan> <tspan fill="#0462d3">@</tspan> .<tspan fill="#0462d3">@</tspan>::%::%. % %::#--#==#=-#-#</text>
+    <text x="700" y="320" xml:space="preserve">       .::------::     <tspan fill="#0462d3">%</tspan> <tspan fill="#0462d3">%</tspan>.:<tspan fill="#0462d3">%</tspan>::%::%  % %.:#--#==#==#-#</text>
+    <text x="700" y="338" xml:space="preserve">        :::-----:.  <tspan fill="#0462d3">%</tspan>  % %.:%::%::%. # #.:#-=#==#==*-*</text>
+    <text x="700" y="356" xml:space="preserve">        :::----::.  <tspan fill="#0462d3">%</tspan>  % %.:%::#::#:.#.#::#--#==#==*-*</text>
+    <text x="700" y="374" xml:space="preserve">       .:::::::::<tspan fill="#0462d3">%</tspan>  %  # # .#::#::#::#:#:-#--*==*==*-*</text>
+    <text x="700" y="392" xml:space="preserve">      ...::::....%  %  # #  #..#::#::#-#--*--*--*--*-*</text>
+    <text x="700" y="410" xml:space="preserve">     ..:..    <tspan fill="#0462d3">%</tspan>  %.:#::#:#  #  #.:#--*-*--*--*--*--*=*</text>
+    <text x="700" y="428" xml:space="preserve">     .::.     %  #::#::#:#  #  * :*--*=*==*--*::*--*=*</text>
+    <text x="700" y="446" xml:space="preserve">     .:..   <tspan fill="#0462d3">%</tspan> %  #::#::*:*  *  *.:*--*=*==*--*::*--+=+</text>
+    <text x="700" y="464" xml:space="preserve">      ..    % #  #.:*::*:*. *  *::*--*=*==*--*--*--+=+</text>
+    <text x="700" y="482" xml:space="preserve">            # #  * .*::*:*::*::*::*--*-*==+--+--+--+-+</text>
+    <text x="700" y="500" xml:space="preserve">           .#.*  *  *  *.*::*::+--+--+-+--+-=+==+--+-+</text>
+    <text x="700" y="518" xml:space="preserve">          .:*:*:.*  *  + +::+--+--+--+:+--+==+==+=-+-+</text>
+    <text x="700" y="536" xml:space="preserve">          .:*:*::+  +  + +:-+-=+=-+-:+:+--+==+==+=-+:+</text>
+    <text x="700" y="554" xml:space="preserve">          .:+:+::+  +  +.+:-+==+=-+-:+:+--+==+==+=-+:+</text>
+    <text x="700" y="572" xml:space="preserve">          .:+:+::+  +  +:+:-+-=+=-+--=-=--========-=:=</text>
+    <text x="700" y="590" xml:space="preserve">           .+.=..=..=.:=:=:-=--=--=--=-=--=-===-=--=:=</text>
+    <text x="700" y="608" xml:space="preserve">                 .:::::::::---------======---------:::</text>
+    <text x="700" y="626" xml:space="preserve">                 :::------::::::---=======---:::::::--</text>
   </g>
-
-  <!-- ── Main title ───────────────────────────── -->
-  <text x="600" y="378"
-        font-family="'Segoe UI', Helvetica, Arial, sans-serif"
-        font-size="88" font-weight="700"
-        fill="#ffffff" text-anchor="middle"
-        letter-spacing="-1">EU VAT Info</text>
-
-  <!-- ── Subtitle ─────────────────────────────── -->
-  <text x="600" y="440"
-        font-family="'Segoe UI', Helvetica, Arial, sans-serif"
-        font-size="34" font-weight="400"
-        fill="#93c5fd" text-anchor="middle">VAT Rates · Calculators · Compliance Guides</text>
-
-  <!-- ── Tagline ──────────────────────────────── -->
-  <text x="600" y="492"
-        font-family="'Segoe UI', Helvetica, Arial, sans-serif"
-        font-size="23" font-weight="400"
-        fill="#94a3b8" text-anchor="middle">Real-time data covering all 27 EU Member States</text>
-
-  <!-- ── Divider ──────────────────────────────── -->
-  <line x1="240" y1="533" x2="960" y2="533"
-        stroke="url(#divider)" stroke-width="1"/>
-
-  <!-- ── URL brand ────────────────────────────── -->
-  <text x="600" y="578"
-        font-family="'Segoe UI', Helvetica, Arial, sans-serif"
-        font-size="22" font-weight="500"
-        fill="#64748b" text-anchor="middle"
-        letter-spacing="3">vat.businesspress.io</text>
-
-  <!-- ── Bottom accent bar ────────────────────── -->
-  <rect y="624" width="1200" height="6" fill="url(#bar)"/>
+  <g transform="translate(80 72) scale(2.125)">
+    <path fill="#111825" d="M8 0h18l6 6v18a8 8 0 0 1-8 8H6l-6-6V8a8 8 0 0 1 8-8Z"/>
+    <path d="M10.5 21.5 21.5 10.5" stroke="#f8fbfe" stroke-width="2.75" stroke-linecap="round"/>
+    <circle cx="11.25" cy="11.25" r="3.25" fill="#f8fbfe"/>
+    <circle cx="20.75" cy="20.75" r="3.25" fill="#0462d3"/>
+  </g>
+  <g font-family="Familjen Grotesk, Helvetica Neue, Helvetica, Arial, sans-serif" fill="#111825">
+    <text x="168" y="120" font-size="38" font-weight="600" letter-spacing="-0.76">EU VAT Info</text>
+    <text font-size="64" font-weight="600" letter-spacing="-1.9"><tspan x="80" y="264">EU VAT rates,</tspan><tspan x="80" y="330">calculators and VIES</tspan><tspan x="80" y="396">checks</tspan></text>
+  </g>
+  <g font-family="IBM Plex Sans, Helvetica Neue, Helvetica, Arial, sans-serif" fill="#3c434e" font-size="28">
+    <text x="80" y="462">Every member state's rates from European</text>
+    <text x="80" y="500">Commission data, dated and sourced.</text>
+  </g>
+  <text x="80" y="562" font-family="JetBrains Mono, SF Mono, Menlo, monospace" font-size="24" font-weight="500" fill="#3c434e">vat.businesspress.io</text>
+  <g>
+    <path d="M656 458h448l16 16v80a16 16 0 0 1 0 0v0l-16 16H640V474Z" fill="#fdfeff" stroke="#dadee4"/>
+    <path d="M808 458v112M944 458v112" stroke="#dadee4"/>
+    <g font-family="Familjen Grotesk, Helvetica Neue, Helvetica, Arial, sans-serif">
+      <text x="666" y="518" font-size="40" font-weight="600" fill="#111825">27</text>
+      <text x="834" y="518" font-size="40" font-weight="600" fill="#111825">24</text>
+      <text x="970" y="518" font-size="40" font-weight="600" fill="#111825">Free</text>
+      <text x="666" y="548" font-size="18" font-weight="500" fill="#3c434e">member states</text>
+      <text x="834" y="548" font-size="18" font-weight="500" fill="#3c434e">languages</text>
+      <text x="970" y="548" font-size="18" font-weight="500" fill="#3c434e">API and dataset</text>
+    </g>
+  </g>
 </svg>

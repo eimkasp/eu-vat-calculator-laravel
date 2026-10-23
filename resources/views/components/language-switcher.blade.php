@@ -14,9 +14,9 @@
             :aria-expanded="open.toString()"
             aria-expanded="false"
             aria-controls="mobile-language-menu"
-            class="app-brand-panel inline-flex h-10 items-center gap-2 rounded-control px-3 text-sm font-medium"
+            class="inline-flex h-10 items-center gap-2 rounded-control border border-line-strong bg-surface px-3 text-sm font-medium text-ink"
         >
-            <x-ui.icon name="languages" class="size-4 text-white/70" />
+            <x-ui.icon name="languages" class="size-4 text-ink-quiet" />
             <span class="sr-only">{{ __('ui.language_switcher.label') }}:</span>
             {{ $currentConfig['native'] ?? 'English' }}
             <x-ui.icon name="chevron-down" class="size-3.5 transition-transform duration-150" x-bind:class="open && 'rotate-180'" />
@@ -27,7 +27,7 @@
             <ul id="mobile-language-menu" class="grid basis-full grid-cols-2 gap-1">
                 <template x-for="link in [...document.querySelectorAll('#language-menu a')]" :key="link.lang">
                     <li>
-                        <a :href="link.getAttribute('href')" :lang="link.lang" :aria-current="link.getAttribute('aria-current')" class="flex min-h-11 items-center gap-2 border-l-2 px-3 text-sm font-medium" :class="link.hasAttribute('aria-current') ? 'border-gold bg-white/10 text-white' : 'border-transparent text-white/85 hover:bg-white/10 hover:text-white'">
+                        <a :href="link.getAttribute('href')" :lang="link.lang" :aria-current="link.getAttribute('aria-current')" class="flex min-h-11 items-center gap-2 border-l-2 px-3 text-sm font-medium" :class="link.hasAttribute('aria-current') ? 'border-action bg-action-soft text-action-deep' : 'border-transparent text-ink-muted hover:bg-surface-muted hover:text-ink'">
                             <img :src="link.querySelector('img')?.getAttribute('src')" alt="" width="18" height="14" loading="lazy" decoding="async" class="app-flag h-3.5 w-[1.125rem]">
                             <span class="truncate" x-text="link.textContent.trim()"></span>
                         </a>
@@ -46,9 +46,9 @@
             aria-expanded="false"
             aria-controls="language-menu"
             aria-label="{{ __('ui.language_switcher.current', ['name' => $currentConfig['native'] ?? 'English']) }}"
-            class="inline-flex h-10 items-center gap-1.5 rounded-control px-3 text-sm font-semibold uppercase text-white/85 transition-colors hover:bg-white/10 hover:text-white"
+            class="inline-flex h-10 items-center gap-1.5 rounded-control px-3 font-mono text-[0.8125rem] font-medium uppercase text-ink-muted transition-colors hover:bg-surface-muted hover:text-ink"
         >
-            <x-ui.flag :iso="$currentConfig['flag'] ?? 'gb'" size="sm" :lazy="false" class="shadow-none ring-1 ring-white/25" />
+            <x-ui.flag :iso="$currentConfig['flag'] ?? 'gb'" size="sm" :lazy="false" class="" />
             {{ $current }}
             <x-ui.icon name="chevron-down" class="size-3.5 transition-transform duration-150" x-bind:class="open && 'rotate-180'" />
         </button>

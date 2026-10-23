@@ -1,13 +1,12 @@
 <div class="mx-auto max-w-xl overflow-hidden rounded-card border border-line" aria-hidden="true">
-    <div class="flex h-7 items-center gap-2 bg-brand-deep px-3">
-        <span class="size-3 rounded-xs bg-white"></span>
-        <span class="h-1.5 w-12 rounded-xs bg-white/40"></span>
-        <span class="ml-auto h-1.5 w-16 rounded-xs bg-white/20"></span>
+    <div class="flex h-7 items-center gap-2 border-b border-line bg-workspace px-3">
+        <span class="size-3 rounded-xs bg-ink"></span>
+        <span class="h-1.5 w-12 rounded-xs bg-ink/60"></span>
+        <span class="ml-auto h-1.5 w-16 rounded-xs bg-line-strong"></span>
     </div>
-    <div class="border-b border-line bg-surface px-4 pb-5 pt-3">
+    <div class="border-b border-line bg-workspace px-4 pb-5 pt-3">
         <span class="block h-1.5 w-24 rounded-xs bg-line-strong"></span>
-        <span class="mt-4 block h-1.5 w-16 rounded-xs bg-action/60"></span>
-        <span class="mt-2 block h-3.5 w-48 rounded-xs bg-ink/85"></span>
+        <span class="mt-4 block h-3.5 w-48 rounded-xs bg-ink/85"></span>
         <span class="mt-2 block h-2 w-64 max-w-full rounded-xs bg-line-strong"></span>
     </div>
     <div class="space-y-2 bg-workspace p-4">

@@ -4,7 +4,7 @@ import { exampleParameters, renderExample } from '../../render.js';
 export default {
     title: "Components/Buttons",
     tags: ['autodocs'],
-    parameters: { docs: { description: { component: "44px rectangles with pressable feedback. Use one primary button per view, secondary or ghost for the rest, and the inverse and on-brand pair on navy." } } },
+    parameters: { docs: { description: { component: "44px keys that lift 1px on hover and sink 2px on press. One cobalt primary key per view, paper secondary keys or ghost buttons for the rest, and the white and outlined pair only inside a graphite band." } } },
 };
 
 export const ButtonsVariants = {
@@ -13,8 +13,14 @@ export const ButtonsVariants = {
     parameters: exampleParameters("buttons-variants"),
 };
 
+export const ButtonsKeys = {
+    name: "Key edges",
+    render: () => renderExample("buttons-keys"),
+    parameters: exampleParameters("buttons-keys"),
+};
+
 export const ButtonsOnBrand = {
-    name: "On navy",
+    name: "On graphite",
     render: () => renderExample("buttons-on-brand"),
     parameters: exampleParameters("buttons-on-brand"),
 };

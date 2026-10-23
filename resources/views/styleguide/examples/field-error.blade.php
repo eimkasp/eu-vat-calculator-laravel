@@ -1,5 +1,5 @@
 <div class="max-w-sm">
-    <label for="sg-vat-number" class="mb-1.5 block text-[0.8125rem] font-semibold text-ink-muted">VAT number</label>
+    <label for="sg-vat-number" class="mb-1.5 block font-display text-[0.8125rem] font-medium text-ink-muted">VAT number</label>
     <input
         id="sg-vat-number"
         type="text"

@@ -24,18 +24,18 @@
 @endsection
 
 @section('content')
-    <section class="hero-canvas">
+    <section class="hero-field">
         <x-hero-backdrop />
-        <div class="app-container relative py-16 text-center sm:py-24">
-            <p class="tabular text-7xl font-bold tracking-[-0.05em] text-white/90 sm:text-8xl">404</p>
-            <h1 class="mt-4 text-3xl font-bold tracking-[-0.03em] text-white sm:text-4xl">{{ __('ui.error_404.heading') }}</h1>
-            <p class="mx-auto mt-4 max-w-2xl text-base leading-7 text-white/80 sm:text-lg">{{ __('ui.error_404.message') }}</p>
-            <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-                <a href="{{ locale_path('/') }}" class="app-button-inverse">
+        <div class="app-container relative pb-10 pt-12 sm:pb-14 sm:pt-16">
+            <p class="tabular font-display text-7xl font-semibold tracking-[-0.05em] text-ink sm:text-8xl">404</p>
+            <h1 class="mt-4 max-w-2xl text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-5xl sm:leading-[1.04]">{{ __('ui.error_404.heading') }}</h1>
+            <p class="mt-4 max-w-[54ch] text-base leading-7 text-ink-muted sm:text-lg">{{ __('ui.error_404.message') }}</p>
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a href="{{ locale_path('/') }}" class="app-button-primary">
                     <x-ui.icon name="home" class="size-4" />
                     {{ __('ui.error_404.back') }}
                 </a>
-                <button type="button" x-data x-on:click="$store.palette.show()" class="app-button-on-brand">
+                <button type="button" x-data x-on:click="$store.palette.show()" class="app-button-secondary">
                     <x-ui.icon name="search" class="size-4" />
                     {{ __('ui.nav.search_placeholder') }}
                 </button>
@@ -45,11 +45,11 @@
 
     <div class="app-container space-y-12 py-12 sm:py-14">
         <section aria-labelledby="error-tools">
-            <h2 id="error-tools" class="text-lg font-bold text-ink">{{ __('ui.error_404.popular_tools') }}</h2>
-            <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <h2 id="error-tools" class="text-lg font-semibold text-ink">{{ __('ui.error_404.popular_tools') }}</h2>
+            <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 @foreach($tools as [$icon, $label, $description, $url])
                     <a href="{{ $url }}" class="group app-surface flex flex-col gap-3 p-5 transition-[border-color,box-shadow] hover:border-action/40 hover:shadow-workflow">
-                        <span class="flex size-10 items-center justify-center rounded-card bg-action-soft text-action" aria-hidden="true"><x-ui.icon :name="$icon" class="size-5" /></span>
+                        <span class="flex size-10 items-center justify-center rounded-control bg-action-soft text-action" aria-hidden="true"><x-ui.icon :name="$icon" class="size-5" /></span>
                         <span class="font-semibold text-ink group-hover:text-action">{{ $label }}</span>
                         <span class="text-sm leading-6 text-ink-muted">{{ $description }}</span>
                     </a>
@@ -60,7 +60,7 @@
         @if($popular->isNotEmpty())
             <section aria-labelledby="error-countries">
                 <div class="flex flex-wrap items-center justify-between gap-3">
-                    <h2 id="error-countries" class="text-lg font-bold text-ink">{{ __('ui.error_404.popular_countries') }}</h2>
+                    <h2 id="error-countries" class="text-lg font-semibold text-ink">{{ __('ui.error_404.popular_countries') }}</h2>
                     <a href="{{ locale_path('/') }}" class="app-link inline-flex items-center gap-1 text-sm">
                         {{ __('ui.error_404.all_countries_cta') }}
                         <x-ui.icon name="arrow-right" class="size-3.5" />
@@ -81,8 +81,8 @@
         @endif
 
         <section aria-labelledby="error-resources">
-            <h2 id="error-resources" class="text-lg font-bold text-ink">{{ __('ui.error_404.explore_resources') }}</h2>
-            <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <h2 id="error-resources" class="text-lg font-semibold text-ink">{{ __('ui.error_404.explore_resources') }}</h2>
+            <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 @foreach($resources as [$icon, $label, $description, $url])
                     @php($external = str_starts_with($url, 'http'))
                     <a href="{{ $url }}" @if($external) target="_blank" rel="noopener noreferrer" @endif class="group app-surface flex items-start gap-3 p-4 transition-colors hover:border-action/40">

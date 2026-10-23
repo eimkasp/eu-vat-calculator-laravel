@@ -12,7 +12,7 @@ use Livewire\Component;
  */
 class BrandGuidelines extends Component
 {
-    public const COLOURS = ['brand', 'brand-deep', 'gold', 'action', 'button', 'ink', 'workspace', 'surface'];
+    public const COLOURS = ['ink', 'brand', 'action', 'button', 'action-soft', 'ink-muted', 'workspace', 'surface'];
 
     public function render()
     {

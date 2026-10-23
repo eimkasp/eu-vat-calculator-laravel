@@ -157,7 +157,7 @@ it('lists every member state VAT number format on the validator and hints at typ
         ->assertDontSee('VAT number formats in the EU');
 });
 
-it('aligns the country calculator with the page edges and puts the flag in the kicker', function () {
+it('aligns both calculators with the page edges and sets the flag beside the country heading', function () {
     redesignGermany();
 
     $country = $this->get('/vat-calculator/germany')->assertOk()->getContent();
@@ -168,6 +168,7 @@ it('aligns the country calculator with the page edges and puts the flag in the k
     preg_match('/<header data-country-header.*?<\/h1>/s', $country, $heading);
 
     expect($countryCard[1])->not->toContain('max-w-5xl')
-        ->and($genericCard[1])->toContain('mx-auto max-w-5xl')
-        ->and($heading[0])->toMatch('/<p class="flex items-center gap-3">(?:(?!<\/p>).)*flags\/de\.svg(?:(?!<\/p>).)*<span class="app-kicker sm:before:hidden">/s');
+        ->and($genericCard[1])->not->toContain('max-w-5xl')
+        ->and($heading[0])->toMatch('/<div class="flex items-center gap-4">(?:(?!<\/h1>).)*flags\/de\.svg(?:(?!<\/h1>).)*<h1 /s')
+        ->not->toContain('app-kicker');
 });
