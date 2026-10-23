@@ -39,6 +39,7 @@ use App\Livewire\VatChangeEvent;
 use App\Livewire\VatChangesArchive;
 use App\Livewire\VatChangesHistory;
 use App\Livewire\VatComparison;
+use App\Livewire\VatComparisonIndex;
 use App\Livewire\VatDataset;
 use App\Livewire\VatMap;
 use App\Livewire\VatScenarioGuide;
@@ -108,6 +109,7 @@ $registerRoutes = function () {
     Route::get('/vat-rates/{country}/categories/{category}', CountryVatCategory::class)
         ->where(['country' => '[a-z0-9-]+', 'category' => '[a-z0-9-]+'])
         ->name('vat-rates.country-category');
+    Route::get('/compare', VatComparisonIndex::class)->name('vat-comparisons');
     Route::get('/compare/{pair}-vat', VatComparison::class)
         ->where('pair', '[a-z0-9-]+-vs-[a-z0-9-]+')
         ->middleware(CanonicalizeVatComparison::class)

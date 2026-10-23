@@ -22,6 +22,8 @@ return array (
   'back_to_home' => 'Ar ais go dtí an leathanach baile',
   'nav' => 
   array (
+    'compare' => 'Tíortha a chur i gcomparáid',
+    'compare_desc' => 'Rátaí CBL dhá thír taobh le taobh',
     'all_countries' => 'Gach Tír',
     'vat_calculator' => 'Áireamhán CBL',
     'vat_widget' => 'Giuirléid CBL',
@@ -815,8 +817,21 @@ return array (
     'unsubscribed_desc' => 'Ní bhfaighidh :email foláirimh faoi athruithe CBL ó Eolas CBL an AE a thuilleadh.',
     'view_changes' => 'Féach ar athruithe CBL',
   ),
+  'compare_index' => 
+  array (
+    'title' => 'Rátaí CBL a chur i gcomparáid idir tíortha an AE',
+    'meta_title' => 'Rátaí CBL an AE i gcomparáid de réir tíre',
+    'meta_description' => 'Cuir rátaí CBL an AE i gcomparáid: an Ghearmáin agus an Fhrainc, an Spáinn agus an Phortaingéil agus tuilleadh, le rátaí laghdaithe.',
+    'intro' => 'Rátaí CBL caighdeánacha agus laghdaithe dhá thír taobh le taobh, leis an CBL ar an tsuim chéanna.',
+    'all' => 'Gach comparáid',
+    'popular' => 'Comparáidí coitianta',
+    'more' => 'Tuilleadh comparáidí',
+    'countries' => 'Tíortha',
+    'difference' => 'Difríocht',
+  ),
   'compare' => 
   array (
+    'pair' => ':left vs :right',
     'eyebrow' => 'Comparáid idir tíortha',
     'title' => 'Rátaí CBL :left i gcomparáid le :right',
     'meta_title' => 'CBL in :left agus :right: rátaí i gcomparáid',

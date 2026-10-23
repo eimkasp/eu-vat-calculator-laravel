@@ -22,6 +22,8 @@ return array (
   'back_to_home' => 'Tagasi avalehele',
   'nav' => 
   array (
+    'compare' => 'Võrdle riike',
+    'compare_desc' => 'Kahe riigi käibemaksumäärad kõrvuti',
     'all_countries' => 'Kõik riigid',
     'vat_calculator' => 'Käibemaksukalkulaator',
     'vat_widget' => 'Käibemaksu vidin',
@@ -815,8 +817,21 @@ return array (
     'unsubscribed_desc' => 'Aadressile :email ei saadeta enam käibemaksumuudatuste teavitusi saidilt EL käibemaks.',
     'view_changes' => 'Vaata käibemaksumuudatusi',
   ),
+  'compare_index' => 
+  array (
+    'title' => 'Võrdle ELi riikide käibemaksumäärasid',
+    'meta_title' => 'ELi käibemaksumäärad riikide kaupa võrreldud',
+    'meta_description' => 'Võrrelge ELi riikide käibemaksumäärasid: Saksamaa ja Prantsusmaa, Hispaania ja Portugal ning teised, koos vähendatud määrade ja näidissummaga.',
+    'intro' => 'Kahe riigi standard- ja vähendatud käibemaksumäärad kõrvuti koos käibemaksuga samalt summalt.',
+    'all' => 'Kõik võrdlused',
+    'popular' => 'Populaarsed võrdlused',
+    'more' => 'Veel võrdlusi',
+    'countries' => 'Riigid',
+    'difference' => 'Erinevus',
+  ),
   'compare' => 
   array (
+    'pair' => ':left vs :right',
     'eyebrow' => 'Riikide võrdlus',
     'title' => ':left vs :right – käibemaksumäärad',
     'meta_title' => 'Käibemaks: :left ja :right võrdluses',

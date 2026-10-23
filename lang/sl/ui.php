@@ -22,6 +22,8 @@ return array (
   'back_to_home' => 'Nazaj na začetno stran',
   'nav' => 
   array (
+    'compare' => 'Primerjaj države',
+    'compare_desc' => 'Stopnje DDV dveh držav druga ob drugi',
     'all_countries' => 'Vse države',
     'vat_calculator' => 'Kalkulator DDV',
     'vat_widget' => 'DDV pripomoček',
@@ -815,8 +817,21 @@ return array (
     'unsubscribed_desc' => 'Naslov :email ne bo več prejemal obvestil o spremembah DDV s spletnega mesta „DDV v EU“.',
     'view_changes' => 'Oglej si spremembe DDV',
   ),
+  'compare_index' => 
+  array (
+    'title' => 'Primerjava stopenj DDV med državami EU',
+    'meta_title' => 'Stopnje DDV v EU, primerjane po državah',
+    'meta_description' => 'Primerjajte stopnje DDV držav EU: Nemčija in Francija, Španija in Portugalska ter druge, z znižanimi stopnjami in DDV na isti znesek.',
+    'intro' => 'Splošne in znižane stopnje DDV dveh držav druga ob drugi, z DDV, ki ga vsaka obračuna na isti znesek.',
+    'all' => 'Vse primerjave',
+    'popular' => 'Priljubljene primerjave',
+    'more' => 'Več primerjav',
+    'countries' => 'Države',
+    'difference' => 'Razlika',
+  ),
   'compare' => 
   array (
+    'pair' => ':left vs :right',
     'eyebrow' => 'Primerjava držav',
     'title' => 'Stopnje DDV: :left in :right',
     'meta_title' => 'DDV :left in :right: primerjava stopenj',

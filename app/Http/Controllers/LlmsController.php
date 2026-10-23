@@ -47,6 +47,7 @@ class LlmsController extends Controller
             }
 
             $text .= "\n## Comparisons\n\n";
+            $text .= "- [All VAT comparisons]({$base}/compare): Every country pair side by side, with the difference in standard rates.\n";
             $bySlug = $countries->keyBy('slug');
 
             foreach (config('seo.comparisons', []) as [$first, $second]) {

@@ -22,6 +22,8 @@ return array (
   'back_to_home' => 'Tilbage til forsiden',
   'nav' => 
   array (
+    'compare' => 'Sammenlign lande',
+    'compare_desc' => 'Momssatserne i to lande side om side',
     'all_countries' => 'Alle lande',
     'vat_calculator' => 'Momsberegner',
     'vat_widget' => 'Moms-widget',
@@ -815,8 +817,21 @@ return array (
     'unsubscribed_desc' => ':email modtager ikke længere varsler om momsændringer fra EU Moms Info.',
     'view_changes' => 'Se momsændringer',
   ),
+  'compare_index' => 
+  array (
+    'title' => 'Sammenlign momssatser mellem EU-lande',
+    'meta_title' => 'EU-momssatser sammenlignet land for land',
+    'meta_description' => 'Sammenlign momssatserne i EU-lande: Tyskland og Frankrig, Spanien og Portugal og flere, med nedsatte satser og moms af samme beløb.',
+    'intro' => 'Standard- og nedsatte momssatser for to lande side om side, med den moms hvert land lægger på samme beløb.',
+    'all' => 'Alle sammenligninger',
+    'popular' => 'Populære sammenligninger',
+    'more' => 'Flere sammenligninger',
+    'countries' => 'Lande',
+    'difference' => 'Forskel',
+  ),
   'compare' => 
   array (
+    'pair' => ':left vs :right',
     'eyebrow' => 'Landesammenligning',
     'title' => ':left vs. :right – momssatser',
     'meta_title' => 'Moms i :left og :right: satserne sammenlignet',

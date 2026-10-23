@@ -45,6 +45,14 @@
                 [__('ui.sitemap.xml_sitemap'), '/sitemap.xml', __('ui.sitemap.xml_sitemap_desc')],
             ],
         ],
+        'comparisons' => [
+            'icon' => 'arrow-left-right',
+            'title' => __('ui.nav.compare'),
+            'links' => [
+                [__('ui.compare_index.all'), locale_path('/compare'), __('ui.nav.compare_desc')],
+                ...collect(\App\Support\SiteNavigation::comparisons())->map(fn (array $comparison) => [$comparison['label'], $comparison['url'], \App\Models\Country::formatRate($comparison['left']->standard_rate).'% / '.\App\Models\Country::formatRate($comparison['right']->standard_rate).'%'])->all(),
+            ],
+        ],
         'external' => [
             'icon' => 'globe',
             'title' => __('ui.sitemap.external_resources'),
@@ -63,7 +71,7 @@
 
     <div class="app-container space-y-12 py-8 sm:py-10">
         <div class="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-start">
-            @foreach([Arr::only($sections, ['pages']), Arr::only($sections, ['developers', 'external'])] as $column)
+            @foreach([Arr::only($sections, ['pages']), Arr::only($sections, ['comparisons', 'developers', 'external'])] as $column)
                 <div class="space-y-6">
                     @foreach($column as $key => $section)
                         <section class="app-surface p-5 sm:p-6" aria-labelledby="sitemap-{{ $key }}">

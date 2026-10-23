@@ -34,6 +34,8 @@ return [
 
     // ── Navigation ──────────────────────────────────────────────────────
     'nav' => [
+        'compare' => 'Compare countries',
+        'compare_desc' => 'Two countries\' VAT rates side by side',
         'all_countries' => 'All countries',
         'vat_calculator' => 'VAT calculator',
         'vat_tools' => 'VAT tools',
@@ -850,7 +852,20 @@ return [
         'view_changes' => 'View VAT changes',
     ],
 
+    'compare_index' => [
+        'title' => 'Compare VAT rates between EU countries',
+        'meta_title' => 'Compare EU VAT Rates by Country, Side by Side',
+        'meta_description' => 'Compare VAT rates between EU countries side by side: Germany vs France, Spain vs Portugal and more, with reduced rates and VAT on the same amount.',
+        'intro' => 'Standard and reduced VAT rates for two countries side by side, with the VAT each one charges on the same amount.',
+        'all' => 'All comparisons',
+        'popular' => 'Popular comparisons',
+        'more' => 'More comparisons',
+        'countries' => 'Countries',
+        'difference' => 'Difference',
+    ],
+
     'compare' => [
+        'pair' => ':left vs :right',
         'eyebrow' => 'Country comparison',
         'title' => ':left vs :right VAT rates',
         'meta_title' => ':left vs :right VAT Rates Compared',

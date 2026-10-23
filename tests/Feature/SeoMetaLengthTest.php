@@ -52,4 +52,5 @@ it('fits search result limits in every language', function (string $path) {
     'shared calculation' => '/vat-calculation/czech-republic/10000/21/include',
     'MCP server' => '/mcp-server',
     'tools' => '/tools',
+    'comparisons' => '/compare',
 ]);

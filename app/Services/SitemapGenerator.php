@@ -131,6 +131,7 @@ class SitemapGenerator
             ['path' => '/styleguide', 'locales' => $this->englishOnly(), 'lastmod' => $release],
             ['path' => '/brand', 'locales' => $this->englishOnly(), 'lastmod' => $release],
             ['path' => '/sitemap', 'lastmod' => $lastmod],
+            ['path' => '/compare', 'lastmod' => $lastmod],
             ['path' => '/chrome-extension', 'locales' => $this->englishOnly(), 'lastmod' => $release],
             ['path' => '/changelog', 'locales' => $this->englishOnly(), 'lastmod' => $release],
             ['path' => '/donate', 'locales' => $this->englishOnly(), 'lastmod' => $release],

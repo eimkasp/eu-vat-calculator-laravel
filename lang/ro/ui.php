@@ -22,6 +22,8 @@ return array (
   'back_to_home' => 'Înapoi la pagina principală',
   'nav' => 
   array (
+    'compare' => 'Compară țări',
+    'compare_desc' => 'Cotele de TVA a două țări alăturate',
     'all_countries' => 'Toate țările',
     'vat_calculator' => 'Calculator TVA',
     'vat_widget' => 'Widget TVA',
@@ -815,8 +817,21 @@ return array (
     'unsubscribed_desc' => ':email nu va mai primi de la „TVA în UE” alerte privind modificările TVA.',
     'view_changes' => 'Vedeți modificările TVA',
   ),
+  'compare_index' => 
+  array (
+    'title' => 'Compară cotele de TVA între țările UE',
+    'meta_title' => 'Cotele de TVA din UE comparate pe țări',
+    'meta_description' => 'Comparați cotele de TVA ale țărilor UE: Germania și Franța, Spania și Portugalia și altele, cu cote reduse și TVA pentru aceeași sumă.',
+    'intro' => 'Cotele de TVA standard și reduse a două țări alăturate, cu TVA-ul aplicat de fiecare aceleiași sume.',
+    'all' => 'Toate comparațiile',
+    'popular' => 'Comparații populare',
+    'more' => 'Mai multe comparații',
+    'countries' => 'Țări',
+    'difference' => 'Diferență',
+  ),
   'compare' => 
   array (
+    'pair' => ':left vs :right',
     'eyebrow' => 'Comparație între țări',
     'title' => 'Cotele de TVA: :left vs. :right',
     'meta_title' => 'TVA :left și :right: cotele comparate',

@@ -22,6 +22,8 @@ return array (
   'back_to_home' => 'Retour à l\'accueil',
   'nav' => 
   array (
+    'compare' => 'Comparer des pays',
+    'compare_desc' => 'Les taux de TVA de deux pays côte à côte',
     'all_countries' => 'Tous les pays',
     'vat_calculator' => 'Calculateur de TVA',
     'vat_widget' => 'Widget TVA',
@@ -815,8 +817,21 @@ return array (
     'unsubscribed_desc' => ':email ne recevra plus les alertes sur les changements de TVA d\'EU VAT Info.',
     'view_changes' => 'Voir les changements de TVA',
   ),
+  'compare_index' => 
+  array (
+    'title' => 'Comparer les taux de TVA entre pays de l\'UE',
+    'meta_title' => 'Taux de TVA de l\'UE comparés pays par pays',
+    'meta_description' => 'Comparez les taux de TVA des pays de l\'UE : Allemagne et France, Espagne et Portugal et plus, avec les taux réduits et la TVA sur un même montant.',
+    'intro' => 'Taux de TVA normaux et réduits de deux pays côte à côte, avec la TVA appliquée au même montant.',
+    'all' => 'Toutes les comparaisons',
+    'popular' => 'Comparaisons populaires',
+    'more' => 'Autres comparaisons',
+    'countries' => 'Pays',
+    'difference' => 'Écart',
+  ),
   'compare' => 
   array (
+    'pair' => ':left vs :right',
     'eyebrow' => 'Comparaison de pays',
     'title' => 'Taux de TVA : :left vs :right',
     'meta_title' => 'TVA :left et :right : les taux comparés',
