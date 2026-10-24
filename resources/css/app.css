@@ -10,29 +10,20 @@
 /* Hallmark · dropped "country_page.eu_guidance" eyebrow above the country guide heading · 54 names it; the heading already says it is the country's VAT guide */
 /* Hallmark · dropped "home_page.hero_badge" (2026 rates · 27 member states) · 54 and 63 name it; the year and the source sit in the freshness line under the calculator */
 @import 'tailwindcss' source(none);
-@import '@fontsource-variable/familjen-grotesk/wght.css';
-@import '@fontsource-variable/ibm-plex-sans/wght.css';
-@import '@fontsource-variable/jetbrains-mono/wght.css';
+@import '@fontsource-variable/geist/wght.css';
+@import '@fontsource-variable/geist-mono/wght.css';
+/* Geist has no Greek. Manrope (also on the skill's list) fills only the Greek range; browsers fetch it only for Greek text. */
+@import '@fontsource-variable/manrope/wght.css';
 
-/* Local faces sized to the web fonts' metrics, shown until they load so the swap does not reflow text (Arial and its
-   metric twins on desktop and iOS, Roboto on Android). IBM Plex Sans sets wider than Arial; Familjen Grotesk narrower. */
+/* Landing-page skill (elayadesign/ai-design-skills): one typeface, Geist, with Geist Mono only for figures that must align.
+   A local face sized to Geist's metrics shows until it loads, so the swap does not reflow text. */
 @font-face {
-    font-family: 'Plex Fallback';
+    font-family: 'Geist Fallback';
     src: local('Arial'), local('ArialMT'), local('Liberation Sans'), local('Arimo'), local('Roboto');
     font-weight: 100 900;
-    size-adjust: 106%;
-    ascent-override: 96.7%;
-    descent-override: 25.9%;
-    line-gap-override: 0%;
-}
-
-@font-face {
-    font-family: 'Familjen Fallback';
-    src: local('Arial'), local('ArialMT'), local('Liberation Sans'), local('Arimo'), local('Roboto');
-    font-weight: 100 900;
-    size-adjust: 97%;
-    ascent-override: 97.9%;
-    descent-override: 28.9%;
+    size-adjust: 104%;
+    ascent-override: 92%;
+    descent-override: 22%;
     line-gap-override: 0%;
 }
 
@@ -44,18 +35,18 @@
 @custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
 @theme {
-    --font-sans: 'IBM Plex Sans Variable', 'Plex Fallback', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
-    --font-display: 'Familjen Grotesk Variable', 'Familjen Fallback', 'IBM Plex Sans Variable', ui-sans-serif, system-ui, sans-serif;
-    --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, Consolas, monospace;
+    --font-sans: 'Geist Variable', 'Manrope Variable', 'Geist Fallback', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+    --font-display: 'Geist Variable', 'Manrope Variable', 'Geist Fallback', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'Geist Mono Variable', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 
     /* Three weights in running use: 400 for reading, 500 for labels and titles, 600 for heads and figures. */
     --font-weight-semibold: 600;
     --font-weight-bold: 600;
     --font-weight-extrabold: 600;
 
-    --color-code: oklch(0.21 0.024 262);
-    --color-code-raised: oklch(0.265 0.026 262);
-    --color-code-muted: oklch(0.34 0.03 262);
+    --color-code: #181818;
+    --color-code-raised: #272727;
+    --color-code-muted: #313131;
 
     --color-syntax-keyword: oklch(0.76 0.13 254);
     --color-syntax-function: oklch(0.93 0.01 250);
@@ -65,15 +56,20 @@
     --color-syntax-ok: oklch(0.8 0.13 158);
     --color-syntax-error: oklch(0.76 0.14 25);
 
-    --radius-control: 0.375rem;
-    --radius-card: 0.5rem;
-    --radius-panel: 0.5rem;
+    /* Tailwind's own radius steps: rounded-lg, rounded-2xl and rounded-3xl. A shape inside another one takes the
+       outer radius minus the gap between them (landing-page skill B3). */
+    --radius-control: 0.5rem;
+    --radius-card: 1rem;
+    --radius-panel: 1.5rem;
 
     --shadow-card: 0 1px 2px oklch(0.21 0.028 262 / 0.06);
     --shadow-workflow: 0 1px 2px oklch(0.21 0.028 262 / 0.08), 0 16px 32px -20px oklch(0.21 0.028 262 / 0.35);
     --shadow-floating: 0 2px 6px oklch(0.21 0.028 262 / 0.08), 0 14px 32px -8px oklch(0.21 0.028 262 / 0.22);
 
     --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-fluid: cubic-bezier(0.32, 0.72, 0, 1);
+    /* Skill B7: every transition utility uses the fluid curve unless it names another. */
+    --default-transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
 
     --animate-fade-in: fade-in 150ms var(--ease-out-quint) both;
     --animate-pop-in: pop-in 160ms var(--ease-out-quint) both;
@@ -129,26 +125,26 @@
 [data-theme='light'] {
     color-scheme: light;
 
-    --ui-workspace: oklch(0.986 0.005 250);
-    --ui-surface: oklch(0.997 0.002 250);
-    --ui-surface-subtle: oklch(0.972 0.006 252);
-    --ui-surface-muted: oklch(0.945 0.01 252);
-    --ui-line: oklch(0.9 0.009 252);
-    --ui-line-strong: oklch(0.83 0.012 252);
-    --ui-ink: oklch(0.21 0.028 262);
-    --ui-ink-muted: oklch(0.38 0.022 260);
-    --ui-ink-quiet: oklch(0.5 0.018 258);
-    --ui-brand: oklch(0.21 0.024 262);
-    --ui-brand-deep: oklch(0.185 0.022 262);
-    --ui-brand-soft: oklch(0.95 0.028 256);
+    --ui-workspace: #ffffff;
+    --ui-surface: #ffffff;
+    --ui-surface-subtle: #fafafa;
+    --ui-surface-muted: #f4f4f4;
+    --ui-line: #e8e8e8;
+    --ui-line-strong: #d4d4d4;
+    --ui-ink: #111111;
+    --ui-ink-muted: #4f4f4f;
+    --ui-ink-quiet: #6b6b6b;
+    --ui-brand: #181818;
+    --ui-brand-deep: #000000;
+    --ui-brand-soft: #f4f4f4;
     --ui-action: oklch(0.52 0.19 258);
     --ui-action-deep: oklch(0.43 0.2 262);
     --ui-action-soft: oklch(0.95 0.028 256);
     --ui-button: oklch(0.52 0.19 258);
     --ui-button-hover: oklch(0.47 0.2 260);
     --ui-button-edge: oklch(0.39 0.16 260);
-    --ui-key-face: oklch(0.997 0.002 250);
-    --ui-key-edge: oklch(0.8 0.016 254);
+    --ui-key-face: #ffffff;
+    --ui-key-edge: #d4d4d4;
     --ui-success: oklch(0.5 0.12 158);
     --ui-success-soft: oklch(0.962 0.035 158);
     --ui-warning: oklch(0.53 0.15 48);
@@ -176,26 +172,26 @@
 [data-theme='dark'] {
     color-scheme: dark;
 
-    --ui-workspace: oklch(0.165 0.02 262);
-    --ui-surface: oklch(0.205 0.024 262);
-    --ui-surface-subtle: oklch(0.225 0.025 262);
-    --ui-surface-muted: oklch(0.26 0.026 262);
-    --ui-line: oklch(0.3 0.026 262);
-    --ui-line-strong: oklch(0.4 0.03 260);
-    --ui-ink: oklch(0.95 0.008 250);
-    --ui-ink-muted: oklch(0.8 0.016 254);
-    --ui-ink-quiet: oklch(0.69 0.022 256);
-    --ui-brand: oklch(0.135 0.018 262);
-    --ui-brand-deep: oklch(0.12 0.016 262);
-    --ui-brand-soft: oklch(0.27 0.05 260);
+    --ui-workspace: #000000;
+    --ui-surface: #181818;
+    --ui-surface-subtle: #1f1f1f;
+    --ui-surface-muted: #272727;
+    --ui-line: #313131;
+    --ui-line-strong: #4a4a4a;
+    --ui-ink: #ffffff;
+    --ui-ink-muted: #b8b8b8;
+    --ui-ink-quiet: #9b9b9b;
+    --ui-brand: #131209;
+    --ui-brand-deep: #000000;
+    --ui-brand-soft: #272727;
     --ui-action: oklch(0.76 0.13 254);
     --ui-action-deep: oklch(0.85 0.08 252);
-    --ui-action-soft: oklch(0.29 0.06 260);
+    --ui-action-soft: #272727;
     --ui-button: oklch(0.52 0.19 258);
     --ui-button-hover: oklch(0.57 0.18 258);
     --ui-button-edge: oklch(0.36 0.15 260);
-    --ui-key-face: oklch(0.255 0.026 262);
-    --ui-key-edge: oklch(0.12 0.016 262);
+    --ui-key-face: #272727;
+    --ui-key-edge: #000000;
     --ui-success: oklch(0.8 0.14 158);
     --ui-success-soft: oklch(0.29 0.05 162);
     --ui-warning: oklch(0.83 0.13 75);
@@ -243,7 +239,7 @@
         font-family: var(--font-sans);
         -webkit-text-size-adjust: 100%;
         text-rendering: optimizeLegibility;
-        scroll-padding-top: 5rem;
+        scroll-padding-top: calc(var(--header-offset) + 0.5rem);
         scrollbar-color: var(--ui-ink-quiet) var(--ui-workspace);
     }
 
@@ -332,26 +328,14 @@
     transition-timing-function: var(--ease-out-quint);
 }
 
-/* Panels, chips and fields are cut on two opposite corners where the browser can draw it; elsewhere they keep the
-   plain radius. */
+/* Bevelled corners are off on the landing-page skill branch (B3: Tailwind radius steps only). The utilities stay so
+   templates that use them keep working; they only set the plain radius. */
 @utility cut {
-    @supports (corner-shape: bevel) {
-        border-start-start-radius: 1rem;
-        border-end-end-radius: 1rem;
-        border-start-end-radius: 0.25rem;
-        border-end-start-radius: 0.25rem;
-        corner-shape: bevel round bevel round;
-    }
+    corner-shape: round;
 }
 
 @utility cut-sm {
-    @supports (corner-shape: bevel) {
-        border-start-start-radius: 0.5rem;
-        border-end-end-radius: 0.5rem;
-        border-start-end-radius: 0.1875rem;
-        border-end-start-radius: 0.1875rem;
-        corner-shape: bevel round bevel round;
-    }
+    corner-shape: round;
 }
 
 @layer components {
@@ -382,7 +366,8 @@
     }
 
     .app-sticky-bar {
-        @apply sticky top-16 z-10 border-b border-line bg-surface-subtle;
+        @apply sticky z-10 border-b border-line bg-surface-subtle;
+        top: var(--header-offset);
     }
 
     .app-deferred {
@@ -513,11 +498,11 @@
     }
 
     .app-link {
-        @apply font-medium text-action underline decoration-action/30 underline-offset-4 transition-colors hover:text-action-deep hover:decoration-current;
+        @apply font-medium text-action underline decoration-action/30 underline-offset-4 transition-colors hover:text-action-deep hover:decoration-current active:translate-y-px;
     }
 
     .app-kbd {
-        @apply inline-flex h-5 min-w-5 items-center justify-center rounded-xs border border-line-strong bg-key-face px-1 font-mono text-[0.6875rem] font-medium text-ink-muted shadow-[0_1px_0_0_var(--ui-key-edge)];
+        @apply inline-flex h-5 min-w-5 items-center justify-center rounded-xs border border-line-strong bg-key-face px-1 font-mono text-xs font-medium text-ink-muted shadow-[0_1px_0_0_var(--ui-key-edge)];
     }
 
     .app-code {
@@ -750,11 +735,151 @@
     *::after {
         scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
+        transition-delay: 0s !important;
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
     }
 
     @view-transition {
         navigation: none;
+    }
+}
+
+/* Landing-page skill (elayadesign/ai-design-skills) on the homepage branch: motion, the hero heading tone and the
+   tagline reveal. Every transition uses the fluid curve; nothing here runs under reduced motion. */
+:root {
+    /* The floating island ends 78px down on phones and 86px from sm up; sticky bars and anchors clear it. */
+    --header-offset: 5rem;
+
+    @media (min-width: 40rem) {
+        --header-offset: 5.5rem;
+    }
+}
+
+:root,
+[data-theme='light'] {
+    --lp-word-muted: color-mix(in oklab, var(--ui-ink) 46%, transparent);
+    --lp-heading-from: #000000;
+    --lp-heading-to: #666666;
+}
+
+[data-theme='dark'] {
+    --lp-word-muted: color-mix(in oklab, var(--ui-ink) 35%, transparent);
+    --lp-heading-from: #ffffff;
+    --lp-heading-to: #9b9b9b;
+}
+
+@layer components {
+    .lp-heading {
+        background-image: linear-gradient(to right, var(--lp-heading-from), var(--lp-heading-to));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .lp-fluid {
+        transition-property: transform, opacity, filter, background-color, border-color, color, box-shadow;
+        transition-duration: 700ms;
+        transition-timing-function: var(--ease-fluid);
+    }
+
+    [data-reveal] [data-reveal-item]:not([data-revealed]):not(:focus-within) {
+        transform: translateY(4rem);
+        filter: blur(12px);
+        opacity: 0;
+    }
+
+    [data-reveal] [data-reveal-item] {
+        transition: transform 800ms var(--ease-fluid), filter 800ms var(--ease-fluid), opacity 800ms var(--ease-fluid);
+    }
+
+    /* On a graphite band the heading takes the dark theme's tone in either theme. */
+    .lp-heading-dark {
+        --lp-heading-from: #ffffff;
+        --lp-heading-to: #9b9b9b;
+    }
+
+    /* Skill B1/B2 main button: 16px semibold on 8px by 12px padding. Sits on an app-button-* class. */
+    .lp-cta {
+        min-height: 0;
+        padding: 0.5rem 0.75rem;
+        font-family: var(--font-sans);
+        font-size: 1rem;
+        line-height: 1.5rem;
+        font-weight: 600;
+    }
+
+    /* Skill B7 fluid island nav: a floating glass pill, and a full-screen glass sheet for the menu. */
+    .lp-island {
+        border: 1px solid var(--ui-line);
+        border-radius: 9999px;
+        background-color: color-mix(in oklab, var(--ui-workspace) 72%, transparent);
+        box-shadow: var(--shadow-floating);
+        backdrop-filter: blur(24px) saturate(1.4);
+    }
+
+    .lp-nav-item {
+        display: inline-flex;
+        min-height: 2.5rem;
+        align-items: center;
+        border-radius: 9999px;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .lp-nav-item:hover {
+        background-color: var(--ui-surface-muted);
+    }
+
+    .lp-nav-item:active {
+        transform: scale(0.98);
+    }
+
+    .lp-nav-item[aria-current] {
+        background-color: var(--ui-surface-muted);
+        box-shadow: inset 0 0 0 1px var(--ui-ink);
+        color: var(--ui-ink);
+    }
+
+    .lp-sheet {
+        background-color: color-mix(in oklab, var(--ui-workspace) 80%, transparent);
+        backdrop-filter: blur(64px);
+    }
+
+    .lp-burger-line {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 1.25rem;
+        height: 2px;
+        border-radius: 2px;
+        background-color: currentColor;
+        transition: transform 700ms var(--ease-fluid);
+    }
+
+    .lp-burger-line:first-child {
+        transform: translate(-50%, calc(-50% - 4px));
+    }
+
+    .lp-burger-line:last-child {
+        transform: translate(-50%, calc(-50% + 4px));
+    }
+
+    [aria-expanded='true'] > .lp-burger-line:first-child {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    [aria-expanded='true'] > .lp-burger-line:last-child {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    /* Words start muted only once the script is running, so the tagline reads in full without it. */
+    .lp-word {
+        color: var(--ui-ink);
+        transition: color 700ms var(--ease-fluid);
+        transition-delay: var(--lp-word-delay, 0ms);
+    }
+
+    [data-tagline-ready] .lp-word:not([data-active]) {
+        color: var(--lp-word-muted);
     }
 }

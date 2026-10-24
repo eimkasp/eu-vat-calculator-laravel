@@ -4,7 +4,7 @@ import { exampleParameters, renderExample } from '../../render.js';
 export default {
     title: "Components/Navigation",
     tags: ['autodocs'],
-    parameters: { docs: { description: { component: "A paper header with a hairline marks the current section with a 2px cobalt underline, the mobile tab bar marks it with a cobalt top rule, and breadcrumbs lead every page." } } },
+    parameters: { docs: { description: { component: "A floating glass header marks the current section with an ink ring; below 1280px its menu opens as a full-screen sheet, the mobile tab bar marks the section with a cobalt top rule, and breadcrumbs lead every page." } } },
 };
 
 export const NavHeader = {

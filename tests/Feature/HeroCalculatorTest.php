@@ -78,6 +78,15 @@ it('switches country, currency and rate options', function () {
         ->assertSet('errorMessage', null);
 });
 
+it('starts a new country at its standard rate even when it shares the lower rate picked before', function () {
+    Country::factory()->withRates(20, 7)->create(['name' => 'Austria', 'slug' => 'austria', 'iso_code' => 'AT', 'currency_code' => 'EUR']);
+
+    Livewire::test(HeroCalculator::class, ['initialCountry' => 'germany', 'initialRate' => '7'])
+        ->assertSet('selectedRate', 7.0)
+        ->call('selectCountry', 'austria')
+        ->assertSet('selectedRate', 20.0);
+});
+
 it('rejects countries that are not available in the calculator', function () {
     Country::factory()->create(['name' => 'Canada', 'slug' => 'canada', 'iso_code' => 'CA', 'standard_rate' => 5, 'is_eu_member' => false]);
 

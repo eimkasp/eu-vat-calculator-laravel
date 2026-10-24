@@ -46,14 +46,14 @@
             aria-expanded="false"
             aria-controls="language-menu"
             aria-label="{{ __('ui.language_switcher.current', ['name' => $currentConfig['native'] ?? 'English']) }}"
-            class="inline-flex h-10 items-center gap-1.5 rounded-control px-3 font-mono text-[0.8125rem] font-medium uppercase text-ink-muted transition-colors hover:bg-surface-muted hover:text-ink"
+            class="lp-nav-item lp-fluid gap-2 text-sm font-semibold uppercase text-ink-muted hover:text-ink"
         >
             <x-ui.flag :iso="$currentConfig['flag'] ?? 'gb'" size="sm" :lazy="false" class="" />
             {{ $current }}
             <x-ui.icon name="chevron-down" class="size-3.5 transition-transform duration-150" x-bind:class="open && 'rotate-180'" />
         </button>
 
-        <div id="language-menu" x-cloak x-show="open" x-transition:enter="transition duration-150 ease-out-quint" x-transition:enter-start="-translate-y-1 opacity-0" x-transition:leave="transition duration-100 ease-out" x-transition:leave-end="opacity-0" class="app-popover absolute right-0 top-full z-50 mt-3 grid max-h-[70vh] w-72 grid-cols-2 gap-0.5 overflow-y-auto p-1.5">
+        <div id="language-menu" x-cloak x-show="open" x-transition:enter="transition duration-150 ease-out-quint" x-transition:enter-start="-translate-y-1 opacity-0" x-transition:leave="transition duration-300 ease-fluid" x-transition:leave-end="opacity-0" class="app-popover absolute right-0 top-full z-50 mt-3 grid max-h-[70vh] w-72 grid-cols-2 gap-0.5 overflow-y-auto p-1.5">
             @foreach($locales as $code => $config)
                 <a href="{{ locale_switch_path($code) }}" lang="{{ $code }}" @class(['flex items-center gap-2 rounded-control px-2.5 py-2 text-sm transition-colors', 'bg-action-soft font-semibold text-action-deep' => $code === $current, 'text-ink-muted hover:bg-surface-muted hover:text-ink' => $code !== $current]) @if($code === $current) aria-current="true" @endif>
                     <x-ui.flag :iso="$config['flag']" size="sm" />

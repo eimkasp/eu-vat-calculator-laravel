@@ -4,7 +4,7 @@ import { exampleParameters, renderExample } from '../../render.js';
 export default {
     title: "Components/Surfaces",
     tags: ['autodocs'],
-    parameters: { docs: { description: { component: "Opaque paper with hairline borders. Cards hold content, the cut raised card holds the primary task, popovers float, the tool hero is paper over the rate field, and brand panels sit only inside a graphite band." } } },
+    parameters: { docs: { description: { component: "Opaque paper with hairline borders. Cards hold content, the raised card holds the primary task, popovers float, the tool hero is paper over the rate field, and brand panels sit only inside a graphite band." } } },
 };
 
 export const SurfaceHeroField = {

@@ -33,7 +33,7 @@ const systemPrefersDark = () => window.matchMedia('(prefers-color-scheme: dark)'
 function applyTheme(mode) {
     const dark = mode === 'dark' || (mode !== 'light' && systemPrefersDark());
     document.documentElement.dataset.theme = dark ? 'dark' : 'light';
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#151b26' : '#f9fafc');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#000000' : '#ffffff');
 }
 
 async function copyText(text) {
@@ -749,7 +749,7 @@ document.addEventListener('alpine:init', () => {
                 columns = Math.ceil(ground.clientWidth / 8);
                 rows = Math.ceil(ground.clientHeight / 16);
                 context.setTransform(ratio, 0, 0, ratio, 0, 0);
-                context.font = '500 12px "JetBrains Mono Variable", ui-monospace, monospace';
+                context.font = '500 12px "Geist Mono Variable", ui-monospace, monospace';
                 context.textBaseline = 'top';
             };
 
@@ -843,6 +843,81 @@ document.addEventListener('alpine:init', () => {
             });
             host.addEventListener('pointerleave', () => { pointer = null; });
             play();
+        },
+    }));
+
+    // Landing-page skill B7: content fades up from 4rem with a blur as it enters the viewport. Content is visible
+    // without script and under reduced motion; only then does the page opt in through data-reveal on <html>.
+    Alpine.data('reveal', () => ({
+        init() {
+            if (prefersReducedMotion() || !('IntersectionObserver' in window)) {
+                return;
+            }
+
+            document.documentElement.dataset.reveal = '';
+            const items = [...this.$el.querySelectorAll('[data-reveal-item]')];
+            const observer = new IntersectionObserver((entries) => {
+                entries.filter((entry) => entry.isIntersecting).forEach((entry) => {
+                    entry.target.dataset.revealed = '';
+                    observer.unobserve(entry.target);
+                });
+            }, { rootMargin: '0px 0px -10% 0px' });
+
+            items.forEach((item) => observer.observe(item));
+
+            // Tabbing into a hidden item shows it for good, so focus never lands on something invisible.
+            this.$el.addEventListener('focusin', (event) => {
+                const item = event.target.closest('[data-reveal-item]');
+
+                if (item) {
+                    item.dataset.revealed = '';
+                    observer.unobserve(item);
+                }
+            });
+        },
+    }));
+
+    // Landing-page skill B11: each word of the tagline turns from the muted tone to full ink as it crosses a line
+    // 40% up the viewport, in reading order. Words on the same line cross together, so each one waits 60ms
+    // longer than the word before it on that line. One IntersectionObserver for all words; no scroll listener.
+    Alpine.data('taglineReveal', () => ({
+        init() {
+            const words = [...this.$el.querySelectorAll('[data-word]')];
+
+            if (prefersReducedMotion() || !('IntersectionObserver' in window)) {
+                words.forEach((word) => { word.dataset.active = ''; });
+
+                return;
+            }
+
+            this.$el.dataset.taglineReady = '';
+
+            // Lines rewrap with the width, so the order within each line is worked out again on every resize.
+            new ResizeObserver(() => {
+                let top = null;
+                let position = 0;
+
+                words.forEach((word) => {
+                    if (word.offsetTop !== top) {
+                        top = word.offsetTop;
+                        position = 0;
+                    }
+
+                    word.style.setProperty('--lp-word-delay', `${position++ * 60}ms`);
+                });
+            }).observe(this.$el);
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.dataset.active = '';
+                    } else if (entry.boundingClientRect.top > 0) {
+                        delete entry.target.dataset.active;
+                    }
+                });
+            }, { rootMargin: '0px 0px -40% 0px', threshold: 1 });
+
+            words.forEach((word) => observer.observe(word));
         },
     }));
 

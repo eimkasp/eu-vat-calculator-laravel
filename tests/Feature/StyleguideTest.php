@@ -208,7 +208,7 @@ it('generates the tokens from the stylesheet and agrees with DESIGN.md', functio
             'fontWeight' => 600,
             'lineHeight' => 1.04,
         ])
-        ->and($document['font']['sans']['$value'][0])->toBe('IBM Plex Sans Variable')
+        ->and($document['font']['sans']['$value'][0])->toBe('Geist Variable')
         ->and($document['easing']['out-quint']['$value'])->toBe([0.22, 1.0, 0.36, 1.0])
         ->and($document['duration'])->toBe([
             '$type' => 'duration',

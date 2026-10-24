@@ -14,7 +14,7 @@
     @click="$store.theme.cycle()"
     :title="@js(__('ui.theme.label')) + ': ' + labels[$store.theme.mode]"
     :aria-label="@js(__('ui.theme.toggle')) + ' (' + labels[$store.theme.mode] + ')'"
-    {{ $attributes->merge(['class' => 'h-10 items-center justify-center gap-2 rounded-control px-2.5 text-sm font-medium text-ink-muted transition-colors hover:bg-surface-muted hover:text-ink '.($withLabel ? 'inline-flex' : 'min-w-10')]) }}
+    {{ $attributes->merge(['class' => 'lp-nav-item lp-fluid justify-center gap-2 text-sm font-semibold text-ink-muted hover:text-ink '.($withLabel ? 'inline-flex' : 'min-w-10')]) }}
 >
     <x-ui.icon name="monitor" class="size-[1.125rem]" x-show="$store.theme.mode === 'system'" />
     <x-ui.icon name="sun" class="size-[1.125rem]" x-show="$store.theme.mode === 'light'" x-cloak />

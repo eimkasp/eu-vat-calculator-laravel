@@ -1,7 +1,8 @@
 @php
     $locale = str_replace('_', '-', app()->getLocale());
     $compact = $variant === 'compact';
-    $wide = ! $compact && in_array($surface, ['country-image', 'field'], true);
+    $wide = ! $compact && in_array($surface, ['country-image', 'field', 'home'], true);
+    $home = $surface === 'home';
     $embedded = $surface === 'embed';
     $vatCells = (int) min(50, max(0, round($calculation->gross > 0 ? $calculation->vat / $calculation->gross * 50 : 0)));
     $id = $this->getId();
@@ -37,7 +38,7 @@
             'grid md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]' => ! $compact,
         ])>
             {{-- Inputs --}}
-            <div @class(['flex flex-col gap-5 p-5', 'sm:p-7' => ! $compact])>
+            <div @class(['flex flex-col', 'gap-5 p-5' => ! $home, 'sm:p-7' => ! $compact && ! $home, 'gap-6 p-6 sm:p-8' => $home])>
                 <div class="flex flex-wrap items-center justify-between gap-3">
                     <div role="radiogroup" aria-label="{{ __('ui.calculator.mode_label') }}" @keydown.arrow-right.prevent="$rove($event)" @keydown.arrow-down.prevent="$rove($event)" @keydown.arrow-left.prevent="$rove($event)" @keydown.arrow-up.prevent="$rove($event)" class="app-segmented" data-value="{{ $mode }}" :data-value="mode">
                         <span class="app-segmented-thumb" aria-hidden="true"></span>
@@ -57,7 +58,7 @@
                             </button>
                         @endforeach
                     </div>
-                    <span class="hidden items-center gap-1.5 text-xs font-medium text-ink-muted sm:inline-flex">
+                    <span @class(['items-center gap-1.5 text-xs font-medium text-ink-muted', 'inline-flex' => $home, 'hidden sm:inline-flex' => ! $home])>
                         <x-ui.icon name="shield-check" class="size-3.5 text-success" />
                         {{ $country->is_eu_member ? __('ui.calculator.official_eu_data') : __('ui.calculator.maintained_rate_data') }}
                     </span>
@@ -223,7 +224,7 @@
             </div>
 
             {{-- Result --}}
-            <div @class(['flex flex-col rounded-b-card border-line bg-surface-subtle p-5', 'border-t sm:p-7 md:rounded-bl-none md:rounded-tr-card md:border-t-0 md:border-l' => ! $compact, 'border-t' => $compact])>
+            <div @class(['flex flex-col rounded-b-panel border-line bg-surface-subtle', 'p-5' => ! $home, 'p-6 sm:p-8' => $home, 'sm:p-7' => ! $compact && ! $home, 'border-t md:rounded-bl-none md:rounded-tr-panel md:border-t-0 md:border-l' => ! $compact, 'border-t' => $compact])>
                 <p class="text-[0.8125rem] font-semibold text-ink-muted">
                     <span x-text="mode === 'include' ? @js(__('ui.calculator.net_amount')) : @js(__('ui.calculator.total_incl_vat'))">{{ $mode === 'include' ? __('ui.calculator.net_amount') : __('ui.calculator.total_incl_vat') }}</span>
                 </p>
@@ -266,14 +267,20 @@
                 <div class="mt-auto flex flex-wrap gap-2 pt-5">
                     <a :href="shareUrl(@js(url(locale_path('/vat-calculation'))), $wire.selectedCountrySlug)" href="{{ url(\App\Livewire\SharedCalculation::calculationUrl($country->slug, $calculation->input(), $customRate ?? $selectedRate, $mode)) }}" @if($embedded) target="_blank" rel="noopener" @endif class="app-button-primary h-10 min-h-10 flex-1 whitespace-nowrap px-4">
                         <x-ui.icon name="share" class="size-4" />
-                        {{ __('ui.calculator.share_details') }}
+                        {{ $home ? __('landing.calculator.share') : __('ui.calculator.share_details') }}
                     @if($embedded)<x-ui.new-tab />@endif</a>
-                    @unless(in_array($surface, ['workspace', 'country-image', 'embed'], true) || $compact)
+                    @if($home)
+                        {{-- The homepage keeps one key in the result; the country's own calculator is a quiet text link. --}}
+                        <a href="{{ locale_path('/vat-calculator/'.$country->slug) }}" x-bind:href="@js(locale_path('/vat-calculator')) + '/' + $wire.selectedCountrySlug" class="app-link inline-flex min-h-10 basis-full items-center gap-2 text-sm">
+                            {{ __('ui.home_page.calculate_for', ['country' => $country->name]) }}
+                            <x-ui.icon name="ph-arrow-right" class="size-4" />
+                        </a>
+                    @elseif(! in_array($surface, ['workspace', 'country-image', 'embed'], true) && ! $compact)
                         <a href="{{ locale_path('/vat-calculator/'.$country->slug) }}" x-bind:href="@js(locale_path('/vat-calculator')) + '/' + $wire.selectedCountrySlug" class="app-button-secondary h-10 min-h-10 flex-1 whitespace-nowrap px-4">
                             {{ __('ui.calculator.full_calculator') }}
                             <x-ui.icon name="arrow-right" class="size-4" />
                         </a>
-                    @endunless
+                    @endif
                 </div>
                 <p class="sr-only" aria-live="polite" x-text="announcement"></p>
             </div>
@@ -282,8 +289,8 @@
         @unless($compact || $embedded)
             <x-rate-freshness :updated="$country->updated_at" :eu="$country->is_eu_member" :class="\Illuminate\Support\Arr::toCssClasses(['mt-4', 'mx-auto max-w-5xl justify-center' => ! $wide])">
                 <span class="inline-flex items-center gap-1.5">
-                    <x-ui.icon name="zap" class="size-3.5 shrink-0" />
-                    {{ __('ui.calculator.instant_results') }}
+                    <x-ui.icon :name="$home ? 'ph-check-circle' : 'zap'" class="size-3.5 shrink-0" />
+                    {{ $home ? __('landing.hero.free') : __('ui.calculator.instant_results') }}
                 </span>
             </x-rate-freshness>
 
