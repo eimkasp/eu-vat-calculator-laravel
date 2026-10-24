@@ -3,6 +3,7 @@
 namespace App\Support;
 
 use App\Models\Country;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 
 final class SiteNavigation
@@ -115,6 +116,19 @@ final class SiteNavigation
             ])
             ->values()
             ->all();
+    }
+
+    /**
+     * Every country that can be compared (each one with a VAT calculator), EU members first, for the comparison picker.
+     *
+     * @return Collection<int, Country>
+     */
+    public static function comparableCountries()
+    {
+        return Cache::remember('site_comparable_countries_v1', 600, fn () => Country::calculatorAvailable()
+            ->orderByDesc('is_eu_member')
+            ->orderBy('name')
+            ->get(['id', 'name', 'slug', 'iso_code', 'standard_rate', 'is_eu_member']));
     }
 
     /**

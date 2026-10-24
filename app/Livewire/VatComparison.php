@@ -4,48 +4,42 @@ namespace App\Livewire;
 
 use App\Models\Country;
 use App\Services\Seo\InternalLinkService;
+use Livewire\Attributes\Locked;
 use Livewire\Component;
 
 class VatComparison extends Component
 {
-    public Country $leftCountry;
-
-    public Country $rightCountry;
+    /** @var list<string> Country slugs in canonical order: two or three. */
+    #[Locked]
+    public array $slugs = [];
 
     public function mount(string $pair, InternalLinkService $links)
     {
-        if (! preg_match('/^(.+)-vs-(.+)$/', $pair, $matches)) {
-            abort(404);
-        }
-
-        $requested = [$matches[1], $matches[2]];
-        $canonical = $links->canonicalPair(...$requested);
-        abort_unless($canonical, 404);
+        $requested = explode('-vs-', $pair);
+        $canonical = $links->canonicalComparison($requested);
+        abort_unless($canonical && $links->comparableCountriesExist($canonical), 404);
 
         if ($requested !== $canonical) {
-            return redirect()->to(locale_path('/compare/'.implode('-vs-', $canonical).'-vat'), 301);
+            return redirect()->to(locale_path(InternalLinkService::comparisonPath($canonical)), 301);
         }
 
-        $countries = Country::query()
-            ->where('is_eu_member', true)
-            ->whereIn('slug', $canonical)
-            ->get()
-            ->sortBy(fn (Country $country) => array_search($country->slug, $canonical, true))
-            ->values();
-
-        abort_unless($countries->count() === 2, 404);
-
-        [$left, $right] = $countries->all();
-
-        $this->leftCountry = $left;
-        $this->rightCountry = $right;
+        $this->slugs = $canonical;
     }
 
-    public function render()
+    public function render(InternalLinkService $links)
     {
+        $countries = Country::calculatorAvailable()
+            ->whereIn('slug', $this->slugs)
+            ->withCount('vatRateChanges')
+            ->get()
+            ->sortBy(fn (Country $country) => array_search($country->slug, $this->slugs, true))
+            ->values();
+
+        abort_unless(in_array($countries->count(), [2, InternalLinkService::MAX_COMPARED], true), 404);
+
         return view('livewire.vat-comparison', [
-            'leftChanges' => $this->leftCountry->vatRateChanges()->count(),
-            'rightChanges' => $this->rightCountry->vatRateChanges()->count(),
+            'countries' => $countries,
+            'indexable' => $links->isApprovedComparison($this->slugs),
         ]);
     }
 }

@@ -327,6 +327,7 @@ Two equal segments on a sunken `surface-muted` tray; the key-face thumb slides i
 | `<x-faq-list :faqs="…" :title="…" id="…" />` | Questions as native disclosures, the first one open; build the FAQPage JSON-LD from the same list |
 | `<x-calculator.country-header :country="…" />` | The country calculator heading on one grid with the calculator below: the flag beside the heading, the heading (`heading-level`, default 1) and the rate panel; `breadcrumb-label` names its trail wherever it is not the page's own |
 | `<x-calculator.country-reference :country="…" />` | Each rate with what it covers, the standard rate's start date (`since` replaces the lookup), the VAT number format and the formulas |
+| `<x-compare-picker :selected="…" :invalid="…" :error="…" />` | Choose two or three countries to compare: three native selects (the third optional) in a plain GET form to `/compare`, which redirects to the one canonical comparison URL, so it works without script. Errors mark only the fields at fault (`aria-invalid`, `aria-describedby`, focus on the first). It reads the database, so it has no Storybook example |
 | `<x-calculator.common-amounts :country="…" />` | VAT on the top amounts in both directions; every figure links its indexable calculation |
 | `tabular`, `pressable`, `on-brand`, `scrim`, `app-container` | Utilities described above |
 
