@@ -828,10 +828,11 @@ return array (
     'more' => 'Más comparaciones',
     'countries' => 'Países',
     'difference' => 'Diferencia',
+    'higher' => ':country: :points p. p. más alto',
   ),
   'compare' => 
   array (
-    'pair' => ':left vs :right',
+    'pair' => ':left frente a :right',
     'eyebrow' => 'Comparación de países',
     'title' => 'Tipos de IVA: :left frente a :right',
     'meta_title' => 'IVA de :left y :right: tipos comparados',

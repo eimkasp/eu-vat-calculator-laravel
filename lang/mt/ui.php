@@ -828,10 +828,11 @@ return array (
     'more' => 'Aktar paragunijiet',
     'countries' => 'Pajjiżi',
     'difference' => 'Differenza',
+    'higher' => ':country: :points punti perċentwali ogħla',
   ),
   'compare' => 
   array (
-    'pair' => ':left vs :right',
+    'pair' => ':left kontra :right',
     'eyebrow' => 'Tqabbil bejn pajjiżi',
     'title' => 'Rati tal-VAT ta\' :left kontra :right',
     'meta_title' => 'VAT ta\' :left u :right: rati mqabbla',

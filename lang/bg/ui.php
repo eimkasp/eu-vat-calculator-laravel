@@ -828,10 +828,11 @@ return array (
     'more' => 'Още сравнения',
     'countries' => 'Държави',
     'difference' => 'Разлика',
+    'higher' => ':country: с :points пр.п. по-висока ставка',
   ),
   'compare' => 
   array (
-    'pair' => ':left vs :right',
+    'pair' => ':left срещу :right',
     'eyebrow' => 'Сравнение на държави',
     'title' => 'Ставки на ДДС: :left срещу :right',
     'meta_title' => 'ДДС в :left и :right: сравнение на ставките',

@@ -124,7 +124,7 @@ Syntax stays in the cobalt family; only status codes take green and red. `white`
 | Header | `sticky top-0 z-40 border-b border-line bg-workspace text-ink`: paper with a hairline |
 | Tool hero | `hero-field` with `<x-hero-backdrop />`: paper, a bottom hairline and the rate field |
 | Graphite band | `hero-canvas` (flat `brand`, white text allowed): code samples and one call to action per page |
-| Footer | `border-t border-line bg-surface-subtle text-ink`: a paper mast, the wordmark over four link columns |
+| Footer | `border-t border-line bg-surface-subtle text-ink`: a paper mast, the wordmark beside four link columns (VAT tools, Compare countries, Resources, Developers); partner links sit in the bottom bar with the copyright |
 | Tile, stat group or field on graphite | `app-brand-panel` (6% white fill, 15% white hairline) |
 
 `<x-hero-backdrop />` renders `hero-ground`: an ASCII field on an 8 × 16 cell drawn by the `rateField` Alpine component from the 27 standard rates. Raw, drifting cells on the left resolve into one column per member state on the right, each as tall as its rate, so the ground is the product's own data. It is tinted `glyph-1` to `glyph-4` with `action-deep` for the densest cells, follows the pointer with a small lens, pauses off screen and is one still under reduced motion; until the script runs a dot on every cell stands in. No type sits on its densest cells: keep headings on the left half. It is the only image treatment; do not add photographs, patterns or gradients.

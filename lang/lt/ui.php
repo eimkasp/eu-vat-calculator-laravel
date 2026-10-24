@@ -828,10 +828,11 @@ return array (
     'more' => 'Daugiau palyginimų',
     'countries' => 'Šalys',
     'difference' => 'Skirtumas',
+    'higher' => ':country: :points proc. p. didesnis',
   ),
   'compare' => 
   array (
-    'pair' => ':left vs :right',
+    'pair' => ':left ir :right',
     'eyebrow' => 'Šalių palyginimas',
     'title' => 'PVM tarifai: :left ir :right',
     'meta_title' => 'PVM :left ir :right: tarifų palyginimas',

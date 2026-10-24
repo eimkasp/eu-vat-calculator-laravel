@@ -828,6 +828,7 @@ return array (
     'more' => 'Veel võrdlusi',
     'countries' => 'Riigid',
     'difference' => 'Erinevus',
+    'higher' => ':country: :points pp võrra kõrgem',
   ),
   'compare' => 
   array (

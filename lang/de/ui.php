@@ -828,10 +828,11 @@ return array (
     'more' => 'Weitere Vergleiche',
     'countries' => 'Länder',
     'difference' => 'Unterschied',
+    'higher' => ':country: :points Pp. höher',
   ),
   'compare' => 
   array (
-    'pair' => ':left vs :right',
+    'pair' => ':left vs. :right',
     'eyebrow' => 'Ländervergleich',
     'title' => 'MwSt.-Sätze: :left vs. :right',
     'meta_title' => 'MwSt.-Sätze :left und :right im Vergleich',

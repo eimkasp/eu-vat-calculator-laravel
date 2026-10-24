@@ -828,10 +828,11 @@ return array (
     'more' => 'Mai multe comparații',
     'countries' => 'Țări',
     'difference' => 'Diferență',
+    'higher' => ':country: cu :points pp mai mare',
   ),
   'compare' => 
   array (
-    'pair' => ':left vs :right',
+    'pair' => ':left vs. :right',
     'eyebrow' => 'Comparație între țări',
     'title' => 'Cotele de TVA: :left vs. :right',
     'meta_title' => 'TVA :left și :right: cotele comparate',

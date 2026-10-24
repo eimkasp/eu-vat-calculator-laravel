@@ -828,10 +828,11 @@ return array (
     'more' => 'Flere sammenligninger',
     'countries' => 'Lande',
     'difference' => 'Forskel',
+    'higher' => ':country: :points pct.-point højere',
   ),
   'compare' => 
   array (
-    'pair' => ':left vs :right',
+    'pair' => ':left vs. :right',
     'eyebrow' => 'Landesammenligning',
     'title' => ':left vs. :right – momssatser',
     'meta_title' => 'Moms i :left og :right: satserne sammenlignet',
