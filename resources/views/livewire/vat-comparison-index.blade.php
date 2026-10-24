@@ -7,7 +7,7 @@
 @endphp
 
 @section('seo')
-    <x-seo-meta :title="__('ui.compare_index.meta_title')" :description="__('ui.compare_index.meta_description')" :url="$canonical">
+    <x-seo-meta :title="$error ? $error.' – '.__('ui.compare_index.meta_title') : __('ui.compare_index.meta_title')" :description="__('ui.compare_index.meta_description')" :url="$canonical" :robots="request()->has('countries') ? 'noindex, follow' : null">
         <x-json-ld :data="[
             '@type' => 'CollectionPage',
             '@id' => $canonical.'#webpage',
@@ -35,8 +35,14 @@
             <x-rate-freshness :updated="$updated" />
         @endif
 
+        <section class="app-surface p-5 sm:p-6" aria-labelledby="compare-picker-heading">
+            <h2 id="compare-picker-heading" class="text-lg font-semibold text-ink">{{ __('ui.compare_index.picker_heading') }}</h2>
+            <p class="mt-1 max-w-[64ch] text-sm leading-6 text-ink-muted">{{ __('ui.compare_index.picker_intro') }}</p>
+            <x-compare-picker :selected="$selected" :invalid="$invalid" :error="$error" class="mt-4" />
+        </section>
+
+        <h2 id="comparisons-heading" class="pt-2 text-lg font-semibold text-ink">{{ __('ui.compare_index.popular') }}</h2>
         <section class="app-surface overflow-hidden" aria-labelledby="comparisons-heading">
-            <h2 id="comparisons-heading" class="sr-only">{{ __('ui.compare_index.all') }}</h2>
             <div class="relative overflow-x-auto" tabindex="0" role="group" aria-labelledby="comparisons-heading">
                 <table class="app-table sm:min-w-[36rem]">
                     <thead>

@@ -111,7 +111,7 @@ $registerRoutes = function () {
         ->name('vat-rates.country-category');
     Route::get('/compare', VatComparisonIndex::class)->name('vat-comparisons');
     Route::get('/compare/{pair}-vat', VatComparison::class)
-        ->where('pair', '[a-z0-9-]+-vs-[a-z0-9-]+')
+        ->where('pair', '[a-z0-9-]+-vs-[a-z0-9-]+(?:-vs-[a-z0-9-]+)?')
         ->middleware(CanonicalizeVatComparison::class)
         ->name('vat-comparison');
     Route::get('/vat-guides/{scenario}', VatScenarioGuide::class)
