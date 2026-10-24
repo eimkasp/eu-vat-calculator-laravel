@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AmpController;
 use App\Http\Controllers\Api\X402Controller;
+use App\Http\Controllers\CountryOgImageController;
 use App\Http\Controllers\EmbedController;
 use App\Http\Controllers\LangController;
 use App\Http\Controllers\LlmsController;
@@ -45,7 +46,12 @@ use App\Livewire\VatMap;
 use App\Livewire\VatScenarioGuide;
 use App\Livewire\VatValidationApiDocs;
 use App\Livewire\ViesValidatorPage;
+use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
+use Illuminate\Cookie\Middleware\EncryptCookies;
+use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
+use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Route;
+use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 /*
 |--------------------------------------------------------------------------
@@ -206,6 +212,19 @@ Route::middleware(AllowEmbedding::class)->group(function () {
 });
 
 Route::get('/search-index.json', SearchIndexController::class)->name('search-index');
+
+// Social images of the country pages (App\Support\Seo\CountryOgImage). Sessionless, so the CDN can cache them.
+Route::get('/og/{locale}/vat-calculator/{slug}-{version}.png', CountryOgImageController::class)
+    ->where(['locale' => '[a-z]{2}', 'slug' => '[a-z0-9-]+', 'version' => '[a-f0-9]{12}'])
+    ->withoutMiddleware([
+        EncryptCookies::class,
+        AddQueuedCookiesToResponse::class,
+        StartSession::class,
+        ShareErrorsFromSession::class,
+        PreventRequestForgery::class,
+    ])
+    ->middleware('throttle:60,1')
+    ->name('og-image.country');
 
 // Machine-readable design system: DTCG design tokens and DESIGN.md
 Route::get('/styleguide/design.tokens.json', [StyleguideController::class, 'tokens'])->name('styleguide.tokens');
