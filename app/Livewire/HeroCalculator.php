@@ -138,6 +138,8 @@ class HeroCalculator extends Component
         $this->selectedCountrySlug = $slug;
         unset($this->country);
         $this->loadCountry();
+        // A new country starts at its standard rate, even when it shares the lower rate picked before.
+        $this->selectedRate = (float) ($this->rates[0]['rate'] ?? 0);
 
         cookie()->queue('hero_calc_country', $slug, 60 * 24 * 90);
     }

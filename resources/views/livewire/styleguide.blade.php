@@ -386,7 +386,7 @@
                     </div>
                 </x-styleguide.section>
 
-                <x-styleguide.section id="typography" title="Typography" lead="Familjen Grotesk at weight 600 for headings and figures, IBM Plex Sans for reading and JetBrains Mono for machine values, all three self-hosted. Headings stay one colour, labels stay in sentence case, and every figure that can change or be compared is set in tabular numbers.">
+                <x-styleguide.section id="typography" title="Typography" lead="One typeface: Geist at weight 600 for headings and figures and 400 for reading, Manrope where Geist has no Greek letters, and Geist Mono for machine values, all self-hosted. Headings stay one colour, labels stay in sentence case, and every figure that can change or be compared is set in tabular numbers.">
                     <div class="app-surface divide-y divide-line">
                         @foreach([
                             ['Display', 'text-4xl sm:text-5xl font-semibold tracking-[-0.03em] sm:leading-[1.04]', 'display', 'Hero headings, and hero results with font-display on the figure'],
@@ -476,14 +476,14 @@
                             </div>
                             <div class="space-y-5">
                                 <div>
-                                    <p class="font-display text-3xl font-semibold tracking-[-0.03em] text-ink">Familjen Grotesk 19%</p>
+                                    <p class="font-display text-3xl font-semibold tracking-[-0.03em] text-ink">Geist 19%</p>
                                     <p class="mt-1 text-xs text-ink-muted">{{ implode(', ', $tokens->fonts()['display'] ?? []) }}</p>
                                 </div>
                                 <div>
                                     <p class="flex flex-wrap items-baseline gap-x-5 gap-y-1 text-2xl text-ink">
-                                        <span class="font-normal">Plex 400</span>
-                                        <span class="font-medium">Plex 500</span>
-                                        <span class="font-semibold">Plex 600</span>
+                                        <span class="font-normal">Geist 400</span>
+                                        <span class="font-medium">Geist 500</span>
+                                        <span class="font-semibold">Geist 600</span>
                                     </p>
                                     <p class="mt-1 text-xs text-ink-muted">{{ implode(', ', $tokens->fonts()['sans'] ?? []) }}</p>
                                 </div>
@@ -500,7 +500,7 @@
                     </div>
                 </x-styleguide.section>
 
-                <x-styleguide.section id="shape" title="Shape" lead="Three radius tokens and two cuts. Keys, fields and chips take 6px and cards 8px; the primary task card is cut on two opposite corners, and fields and chips take the smaller cut. Pills are not part of the system: rounded-full is kept for spinners, avatars and numbered steps.">
+                <x-styleguide.section id="shape" title="Shape" lead="Three radius tokens: 8px for keys, fields and chips, 16px for cards and 24px for panels. A corner inside another takes the outer radius minus the gap between them. Pills are kept for the floating header and its links, spinners, avatars and numbered steps.">
                     <ul class="grid grid-cols-2 gap-3 md:grid-cols-3">
                         @foreach($tokens->radii() as $name => $value)
                             <li class="app-surface p-4">
@@ -512,7 +512,7 @@
                                 <p class="mt-1 text-xs leading-5 text-ink-muted">{!! $markdown($guide->tokenRows('Shape')['radius-'.$name]['Use'] ?? '') !!}</p>
                             </li>
                         @endforeach
-                        @foreach([['cut', '16px bevel', 'Two opposite corners bevelled on a panel where corner-shape is supported'], ['cut-sm', '8px bevel', 'The same on fields and chips'], ['rounded-xs', '2px', 'Flags, badges, keyboard hints and bar ends'], ['rounded-full', '50%', 'Spinners, avatars and numbered step markers only']] as [$class, $size, $use])
+                        @foreach([['rounded-xs', '2px', 'Flags, badges, keyboard hints and bar ends'], ['rounded-full', '50%', 'The floating header and its links, spinners, avatars and numbered step markers']] as [$class, $size, $use])
                             <li class="app-surface p-4">
                                 <span @class(['block h-16 border-2', 'border-action bg-action-soft' => str_starts_with($class, 'cut'), 'border-line-strong bg-surface-muted' => ! str_starts_with($class, 'cut'), 'cut rounded-panel' => $class === 'cut', 'cut-sm rounded-control' => $class === 'cut-sm', 'rounded-xs' => $class === 'rounded-xs', 'mx-auto w-16 rounded-full' => $class === 'rounded-full']) aria-hidden="true"></span>
                                 <p class="mt-3 flex flex-wrap items-baseline justify-between gap-x-2">
@@ -636,7 +636,7 @@
                     <x-styleguide.specimen example="buttons-states" />
                 </x-styleguide.section>
 
-                <x-styleguide.section id="fields" title="Form fields" lead="Fields are cut on two corners and edged in ink-quiet, so the edge holds 3:1 against paper. Labels sit above, help and errors below, linked with aria-describedby. Validate on the client for instant feedback and again on the server.">
+                <x-styleguide.section id="fields" title="Form fields" lead="Fields take the control radius and are edged in ink-quiet, so the edge holds 3:1 against paper. Labels sit above, help and errors below, linked with aria-describedby. Validate on the client for instant feedback and again on the server.">
                     <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
                         <x-styleguide.specimen example="field-text" />
                         <x-styleguide.specimen example="field-error" />
@@ -652,7 +652,7 @@
                     <x-styleguide.specimen example="tabs" />
                 </x-styleguide.section>
 
-                <x-styleguide.section id="surfaces" title="Surfaces" lead="Opaque paper with hairline borders. Cards hold content, the cut raised card holds the primary task, popovers float, the tool hero is paper over the rate field, and brand panels sit only inside a graphite band.">
+                <x-styleguide.section id="surfaces" title="Surfaces" lead="Opaque paper with hairline borders. Cards hold content, the raised card holds the primary task, popovers float, the tool hero is paper over the rate field, and brand panels sit only inside a graphite band.">
                     <x-styleguide.specimen example="surface-hero-field" />
                     <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
                         <x-styleguide.specimen example="surface-card" />
@@ -682,7 +682,7 @@
                     <x-styleguide.specimen example="data-bars" />
                 </x-styleguide.section>
 
-                <x-styleguide.section id="navigation" title="Navigation" lead="A paper header with a hairline marks the current section with a 2px cobalt underline, the mobile tab bar marks it with a cobalt top rule, and breadcrumbs lead every page.">
+                <x-styleguide.section id="navigation" title="Navigation" lead="A floating glass header marks the current section with an ink ring; below 1280px its menu opens as a full-screen sheet, the mobile tab bar marks the section with a cobalt top rule, and breadcrumbs lead every page.">
                     <x-styleguide.specimen example="nav-header" />
                     <x-styleguide.specimen
                         title="Breadcrumbs"

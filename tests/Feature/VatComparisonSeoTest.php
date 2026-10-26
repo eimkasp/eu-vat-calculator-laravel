@@ -110,7 +110,7 @@ it('lists the approved comparisons on one hub and links it across the site', fun
 
     $this->get('/')
         ->assertOk()
-        ->assertSee('Popular comparisons')
+        ->assertSee('Compare any two or three countries')
         ->assertSee('href="/compare/germany-vs-france-vat"', false)
         ->assertSee('href="/compare"', false);
 

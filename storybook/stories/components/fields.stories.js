@@ -4,7 +4,7 @@ import { exampleParameters, renderExample } from '../../render.js';
 export default {
     title: "Components/Form fields",
     tags: ['autodocs'],
-    parameters: { docs: { description: { component: "Fields are cut on two corners and edged in ink-quiet, so the edge holds 3:1 against paper. Labels sit above, help and errors below, linked with aria-describedby. Validate on the client for instant feedback and again on the server." } } },
+    parameters: { docs: { description: { component: "Fields take the control radius and are edged in ink-quiet, so the edge holds 3:1 against paper. Labels sit above, help and errors below, linked with aria-describedby. Validate on the client for instant feedback and again on the server." } } },
 };
 
 export const FieldText = {

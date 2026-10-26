@@ -29,7 +29,7 @@
 @section('seo')
     <x-seo-meta
         title="Brand guidelines: logo, colour and voice | EU VAT Info"
-        description="The EU VAT Info brand: the mark, the paper, ink and cobalt palette, Familjen Grotesk and IBM Plex Sans, the plain voice and how to credit our VAT data."
+        description="The EU VAT Info brand: the mark, the white, ink and cobalt palette, the Geist typeface, the plain voice and how to credit our VAT data."
         :url="$pageUrl"
         type="article">
         <x-json-ld :data="[
@@ -130,7 +130,7 @@
                     <ul class="mt-3 space-y-2 text-sm leading-6 text-ink-muted">
                         <li>Keep clear space of half the tile's width on every side.</li>
                         <li>Use the SVG at any size from 16 px up.</li>
-                        <li>Set the wordmark in Familjen Grotesk at weight 600, next to the tile.</li>
+                        <li>Set the wordmark in Geist at weight 600, next to the tile.</li>
                     </ul>
                 </div>
                 <div>
@@ -147,7 +147,7 @@
         <section aria-labelledby="brand-colour" class="space-y-6">
             <header class="max-w-[68ch]">
                 <h2 id="brand-colour" class="text-2xl font-semibold tracking-[-0.02em] text-ink">Colour</h2>
-                <p class="mt-2 text-base leading-7 text-ink-muted">Cool paper and blue-grey ink carry every page. One cobalt signal marks what you can press, what is selected and keyboard focus, and stays under about 5% of a screen; graphite is kept for code and calls to action. Values come straight from the Design Tokens; the dark value is what the site shows in dark mode.</p>
+                <p class="mt-2 text-base leading-7 text-ink-muted">Neutral white and near-black ink carry every page. One cobalt signal marks what you can press, what is selected and keyboard focus, and stays under about 5% of a screen; graphite is kept for code and calls to action. Values come straight from the Design Tokens; the dark value is what the site shows in dark mode.</p>
             </header>
             <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
                 @foreach($colours as $colour)
@@ -186,15 +186,15 @@
         <section aria-labelledby="brand-type" class="space-y-6">
             <header class="max-w-[68ch]">
                 <h2 id="brand-type" class="text-2xl font-semibold tracking-[-0.02em] text-ink">Type</h2>
-                <p class="mt-2 text-base leading-7 text-ink-muted">Familjen Grotesk at weight 600 for headings and figures, IBM Plex Sans for reading, and JetBrains Mono for VAT numbers, code and the rate field. Headings stay one colour, labels stay in sentence case, and every figure that can change or be compared is set in tabular numbers so columns line up.</p>
+                <p class="mt-2 text-base leading-7 text-ink-muted">One typeface: Geist at weight 600 for headings and figures and 400 for reading, with Geist Mono for VAT numbers, code and the rate field. Headings stay one colour, labels stay in sentence case, and every figure that can change or be compared is set in tabular numbers so columns line up.</p>
             </header>
             <div class="app-surface divide-y divide-line">
                 @foreach([
-                    ['Display', 'Familjen Grotesk 600', 'tabular font-display text-5xl font-semibold tracking-[-0.03em] text-ink', '€1,487.50'],
-                    ['Headline', 'Familjen Grotesk 600', 'font-display text-3xl font-semibold tracking-[-0.03em] text-ink', 'Germany VAT calculator'],
-                    ['Body', 'IBM Plex Sans 400', 'max-w-[68ch] text-base leading-7 text-ink-muted', 'The standard VAT rate in Germany is 19%. Reduced rates of 7% apply to selected goods and services.'],
-                    ['Label', 'Familjen Grotesk 500', 'font-display text-[0.8125rem] font-medium text-ink-muted', 'Amount (excl. VAT)'],
-                    ['Machine values', 'JetBrains Mono 400', 'font-mono text-base text-ink', 'DE123456789'],
+                    ['Display', 'Geist 600', 'tabular font-display text-5xl font-semibold tracking-[-0.03em] text-ink', '€1,487.50'],
+                    ['Headline', 'Geist 600', 'font-display text-3xl font-semibold tracking-[-0.03em] text-ink', 'Germany VAT calculator'],
+                    ['Body', 'Geist 400', 'max-w-[68ch] text-base leading-7 text-ink-muted', 'The standard VAT rate in Germany is 19%. Reduced rates of 7% apply to selected goods and services.'],
+                    ['Label', 'Geist 500', 'font-display text-[0.8125rem] font-medium text-ink-muted', 'Amount (excl. VAT)'],
+                    ['Machine values', 'Geist Mono 400', 'font-mono text-base text-ink', 'DE123456789'],
                 ] as [$role, $face, $classes, $sample])
                     <div class="grid gap-2 p-5 sm:grid-cols-[12rem_minmax(0,1fr)] sm:items-baseline sm:p-6">
                         <div>

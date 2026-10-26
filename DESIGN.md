@@ -6,14 +6,14 @@ source: resources/css/app.css
 enforced-by: tests/Feature/DesignSystemTest.php
 theme: Cobalt (Hallmark v2, deal 1/3) · genre modern-minimal · shape app screen
 colors:
-  workspace: "#F8FBFE"
-  surface: "#FDFEFF"
-  surface-subtle: "#F3F6FA"
-  line: "#DADEE4"
-  ink: "#111825"
-  ink-muted: "#3C434E"
-  ink-quiet: "#5D646E"
-  brand: "#121823"
+  workspace: "#FFFFFF"
+  surface: "#FFFFFF"
+  surface-subtle: "#FAFAFA"
+  line: "#E8E8E8"
+  ink: "#111111"
+  ink-muted: "#4F4F4F"
+  ink-quiet: "#6B6B6B"
+  brand: "#181818"
   action: "#0462D3"
   action-deep: "#0040BB"
   action-soft: "#E3F0FF"
@@ -21,7 +21,7 @@ colors:
   warning: "#AE4900"
   danger: "#BE2323"
 typography:
-  family: "Familjen Grotesk Variable for headings and figures, IBM Plex Sans Variable for text, JetBrains Mono Variable for machine values; each with a metric-matched local fallback"
+  family: "Geist Variable for everything, Geist Mono Variable only for figures that must align; with a metric-matched local fallback (landing-page skill branch)"
   display: { size: "3rem", weight: 600, lineHeight: 1.04, letterSpacing: "-0.03em", family: "display" }
   headline: { size: "2.5rem", weight: 600, lineHeight: 1.08, letterSpacing: "-0.03em", family: "display" }
   title: { size: "1.125rem", weight: 600, lineHeight: 1.35, family: "display" }
@@ -29,11 +29,12 @@ typography:
   label: { size: "0.8125rem", weight: 500, lineHeight: 1.35, family: "display" }
   mono: { size: "0.875rem", weight: 500, lineHeight: 1.4, family: "mono" }
 rounded:
-  control: "6px"
-  card: "8px"
-  panel: "8px, cut 16px on two opposite corners"
+  control: "8px"
+  card: "16px"
+  panel: "24px"
 motion:
   out-quint: "cubic-bezier(0.22, 1, 0.36, 1)"
+  fluid: "cubic-bezier(0.32, 0.72, 0, 1)"
   duration: "120ms (keys and colour), 200ms (position)"
 ---
 
@@ -46,6 +47,21 @@ The rendered reference lives at [`/styleguide`](https://vat.businesspress.io/sty
 **North star: the exact reference desk.** People come here to get a rate, a total or a validation result they can put on an invoice. The interface reads like a well-kept technical reference: cool near-white paper ruled with hairlines, Familjen Grotesk heads over IBM Plex Sans, keys you press, panels cut on two corners, and one electric cobalt signal for what you can act on. Figures are the loudest type on any screen. Nothing glows, blurs or bounces.
 
 The system is the Hallmark v2 **Cobalt** theme applied to an app-screen shape; `app.css` opens with its stamp.
+
+## Landing-page skill branch
+
+This branch (`homepage-landing-skill`) redesigns the homepage with the `landing-page-design` skill from [elayadesign/ai-design-skills](https://github.com/elayadesign/ai-design-skills). Where the skill and the rest of this file disagree, the skill wins on this branch:
+
+- **Type:** one typeface, Geist (`--font-sans` and `--font-display`), with Geist Mono (`--font-mono`) only for figures that must align. No italics, nothing heavier than bold, Tailwind's type scale only.
+- **Colour:** neutral paper and ink (`#FFFFFF` / `#111111`); dark mode uses only the skill's backgrounds (`#000000`, `#181818`, `#1F1F1F`, `#272727`, `#313131`, `#131209` for the graphite band). Cobalt stays the action colour. Backgrounds are flat; the only gradient is on hero heading text (`lp-heading`: `#000000` to `#666666`, or `#FFFFFF` to `#9B9B9B` in dark mode and on graphite with `lp-heading-dark`).
+- **Shape:** Tailwind radius steps through the existing tokens: `rounded-control` 8px (`rounded-lg`), `rounded-card` 16px (`rounded-2xl`), `rounded-panel` 24px (`rounded-3xl`). A shape inside another takes the outer radius minus the gap when the gap is under 32px.
+- **Spacing:** only 0, 2, 4, 8, 12, 16, 24, 32, 40, 48, 64, 80 and 96px on the homepage.
+- **Motion:** every homepage transition uses `--ease-fluid` (`ease-fluid`, `cubic-bezier(0.32, 0.72, 0, 1)`), 700ms (`lp-fluid`). Sections fade up from 4rem with a blur as they enter the viewport (`x-data="reveal"` on a wrapper, `data-reveal-item` on each block; an IntersectionObserver, never a scroll listener). Content is visible without script and under reduced motion.
+- **Navigation:** the header is a floating glass pill (`lp-island`, `lp-nav-item`); below `xl` the two-line menu button rotates into an X (`lp-burger-line`) and opens a full-screen glass sheet (`lp-sheet`) whose links slide up one after another.
+- **Tagline reveal:** one large section (`x-data="taglineReveal"`, words as `lp-word data-word`) whose words move from 30% ink to full ink as they cross a line 40% up the viewport.
+- **Buttons:** a main call to action adds `lp-cta` to an `app-button-*` class: 16px semibold on 8px by 12px padding.
+- **Icons:** the homepage uses Phosphor (regular weight) through `<x-ui.icon name="ph-…">`; the rest of the site keeps Lucide.
+- **Copy:** the homepage copy lives in `lang/en/landing.php` and is English only on this branch; other languages fall back to it until it is approved and translated.
 
 ## Quick start for agents
 

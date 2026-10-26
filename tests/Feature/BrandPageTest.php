@@ -10,7 +10,7 @@ it('shows the mark, the token colours, the type and the voice', function () {
         ->assertSee('The EU VAT Info brand')
         ->assertSee(strtoupper($tokens['semantic']['brand']['$value']['hex']))
         ->assertSee(strtoupper($tokens['semantic']['action']['$value']['hex']))
-        ->assertSee('Familjen Grotesk')
+        ->assertSee('Geist')
         ->assertSee('Rates updated 11 Oct 2026, from the European Commission')
         ->assertSee('CC BY 4.0')
         ->assertSee('href="'.url('/brand/eu-vat-info-mark.svg').'" download="eu-vat-info-mark.svg"', false)
