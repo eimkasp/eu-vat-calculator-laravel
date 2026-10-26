@@ -3,6 +3,7 @@
     'description' => null,
     'url' => null,
     'image' => null,
+    'imageAlt' => null,
     'type' => 'website',
     'robots' => null,
     'canonical' => true,
@@ -33,11 +34,12 @@
 <meta property="og:title" content="{{ $title }}">
 <meta property="og:description" content="{{ $description }}">
 <meta property="og:image" content="{{ $resolvedImage }}">
-@unless($image)
+@if(! $image || $imageAlt)
+    <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="EU VAT Info">
-@endunless
+    <meta property="og:image:alt" content="{{ $imageAlt ?: 'EU VAT Info' }}">
+@endif
 <meta property="og:site_name" content="EU VAT Info">
 <meta property="og:locale" content="{{ $ogLocale }}">
 @foreach($ogAlternates as $alternate)
@@ -49,6 +51,9 @@
 <meta name="twitter:title" content="{{ $title }}">
 <meta name="twitter:description" content="{{ $description }}">
 <meta name="twitter:image" content="{{ $resolvedImage }}">
+@if(! $image || $imageAlt)
+    <meta name="twitter:image:alt" content="{{ $imageAlt ?: 'EU VAT Info' }}">
+@endif
 
 <!-- Additional SEO -->
 @if($canonical)

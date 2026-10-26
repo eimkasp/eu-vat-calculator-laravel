@@ -12,6 +12,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.3",
+        "backstage/laravel-og-image": "^1.4",
         "deeplcom/deepl-php": "^1.20",
         "filament/filament": "^5.9",
         "laravel/framework": "^13.33",

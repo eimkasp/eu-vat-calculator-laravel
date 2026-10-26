@@ -9,7 +9,7 @@
         $faqs = \App\Support\Vat\CountryFaq::for($country);
     @endphp
     @section('seo')
-        <x-seo-meta :title="$calcMetaTitle" :description="$calcMetaDesc" :url="$calcCanonical">
+        <x-seo-meta :title="$calcMetaTitle" :description="$calcMetaDesc" :url="$calcCanonical" :image="app(\App\Support\Seo\CountryOgImage::class)->url($country)" :image-alt="app(\App\Support\Seo\CountryOgImage::class)->alt($country)">
             <x-json-ld :data="[
                 '@type' => 'BreadcrumbList',
                 'itemListElement' => [
