@@ -206,6 +206,7 @@ GET  /up                              # Application health check
 - Test location: `tests/Feature/` and `tests/Unit/`
 - Run tests: `php artisan test` or `./vendor/bin/pest`
 - Lint: `./vendor/bin/pint` (Laravel Pint)
+- There is no GitHub CI. Run `composer check` (Pint, the full test suite, the Vite and Storybook build) before pushing or merging, and report its result as the test evidence.
 
 ### Admin Panel
 - **Filament 5** at `/admin`
@@ -226,6 +227,7 @@ yarn storybook                       # Storybook at http://localhost:6006
 php artisan design-system:storybook  # Regenerate the stories after changing an example or app.css
 
 # Testing (clear cached config first: with it, tests run against the real database and refresh it)
+composer check                       # Everything before a push: Pint, all tests, the asset and Storybook build
 php artisan optimize:clear
 php artisan test                     # Run all tests
 ./vendor/bin/pest                    # Run Pest tests

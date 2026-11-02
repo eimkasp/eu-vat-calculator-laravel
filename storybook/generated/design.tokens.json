@@ -1,5 +1,5 @@
 {
-    "$description": "EU VAT Info design tokens, generated from resources/css/app.css. Light values are the defaults; dark values are under $extensions.io.businesspress.vat.dark. Documentation: http://127.0.0.1:8000/styleguide",
+    "$description": "EU VAT Info design tokens, generated from resources/css/app.css. Light values are the defaults; dark values are under $extensions.io.businesspress.vat.dark. Documentation: https://vat.businesspress.io/styleguide",
     "color": {
         "$type": "color",
         "semantic": {
