@@ -28,7 +28,7 @@ final class StorybookExport
                 'canvases' => ComponentCatalog::CANVASES,
                 'examples' => self::examples(),
             ]),
-            self::GENERATED.'/design.tokens.json' => rtrim(TokenDocument::current()->toJson())."\n",
+            self::GENERATED.'/design.tokens.json' => self::tokens(),
         ];
 
         foreach (ComponentCatalog::sections() as $id => $section) {
@@ -36,6 +36,17 @@ final class StorybookExport
         }
 
         return $files;
+    }
+
+    /**
+     * The tokens link to the public styleguide rather than this machine's APP_URL, so the committed file is the same
+     * wherever it is generated and the --check run gives the same answer on every machine.
+     */
+    private static function tokens(): string
+    {
+        $json = TokenDocument::current()->toJson();
+
+        return rtrim(str_replace(rtrim(url('/'), '/').'/', config('seo.canonical_url').'/', $json))."\n";
     }
 
     /**
