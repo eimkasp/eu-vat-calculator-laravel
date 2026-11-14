@@ -1,0 +1,2298 @@
+{
+ "fetched_at": "2026-11-14T11:25:31Z",
+ "countries": [
+  {
+   "name": "Austria",
+   "iso_code": "AT",
+   "code": "AT",
+   "slug": "austria",
+   "currency": "EUR",
+   "rates": {
+    "standard": 20,
+    "reduced": 10,
+    "reduced_rates": [
+     10,
+     13
+    ],
+    "super_reduced": 4.9,
+    "parking": 13
+   },
+   "vat_number": {
+    "prefix": "AT",
+    "format": "ATU99999999",
+    "masks": [
+     "ATU99999999"
+    ],
+    "pattern": "^ATU\\d{8}$"
+   },
+   "last_updated": "2026-10-11T14:32:02+00:00"
+  },
+  {
+   "name": "Belgium",
+   "iso_code": "BE",
+   "code": "BE",
+   "slug": "belgium",
+   "currency": "EUR",
+   "rates": {
+    "standard": 21,
+    "reduced": 6,
+    "reduced_rates": [
+     6,
+     12
+    ],
+    "super_reduced": null,
+    "parking": 12
+   },
+   "vat_number": {
+    "prefix": "BE",
+    "format": "BE9999999999",
+    "masks": [
+     "BE9999999999"
+    ],
+    "pattern": "^BE[01]\\d{9}$"
+   },
+   "last_updated": "2026-09-29T15:22:09+00:00"
+  },
+  {
+   "name": "Bulgaria",
+   "iso_code": "BG",
+   "code": "BG",
+   "slug": "bulgaria",
+   "currency": "EUR",
+   "rates": {
+    "standard": 20,
+    "reduced": 9,
+    "reduced_rates": [
+     9
+    ],
+    "super_reduced": null,
+    "parking": null
+   },
+   "vat_number": {
+    "prefix": "BG",
+    "format": "BG999999999 · BG9999999999",
+    "masks": [
+     "BG999999999",
+     "BG9999999999"
+    ],
+    "pattern": "^BG\\d{9,10}$"
+   },
+   "last_updated": "2026-09-29T15:22:09+00:00"
+  },
+  {
+   "name": "Croatia",
+   "iso_code": "HR",
+   "code": "HR",
+   "slug": "croatia",
+   "currency": "EUR",
+   "rates": {
+    "standard": 25,
+    "reduced": 5,
+    "reduced_rates": [
+     5,
+     13
+    ],
+    "super_reduced": null,
+    "parking": null
+   },
+   "vat_number": {
+    "prefix": "HR",
+    "format": "HR99999999999",
+    "masks": [
+     "HR99999999999"
+    ],
+    "pattern": "^HR\\d{11}$"
+   },
+   "last_updated": "2026-09-29T15:22:09+00:00"
+  },
+  {
+   "name": "Cyprus",
+   "iso_code": "CY",
+   "code": "CY",
+   "slug": "cyprus",
+   "currency": "EUR",
+   "rates": {
+    "standard": 19,
+    "reduced": 5,
+    "reduced_rates": [
+     5,
+     9
+    ],
+    "super_reduced": 3,
+    "parking": null
+   },
+   "vat_number": {
+    "prefix": "CY",
+    "format": "CY99999999L",
+    "masks": [
+     "CY99999999L"
+    ],
+    "pattern": "^CY\\d{8}[A-Z]$"
+   },
+   "last_updated": "2026-10-11T14:32:02+00:00"
+  },
+  {
+   "name": "Czech Republic",
+   "iso_code": "CZ",
+   "code": "CZ",
+   "slug": "czech-republic",
+   "currency": "CZK",
+   "rates": {
+    "standard": 21,
+    "reduced": 12,
+    "reduced_rates": [
+     12
+    ],
+    "super_reduced": null,
+    "parking": null
+   },
+   "vat_number": {
+    "prefix": "CZ",
+    "format": "CZ99999999 · CZ999999999 · CZ9999999999",
+    "masks": [
+     "CZ99999999",
+     "CZ999999999",
+     "CZ9999999999"
+    ],
+    "pattern": "^CZ\\d{8,10}$"
+   },
+   "last_updated": "2026-05-04T12:48:15+00:00"
+  },
+  {
+   "name": "Denmark",
+   "iso_code": "DK",
+   "code": "DK",
+   "slug": "denmark",
+   "currency": "DKK",
+   "rates": {
+    "standard": 25,
+    "reduced": null,
+    "reduced_rates": [],
+    "super_reduced": null,
+    "parking": null
+   },
+   "vat_number": {
+    "prefix": "DK",
+    "format": "DK99999999",
+    "masks": [
+     "DK99999999"
+    ],
+    "pattern": "^DK\\d{8}$"
+   },
+   "last_updated": "2026-05-04T12:48:15+00:00"
+  },
+  {
+   "name": "Estonia",
+   "iso_code": "EE",
+   "code": "EE",
+   "slug": "estonia",
+   "currency": "EUR",
+   "rates": {
+    "standard": 24,
+    "reduced": 9,
+    "reduced_rates": [
+     9,
+     13
+    ],
+    "super_reduced": null,
+    "parking": null
+   },
+   "vat_number": {
+    "prefix": "EE",
+    "format": "EE999999999",
+    "masks": [
+     "EE999999999"
+    ],
+    "pattern": "^EE\\d{9}$"
+   },
+   "last_updated": "2026-10-11T14:32:02+00:00"
+  },
+  {
+   "name": "Finland",
+   "iso_code": "FI",
+   "code": "FI",
+   "slug": "finland",
+   "currency": "EUR",
+   "rates": {
+    "standard": 25.5,
+    "reduced": 10,
+    "reduced_rates": [
+     10,
+     13.5
+    ],
+    "super_reduced": null,
+    "parking": null
+   },
+   "vat_number": {
+    "prefix": "FI",
+    "format": "FI99999999",
+    "masks": [
+     "FI99999999"
+    ],
+    "pattern": "^FI\\d{8}$"
+   },
+   "last_updated": "2026-10-11T14:32:02+00:00"
+  },
+  {
+   "name": "France",
+   "iso_code": "FR",
+   "code": "FR",
+   "slug": "france",
+   "currency": "EUR",
+   "rates": {
+    "standard": 20,
+    "reduced": 5.5,
+    "reduced_rates": [
+     5.5,
+     10
+    ],
+    "super_reduced": 2.1,
+    "parking": null
+   },
+   "vat_number": {
+    "prefix": "FR",
+    "format": "FRXX999999999",
+    "masks": [
+     "FRXX999999999"
+    ],
+    "pattern": "^FR[0-9A-Z]{2}\\d{9}$"
+   },
+   "last_updated": "2026-09-29T15:22:09+00:00"
+  },
+  {
+   "name": "Germany",
+   "iso_code": "DE",
+   "code": "DE",
+   "slug": "germany",
+   "currency": "EUR",
+   "rates": {
+    "standard": 19,
+    "reduced": 7,
+    "reduced_rates": [
+     7
+    ],
+    "super_reduced": null,
+    "parking": null
+   },
+   "vat_number": {
+    "prefix": "DE",
+    "format": "DE999999999",
+    "masks": [
+     "DE999999999"
+    ],
+    "pattern": "^DE\\d{9}$"
+   },
+   "last_updated": "2026-05-04T12:48:15+00:00"
+  },
+  {
+   "name": "Greece",
+   "iso_code": "GR",
+   "code": "GR",
+   "slug": "greece",
+   "currency": "EUR",
+   "rates": {
+    "standard": 24,
+    "reduced": 6,
+    "reduced_rates": [
+     6,
+     13
+    ],
+    "super_reduced": 4,
+    "parking": null
+   },
+   "vat_number": {
+    "prefix": "EL",
+    "format": "EL999999999",
+    "masks": [
+     "EL999999999"
+    ],
+    "pattern": "^EL\\d{9}$"
+   },
+   "last_updated": "2026-10-11T14:32:02+00:00"
+  },
+  {
+   "name": "Hungary",
+   "iso_code": "HU",
+   "code": "HU",
+   "slug": "hungary",
+   "currency": "HUF",
+   "rates": {
+    "standard": 27,
+    "reduced": 5,
+    "reduced_rates": [
+     5,
+     18
+    ],
+    "super_reduced": null,
+    "parking": null
+   },
+   "vat_number": {
+    "prefix": "HU",
+    "format": "HU99999999",
+    "masks": [
+     "HU99999999"
+    ],
+    "pattern": "^HU\\d{8}$"
+   },
+   "last_updated": "2026-09-29T15:22:09+00:00"
+  },
+  {
+   "name": "Iceland",
+   "iso_code": "IS",
+   "code": "IS",
+   "slug": "iceland",
+   "currency": "ISK",
+   "rates": {
+    "standard": 24,
+    "reduced": 11,
+    "reduced_rates": [
+     11
+    ],
+    "super_reduced": null,
+    "parking": null
+   },
+   "vat_number": null,
+   "last_updated": "2026-05-04T12:48:15+00:00"
+  },
+  {
+   "name": "Ireland",
+   "iso_code": "IE",
+   "code": "IE",
+   "slug": "ireland",
+   "currency": "EUR",
+   "rates": {
+    "standard": 23,
+    "reduced": 9,
+    "reduced_rates": [
+     9,
+     13.5
+    ],
+    "super_reduced": 4.8,
+    "parking": 13.5
+   },
+   "vat_number": {
+    "prefix": "IE",
+    "format": "IE9999999L · IE9999999LL · IE9X99999L",
+    "masks": [
+     "IE9999999L",
+     "IE9999999LL",
+     "IE9X99999L"
+    ],
+    "pattern": "^IE(\\d{7}[A-Z]{1,2}|\\d[A-Z+*]\\d{5}[A-Z])$"
+   },
+   "last_updated": "2026-09-29T15:22:09+00:00"
+  },
+  {
+   "name": "Italy",
+   "iso_code": "IT",
+   "code": "IT",
+   "slug": "italy",
+   "currency": "EUR",
+   "rates": {
+    "standard": 22,
+    "reduced": 5,
+    "reduced_rates": [
+     5,
+     10
+    ],
+    "super_reduced": 4,
+    "parking": null
+   },
+   "vat_number": {
+    "prefix": "IT",
+    "format": "IT99999999999",
+    "masks": [
+     "IT99999999999"
+    ],
+    "pattern": "^IT\\d{11}$"
+   },
+   "last_updated": "2026-09-29T15:22:09+00:00"
+  },
+  {
+   "name": "Latvia",
+   "iso_code": "LV",
+   "code": "LV",
+   "slug": "latvia",
+   "currency": "EUR",
+   "rates": {
+    "standard": 21,
+    "reduced": 5,
+    "reduced_rates": [
+     5,
+     12
+    ],
+    "super_reduced": null,
+    "parking": null
+   },
+   "vat_number": {
+    "prefix": "LV",
+    "format": "LV99999999999",
+    "masks": [
+     "LV99999999999"
+    ],
+    "pattern": "^LV\\d{11}$"
+   },
+   "last_updated": "2026-09-29T15:22:09+00:00"
+  },
+  {
+   "name": "Lithuania",
+   "iso_code": "LT",
+   "code": "LT",
+   "slug": "lithuania",
+   "currency": "EUR",
+   "rates": {
+    "standard": 21,
+    "reduced": 5,
+    "reduced_rates": [
+     5,
+     12
+    ],
+    "super_reduced": null,
+    "parking": null
+   },
+   "vat_number": {
+    "prefix": "LT",
+    "format": "LT999999999 · LT999999999999",
+    "masks": [
+     "LT999999999",
+     "LT999999999999"
+    ],
+    "pattern": "^LT(\\d{9}|\\d{12})$"
+   },
+   "last_updated": "2026-10-11T14:32:02+00:00"
+  },
+  {
+   "name": "Luxembourg",
+   "iso_code": "LU",
+   "code": "LU",
+   "slug": "luxembourg",
+   "currency": "EUR",
+   "rates": {
+    "standard": 17,
+    "reduced": 8,
+    "reduced_rates": [
+     8
+    ],
+    "super_reduced": 3,
+    "parking": 14
+   },
+   "vat_number": {
+    "prefix": "LU",
+    "format": "LU99999999",
+    "masks": [
+     "LU99999999"
+    ],
+    "pattern": "^LU\\d{8}$"
+   },
+   "last_updated": "2026-05-04T12:48:15+00:00"
+  },
+  {
+   "name": "Malta",
+   "iso_code": "MT",
+   "code": "MT",
+   "slug": "malta",
+   "currency": "EUR",
+   "rates": {
+    "standard": 18,
+    "reduced": 5,
+    "reduced_rates": [
+     5,
+     7
+    ],
+    "super_reduced": null,
+    "parking": 12
+   },
+   "vat_number": {
+    "prefix": "MT",
+    "format": "MT99999999",
+    "masks": [
+     "MT99999999"
+    ],
+    "pattern": "^MT\\d{8}$"
+   },
+   "last_updated": "2026-10-11T14:32:02+00:00"
+  },
+  {
+   "name": "Netherlands",
+   "iso_code": "NL",
+   "code": "NL",
+   "slug": "netherlands",
+   "currency": "EUR",
+   "rates": {
+    "standard": 21,
+    "reduced": 9,
+    "reduced_rates": [
+     9
+    ],
+    "super_reduced": null,
+    "parking": null
+   },
+   "vat_number": {
+    "prefix": "NL",
+    "format": "NL999999999B99",
+    "masks": [
+     "NL999999999B99"
+    ],
+    "pattern": "^NL\\d{9}B\\d{2}$"
+   },
+   "last_updated": "2026-05-04T12:48:15+00:00"
+  },
+  {
+   "name": "Norway",
+   "iso_code": "NO",
+   "code": "NO",
+   "slug": "norway",
+   "currency": "NOK",
+   "rates": {
+    "standard": 25,
+    "reduced": 12,
+    "reduced_rates": [
+     12,
+     15
+    ],
+    "super_reduced": null,
+    "parking": null
+   },
+   "vat_number": null,
+   "last_updated": "2026-09-29T15:22:09+00:00"
+  },
+  {
+   "name": "Poland",
+   "iso_code": "PL",
+   "code": "PL",
+   "slug": "poland",
+   "currency": "PLN",
+   "rates": {
+    "standard": 23,
+    "reduced": 5,
+    "reduced_rates": [
+     5,
+     8
+    ],
+    "super_reduced": null,
+    "parking": null
+   },
+   "vat_number": {
+    "prefix": "PL",
+    "format": "PL9999999999",
+    "masks": [
+     "PL9999999999"
+    ],
+    "pattern": "^PL\\d{10}$"
+   },
+   "last_updated": "2026-09-29T15:22:09+00:00"
+  },
+  {
+   "name": "Portugal",
+   "iso_code": "PT",
+   "code": "PT",
+   "slug": "portugal",
+   "currency": "EUR",
+   "rates": {
+    "standard": 23,
+    "reduced": 6,
+    "reduced_rates": [
+     6,
+     13
+    ],
+    "super_reduced": null,
+    "parking": 13
+   },
+   "vat_number": {
+    "prefix": "PT",
+    "format": "PT999999999",
+    "masks": [
+     "PT999999999"
+    ],
+    "pattern": "^PT\\d{9}$"
+   },
+   "last_updated": "2026-09-29T15:22:09+00:00"
+  },
+  {
+   "name": "Romania",
+   "iso_code": "RO",
+   "code": "RO",
+   "slug": "romania",
+   "currency": "RON",
+   "rates": {
+    "standard": 21,
+    "reduced": 11,
+    "reduced_rates": [
+     11
+    ],
+    "super_reduced": null,
+    "parking": null
+   },
+   "vat_number": {
+    "prefix": "RO",
+    "format": "RO99 … RO9999999999",
+    "masks": [
+     "RO99",
+     "RO9999999999"
+    ],
+    "pattern": "^RO\\d{2,10}$"
+   },
+   "last_updated": "2026-10-11T14:32:02+00:00"
+  },
+  {
+   "name": "Slovakia",
+   "iso_code": "SK",
+   "code": "SK",
+   "slug": "slovakia",
+   "currency": "EUR",
+   "rates": {
+    "standard": 23,
+    "reduced": 5,
+    "reduced_rates": [
+     5,
+     19
+    ],
+    "super_reduced": null,
+    "parking": null
+   },
+   "vat_number": {
+    "prefix": "SK",
+    "format": "SK9999999999",
+    "masks": [
+     "SK9999999999"
+    ],
+    "pattern": "^SK\\d{10}$"
+   },
+   "last_updated": "2026-10-11T14:32:02+00:00"
+  },
+  {
+   "name": "Slovenia",
+   "iso_code": "SI",
+   "code": "SI",
+   "slug": "slovenia",
+   "currency": "EUR",
+   "rates": {
+    "standard": 22,
+    "reduced": 5,
+    "reduced_rates": [
+     5,
+     9.5
+    ],
+    "super_reduced": null,
+    "parking": null
+   },
+   "vat_number": {
+    "prefix": "SI",
+    "format": "SI99999999",
+    "masks": [
+     "SI99999999"
+    ],
+    "pattern": "^SI\\d{8}$"
+   },
+   "last_updated": "2026-09-29T15:22:09+00:00"
+  },
+  {
+   "name": "Spain",
+   "iso_code": "ES",
+   "code": "ES",
+   "slug": "spain",
+   "currency": "EUR",
+   "rates": {
+    "standard": 21,
+    "reduced": 10,
+    "reduced_rates": [
+     10
+    ],
+    "super_reduced": 4,
+    "parking": null
+   },
+   "vat_number": {
+    "prefix": "ES",
+    "format": "ESX9999999X",
+    "masks": [
+     "ESX9999999X"
+    ],
+    "pattern": "^ES[0-9A-Z]\\d{7}[0-9A-Z]$"
+   },
+   "last_updated": "2026-05-04T12:48:15+00:00"
+  },
+  {
+   "name": "Sweden",
+   "iso_code": "SE",
+   "code": "SE",
+   "slug": "sweden",
+   "currency": "SEK",
+   "rates": {
+    "standard": 25,
+    "reduced": 6,
+    "reduced_rates": [
+     6,
+     12
+    ],
+    "super_reduced": null,
+    "parking": null
+   },
+   "vat_number": {
+    "prefix": "SE",
+    "format": "SE999999999901",
+    "masks": [
+     "SE999999999901"
+    ],
+    "pattern": "^SE\\d{10}01$"
+   },
+   "last_updated": "2026-09-29T15:22:09+00:00"
+  },
+  {
+   "name": "Switzerland",
+   "iso_code": "CH",
+   "code": "CH",
+   "slug": "switzerland",
+   "currency": "CHF",
+   "rates": {
+    "standard": 8.1,
+    "reduced": 2.6,
+    "reduced_rates": [
+     2.6,
+     3.8
+    ],
+    "super_reduced": null,
+    "parking": null
+   },
+   "vat_number": null,
+   "last_updated": "2026-09-29T15:22:09+00:00"
+  },
+  {
+   "name": "Turkey",
+   "iso_code": "TR",
+   "code": "TR",
+   "slug": "turkey",
+   "currency": "TRY",
+   "rates": {
+    "standard": 20,
+    "reduced": 10,
+    "reduced_rates": [
+     10
+    ],
+    "super_reduced": 1,
+    "parking": null
+   },
+   "vat_number": null,
+   "last_updated": "2026-05-04T12:48:15+00:00"
+  },
+  {
+   "name": "United Kingdom",
+   "iso_code": "GB",
+   "code": "GB",
+   "slug": "united-kingdom",
+   "currency": "GBP",
+   "rates": {
+    "standard": 20,
+    "reduced": 5,
+    "reduced_rates": [
+     5
+    ],
+    "super_reduced": null,
+    "parking": null
+   },
+   "vat_number": null,
+   "last_updated": "2026-05-04T12:48:15+00:00"
+  }
+ ],
+ "changes": [
+  {
+   "id": 106,
+   "country": {
+    "name": "Romania",
+    "code": "RO",
+    "slug": "romania"
+   },
+   "rate_type": "standard",
+   "old_rate": 19,
+   "new_rate": 21,
+   "change_date": "2025-08-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 19.00% to 21.00%"
+  },
+  {
+   "id": 32,
+   "country": {
+    "name": "Estonia",
+    "code": "EE",
+    "slug": "estonia"
+   },
+   "rate_type": "standard",
+   "old_rate": 22,
+   "new_rate": 24,
+   "change_date": "2025-07-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 22.00% to 24.00%"
+  },
+  {
+   "id": 112,
+   "country": {
+    "name": "Slovakia",
+    "code": "SK",
+    "slug": "slovakia"
+   },
+   "rate_type": "standard",
+   "old_rate": 20,
+   "new_rate": 23,
+   "change_date": "2025-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 20.00% to 23.00%"
+  },
+  {
+   "id": 35,
+   "country": {
+    "name": "Finland",
+    "code": "FI",
+    "slug": "finland"
+   },
+   "rate_type": "standard",
+   "old_rate": 24,
+   "new_rate": 25.5,
+   "change_date": "2024-09-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 24.00% to 25.50%"
+  },
+  {
+   "id": 31,
+   "country": {
+    "name": "Estonia",
+    "code": "EE",
+    "slug": "estonia"
+   },
+   "rate_type": "standard",
+   "old_rate": 20,
+   "new_rate": 22,
+   "change_date": "2024-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 20.00% to 22.00%"
+  },
+  {
+   "id": 81,
+   "country": {
+    "name": "Luxembourg",
+    "code": "LU",
+    "slug": "luxembourg"
+   },
+   "rate_type": "standard",
+   "old_rate": 16,
+   "new_rate": 17,
+   "change_date": "2024-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 16.00% to 17.00%"
+  },
+  {
+   "id": 127,
+   "country": {
+    "name": "Switzerland",
+    "code": "CH",
+    "slug": "switzerland"
+   },
+   "rate_type": "standard",
+   "old_rate": 7.7,
+   "new_rate": 8.1,
+   "change_date": "2024-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 7.70% to 8.10%"
+  },
+  {
+   "id": 80,
+   "country": {
+    "name": "Luxembourg",
+    "code": "LU",
+    "slug": "luxembourg"
+   },
+   "rate_type": "standard",
+   "old_rate": 17,
+   "new_rate": 16,
+   "change_date": "2023-01-01",
+   "change_direction": "decrease",
+   "change_reason": null,
+   "description": "Rate changed from 17.00% to 16.00%"
+  },
+  {
+   "id": 44,
+   "country": {
+    "name": "Germany",
+    "code": "DE",
+    "slug": "germany"
+   },
+   "rate_type": "standard",
+   "old_rate": 16,
+   "new_rate": 19,
+   "change_date": "2021-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 16.00% to 19.00%"
+  },
+  {
+   "id": 43,
+   "country": {
+    "name": "Germany",
+    "code": "DE",
+    "slug": "germany"
+   },
+   "rate_type": "standard",
+   "old_rate": 19,
+   "new_rate": 16,
+   "change_date": "2020-07-01",
+   "change_direction": "decrease",
+   "change_reason": null,
+   "description": "Rate changed from 19.00% to 16.00%"
+  },
+  {
+   "id": 126,
+   "country": {
+    "name": "Switzerland",
+    "code": "CH",
+    "slug": "switzerland"
+   },
+   "rate_type": "standard",
+   "old_rate": 8,
+   "new_rate": 7.7,
+   "change_date": "2018-01-01",
+   "change_direction": "decrease",
+   "change_reason": null,
+   "description": "Rate changed from 8.00% to 7.70%"
+  },
+  {
+   "id": 105,
+   "country": {
+    "name": "Romania",
+    "code": "RO",
+    "slug": "romania"
+   },
+   "rate_type": "standard",
+   "old_rate": 20,
+   "new_rate": 19,
+   "change_date": "2017-01-01",
+   "change_direction": "decrease",
+   "change_reason": null,
+   "description": "Rate changed from 20.00% to 19.00%"
+  },
+  {
+   "id": 104,
+   "country": {
+    "name": "Romania",
+    "code": "RO",
+    "slug": "romania"
+   },
+   "rate_type": "standard",
+   "old_rate": 24,
+   "new_rate": 20,
+   "change_date": "2016-01-01",
+   "change_direction": "decrease",
+   "change_reason": null,
+   "description": "Rate changed from 24.00% to 20.00%"
+  },
+  {
+   "id": 79,
+   "country": {
+    "name": "Luxembourg",
+    "code": "LU",
+    "slug": "luxembourg"
+   },
+   "rate_type": "standard",
+   "old_rate": 15,
+   "new_rate": 17,
+   "change_date": "2015-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 15.00% to 17.00%"
+  },
+  {
+   "id": 70,
+   "country": {
+    "name": "Italy",
+    "code": "IT",
+    "slug": "italy"
+   },
+   "rate_type": "standard",
+   "old_rate": 21,
+   "new_rate": 22,
+   "change_date": "2013-10-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 21.00% to 22.00%"
+  },
+  {
+   "id": 114,
+   "country": {
+    "name": "Slovenia",
+    "code": "SI",
+    "slug": "slovenia"
+   },
+   "rate_type": "standard",
+   "old_rate": 20,
+   "new_rate": 22,
+   "change_date": "2013-07-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 20.00% to 22.00%"
+  },
+  {
+   "id": 18,
+   "country": {
+    "name": "Cyprus",
+    "code": "CY",
+    "slug": "cyprus"
+   },
+   "rate_type": "standard",
+   "old_rate": 17,
+   "new_rate": 18,
+   "change_date": "2013-01-14",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 17.00% to 18.00%"
+  },
+  {
+   "id": 22,
+   "country": {
+    "name": "Czech Republic",
+    "code": "CZ",
+    "slug": "czech-republic"
+   },
+   "rate_type": "standard",
+   "old_rate": 20,
+   "new_rate": 21,
+   "change_date": "2013-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 20.00% to 21.00%"
+  },
+  {
+   "id": 34,
+   "country": {
+    "name": "Finland",
+    "code": "FI",
+    "slug": "finland"
+   },
+   "rate_type": "standard",
+   "old_rate": 23,
+   "new_rate": 24,
+   "change_date": "2013-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 23.00% to 24.00%"
+  },
+  {
+   "id": 91,
+   "country": {
+    "name": "Netherlands",
+    "code": "NL",
+    "slug": "netherlands"
+   },
+   "rate_type": "standard",
+   "old_rate": 19,
+   "new_rate": 21,
+   "change_date": "2012-10-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 19.00% to 21.00%"
+  },
+  {
+   "id": 119,
+   "country": {
+    "name": "Spain",
+    "code": "ES",
+    "slug": "spain"
+   },
+   "rate_type": "standard",
+   "old_rate": 18,
+   "new_rate": 21,
+   "change_date": "2012-09-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 18.00% to 21.00%"
+  },
+  {
+   "id": 73,
+   "country": {
+    "name": "Latvia",
+    "code": "LV",
+    "slug": "latvia"
+   },
+   "rate_type": "standard",
+   "old_rate": 22,
+   "new_rate": 21,
+   "change_date": "2012-07-01",
+   "change_direction": "decrease",
+   "change_reason": null,
+   "description": "Rate changed from 22.00% to 21.00%"
+  },
+  {
+   "id": 12,
+   "country": {
+    "name": "Croatia",
+    "code": "HR",
+    "slug": "croatia"
+   },
+   "rate_type": "standard",
+   "old_rate": 23,
+   "new_rate": 25,
+   "change_date": "2012-03-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 23.00% to 25.00%"
+  },
+  {
+   "id": 17,
+   "country": {
+    "name": "Cyprus",
+    "code": "CY",
+    "slug": "cyprus"
+   },
+   "rate_type": "standard",
+   "old_rate": 15,
+   "new_rate": 17,
+   "change_date": "2012-03-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 15.00% to 17.00%"
+  },
+  {
+   "id": 47,
+   "country": {
+    "name": "Hungary",
+    "code": "HU",
+    "slug": "hungary"
+   },
+   "rate_type": "standard",
+   "old_rate": 25,
+   "new_rate": 27,
+   "change_date": "2012-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 25.00% to 27.00%"
+  },
+  {
+   "id": 61,
+   "country": {
+    "name": "Ireland",
+    "code": "IE",
+    "slug": "ireland"
+   },
+   "rate_type": "standard",
+   "old_rate": 21,
+   "new_rate": 23,
+   "change_date": "2012-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 21.00% to 23.00%"
+  },
+  {
+   "id": 69,
+   "country": {
+    "name": "Italy",
+    "code": "IT",
+    "slug": "italy"
+   },
+   "rate_type": "standard",
+   "old_rate": 20,
+   "new_rate": 21,
+   "change_date": "2011-09-17",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 20.00% to 21.00%"
+  },
+  {
+   "id": 72,
+   "country": {
+    "name": "Latvia",
+    "code": "LV",
+    "slug": "latvia"
+   },
+   "rate_type": "standard",
+   "old_rate": 21,
+   "new_rate": 22,
+   "change_date": "2011-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 21.00% to 22.00%"
+  },
+  {
+   "id": 92,
+   "country": {
+    "name": "Poland",
+    "code": "PL",
+    "slug": "poland"
+   },
+   "rate_type": "standard",
+   "old_rate": 22,
+   "new_rate": 23,
+   "change_date": "2011-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 22.00% to 23.00%"
+  },
+  {
+   "id": 100,
+   "country": {
+    "name": "Portugal",
+    "code": "PT",
+    "slug": "portugal"
+   },
+   "rate_type": "standard",
+   "old_rate": 21,
+   "new_rate": 23,
+   "change_date": "2011-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 21.00% to 23.00%"
+  },
+  {
+   "id": 111,
+   "country": {
+    "name": "Slovakia",
+    "code": "SK",
+    "slug": "slovakia"
+   },
+   "rate_type": "standard",
+   "old_rate": 19,
+   "new_rate": 20,
+   "change_date": "2011-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 19.00% to 20.00%"
+  },
+  {
+   "id": 33,
+   "country": {
+    "name": "Finland",
+    "code": "FI",
+    "slug": "finland"
+   },
+   "rate_type": "standard",
+   "old_rate": 22,
+   "new_rate": 23,
+   "change_date": "2010-07-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 22.00% to 23.00%"
+  },
+  {
+   "id": 99,
+   "country": {
+    "name": "Portugal",
+    "code": "PT",
+    "slug": "portugal"
+   },
+   "rate_type": "standard",
+   "old_rate": 20,
+   "new_rate": 21,
+   "change_date": "2010-07-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 20.00% to 21.00%"
+  },
+  {
+   "id": 103,
+   "country": {
+    "name": "Romania",
+    "code": "RO",
+    "slug": "romania"
+   },
+   "rate_type": "standard",
+   "old_rate": 19,
+   "new_rate": 24,
+   "change_date": "2010-07-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 19.00% to 24.00%"
+  },
+  {
+   "id": 118,
+   "country": {
+    "name": "Spain",
+    "code": "ES",
+    "slug": "spain"
+   },
+   "rate_type": "standard",
+   "old_rate": 16,
+   "new_rate": 18,
+   "change_date": "2010-07-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 16.00% to 18.00%"
+  },
+  {
+   "id": 21,
+   "country": {
+    "name": "Czech Republic",
+    "code": "CZ",
+    "slug": "czech-republic"
+   },
+   "rate_type": "standard",
+   "old_rate": 19,
+   "new_rate": 20,
+   "change_date": "2010-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 19.00% to 20.00%"
+  },
+  {
+   "id": 60,
+   "country": {
+    "name": "Ireland",
+    "code": "IE",
+    "slug": "ireland"
+   },
+   "rate_type": "standard",
+   "old_rate": 21.5,
+   "new_rate": 21,
+   "change_date": "2010-01-01",
+   "change_direction": "decrease",
+   "change_reason": null,
+   "description": "Rate changed from 21.50% to 21.00%"
+  },
+  {
+   "id": 75,
+   "country": {
+    "name": "Lithuania",
+    "code": "LT",
+    "slug": "lithuania"
+   },
+   "rate_type": "standard",
+   "old_rate": 19,
+   "new_rate": 21,
+   "change_date": "2009-09-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 19.00% to 21.00%"
+  },
+  {
+   "id": 11,
+   "country": {
+    "name": "Croatia",
+    "code": "HR",
+    "slug": "croatia"
+   },
+   "rate_type": "standard",
+   "old_rate": 22,
+   "new_rate": 23,
+   "change_date": "2009-08-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 22.00% to 23.00%"
+  },
+  {
+   "id": 30,
+   "country": {
+    "name": "Estonia",
+    "code": "EE",
+    "slug": "estonia"
+   },
+   "rate_type": "standard",
+   "old_rate": 18,
+   "new_rate": 20,
+   "change_date": "2009-07-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 18.00% to 20.00%"
+  },
+  {
+   "id": 46,
+   "country": {
+    "name": "Hungary",
+    "code": "HU",
+    "slug": "hungary"
+   },
+   "rate_type": "standard",
+   "old_rate": 20,
+   "new_rate": 25,
+   "change_date": "2009-07-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 20.00% to 25.00%"
+  },
+  {
+   "id": 71,
+   "country": {
+    "name": "Latvia",
+    "code": "LV",
+    "slug": "latvia"
+   },
+   "rate_type": "standard",
+   "old_rate": 18,
+   "new_rate": 21,
+   "change_date": "2009-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 18.00% to 21.00%"
+  },
+  {
+   "id": 74,
+   "country": {
+    "name": "Lithuania",
+    "code": "LT",
+    "slug": "lithuania"
+   },
+   "rate_type": "standard",
+   "old_rate": 18,
+   "new_rate": 19,
+   "change_date": "2009-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 18.00% to 19.00%"
+  },
+  {
+   "id": 59,
+   "country": {
+    "name": "Ireland",
+    "code": "IE",
+    "slug": "ireland"
+   },
+   "rate_type": "standard",
+   "old_rate": 21,
+   "new_rate": 21.5,
+   "change_date": "2008-12-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 21.00% to 21.50%"
+  },
+  {
+   "id": 98,
+   "country": {
+    "name": "Portugal",
+    "code": "PT",
+    "slug": "portugal"
+   },
+   "rate_type": "standard",
+   "old_rate": 21,
+   "new_rate": 20,
+   "change_date": "2008-07-01",
+   "change_direction": "decrease",
+   "change_reason": null,
+   "description": "Rate changed from 21.00% to 20.00%"
+  },
+  {
+   "id": 42,
+   "country": {
+    "name": "Germany",
+    "code": "DE",
+    "slug": "germany"
+   },
+   "rate_type": "standard",
+   "old_rate": 16,
+   "new_rate": 19,
+   "change_date": "2007-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 16.00% to 19.00%"
+  },
+  {
+   "id": 45,
+   "country": {
+    "name": "Hungary",
+    "code": "HU",
+    "slug": "hungary"
+   },
+   "rate_type": "standard",
+   "old_rate": 25,
+   "new_rate": 20,
+   "change_date": "2006-01-01",
+   "change_direction": "decrease",
+   "change_reason": null,
+   "description": "Rate changed from 25.00% to 20.00%"
+  },
+  {
+   "id": 97,
+   "country": {
+    "name": "Portugal",
+    "code": "PT",
+    "slug": "portugal"
+   },
+   "rate_type": "standard",
+   "old_rate": 19,
+   "new_rate": 21,
+   "change_date": "2005-07-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 19.00% to 21.00%"
+  },
+  {
+   "id": 20,
+   "country": {
+    "name": "Czech Republic",
+    "code": "CZ",
+    "slug": "czech-republic"
+   },
+   "rate_type": "standard",
+   "old_rate": 22,
+   "new_rate": 19,
+   "change_date": "2004-05-01",
+   "change_direction": "decrease",
+   "change_reason": null,
+   "description": "Rate changed from 22.00% to 19.00%"
+  },
+  {
+   "id": 82,
+   "country": {
+    "name": "Malta",
+    "code": "MT",
+    "slug": "malta"
+   },
+   "rate_type": "standard",
+   "old_rate": 15,
+   "new_rate": 18,
+   "change_date": "2004-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 15.00% to 18.00%"
+  },
+  {
+   "id": 110,
+   "country": {
+    "name": "Slovakia",
+    "code": "SK",
+    "slug": "slovakia"
+   },
+   "rate_type": "standard",
+   "old_rate": 20,
+   "new_rate": 19,
+   "change_date": "2004-01-01",
+   "change_direction": "decrease",
+   "change_reason": null,
+   "description": "Rate changed from 20.00% to 19.00%"
+  },
+  {
+   "id": 16,
+   "country": {
+    "name": "Cyprus",
+    "code": "CY",
+    "slug": "cyprus"
+   },
+   "rate_type": "standard",
+   "old_rate": 13,
+   "new_rate": 15,
+   "change_date": "2003-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 13.00% to 15.00%"
+  },
+  {
+   "id": 109,
+   "country": {
+    "name": "Slovakia",
+    "code": "SK",
+    "slug": "slovakia"
+   },
+   "rate_type": "standard",
+   "old_rate": 23,
+   "new_rate": 20,
+   "change_date": "2003-01-01",
+   "change_direction": "decrease",
+   "change_reason": null,
+   "description": "Rate changed from 23.00% to 20.00%"
+  },
+  {
+   "id": 15,
+   "country": {
+    "name": "Cyprus",
+    "code": "CY",
+    "slug": "cyprus"
+   },
+   "rate_type": "standard",
+   "old_rate": 10,
+   "new_rate": 13,
+   "change_date": "2002-07-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 10.00% to 13.00%"
+  },
+  {
+   "id": 96,
+   "country": {
+    "name": "Portugal",
+    "code": "PT",
+    "slug": "portugal"
+   },
+   "rate_type": "standard",
+   "old_rate": 17,
+   "new_rate": 19,
+   "change_date": "2002-06-05",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 17.00% to 19.00%"
+  },
+  {
+   "id": 58,
+   "country": {
+    "name": "Ireland",
+    "code": "IE",
+    "slug": "ireland"
+   },
+   "rate_type": "standard",
+   "old_rate": 20,
+   "new_rate": 21,
+   "change_date": "2002-03-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 20.00% to 21.00%"
+  },
+  {
+   "id": 113,
+   "country": {
+    "name": "Slovenia",
+    "code": "SI",
+    "slug": "slovenia"
+   },
+   "rate_type": "standard",
+   "old_rate": 19,
+   "new_rate": 20,
+   "change_date": "2002-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 19.00% to 20.00%"
+  },
+  {
+   "id": 57,
+   "country": {
+    "name": "Ireland",
+    "code": "IE",
+    "slug": "ireland"
+   },
+   "rate_type": "standard",
+   "old_rate": 21,
+   "new_rate": 20,
+   "change_date": "2001-01-01",
+   "change_direction": "decrease",
+   "change_reason": null,
+   "description": "Rate changed from 21.00% to 20.00%"
+  },
+  {
+   "id": 90,
+   "country": {
+    "name": "Netherlands",
+    "code": "NL",
+    "slug": "netherlands"
+   },
+   "rate_type": "standard",
+   "old_rate": 17.5,
+   "new_rate": 19,
+   "change_date": "2001-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 17.50% to 19.00%"
+  },
+  {
+   "id": 14,
+   "country": {
+    "name": "Cyprus",
+    "code": "CY",
+    "slug": "cyprus"
+   },
+   "rate_type": "standard",
+   "old_rate": 8,
+   "new_rate": 10,
+   "change_date": "2000-07-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 8.00% to 10.00%"
+  },
+  {
+   "id": 102,
+   "country": {
+    "name": "Romania",
+    "code": "RO",
+    "slug": "romania"
+   },
+   "rate_type": "standard",
+   "old_rate": 22,
+   "new_rate": 19,
+   "change_date": "2000-01-01",
+   "change_direction": "decrease",
+   "change_reason": null,
+   "description": "Rate changed from 22.00% to 19.00%"
+  },
+  {
+   "id": 10,
+   "country": {
+    "name": "Bulgaria",
+    "code": "BG",
+    "slug": "bulgaria"
+   },
+   "rate_type": "standard",
+   "old_rate": 22,
+   "new_rate": 20,
+   "change_date": "1999-01-01",
+   "change_direction": "decrease",
+   "change_reason": null,
+   "description": "Rate changed from 22.00% to 20.00%"
+  },
+  {
+   "id": 41,
+   "country": {
+    "name": "Germany",
+    "code": "DE",
+    "slug": "germany"
+   },
+   "rate_type": "standard",
+   "old_rate": 15,
+   "new_rate": 16,
+   "change_date": "1998-04-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 15.00% to 16.00%"
+  },
+  {
+   "id": 101,
+   "country": {
+    "name": "Romania",
+    "code": "RO",
+    "slug": "romania"
+   },
+   "rate_type": "standard",
+   "old_rate": 18,
+   "new_rate": 22,
+   "change_date": "1998-02-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 18.00% to 22.00%"
+  },
+  {
+   "id": 68,
+   "country": {
+    "name": "Italy",
+    "code": "IT",
+    "slug": "italy"
+   },
+   "rate_type": "standard",
+   "old_rate": 19,
+   "new_rate": 20,
+   "change_date": "1997-10-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 19.00% to 20.00%"
+  },
+  {
+   "id": 9,
+   "country": {
+    "name": "Bulgaria",
+    "code": "BG",
+    "slug": "bulgaria"
+   },
+   "rate_type": "standard",
+   "old_rate": 18,
+   "new_rate": 22,
+   "change_date": "1996-07-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 18.00% to 22.00%"
+  },
+  {
+   "id": 8,
+   "country": {
+    "name": "Belgium",
+    "code": "BE",
+    "slug": "belgium"
+   },
+   "rate_type": "standard",
+   "old_rate": 20.5,
+   "new_rate": 21,
+   "change_date": "1996-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 20.50% to 21.00%"
+  },
+  {
+   "id": 108,
+   "country": {
+    "name": "Slovakia",
+    "code": "SK",
+    "slug": "slovakia"
+   },
+   "rate_type": "standard",
+   "old_rate": 25,
+   "new_rate": 23,
+   "change_date": "1996-01-01",
+   "change_direction": "decrease",
+   "change_reason": null,
+   "description": "Rate changed from 25.00% to 23.00%"
+  },
+  {
+   "id": 19,
+   "country": {
+    "name": "Czech Republic",
+    "code": "CZ",
+    "slug": "czech-republic"
+   },
+   "rate_type": "standard",
+   "old_rate": 23,
+   "new_rate": 22,
+   "change_date": "1995-01-01",
+   "change_direction": "decrease",
+   "change_reason": null,
+   "description": "Rate changed from 23.00% to 22.00%"
+  },
+  {
+   "id": 95,
+   "country": {
+    "name": "Portugal",
+    "code": "PT",
+    "slug": "portugal"
+   },
+   "rate_type": "standard",
+   "old_rate": 16,
+   "new_rate": 17,
+   "change_date": "1995-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 16.00% to 17.00%"
+  },
+  {
+   "id": 117,
+   "country": {
+    "name": "Spain",
+    "code": "ES",
+    "slug": "spain"
+   },
+   "rate_type": "standard",
+   "old_rate": 15,
+   "new_rate": 16,
+   "change_date": "1995-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 15.00% to 16.00%"
+  },
+  {
+   "id": 7,
+   "country": {
+    "name": "Belgium",
+    "code": "BE",
+    "slug": "belgium"
+   },
+   "rate_type": "standard",
+   "old_rate": 19.5,
+   "new_rate": 20.5,
+   "change_date": "1994-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 19.50% to 20.50%"
+  },
+  {
+   "id": 13,
+   "country": {
+    "name": "Cyprus",
+    "code": "CY",
+    "slug": "cyprus"
+   },
+   "rate_type": "standard",
+   "old_rate": 5,
+   "new_rate": 8,
+   "change_date": "1993-10-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 5.00% to 8.00%"
+  },
+  {
+   "id": 107,
+   "country": {
+    "name": "Slovakia",
+    "code": "SK",
+    "slug": "slovakia"
+   },
+   "rate_type": "standard",
+   "old_rate": 23,
+   "new_rate": 25,
+   "change_date": "1993-08-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 23.00% to 25.00%"
+  },
+  {
+   "id": 29,
+   "country": {
+    "name": "Estonia",
+    "code": "EE",
+    "slug": "estonia"
+   },
+   "rate_type": "standard",
+   "old_rate": 10,
+   "new_rate": 18,
+   "change_date": "1993-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 10.00% to 18.00%"
+  },
+  {
+   "id": 40,
+   "country": {
+    "name": "Germany",
+    "code": "DE",
+    "slug": "germany"
+   },
+   "rate_type": "standard",
+   "old_rate": 14,
+   "new_rate": 15,
+   "change_date": "1993-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 14.00% to 15.00%"
+  },
+  {
+   "id": 89,
+   "country": {
+    "name": "Netherlands",
+    "code": "NL",
+    "slug": "netherlands"
+   },
+   "rate_type": "standard",
+   "old_rate": 18.5,
+   "new_rate": 17.5,
+   "change_date": "1992-10-01",
+   "change_direction": "decrease",
+   "change_reason": null,
+   "description": "Rate changed from 18.50% to 17.50%"
+  },
+  {
+   "id": 116,
+   "country": {
+    "name": "Spain",
+    "code": "ES",
+    "slug": "spain"
+   },
+   "rate_type": "standard",
+   "old_rate": 13,
+   "new_rate": 15,
+   "change_date": "1992-08-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 13.00% to 15.00%"
+  },
+  {
+   "id": 6,
+   "country": {
+    "name": "Belgium",
+    "code": "BE",
+    "slug": "belgium"
+   },
+   "rate_type": "standard",
+   "old_rate": 19,
+   "new_rate": 19.5,
+   "change_date": "1992-04-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 19.00% to 19.50%"
+  },
+  {
+   "id": 94,
+   "country": {
+    "name": "Portugal",
+    "code": "PT",
+    "slug": "portugal"
+   },
+   "rate_type": "standard",
+   "old_rate": 17,
+   "new_rate": 16,
+   "change_date": "1992-03-24",
+   "change_direction": "decrease",
+   "change_reason": null,
+   "description": "Rate changed from 17.00% to 16.00%"
+  },
+  {
+   "id": 28,
+   "country": {
+    "name": "Denmark",
+    "code": "DK",
+    "slug": "denmark"
+   },
+   "rate_type": "standard",
+   "old_rate": 22,
+   "new_rate": 25,
+   "change_date": "1992-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 22.00% to 25.00%"
+  },
+  {
+   "id": 78,
+   "country": {
+    "name": "Luxembourg",
+    "code": "LU",
+    "slug": "luxembourg"
+   },
+   "rate_type": "standard",
+   "old_rate": 12,
+   "new_rate": 15,
+   "change_date": "1992-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 12.00% to 15.00%"
+  },
+  {
+   "id": 115,
+   "country": {
+    "name": "Spain",
+    "code": "ES",
+    "slug": "spain"
+   },
+   "rate_type": "standard",
+   "old_rate": 12,
+   "new_rate": 13,
+   "change_date": "1992-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 12.00% to 13.00%"
+  },
+  {
+   "id": 56,
+   "country": {
+    "name": "Ireland",
+    "code": "IE",
+    "slug": "ireland"
+   },
+   "rate_type": "standard",
+   "old_rate": 23,
+   "new_rate": 21,
+   "change_date": "1991-03-01",
+   "change_direction": "decrease",
+   "change_reason": null,
+   "description": "Rate changed from 23.00% to 21.00%"
+  },
+  {
+   "id": 125,
+   "country": {
+    "name": "Sweden",
+    "code": "SE",
+    "slug": "sweden"
+   },
+   "rate_type": "standard",
+   "old_rate": 23.46,
+   "new_rate": 25,
+   "change_date": "1990-07-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 23.46% to 25.00%"
+  },
+  {
+   "id": 55,
+   "country": {
+    "name": "Ireland",
+    "code": "IE",
+    "slug": "ireland"
+   },
+   "rate_type": "standard",
+   "old_rate": 25,
+   "new_rate": 23,
+   "change_date": "1990-03-01",
+   "change_direction": "decrease",
+   "change_reason": null,
+   "description": "Rate changed from 25.00% to 23.00%"
+  },
+  {
+   "id": 88,
+   "country": {
+    "name": "Netherlands",
+    "code": "NL",
+    "slug": "netherlands"
+   },
+   "rate_type": "standard",
+   "old_rate": 20,
+   "new_rate": 18.5,
+   "change_date": "1989-01-01",
+   "change_direction": "decrease",
+   "change_reason": null,
+   "description": "Rate changed from 20.00% to 18.50%"
+  },
+  {
+   "id": 67,
+   "country": {
+    "name": "Italy",
+    "code": "IT",
+    "slug": "italy"
+   },
+   "rate_type": "standard",
+   "old_rate": 18,
+   "new_rate": 19,
+   "change_date": "1988-08-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 18.00% to 19.00%"
+  },
+  {
+   "id": 93,
+   "country": {
+    "name": "Portugal",
+    "code": "PT",
+    "slug": "portugal"
+   },
+   "rate_type": "standard",
+   "old_rate": 16,
+   "new_rate": 17,
+   "change_date": "1988-02-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 16.00% to 17.00%"
+  },
+  {
+   "id": 87,
+   "country": {
+    "name": "Netherlands",
+    "code": "NL",
+    "slug": "netherlands"
+   },
+   "rate_type": "standard",
+   "old_rate": 19,
+   "new_rate": 20,
+   "change_date": "1986-10-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 19.00% to 20.00%"
+  },
+  {
+   "id": 54,
+   "country": {
+    "name": "Ireland",
+    "code": "IE",
+    "slug": "ireland"
+   },
+   "rate_type": "standard",
+   "old_rate": 23,
+   "new_rate": 25,
+   "change_date": "1986-03-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 23.00% to 25.00%"
+  },
+  {
+   "id": 2,
+   "country": {
+    "name": "Austria",
+    "code": "AT",
+    "slug": "austria"
+   },
+   "rate_type": "standard",
+   "old_rate": 18,
+   "new_rate": 20,
+   "change_date": "1984-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 18.00% to 20.00%"
+  },
+  {
+   "id": 86,
+   "country": {
+    "name": "Netherlands",
+    "code": "NL",
+    "slug": "netherlands"
+   },
+   "rate_type": "standard",
+   "old_rate": 18,
+   "new_rate": 19,
+   "change_date": "1984-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 18.00% to 19.00%"
+  },
+  {
+   "id": 39,
+   "country": {
+    "name": "Germany",
+    "code": "DE",
+    "slug": "germany"
+   },
+   "rate_type": "standard",
+   "old_rate": 13,
+   "new_rate": 14,
+   "change_date": "1983-07-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 13.00% to 14.00%"
+  },
+  {
+   "id": 77,
+   "country": {
+    "name": "Luxembourg",
+    "code": "LU",
+    "slug": "luxembourg"
+   },
+   "rate_type": "standard",
+   "old_rate": 10,
+   "new_rate": 12,
+   "change_date": "1983-07-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 10.00% to 12.00%"
+  },
+  {
+   "id": 53,
+   "country": {
+    "name": "Ireland",
+    "code": "IE",
+    "slug": "ireland"
+   },
+   "rate_type": "standard",
+   "old_rate": 35,
+   "new_rate": 23,
+   "change_date": "1983-05-01",
+   "change_direction": "decrease",
+   "change_reason": null,
+   "description": "Rate changed from 35.00% to 23.00%"
+  },
+  {
+   "id": 52,
+   "country": {
+    "name": "Ireland",
+    "code": "IE",
+    "slug": "ireland"
+   },
+   "rate_type": "standard",
+   "old_rate": 30,
+   "new_rate": 35,
+   "change_date": "1983-03-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 30.00% to 35.00%"
+  },
+  {
+   "id": 5,
+   "country": {
+    "name": "Belgium",
+    "code": "BE",
+    "slug": "belgium"
+   },
+   "rate_type": "standard",
+   "old_rate": 17,
+   "new_rate": 19,
+   "change_date": "1983-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 17.00% to 19.00%"
+  },
+  {
+   "id": 124,
+   "country": {
+    "name": "Sweden",
+    "code": "SE",
+    "slug": "sweden"
+   },
+   "rate_type": "standard",
+   "old_rate": 21.51,
+   "new_rate": 23.46,
+   "change_date": "1983-01-01",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 21.51% to 23.46%"
+  },
+  {
+   "id": 66,
+   "country": {
+    "name": "Italy",
+    "code": "IT",
+    "slug": "italy"
+   },
+   "rate_type": "standard",
+   "old_rate": 15,
+   "new_rate": 18,
+   "change_date": "1982-08-05",
+   "change_direction": "increase",
+   "change_reason": null,
+   "description": "Rate changed from 15.00% to 18.00%"
+  }
+ ]
+}
