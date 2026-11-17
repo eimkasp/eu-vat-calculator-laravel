@@ -1,6 +1,6 @@
 # EU VAT Rates Skill
 
-Query live VAT rates for the 27 EU member states and five other European countries (Iceland, Norway, Switzerland, Turkey and the United Kingdom) via the vat.businesspress.io API or MCP server.
+Query live VAT rates for the 27 EU member states and five other European countries (Iceland, Norway, Switzerland, Turkey and the United Kingdom) via the eu-vat.info API or MCP server.
 
 ## What You Can Do
 
@@ -23,7 +23,7 @@ Connect via the Model Context Protocol for structured tool access:
   "mcpServers": {
     "eu-vat-info": {
       "type": "http",
-      "url": "https://vat.businesspress.io/api/mcp"
+      "url": "https://eu-vat.info/api/mcp"
     }
   }
 }
@@ -95,26 +95,26 @@ Every tool returns its data twice: as JSON text for older clients and as `struct
 
 ## REST API
 
-The v1 API is described by an OpenAPI 3.1 document at `https://vat.businesspress.io/api/v1/openapi.json`.
+The v1 API is described by an OpenAPI 3.1 document at `https://eu-vat.info/api/v1/openapi.json`.
 
 ### Get All Countries
 
 ```
-GET https://vat.businesspress.io/api/v1/countries
+GET https://eu-vat.info/api/v1/countries
 ```
 
 ### Get a Single Country
 
 ```
-GET https://vat.businesspress.io/api/v1/countries/{slug-or-iso}
+GET https://eu-vat.info/api/v1/countries/{slug-or-iso}
 ```
 
-Example: `GET https://vat.businesspress.io/api/v1/countries/germany`
+Example: `GET https://eu-vat.info/api/v1/countries/germany`
 
 ### Calculate VAT
 
 ```
-GET https://vat.businesspress.io/api/v1/calculate?amount=100&country=DE&rate_type=standard&mode=add
+GET https://eu-vat.info/api/v1/calculate?amount=100&country=DE&rate_type=standard&mode=add
 ```
 
 `mode=remove` extracts VAT from a gross amount.
@@ -122,7 +122,7 @@ GET https://vat.businesspress.io/api/v1/calculate?amount=100&country=DE&rate_typ
 ### LLM-Optimised Rates List
 
 ```
-GET https://vat.businesspress.io/api/llm/vat-rates
+GET https://eu-vat.info/api/llm/vat-rates
 ```
 
 Returns a compact JSON array of all countries with their rates — ideal for context injection.
@@ -153,9 +153,9 @@ MCP `get_country_vat_rate` result:
 
 ## Human-Readable Reference
 
-- Country calculators: `https://vat.businesspress.io/vat-calculator/{slug}`
-- VAT calculator: `https://vat.businesspress.io/vat-calculator`
-- Rate history: `https://vat.businesspress.io/vat-rates/{slug}/history`
-- Guide for AI agents: `https://vat.businesspress.io/llms.txt`
-- Full rates table: `https://vat.businesspress.io/llms-full.txt`
-- MCP server guide: `https://vat.businesspress.io/mcp-server`
+- Country calculators: `https://eu-vat.info/vat-calculator/{slug}`
+- VAT calculator: `https://eu-vat.info/vat-calculator`
+- Rate history: `https://eu-vat.info/vat-rates/{slug}/history`
+- Guide for AI agents: `https://eu-vat.info/llms.txt`
+- Full rates table: `https://eu-vat.info/llms-full.txt`
+- MCP server guide: `https://eu-vat.info/mcp-server`

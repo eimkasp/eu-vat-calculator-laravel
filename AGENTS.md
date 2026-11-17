@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-EU VAT Info (`vat.businesspress.io`, set by `SEO_CANONICAL_URL`; the old `eu-vat.info` host redirects to it) is a Laravel 13 web application providing comprehensive EU VAT rate information, calculators, validators, and country-specific guides. It serves developers, businesses, and tax professionals with real-time data sourced from the European Commission.
+EU VAT Info (`eu-vat.info`, set by `SEO_CANONICAL_URL`; the previous host `vat.businesspress.io` and `www.eu-vat.info`, listed in `SEO_LEGACY_HOSTS`, redirect to it) is a Laravel 13 web application providing comprehensive EU VAT rate information, calculators, validators, and country-specific guides. It serves developers, businesses, and tax professionals with real-time data sourced from the European Commission.
 
 ## Tech Stack
 
@@ -173,6 +173,8 @@ GET  /up                              # Application health check
 - Alpine cost: Alpine walks every element on start, so keep long lists out of `x-for` and per-row directives. Render the rows in Blade and drive them from one `x-effect` (the calculator's country list, under `wire:ignore`, and the home rates table do this). Lists below the first screen carry `app-deferred` with `[--deferred-size:…]` set to their usual height.
 - Preload hints: `AddLinkHeadersForPreloadedAssets` sends the Vite CSS and JS as `Link` headers (for Cloudflare Early Hints); `AddLinkHeaders` adds the discovery links on `/` without replacing them.
 - Scripts: production runs behind Cloudflare with Rocket Loader, which defers every script it can rewrite. Every executable `<script>` carries `data-cfasync="false"` (Vite and Livewire add it through `useScriptTagAttributes` in `AppServiceProvider`; write it on inline scripts). `tests/Feature/PageDeliveryTest.php` checks it.
+- Legacy hosts: `RedirectLegacySeoHost` sends web requests on a `SEO_LEGACY_HOSTS` host to the canonical host (301, or 308 for a POST so the method survives). API routes answer on every host without a redirect, so apps and integrations built on the old host keep working.
+- Ads: `ADSENSE_ID` (the `ca-pub-…` ID) turns on Google AdSense through `App\Support\AdSense`: `/ads.txt`, the `google-adsense-account` meta tag, the ad script on `layouts.app` pages in production (never the embed widget or AMP; pages without content of their own, like the 404, set `@section('ads', 'off')`), the CSP opening for Google's hosts and the advertising sections of the privacy policy. `tests/Feature/AdSenseTest.php` covers it.
 - Caching: Livewire marks pages `no-store`; `AllowBackForwardCache` turns that into `no-cache, private` for guests outside the admin, so back and forward navigation restores pages instantly.
 - Links that open a new tab end with `<x-ui.new-tab />` (or add `({{ __('ui.opens_new_tab') }})` to their `aria-label`). The language switcher links straight to the current page in each language (`locale_switch_path()`); `/lang/{locale}` stays for old links.
 - Structured data: `<x-json-ld :data="[…]">` (never write `@context` in Blade). The visible breadcrumbs (`<x-site-breadcrumbs>`, also through `<x-page-header>`) add their own BreadcrumbList unless the page already rendered one with `<x-json-ld>`, so do not write a second one. The rates Dataset node comes from `App\Support\Seo\DatasetSchema::rates()`; the WebSite node is always `{host}/#website` named "EU VAT Info".

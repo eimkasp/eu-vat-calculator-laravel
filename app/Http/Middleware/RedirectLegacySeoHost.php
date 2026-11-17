@@ -14,7 +14,8 @@ class RedirectLegacySeoHost
         if (in_array($request->getHost(), config('seo.legacy_hosts', []), true)) {
             $target = app(SeoPolicy::class)->canonicalHost().'/'.ltrim($request->getRequestUri(), '/');
 
-            return redirect()->away($target, 301);
+            // 308 keeps the method and body of a POST (a Livewire update from a page opened on the old host).
+            return redirect()->away($target, $request->isMethodSafe() ? 301 : 308);
         }
 
         return $next($request);

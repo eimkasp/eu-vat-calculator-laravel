@@ -26,7 +26,7 @@ it('indexes the approved VAT country comparisons', function () {
 
     $this->get('/compare/germany-vs-france-vat')
         ->assertOk()
-        ->assertSee('<link rel="canonical" href="https://vat.businesspress.io/compare/germany-vs-france-vat">', false)
+        ->assertSee('<link rel="canonical" href="https://eu-vat.info/compare/germany-vs-france-vat">', false)
         ->assertSee('Germany vs France VAT rates')
         ->assertSee('19%')
         ->assertSee('20%')
@@ -93,7 +93,7 @@ it('lists the approved comparisons on one hub and links it across the site', fun
 
     $this->get('/compare')
         ->assertOk()
-        ->assertSee('<link rel="canonical" href="https://vat.businesspress.io/compare">', false)
+        ->assertSee('<link rel="canonical" href="https://eu-vat.info/compare">', false)
         ->assertSee('Compare VAT rates between European countries')
         ->assertSee('href="/compare/germany-vs-france-vat"', false)
         ->assertSee('href="/compare/spain-vs-portugal-vat"', false)
@@ -131,7 +131,7 @@ it('compares any two calculator countries on one canonical, unindexed URL', func
     $this->get('/compare/estonia-vs-latvia-vat')
         ->assertOk()
         ->assertSee('Estonia vs Latvia VAT rates')
-        ->assertSee('<link rel="canonical" href="https://vat.businesspress.io/compare/estonia-vs-latvia-vat">', false)
+        ->assertSee('<link rel="canonical" href="https://eu-vat.info/compare/estonia-vs-latvia-vat">', false)
         ->assertSee('<meta name="robots" content="noindex, follow">', false)
         ->assertSee('3 pp higher')
         ->assertDontSee('hreflang=', false);

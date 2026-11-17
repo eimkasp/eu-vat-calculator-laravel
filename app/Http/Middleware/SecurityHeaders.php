@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Support\AdSense;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -76,14 +77,19 @@ class SecurityHeaders
 
     private function buildCsp(bool $embeddable = false): string
     {
+        // Google AdSense loads scripts, frames, images and beacons from Google's country domains
+        // (adservice.google.lt, …) and from advertisers' hosts, which no fixed list covers, so
+        // while AdSense is on these four directives allow any HTTPS source.
+        $ads = AdSense::loadsScript() ? ['https:'] : [];
+
         $directives = [
             "default-src 'self'",
-            'script-src '.implode(' ', self::SCRIPT_SOURCES),
+            'script-src '.implode(' ', [...self::SCRIPT_SOURCES, ...$ads]),
             'style-src '.implode(' ', self::STYLE_SOURCES),
-            'img-src '.implode(' ', self::IMG_SOURCES),
+            'img-src '.implode(' ', [...self::IMG_SOURCES, ...$ads]),
             "font-src 'self'",
-            'connect-src '.implode(' ', self::CONNECT_SOURCES),
-            "frame-src 'self'",    // Only the embed widget preview frames this site
+            'connect-src '.implode(' ', [...self::CONNECT_SOURCES, ...$ads]),
+            'frame-src '.implode(' ', ["'self'", ...$ads]), // The embed widget preview, and ad frames while AdSense is on
             "object-src 'none'",   // No Flash/plugins
             "base-uri 'self'",     // Prevent base-tag injection
             $embeddable ? 'frame-ancestors *' : "frame-ancestors 'self'",

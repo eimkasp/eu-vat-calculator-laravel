@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('ads', 'off')
+
 @php
     $popular = rescue(fn () => \App\Models\Country::query()
         ->whereIn('slug', ['germany', 'france', 'italy', 'spain', 'netherlands', 'belgium', 'poland', 'austria', 'portugal', 'ireland', 'sweden', 'hungary'])

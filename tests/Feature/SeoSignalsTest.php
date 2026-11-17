@@ -57,7 +57,7 @@ it('pairs AMP pages with the English pages only', function () {
 });
 
 it('advertises the Markdown version and leaves error pages without a canonical', function () {
-    $this->get('/vat-map')->assertSee('<link rel="alternate" type="text/markdown" href="https://vat.businesspress.io/vat-map" title="Markdown">', false);
+    $this->get('/vat-map')->assertSee('<link rel="alternate" type="text/markdown" href="https://eu-vat.info/vat-map" title="Markdown">', false);
     $this->get('/no-such-page')->assertNotFound()->assertDontSee('rel="canonical"', false);
 });
 
@@ -73,8 +73,8 @@ it('builds breadcrumbs from the trail a visitor sees, with canonical links', fun
     $trail = collect(ldBlocks($html))->firstWhere('@type', 'BreadcrumbList')['itemListElement'];
 
     expect(array_column($trail, 'position'))->toBe([1, 2])
-        ->and($trail[0]['item'])->toBe('https://vat.businesspress.io/de')
-        ->and($trail[1]['item'])->toBe('https://vat.businesspress.io/de/vat-map');
+        ->and($trail[0]['item'])->toBe('https://eu-vat.info/de')
+        ->and($trail[1]['item'])->toBe('https://eu-vat.info/de/vat-map');
 });
 
 it('describes the rates dataset the same way on the home page and the dataset page', function () {
@@ -91,9 +91,9 @@ it('names the site with its brand and one id on every page', function () {
     $site = collect(ldBlocks($this->get('/de')->getContent()))->firstWhere('@type', 'WebSite');
 
     expect($site['name'])->toBe('EU VAT Info')
-        ->and($site['@id'])->toBe('https://vat.businesspress.io/#website');
+        ->and($site['@id'])->toBe('https://eu-vat.info/#website');
 
-    $this->get('/de/vat-calculator/germany')->assertSee('"isPartOf":{"@type":"WebSite","@id":"https://vat.businesspress.io/#website"', false);
+    $this->get('/de/vat-calculator/germany')->assertSee('"isPartOf":{"@type":"WebSite","@id":"https://eu-vat.info/#website"', false);
 });
 
 it('dates and describes a rate change page for search results', function () {
@@ -118,8 +118,8 @@ it('lists the footer pages and leaves empty sections out of the sitemap index', 
     $core = $this->get('/sitemaps/core.xml')->assertOk();
 
     foreach (['/changelog', '/privacy', '/donate', '/chrome-extension'] as $path) {
-        $core->assertSee('<loc>https://vat.businesspress.io'.$path.'</loc>', false)
-            ->assertDontSee('<loc>https://vat.businesspress.io/de'.$path.'</loc>', false);
+        $core->assertSee('<loc>https://eu-vat.info'.$path.'</loc>', false)
+            ->assertDontSee('<loc>https://eu-vat.info/de'.$path.'</loc>', false);
     }
 
     $this->get('/sitemap.xml')->assertOk()->assertDontSee('sitemaps/categories.xml', false);
@@ -129,7 +129,7 @@ it('dates template pages by the latest release instead of the deploy time', func
     preg_match('/^## \[[^\]]+\] — (\d{4}-\d{2}-\d{2})/m', file_get_contents(base_path('CHANGELOG.md')), $release);
 
     $this->get('/sitemaps/core.xml')
-        ->assertSee("<loc>https://vat.businesspress.io/styleguide</loc>\n        <lastmod>{$release[1]}T00:00:00+00:00</lastmod>", false);
+        ->assertSee("<loc>https://eu-vat.info/styleguide</loc>\n        <lastmod>{$release[1]}T00:00:00+00:00</lastmod>", false);
 });
 
 it('lists the guides, the comparisons and the recent changes for AI agents', function () {
@@ -146,7 +146,7 @@ it('lists the guides, the comparisons and the recent changes for AI agents', fun
         ->assertSee('## Guides')
         ->assertSee('/vat-guides/b2b-services')
         ->assertSee('## Comparisons')
-        ->assertSee('[Germany vs France VAT](https://vat.businesspress.io/compare/germany-vs-france-vat)');
+        ->assertSee('[Germany vs France VAT](https://eu-vat.info/compare/germany-vs-france-vat)');
 
     $this->get('/llms-full.txt')
         ->assertOk()

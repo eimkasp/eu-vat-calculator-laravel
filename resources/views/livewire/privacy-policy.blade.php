@@ -5,12 +5,18 @@
         type="website" />
 @endsection
 
+@php
+    $siteUrl = app(\App\Support\Seo\SeoPolicy::class)->canonicalHost();
+    $siteHost = parse_url($siteUrl, PHP_URL_HOST);
+    $ads = \App\Support\AdSense::publisherId() !== null;
+@endphp
+
 <div>
     <x-page-header title="Privacy policy" description="How EU VAT Info collects, uses and protects information when you use the website and apps." :breadcrumbs="['Privacy policy' => '']">
         <x-slot:actions>
             <span class="inline-flex items-center gap-2 rounded-control border border-line bg-surface-subtle px-3 py-1.5 text-sm text-ink-muted">
                 <x-ui.icon name="clock" class="size-4" />
-                <span>Last updated <time class="tabular" datetime="2025-04-10">10 April 2025</time></span>
+                <span>Last updated <time class="tabular" datetime="2026-11-17">17 November 2026</time></span>
             </span>
         </x-slot:actions>
     </x-page-header>
@@ -23,7 +29,7 @@
                 <h2>1. Introduction</h2>
                 <p>
                     EU VAT Info ("we", "us", or "our") operates the website
-                    <a href="https://vat.businesspress.io">vat.businesspress.io</a> and the EU VAT Info mobile applications
+                    <a href="{{ $siteUrl }}">{{ $siteHost }}</a> and the EU VAT Info mobile applications
                     for iOS and Android (collectively, the "Service"). This Privacy Policy explains how we collect,
                     use, disclose, and safeguard your information when you use our Service.
                 </p>
@@ -47,7 +53,11 @@
                     <li><strong>Usage Data:</strong> We collect anonymized analytics data including pages visited, features used, country selections, and interaction patterns to improve our Service.</li>
                     <li><strong>Device Information:</strong> Browser type, operating system, device type, and screen resolution.</li>
                     <li><strong>IP Address:</strong> Used for approximate geolocation (country-level) to provide localized content and for security purposes. IP addresses are not stored long-term.</li>
-                    <li><strong>Cookies:</strong> We use essential cookies for session management and language preferences. No third-party tracking cookies are used.</li>
+                    @if ($ads)
+                        <li><strong>Cookies:</strong> We use essential cookies for session management and language preferences. Google, our advertising partner, uses cookies to show and measure ads (see section 8).</li>
+                    @else
+                        <li><strong>Cookies:</strong> We use essential cookies for session management and language preferences. No third-party tracking cookies are used.</li>
+                    @endif
                 </ul>
 
                 <h3>2.3 Mobile App Specific Data</h3>
@@ -78,6 +88,9 @@
                 <p>We do <strong>not</strong> sell, trade, or rent your personal information to third parties. We may share information in the following limited circumstances:</p>
                 <ul>
                     <li><strong>VIES Validation:</strong> VAT numbers submitted for validation are forwarded to the European Commission's VIES service, which is operated by the EU. This is necessary to provide the validation functionality.</li>
+                    @if ($ads)
+                        <li><strong>Advertising:</strong> Google AdSense receives your IP address, device information and the pages you visit in order to show and measure ads.</li>
+                    @endif
                     <li><strong>Hosting Providers:</strong> Our Service is hosted on infrastructure provided by third-party hosting services that may process data on our behalf under strict data processing agreements.</li>
                     <li><strong>Legal Requirements:</strong> We may disclose information if required by law, regulation, or legal process.</li>
                 </ul>
@@ -133,7 +146,21 @@
                     <li><strong>Essential Cookies:</strong> Required for the Service to function (session management, CSRF protection, language preferences).</li>
                     <li><strong>Performance Cookies:</strong> Anonymized analytics to understand how visitors use our site and improve the experience.</li>
                 </ul>
-                <p>We do not use advertising or third-party tracking cookies. You can control cookies through your browser settings.</p>
+                @if ($ads)
+                    <ul>
+                        <li><strong>Advertising Cookies:</strong> Set by Google AdSense to show ads, limit how often you see them and measure their performance.</li>
+                    </ul>
+                    <p>
+                        Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this website or other websites.
+                        Google's use of advertising cookies enables it and its partners to serve ads to you based on your visits to this site and/or other sites on the Internet.
+                        You can opt out of personalised advertising in <a href="https://adssettings.google.com" target="_blank" rel="noopener">Google Ad Settings<x-ui.new-tab /></a>,
+                        and read <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">how Google uses information from sites that use its services<x-ui.new-tab /></a>.
+                        Visitors in the European Economic Area, the United Kingdom and Switzerland are asked for consent before personalised ads are shown.
+                    </p>
+                    <p>You can also control cookies through your browser settings.</p>
+                @else
+                    <p>We do not use advertising or third-party tracking cookies. You can control cookies through your browser settings.</p>
+                @endif
 
                 {{-- 9. Third-Party Services --}}
                 <h2>9. Third-Party Services</h2>
@@ -141,6 +168,9 @@
                 <ul>
                     <li><strong>European Commission VIES:</strong> For VAT number validation. Subject to the <a href="https://ec.europa.eu/info/legal-notice_en" target="_blank" rel="noopener">EU legal notice<x-ui.new-tab /></a>.</li>
                     <li><strong>DeepL:</strong> For automated translation of interface elements. No personal data is shared with DeepL.</li>
+                    @if ($ads)
+                        <li><strong>Google AdSense:</strong> For advertising. Subject to the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy<x-ui.new-tab /></a>.</li>
+                    @endif
                 </ul>
 
                 {{-- 10. Children's Privacy --}}
@@ -179,7 +209,7 @@
                 <p>If you have questions about this Privacy Policy or our data practices, please contact us:</p>
                 <ul>
                     <li><strong>Email:</strong> <a href="mailto:privacy@businesspress.io">privacy@businesspress.io</a></li>
-                    <li><strong>Website:</strong> <a href="https://vat.businesspress.io">vat.businesspress.io</a></li>
+                    <li><strong>Website:</strong> <a href="{{ $siteUrl }}">{{ $siteHost }}</a></li>
                 </ul>
 
             </div>

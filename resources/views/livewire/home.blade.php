@@ -5,7 +5,7 @@
             '@type' => 'WebSite',
             '@id' => $base.'/#website',
             'name' => 'EU VAT Info',
-            'alternateName' => array_values(array_unique(['vat.businesspress.io', __('ui.site_name')])),
+            'alternateName' => array_values(array_unique(['eu-vat.info', __('ui.site_name')])),
             'url' => $base.'/',
             'description' => __('ui.home_page.meta_desc'),
             'inLanguage' => app()->getLocale(),

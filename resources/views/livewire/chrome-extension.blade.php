@@ -8,7 +8,7 @@
 @php
     $features = [
         ['zap', 'Instant calculation', 'Add or extract VAT with one click. Results appear instantly in the popup — no page loads, no waiting.'],
-        ['flag', 'All 27 EU countries', 'Standard, reduced, super-reduced and parking rates for every EU member state. Rates sync from vat.businesspress.io every 12 hours.'],
+        ['flag', 'All 27 EU countries', 'Standard, reduced, super-reduced and parking rates for every EU member state. Rates sync from EU VAT Info every 12 hours.'],
         ['monitor', 'New tab mode', 'Replace your Chrome new tab with a full VAT calculator, a live clock and a quick rate overview for your default country.'],
         ['history', 'Calculation history', 'Your last 20 calculations are saved automatically. Select any past calculation to restore it instantly.'],
         ['wifi-off', 'Works offline', 'Built-in rate data keeps the calculator working without an internet connection. Rates sync again when you are back online.'],

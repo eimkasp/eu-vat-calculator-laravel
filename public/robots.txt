@@ -1,6 +1,6 @@
 # EU VAT Info: current EU VAT rates, calculators and VIES validation.
-# AI and LLM guide: https://vat.businesspress.io/llms.txt
-# MCP server: https://vat.businesspress.io/mcp-server
+# AI and LLM guide: https://eu-vat.info/llms.txt
+# MCP server: https://eu-vat.info/mcp-server
 
 User-agent: *
 Allow: /
@@ -33,4 +33,4 @@ Disallow: /
 User-agent: DotBot
 Disallow: /
 
-Sitemap: https://vat.businesspress.io/sitemap.xml
+Sitemap: https://eu-vat.info/sitemap.xml
