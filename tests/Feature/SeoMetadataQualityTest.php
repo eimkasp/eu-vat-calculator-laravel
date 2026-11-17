@@ -66,7 +66,7 @@ it('keeps VAT history facets out of the index while preserving the canonical arc
     $this->get('/vat-changes?country='.$country->id.'&type=standard')
         ->assertOk()
         ->assertSee('<meta name="robots" content="noindex, follow">', false)
-        ->assertSee('<link rel="canonical" href="https://vat.businesspress.io/vat-changes">', false);
+        ->assertSee('<link rel="canonical" href="https://eu-vat.info/vat-changes">', false);
 });
 
 it('includes finite programmatic pages in the changes and core sitemaps', function () {
@@ -122,8 +122,8 @@ it('uses data timestamps for dataset and comparison sitemap entries', function (
     $xml = $this->get('/sitemaps/core.xml')->assertOk()->getContent();
 
     expect($xml)
-        ->toContain("<loc>https://vat.businesspress.io/datasets/eu-vat-rates</loc>\n        <lastmod>2025-04-05T09:00:00")
-        ->toContain("<loc>https://vat.businesspress.io/compare/germany-vs-france-vat</loc>\n        <lastmod>2025-04-05T09:00:00");
+        ->toContain("<loc>https://eu-vat.info/datasets/eu-vat-rates</loc>\n        <lastmod>2025-04-05T09:00:00")
+        ->toContain("<loc>https://eu-vat.info/compare/germany-vs-france-vat</loc>\n        <lastmod>2025-04-05T09:00:00");
 });
 
 it('uses the latest related record timestamp for country history sitemap entries', function () {
@@ -147,5 +147,5 @@ it('uses the latest related record timestamp for country history sitemap entries
 
     $xml = $this->get('/sitemaps/changes.xml')->assertOk()->getContent();
 
-    expect($xml)->toContain("<loc>https://vat.businesspress.io/vat-rates/germany/history</loc>\n        <lastmod>2025-06-07T09:00:00");
+    expect($xml)->toContain("<loc>https://eu-vat.info/vat-rates/germany/history</loc>\n        <lastmod>2025-06-07T09:00:00");
 });

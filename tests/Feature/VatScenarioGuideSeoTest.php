@@ -3,7 +3,7 @@
 it('publishes finite source-backed VAT scenario guides', function () {
     $this->get('/vat-guides/b2b-services')
         ->assertOk()
-        ->assertSee('<link rel="canonical" href="https://vat.businesspress.io/vat-guides/b2b-services">', false)
+        ->assertSee('<link rel="canonical" href="https://eu-vat.info/vat-guides/b2b-services">', false)
         ->assertSee('EU B2B services VAT guide')
         ->assertSee('Article 44')
         ->assertSee('Article 196')

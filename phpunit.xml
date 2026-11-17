@@ -27,6 +27,9 @@
         <env name="MAIL_MAILER" value="array"/>
         <env name="PULSE_ENABLED" value="false"/>
         <env name="QUEUE_CONNECTION" value="sync"/>
+        <env name="SEO_CANONICAL_URL" value="https://eu-vat.info"/>
+        <env name="SEO_LEGACY_HOSTS" value="vat.businesspress.io,www.eu-vat.info"/>
+        <env name="ADSENSE_ID" value=""/>
         <env name="SESSION_DRIVER" value="array"/>
         <env name="TELESCOPE_ENABLED" value="false"/>
     </php>

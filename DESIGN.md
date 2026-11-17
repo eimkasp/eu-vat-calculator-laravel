@@ -41,7 +41,7 @@ motion:
 
 This file is the single source of truth for the interface. Read it before you change a Blade view, `resources/css/app.css` or an Alpine component. Rules written as **must** are checked by `tests/Feature/DesignSystemTest.php`, so a violation fails the build with the file, the line and the fix.
 
-The rendered reference lives at [`/styleguide`](https://vat.businesspress.io/styleguide): every token, component and pattern drawn with the production stylesheet, with its code. Two machine-readable companions are generated from the same sources: `/styleguide/design.tokens.json` (Design Tokens Community Group format 2025.10, built from `app.css` and the frontmatter above) and `/styleguide.md` (this file).
+The rendered reference lives at [`/styleguide`](https://eu-vat.info/styleguide): every token, component and pattern drawn with the production stylesheet, with its code. Two machine-readable companions are generated from the same sources: `/styleguide/design.tokens.json` (Design Tokens Community Group format 2025.10, built from `app.css` and the frontmatter above) and `/styleguide.md` (this file).
 
 **North star: the exact reference desk.** People come here to get a rate, a total or a validation result they can put on an invoice. The interface reads like a well-kept technical reference: cool near-white paper ruled with hairlines, Familjen Grotesk heads over IBM Plex Sans, keys you press, panels cut on two corners, and one electric cobalt signal for what you can act on. Figures are the loudest type on any screen. Nothing glows, blurs or bounces.
 

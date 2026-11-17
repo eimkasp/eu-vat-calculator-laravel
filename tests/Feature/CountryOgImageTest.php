@@ -62,7 +62,7 @@ it('gives the country calculator its own social image in the page language', fun
 
     $this->get('/de/vat-calculator/germany')
         ->assertOk()
-        ->assertSee('https://vat.businesspress.io/og/de/vat-calculator/germany-', false)
+        ->assertSee('https://eu-vat.info/og/de/vat-calculator/germany-', false)
         ->assertSee('<meta property="og:image:alt" content="Deutschland — ', false);
 });
 
@@ -71,7 +71,7 @@ it('uses the English image on country pages whose body is English', function () 
 
     $this->get('/de/vat-rates/germany/history')
         ->assertOk()
-        ->assertSee('https://vat.businesspress.io/og/en/vat-calculator/germany-', false);
+        ->assertSee('https://eu-vat.info/og/en/vat-calculator/germany-', false);
 });
 
 it('gives the image a new URL when a rate changes', function () {

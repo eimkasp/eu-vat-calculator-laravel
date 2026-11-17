@@ -17,22 +17,22 @@ it('canonicalizes pages with English-only bodies to the English URL in every lan
         ->assertSee('<meta property="og:url" content="'.$canonical.'">', false)
         ->assertDontSee('hreflang=', false);
 })->with([
-    'privacy policy' => ['/de/privacy', 'https://vat.businesspress.io/privacy'],
-    'changelog' => ['/fr/changelog', 'https://vat.businesspress.io/changelog'],
-    'donate' => ['/es/donate', 'https://vat.businesspress.io/donate'],
-    'Chrome extension' => ['/it/chrome-extension', 'https://vat.businesspress.io/chrome-extension'],
-    'API documentation' => ['/nl/vat-validation-api', 'https://vat.businesspress.io/vat-validation-api'],
-    'blog index' => ['/pl/blog', 'https://vat.businesspress.io/blog'],
-    'blog post' => ['/de/blog/upcoming-vat-changes-2026-2027', 'https://vat.businesspress.io/blog/upcoming-vat-changes-2026-2027'],
-    'design system' => ['/sv/styleguide', 'https://vat.businesspress.io/styleguide'],
-    'the English page itself' => ['/privacy', 'https://vat.businesspress.io/privacy'],
+    'privacy policy' => ['/de/privacy', 'https://eu-vat.info/privacy'],
+    'changelog' => ['/fr/changelog', 'https://eu-vat.info/changelog'],
+    'donate' => ['/es/donate', 'https://eu-vat.info/donate'],
+    'Chrome extension' => ['/it/chrome-extension', 'https://eu-vat.info/chrome-extension'],
+    'API documentation' => ['/nl/vat-validation-api', 'https://eu-vat.info/vat-validation-api'],
+    'blog index' => ['/pl/blog', 'https://eu-vat.info/blog'],
+    'blog post' => ['/de/blog/upcoming-vat-changes-2026-2027', 'https://eu-vat.info/blog/upcoming-vat-changes-2026-2027'],
+    'design system' => ['/sv/styleguide', 'https://eu-vat.info/styleguide'],
+    'the English page itself' => ['/privacy', 'https://eu-vat.info/privacy'],
 ]);
 
 it('keeps translated pages self-canonical with hreflang in every language', function (string $path) {
     $this->get($path)
         ->assertOk()
         ->assertSee('<meta name="robots" content="index, follow">', false)
-        ->assertSee('<link rel="canonical" href="https://vat.businesspress.io'.$path.'">', false)
+        ->assertSee('<link rel="canonical" href="https://eu-vat.info'.$path.'">', false)
         ->assertSee('hreflang="x-default"', false);
 })->with(['/de/tools', '/fr/mcp-server', '/hu/top-vat-calculations', '/sl/top-vat-calculations/1000']);
 
@@ -73,7 +73,7 @@ it('lists a sitemap URL in every language only when its page is translated', fun
     $listed = [];
 
     foreach (SitemapGenerator::SECTIONS as $section) {
-        preg_match_all('#<loc>https://vat\.businesspress\.io(/[^<]*)</loc>#', $this->get("/sitemaps/{$section}.xml")->assertOk()->getContent(), $matches);
+        preg_match_all('#<loc>https://eu-vat\.info(/[^<]*)</loc>#', $this->get("/sitemaps/{$section}.xml")->assertOk()->getContent(), $matches);
 
         foreach ($matches[1] as $url) {
             $path = preg_replace('#^/('.implode('|', $locales).')(?=/|$)#', '', $url) ?: '/';

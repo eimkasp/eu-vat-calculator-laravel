@@ -47,7 +47,7 @@ it('publishes a source-backed country VAT history', function () {
 
     $this->get('/vat-rates/germany/history')
         ->assertOk()
-        ->assertSee('<link rel="canonical" href="https://vat.businesspress.io/vat-rates/germany/history">', false)
+        ->assertSee('<link rel="canonical" href="https://eu-vat.info/vat-rates/germany/history">', false)
         ->assertSee('Germany VAT rate history')
         ->assertSee('18%')
         ->assertSee('19%')
@@ -74,7 +74,7 @@ it('publishes one canonical page for a stored VAT change event', function () {
 
     $this->get('/vat-changes/germany/standard/2026-01-01')
         ->assertOk()
-        ->assertSee('<link rel="canonical" href="https://vat.businesspress.io/vat-changes/germany/standard/2026-01-01">', false)
+        ->assertSee('<link rel="canonical" href="https://eu-vat.info/vat-changes/germany/standard/2026-01-01">', false)
         ->assertSee('"@type":"Article"', false)
         ->assertSee('Federal Ministry of Finance')
         ->assertSee('Approved national tax reform')
@@ -109,7 +109,7 @@ it('lists only change pages that exist in the changes sitemap', function () {
     seoChange($country, ['old_rate' => 13, 'new_rate' => 14, 'change_date' => '1983-07-01']);
     seoChange($country);
 
-    preg_match_all('#<loc>https://vat\.businesspress\.io([^<]*)</loc>#', $this->get('/sitemaps/changes.xml')->assertOk()->getContent(), $locs);
+    preg_match_all('#<loc>https://eu-vat\.info([^<]*)</loc>#', $this->get('/sitemaps/changes.xml')->assertOk()->getContent(), $locs);
 
     expect($locs[1])->toContain('/vat-changes/year/1983', '/vat-changes/year/2026');
 

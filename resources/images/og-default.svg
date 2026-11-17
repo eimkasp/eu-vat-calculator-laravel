@@ -52,7 +52,7 @@
     <text x="80" y="462">Every member state's rates from European</text>
     <text x="80" y="500">Commission data, dated and sourced.</text>
   </g>
-  <text x="80" y="562" font-family="JetBrains Mono, SF Mono, Menlo, monospace" font-size="24" font-weight="500" fill="#3c434e">vat.businesspress.io</text>
+  <text x="80" y="562" font-family="JetBrains Mono, SF Mono, Menlo, monospace" font-size="24" font-weight="500" fill="#3c434e">eu-vat.info</text>
   <g>
     <path d="M656 458h448l16 16v80a16 16 0 0 1 0 0v0l-16 16H640V474Z" fill="#fdfeff" stroke="#dadee4"/>
     <path d="M808 458v112M944 458v112" stroke="#dadee4"/>

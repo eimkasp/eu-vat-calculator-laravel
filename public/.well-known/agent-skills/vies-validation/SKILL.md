@@ -1,6 +1,6 @@
 # VIES VAT Number Validation Skill
 
-Validate EU VAT numbers in real-time via the official VIES (VAT Information Exchange System) database, served through vat.businesspress.io with multi-layer caching.
+Validate EU VAT numbers in real-time via the official VIES (VAT Information Exchange System) database, served through eu-vat.info with multi-layer caching.
 
 ## What You Can Do
 
@@ -22,7 +22,7 @@ Connect via the Model Context Protocol for structured tool access:
   "mcpServers": {
     "eu-vat-info": {
       "type": "http",
-      "url": "https://vat.businesspress.io/api/mcp"
+      "url": "https://eu-vat.info/api/mcp"
     }
   }
 }
@@ -81,7 +81,7 @@ Connect via the Model Context Protocol for structured tool access:
 ### Single Validation
 
 ```
-POST https://vat.businesspress.io/api/vat/validation/validate
+POST https://eu-vat.info/api/vat/validation/validate
 Content-Type: application/json
 
 {
@@ -93,7 +93,7 @@ Content-Type: application/json
 ### Batch Validation (up to 10)
 
 ```
-POST https://vat.businesspress.io/api/vat/validation/batch
+POST https://eu-vat.info/api/vat/validation/batch
 Content-Type: application/json
 
 {
@@ -107,7 +107,7 @@ Content-Type: application/json
 ### Health Check
 
 ```
-GET https://vat.businesspress.io/api/vat/validation/health
+GET https://eu-vat.info/api/vat/validation/health
 ```
 
 ## Country Code Reference
@@ -138,5 +138,5 @@ Results are cached via a multi-layer strategy (cache → database → VIES API) 
 
 ## Human-Readable Reference
 
-- Interactive validator: `https://vat.businesspress.io/vat-number-validator/{slug}`
-- MCP server guide: `https://vat.businesspress.io/mcp-server`
+- Interactive validator: `https://eu-vat.info/vat-number-validator/{slug}`
+- MCP server guide: `https://eu-vat.info/mcp-server`

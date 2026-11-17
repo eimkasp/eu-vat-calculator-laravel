@@ -46,6 +46,7 @@ use App\Livewire\VatMap;
 use App\Livewire\VatScenarioGuide;
 use App\Livewire\VatValidationApiDocs;
 use App\Livewire\ViesValidatorPage;
+use App\Support\AdSense;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
@@ -242,6 +243,14 @@ Route::get('/indexnow-key.txt', function () {
         ->header('Content-Type', 'text/plain; charset=UTF-8')
         ->header('Cache-Control', 'public, max-age=86400');
 })->name('indexnow.key');
+
+// Authorised ad sellers, from ADSENSE_ID (App\Support\AdSense)
+Route::get('/ads.txt', function () {
+    $adsTxt = AdSense::adsTxt();
+    abort_unless($adsTxt !== null, 404);
+
+    return response($adsTxt)->header('Content-Type', 'text/plain; charset=UTF-8');
+})->name('ads-txt');
 
 // Bazaar-compatible x402 resource discovery (scanner probes this path)
 Route::get('/platform/v2/x402/discovery/resources', [X402Controller::class, 'discoveryResources']);

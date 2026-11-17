@@ -324,7 +324,7 @@ class LlmsController extends Controller
 
     private function baseUrl(): string
     {
-        return rtrim((string) config('seo.canonical_url', 'https://vat.businesspress.io'), '/');
+        return rtrim((string) config('seo.canonical_url', 'https://eu-vat.info'), '/');
     }
 
     private function markdown(string $text, CarbonImmutable $updatedAt): Response

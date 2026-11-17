@@ -18,16 +18,16 @@ class AuditSeo extends Command
         $errors = [];
         $canonical = $policy->canonicalHost();
 
-        if ($canonical !== 'https://vat.businesspress.io') {
-            $errors[] = "Canonical URL must be https://vat.businesspress.io; found {$canonical}.";
+        if ($canonical !== 'https://eu-vat.info') {
+            $errors[] = "Canonical URL must be https://eu-vat.info; found {$canonical}.";
         }
 
         $robots = file_get_contents(public_path('robots.txt')) ?: '';
-        if (substr_count($robots, 'Sitemap:') !== 1 || ! str_contains($robots, 'Sitemap: https://vat.businesspress.io/sitemap.xml')) {
+        if (substr_count($robots, 'Sitemap:') !== 1 || ! str_contains($robots, 'Sitemap: https://eu-vat.info/sitemap.xml')) {
             $errors[] = 'robots.txt must declare exactly one canonical sitemap.';
         }
 
-        if (str_contains($robots, 'eu-vat.info') || str_contains($robots, 'Crawl-delay:')) {
+        if (str_contains($robots, 'vat.businesspress.io') || str_contains($robots, 'Crawl-delay:')) {
             $errors[] = 'robots.txt contains a legacy host or unsupported crawl-delay directive.';
         }
 
@@ -67,7 +67,7 @@ class AuditSeo extends Command
         }
 
         $index = $sitemaps->generateIndex();
-        if (str_contains($index, 'eu-vat.info') || ! str_contains($index, '<sitemapindex')) {
+        if (str_contains($index, 'vat.businesspress.io') || ! str_contains($index, '<sitemapindex')) {
             $errors[] = 'Generated sitemap index is not canonical.';
         }
 
