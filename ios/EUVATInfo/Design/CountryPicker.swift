@@ -10,11 +10,13 @@ struct CountryPicker: View {
     let onSelect: (Country) -> Void
 
     @Environment(\.dismiss) private var dismiss
+    @Environment(FavouritesStore.self) private var favourites
     @State private var query = ""
 
     var body: some View {
         NavigationStack {
             List {
+                section(L10n.appFavourites, favourites.countries(among: matches))
                 section(L10n.calculatorGroupsEu, matches.filter(\.isEUMember))
                 section(L10n.calculatorGroupsOtherEurope, matches.filter { !$0.isEUMember })
             }

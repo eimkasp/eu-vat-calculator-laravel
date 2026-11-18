@@ -226,13 +226,3 @@ struct LogoMark: View {
         .accessibilityHidden(true)
     }
 }
-
-/// Copies text and says so, for VoiceOver as well.
-@MainActor
-enum Clipboard {
-    static func copy(_ text: String, announcement: String) {
-        UIPasteboard.general.string = text
-        UINotificationFeedbackGenerator().notificationOccurred(.success)
-        UIAccessibility.post(notification: .announcement, argument: announcement)
-    }
-}

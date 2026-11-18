@@ -57,7 +57,7 @@ final class ValidatorModel {
     private static let recentKey = "validator.recent"
     private static let recentLimit = 10
 
-    init(api: APIClient = APIClient(), defaults: UserDefaults = .standard) {
+    init(api: APIClient = APIClient(), defaults: UserDefaults = .app) {
         self.api = api
         self.defaults = defaults
 
@@ -138,6 +138,30 @@ final class ValidatorModel {
         } catch {
             phase = .done(ValidationOutcome(kind: .unavailable, number: number, country: country))
         }
+    }
+
+    /// The number the website offers as an example (`vies_page.try_example`).
+    static let exampleNumber = "LT100019070512"
+
+    /// Fills the field from the clipboard or an example and reads the country from the prefix.
+    func enter(_ number: String, countries: [Country]) {
+        numberText = String(VatNumberFormat.clean(number).prefix(20))
+        numberChanged(countries: countries)
+    }
+
+    /// A finished check as text for the share sheet.
+    func shareText(_ outcome: ValidationOutcome) -> String {
+        var lines = [outcome.number, outcome.kind == .valid ? L10n.viesPageResultValid : L10n.viesPageResultInvalid]
+
+        if outcome.kind == .valid, let result = outcome.result {
+            lines += [result.name, result.address].compactMap { $0 }
+        }
+
+        if let date = outcome.result?.requestDate {
+            lines.append(L10n.viesPageCheckedOn(date: Format.date(date)))
+        }
+
+        return lines.joined(separator: "\n")
     }
 
     /// Fills the form with an earlier check.

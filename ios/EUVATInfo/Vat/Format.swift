@@ -16,6 +16,21 @@ enum Format {
         value.formatted(.currency(code: currency).precision(.fractionLength(2)).locale(locale))
     }
 
+    /// Money without cents, for round amounts in a table: "€1,000".
+    static func wholeMoney(_ value: Double, currency: String, locale: Locale = AppLocale.current) -> String {
+        value.formatted(.currency(code: currency).precision(.fractionLength(0)).locale(locale))
+    }
+
+    /// A round amount on a key: "1,000".
+    static func amount(_ value: Double, locale: Locale = AppLocale.current) -> String {
+        value.formatted(.number.precision(.fractionLength(0 ... 2)).locale(locale))
+    }
+
+    /// A number as it is typed into a field: no grouping, and the decimal separator of the device's number pad.
+    static func fieldValue(_ value: Double, locale: Locale = .autoupdatingCurrent) -> String {
+        value.formatted(.number.grouping(.never).precision(.fractionLength(0 ... 2)).locale(locale))
+    }
+
     /// Percentage points: "2", "0.5".
     static func points(_ value: Double, locale: Locale = AppLocale.current) -> String {
         value.formatted(.number.precision(.fractionLength(0 ... 2)).locale(locale))

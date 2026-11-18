@@ -1,7 +1,7 @@
 import Foundation
 
 /// Whether the amount typed excludes VAT (add it) or includes VAT (take it out).
-enum VatMode: String, CaseIterable, Sendable {
+enum VatMode: String, CaseIterable, Codable, Sendable {
     case exclude
     case include
 }

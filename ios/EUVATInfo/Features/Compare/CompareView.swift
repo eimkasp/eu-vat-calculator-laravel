@@ -13,7 +13,7 @@ final class ComparisonModel {
     @ObservationIgnored private let defaults: UserDefaults
     private static let key = "compare.countries"
 
-    init(defaults: UserDefaults = .standard) {
+    init(defaults: UserDefaults = .app) {
         self.defaults = defaults
         codes = Array((defaults.stringArray(forKey: Self.key) ?? []).prefix(Self.limit))
     }
@@ -261,22 +261,5 @@ struct CompareView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
-    }
-}
-
-/// A rate drawn against the highest in the comparison.
-private struct RateBar: View {
-    let share: Double
-
-    var body: some View {
-        GeometryReader { geometry in
-            ZStack(alignment: .leading) {
-                RoundedRectangle(cornerRadius: 2).fill(Palette.action.opacity(0.15))
-                RoundedRectangle(cornerRadius: 2).fill(Palette.action)
-                    .frame(width: geometry.size.width * min(max(share, 0), 1))
-            }
-        }
-        .frame(height: 6)
-        .accessibilityHidden(true)
     }
 }

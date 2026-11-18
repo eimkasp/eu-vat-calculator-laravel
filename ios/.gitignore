@@ -11,3 +11,6 @@
 xcuserdata/
 *.xcresult
 .DS_Store
+
+# Taken by scripts/store-screenshots.sh
+/AppStore/screenshots

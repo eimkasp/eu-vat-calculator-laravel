@@ -30,6 +30,7 @@ const KEYS = [
     'close' => [],
     'filters' => [],
     'no_results' => [],
+    'type' => [],
     'trust.updated' => ['date'],
     'trust.source_ec' => [],
     'trust.source_dataset' => [],
@@ -74,6 +75,11 @@ const KEYS = [
     'vies_page.format_legend' => [],
     'vies_page.format_note_gr' => [],
     'history.rate_history' => [],
+    'calculator.rate_since' => ['date'],
+    'country_page.vat_validator' => [],
+    'calculator.th_amount' => [],
+    'calculator.th_add_vat' => ['rate'],
+    'calculator.th_remove_vat' => ['rate'],
 
     // Calculator
     'calculator.title' => [],
@@ -103,6 +109,8 @@ const KEYS = [
     'calculator.clear_all' => [],
     'calculator.formula_add' => ['multiplier'],
     'calculator.formula_remove' => ['multiplier'],
+    'calculator.quick_amounts' => [],
+    'calculator.recent_calculations' => [],
 
     // Validator
     'vies_page.nav_title' => [],
@@ -136,6 +144,7 @@ const KEYS = [
     'vies_page.recent_heading' => [],
     'vies_page.recent_privacy' => [],
     'vies_page.disclaimer' => [],
+    'vies_page.try_example' => [],
 
     // Comparison
     'nav.compare' => [],
@@ -173,6 +182,8 @@ const KEYS = [
     'rate_changes.increase' => [],
     'rate_changes.decrease' => [],
     'rate_changes.points' => ['value'],
+    'history.stat_increases' => [],
+    'history.stat_decreases' => [],
 
     // About
     'sitemap.about_title' => [],
@@ -189,6 +200,14 @@ const APP_ONLY = [
         'hu' => 'Próbálja újra', 'it' => 'Riprova', 'lt' => 'Bandyti dar kartą', 'lv' => 'Mēģināt vēlreiz',
         'mt' => 'Erġa\' pprova', 'nl' => 'Opnieuw proberen', 'pl' => 'Spróbuj ponownie', 'pt' => 'Tentar novamente',
         'ro' => 'Încercați din nou', 'sk' => 'Skúsiť znova', 'sl' => 'Poskusi znova', 'sv' => 'Försök igen',
+    ],
+    'app.favourites' => [
+        'en' => 'Favourites', 'bg' => 'Любими', 'cs' => 'Oblíbené', 'da' => 'Favoritter',
+        'de' => 'Favoriten', 'el' => 'Αγαπημένα', 'es' => 'Favoritos', 'et' => 'Lemmikud',
+        'fi' => 'Suosikit', 'fr' => 'Favoris', 'ga' => 'Ceanáin', 'hr' => 'Favoriti',
+        'hu' => 'Kedvencek', 'it' => 'Preferiti', 'lt' => 'Mėgstamiausi', 'lv' => 'Izlase',
+        'mt' => 'Favoriti', 'nl' => 'Favorieten', 'pl' => 'Ulubione', 'pt' => 'Favoritos',
+        'ro' => 'Favorite', 'sk' => 'Obľúbené', 'sl' => 'Priljubljene', 'sv' => 'Favoriter',
     ],
 ];
 

@@ -17,6 +17,8 @@ enum L10n {
     static var filters: String { text("filters") }
     /// No countries found matching your search.
     static var noResults: String { text("no_results") }
+    /// Type
+    static var type: String { text("type") }
     /// Rates updated :date
     static func trustUpdated(date: String) -> String { text("trust.updated", date) }
     /// Source: European Commission
@@ -97,6 +99,16 @@ enum L10n {
     static var viesPageFormatNoteGr: String { text("vies_page.format_note_gr") }
     /// Rate history
     static var historyRateHistory: String { text("history.rate_history") }
+    /// In force since :date
+    static func calculatorRateSince(date: String) -> String { text("calculator.rate_since", date) }
+    /// VAT validator
+    static var countryPageVatValidator: String { text("country_page.vat_validator") }
+    /// Amount
+    static var calculatorThAmount: String { text("calculator.th_amount") }
+    /// Adding :rate% VAT
+    static func calculatorThAddVat(rate: String) -> String { text("calculator.th_add_vat", rate) }
+    /// Removing :rate% VAT
+    static func calculatorThRemoveVat(rate: String) -> String { text("calculator.th_remove_vat", rate) }
     /// VAT calculator
     static var calculatorTitle: String { text("calculator.title") }
     /// Select country
@@ -151,6 +163,10 @@ enum L10n {
     static func calculatorFormulaAdd(multiplier: String) -> String { text("calculator.formula_add", multiplier) }
     /// Gross ÷ :multiplier = net
     static func calculatorFormulaRemove(multiplier: String) -> String { text("calculator.formula_remove", multiplier) }
+    /// Common amounts
+    static var calculatorQuickAmounts: String { text("calculator.quick_amounts") }
+    /// Recent calculations
+    static var calculatorRecentCalculations: String { text("calculator.recent_calculations") }
     /// VAT number validator
     static var viesPageNavTitle: String { text("vies_page.nav_title") }
     /// VAT number
@@ -213,6 +229,8 @@ enum L10n {
     static var viesPageRecentPrivacy: String { text("vies_page.recent_privacy") }
     /// Validation results come from the European Commission VIES database. Results are cached for speed, so confirm critical decisions with your national tax administration.
     static var viesPageDisclaimer: String { text("vies_page.disclaimer") }
+    /// Try LT100019070512
+    static var viesPageTryExample: String { text("vies_page.try_example") }
     /// Compare countries
     static var navCompare: String { text("nav.compare") }
     /// Compare any two or three countries
@@ -279,6 +297,10 @@ enum L10n {
     static var rateChangesDecrease: String { text("rate_changes.decrease") }
     /// :value pp
     static func rateChangesPoints(value: String) -> String { text("rate_changes.points", value) }
+    /// Increases
+    static var historyStatIncreases: String { text("history.stat_increases") }
+    /// Decreases
+    static var historyStatDecreases: String { text("history.stat_decreases") }
     /// About EU VAT Info
     static var sitemapAboutTitle: String { text("sitemap.about_title") }
     /// GitHub repository
@@ -287,6 +309,8 @@ enum L10n {
     static var footerPrivacy: String { text("footer.privacy") }
     /// Try again
     static var appTryAgain: String { text("app.try_again") }
+    /// Favourites
+    static var appFavourites: String { text("app.favourites") }
 
     private static func text(_ key: String, _ arguments: String...) -> String {
         let format = Bundle.main.localizedString(forKey: key, value: nil, table: nil)

@@ -1,0 +1,24 @@
+Need a VAT rate, a total for an invoice, or to know whether a customer's VAT number is real? EU VAT Info gives you the answer in a few seconds, without digging through official websites.
+
+LOOK UP A RATE
+Every EU country's standard, reduced, super-reduced and parking rates, plus the United Kingdom, Switzerland, Norway, Iceland and Türkiye. Switch the list between rate types and see at a glance who charges most and least. Keep the countries you work with at the top.
+
+WORK OUT A TOTAL
+Add VAT to a net price or take it out of a total. Pick one of the country's rates or type your own. The answer updates as you type, and it works with no signal. Copy it, share it, or go back to an earlier calculation.
+
+CHECK A VAT NUMBER
+Paste a number and the app checks it in VIES, the European Commission's register. It reads the country from the prefix, shows the format the number should have, and returns the company's name and address when the country shares them.
+
+COMPARE COUNTRIES
+Put two or three countries side by side: every rate, the currency, and what 100 becomes with VAT.
+
+SEE WHAT CHANGED
+A chart and a list of rate changes going back decades. Filter by country, or show only increases or only decreases.
+
+A FEW THINGS WORTH KNOWING
+• It's free. No account, no ads, no tracking.
+• It works offline, except for VAT number checks.
+• It speaks 24 languages: every official language of the EU.
+• Rates for EU countries come from the European Commission, and each one shows when it was last updated.
+
+EU VAT Info is a reference, not tax advice. For anything that matters, check with your accountant or the tax office.

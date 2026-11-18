@@ -38,6 +38,16 @@ struct Country: Codable, Identifiable, Hashable, Sendable {
         private enum CodingKeys: String, CodingKey {
             case standard, reduced, reducedRates, superReduced, parking
         }
+
+        /// The rates of one type, lowest first; empty when the country has none of that type.
+        func values(_ kind: RateKind) -> [Double] {
+            switch kind {
+            case .standard: [standard]
+            case .reduced: reducedRates
+            case .superReduced: [superReduced].compactMap { $0 }
+            case .parking: [parking].compactMap { $0 }
+            }
+        }
     }
 
     /// The shape of the country's VAT numbers in the Commission's notation; nil outside the EU VAT system.
@@ -46,6 +56,11 @@ struct Country: Codable, Identifiable, Hashable, Sendable {
         let prefix: String
         let format: String
         let pattern: String
+
+        /// The shapes a number can have, one per entry. A range of lengths stays one entry.
+        var masks: [String] {
+            format.components(separatedBy: " · ").map { $0.trimmingCharacters(in: .whitespaces) }.filter { !$0.isEmpty }
+        }
     }
 
     /// ISO 3166-1 alpha-2.

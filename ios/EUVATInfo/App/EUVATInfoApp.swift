@@ -1,23 +1,35 @@
 import SwiftUI
+import UIKit
 
 @main
 struct EUVATInfoApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
+
     @State private var store = RatesStore()
     @State private var router = AppRouter()
+    @State private var favourites = FavouritesStore()
     @State private var calculator = CalculatorModel()
     @State private var validator = ValidatorModel()
     @State private var comparison = ComparisonModel()
+    @State private var toasts = ToastCenter()
 
     @Environment(\.scenePhase) private var scenePhase
+
+    init() {
+        // Every text field gets the system's own clear button while it is being edited.
+        UITextField.appearance().clearButtonMode = .whileEditing
+    }
 
     var body: some Scene {
         WindowGroup {
             RootView()
                 .environment(store)
                 .environment(router)
+                .environment(favourites)
                 .environment(calculator)
                 .environment(validator)
                 .environment(comparison)
+                .environment(toasts)
                 .environment(\.locale, AppLocale.current)
                 .tint(Palette.action)
                 .task(id: scenePhase) {
@@ -47,6 +59,8 @@ final class AppRouter {
 struct RootView: View {
     @Environment(AppRouter.self) private var router
 
+    private let quickActions = QuickActionCenter.shared
+
     var body: some View {
         @Bindable var router = router
 
@@ -71,5 +85,19 @@ struct RootView: View {
                 .tabItem { Label(L10n.bottomNavHistory, systemImage: "clock.arrow.circlepath") }
                 .tag(AppTab.history)
         }
+        .toasts()
+        .task {
+            quickActions.register()
+            openRequestedTab()
+        }
+        .onChange(of: quickActions.requested) { openRequestedTab() }
+    }
+
+    /// Opens the tool a Home Screen shortcut asked for.
+    private func openRequestedTab() {
+        guard let tab = quickActions.requested else { return }
+
+        router.tab = tab
+        quickActions.requested = nil
     }
 }

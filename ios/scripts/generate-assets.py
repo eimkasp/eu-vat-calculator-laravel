@@ -109,7 +109,7 @@ def write_colorset(name: str, light: tuple[float, float, float], dark: tuple[flo
     )
 
 
-def colours() -> dict[str, tuple[float, float, float]]:
+def colours() -> tuple[dict[str, tuple[float, float, float]], dict[str, tuple[float, float, float]]]:
     css = CSS.read_text()
     light = tokens(block(css, ":root,\n[data-theme='light']"))
     dark = tokens(block(css, "\n[data-theme='dark'] {"))
@@ -125,7 +125,10 @@ def colours() -> dict[str, tuple[float, float, float]]:
     accent = CATALOG / "AccentColor.colorset" / "Contents.json"
     write_json(accent, json.loads((CATALOG / "Colors" / "action.colorset" / "Contents.json").read_text()))
 
-    return {name: oklch_to_srgb(*light[token]) for token, name in TOKENS.items()}
+    return (
+        {name: oklch_to_srgb(*light[token]) for token, name in TOKENS.items()},
+        {name: oklch_to_srgb(*dark[token]) for token, name in TOKENS.items()},
+    )
 
 
 def flags() -> int:
@@ -154,43 +157,67 @@ def flags() -> int:
     return count
 
 
-def icon(palette: dict[str, tuple[float, float, float]]) -> None:
+def icon(light: dict[str, tuple[float, float, float]], dark: dict[str, tuple[float, float, float]]) -> None:
+    """Draws the app icon: the percent mark of the logo, full bleed on ink, with the one cobalt dot.
+
+    Three renderings cover the appearances of iOS: the default, dark (the mark alone, for the system's
+    own dark ground) and tinted (the mark in greys, which the system colours).
+    """
     from PIL import Image, ImageDraw
 
-    def rgb(colour: tuple[float, float, float]) -> tuple[int, int, int]:
-        return tuple(round(value * 255) for value in colour)  # type: ignore[return-value]
+    def rgb(colour: tuple[float, float, float]) -> tuple[int, int, int, int]:
+        return (*(round(value * 255) for value in colour), 255)
 
     size, oversample = 1024, 4
     canvas = size * oversample
-    image = Image.new("RGB", (canvas, canvas), rgb(palette["ink"]))
-    draw = ImageDraw.Draw(image)
-
-    # The logo is drawn on a 32-unit grid around (16, 16); the icon is full bleed, so only the percent mark is kept.
-    scale = canvas / 32 * 1.5
+    # The logo is drawn on a 32-unit grid around (16, 16). The mark fills the middle 60% of the icon,
+    # which keeps it clear of the corner mask and readable at the smallest size.
+    scale = canvas / 32 * 1.22
 
     def point(x: float, y: float) -> tuple[float, float]:
         return (canvas / 2 + (x - 16) * scale, canvas / 2 + (y - 16) * scale)
 
-    def disc(x: float, y: float, radius: float, colour: tuple[int, int, int]) -> None:
-        cx, cy = point(x, y)
-        r = radius * scale
-        draw.ellipse((cx - r, cy - r, cx + r, cy + r), fill=colour)
+    def render(ground, slash, dot, accent):
+        image = Image.new("RGBA", (canvas, canvas), ground)
+        draw = ImageDraw.Draw(image)
 
-    paper, cobalt = rgb(palette["workspace"]), rgb(palette["button"])
-    stroke = 2.75
-    draw.line((point(10.5, 21.5), point(21.5, 10.5)), fill=paper, width=round(stroke * scale))
-    disc(10.5, 21.5, stroke / 2, paper)
-    disc(21.5, 10.5, stroke / 2, paper)
-    disc(11.25, 11.25, 3.25, paper)
-    disc(20.75, 20.75, 3.25, cobalt)
+        def disc(x: float, y: float, radius: float, colour) -> None:
+            cx, cy = point(x, y)
+            r = radius * scale
+            draw.ellipse((cx - r, cy - r, cx + r, cy + r), fill=colour)
+
+        stroke = 2.75
+        draw.line((point(10.5, 21.5), point(21.5, 10.5)), fill=slash, width=round(stroke * scale))
+        disc(10.5, 21.5, stroke / 2, slash)
+        disc(21.5, 10.5, stroke / 2, slash)
+        disc(11.25, 11.25, 3.25, dot)
+        disc(20.75, 20.75, 3.25, accent)
+
+        return image.resize((size, size), Image.LANCZOS)
 
     appicon = CATALOG / "AppIcon.appiconset"
+    shutil.rmtree(appicon, ignore_errors=True)
     appicon.mkdir(parents=True, exist_ok=True)
-    image.resize((size, size), Image.LANCZOS).save(appicon / "icon-1024.png", optimize=True)
+    clear = (0, 0, 0, 0)
+    paper = rgb(light["workspace"])
+
+    # The App Store wants the default icon without an alpha channel.
+    render(rgb(light["ink"]), paper, paper, rgb(light["button"])).convert("RGB").save(appicon / "icon-1024.png", optimize=True)
+    render(clear, paper, paper, rgb(dark["action"])).save(appicon / "icon-1024-dark.png", optimize=True)
+    render(clear, (255, 255, 255, 255), (255, 255, 255, 255), (150, 150, 150, 255)).save(appicon / "icon-1024-tinted.png", optimize=True)
+
+    def entry(filename: str, appearance: str | None = None) -> dict:
+        image = {"idiom": "universal", "platform": "ios", "size": "1024x1024", "filename": filename}
+
+        if appearance:
+            image["appearances"] = [{"appearance": "luminosity", "value": appearance}]
+
+        return image
+
     write_json(
         appicon / "Contents.json",
         {
-            "images": [{"idiom": "universal", "platform": "ios", "size": "1024x1024", "filename": "icon-1024.png"}],
+            "images": [entry("icon-1024.png"), entry("icon-1024-dark.png", "dark"), entry("icon-1024-tinted.png", "tinted")],
             "info": INFO,
         },
     )
@@ -198,9 +225,9 @@ def icon(palette: dict[str, tuple[float, float, float]]) -> None:
 
 def main() -> None:
     write_json(CATALOG / "Contents.json", {"info": INFO})
-    palette = colours()
+    light, dark = colours()
     count = flags()
-    icon(palette)
+    icon(light, dark)
     print(f"Wrote {len(TOKENS)} colours, {count} flags and the app icon to {CATALOG.relative_to(REPO)}")
 
 

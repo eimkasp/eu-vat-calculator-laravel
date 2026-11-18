@@ -2,30 +2,51 @@ import SwiftUI
 
 /// Checks an EU VAT number in the Commission's VIES register.
 struct ValidatorView: View {
+    private enum Anchor { case outcome }
+
     @Environment(RatesStore.self) private var store
     @Environment(ValidatorModel.self) private var model
+    @Environment(ToastCenter.self) private var toasts
 
     @State private var pickingCountry = false
     @FocusState private var numberFocused: Bool
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 20) {
-                    form
-                    outcome
-                    recent
+            ScrollViewReader { proxy in
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 20) {
+                        form
+                        outcome
+                            .id(Anchor.outcome)
+                        recent
 
-                    Text(L10n.viesPageDisclaimer)
-                        .font(.footnote)
-                        .foregroundStyle(Palette.inkMuted)
+                        Text(L10n.viesPageDisclaimer)
+                            .font(.footnote)
+                            .foregroundStyle(Palette.inkMuted)
+                    }
+                    .padding(.vertical, 16)
+                    .contentColumn()
                 }
-                .padding(.vertical, 16)
-                .contentColumn()
+                .onChange(of: model.phase) { _, phase in
+                    guard case .done = phase else { return }
+
+                    // The answer can land below the fold on a small phone: bring it into view.
+                    withAnimation(.easeOut(duration: 0.2)) { proxy.scrollTo(Anchor.outcome, anchor: .center) }
+                }
             }
             .scrollDismissesKeyboard(.interactively)
             .workspaceBackground()
             .navigationTitle(L10n.viesPageNavTitle)
+            .sensoryFeedback(trigger: model.phase) { _, phase in
+                guard case let .done(outcome) = phase else { return nil }
+
+                switch outcome.kind {
+                case .valid: return .success
+                case .invalid: return .error
+                case .invalidFormat, .unsupportedCountry, .formatRejected, .rateLimited, .unavailable: return .warning
+                }
+            }
             .sheet(isPresented: $pickingCountry) {
                 CountryPicker(title: L10n.calculatorSelectCountry, countries: store.memberStates, selected: model.countryCode) {
                     model.choose($0)
@@ -44,28 +65,52 @@ struct ValidatorView: View {
                     .font(.label)
                     .foregroundStyle(Palette.inkMuted)
 
-                TextField(L10n.viesPageVatPlaceholder, text: $model.numberText)
-                    .font(.system(.title3, design: .monospaced).weight(.medium))
-                    .foregroundStyle(Palette.ink)
-                    .textInputAutocapitalization(.characters)
-                    .autocorrectionDisabled()
-                    .keyboardType(.asciiCapable)
-                    .submitLabel(.search)
-                    .focused($numberFocused)
-                    .onSubmit(check)
-                    .onChange(of: model.numberText) { model.numberChanged(countries: store.memberStates) }
-                    .accessibilityLabel(L10n.viesPageVatNumberLabel)
-                    .padding(.horizontal, 12)
-                    .frame(minHeight: 52)
-                    .background(Palette.surface, in: RoundedRectangle(cornerRadius: Metrics.controlRadius))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: Metrics.controlRadius)
-                            .strokeBorder(numberFocused ? Palette.action : Palette.inkQuiet, lineWidth: numberFocused ? 2 : 1)
-                    )
+                HStack(spacing: 8) {
+                    TextField(L10n.viesPageVatPlaceholder, text: $model.numberText)
+                        .font(.system(.title3, design: .monospaced).weight(.medium))
+                        .foregroundStyle(Palette.ink)
+                        .textInputAutocapitalization(.characters)
+                        .autocorrectionDisabled()
+                        .keyboardType(.asciiCapable)
+                        .submitLabel(.search)
+                        .focused($numberFocused)
+                        .onSubmit(check)
+                        .onChange(of: model.numberText) { model.numberChanged(countries: store.memberStates) }
+                        .accessibilityLabel(L10n.viesPageVatNumberLabel)
+                        .padding(.horizontal, 12)
+                        .frame(minHeight: 52)
+                        .background(Palette.surface, in: RoundedRectangle(cornerRadius: Metrics.controlRadius))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: Metrics.controlRadius)
+                                .strokeBorder(numberFocused ? Palette.action : Palette.inkQuiet, lineWidth: numberFocused ? 2 : 1)
+                        )
 
-                Text(model.detected && country != nil ? L10n.viesPageDetectedCountry : L10n.viesPageAutoDetectHint)
-                    .font(.footnote)
-                    .foregroundStyle(Palette.inkMuted)
+                    // The system's paste button reads the clipboard without asking each time.
+                    PasteButton(payloadType: String.self) { strings in
+                        guard let text = strings.first else { return }
+
+                        Task { @MainActor in
+                            model.enter(text, countries: store.memberStates)
+                        }
+                    }
+                    .labelStyle(.iconOnly)
+                    .buttonBorderShape(.roundedRectangle(radius: Metrics.controlRadius))
+                    .controlSize(.large)
+                    .tint(Palette.button)
+                }
+
+                if model.numberText.isEmpty {
+                    Button(L10n.viesPageTryExample) {
+                        model.enter(ValidatorModel.exampleNumber, countries: store.memberStates)
+                    }
+                    .font(.footnote.weight(.medium))
+                    .frame(minHeight: 28)
+                } else {
+                    Text(model.detected && country != nil ? L10n.viesPageDetectedCountry : L10n.viesPageAutoDetectHint)
+                        .font(.footnote)
+                        .foregroundStyle(Palette.inkMuted)
+                        .frame(minHeight: 28, alignment: .leading)
+                }
             }
 
             VStack(alignment: .leading, spacing: 8) {
@@ -73,6 +118,25 @@ struct ValidatorView: View {
                     .font(.label)
                     .foregroundStyle(Palette.inkMuted)
                 CountryKey(country: country) { pickingCountry = true }
+
+                if let format = country?.vatNumber {
+                    // The shape the number should have, beside the country it belongs to.
+                    HStack(alignment: .firstTextBaseline, spacing: 12) {
+                        Text(L10n.calculatorVatNumberFormat)
+                            .font(.footnote)
+                            .foregroundStyle(Palette.inkMuted)
+                        Spacer(minLength: 8)
+
+                        VStack(alignment: .trailing, spacing: 2) {
+                            ForEach(format.masks, id: \.self) { mask in
+                                Text(mask)
+                            }
+                        }
+                        .font(.machine)
+                        .foregroundStyle(Palette.ink)
+                    }
+                    .accessibilityElement(children: .combine)
+                }
             }
 
             if let country, let format = country.vatNumber, model.formatMismatch(for: country) {
@@ -128,20 +192,23 @@ struct ValidatorView: View {
     @ViewBuilder
     private var outcome: some View {
         if case let .done(outcome) = model.phase {
-            switch outcome.kind {
-            case .valid:
-                details(outcome, tone: .success, message: L10n.viesPageResultValidDesc(country: outcome.country?.localizedName ?? ""))
-            case .invalid:
-                details(outcome, tone: .danger, message: L10n.viesPageResultInvalidDesc)
-            case .unavailable:
-                VStack(alignment: .leading, spacing: 12) {
+            Group {
+                switch outcome.kind {
+                case .valid:
+                    details(outcome, tone: .success, message: L10n.viesPageResultValidDesc(country: outcome.country?.localizedName ?? ""))
+                case .invalid:
+                    details(outcome, tone: .danger, message: L10n.viesPageResultInvalidDesc)
+                case .unavailable:
+                    VStack(alignment: .leading, spacing: 12) {
+                        Notice(tone: .warning, title: title(for: outcome))
+                        Button(L10n.appTryAgain, action: check)
+                            .buttonStyle(.secondaryKey)
+                    }
+                case .invalidFormat, .unsupportedCountry, .formatRejected, .rateLimited:
                     Notice(tone: .warning, title: title(for: outcome))
-                    Button(L10n.appTryAgain, action: check)
-                        .buttonStyle(.secondaryKey)
                 }
-            case .invalidFormat, .unsupportedCountry, .formatRejected, .rateLimited:
-                Notice(tone: .warning, title: title(for: outcome))
             }
+            .transition(.opacity)
         }
     }
 
@@ -151,27 +218,42 @@ struct ValidatorView: View {
                 .padding(.bottom, 4)
 
             InfoRow(label: L10n.viesPageVatNumberLabel) {
-                HStack(spacing: 4) {
+                HStack(spacing: 0) {
                     Text(outcome.number)
                         .font(.machine)
                         .foregroundStyle(Palette.ink)
                         .textSelection(.enabled)
+                        .padding(.trailing, 4)
 
                     Button {
-                        Clipboard.copy(outcome.number, announcement: L10n.viesPageCopied)
+                        Clipboard.copy(outcome.number)
+                        toasts.show(L10n.viesPageCopied)
                     } label: {
                         Image(systemName: "doc.on.doc")
                             .frame(width: Metrics.touch, height: 28)
                     }
                     .accessibilityLabel(L10n.viesPageCopyNumber)
+
+                    ShareLink(item: model.shareText(outcome)) {
+                        Image(systemName: "square.and.arrow.up")
+                            .frame(width: Metrics.touch, height: 28)
+                    }
                 }
             }
 
             if outcome.kind == .valid, let result = outcome.result {
                 Hairline()
-                InfoRow(L10n.viesPageFieldCompany, result.name ?? L10n.viesPageNotProvided)
+                InfoRow(label: L10n.viesPageFieldCompany) {
+                    Text(result.name ?? L10n.viesPageNotProvided)
+                        .foregroundStyle(Palette.ink)
+                        .textSelection(.enabled)
+                }
                 Hairline()
-                InfoRow(L10n.viesPageFieldAddress, result.address ?? L10n.viesPageNotProvided)
+                InfoRow(label: L10n.viesPageFieldAddress) {
+                    Text(result.address ?? L10n.viesPageNotProvided)
+                        .foregroundStyle(Palette.ink)
+                        .textSelection(.enabled)
+                }
 
                 if let identifier = result.requestIdentifier {
                     Hairline()

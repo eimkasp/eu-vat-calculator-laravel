@@ -1,6 +1,155 @@
 {
     "sourceLanguage": "en",
     "strings": {
+        "app.favourites": {
+            "extractionState": "manual",
+            "localizations": {
+                "en": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Favourites"
+                    }
+                },
+                "bg": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Любими"
+                    }
+                },
+                "cs": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Oblíbené"
+                    }
+                },
+                "da": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Favoritter"
+                    }
+                },
+                "de": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Favoriten"
+                    }
+                },
+                "el": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Αγαπημένα"
+                    }
+                },
+                "es": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Favoritos"
+                    }
+                },
+                "et": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Lemmikud"
+                    }
+                },
+                "fi": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Suosikit"
+                    }
+                },
+                "fr": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Favoris"
+                    }
+                },
+                "ga": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Ceanáin"
+                    }
+                },
+                "hr": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Favoriti"
+                    }
+                },
+                "hu": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Kedvencek"
+                    }
+                },
+                "it": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Preferiti"
+                    }
+                },
+                "lt": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Mėgstamiausi"
+                    }
+                },
+                "lv": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Izlase"
+                    }
+                },
+                "mt": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Favoriti"
+                    }
+                },
+                "nl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Favorieten"
+                    }
+                },
+                "pl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Ulubione"
+                    }
+                },
+                "pt-PT": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Favoritos"
+                    }
+                },
+                "ro": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Favorite"
+                    }
+                },
+                "sk": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Obľúbené"
+                    }
+                },
+                "sl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Priljubljene"
+                    }
+                },
+                "sv": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Favoriter"
+                    }
+                }
+            }
+        },
         "app.try_again": {
             "extractionState": "manual",
             "localizations": {
@@ -3279,6 +3428,453 @@
                 }
             }
         },
+        "calculator.quick_amounts": {
+            "extractionState": "manual",
+            "localizations": {
+                "en": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Common amounts"
+                    }
+                },
+                "bg": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Често използвани суми"
+                    }
+                },
+                "cs": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Běžné částky"
+                    }
+                },
+                "da": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Almindelige beløb"
+                    }
+                },
+                "de": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Gängige Beträge"
+                    }
+                },
+                "el": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Συνηθισμένα ποσά"
+                    }
+                },
+                "es": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Importes habituales"
+                    }
+                },
+                "et": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Levinud summad"
+                    }
+                },
+                "fi": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Tavalliset summat"
+                    }
+                },
+                "fr": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Montants courants"
+                    }
+                },
+                "ga": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Suimeanna coitianta"
+                    }
+                },
+                "hr": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Uobičajeni iznosi"
+                    }
+                },
+                "hu": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Gyakori összegek"
+                    }
+                },
+                "it": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Importi comuni"
+                    }
+                },
+                "lt": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Įprastos sumos"
+                    }
+                },
+                "lv": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Bieži lietotas summas"
+                    }
+                },
+                "mt": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Ammonti komuni"
+                    }
+                },
+                "nl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Veelgebruikte bedragen"
+                    }
+                },
+                "pl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Typowe kwoty"
+                    }
+                },
+                "pt-PT": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Valores comuns"
+                    }
+                },
+                "ro": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Sume uzuale"
+                    }
+                },
+                "sk": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Bežné sumy"
+                    }
+                },
+                "sl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Pogosti zneski"
+                    }
+                },
+                "sv": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Vanliga belopp"
+                    }
+                }
+            }
+        },
+        "calculator.rate_since": {
+            "extractionState": "manual",
+            "localizations": {
+                "en": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "In force since %1$@"
+                    }
+                },
+                "bg": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "В сила от %1$@"
+                    }
+                },
+                "cs": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Platí od %1$@"
+                    }
+                },
+                "da": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Gældende siden %1$@"
+                    }
+                },
+                "de": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Gültig seit %1$@"
+                    }
+                },
+                "el": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Σε ισχύ από %1$@"
+                    }
+                },
+                "es": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Vigente desde el %1$@"
+                    }
+                },
+                "et": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Kehtib alates %1$@"
+                    }
+                },
+                "fi": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Voimassa %1$@ alkaen"
+                    }
+                },
+                "fr": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "En vigueur depuis le %1$@"
+                    }
+                },
+                "ga": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "I bhfeidhm ó %1$@"
+                    }
+                },
+                "hr": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Na snazi od %1$@"
+                    }
+                },
+                "hu": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Érvényes: %1$@ óta"
+                    }
+                },
+                "it": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "In vigore dal %1$@"
+                    }
+                },
+                "lt": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Galioja nuo %1$@"
+                    }
+                },
+                "lv": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Spēkā no %1$@"
+                    }
+                },
+                "mt": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Fis-seħħ mill-%1$@"
+                    }
+                },
+                "nl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Van kracht sinds %1$@"
+                    }
+                },
+                "pl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Obowiązuje od %1$@"
+                    }
+                },
+                "pt-PT": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Em vigor desde %1$@"
+                    }
+                },
+                "ro": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "În vigoare din %1$@"
+                    }
+                },
+                "sk": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Platí od %1$@"
+                    }
+                },
+                "sl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Velja od %1$@"
+                    }
+                },
+                "sv": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Gäller sedan %1$@"
+                    }
+                }
+            }
+        },
+        "calculator.recent_calculations": {
+            "extractionState": "manual",
+            "localizations": {
+                "en": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Recent calculations"
+                    }
+                },
+                "bg": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Последни изчисления"
+                    }
+                },
+                "cs": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Nedávné výpočty"
+                    }
+                },
+                "da": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Seneste beregninger"
+                    }
+                },
+                "de": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Letzte Berechnungen"
+                    }
+                },
+                "el": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Πρόσφατοι υπολογισμοί"
+                    }
+                },
+                "es": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Cálculos recientes"
+                    }
+                },
+                "et": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Viimased arvutused"
+                    }
+                },
+                "fi": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Viimeisimmät laskut"
+                    }
+                },
+                "fr": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Calculs récents"
+                    }
+                },
+                "ga": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Ríomhanna le déanaí"
+                    }
+                },
+                "hr": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Nedavni izračuni"
+                    }
+                },
+                "hu": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Legutóbbi számítások"
+                    }
+                },
+                "it": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Calcoli recenti"
+                    }
+                },
+                "lt": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Naujausi skaičiavimai"
+                    }
+                },
+                "lv": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Nesenie aprēķini"
+                    }
+                },
+                "mt": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Kalkoli riċenti"
+                    }
+                },
+                "nl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Recente berekeningen"
+                    }
+                },
+                "pl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Ostatnie obliczenia"
+                    }
+                },
+                "pt-PT": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Cálculos recentes"
+                    }
+                },
+                "ro": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Calcule recente"
+                    }
+                },
+                "sk": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Nedávne výpočty"
+                    }
+                },
+                "sl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Nedavni izračuni"
+                    }
+                },
+                "sv": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Senaste beräkningar"
+                    }
+                }
+            }
+        },
         "calculator.reduced_rate_label": {
             "extractionState": "manual",
             "localizations": {
@@ -4765,6 +5361,453 @@
                     "stringUnit": {
                         "state": "translated",
                         "value": "Superreducerad (%1$@%%)"
+                    }
+                }
+            }
+        },
+        "calculator.th_add_vat": {
+            "extractionState": "manual",
+            "localizations": {
+                "en": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Adding %1$@%% VAT"
+                    }
+                },
+                "bg": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "С добавен ДДС %1$@%%"
+                    }
+                },
+                "cs": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Po přičtení %1$@ %% DPH"
+                    }
+                },
+                "da": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Med %1$@ %% moms lagt til"
+                    }
+                },
+                "de": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "%1$@ %% MwSt. hinzugerechnet"
+                    }
+                },
+                "el": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Με προσθήκη ΦΠΑ %1$@%%"
+                    }
+                },
+                "es": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Sumando el %1$@ %% de IVA"
+                    }
+                },
+                "et": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "%1$@%% käibemaksuga"
+                    }
+                },
+                "fi": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Kun %1$@ %% ALV lisätään"
+                    }
+                },
+                "fr": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "En ajoutant %1$@ %% de TVA"
+                    }
+                },
+                "ga": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Le %1$@%% CBL curtha leis"
+                    }
+                },
+                "hr": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Uz dodani PDV od %1$@ %%"
+                    }
+                },
+                "hu": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "%1$@%% áfával növelve"
+                    }
+                },
+                "it": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Aggiungendo l'IVA al %1$@%%"
+                    }
+                },
+                "lt": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Pridėjus %1$@ %% PVM"
+                    }
+                },
+                "lv": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Pieskaitot %1$@%% PVN"
+                    }
+                },
+                "mt": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "B'%1$@%% VAT miżjuda"
+                    }
+                },
+                "nl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Met %1$@%% btw erbij"
+                    }
+                },
+                "pl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Po doliczeniu %1$@%% VAT"
+                    }
+                },
+                "pt-PT": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Com %1$@%% de IVA adicionado"
+                    }
+                },
+                "ro": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Cu TVA de %1$@%% adăugată"
+                    }
+                },
+                "sk": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Po pripočítaní %1$@ %% DPH"
+                    }
+                },
+                "sl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "S prištetim %1$@ %% DDV"
+                    }
+                },
+                "sv": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Med %1$@ %% moms tillagd"
+                    }
+                }
+            }
+        },
+        "calculator.th_amount": {
+            "extractionState": "manual",
+            "localizations": {
+                "en": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Amount"
+                    }
+                },
+                "bg": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Сума"
+                    }
+                },
+                "cs": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Částka"
+                    }
+                },
+                "da": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Beløb"
+                    }
+                },
+                "de": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Betrag"
+                    }
+                },
+                "el": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Ποσό"
+                    }
+                },
+                "es": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Importe"
+                    }
+                },
+                "et": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Summa"
+                    }
+                },
+                "fi": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Summa"
+                    }
+                },
+                "fr": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Montant"
+                    }
+                },
+                "ga": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Suim"
+                    }
+                },
+                "hr": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Iznos"
+                    }
+                },
+                "hu": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Összeg"
+                    }
+                },
+                "it": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Importo"
+                    }
+                },
+                "lt": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Suma"
+                    }
+                },
+                "lv": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Summa"
+                    }
+                },
+                "mt": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Ammont"
+                    }
+                },
+                "nl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Bedrag"
+                    }
+                },
+                "pl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Kwota"
+                    }
+                },
+                "pt-PT": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Valor"
+                    }
+                },
+                "ro": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Sumă"
+                    }
+                },
+                "sk": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Suma"
+                    }
+                },
+                "sl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Znesek"
+                    }
+                },
+                "sv": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Belopp"
+                    }
+                }
+            }
+        },
+        "calculator.th_remove_vat": {
+            "extractionState": "manual",
+            "localizations": {
+                "en": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Removing %1$@%% VAT"
+                    }
+                },
+                "bg": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "С изваден ДДС %1$@%%"
+                    }
+                },
+                "cs": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Po odečtení %1$@ %% DPH"
+                    }
+                },
+                "da": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Med %1$@ %% moms trukket fra"
+                    }
+                },
+                "de": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "%1$@ %% MwSt. herausgerechnet"
+                    }
+                },
+                "el": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Με αφαίρεση ΦΠΑ %1$@%%"
+                    }
+                },
+                "es": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Quitando el %1$@ %% de IVA"
+                    }
+                },
+                "et": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "%1$@%% käibemaksuta"
+                    }
+                },
+                "fi": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Kun %1$@ %% ALV poistetaan"
+                    }
+                },
+                "fr": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "En retirant %1$@ %% de TVA"
+                    }
+                },
+                "ga": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Le %1$@%% CBL bainte"
+                    }
+                },
+                "hr": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Uz oduzeti PDV od %1$@ %%"
+                    }
+                },
+                "hu": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "%1$@%% áfa levonásával"
+                    }
+                },
+                "it": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Scorporando l'IVA al %1$@%%"
+                    }
+                },
+                "lt": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Išskaičiavus %1$@ %% PVM"
+                    }
+                },
+                "lv": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Atskaitot %1$@%% PVN"
+                    }
+                },
+                "mt": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "B'%1$@%% VAT imneħħija"
+                    }
+                },
+                "nl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Met %1$@%% btw eraf"
+                    }
+                },
+                "pl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Po odliczeniu %1$@%% VAT"
+                    }
+                },
+                "pt-PT": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Com %1$@%% de IVA retirado"
+                    }
+                },
+                "ro": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Cu TVA de %1$@%% scăzută"
+                    }
+                },
+                "sk": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Po odpočítaní %1$@ %% DPH"
+                    }
+                },
+                "sl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Z odštetim %1$@ %% DDV"
+                    }
+                },
+                "sv": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Med %1$@ %% moms bortdragen"
                     }
                 }
             }
@@ -10729,6 +11772,155 @@
                 }
             }
         },
+        "country_page.vat_validator": {
+            "extractionState": "manual",
+            "localizations": {
+                "en": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "VAT validator"
+                    }
+                },
+                "bg": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Валидатор на ДДС номера"
+                    }
+                },
+                "cs": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Ověření DIČ"
+                    }
+                },
+                "da": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Momsvalidering"
+                    }
+                },
+                "de": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "MwSt.-Validator"
+                    }
+                },
+                "el": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Επαλήθευση ΑΦΜ"
+                    }
+                },
+                "es": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Validador de IVA"
+                    }
+                },
+                "et": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Käibemaksukohustuslase kontroll"
+                    }
+                },
+                "fi": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "ALV-tunnuksen tarkistus"
+                    }
+                },
+                "fr": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Validateur de TVA"
+                    }
+                },
+                "ga": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Bailíochtóir CBL"
+                    }
+                },
+                "hr": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Provjera PDV ID-a"
+                    }
+                },
+                "hu": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Adószám-ellenőrzés"
+                    }
+                },
+                "it": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Validatore IVA"
+                    }
+                },
+                "lt": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "PVM mokėtojo kodo tikrinimas"
+                    }
+                },
+                "lv": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "PVN numura pārbaude"
+                    }
+                },
+                "mt": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Validatur tan-Numru tal-VAT"
+                    }
+                },
+                "nl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "BTW-validator"
+                    }
+                },
+                "pl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Walidator VAT"
+                    }
+                },
+                "pt-PT": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Validação de NIF"
+                    }
+                },
+                "ro": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Verificare cod TVA"
+                    }
+                },
+                "sk": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Overenie IČ DPH"
+                    }
+                },
+                "sl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Preverjanje DDV ID"
+                    }
+                },
+                "sv": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Momsvalidering"
+                    }
+                }
+            }
+        },
         "country_page.vies_validation": {
             "extractionState": "manual",
             "localizations": {
@@ -13407,6 +14599,304 @@
                     "stringUnit": {
                         "state": "translated",
                         "value": "Normalsats"
+                    }
+                }
+            }
+        },
+        "history.stat_decreases": {
+            "extractionState": "manual",
+            "localizations": {
+                "en": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Decreases"
+                    }
+                },
+                "bg": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Намаления"
+                    }
+                },
+                "cs": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Snížení"
+                    }
+                },
+                "da": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Fald"
+                    }
+                },
+                "de": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Senkungen"
+                    }
+                },
+                "el": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Μειώσεις"
+                    }
+                },
+                "es": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Reducciones"
+                    }
+                },
+                "et": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Langused"
+                    }
+                },
+                "fi": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Alennukset"
+                    }
+                },
+                "fr": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Baisses"
+                    }
+                },
+                "ga": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Laghduithe"
+                    }
+                },
+                "hr": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Smanjenja"
+                    }
+                },
+                "hu": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Csökkentések"
+                    }
+                },
+                "it": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Diminuzioni"
+                    }
+                },
+                "lt": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Sumažinimai"
+                    }
+                },
+                "lv": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Samazinājumi"
+                    }
+                },
+                "mt": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Tnaqqisiet"
+                    }
+                },
+                "nl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Verlagingen"
+                    }
+                },
+                "pl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Obniżki"
+                    }
+                },
+                "pt-PT": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Reduções"
+                    }
+                },
+                "ro": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Scăderi"
+                    }
+                },
+                "sk": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Zníženia"
+                    }
+                },
+                "sl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Znižanja"
+                    }
+                },
+                "sv": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Sänkningar"
+                    }
+                }
+            }
+        },
+        "history.stat_increases": {
+            "extractionState": "manual",
+            "localizations": {
+                "en": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Increases"
+                    }
+                },
+                "bg": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Увеличения"
+                    }
+                },
+                "cs": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Zvýšení"
+                    }
+                },
+                "da": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Stigninger"
+                    }
+                },
+                "de": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Erhöhungen"
+                    }
+                },
+                "el": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Αυξήσεις"
+                    }
+                },
+                "es": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Aumentos"
+                    }
+                },
+                "et": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Tõusud"
+                    }
+                },
+                "fi": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Korotukset"
+                    }
+                },
+                "fr": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Augmentations"
+                    }
+                },
+                "ga": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Méaduithe"
+                    }
+                },
+                "hr": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Povećanja"
+                    }
+                },
+                "hu": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Emelések"
+                    }
+                },
+                "it": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Aumenti"
+                    }
+                },
+                "lt": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Padidinimai"
+                    }
+                },
+                "lv": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Palielinājumi"
+                    }
+                },
+                "mt": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Żidiet"
+                    }
+                },
+                "nl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Verhogingen"
+                    }
+                },
+                "pl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Podwyżki"
+                    }
+                },
+                "pt-PT": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Aumentos"
+                    }
+                },
+                "ro": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Creșteri"
+                    }
+                },
+                "sk": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Zvýšenia"
+                    }
+                },
+                "sl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Povišanja"
+                    }
+                },
+                "sv": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Höjningar"
                     }
                 }
             }
@@ -16238,6 +17728,155 @@
                     "stringUnit": {
                         "state": "translated",
                         "value": "Satser uppdaterade %1$@"
+                    }
+                }
+            }
+        },
+        "type": {
+            "extractionState": "manual",
+            "localizations": {
+                "en": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Type"
+                    }
+                },
+                "bg": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Тип"
+                    }
+                },
+                "cs": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Typ"
+                    }
+                },
+                "da": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Type"
+                    }
+                },
+                "de": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Typ"
+                    }
+                },
+                "el": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Τύπος"
+                    }
+                },
+                "es": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Tipo"
+                    }
+                },
+                "et": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Tüüp"
+                    }
+                },
+                "fi": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Tyyppi"
+                    }
+                },
+                "fr": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Type"
+                    }
+                },
+                "ga": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Cineál"
+                    }
+                },
+                "hr": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Vrsta"
+                    }
+                },
+                "hu": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Típus"
+                    }
+                },
+                "it": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Tipo"
+                    }
+                },
+                "lt": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Tipas"
+                    }
+                },
+                "lv": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Veids"
+                    }
+                },
+                "mt": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Tip"
+                    }
+                },
+                "nl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Type"
+                    }
+                },
+                "pl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Typ"
+                    }
+                },
+                "pt-PT": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Tipo"
+                    }
+                },
+                "ro": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Tip"
+                    }
+                },
+                "sk": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Typ"
+                    }
+                },
+                "sl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Vrsta"
+                    }
+                },
+                "sv": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Typ"
                     }
                 }
             }
@@ -20410,6 +22049,155 @@
                     "stringUnit": {
                         "state": "translated",
                         "value": "Nyligen hämtat resultat, kontrollerat under de senaste 7 dagarna"
+                    }
+                }
+            }
+        },
+        "vies_page.try_example": {
+            "extractionState": "manual",
+            "localizations": {
+                "en": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Try LT100019070512"
+                    }
+                },
+                "bg": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Опитайте LT100019070512"
+                    }
+                },
+                "cs": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Zkuste LT100019070512"
+                    }
+                },
+                "da": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Prøv LT100019070512"
+                    }
+                },
+                "de": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Versuchen Sie LT100019070512"
+                    }
+                },
+                "el": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Δοκιμάστε LT100019070512"
+                    }
+                },
+                "es": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Pruebe LT100019070512"
+                    }
+                },
+                "et": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Proovige LT100019070512"
+                    }
+                },
+                "fi": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Kokeile LT100019070512"
+                    }
+                },
+                "fr": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Essayez LT100019070512"
+                    }
+                },
+                "ga": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Déan iarracht ar LT100019070512"
+                    }
+                },
+                "hr": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Pokušajte LT100019070512"
+                    }
+                },
+                "hu": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Próbálja ki az LT100019070512"
+                    }
+                },
+                "it": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Prova LT100019070512"
+                    }
+                },
+                "lt": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Išbandykite LT100019070512"
+                    }
+                },
+                "lv": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Izmēģiniet LT100019070512"
+                    }
+                },
+                "mt": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Pġorba LT100019070512"
+                    }
+                },
+                "nl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Probeer LT100019070512"
+                    }
+                },
+                "pl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Spróbuj LT100019070512"
+                    }
+                },
+                "pt-PT": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Tente LT100019070512"
+                    }
+                },
+                "ro": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Încercați LT100019070512"
+                    }
+                },
+                "sk": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Skúste LT100019070512"
+                    }
+                },
+                "sl": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Poskusite LT100019070512"
+                    }
+                },
+                "sv": {
+                    "stringUnit": {
+                        "state": "translated",
+                        "value": "Prova LT100019070512"
                     }
                 }
             }

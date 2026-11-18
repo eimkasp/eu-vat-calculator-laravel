@@ -6,6 +6,11 @@ struct HistoryView: View {
         case all, increases, decreases
     }
 
+    /// Marks the first change of a year, so the chart can scroll the list to it.
+    private struct YearAnchor: Hashable {
+        let year: Int
+    }
+
     @Environment(RatesStore.self) private var store
     @Environment(AppRouter.self) private var router
 
@@ -15,78 +20,134 @@ struct HistoryView: View {
     var body: some View {
         @Bindable var router = router
         let changes = filtered
+        let years = years(changes)
 
         NavigationStack(path: $router.historyPath) {
-            List {
-                if store.refreshFailed {
-                    StaleDataNotice()
+            ScrollViewReader { proxy in
+                List {
+                    if store.refreshFailed {
+                        StaleDataNotice()
+                            .listRowBackground(Color.clear)
+                            .listRowSeparator(.hidden)
+                    }
+
+                    filters
+                        .listRowInsets(EdgeInsets(top: 4, leading: Metrics.gutter, bottom: 4, trailing: Metrics.gutter))
                         .listRowBackground(Color.clear)
                         .listRowSeparator(.hidden)
-                }
 
-                ForEach(years(changes), id: \.self) { year in
-                    Section {
-                        ForEach(changes.filter { self.year($0) == year }) { change in
-                            NavigationLink(value: change.country.code) {
-                                ChangeRow(change: change, showsCountry: true)
-                                    .padding(.vertical, 4)
-                            }
-                            .listRowBackground(Palette.surface)
-                            .listRowSeparatorTint(Palette.line)
-                        }
-                    } header: {
-                        Text(verbatim: year.map(String.init) ?? "—")
-                            .font(.label)
-                            .foregroundStyle(Palette.inkMuted)
-                    }
-                }
-            }
-            .listStyle(.plain)
-            .scrollContentBackground(.hidden)
-            .listColumn()
-            .workspaceBackground()
-            .overlay {
-                if changes.isEmpty {
-                    ContentUnavailableView {
-                        Label(L10n.historyNoChanges, systemImage: "clock.arrow.circlepath")
-                    } actions: {
-                        if isFiltered {
-                            Button(L10n.historyClearFilters, action: clearFilters)
-                                .buttonStyle(.secondaryKey)
-                        }
-                    }
-                }
-            }
-            .refreshable { await store.refresh() }
-            .navigationTitle(L10n.navVatHistory)
-            .navigationDestination(for: String.self) { CountryView(iso: $0) }
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Menu {
-                        Picker(L10n.country, selection: $countryFilter) {
-                            Text(L10n.historyAllCountries).tag(String?.none)
-
-                            ForEach(countriesWithChanges) { country in
-                                Text(country.localizedName).tag(String?.some(country.isoCode))
+                    if changes.isEmpty {
+                        ContentUnavailableView {
+                            Label(L10n.historyNoChanges, systemImage: "clock.arrow.circlepath")
+                        } actions: {
+                            if isFiltered {
+                                Button(L10n.historyClearFilters, action: clearFilters)
+                                    .buttonStyle(.secondaryKey)
                             }
                         }
-                        .pickerStyle(.menu)
+                        .listRowBackground(Color.clear)
+                        .listRowSeparator(.hidden)
+                    } else {
+                        ChangesChart(summary: ChangesByYear(changes: changes)) { year in
+                            // A year without a change of its own leads to the one before it.
+                            guard let target = years.compactMap({ $0 }).first(where: { $0 <= year }) else { return }
 
-                        Picker(L10n.historyDirection, selection: $directionFilter) {
-                            Text(L10n.historyAllDirections).tag(DirectionFilter.all)
-                            Text(L10n.historyIncreases).tag(DirectionFilter.increases)
-                            Text(L10n.historyDecreases).tag(DirectionFilter.decreases)
+                            withAnimation(.easeOut(duration: 0.2)) { proxy.scrollTo(YearAnchor(year: target), anchor: .top) }
                         }
-
-                        if isFiltered {
-                            Button(L10n.historyClearFilters, systemImage: "xmark", action: clearFilters)
-                        }
-                    } label: {
-                        Image(systemName: isFiltered ? "line.3.horizontal.decrease.circle.fill" : "line.3.horizontal.decrease.circle")
+                        .padding(16)
+                        .card()
+                        .listRowInsets(EdgeInsets(top: 8, leading: Metrics.gutter, bottom: 8, trailing: Metrics.gutter))
+                        .listRowBackground(Color.clear)
+                        .listRowSeparator(.hidden)
                     }
-                    .accessibilityLabel(L10n.filters)
+
+                    ForEach(years, id: \.self) { year in
+                        let rows = changes.filter { self.year($0) == year }
+
+                        Section {
+                            ForEach(rows) { change in
+                                NavigationLink(value: change.country.code) {
+                                    ChangeRow(change: change, showsCountry: true)
+                                        .padding(.vertical, 4)
+                                }
+                                .listRowBackground(Palette.surface)
+                                .listRowSeparatorTint(Palette.line)
+                                .id(anchor(for: change, firstOf: rows, in: year))
+                            }
+                        } header: {
+                            Text(verbatim: year.map(String.init) ?? "—")
+                                .font(.label)
+                                .foregroundStyle(Palette.inkMuted)
+                        }
+                    }
+                }
+                .listStyle(.plain)
+                .scrollContentBackground(.hidden)
+                .listColumn()
+                .workspaceBackground()
+                .refreshable { await store.refresh() }
+                .navigationTitle(L10n.navVatHistory)
+                .navigationDestination(for: String.self) { CountryView(iso: $0) }
+                .animation(.easeOut(duration: 0.2), value: countryFilter)
+                .animation(.easeOut(duration: 0.2), value: directionFilter)
+            }
+        }
+    }
+
+    /// The filters, in sight above the list: the country, then the direction of the change.
+    private var filters: some View {
+        FlowLayout(spacing: 8) {
+            countryMenu
+
+            ChoiceChip(label: L10n.historyAllDirections, selected: directionFilter == .all) { directionFilter = .all }
+            ChoiceChip(label: L10n.historyIncreases, selected: directionFilter == .increases) { directionFilter = .increases }
+            ChoiceChip(label: L10n.historyDecreases, selected: directionFilter == .decreases) { directionFilter = .decreases }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
+    private var countryMenu: some View {
+        let chosen = countryFilter.flatMap(store.country(iso:))
+        let shape = RoundedRectangle(cornerRadius: Metrics.controlRadius)
+
+        return Menu {
+            Picker(L10n.country, selection: $countryFilter) {
+                Text(L10n.historyAllCountries).tag(String?.none)
+
+                ForEach(countriesWithChanges) { country in
+                    Text(country.localizedName).tag(String?.some(country.isoCode))
                 }
             }
+        } label: {
+            HStack(spacing: 6) {
+                if let chosen {
+                    FlagView(iso: chosen.isoCode, height: 12)
+                }
+
+                Text(chosen?.localizedName ?? L10n.historyAllCountries)
+                    .font(.subheadline.weight(.medium))
+                    .lineLimit(1)
+                Image(systemName: "chevron.down")
+                    .font(.caption2.weight(.semibold))
+                    .accessibilityHidden(true)
+            }
+            .foregroundStyle(chosen == nil ? Palette.ink : Palette.actionDeep)
+            .padding(.horizontal, 12)
+            .frame(minHeight: Metrics.touch)
+            .background(chosen == nil ? Palette.keyFace : Palette.actionSoft, in: shape)
+            .overlay(shape.strokeBorder(chosen == nil ? Palette.lineStrong : Palette.action, lineWidth: 1))
+            .contentShape(shape)
+        }
+        .accessibilityLabel(L10n.country)
+        .accessibilityValue(chosen?.localizedName ?? L10n.historyAllCountries)
+    }
+
+    /// The first change of a year answers to the year; every other row keeps its own identity.
+    private func anchor(for change: RateChange, firstOf rows: [RateChange], in year: Int?) -> AnyHashable {
+        if let year, change.id == rows.first?.id {
+            AnyHashable(YearAnchor(year: year))
+        } else {
+            AnyHashable(change.id)
         }
     }
 
@@ -113,7 +174,7 @@ struct HistoryView: View {
     }
 
     private func year(_ change: RateChange) -> Int? {
-        change.changeDate.map { Calendar(identifier: .gregorian).component(.year, from: $0) }
+        change.changeDate.map { ChangesByYear.calendar.component(.year, from: $0) }
     }
 
     /// The years that have changes, newest first, with undated changes last.

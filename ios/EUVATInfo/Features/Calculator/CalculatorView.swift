@@ -3,9 +3,11 @@ import SwiftUI
 /// Add VAT to a net amount or take it out of a total, at any of a country's rates. Works without a connection.
 struct CalculatorView: View {
     private enum Field { case amount, customRate }
+    private enum Anchor { case total }
 
     @Environment(RatesStore.self) private var store
     @Environment(CalculatorModel.self) private var model
+    @Environment(ToastCenter.self) private var toasts
 
     @State private var pickingCountry = false
     @FocusState private var focus: Field?
@@ -21,6 +23,7 @@ struct CalculatorView: View {
                         if let country = model.country(in: store) {
                             form(country)
                             result(country)
+                            recent(country)
                             FreshnessLine(updated: country.lastUpdated ?? store.fetchedAt, isEU: country.isEUMember)
                         } else {
                             ContentUnavailableView {
@@ -38,16 +41,21 @@ struct CalculatorView: View {
                     .padding(.vertical, 16)
                     .contentColumn()
                 }
-                .onChange(of: focus) { _, field in
+                .onChange(of: focus) { old, field in
+                    if field == nil, old != nil {
+                        rememberCalculation()
+                    }
+
                     guard field == .amount else { return }
 
-                    // Once the number pad is up, bring the amount to the top so the total under it stays in sight.
+                    // Once the number pad is up, rest the total just above it so it stays in sight while typing.
                     Task {
                         try? await Task.sleep(for: .milliseconds(300))
-                        withAnimation(.easeOut(duration: 0.2)) { proxy.scrollTo(Field.amount, anchor: .top) }
+                        withAnimation(.easeOut(duration: 0.2)) { proxy.scrollTo(Anchor.total, anchor: .bottom) }
                     }
                 }
             }
+            .onDisappear(perform: rememberCalculation)
             .scrollDismissesKeyboard(.interactively)
             .workspaceBackground()
             .navigationTitle(L10n.calculatorTitle)
@@ -72,6 +80,7 @@ struct CalculatorView: View {
                 Text(L10n.calculatorRemoveVatMode).tag(VatMode.include)
             }
             .pickerStyle(.segmented)
+            .sensoryFeedback(.selection, trigger: model.mode)
 
             field(model.mode == .exclude ? L10n.calculatorAmountExclVat : L10n.calculatorAmountInclVat) {
                 HStack(alignment: .firstTextBaseline, spacing: 8) {
@@ -105,13 +114,24 @@ struct CalculatorView: View {
                         .font(.footnote)
                         .foregroundStyle(Palette.danger)
                 }
+
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 8) {
+                        ForEach(CalculatorModel.commonAmounts, id: \.self) { amount in
+                            ChoiceChip(label: Format.amount(amount), selected: model.amount == amount) {
+                                model.setAmount(amount)
+                            }
+                        }
+                    }
+                }
+                .accessibilityElement(children: .contain)
+                .accessibilityLabel(L10n.calculatorQuickAmounts)
             }
-            .id(Field.amount)
 
             field(L10n.calculatorVatRate) {
                 FlowLayout(spacing: 8) {
                     ForEach(model.options(for: country)) { option in
-                        RateChip(label: option.label, selected: model.effectiveChoice(for: country) == option.choice) {
+                        ChoiceChip(label: option.label, selected: model.effectiveChoice(for: country) == option.choice) {
                             model.choice = option.choice
 
                             if option.choice == .custom {
@@ -174,11 +194,13 @@ struct CalculatorView: View {
                         .lineLimit(1)
                         .minimumScaleFactor(0.4)
                         .contentTransition(.numericText())
+                        .textSelection(.enabled)
+
+                    Meter(share: calculation.vatShare)
+                        .padding(.top, 10)
                 }
                 .accessibilityElement(children: .combine)
-
-                Meter(share: calculation.vatShare)
-                    .padding(.top, 12)
+                .id(Anchor.total)
 
                 Text(summary)
                     .font(.subheadline)
@@ -201,7 +223,9 @@ struct CalculatorView: View {
 
                 HStack(spacing: 10) {
                     Button {
-                        Clipboard.copy(model.shareText(calculation, in: country), announcement: L10n.calculatorCopied)
+                        Clipboard.copy(model.shareText(calculation, in: country))
+                        toasts.show(L10n.calculatorCopied)
+                        model.remember(calculation, in: country)
                     } label: {
                         Label(L10n.calculatorCopyResult, systemImage: "doc.on.doc")
                             .labelStyle(.tightIcon)
@@ -214,6 +238,7 @@ struct CalculatorView: View {
                         Image(systemName: "square.and.arrow.up")
                     }
                     .buttonStyle(.secondaryKey)
+                    .simultaneousGesture(TapGesture().onEnded { model.remember(calculation, in: country) })
                 }
             }
             .padding(20)
@@ -221,6 +246,68 @@ struct CalculatorView: View {
             .card(fill: Palette.surfaceSubtle)
             .animation(.easeOut(duration: 0.2), value: calculation)
         }
+    }
+
+    /// Earlier calculations, without the one on screen. A row puts that calculation back.
+    @ViewBuilder
+    private func recent(_ country: Country) -> some View {
+        let current = model.calculation(for: country).map {
+            RecentCalculation(countryCode: country.isoCode, amount: $0.input, rate: $0.rate, mode: $0.mode).id
+        }
+        let entries = model.recent.filter { $0.id != current && store.country(iso: $0.countryCode) != nil }
+
+        if !entries.isEmpty {
+            VStack(alignment: .leading, spacing: 0) {
+                HStack(alignment: .firstTextBaseline) {
+                    Text(L10n.calculatorRecentCalculations)
+                        .font(.section)
+                        .foregroundStyle(Palette.ink)
+                        .accessibilityAddTraits(.isHeader)
+                    Spacer()
+                    Button(L10n.calculatorClearAll) { model.clearRecent() }
+                        .font(.subheadline.weight(.medium))
+                }
+                .padding(.bottom, 8)
+
+                ForEach(entries) { entry in
+                    if let place = store.country(iso: entry.countryCode) {
+                        let calculation = entry.calculation
+
+                        Hairline()
+
+                        Button {
+                            model.restore(entry, in: store)
+                        } label: {
+                            HStack(spacing: 12) {
+                                FlagView(iso: place.isoCode)
+                                Text(model.summary(calculation, in: place))
+                                    .font(.subheadline)
+                                    .foregroundStyle(Palette.inkMuted)
+                                    .multilineTextAlignment(.leading)
+                                Spacer(minLength: 8)
+                                Text(Format.money(calculation.mode == .exclude ? calculation.gross : calculation.net, currency: place.currency))
+                                    .font(.body.weight(.medium).monospacedDigit())
+                                    .foregroundStyle(Palette.ink)
+                            }
+                            .frame(minHeight: Metrics.touch)
+                            .padding(.vertical, 4)
+                            .contentShape(Rectangle())
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+            }
+            .padding(16)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .card()
+            .sensoryFeedback(.selection, trigger: model.countryCode)
+        }
+    }
+
+    private func rememberCalculation() {
+        guard let country = model.country(in: store), let calculation = model.calculation(for: country) else { return }
+
+        model.remember(calculation, in: country)
     }
 
     /// Puts the number pad away: it has no return key of its own.
@@ -240,6 +327,7 @@ struct CalculatorView: View {
             Text(Format.money(value, currency: country.currency))
                 .font(.figure)
                 .foregroundStyle(Palette.ink)
+                .textSelection(.enabled)
         }
     }
 
@@ -250,38 +338,6 @@ struct CalculatorView: View {
                 .foregroundStyle(Palette.inkMuted)
             content()
         }
-    }
-}
-
-/// A rate you can pick: a small key that stays pressed in while it is the chosen one.
-private struct RateChip: View {
-    let label: String
-    let selected: Bool
-    let action: () -> Void
-
-    var body: some View {
-        let shape = RoundedRectangle(cornerRadius: Metrics.controlRadius)
-
-        Button(action: action) {
-            HStack(spacing: 6) {
-                if selected {
-                    Image(systemName: "checkmark")
-                        .font(.footnote.weight(.semibold))
-                        .accessibilityHidden(true)
-                }
-
-                Text(label)
-                    .font(.subheadline.weight(.medium))
-            }
-            .foregroundStyle(selected ? Palette.actionDeep : Palette.ink)
-            .padding(.horizontal, 12)
-            .frame(minHeight: Metrics.touch)
-            .background(selected ? Palette.actionSoft : Palette.keyFace, in: shape)
-            .overlay(shape.strokeBorder(selected ? Palette.action : Palette.lineStrong, lineWidth: 1))
-            .contentShape(shape)
-        }
-        .buttonStyle(.plain)
-        .accessibilityAddTraits(selected ? .isSelected : [])
     }
 }
 
