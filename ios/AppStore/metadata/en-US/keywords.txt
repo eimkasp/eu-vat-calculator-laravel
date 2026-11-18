@@ -1,0 +1,1 @@
+tax,invoice,europe,validator,number,mwst,tva,iva,btw,moms,pvm,alv,dph,net,gross,accounting,reverse

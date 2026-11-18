@@ -1,0 +1,5 @@
+The app needs no account and has no sign-in, purchases or ads.
+
+Countries, Calculator, Compare and History work without a connection from data shipped in the app, and refresh from https://vat.businesspress.io/api/v1 when online.
+
+Validator checks a VAT number in the European Commission's VIES register through our server. To try it, enter IE6388047V and tap Validate. VIES is sometimes unavailable for a member state; the app then says so and offers to try again.
