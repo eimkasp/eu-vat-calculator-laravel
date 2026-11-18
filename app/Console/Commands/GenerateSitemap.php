@@ -7,7 +7,7 @@ use Illuminate\Console\Command;
 
 class GenerateSitemap extends Command
 {
-    protected $signature = 'sitemap:generate {--url= : Override canonical URL (e.g. https://vat.businesspress.io)}';
+    protected $signature = 'sitemap:generate {--url= : Override canonical URL (e.g. https://eu-vat.info)}';
 
     protected $description = 'Generate a local copy of the dynamic sitemap index for verification';
 

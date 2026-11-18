@@ -65,7 +65,7 @@ it('serves pages as clean Markdown for agents', function () {
 
     expect($markdown)
         ->toContain('| Amount | Adding 20% VAT | Removing 20% VAT |')
-        ->toContain('(https://vat.businesspress.io/vat-calculation/austria/100/20/exclude)')
+        ->toContain('(https://eu-vat.info/vat-calculation/austria/100/20/exclude)')
         ->toContain('### What is the VAT rate in Austria?')
         ->not->toContain(__('ui.calculator.no_countries_found'))
         ->not->toContain(__('ui.calculator.invalid_amount'))

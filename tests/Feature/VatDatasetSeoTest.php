@@ -16,14 +16,14 @@ it('publishes a canonical source-backed EU VAT dataset landing page', function (
 
     $this->get('/datasets/eu-vat-rates')
         ->assertOk()
-        ->assertSee('<link rel="canonical" href="https://vat.businesspress.io/datasets/eu-vat-rates">', false)
+        ->assertSee('<link rel="canonical" href="https://eu-vat.info/datasets/eu-vat-rates">', false)
         ->assertSee('"@type":"Dataset"', false)
         ->assertSee('"dateModified":"2026-06-12', false)
         ->assertSee('"isBasedOn"', false)
         ->assertSee('creativecommons.org/licenses/by/4.0')
-        ->assertSee('https://vat.businesspress.io/datasets/eu-vat-rates.csv')
-        ->assertSee('https://vat.businesspress.io/datasets/eu-vat-rates.json')
-        ->assertSee('https://vat.businesspress.io/llms-full.txt');
+        ->assertSee('https://eu-vat.info/datasets/eu-vat-rates.csv')
+        ->assertSee('https://eu-vat.info/datasets/eu-vat-rates.json')
+        ->assertSee('https://eu-vat.info/llms-full.txt');
 });
 
 it('serves an EU-only JSON dataset distribution with ISO codes', function () {

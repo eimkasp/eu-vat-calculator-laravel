@@ -4,7 +4,7 @@
 
 The most comprehensive, daily-updated source for VAT rates, calculators, validators, and historical data for all 27 EU member states. Built with Laravel 13, Livewire 4, Filament 5 and Tailwind CSS 4.
 
-**Live site:** [vat.businesspress.io](https://vat.businesspress.io)
+**Live site:** [eu-vat.info](https://eu-vat.info)
 
 ## Features
 
@@ -204,13 +204,13 @@ All API responses use JSON. No authentication required for read endpoints.
 
 ```bash
 # Get all EU countries with VAT rates
-curl https://vat.businesspress.io/api/countries
+curl https://eu-vat.info/api/countries
 
 # Get VAT details for Germany
-curl https://vat.businesspress.io/api/countries/germany
+curl https://eu-vat.info/api/countries/germany
 
 # Validate a VAT number
-curl -X POST https://vat.businesspress.io/api/vat/validation/validate \
+curl -X POST https://eu-vat.info/api/vat/validation/validate \
   -H "Content-Type: application/json" \
   -d '{"vat_number": "DE123456789"}'
 ```
@@ -286,7 +286,7 @@ The site is optimized for AI agent discovery and consumption:
 Configure the widget, preview it live and copy the snippet at `/embed/{country?}`. The snippet embeds:
 
 ```html
-<iframe src="https://vat.businesspress.io/public/embed/germany" title="EU VAT calculator" width="100%" height="760" style="border:0;background:transparent" loading="lazy"></iframe>
+<iframe src="https://eu-vat.info/public/embed/germany" title="EU VAT calculator" width="100%" height="760" style="border:0;background:transparent" loading="lazy"></iframe>
 ```
 
 Append `?style=horizontal` for the wide layout (recommended height 500px). Unknown countries fall back to the default country so embeds never break.

@@ -10,7 +10,9 @@
     <x-seo-meta
         :title="$country->name.' VAT Rate History — Changes and Effective Dates'"
         :description="'Review '.$country->name.' VAT rate history, including effective dates, previous rates, current rates and source-backed tax changes.'"
-        :url="$canonical">
+        :url="$canonical"
+        :image="app(\App\Support\Seo\CountryOgImage::class)->url($country)"
+        :image-alt="app(\App\Support\Seo\CountryOgImage::class)->alt($country)">
         <script type="application/ld+json">{!! json_encode([
             '@@context' => 'https://schema.org',
             '@type' => 'Dataset',

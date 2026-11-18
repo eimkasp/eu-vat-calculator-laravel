@@ -154,7 +154,7 @@ it('renders country specific seo and heading for calculator slug pages', functio
         ->assertStatus(200)
         ->assertSee('<title>Luxembourg VAT Calculator — 17% Standard Rate', false)
         ->assertSee('<meta name="title" content="Luxembourg VAT Calculator — 17% Standard Rate', false)
-        ->assertSee('<link rel="canonical" href="https://vat.businesspress.io/vat-calculator/'.$luxembourg->slug.'">', false)
+        ->assertSee('<link rel="canonical" href="https://eu-vat.info/vat-calculator/'.$luxembourg->slug.'">', false)
         ->assertSee('Luxembourg')
         ->assertSee('VAT Calculator')
         ->assertSee('Current standard rate is 17%')

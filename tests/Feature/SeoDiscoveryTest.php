@@ -12,8 +12,8 @@ it('publishes one canonical sitemap and no unsupported crawl delay directives', 
     $robots = file_get_contents(public_path('robots.txt'));
 
     expect(substr_count($robots, 'Sitemap:'))->toBe(1)
-        ->and($robots)->toContain('Sitemap: https://vat.businesspress.io/sitemap.xml')
-        ->not->toContain('eu-vat.info')
+        ->and($robots)->toContain('Sitemap: https://eu-vat.info/sitemap.xml')
+        ->not->toContain('vat.businesspress.io')
         ->not->toContain('Crawl-delay:');
 });
 
@@ -22,11 +22,11 @@ it('serves a sitemap index with focused canonical sections', function () {
         ->assertOk()
         ->assertHeader('Content-Type', 'application/xml')
         ->assertSee('<sitemapindex', false)
-        ->assertSee('https://vat.businesspress.io/sitemaps/core.xml', false)
-        ->assertSee('https://vat.businesspress.io/sitemaps/countries.xml', false)
-        ->assertSee('https://vat.businesspress.io/sitemaps/validators.xml', false)
-        ->assertSee('https://vat.businesspress.io/sitemaps/changes.xml', false)
-        ->assertSee('https://vat.businesspress.io/sitemaps/editorial.xml', false);
+        ->assertSee('https://eu-vat.info/sitemaps/core.xml', false)
+        ->assertSee('https://eu-vat.info/sitemaps/countries.xml', false)
+        ->assertSee('https://eu-vat.info/sitemaps/validators.xml', false)
+        ->assertSee('https://eu-vat.info/sitemaps/changes.xml', false)
+        ->assertSee('https://eu-vat.info/sitemaps/editorial.xml', false);
 });
 
 it('emits every ready locale as a loc with reciprocal hreflang and truthful lastmod', function () {
@@ -45,10 +45,10 @@ it('emits every ready locale as a loc with reciprocal hreflang and truthful last
 
     $response
         ->assertOk()
-        ->assertSee('<loc>https://vat.businesspress.io/vat-calculator/germany</loc>', false)
-        ->assertSee('<loc>https://vat.businesspress.io/de/vat-calculator/germany</loc>', false)
-        ->assertSee('hreflang="en" href="https://vat.businesspress.io/vat-calculator/germany"', false)
-        ->assertSee('hreflang="de" href="https://vat.businesspress.io/de/vat-calculator/germany"', false)
+        ->assertSee('<loc>https://eu-vat.info/vat-calculator/germany</loc>', false)
+        ->assertSee('<loc>https://eu-vat.info/de/vat-calculator/germany</loc>', false)
+        ->assertSee('hreflang="en" href="https://eu-vat.info/vat-calculator/germany"', false)
+        ->assertSee('hreflang="de" href="https://eu-vat.info/de/vat-calculator/germany"', false)
         ->assertSee('<lastmod>2026-06-12T', false)
         ->assertDontSee('<priority>', false)
         ->assertDontSee('<changefreq>', false);
@@ -66,9 +66,9 @@ it('serves current LLM documentation from the canonical host', function () {
     $this->get('/llms.txt')
         ->assertOk()
         ->assertHeader('Content-Type', 'text/plain; charset=UTF-8')
-        ->assertSee('https://vat.businesspress.io/vat-calculator/germany')
-        ->assertSee('https://vat.businesspress.io/vat-number-validator/germany')
-        ->assertDontSee('eu-vat.info')
+        ->assertSee('https://eu-vat.info/vat-calculator/germany')
+        ->assertSee('https://eu-vat.info/vat-number-validator/germany')
+        ->assertDontSee('vat.businesspress.io')
         ->assertDontSee('/country/germany');
 });
 

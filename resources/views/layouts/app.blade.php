@@ -48,6 +48,14 @@
     @if (config('app.data_domain') && app()->isProduction())
         <script defer data-cfasync="false" data-domain="{{ config('app.plausible_domain') }}" src="{{ config('app.plausible_script') ?: 'https://stats.businesspress.io/js/script.js' }}"></script>
     @endif
+
+    @if (\App\Support\AdSense::publisherId())
+        <meta name="google-adsense-account" content="{{ \App\Support\AdSense::clientId() }}">
+        {{-- Pages without content of their own (errors) set @section('ads', 'off'): AdSense allows no ads there. --}}
+        @if (\App\Support\AdSense::loadsScript() && trim($__env->yieldContent('ads')) !== 'off')
+            <script async data-cfasync="false" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ \App\Support\AdSense::clientId() }}" crossorigin="anonymous"></script>
+        @endif
+    @endif
 </head>
 
 <body class="app-workspace min-h-dvh font-sans antialiased">

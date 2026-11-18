@@ -10,6 +10,7 @@ class PublicDiscoveryCacheHeaders
 {
     private const ROUTE_MAX_AGE = [
         'acp-discovery' => 3600,
+        'ads-txt' => 86400,
         'agent-skills-index' => 3600,
         'indexnow.key' => 86400,
         'sitemap' => 3600,

@@ -92,7 +92,7 @@ it('renders every section, icon and the BusinessPress offer', function () {
 
     $response
         ->assertSee('The EU VAT Info design system')
-        ->assertSee('<link rel="canonical" href="https://vat.businesspress.io/styleguide">', false)
+        ->assertSee('<link rel="canonical" href="https://eu-vat.info/styleguide">', false)
         ->assertSee('href="'.url('/styleguide/design.tokens.json').'"', false)
         ->assertSee('href="'.url('/styleguide.md').'"', false)
         ->assertSee('href="'.e(Styleguide::BUSINESSPRESS_URL).'"', false)
@@ -119,7 +119,7 @@ it('keeps the English reference and its English canonical in other languages', f
         ->assertOk()
         ->assertSee(__('ui.styleguide.english_only', [], 'de'))
         ->assertSee('The EU VAT Info design system')
-        ->assertSee('<link rel="canonical" href="https://vat.businesspress.io/styleguide">', false)
+        ->assertSee('<link rel="canonical" href="https://eu-vat.info/styleguide">', false)
         ->assertDontSee('hreflang=', false);
 });
 
@@ -252,10 +252,10 @@ it('is linked from the footer, the site map, quick search, llms.txt and the XML 
 
     $this->get('/sitemaps/core.xml')
         ->assertOk()
-        ->assertSee('<loc>https://vat.businesspress.io/styleguide</loc>', false)
-        ->assertDontSee('https://vat.businesspress.io/de/styleguide', false)
-        ->assertSee('<loc>https://vat.businesspress.io/mcp-server</loc>', false)
-        ->assertSee('<loc>https://vat.businesspress.io/de/mcp-server</loc>', false);
+        ->assertSee('<loc>https://eu-vat.info/styleguide</loc>', false)
+        ->assertDontSee('https://eu-vat.info/de/styleguide', false)
+        ->assertSee('<loc>https://eu-vat.info/mcp-server</loc>', false)
+        ->assertSee('<loc>https://eu-vat.info/de/mcp-server</loc>', false);
 });
 
 it('converts OKLCH to sRGB and measures contrast like WCAG', function () {

@@ -6,11 +6,11 @@ $indexableLocales = array_values(array_filter(array_map(
 )));
 
 return [
-    'canonical_url' => rtrim(env('SEO_CANONICAL_URL', 'https://vat.businesspress.io'), '/'),
+    'canonical_url' => rtrim(env('SEO_CANONICAL_URL', 'https://eu-vat.info'), '/'),
 
     'legacy_hosts' => array_values(array_filter(array_map(
         'trim',
-        explode(',', env('SEO_LEGACY_HOSTS', 'eu-vat.info'))
+        explode(',', env('SEO_LEGACY_HOSTS', 'vat.businesspress.io,www.eu-vat.info'))
     ))),
 
     // Leave SEO_INDEXABLE_LOCALES empty to index every supported language, or list codes ("en,de") to limit it.

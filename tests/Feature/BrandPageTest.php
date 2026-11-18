@@ -16,14 +16,14 @@ it('shows the mark, the token colours, the type and the voice', function () {
         ->assertSee('href="'.url('/brand/eu-vat-info-mark.svg').'" download="eu-vat-info-mark.svg"', false)
         ->assertSee('href="'.url('/styleguide').'"', false)
         ->assertSee('href="'.url('/storybook/').'"', false)
-        ->assertSee('<link rel="canonical" href="https://vat.businesspress.io/brand">', false);
+        ->assertSee('<link rel="canonical" href="https://eu-vat.info/brand">', false);
 });
 
 it('keeps the English guidelines and their English canonical in other languages', function () {
     $this->get('/de/brand')
         ->assertOk()
         ->assertSee(__('ui.brand.english_only', [], 'de'))
-        ->assertSee('<link rel="canonical" href="https://vat.businesspress.io/brand">', false)
+        ->assertSee('<link rel="canonical" href="https://eu-vat.info/brand">', false)
         ->assertDontSee('hreflang=', false);
 });
 
@@ -48,6 +48,6 @@ it('is linked from the footer, the site map, quick search, llms.txt and the XML 
     $this->get('/llms.txt')->assertSee('/brand')->assertSee('/storybook/');
     $this->get('/sitemaps/core.xml')
         ->assertOk()
-        ->assertSee('<loc>https://vat.businesspress.io/brand</loc>', false)
-        ->assertDontSee('https://vat.businesspress.io/de/brand', false);
+        ->assertSee('<loc>https://eu-vat.info/brand</loc>', false)
+        ->assertDontSee('https://eu-vat.info/de/brand', false);
 });

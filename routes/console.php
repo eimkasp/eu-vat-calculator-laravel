@@ -37,3 +37,10 @@ Schedule::command('vat-changes:notify-subscribers')->dailyAt('05:00')
     ->withoutOverlapping()
     ->onOneServer()
     ->appendOutputTo(storage_path('logs/vat-change-notifications.log'));
+
+// Draw the social images of the country pages that are missing, after the rate jobs above: a rate
+// change gives a country a new image URL (App\Support\Seo\CountryOgImage).
+Schedule::command('og-image:countries')->dailyAt('05:30')
+    ->withoutOverlapping()
+    ->onOneServer()
+    ->appendOutputTo(storage_path('logs/og-images.log'));

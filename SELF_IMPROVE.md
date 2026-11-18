@@ -20,7 +20,7 @@ docs/benchmarks/v3-claude-opus-5-5/tools/run.sh before   # 12 pages × en/de/mt:
 BASE=http://127.0.0.1:8123 OUT=audit-before.json node docs/benchmarks/cycle-5.3/tools/audit.mjs   # every page type, light and dark, 390 and 1440px
 ```
 
-Also check production directly (`curl -sI https://vat.businesspress.io/…`): caching headers, compression, what Cloudflare rewrites. The 5.3 cycle found Rocket Loader and Livewire's `no-store` this way; neither shows on a local server. Run the wide audit again after the fixes: the second pass of 5.3 caught a regression the first fixes introduced.
+Also check production directly (`curl -sI https://eu-vat.info/…`): caching headers, compression, what Cloudflare rewrites. The 5.3 cycle found Rocket Loader and Livewire's `no-store` this way; neither shows on a local server. Run the wide audit again after the fixes: the second pass of 5.3 caught a regression the first fixes introduced.
 
 ---
 

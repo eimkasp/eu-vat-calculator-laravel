@@ -146,13 +146,13 @@ it('publishes a category directory and source-backed comparison hub after the co
 
     $this->get('/vat-rates/categories')
         ->assertOk()
-        ->assertSee('<link rel="canonical" href="https://vat.businesspress.io/vat-rates/categories">', false)
+        ->assertSee('<link rel="canonical" href="https://eu-vat.info/vat-rates/categories">', false)
         ->assertSee('/vat-rates/categories/books')
         ->assertSee('3 EU countries');
 
     $this->get('/vat-rates/categories/books')
         ->assertOk()
-        ->assertSee('<link rel="canonical" href="https://vat.businesspress.io/vat-rates/categories/books">', false)
+        ->assertSee('<link rel="canonical" href="https://eu-vat.info/vat-rates/categories/books">', false)
         ->assertSee('Books VAT rates across the EU')
         ->assertSee('Germany')
         ->assertSee('7%')
@@ -180,7 +180,7 @@ it('publishes a sourced country-category detail page even before hub coverage is
 
     $this->get('/vat-rates/germany/categories/books')
         ->assertOk()
-        ->assertSee('<link rel="canonical" href="https://vat.businesspress.io/vat-rates/germany/categories/books">', false)
+        ->assertSee('<link rel="canonical" href="https://eu-vat.info/vat-rates/germany/categories/books">', false)
         ->assertSee('Books VAT rate in Germany')
         ->assertSee('7%')
         ->assertSee('National VAT Act, books provision')
@@ -222,15 +222,15 @@ it('discovers only eligible category URLs and links them from country tools', fu
 
     $this->get('/sitemaps/categories.xml')
         ->assertOk()
-        ->assertSee('https://vat.businesspress.io/vat-rates/categories')
-        ->assertSee('https://vat.businesspress.io/vat-rates/categories/books')
-        ->assertSee('https://vat.businesspress.io/vat-rates/germany/categories/books')
+        ->assertSee('https://eu-vat.info/vat-rates/categories')
+        ->assertSee('https://eu-vat.info/vat-rates/categories/books')
+        ->assertSee('https://eu-vat.info/vat-rates/germany/categories/books')
         ->assertDontSee('/categories/food');
 
     $this->get('/llms.txt')
         ->assertOk()
         ->assertSee('VAT categories')
-        ->assertSee('https://vat.businesspress.io/vat-rates/categories/books');
+        ->assertSee('https://eu-vat.info/vat-rates/categories/books');
 
     $this->get('/vat-calculator/germany')
         ->assertOk()

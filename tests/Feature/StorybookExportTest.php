@@ -9,6 +9,15 @@ it('keeps the Storybook stories in step with the styleguide examples', function 
         ->assertSuccessful();
 });
 
+it('links the generated tokens to the public styleguide whatever APP_URL is', function () {
+    config(['app.url' => 'http://127.0.0.1:9999']);
+    url()->useOrigin('http://127.0.0.1:9999');
+
+    expect(StorybookExport::files()['storybook/generated/design.tokens.json'])
+        ->toContain(config('seo.canonical_url').'/styleguide')
+        ->not->toContain('127.0.0.1');
+});
+
 it('writes one story per example, rendered through Blade without the site origin', function () {
     $files = StorybookExport::files();
     $examples = json_decode($files['storybook/generated/examples.json'], true)['examples'];

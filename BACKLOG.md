@@ -9,7 +9,7 @@ Items identified during the audit/fix/growth/polish cycles. Grouped by priority.
 5.4.0 came from four read-only reviews (visual, UX and content architecture, front-end performance, SEO). What they found and 5.4.0 did not ship:
 
 ### High
-- [ ] **The old domain is gone.** `eu-vat.info` no longer resolves (NXDOMAIN), so the 301s that `RedirectLegacySeoHost` answers never run and every backlink to it is dead. Renew the domain, point it at Forge and keep the redirect; then use the change-of-address tool in Search Console.
+- [ ] **Move to `eu-vat.info`.** The domain is registered again (Hostinger, 17 November 2026) and is now the canonical host; `vat.businesspress.io` redirects to it. Point its DNS at Forge through Cloudflare, add it to the Forge site with a certificate, set `SEO_CANONICAL_URL=https://eu-vat.info` and `SEO_LEGACY_HOSTS=vat.businesspress.io,www.eu-vat.info` in production, then use the change-of-address tool in Search Console and add the site to AdSense.
 - [ ] **Inline the CSS on a first visit.** Inlining the 16 KB (brotli) stylesheet moved first paint from about 1.24 s to 0.21 s after the HTML on production in the review's runs. Write it inline when a visitor has no CSS-version cookie, prefetch the file after load and use the normal link afterwards. Then keep the hero texture from being the phone LCP element (leave it out below 640px or make it small enough to be ignored).
 
 ### Medium

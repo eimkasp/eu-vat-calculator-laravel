@@ -2,6 +2,7 @@
 
 use App\Livewire\TopCalculations;
 use App\Models\Country;
+use Illuminate\Support\Facades\Route;
 
 function indexingCountry(array $overrides = []): Country
 {
@@ -14,11 +15,26 @@ function indexingCountry(array $overrides = []): Country
     ], $overrides));
 }
 
-it('redirects the legacy SEO host to the canonical host', function () {
-    $response = $this->get('https://eu-vat.info/vat-calculator/germany?amount=100');
+it('redirects the legacy SEO hosts to the canonical host', function (string $host) {
+    $response = $this->get("https://{$host}/vat-calculator/germany?amount=100");
 
-    $response->assertRedirect('https://vat.businesspress.io/vat-calculator/germany?amount=100');
+    $response->assertRedirect('https://eu-vat.info/vat-calculator/germany?amount=100');
     expect($response->getStatusCode())->toBe(301);
+})->with(['vat.businesspress.io', 'www.eu-vat.info']);
+
+it('keeps the method of a POST sent to the legacy host', function () {
+    Route::post('/legacy-host-probe', fn () => 'ok')->middleware('web');
+
+    $response = $this->post('https://vat.businesspress.io/legacy-host-probe');
+
+    $response->assertRedirect('https://eu-vat.info/legacy-host-probe');
+    expect($response->getStatusCode())->toBe(308);
+});
+
+it('answers the API on the legacy host without a redirect', function () {
+    indexingCountry();
+
+    $this->getJson('https://vat.businesspress.io/api/v1/countries')->assertOk();
 });
 
 it('indexes every supported language by default and links them with hreflang', function () {
@@ -29,7 +45,7 @@ it('indexes every supported language by default and links them with hreflang', f
     $german = $this->get('/de')
         ->assertOk()
         ->assertSee('<meta name="robots" content="index, follow">', false)
-        ->assertSee('<link rel="canonical" href="https://vat.businesspress.io/de">', false)
+        ->assertSee('<link rel="canonical" href="https://eu-vat.info/de">', false)
         ->assertSee('hreflang="x-default"', false);
 
     foreach ($locales as $locale) {
@@ -50,7 +66,7 @@ it('limits indexing to the locales named in configuration', function () {
     $this->get('/fr')
         ->assertOk()
         ->assertSee('<meta name="robots" content="noindex, follow">', false)
-        ->assertSee('<link rel="canonical" href="https://vat.businesspress.io/fr">', false)
+        ->assertSee('<link rel="canonical" href="https://eu-vat.info/fr">', false)
         ->assertDontSee('hreflang=', false);
 });
 
@@ -60,7 +76,7 @@ it('indexes top calculations in every language', function (string $path) {
     $this->get($path)
         ->assertOk()
         ->assertSee('<meta name="robots" content="index, follow">', false)
-        ->assertSee('<link rel="canonical" href="https://vat.businesspress.io'.$path.'">', false)
+        ->assertSee('<link rel="canonical" href="https://eu-vat.info'.$path.'">', false)
         ->assertSee('hreflang="x-default"', false)
         ->assertSee('hreflang="pt"', false);
 })->with([
@@ -77,7 +93,7 @@ it('keeps arbitrary calculations out of the index', function (string $path) {
     $this->get($path)
         ->assertOk()
         ->assertSee('<meta name="robots" content="noindex, follow">', false)
-        ->assertSee('<link rel="canonical" href="https://vat.businesspress.io/vat-calculator/'.(str_contains($path, 'switzerland') ? 'switzerland' : 'germany').'">', false)
+        ->assertSee('<link rel="canonical" href="https://eu-vat.info/vat-calculator/'.(str_contains($path, 'switzerland') ? 'switzerland' : 'germany').'">', false)
         ->assertDontSee('hreflang=', false);
 })->with([
     'an amount nobody lists' => '/vat-calculation/germany/1234.56/19/exclude',
@@ -111,10 +127,10 @@ it('lists exactly the indexable top calculations in their own sitemap section', 
     indexingCountry();
     indexingCountry(['name' => 'Switzerland', 'slug' => 'switzerland', 'iso_code' => 'CH', 'standard_rate' => 8.1, 'is_eu_member' => false]);
 
-    $this->get('/sitemap.xml')->assertOk()->assertSee('https://vat.businesspress.io/sitemaps/calculations.xml', false);
+    $this->get('/sitemap.xml')->assertOk()->assertSee('https://eu-vat.info/sitemaps/calculations.xml', false);
 
     $xml = $this->get('/sitemaps/calculations.xml')->assertOk()->getContent();
-    preg_match_all('#<loc>https://vat\.businesspress\.io([^<]*)</loc>#', $xml, $locs);
+    preg_match_all('#<loc>https://eu-vat\.info([^<]*)</loc>#', $xml, $locs);
     $english = array_values(array_filter($locs[1], fn (string $path) => str_starts_with($path, '/vat-calculation/')));
 
     expect($locs[1])->toHaveCount(count(TopCalculations::AMOUNTS) * 2 * count(config('translation.supported_languages')))
@@ -128,6 +144,6 @@ it('lists exactly the indexable top calculations in their own sitemap section', 
         $this->get($path)
             ->assertOk()
             ->assertSee('<meta name="robots" content="index, follow">', false)
-            ->assertSee('<link rel="canonical" href="https://vat.businesspress.io'.$path.'">', false);
+            ->assertSee('<link rel="canonical" href="https://eu-vat.info'.$path.'">', false);
     }
 });
