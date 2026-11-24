@@ -130,6 +130,7 @@ class SitemapGenerator
             ['path' => '/mcp-server', 'lastmod' => $release],
             ['path' => '/styleguide', 'locales' => $this->englishOnly(), 'lastmod' => $release],
             ['path' => '/brand', 'locales' => $this->englishOnly(), 'lastmod' => $release],
+            ['path' => '/entity-map', 'locales' => $this->englishOnly(), 'lastmod' => $lastmod],
             ['path' => '/sitemap', 'lastmod' => $lastmod],
             ['path' => '/compare', 'lastmod' => $lastmod],
             ['path' => '/chrome-extension', 'locales' => $this->englishOnly(), 'lastmod' => $release],

@@ -24,6 +24,7 @@ use App\Livewire\ChromeExtension;
 use App\Livewire\CountryVatCategory;
 use App\Livewire\CountryVatHistory;
 use App\Livewire\Donate;
+use App\Livewire\EntityMapPage;
 use App\Livewire\Home;
 use App\Livewire\HtmlSitemap;
 use App\Livewire\McpServer;
@@ -128,6 +129,7 @@ $registerRoutes = function () {
     Route::get('/mcp-server', McpServer::class)->name('mcp-server');
     Route::get('/styleguide', Styleguide::class)->name('styleguide');
     Route::get('/brand', BrandGuidelines::class)->name('brand');
+    Route::get('/entity-map', EntityMapPage::class)->name('entity-map');
     Route::get('/chrome-extension', ChromeExtension::class)->name('chrome-extension');
     Route::get('/donate', Donate::class)->name('donate');
     Route::get('/privacy', PrivacyPolicy::class)->name('privacy');

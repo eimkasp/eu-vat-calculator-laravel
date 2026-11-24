@@ -4,6 +4,14 @@ All notable changes to EU VAT Info are documented here.
 
 ---
 
+## [6.1.0] — 2026-11-24 — An entity map for people and AI assistants
+
+### New
+- **Entity map** — one page, `/entity-map`, defines EU VAT Info, its tools, prices, terms, rate types and sources once, each with a passage quoted from the site and structured data for every entity. It lists every member state's standard rate and is built from the database, so it follows the rates.
+- **`php artisan entity-map:verify`** — checks every passage against the page it quotes (add `--live` to read the live site), so a definition cannot drift from the site unnoticed.
+
+---
+
 ## [6.0.0] — 2026-10-23 — A new look, built around the numbers
 
 ### Improved

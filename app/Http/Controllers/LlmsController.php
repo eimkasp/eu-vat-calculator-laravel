@@ -22,7 +22,7 @@ class LlmsController extends Controller
     {
         [$countries, $updatedAt] = $this->countries();
 
-        $text = Cache::remember('llms_txt:v6:'.$updatedAt->timestamp, 3600, function () use ($countries, $updatedAt, $vatCategories) {
+        $text = Cache::remember('llms_txt:v7:'.$updatedAt->timestamp, 3600, function () use ($countries, $updatedAt, $vatCategories) {
             $base = $this->baseUrl();
             $mcp = VatMcpServer::endpoint();
 
@@ -95,6 +95,7 @@ class LlmsController extends Controller
             $text .= "- [API catalog]({$base}/.well-known/api-catalog): RFC 9727 list of the public APIs.\n";
             $text .= "- [MCP server card]({$base}/.well-known/mcp/server-card.json): Machine-readable description of the MCP server and its tools.\n";
             $text .= "- [Design system]({$base}/styleguide): Colour, type, shape and motion tokens, components and page patterns, with the tokens as [Design Tokens JSON]({$base}/styleguide/design.tokens.json) and the guide as [Markdown]({$base}/styleguide.md); every component also as a [Storybook]({$base}/storybook/).\n";
+            $text .= "- [Entity map]({$base}/entity-map): Every entity of EU VAT Info (the site, its tools, prices, terms, rate types and sources) defined once, each with a passage quoted from the site.\n";
             $text .= "- [Brand guidelines]({$base}/brand): The mark, colours, type and voice of EU VAT Info, and how to credit its data.\n";
             $text .= "- [Sitemap]({$base}/sitemap.xml): Every indexable page in all 24 EU languages.\n";
 

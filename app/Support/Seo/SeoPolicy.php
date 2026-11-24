@@ -17,6 +17,7 @@ class SeoPolicy
         'changelog',
         'chrome-extension',
         'donate',
+        'entity-map',
         'privacy',
         'styleguide',
         'vat-dataset',
