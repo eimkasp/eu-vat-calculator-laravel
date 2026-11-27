@@ -16,6 +16,15 @@ it('replaces the January 2024 rates that have changed since', function () {
         ->and($malta->fresh()->reduced_rate)->toBe('5 / 7');
 });
 
+it('drops the super-reduced and parking rates the Commission no longer lists for Ireland', function () {
+    $ireland = Country::factory()->create(['iso_code' => 'IE', 'reduced_rate' => '9 / 13.5', 'super_reduced_rate' => 4.8, 'parking_rate' => 13.5]);
+
+    expect(RateCorrections::apply())->toBe(1)
+        ->and($ireland->fresh()->super_reduced_rate)->toBeNull()
+        ->and($ireland->fresh()->parking_rate)->toBeNull()
+        ->and($ireland->fresh()->reduced_rate)->toBe('9 / 13.5');
+});
+
 it('leaves rates that were already corrected and changes nothing the second time', function () {
     $romania = Country::factory()->create(['iso_code' => 'RO', 'reduced_rate' => '11']);
     $estonia = Country::factory()->create(['iso_code' => 'EE', 'reduced_rate' => '9']);

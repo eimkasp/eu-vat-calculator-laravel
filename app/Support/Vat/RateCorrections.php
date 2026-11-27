@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\DB;
 /**
  * Rates that changed after the January 2024 country snapshot (data/eu-vat-2024-jan.csv), as published in the
  * European Commission's Taxes in Europe Database (TEDB) and confirmed by the Commission's Your Europe rates table.
- * Where the two disagree (TEDB lists no parking rate for Austria or Ireland, and a parking rate for Greece), the
- * published table wins. The open rate history the site syncs covers standard rates only, so these columns would
- * otherwise keep the snapshot values.
+ * Where the two disagree (TEDB lists no parking rate for Austria, and a parking rate for Greece), the published
+ * table wins. The open rate history the site syncs covers standard rates only, so these columns would otherwise
+ * keep the snapshot values.
  *
  * A value is replaced only while the stored value still matches the snapshot, so a rate an administrator has
  * already corrected is left alone and applying the list twice changes nothing.
@@ -31,6 +31,13 @@ final class RateCorrections
         'FI' => ['reduced_rate' => ['from' => '10 / 14', 'to' => '10 / 13.5']],
         // 4% on works that remove barriers for people with disabilities, from 1 November 2023 (Law 5057/2023).
         'GR' => ['super_reduced_rate' => ['from' => null, 'to' => '4']],
+        // Neither the published table nor TEDB lists a super-reduced or parking rate for Ireland any more (checked
+        // 27 November 2026). Revenue's 4.8% livestock rate is not a super-reduced rate in the Commission's tables,
+        // and 13.5% stays the reduced rate.
+        'IE' => [
+            'super_reduced_rate' => ['from' => '4.8', 'to' => null],
+            'parking_rate' => ['from' => '13.5', 'to' => null],
+        ],
         // 9% raised to 12% from 1 January 2026.
         'LT' => ['reduced_rate' => ['from' => '5 / 9', 'to' => '5 / 12']],
         // 12% parking rate, in force before 2024.

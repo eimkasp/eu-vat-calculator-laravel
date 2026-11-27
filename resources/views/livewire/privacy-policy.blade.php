@@ -16,7 +16,7 @@
         <x-slot:actions>
             <span class="inline-flex items-center gap-2 rounded-control border border-line bg-surface-subtle px-3 py-1.5 text-sm text-ink-muted">
                 <x-ui.icon name="clock" class="size-4" />
-                <span>Last updated <time class="tabular" datetime="2026-11-17">17 November 2026</time></span>
+                <span>Last updated <time class="tabular" datetime="2026-11-27">27 November 2026</time></span>
             </span>
         </x-slot:actions>
     </x-page-header>
@@ -52,7 +52,7 @@
                 <ul>
                     <li><strong>Usage Data:</strong> We collect anonymized analytics data including pages visited, features used, country selections, and interaction patterns to improve our Service.</li>
                     <li><strong>Device Information:</strong> Browser type, operating system, device type, and screen resolution.</li>
-                    <li><strong>IP Address:</strong> Used for approximate geolocation (country-level) to provide localized content and for security purposes. IP addresses are not stored long-term.</li>
+                    <li><strong>IP Address:</strong> Used for approximate geolocation (country-level) to provide localized content and for security purposes. Apart from the log of VAT number checks (section 2.3), IP addresses are not stored long-term.</li>
                     @if ($ads)
                         <li><strong>Cookies:</strong> We use essential cookies for session management and language preferences. Google, our advertising partner, uses cookies to show and measure ads (see section 8).</li>
                     @else
@@ -62,9 +62,10 @@
 
                 <h3>2.3 Mobile App Specific Data</h3>
                 <ul>
-                    <li><strong>Device Identifiers:</strong> Anonymous device identifiers for crash reporting and analytics.</li>
-                    <li><strong>App Usage:</strong> Feature usage patterns, screen views, and interaction data to improve the app experience.</li>
-                    <li><strong>Network Information:</strong> Connection type (Wi-Fi/cellular) to optimize data loading.</li>
+                    <li><strong>No Analytics or Tracking:</strong> Our iOS app contains no analytics, advertising or crash-reporting code, does not use device or advertising identifiers and does not track you.</li>
+                    <li><strong>Kept on Your Device:</strong> Favourites, recent calculations and recent VAT number checks are stored on your device only.</li>
+                    <li><strong>VAT Number Checks:</strong> When you check a VAT number, the app sends it to our server, which asks the European Commission's VIES service. We log the number, the result, your IP address and the app's user agent with each check.</li>
+                    <li><strong>Rates:</strong> VAT rates and rate changes are downloaded from our API without any information about you.</li>
                     <li><strong>No Location Data:</strong> Our mobile apps do not access your precise GPS location.</li>
                     <li><strong>No Camera or Microphone:</strong> Our apps do not access your camera or microphone.</li>
                     <li><strong>No Contacts or Phone Data:</strong> Our apps do not access your contacts, call logs, or phone data.</li>

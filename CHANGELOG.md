@@ -4,6 +4,14 @@ All notable changes to EU VAT Info are documented here.
 
 ---
 
+## [6.1.1] — 2026-11-27 — Ireland's rates and the app's privacy section
+
+### Fixed
+- **Ireland** — the super-reduced rate (4.8%) and parking rate (13.5%) are gone, because the European Commission's rates table and its TEDB database no longer list them. Ireland shows 23% standard and 9% and 13.5% reduced.
+- **Privacy policy** — the section on the mobile app now says what the iOS app does: no analytics, advertising, tracking or device identifiers; favourites and recent calculations stay on the device; a VAT number check sends the number to our server, which logs it with the result, the IP address and the user agent.
+
+---
+
 ## [6.1.0] — 2026-11-24 — An entity map for people and AI assistants
 
 ### New
