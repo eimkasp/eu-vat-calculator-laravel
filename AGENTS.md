@@ -59,6 +59,7 @@ routes/
 ├── web.php                    # Localised routes (/{locale}/path)
 ├── api.php                    # REST API endpoints
 └── console.php                # Scheduled commands
+ios/                           # Native iOS app (SwiftUI); see "iOS app" below and ios/README.md
 ```
 
 ### Models
@@ -193,6 +194,16 @@ GET  /up                              # Application health check
 - Each page is `noindex, nofollow`, carries the archive bar (`public/v2/archive.css`), links the bar to the same page on the live site and loads `public/v2/archive.js`, which answers the Livewire 4 runtime in the browser: calculations work, picking a calculator country opens that country's archived page, search reads `public/v2/search-index.json`, and every other request (VIES checks, filters, sign-ups, the API and MCP testers) shows a read-only notice instead of reaching a server.
 - Assets (the build, fonts, images, flags and `livewire.min.js`) are copies inside `public/v2/`. Links to pages that were not archived (other languages, shared calculations, the API, downloads) point to the live site. The footer ("Previous version" for `/v2/`, "Older version" for `/v1/`) and the changelog link to both archives; `robots.txt` keeps AI crawlers out of both.
 - It sits outside the design system: do not edit, restyle or reformat it. `tests/Feature/SiteArchiveV2Test.php` guards that it stays complete, unindexed, self-contained and free of server calls.
+
+### iOS app (`ios/`)
+- `ios/` is a native SwiftUI app (iOS 17+, iPhone and iPad, Swift 6) on the public API: `/api/v1/countries`, `/api/vat-changes` and `POST /api/v1/validate`. A change to the shape of those responses needs the matching change in `ios/EUVATInfo/Models` and its tests. Read `ios/README.md` before working on it.
+- The Xcode project is generated from `ios/project.yml` with `xcodegen` and is not in Git; identity and version live in `ios/Config/App.xcconfig`.
+- VAT maths has a third copy: `ios/EUVATInfo/Vat/VatCalculation.swift` and `AmountParser.swift` mirror `App\Support\Vat` and `resources/js/vat.js`, with the same test cases in `ios/EUVATInfoTests/VatMathTests.swift`. Keep the three in step.
+- Strings, colours, flags and the app icon are generated from the website's sources and committed: `php ios/scripts/sync-strings.php` (from `lang/*/ui.php`, listing each key the app uses), `python3 ios/scripts/generate-assets.py` (from `resources/css/app.css`, the flags and the logo) and `ios/scripts/refresh-seed.sh` (the rates shipped for a first launch offline). Never edit `Localizable.xcstrings`, `Generated/L10n.swift` or the colour sets by hand.
+- It follows `DESIGN.md` in native terms (`ios/EUVATInfo/Design`): `Palette` colours only, `panel()` for the primary card, `card()` for the rest, `KeyButtonStyle` keys, one primary key per screen, figures with `monospacedDigit()`, status never by colour alone. Type is the system face.
+- Interaction: a rate, an amount or a country shown on a screen is a way into the calculator (`CalculatorModel.open`); a copy is confirmed with `ToastCenter` and a choice with `sensoryFeedback`; chips are `ChoiceChip`, bars `RateBar`, charts Swift Charts fed by tested values (`RateTimeline`, `ChangesByYear`). Filters stay in view above the list they filter. A new string comes from `lang/*/ui.php`; only a word the website has no use for goes in `APP_ONLY`, in all 24 languages.
+- Verify with the unit tests (`-only-testing:EUVATInfoTests`) and the UI tests (`-only-testing:EUVATInfoUITests`), which walk every tab and attach a screenshot of each screen.
+- Release: `ios/scripts/archive.sh` exports the App Store build to `ios/build/export` without uploading it, `ios/scripts/store-screenshots.sh` takes the listing's screenshots from the UI tests, and `ios/AppStore/metadata` holds the listing's text. The signing team stays in `ios/Config/Local.xcconfig`, which is not in Git.
 
 ### AI discoverability
 - `llms.txt` and `llms-full.txt` (`LlmsController`) list every rate type, each member state's VAT number format and the primary sources, built from the database; describe the update schedule as it is (the rate dataset is synced every week).

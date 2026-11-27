@@ -1,0 +1,14 @@
+// Identity and version of the app. Both build configurations read this file.
+
+APP_BUNDLE_IDENTIFIER = io.businesspress.vat
+MARKETING_VERSION = 1.0.0
+CURRENT_PROJECT_VERSION = 1
+
+// The website the app reads its data from and links to. The slashes are written as $(SLASH)$(SLASH)
+// because // starts a comment in this file.
+SLASH = /
+APP_SITE_URL = https:$(SLASH)$(SLASH)vat.businesspress.io
+
+// Your Apple Developer team, needed to run on a device or to archive. Keep it out of Git by putting
+// `DEVELOPMENT_TEAM = ABCDE12345` in Config/Local.xcconfig, which is ignored.
+#include? "Local.xcconfig"

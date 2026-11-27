@@ -1,0 +1,16 @@
+# Built from project.yml by `xcodegen`
+/EUVATInfo.xcodeproj
+/EUVATInfo/Info.plist
+
+# Local signing
+/Config/Local.xcconfig
+
+# Build output
+/build
+/DerivedData
+xcuserdata/
+*.xcresult
+.DS_Store
+
+# Taken by scripts/store-screenshots.sh
+/AppStore/screenshots
